@@ -4163,6 +4163,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page C5 CustGroup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3539943979 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Related Entities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page C5 CustTable - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 3539943979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>C5 Customer Table</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4333,6 +4338,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page C5 InvenPriceGroup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2113318422 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Related Entities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page C5 InvenTable - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 2113318422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>C5 Inventory Table</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4467,6 +4477,11 @@
           <source>C5 Vendor Groups</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page C5 VendGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 424594451 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Related Entities</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page C5 VendTable - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 424594451 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>C5 Vendor Table</source>

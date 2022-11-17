@@ -3,6 +3,12 @@
   <file datatype="xml" source-language="en-US" target-language="hu-HU" original="Payroll Data Import Definitions (DK)">
     <body>
       <group id="body">
+        <trans-unit id="Page 868071540 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,General,Posting,VAT,Bank,Journal Templates</source>
+          <target state="translated">New,Process,Report,General,Posting,VAT,Bank,Journal Templates</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Setup DK Payroll Service - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 868071540 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Payroll Data Import Definitions (DK)</source>
           <target state="translated">Setup Payroll Data Import Definitions (DK)</target>

@@ -18,6 +18,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ImportPayrollDataExchDef - NamedType SetupDKPayrollServiceTitleTxt</note>
         </trans-unit>
+        <trans-unit id="Page 868071540 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,General,Posting,VAT,Bank,Journal Templates</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Setup DK Payroll Service - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 868071540 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Payroll Data Import Definitions (DK)</source>
           <note from="Developer" annotates="general" priority="2"></note>
