@@ -4851,17 +4851,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Subform CZP - Control Reason Code - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 548777415 - Control 1659230960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 548777415 - Control 1451979186 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the total Amount (LCY) related suggestions to apply.</source>
-          <target state="translated">Určuje celkovou částku (LM) související s návrhem k vyrovnání.</target>
+          <target state="translated">Určuje celkovou částku (LM) související s návrhy k vyrovnání.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Subform CZP - Control RelatedAmountToApply - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Subform CZP - Control RelatedAmountToApplyField - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 548777415 - Control 1659230960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 548777415 - Control 1451979186 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Related Amount to Apply (LCY)</source>
           <target state="translated">Odpovídající částka k vyrovnání (LM)</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Subform CZP - Control RelatedAmountToApply - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Subform CZP - Control RelatedAmountToApplyField - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 548777415 - Control 3883264070 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which salesperson is assigned to the cash document line.</source>
