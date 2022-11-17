@@ -297,6 +297,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analysis Blacklist - Control ItemCode - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4132159392 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Confidence Score,Blocklist</source>
+          <target state="translated">Ny,Prosess,Rapport,Konfidensresultat,Blokkeringsliste</target>
+          <note from="Developer" annotates="general" priority="2">Blocklist is used to prevent the selected attributes from being suggested in the future.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Image Analysis Tags - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 4132159392 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer Attributes</source>
           <target state="translated">Attributter for Bildeanalyse</target>

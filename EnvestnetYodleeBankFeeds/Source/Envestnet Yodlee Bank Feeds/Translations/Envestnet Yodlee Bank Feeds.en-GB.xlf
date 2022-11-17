@@ -831,6 +831,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Account Linking - Control BankAccountLink - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1268761635 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Page,Encryption,Bank</source>
+          <target state="translated">New,Process,Report,Page,Encryption,Bank</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Bank Service Setup - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 1268761635 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Envestnet Yodlee Bank Feeds Service Setup</source>
           <target state="translated">Envestnet Yodlee Bank Feeds Service Setup</target>
