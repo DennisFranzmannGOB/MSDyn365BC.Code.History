@@ -2511,6 +2511,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Reten. Pol. Filtering Param - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4010026032 - Field 3956982287 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expired Record Expiration Date</source>
+          <target state="translated">Lokadagsetning útrunninnar færslu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Reten. Pol. Filtering Param - Field Expired Record Expiration Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4010026032 - Field 3331310294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Null Date Replacement value</source>
           <target state="translated">Núllgildi dagsetningar til að skipta út</target>
@@ -13542,6 +13548,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1206474225 - NamedType 1825302534" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The number of expired records is being calculated in the background. This may take a while.</source>
+          <target state="translated">Verið er að reikna fjölda útrunninna færslna í bakgrunni. Þetta getur tekið smástund.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - NamedType PBTNotificationMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1206474225 - NamedType 2824899842" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The retention policy is not enabled. Would you like to enable it now?</source>
           <target state="translated">Varðveislureglan er ekki virk. Á að virkja hana núna?</target>
@@ -13619,6 +13631,18 @@
           <target state="translated">Útrunnar færslur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Expired Record Count - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1206474225 - Control 3956982287 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Displays the earliest expiration date for which there are more expired records than the maximum to be deleted in a single run.</source>
+          <target state="translated">Sýnir elstu lokadagsetningar þar sem fleiri útrunnar skrár eru til staðar en sem nemur hámarkinu sem á að eyða í einni keyrslu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Expired Record Expiration Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1206474225 - Control 3956982287 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expired Records Expiration Date</source>
+          <target state="translated">Lokadagsetning útrunninna færslna</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Expired Record Expiration Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1206474225 - Control 1508634494 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the retention policy can only be run manually.</source>
