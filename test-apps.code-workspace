@@ -153,6 +153,9 @@
                         "path":  ".\\ImageAnalysis\\Test\\Image Analyzer Tests"
                     },
                     {
+                        "path":  ".\\IRS1096\\Test\\IRS 1096 Tests"
+                    },
+                    {
                         "path":  ".\\LatePaymentPredictor\\Test\\Late Payment Prediction Tests"
                     },
                     {
