@@ -1413,6 +1413,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Mapping Setup - Control StartingDate - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2085307926 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New, Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Mapping Setup Card - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 2085307926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>SAF-T Mapping Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
