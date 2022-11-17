@@ -2511,6 +2511,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Reten. Pol. Filtering Param - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4010026032 - Field 3956982287 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expired Record Expiration Date</source>
+          <target state="translated">Date d’expiration de l’enregistrement expiré</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Reten. Pol. Filtering Param - Field Expired Record Expiration Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4010026032 - Field 3331310294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Null Date Replacement value</source>
           <target state="translated">Valeur de remplacement de date NULL</target>
@@ -13542,6 +13548,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1206474225 - NamedType 1825302534" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The number of expired records is being calculated in the background. This may take a while.</source>
+          <target state="translated">Le nombre d’enregistrements expirés est calculé en arrière-plan. Cette opération peut prendre un certain temps.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - NamedType PBTNotificationMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1206474225 - NamedType 2824899842" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The retention policy is not enabled. Would you like to enable it now?</source>
           <target state="translated">La stratégie de rétention n’est pas activée. Souhaitez-vous l’activer maintenant ?</target>
@@ -13619,6 +13631,18 @@
           <target state="translated">Enregistrements arrivés à expiration</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Expired Record Count - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1206474225 - Control 3956982287 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Displays the earliest expiration date for which there are more expired records than the maximum to be deleted in a single run.</source>
+          <target state="translated">Affiche la date d’expiration la plus proche pour laquelle il existe plus d’enregistrements expirés que le maximum à supprimer en une seule exécution.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Expired Record Expiration Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1206474225 - Control 3956982287 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expired Records Expiration Date</source>
+          <target state="translated">Date d’expiration des enregistrements expirés</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Expired Record Expiration Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1206474225 - Control 1508634494 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the retention policy can only be run manually.</source>
