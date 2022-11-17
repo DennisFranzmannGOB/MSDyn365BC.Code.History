@@ -11328,11 +11328,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = Position</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Base Validation - NamedType OnlyNumericErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2293320866 - NamedType 310417901" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Only Z value is allowed in the position %1.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Position</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Base Validation - NamedType OnlyZErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2293320866 - NamedType 2106540092" size-unit="char" translate="yes" xml:space="preserve">
           <source>Either Order Address GST Registration No. or ARN No. in Order Address should have a value.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11757,6 +11752,11 @@
           <source>There is Record having Higher Lower Limit than %1 of Bank Charge</source>
           <note from="Developer" annotates="general" priority="2">%1 =Upper Limit</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Journal Validations - NamedType DeleteErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 296313779 - NamedType 2768564497" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You Can not have multiple Bank Charges, when Bank Charge Boolean in General Journal Line is True.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Journal Validations - NamedType GSTBankChargeBoolErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 296313779 - NamedType 3125210429" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lower Limit %1 must be present as an Upper Limit in any Record of Bank Charge Code %2 in Bank Charges Deemed Value Setup.</source>
@@ -14517,6 +14517,41 @@
           <source>GST Use Cases</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {1988b611-abd4-44c4-9cb5-67bb88e0002c}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 766651032" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {700cf31e-e4a1-4183-aef6-7c572c34c8ad}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 4166487291" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {13352a4d-eeab-4fea-a778-0bdad73b550c}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 3926958890" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {07ac553c-0e84-41e3-b04a-19b63c3bcf75}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 156020133" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {2bf5b2fe-2191-416d-b63f-47052716fc1b}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 571987698" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {df5e22a4-bd3c-4c80-b6d3-9f667c8037dd}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 179834876" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {8fcf5988-06c7-44e2-a7bd-a5a9b40cdef8}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 2202695438" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {67fecb97-a3fa-4fc9-8a80-e214c3df4ca9}Lbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2680351807 - NamedType 870778515" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Information must have either GST Registration No. or ARN No.</source>
@@ -17533,6 +17568,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page GST Claim Setoff - Control Set Off Component Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1353545353 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,New Document,Approve,Request Approval,Prices and Discounts,Navigate,Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GST Component Dist. Card - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 1353545353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GST Component Dist. Card</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19537,6 +19577,11 @@
           <source>Specifies the year for which GST reconciliation is created.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page GST Reconcilation List - Control Year - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3561564721 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Manage,Matching</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GST Reconciliation - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 3561564721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GST Reconciliation</source>
@@ -23483,6 +23528,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Transfer Lines - Control Transfer To G/L Account No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1418656432 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Transfer List - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 1418656432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Transfer List</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -23572,6 +23622,11 @@
           <source>Dimensions</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Transfer List - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2935633412 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Document,Posting,GST</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Transfer Order - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2935633412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Transfer Order</source>
@@ -33292,6 +33347,26 @@
           <source>FA Non-Availment Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension GST Invoice Pos Buffer - Field FA Non-Availment Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3621010035 - Field 2776967842 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 149196923">
+          <source>FA Availment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GST Invoice Posting Buffer - Field FA Availment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3621010035 - Field 467863240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 149196923">
+          <source>FA Custom Duty Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GST Invoice Posting Buffer - Field FA Custom Duty Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3621010035 - Field 3320377600 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 149196923">
+          <source>FA Non-Availment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GST Invoice Posting Buffer - Field FA Non-Availment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3621010035 - Field 1489655508 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 149196923">
+          <source>FA Non-Availment Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GST Invoice Posting Buffer - Field FA Non-Availment Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 190695382 - Field 3666116087 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2675224487">
           <source>Customer GST Reg. No.</source>

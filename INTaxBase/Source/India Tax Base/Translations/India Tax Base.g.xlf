@@ -338,6 +338,11 @@
           <note from="Developer" annotates="general" priority="2">%1= Assessee Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Assessee Codes - Action EditInExcel - Method OnAction - NamedType AssesseeCodeLbl</note>
         </trans-unit>
+        <trans-unit id="Page 52617824 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Payment Voucher - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 52617824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Payment Voucher</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1383,6 +1388,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Payment Voucher - Action SendApprovalRequestJournalLine - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1124727046 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Receipt Voucher - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 1124727046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Receipt Voucher</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2397,6 +2407,11 @@
           <source>Selected Journal Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Receipt Voucher - Action SendApprovalRequestJournalLine - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1993654917 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Payment Voucher - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 1993654917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Payment Voucher</source>
@@ -3443,6 +3458,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Payment Voucher - Action SendApprovalRequestJournalLine - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1802865343 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Receipt Voucher - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 1802865343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Receipt Voucher</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4462,6 +4482,11 @@
           <source>Code eq %1</source>
           <note from="Developer" annotates="general" priority="2">%1= Concessional Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Concessional Codes - Action EditInExcel - Method OnAction - NamedType ConcessionalCodeLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 2018235175 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Contra Voucher - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2018235175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contra Voucher</source>
@@ -5507,6 +5532,11 @@
           <source>Code eq %1</source>
           <note from="Developer" annotates="general" priority="2">%1= Deductory Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Deductor Categories - Action EditInExcel - Method OnAction - NamedType DeductorCategoryCodeLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 3336251243 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Journal Voucher - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 3336251243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Journal Voucher</source>
