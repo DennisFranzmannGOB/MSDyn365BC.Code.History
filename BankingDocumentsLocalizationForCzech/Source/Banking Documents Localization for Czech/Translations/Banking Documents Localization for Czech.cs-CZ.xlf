@@ -2115,12 +2115,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Notification Handler CZB - NamedType PaymentOrderTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3420928472 - Method 1836162220 - NamedType 389604884" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 Ledger Entry No. %2 is suggested to application on other documents in the system.\Do you want to use it for this Payment Order?</source>
-          <target state="translated">Položka %1 číslo %2 je navržena k vyrovnání na jiném dokladu v systému.\Chcete ji použít pro tento platební příkaz?</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Type, %2 = Applies-to C/V/E Entry No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Management CZB - Method CheckPaymentOrderLineApply - NamedType SuggestedAmountToApplyQst</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3420928472 - Method 3437982689 - NamedType 1118573040" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 in %3 is already applied on other or the same payment order.</source>
           <target state="translated">%1 %2 v %3 je již vyrovnána na jiném nebo stejném platebním příkazu.</target>
@@ -2133,11 +2127,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = fieldcaption of Letter No.; %2 = fieldcaption of Letter Line No.; %3 = Letter No.; %4 = Letter Line No.; %5 = recordid</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Management CZB - Method CheckPaymentOrderLineApplyToAdvanceLetter - NamedType AdvanceLineAlreadyAppliedErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3420928472 - Method 1689390151 - NamedType 1319501308" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 %2 in %3 is already applied on other or the same payment order.</source>
-          <target state="translated">%1 %2 v %3 je již vyrovnána na jiném nebo stejném platebním příkazu.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Applies-to C/V Entry No. FieldCaption; %2 = Applies-to C/V Entry No; %3 = RecordId</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Management CZB - Method CheckPaymentOrderLineApplyToOtherEntries - NamedType CustVendLedgEntryAlreadyAppliedErr</note>
+        <trans-unit id="Codeunit 3420928472 - Method 1689390151 - NamedType 1619675397" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 Ledger Entry No. %2 is suggested to application on other documents in the system.</source>
+          <target state="translated">Položka %1 číslo %2 je navržena k vyrovnání na jiném dokladu v systému.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Type, %2 = Applies-to C/V/E Entry No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Management CZB - Method CheckPaymentOrderLineApplyToOtherEntries - NamedType SuggestedAmountToApplyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3420928472 - Method 1617421870 - NamedType 314128662" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 in %3 is malformed.</source>
@@ -4131,6 +4125,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Orders CZB - Action PrintToAttachment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3668461697 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Approve,Request Approval</source>
+          <target state="translated">Nový,Proces,Sestava,Schválit,Schvalování požadavku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 3668461697 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Order</source>
           <target state="translated">Platební příkaz</target>
@@ -4868,6 +4868,12 @@
           <target state="translated">Celková částka</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Subform CZB - Control TotalPaymentOrderHeaderPaymentOrderCurrency - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2313358256 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Approve,Request Approval</source>
+          <target state="translated">Nový,Proces,Sestava,Schválit,Schvalování požadavku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2313358256 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Orders</source>

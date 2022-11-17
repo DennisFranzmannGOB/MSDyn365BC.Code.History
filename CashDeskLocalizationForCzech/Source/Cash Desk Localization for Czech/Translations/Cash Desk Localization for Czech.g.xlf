@@ -3088,6 +3088,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Users CZP - Control User ID - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1970646769 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Approve,Request Approval</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 1970646769 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3627,6 +3632,11 @@
           <source>Specifies the code of the Shortcut Dimension 2, which is defined in the Shortcut Dimension 2 Code field in the General Ledger Setup window.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Approve,Request Approval</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 4221146319 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Documents</source>

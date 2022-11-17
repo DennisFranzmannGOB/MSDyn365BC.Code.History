@@ -1103,6 +1103,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BCPT Setup Card - Action Stop - Method OnAction - NamedType SomethingWentWrongErr</note>
         </trans-unit>
+        <trans-unit id="Page 494180900 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Import/Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BCPT Setup List - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 494180900 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>BCPT Suites</source>
           <note from="Developer" annotates="general" priority="2"></note>

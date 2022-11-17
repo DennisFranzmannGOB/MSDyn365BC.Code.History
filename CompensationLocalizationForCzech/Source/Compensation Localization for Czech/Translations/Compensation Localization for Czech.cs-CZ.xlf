@@ -1509,6 +1509,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compens. Vendor LE Subform CZC - Action ShowMarkedOnly - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3012527878 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Approve,Request Approval</source>
+          <target state="translated">Nový,Proces,Sestava,Schválit,Schvalování požadavku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 3012527878 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Compensation Card</source>
           <target state="translated">Karta zápočtu</target>
@@ -2042,6 +2048,12 @@
           <target state="translated">Dimenze</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Lines CZC - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Approve,Request Approval</source>
+          <target state="translated">Nový,Proces,Sestava,Schválit,Schvalování požadavku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2069854880 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Compensations</source>

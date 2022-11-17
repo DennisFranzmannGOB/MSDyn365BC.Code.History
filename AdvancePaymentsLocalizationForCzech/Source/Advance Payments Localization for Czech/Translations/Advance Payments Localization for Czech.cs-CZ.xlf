@@ -3867,6 +3867,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letter Line CZZ - Control Total Amount Incl. VAT (LCY</note>
         </trans-unit>
+        <trans-unit id="Page 2936817786 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Release,History,Print/Send,Navigate</source>
+          <target state="translated">Nový,Proces,Sestava,Vydat,Historie,Tisk/Odeslat,Navigace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 2936817786 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Advance Letters</source>
           <target state="translated">Nákupní zálohové faktury</target>
@@ -5480,6 +5486,12 @@
           <target state="translated">Částka celkem vč. DPH</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter Line CZZ - Control Total Amount Incl. VAT (LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 2081690216 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Release,History,Print/Send,Navigate</source>
+          <target state="translated">Nový,Proces,Sestava,Vydat,Historie,Tisk/Odeslat,Navigace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2081690216 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Advance Letters</source>
@@ -8649,6 +8661,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1993297039 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Customer Groups,Payments,Advance</source>
+          <target state="translated">Nový,Proces,Sestava,Skupiny zákazníků,Platby,Záloha</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4145206282</note>
         </trans-unit>
         <trans-unit id="PageExtension 1993297039 - Action 1477509200 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show advance letter templates.</source>

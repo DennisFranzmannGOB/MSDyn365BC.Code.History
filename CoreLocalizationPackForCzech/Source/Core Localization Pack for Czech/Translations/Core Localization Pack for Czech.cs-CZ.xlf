@@ -9681,6 +9681,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Commodity Setup CZL - Control Valid To - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 805171329 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Company Official,Navigate</source>
+          <target state="translated">Nový,Proces,Sestava,Zástupce společnosti,Navigace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Company Official Card CZL - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 805171329 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Official Card</source>
           <target state="translated">Karta zástupce společnosti</target>
@@ -13749,6 +13755,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Attribute Codes CZL - Control XML Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 919387949 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Related</source>
+          <target state="translated">Nový,Proces,Sestava,Související informace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report Card CZL - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 919387949 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Control Report Card</source>
           <target state="translated">Karta kontrolního hlášení DPH</target>
@@ -15350,6 +15362,12 @@
           <target state="translated">Určuje datum vytvoření poznámky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Stmt. Comment Sheet CZL - Control Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4169948640 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Related</source>
+          <target state="translated">Nový,Proces,Sestava,Související informace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration CZL - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 4169948640 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VIES Declaration</source>
@@ -32166,6 +32184,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4048657685</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2091246586 - Control 3624777196 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Foreign Trade</source>
+          <target state="translated">Zahraniční obchod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4048657685</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2091246586 - Control 2340776342 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the area code used in the invoice</source>
           <target state="translated">Určuje kód oblasti použité ve faktuře.</target>
@@ -35935,6 +35960,20 @@
         <trans-unit id="PageExtension 1780555830 - Control 3883340384 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the account type that is being reconciled.</source>
           <target state="translated">Určuje typ účtu, který je odsouhlasován.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2151650345</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1780555830 - Control 3790588729 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Balance after Posting (in Currency).</source>
+          <target state="translated">Určuje saldo po zaúčtování (v měně).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2151650345</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1780555830 - Control 428539127 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Net Change in Journal (in Currency).</source>
+          <target state="translated">Určuje pohyb v deníku (v měně).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2151650345</note>
@@ -40555,6 +40594,27 @@
         <trans-unit id="TableExtension 1752886219 - Field 3883340384 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account Type</source>
           <target state="translated">Typ účtu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2459583328</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1752886219 - Field 3790588729 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance after Posting (in Currency)</source>
+          <target state="translated">Saldo po zaúčtování (v měně)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2459583328</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1752886219 - Field 2144416929 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <target state="translated">Kód měny</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2459583328</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1752886219 - Field 428539127 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Change in Jnl. (in Currency)</source>
+          <target state="translated">Pohyb v deníku (v měně)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2459583328</note>
