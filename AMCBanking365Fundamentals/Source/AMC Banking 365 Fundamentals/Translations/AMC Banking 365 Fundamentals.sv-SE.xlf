@@ -1337,6 +1337,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Action Start update - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3327916022 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Page,Setup</source>
+          <target state="translated">Ny,Process,Sida,Inställning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Bank Name List - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 3327916022 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Bank Name List</source>
           <target state="translated">Lista med banknamn för AMC Banking Service</target>
@@ -1598,6 +1604,12 @@
           <target state="translated">Ta bort transaktioner som är äldre än 7 dagar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Webcall Log - Action Delete7days - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3704095706 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Page,Sign-up,Assisted setup,Bank Name,Encryption,Support</source>
+          <target state="translated">Ny,Process,Sida,Registrera,Assisterad konfiguration,Banknamn,Kryptering,Support</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AMC Banking Setup - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 3704095706 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Setup</source>
