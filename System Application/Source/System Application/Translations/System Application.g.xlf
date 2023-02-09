@@ -4663,6 +4663,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Message Impl. - NamedType NoAccountErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3922901608 - NamedType 398345591" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The interface was initialized by a different app. Initializer app id: %1, caller app id :%2</source>
+          <note from="Developer" annotates="general" priority="2">%1 and %2 are guid's</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Record Reference Impl. - NamedType IncorrectCallerAppIdErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1685527521 - NamedType 1722522343" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add attachment to selected email scenario</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5413,6 +5418,16 @@
           <note from="Developer" annotates="general" priority="2">%1 = number of orphaned record links found.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Record Link Impl. - NamedType ResultMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 729626133 - Method 579378647 - NamedType 668814160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Internal server error. Please contact your system administrator.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Record Link Impl. - Method RemoveLinks - NamedType NotARecordErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 443383525 - NamedType 398345591" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The interface was initialized by a different app. Initializer app id: %1, caller app id :%2</source>
+          <note from="Developer" annotates="general" priority="2">%1 and %2 are guid's</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Record Reference Default Impl. - NamedType IncorrectCallerAppIdErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1725049873 - NamedType 926845858" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recurring %1 starting %2</source>
           <note from="Developer" annotates="general" priority="2">%1 = it recurrence pattern like Daily, Weekly, Monthly..., %2 = The date the recurrence starts</note>
@@ -5547,11 +5562,6 @@
           <source>The expiration date for table %1, %2 must be at least %3 days before the current date. Please update the retention policy.</source>
           <note from="Developer" annotates="general" priority="2">%1 = table number, %2 = table caption, %3 = integer</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Filtering Impl. - NamedType MinExpirationDateErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2667037335 - NamedType 2047030313" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The user does not have Read permission for table %1, %2.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = table number, %2 = table caption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Filtering Impl. - NamedType MissingReadPermissionLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2667037335 - NamedType 4261661969" size-unit="char" translate="yes" xml:space="preserve">
           <source>There are no records to delete for table ID %1, %2.</source>
