@@ -543,6 +543,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorLedgerEntry - Field GiroAccNo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3256745266 - Field 929023181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3989583842">
+          <source>Giro Acc No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorPaymentBuffer - Field GiroAccNo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 2861112435 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
           <note from="Developer" annotates="general" priority="2"></note>
