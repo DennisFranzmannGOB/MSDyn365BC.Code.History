@@ -7846,14 +7846,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Analysis - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3761073867 - Action 3941250465 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get insight into the financial data stored in your chart of accounts. Account schedules analyze figures in G/L accounts, and compare general ledger entries with general ledger budget entries. For example, you can view the general ledger entries as percentages of the budget entries. Account schedules provide the data for core financial statements and views, such as the Cash Flow chart.</source>
-          <target state="translated">Získejte přehled o finančních datech uložených v účtové osnově. Účetní schémata analyzují čísla na účtech hlavní knihy a porovnávají položky hlavní knihy s položkami rozpočtu hlavní knihy. Můžete například zobrazit položky hlavní knihy jako procenta položek rozpočtu. Účetní schémata poskytují data pro základní finanční výkazy a zobrazení, jako je například graf Cash Flow.</target>
+          <source>Get insight into the financial data stored in your chart of accounts. Financial reports analyze figures in G/L accounts, and compare general ledger entries with general ledger budget entries. For example, you can view the general ledger entries as percentages of the budget entries. Financial reports provide the data for core financial statements and views, such as the Cash Flow chart.</source>
+          <target state="translated">Získejte přehled o finančních datech uložených v účtové osnově. Finanční výkazy analyzují údaje na finančních účtech a porovnávají věcné položky s položkami finančního rozpočtu. Můžete například zobrazit věcné položky jako procenta položek finančního rozpočtu. Finanční výkazy poskytují data pro základní finanční výkazy a zobrazení, jako je například graf Cash Flow.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Account Schedules - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3761073867 - Action 3941250465 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Account Schedules</source>
-          <target state="translated">Účetní schémata</target>
+          <source>Financial Reporting</source>
+          <target state="translated">Finanční výkaznictví</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Account Schedules - Property Caption</note>
         </trans-unit>
@@ -34235,6 +34235,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1367327215</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 4005239217 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <target state="translated">Určuje zákaznické reference. Obsah bude vytištěn na prodejních dokladech.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4042331808</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4281810571 - Control 1470278247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT date of the original document.</source>
           <target state="translated">Určuje datum DPH původního dokladu.</target>
@@ -34486,6 +34493,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 291926049</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3546948249 - Control 4005239217 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <target state="translated">Určuje zákaznické reference. Obsah bude vytištěn na prodejních dokladech.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2437096118</note>
         </trans-unit>
         <trans-unit id="PageExtension 3546948249 - Control 1470278247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT date of the original document.</source>
@@ -34970,6 +34984,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 5120816</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4009097684 - Control 4005239217 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <target state="translated">Určuje zákaznické reference. Obsah bude vytištěn na prodejních dokladech.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4009097684 - Control 1470278247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT date of the original document.</source>
           <target state="translated">Určuje datum DPH původního dokladu.</target>
@@ -35411,6 +35432,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1403724292</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2720915904 - Control 4005239217 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's reference. The contents will be printed on purchase documents.</source>
+          <target state="translated">Určuje dodavatelské reference. Obsah bude vytištěn na nákupních dokladech.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3321822267</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2720915904 - Control 2122310075 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date of the last check of unreliability.</source>
           <target state="translated">Určuje datum poslední kontroly nespolehlivosti.</target>
@@ -35655,6 +35683,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1819353702</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 4005239217 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <target state="translated">Určuje zákaznické reference. Obsah bude vytištěn na prodejních dokladech.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1555938241</note>
         </trans-unit>
         <trans-unit id="PageExtension 3132071246 - Control 1470278247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT date of the original document.</source>
@@ -40387,6 +40422,27 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 747439518</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1837109216 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Corr. Pmt. Disc. (LCY)</source>
+          <target state="translated">Korekce skonta (LM)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2007144088</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1122096365 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pmt. Disc. (LCY)</source>
+          <target state="translated">Skonto (LM)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2007144088</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1532470072 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pmt. Disc.</source>
+          <target state="translated">Skonto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2007144088</note>
         </trans-unit>
         <trans-unit id="TableExtension 3381938319 - Field 2111894207 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mark Reclass. as Corrections</source>

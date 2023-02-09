@@ -1083,6 +1083,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report FA Physical Inventory List CZF - ReportLabel AcquisitionCostLbl</note>
         </trans-unit>
+        <trans-unit id="Report 456193447 - ReportLabel 4062203421" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Appreciation</source>
+          <target state="translated">Zhodnocení</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report FA Physical Inventory List CZF - ReportLabel AppreciationLbl</note>
+        </trans-unit>
         <trans-unit id="Report 456193447 - ReportLabel 141212651" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approved by Committee Members:</source>
           <target state="translated">Schváleno členy komise:</target>
@@ -1184,6 +1190,12 @@
           <target state="translated">Celkem (množství, částka):</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report FA Physical Inventory List CZF - ReportLabel TotalQuantityAmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 456193447 - ReportLabel 2521267503" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Write-Down</source>
+          <target state="translated">Znehodnocení</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report FA Physical Inventory List CZF - ReportLabel WriteDownLbl</note>
         </trans-unit>
         <trans-unit id="Report 456193447 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>

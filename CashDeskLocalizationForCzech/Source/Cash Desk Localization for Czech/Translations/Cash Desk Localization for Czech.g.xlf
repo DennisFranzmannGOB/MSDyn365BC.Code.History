@@ -2468,6 +2468,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Responsibility Hand Over - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4259462887 - Action 278110413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Category_New - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4259462887 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4259462887 - Action 3326904116 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the report for cash desk account book.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2878,6 +2888,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Responsibility Hand Over - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 673917101 - Action 278110413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_New - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 673917101 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 673917101 - Action 3326904116 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the report for cash desk account book.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3087,11 +3107,6 @@
           <source>Specifies the ID of the user associated with the entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Users CZP - Control User ID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Approve,Request Approval</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 1970646769 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Document</source>
@@ -3533,6 +3548,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action SendApprovalRequest - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approve</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 2224783030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Approval</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 2524661601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Report - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1970646769 - Action 1344672713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3632,11 +3682,6 @@
           <source>Specifies the code of the Shortcut Dimension 2, which is defined in the Shortcut Dimension 2 Code field in the General Ledger Setup window.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control Shortcut Dimension 2 Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4221146319 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Approve,Request Approval</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 4221146319 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Documents</source>
@@ -3758,6 +3803,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action &amp;Release - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 530829447 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reopen the document to change it after it has been approved. Approved documents have the Released status and must be opened before they can be changed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Re&amp;open - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 530829447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Re&amp;open</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Re&amp;open - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4221146319 - Action 105928527 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Release and prepare to print the cash document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3827,6 +3882,31 @@
           <source>Send A&amp;pproval Request</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action SendApprovalRequest - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 2224783030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Category5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Approval</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Report - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4221146319 - Action 1344672713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
@@ -4393,6 +4473,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action &amp;Navigate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1242474714 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1242474714 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1242474714 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action Category_Report - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1242474714 - Action 1344672713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4502,6 +4597,21 @@
           <source>Find Entries</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document List CZP - Action &amp;Navigate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1038428832 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document List CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1038428832 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document List CZP - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1038428832 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document List CZP - Action Category_Report - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1038428832 - Action 1344672713 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>

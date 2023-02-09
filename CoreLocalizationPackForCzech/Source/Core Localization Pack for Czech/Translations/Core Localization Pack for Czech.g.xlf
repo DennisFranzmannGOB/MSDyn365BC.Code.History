@@ -6539,12 +6539,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Analysis - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3761073867 - Action 3941250465 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get insight into the financial data stored in your chart of accounts. Account schedules analyze figures in G/L accounts, and compare general ledger entries with general ledger budget entries. For example, you can view the general ledger entries as percentages of the budget entries. Account schedules provide the data for core financial statements and views, such as the Cash Flow chart.</source>
+          <source>Get insight into the financial data stored in your chart of accounts. Financial reports analyze figures in G/L accounts, and compare general ledger entries with general ledger budget entries. For example, you can view the general ledger entries as percentages of the budget entries. Financial reports provide the data for core financial statements and views, such as the Cash Flow chart.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Account Schedules - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3761073867 - Action 3941250465 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Account Schedules</source>
+          <source>Financial Reporting</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Account Schedules - Property Caption</note>
         </trans-unit>
@@ -27868,6 +27868,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Return Order Arch. CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 4005239217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control Your Reference CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4281810571 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
           <source>Specifies the VAT date of the original document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -28047,6 +28052,11 @@
           <source>Specifies the detail information for payment.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memos CZL - Control Variable Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3546948249 - Control 4005239217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Invoice CZL - Control Your Reference CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3546948249 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
           <source>Specifies the VAT date of the original document.</source>
@@ -28393,6 +28403,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Order Archives CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4009097684 - Control 4005239217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Order CZL - Control Your Reference CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4009097684 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Specifies the VAT date of the original document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -28708,6 +28723,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Quote Archives CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2720915904 - Control 4005239217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3321822267">
+          <source>Specifies the vendor's reference. The contents will be printed on purchase documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Quote CZL - Control Your Reference CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2720915904 - Control 2122310075 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3321822267">
           <source>Specifies the date of the last check of unreliability.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -28882,6 +28902,11 @@
           <source>Specifies the detail information for payment.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Quotes CZL - Control Variable Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 4005239217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Your Reference CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3132071246 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
           <source>Specifies the VAT date of the original document.</source>
@@ -32262,6 +32287,21 @@
           <source>Validate Registration No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Customer Templ. CZL - Field Validate Registration No. CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1837109216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2007144088">
+          <source>Corr. Pmt. Disc. (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CV Ledger Entry Buffer CZL - Field Corr. Pmt. Disc. (LCY) CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1122096365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2007144088">
+          <source>Pmt. Disc. (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CV Ledger Entry Buffer CZL - Field Orig. Pmt. Disc. (LCY) CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1532470072 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2007144088">
+          <source>Pmt. Disc.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CV Ledger Entry Buffer CZL - Field Orig. Pmt. Disc. CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3381938319 - Field 2111894207 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
           <source>Mark Reclass. as Corrections</source>

@@ -6119,7 +6119,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance VAT Doc. CZZ - NamedType CustLbl</note>
         </trans-unit>
         <trans-unit id="Report 2545706739 - NamedType 4058751071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Document to Recieved Payment</source>
+          <source>VAT Document to Received Payment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance VAT Doc. CZZ - NamedType DocumentLbl</note>
         </trans-unit>

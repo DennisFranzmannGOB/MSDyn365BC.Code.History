@@ -4723,6 +4723,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create General Journal CZB - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2646294260 - NamedType 2880569522" size-unit="char" translate="yes" xml:space="preserve">
+          <source>One or more errors were found when matching the statement lines in the payment journal. For more information, open the payment journal and run the Match by Search Rule function for the unapplied lines.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create General Journal CZB - NamedType ApplyingFailedMsg</note>
+        </trans-unit>
+        <trans-unit id="Report 2646294260 - NamedType 1557157892" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applying payment journal lines...\\Line No. #1##########</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Progress bar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create General Journal CZB - NamedType ApplyingLinesMsg</note>
+        </trans-unit>
         <trans-unit id="Report 2646294260 - NamedType 965356023" size-unit="char" translate="yes" xml:space="preserve">
           <source>Creating payment journal lines...\\Line No. #1##########</source>
           <note from="Developer" annotates="general" priority="2">%1 = Progress bar</note>
@@ -5582,6 +5592,21 @@
           <source>Search Rule Line Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line CZB - Field Search Rule Line No. CZB - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051869322 - Field 790935127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Variable Symbol to Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line CZB - Field Variable S. to Description CZB - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051869322 - Field 915244735 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Variable Symbol to External Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line CZB - Field Variable S. to Ext.Doc.No. CZB - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051869322 - Field 2917987132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Variable Symbol to Variable Symbol</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line CZB - Field Variable S. to Variable S. CZB - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1242473335 - Field 3977664149 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 658627162">
           <source>Constant Symbol</source>

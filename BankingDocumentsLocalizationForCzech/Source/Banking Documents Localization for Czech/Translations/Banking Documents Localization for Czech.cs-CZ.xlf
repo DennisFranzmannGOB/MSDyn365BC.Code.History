@@ -5667,6 +5667,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create General Journal CZB - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2646294260 - NamedType 2880569522" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>One or more errors were found when matching the statement lines in the payment journal. For more information, open the payment journal and run the Match by Search Rule function for the unapplied lines.</source>
+          <target state="translated">Při párování řádků výpisu v deníku plateb byla zjištěna jedna nebo více chyb. Chcete-li získat další informace, otevřete deník plateb a spusťte funkci Párovat dle vyhledávacího pravidla pro nevyrované řádky.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create General Journal CZB - NamedType ApplyingFailedMsg</note>
+        </trans-unit>
+        <trans-unit id="Report 2646294260 - NamedType 1557157892" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applying payment journal lines...\\Line No. #1##########</source>
+          <target state="translated">Vyrovnávání řádků deníku plateb...\Číslo řádku #1 ##########</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Progress bar</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create General Journal CZB - NamedType ApplyingLinesMsg</note>
+        </trans-unit>
         <trans-unit id="Report 2646294260 - NamedType 965356023" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Creating payment journal lines...\\Line No. #1##########</source>
           <target state="translated">Vytváření řádků deníku plateb...\\Číslo řádku #1 ##########</target>
@@ -6793,6 +6805,27 @@
         <trans-unit id="TableExtension 3051869322 - Field 2519148142 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Search Rule Line Code</source>
           <target state="translated">Kód řádku pravidla hledání</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051869322 - Field 790935127 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variable Symbol to Description</source>
+          <target state="translated">Variabilní s. do popisu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051869322 - Field 915244735 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variable Symbol to External Document No.</source>
+          <target state="translated">Variabilní symbol do čísla externího dokladu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051869322 - Field 2917987132 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variable Symbol to Variable Symbol</source>
+          <target state="translated">Variabilní symbol do variabilního symbolu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
