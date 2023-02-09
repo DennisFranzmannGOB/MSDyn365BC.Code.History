@@ -171,6 +171,12 @@
                         "path":  ".\\salesandinventoryforecast\\test\\Sales and Inventory Forecast Tests"
                     },
                     {
+                        "path":  ".\\servicedeclaration\\test\\Service Declaration Tests"
+                    },
+                    {
+                        "path":  ".\\ServiceDeclarationFR\\Test\\Service Declaration FR Tests"
+                    },
+                    {
                         "path":  ".\\shopify\\test\\Shopify Connector Test"
                     },
                     {
