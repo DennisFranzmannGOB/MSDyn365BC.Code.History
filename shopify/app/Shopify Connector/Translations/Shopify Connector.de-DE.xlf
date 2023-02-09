@@ -899,7 +899,7 @@
         </trans-unit>
         <trans-unit id="Table 75584159 - Field 675862156 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Post Code</source>
-          <target state="translated">Rech. an PLZ-Code</target>
+          <target state="translated">Rech. an PLZ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Header - Field Bill-to Post Code - Property Caption</note>
         </trans-unit>
@@ -1187,7 +1187,7 @@
         </trans-unit>
         <trans-unit id="Table 75584159 - Field 709296807 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Post Code</source>
-          <target state="translated">Verk. an PLZ-Code</target>
+          <target state="translated">Verk. an PLZ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Header - Field Sell-to Post Code - Property Caption</note>
         </trans-unit>
@@ -1271,7 +1271,7 @@
         </trans-unit>
         <trans-unit id="Table 75584159 - Field 3172878019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Post Code</source>
-          <target state="translated">Lief. an PLZ-Code</target>
+          <target state="translated">Lief. an PLZ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Header - Field Ship-to Post Code - Property Caption</note>
         </trans-unit>
@@ -9441,7 +9441,7 @@
         </trans-unit>
         <trans-unit id="Enum 1109428354 - EnumValue 3844911025 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
-          <target state="translated">Abgebrochen</target>
+          <target state="translated">Storniert</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Payout Status - EnumValue Canceled - Property Caption</note>
         </trans-unit>
