@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de-DE" original="Intrastat DE">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 3082859770 - NamedType 2213879400" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ABCDEFGHIJKLMNOPQRSTUVWXYZ/-.+</source>
+          <target state="translated">ABCDEFGHIJKLMNOPQRSTUVWXYZ/-.+</target>
+          <note from="Developer" annotates="general" priority="2">Locked. Do not translate.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementDE - NamedType RegNoExcludeCharsTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3082859770 - NamedType 2312043988" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat-%1.zip</source>
+          <target state="translated">Intrastat-%1.zip</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementDE - NamedType ZipFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4006551607 - Control 1260993804 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export Parameters</source>
+          <target state="translated">Exportparameter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4006551607 - Control 3140976042 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the exported XML will be used for test submission.</source>
+          <target state="translated">Gibt an, ob die exportierte XML-Datei zur Testübermittlung verwendet wird.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4006551607 - Control 3140976042 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Submission</source>
+          <target state="translated">Testübermittlung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4016008142 - Field 3140976042 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Submission</source>
+          <target state="translated">Testübermittlung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2491010837</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

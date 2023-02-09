@@ -153,6 +153,9 @@
                         "path":  ".\\EssentialBusinessHeadlines\\Test\\Essential Business Headlines Test"
                     },
                     {
+                        "path":  ".\\Intrastat\\Test\\Intrastat Core Tests"
+                    },
+                    {
                         "path":  ".\\LatePaymentPredictor\\Test\\Late Payment Prediction Tests"
                     },
                     {
@@ -172,6 +175,9 @@
                     },
                     {
                         "path":  ".\\salesandinventoryforecast\\test\\Sales and Inventory Forecast Tests"
+                    },
+                    {
+                        "path":  ".\\servicedeclaration\\test\\Service Declaration Tests"
                     },
                     {
                         "path":  ".\\shopify\\test\\Shopify Connector Test"
