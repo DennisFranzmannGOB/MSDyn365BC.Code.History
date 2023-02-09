@@ -15003,6 +15003,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = Production Order No</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Subcontracting Validations - Method OnAfterValidateEventdeSubconStatus - NamedType ReopenErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3139384151 - NamedType 1157459222" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line cannot be deleted. Delivery Challan exist for Subcontracting Order no. %1, Line No. %2</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Subcontracting Order No., %2 = and Line No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Update Subcontract Details - NamedType DeliveryChallanLineExistsErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1336800903 - NamedType 2388775229" size-unit="char" translate="yes" xml:space="preserve">
           <source>All bank charge lines must have same sign Amount.</source>
           <note from="Developer" annotates="general" priority="2"></note>
