@@ -14553,6 +14553,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {67fecb97-a3fa-4fc9-8a80-e214c3df4ca9}Lbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 1409480222" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {b8a8c947-5ba0-45b4-b8a4-33088f25782f}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 863044016" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {1A135F44-7A65-49A6-A08A-C87D453E5837}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 1774189078" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {d9172942-78eb-4305-950c-c9dec70f16e6}Lbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2680351807 - NamedType 870778515" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Information must have either GST Registration No. or ARN No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14978,10 +14993,15 @@
           <note from="Developer" annotates="general" priority="2">%1 = Delivery Challan Item No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Subcontracting Post Batch - NamedType UnitCostErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3351717689 - Method 2301690934 - NamedType 1443460120" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot delete this document. Delivery Challan exist for Subcontractin Order no. %1.</source>
+        <trans-unit id="Codeunit 3351717689 - NamedType 1443460120" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document. Delivery Challan exist for Subcontracting Order no. %1.</source>
           <note from="Developer" annotates="general" priority="2">%1 = Subcontracting Order No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Subcontracting Subscribers - Method ValidateDeliveryChallanCreatedForOrder - NamedType DeliveryChallanExistsErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Subcontracting Subscribers - NamedType DeliveryChallanExistsErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3351717689 - NamedType 4293959318" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot delete Subcontracting order No: %1 as there is remaining quantity pending to be received. Continue with next order?</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Subcontracting Subscribers - NamedType QutstandingQuantityErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 628480002 - NamedType 954518901" size-unit="char" translate="yes" xml:space="preserve">
           <source>No Transaction allowed; Status is Closed.</source>
