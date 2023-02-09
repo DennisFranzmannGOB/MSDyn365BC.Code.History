@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fi-FI" original="Intrastat FI">
+    <body>
+      <group id="body">
+        <trans-unit id="PageExtension 4145919157 - Control 845689769 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the batch contains a reported receipt and cannot be reported again.</source>
+          <target state="translated">Määrittää, sisältääkö erä raportoidun vastaanoton, jota ei voi raportoida uudestaan.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4145919157 - Control 673954883 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the batch contains a reported shipment and cannot be reported again.</source>
+          <target state="translated">Määrittää, sisältääkö erä raportoidun toimituksen, jota ei voi raportoida uudestaan.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3051551184 - Control 1295996035 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Setup</source>
+          <target state="translated">Tiedoston määritys</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3132071445</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3051551184 - Control 3840577876 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a company serial number for the Intrastat file setup information.</source>
+          <target state="translated">Määrittää Intrastat-tiedoston määritystietojen yrityksen sarjanumeron.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3132071445</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3051551184 - Control 2724046170 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a custom code for the Intrastat file setup information.</source>
+          <target state="translated">Määrittää Intrastat-tiedoston määritystietojen mukautetun koodin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3132071445</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3051551184 - Control 2022107547 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a file number for the Intrastat file setup information.</source>
+          <target state="translated">Määrittää Intrastat-tiedoston määritystietojen tiedostonumeron.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3132071445</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3051551184 - Control 36454863 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a last transfer date for the Intrastat file setup information.</source>
+          <target state="translated">Määrittää Intrastat-tiedoston määritystietojen viimeisen siirtopäivän.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3132071445</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 105363169 - Control 1295996035 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Setup</source>
+          <target state="translated">Tiedoston määritys</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3458657684</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 105363169 - Control 3840577876 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a company serial number for the Intrastat file setup information.</source>
+          <target state="translated">Määrittää Intrastat-tiedoston määritystietojen yrityksen sarjanumeron.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3458657684</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 105363169 - Control 2724046170 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a custom code for the Intrastat file setup information.</source>
+          <target state="translated">Määrittää Intrastat-tiedoston määritystietojen mukautetun koodin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3458657684</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 105363169 - Control 2022107547 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a file number for the Intrastat file setup information.</source>
+          <target state="translated">Määrittää Intrastat-tiedoston määritystietojen tiedostonumeron.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3458657684</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 105363169 - Control 36454863 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a last transfer date for the Intrastat file setup information.</source>
+          <target state="translated">Määrittää Intrastat-tiedoston määritystietojen viimeisen siirtopäivän.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3458657684</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051551184 - Field 3840577876 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Serial No.</source>
+          <target state="translated">Yrityksen sarjanro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3132071445</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051551184 - Field 2724046170 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Custom Code</source>
+          <target state="translated">Tullikoodi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3132071445</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051551184 - Field 2022107547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File No.</source>
+          <target state="translated">Tiedostonro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3132071445</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051551184 - Field 36454863 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Transfer Date</source>
+          <target state="translated">Viimeisin siirtopäivämäärä</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3132071445</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
