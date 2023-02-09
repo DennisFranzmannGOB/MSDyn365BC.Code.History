@@ -28963,6 +28963,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Customer Templ. CZL - Field Validate Registration No. CZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1837109216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2007144088">
+          <source>Corr. Pmt. Disc. (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CV Ledger Entry Buffer CZL - Field Corr. Pmt. Disc. (LCY) CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1122096365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2007144088">
+          <source>Pmt. Disc. (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CV Ledger Entry Buffer CZL - Field Orig. Pmt. Disc. (LCY) CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1532470072 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2007144088">
+          <source>Pmt. Disc.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CV Ledger Entry Buffer CZL - Field Orig. Pmt. Disc. CZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3381938319 - Field 2111894207 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
           <source>Mark Reclass. as Corrections</source>
           <note from="Developer" annotates="general" priority="2"></note>

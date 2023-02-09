@@ -36222,6 +36222,27 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 747439518</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1837109216 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Corr. Pmt. Disc. (LCY)</source>
+          <target state="translated">Korekce skonta (LM)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2007144088</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1122096365 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pmt. Disc. (LCY)</source>
+          <target state="translated">Skonto (LM)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2007144088</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3026341827 - Field 1532470072 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pmt. Disc.</source>
+          <target state="translated">Skonto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2007144088</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3381938319 - Field 2111894207 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mark Reclass. as Corrections</source>
           <target state="translated">Označ přeřazení jako opravy</target>
