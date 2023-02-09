@@ -141,6 +141,9 @@
                         "path":  ".\\EssentialBusinessHeadlines\\Test\\Essential Business Headlines Test"
                     },
                     {
+                        "path":  ".\\INChargeGroup\\Test\\India Charge Group Tests"
+                    },
+                    {
                         "path":  ".\\INFADepreciation\\Test\\Fixed Asset Depreciation Tests"
                     },
                     {
