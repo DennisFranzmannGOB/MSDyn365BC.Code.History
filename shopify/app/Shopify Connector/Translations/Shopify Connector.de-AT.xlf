@@ -9441,7 +9441,7 @@
         </trans-unit>
         <trans-unit id="Enum 1109428354 - EnumValue 3844911025 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
-          <target state="translated">Abgebrochen</target>
+          <target state="translated">Storniert</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Payout Status - EnumValue Canceled - Property Caption</note>
         </trans-unit>
