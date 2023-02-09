@@ -6243,6 +6243,12 @@
           <note from="Developer" annotates="general" priority="2">%1 = old posting group; %2 = new posting group; %3 = tablecaption of Subst. Vendor/Customer Posting Group</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Posting Group Management CZL - NamedType CannotChangePostingGroupErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3831183386 - NamedType 1810432653" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase %1 %2 already exists for this vendor.\Do you want to continue?</source>
+          <target state="translated">Nákupní %1 %2 tohoto dodavatele již existuje.\Chcete pokračovat?</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Document Type; %2 = External Document No.; e.g. Purchase Invoice 123 already exists...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Posting Handler CZL - NamedType PurchaseAlreadyExistsQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3831183386 - Method 341132991 - NamedType 221268929" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase %1 %2 already exists for this vendor.</source>
           <target state="translated">Nákupní %1 %2 pro tohoto dodavatele již existuje.</target>
@@ -18034,8 +18040,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Cr. Memos CZL - NamedType EnterVATDateErr</note>
         </trans-unit>
         <trans-unit id="Report 4214192617 - NamedType 779401088" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The exchange rate associated with the new posting date on the sales header will not apply to the sales lines.</source>
-          <target state="translated">Směnný kurz spojený s novým zúčtovacím datem v prodejní hlavičce nebude použit pro prodejní řádky.</target>
+          <source>The exchange rate associated with the new posting date on the sales header will apply to the sales lines.</source>
+          <target state="translated">Směnný kurz spojený s novým zúčtovacím datem v prodejní hlavičce bude použit pro prodejní řádky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Cr. Memos CZL - NamedType ExchRateNotApplyMsg</note>
         </trans-unit>
@@ -18148,8 +18154,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Invoices CZL - NamedType EnterVATDateErr</note>
         </trans-unit>
         <trans-unit id="Report 1700719741 - NamedType 779401088" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The exchange rate associated with the new posting date on the sales header will not apply to the sales lines.</source>
-          <target state="translated">Směnný kurz spojený s novým zúčtovacím datem v prodejní hlavičce nebude použit pro prodejní řádky.</target>
+          <source>The exchange rate associated with the new posting date on the sales header will apply to the sales lines.</source>
+          <target state="translated">Směnný kurz spojený s novým zúčtovacím datem v prodejní hlavičce bude použit pro prodejní řádky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Invoices CZL - NamedType ExchRateNotApplyMsg</note>
         </trans-unit>
@@ -18262,8 +18268,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Orders CZL - NamedType EnterVATDateErr</note>
         </trans-unit>
         <trans-unit id="Report 715763784 - NamedType 779401088" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The exchange rate associated with the new posting date on the sales header will not apply to the sales lines.</source>
-          <target state="translated">Směnný kurz spojený s novým zúčtovacím datem v prodejní hlavičce nebude použit pro prodejní řádky.</target>
+          <source>The exchange rate associated with the new posting date on the sales header will apply to the sales lines.</source>
+          <target state="translated">Směnný kurz spojený s novým zúčtovacím datem v prodejní hlavičce bude použit pro prodejní řádky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Orders CZL - NamedType ExchRateNotApplyMsg</note>
         </trans-unit>
@@ -18400,8 +18406,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Ret. Ord. CZL - NamedType EnterVATDateErr</note>
         </trans-unit>
         <trans-unit id="Report 2967805685 - NamedType 779401088" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The exchange rate associated with the new posting date on the sales header will not apply to the sales lines.</source>
-          <target state="translated">Směnný kurz spojený s novým zúčtovacím datem v prodejní hlavičce nebude použit pro prodejní řádky.</target>
+          <source>The exchange rate associated with the new posting date on the sales header will apply to the sales lines.</source>
+          <target state="translated">Směnný kurz spojený s novým zúčtovacím datem v prodejní hlavičce bude použit pro prodejní řádky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Ret. Ord. CZL - NamedType ExchRateNotApplyMsg</note>
         </trans-unit>
@@ -24579,6 +24585,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 3197031362" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are receiving this email to formally notify you that payment owed by you is past due. The payment was due on %1. Enclosed is a copy of invoice with the details of remaining amount.</source>
+          <target state="translated">Obdrželi jste tento mail jako formální upozornění, že vaše platba je po splatnosti. Platba byla splatná k %1. Přiložena je faktura s detaily o zbývající částce.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = A due date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType AmtDueLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 1908025102" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
+          <target state="translated">Pokud jste již provedli platbu, prosím ignorujte tento e-mail. Děkujeme vám za úhradu částky.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType BodyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 2771379227" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sincerely</source>
+          <target state="translated">S pozdravem</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType ClosingLbl</note>
+        </trans-unit>
         <trans-unit id="Report 1351626823 - NamedType 3701423681" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
           <target state="translated">Kopírovat</target>
@@ -24602,6 +24626,18 @@
           <target state="translated">Upomínka</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType DocumentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 514421613" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hello</source>
+          <target state="translated">Dobrý den</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType GreetingLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 1355652404" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interest Amount</source>
+          <target state="translated">Částka úroku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType InterestAmountLbl</note>
         </trans-unit>
         <trans-unit id="Report 1351626823 - NamedType 1877187315" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>

@@ -5203,6 +5203,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = old posting group; %2 = new posting group; %3 = tablecaption of Subst. Vendor/Customer Posting Group</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Posting Group Management CZL - NamedType CannotChangePostingGroupErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3831183386 - NamedType 1810432653" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase %1 %2 already exists for this vendor.\Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Document Type; %2 = External Document No.; e.g. Purchase Invoice 123 already exists...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purchase Posting Handler CZL - NamedType PurchaseAlreadyExistsQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3831183386 - Method 341132991 - NamedType 221268929" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase %1 %2 already exists for this vendor.</source>
           <note from="Developer" annotates="general" priority="2">%1 = Document Type, %2 = Document No.</note>
@@ -15029,7 +15034,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Cr. Memos CZL - NamedType EnterVATDateErr</note>
         </trans-unit>
         <trans-unit id="Report 4214192617 - NamedType 779401088" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The exchange rate associated with the new posting date on the sales header will not apply to the sales lines.</source>
+          <source>The exchange rate associated with the new posting date on the sales header will apply to the sales lines.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Cr. Memos CZL - NamedType ExchRateNotApplyMsg</note>
         </trans-unit>
@@ -15124,7 +15129,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Invoices CZL - NamedType EnterVATDateErr</note>
         </trans-unit>
         <trans-unit id="Report 1700719741 - NamedType 779401088" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The exchange rate associated with the new posting date on the sales header will not apply to the sales lines.</source>
+          <source>The exchange rate associated with the new posting date on the sales header will apply to the sales lines.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Invoices CZL - NamedType ExchRateNotApplyMsg</note>
         </trans-unit>
@@ -15219,7 +15224,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Orders CZL - NamedType EnterVATDateErr</note>
         </trans-unit>
         <trans-unit id="Report 715763784 - NamedType 779401088" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The exchange rate associated with the new posting date on the sales header will not apply to the sales lines.</source>
+          <source>The exchange rate associated with the new posting date on the sales header will apply to the sales lines.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Orders CZL - NamedType ExchRateNotApplyMsg</note>
         </trans-unit>
@@ -15334,7 +15339,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Ret. Ord. CZL - NamedType EnterVATDateErr</note>
         </trans-unit>
         <trans-unit id="Report 2967805685 - NamedType 779401088" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The exchange rate associated with the new posting date on the sales header will not apply to the sales lines.</source>
+          <source>The exchange rate associated with the new posting date on the sales header will apply to the sales lines.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Batch Post Sales Ret. Ord. CZL - NamedType ExchRateNotApplyMsg</note>
         </trans-unit>
@@ -20483,6 +20488,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 3197031362" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are receiving this email to formally notify you that payment owed by you is past due. The payment was due on %1. Enclosed is a copy of invoice with the details of remaining amount.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = A due date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType AmtDueLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 1908025102" size-unit="char" translate="yes" xml:space="preserve">
+          <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType BodyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 2771379227" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sincerely</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType ClosingLbl</note>
+        </trans-unit>
         <trans-unit id="Report 1351626823 - NamedType 3701423681" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20502,6 +20522,16 @@
           <source>Reminder</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType DocumentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 514421613" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hello</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType GreetingLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1351626823 - NamedType 1355652404" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interest Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType InterestAmountLbl</note>
         </trans-unit>
         <trans-unit id="Report 1351626823 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>

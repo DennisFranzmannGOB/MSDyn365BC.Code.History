@@ -58,6 +58,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Header - Field No. of tests running - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2568936622 - Field 623112344 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unique RunID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Header - Field RunID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2568936622 - Field 4244803688 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Started at</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -72,6 +77,11 @@
           <source>Tag</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Header - Field Tag - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2568936622 - Field 2888734426 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Company Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Header - Field Test Company Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2568936622 - Field 937415643 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total No. of Sessions</source>
@@ -127,6 +137,11 @@
           <source>Codeunit Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Line - Field Codeunit Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1790936437 - Field 3997336476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the test company</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Line - Field Company Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1790936437 - Field 2871633142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delay between iterations (sec.)</source>
@@ -293,6 +308,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Log Entry - Field Operation - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1941709903 - Field 623112344 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RunID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Log Entry - Field RunID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1941709903 - Field 3628052947 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Session No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -317,6 +337,11 @@
           <source>Tag</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Log Entry - Field Tag - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1941709903 - Field 2888734426 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Company Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BCPT Log Entry - Field Test Company Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1941709903 - Field 237762718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Version</source>
@@ -737,6 +762,11 @@
           <source>Specifies the single operation of the BCPT.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BCPT Log Entries - Control Operation - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1184719117 - Control 623112344 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the BCPT RunID Guid</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BCPT Log Entries - Control RunID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1184719117 - Control 1224773205 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the unique session this scenario was run in. You can use the Session No. to correlated log entries.</source>
