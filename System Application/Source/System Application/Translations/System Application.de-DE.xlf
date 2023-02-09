@@ -3623,7 +3623,7 @@
         </trans-unit>
         <trans-unit id="Table 920931714 - Field 1393533604 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Table Caption</source>
-          <target state="translated">Tabellenbezeichnung</target>
+          <target state="translated">Tabellenbeschriftung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Word Template - Field Table Caption - Property Caption</note>
         </trans-unit>
@@ -4301,7 +4301,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3692338268 - NamedType 935875799" maxwidth="60" size-unit="char" translate="yes" xml:space="preserve">
           <source>Here are a few things you can try out</source>
-          <target state="translated">Hier sind ein paar Dinge, die Sie ausprobieren können</target>
+          <target state="translated">Hier können Sie Funktionen in Business Central ausprobieren!</target>
           <note from="Developer" annotates="general" priority="2">*Onboarding Checklist*</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Checklist Banner - NamedType BannerHeaderInProgressEvaluationLbl</note>
         </trans-unit>
@@ -4343,7 +4343,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3692338268 - NamedType 1940743142" maxwidth="60" size-unit="char" translate="yes" xml:space="preserve">
           <source>Here are a few things you can try out</source>
-          <target state="translated">Hier sind ein paar Dinge, die Sie ausprobieren können</target>
+          <target state="translated">Hier können Sie Funktionen in Business Central ausprobieren!</target>
           <note from="Developer" annotates="general" priority="2">*Onboarding Checklist*</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Checklist Banner - NamedType CollapsedBannerHeaderWelcomeEvaluationLbl</note>
         </trans-unit>
