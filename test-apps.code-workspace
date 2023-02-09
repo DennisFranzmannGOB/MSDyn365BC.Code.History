@@ -150,6 +150,9 @@
                         "path":  ".\\EssentialBusinessHeadlines\\Test\\Essential Business Headlines Test"
                     },
                     {
+                        "path":  ".\\Intrastat\\Test\\Intrastat Core Tests"
+                    },
+                    {
                         "path":  ".\\LatePaymentPredictor\\Test\\Late Payment Prediction Tests"
                     },
                     {

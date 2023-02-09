@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="nl-BE" original="Intrastat BE">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 113970652 - NamedType 3539158134" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The enterprise number in Company Information is not valid.</source>
+          <target state="translated">Het nummer van de onderneming bij Bedrijfsgegevens is ongeldig.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementBE - NamedType EnterpriseNoNotValidErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 113970652 - NamedType 3415447349" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat-%1.xml</source>
+          <target state="translated">Intrastat-%1.xml</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementBE - NamedType FileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 113970652 - NamedType 1813144090" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receipt-%1.xml</source>
+          <target state="translated">Receipt-%1.xml</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementBE - NamedType ReceptFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 113970652 - NamedType 452222717" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment-%1.xml</source>
+          <target state="translated">Shipment-%1.xml</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementBE - NamedType ShipmentFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 113970652 - NamedType 1070211923" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tariff Number #1##########</source>
+          <target state="translated">Goederencode #1##########</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementBE - NamedType SupplUnitUpdateTariffLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 113970652 - NamedType 2312043988" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat-%1.zip</source>
+          <target state="translated">Intrastat-%1.zip</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementBE - NamedType ZipFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 845689769 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the entry has already been reported to the tax authorities via system 19 (receipt).</source>
+          <target state="translated">Hiermee wordt aangegeven of de post al is aangegeven bij de belastingdienst via systeem 19 (ontvangst).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 845689769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>System 19 reported</source>
+          <target state="translated">Aangegeven (Stelsel 19)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 673954883 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the entry has already been reported to the tax authorities via system 29 (shipment).</source>
+          <target state="translated">Hiermee wordt aangegeven of de post al is aangegeven bij de belastingdienst via systeem 29 (verzending).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 673954883 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>System 29 reported</source>
+          <target state="translated">Aangegeven (Stelsel 29)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 1260993804 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export Parameters</source>
+          <target state="translated">Parameters voor export</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 470527817 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the enterprise or VAT registration number.</source>
+          <target state="translated">Hiermee wordt het ondernemings- of btw-nummer opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 470527817 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enterprise No./VAT Reg. No.</source>
+          <target state="translated">Ondernemingsnr./btw-nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 688174918 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you do not have any trade transactions with European Union (EU) countries/regions and want to send an empty declaration.</source>
+          <target state="translated">Hiermee wordt opgegeven of u geen handelstransacties hebt met landen/regio's in de Europese Unie (EU) en een lege aangifte wilt verzenden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2102214877 - Control 688174918 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nihil Declaration</source>
+          <target state="translated">Nihilaangifte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1604589224 - Field 470527817 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enterprise No./VAT Reg. No.</source>
+          <target state="translated">Ondernemingsnr./btw-nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2491010837</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1604589224 - Field 688174918 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nihil Declaration</source>
+          <target state="translated">Hiermee wordt aangegeven of de post al is aangegeven bij de belastingdienst via systeem 19 (ontvangst).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2491010837</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
