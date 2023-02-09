@@ -14973,6 +14973,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = Delivery Challan Item No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Subcontracting Post Batch - NamedType UnitCostErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3351717689 - Method 2301690934 - NamedType 1443460120" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document. Delivery Challan exist for Subcontractin Order no. %1.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Subcontracting Order No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Subcontracting Subscribers - Method ValidateDeliveryChallanCreatedForOrder - NamedType DeliveryChallanExistsErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 628480002 - NamedType 954518901" size-unit="char" translate="yes" xml:space="preserve">
           <source>No Transaction allowed; Status is Closed.</source>
           <note from="Developer" annotates="general" priority="2"></note>
