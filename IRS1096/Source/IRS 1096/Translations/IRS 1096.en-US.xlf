@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="IRS 1096">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 611409009 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 Form Header</source>
+          <target state="translated">IRS 1096 Form Header</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 3355893804 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculacted Adjustment Amount</source>
+          <target state="translated">Calculacted Adjustment Amount</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Calc. Adjustment Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 1374785065 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculated Amount</source>
+          <target state="translated">Calculated Amount</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Calc. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 3441529202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculated Total Number Of Forms</source>
+          <target state="translated">Calculated Total Number Of Forms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Calc. Total Number Of Forms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 4120197227 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Changed By</source>
+          <target state="translated">Changed By</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Changed By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 220470530 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Changed Date-Time</source>
+          <target state="translated">Changed Date-Time</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Changed Date-Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 458406397 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target state="translated">Ending Date</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Ending Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 856142431 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Code</source>
+          <target state="translated">IRS Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field IRS Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 1351594800 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <target state="translated">No. Series</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field No. Series - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 1668868500 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed</source>
+          <target state="translated">Printed</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Printed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 3312570397 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed By</source>
+          <target state="translated">Printed By</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Printed By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 1534715744 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Printed Date-Time</source>
+          <target state="translated">Printed Date-Time</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Printed Date-Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 460889064 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Starting Date</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Starting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 2910371453 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Amount To Report</source>
+          <target state="translated">Total Amount To Report</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Total Amount To Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 611409009 - Field 4049339335 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Number Of Forms</source>
+          <target state="translated">Total Number Of Forms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Field Total Number Of Forms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 Form Line</source>
+          <target state="translated">IRS 1096 Form Line</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Field 3818796397 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculated Adjustment Amount</source>
+          <target state="translated">Calculated Adjustment Amount</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Field Calculated Adjustment Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Field 3366083856 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculated Amount</source>
+          <target state="translated">Calculated Amount</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Field Calculated Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Field 2872056987 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Form No.</source>
+          <target state="translated">Form No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Field Form No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Field 856142431 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Code</source>
+          <target state="translated">IRS Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Field IRS Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Field 3320823955 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <target state="translated">Line No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Field 1286329895 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manually Changed</source>
+          <target state="translated">Manually Changed</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Field Manually Changed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Field 3692706522 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <target state="translated">Amount</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Field Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3936123786 - Field 1527594213 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <target state="translated">Vendor No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line - Field Vendor No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2370333772 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 Form Line Relation</source>
+          <target state="translated">IRS 1096 Form Line Relation</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line Relation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2370333772 - Field 883711285 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target state="translated">Entry No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line Relation - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2370333772 - Field 2872056987 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Form No.</source>
+          <target state="translated">Form No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line Relation - Field Form No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2370333772 - Field 3320823955 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <target state="translated">Line No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Line Relation - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 1689235809" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This feature provides functionality that enables an easy overview and reporting of the 1096 form to IRS.</source>
+          <target state="translated">This feature provides functionality that enables an easy overview and reporting of the 1096 form to IRS.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType AssistedSetupDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 1420859235" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up an IRS 1096 feature</source>
+          <target state="translated">Set up an IRS 1096 feature</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType AssistedSetupTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 450345902" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do not show again</source>
+          <target state="translated">Do not show again</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType DontShowAgainTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 2242053473" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 page is part of the new IRS 1096 feature, which is not yet enabled in your Business Central. An administrator can enable the feature on the Feature Management page.</source>
+          <target state="translated">The %1 page is part of the new IRS 1096 feature, which is not yet enabled in your Business Central. An administrator can enable the feature on the Feature Management page.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - page caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType FeatureNotEnabledMessageTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 3128728616" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The form %1 for the period from %2 to %3 already exist. If you want to replace it, use the Replace parameter on the request page. Do you want to stop the creation of forms?</source>
+          <target state="translated">The form %1 for the period from %2 to %3 already exist. If you want to replace it, use the Replace parameter on the request page. Do you want to stop the creation of forms?</target>
+          <note from="Developer" annotates="general" priority="2">%1 - code of the form, %2,%3 - starting and ending dates of the period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType FormPerPeriodAlreadyExistsQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 3630190536" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 forms have been created</source>
+          <target state="translated">IRS 1096 forms have been created</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType FormsCreatedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 376209035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is a new IRS 1096 form feature. An administrator can enable it on the Feature Management page.</source>
+          <target state="translated">There is a new IRS 1096 form feature. An administrator can enable it on the Feature Management page.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType InstallFeatureNotificationMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 4163108072" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This notification is used to let users know about the new IRS 1096 feature . It can be used to open the Feature Management and install the 1096 feature.</source>
+          <target state="translated">This notification is used to let users know about the new IRS 1096 feature . It can be used to open the Feature Management and install the 1096 feature.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType InstallIRS1096NotificationDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 436732375" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 Form - Install feature</source>
+          <target state="translated">IRS 1096 Form - Install feature</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType InstallIRS1096NotificationNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 3266585836" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No entries have been found by filters specified.</source>
+          <target state="translated">No entries have been found by filters specified.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType NoEntriesToCreateFormsMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 671009224" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>One or more forms within the period are not released. You can only print released forms. Open the form card and click Release to release the form.</source>
+          <target state="translated">One or more forms within the period are not released. You can only print released forms. Open the form card and click Release to release the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType OneOrMoreFormsNotReleasedErr</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Approve,Release,Print</source>
+          <target state="translated">New,Process,Report,Approve,Release,Print</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Property PromotedActionCategories</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1096 Form</source>
+          <target state="translated">1096 Form</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated">General</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 3355893804 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the adjustment amount per period and IRS code calculated by the Create Forms action on the list page.</source>
+          <target state="translated">Specifies the adjustment amount per period and IRS code calculated by the Create Forms action on the list page.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Calc. Adjustment Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 1374785065 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount per period and IRS code calculated by the Create Forms action on the list page. This value cannot be changed.</source>
+          <target state="translated">Specifies the amount per period and IRS code calculated by the Create Forms action on the list page. This value cannot be changed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Calc. Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 2940516191 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of forms per period and IRS code calculated by the Create Forms action on the list page. This value cannot be changed.</source>
+          <target state="translated">Specifies the number of forms per period and IRS code calculated by the Create Forms action on the list page. This value cannot be changed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Calculated Total Number Of Forms - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 458406397 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ending date of the form.</source>
+          <target state="translated">Specifies the ending date of the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Ending Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 856142431 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the IRS code of the form.</source>
+          <target state="translated">Specifies the IRS code of the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control IRS Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique number of the form.</source>
+          <target state="translated">Specifies the unique number of the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 460889064 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date of the form.</source>
+          <target state="translated">Specifies the starting date of the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Starting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the form. Only released forms can be printed. Only opened forms can be changed.</source>
+          <target state="translated">Specifies the status of the form. Only released forms can be printed. Only opened forms can be changed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 2910371453 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount used for printing the form. This value matches the calculated amount minus calculated adjustment amount after clicking the Create Forms action and can be changed manually.</source>
+          <target state="translated">Specifies the amount used for printing the form. This value matches the calculated amount minus calculated adjustment amount after clicking the Create Forms action and can be changed manually.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Total Amount To Report - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 4049339335 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of forms used for printing the form. This value matches the calculated number of forms after clicking the Create Forms action and can be changed manually.</source>
+          <target state="translated">Specifies the number of forms used for printing the form. This value matches the calculated number of forms after clicking the Create Forms action and can be changed manually.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Total Number Of Forms - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 4120197227 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ID of the user changed the form last time.</source>
+          <target state="translated">Specifies the ID of the user changed the form last time.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Changed By - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 220470530 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date and time when the form has been changed last time.</source>
+          <target state="translated">Specifies the date and time when the form has been changed last time.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Changed Date-Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 1668868500 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the form has been printed.</source>
+          <target state="translated">Specifies that the form has been printed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Printed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 3312570397 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ID of the user printed the form last time.</source>
+          <target state="translated">Specifies the ID of the user printed the form last time.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Printed By - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Control 1534715744 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date and time when the form has been printed last time.</source>
+          <target state="translated">Specifies the date and time when the form has been printed last time.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Control Printed Date-Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Action 1332593150 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <target state="translated">Release</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Action ReleaseReopen - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Action 1002420131 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prints a single form.</source>
+          <target state="translated">Prints a single form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Action Print - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Action 1002420131 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Print</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Action Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Action 4032263875 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release the form before printing it. You must reopen the form before you can make changes to it.</source>
+          <target state="translated">Release the form before printing it. You must reopen the form before you can make changes to it.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Action Release - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Action 4032263875 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Re&amp;lease</source>
+          <target state="translated">Re&amp;lease</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Action Release - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Action 2071937805 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reopen the form to change it after it has been approved. Approved forms have the Released status and must be opened before they can be changed.</source>
+          <target state="translated">Reopen the form to change it after it has been approved. Approved forms have the Released status and must be opened before they can be changed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Action Reopen - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4048141548 - Action 2071937805 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Re&amp;open</source>
+          <target state="translated">Re&amp;open</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form - Action Reopen - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 908679286 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <target state="translated">Lines</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 908679286 - Control 3818796397 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the adjustment amount per period and IRS code calculated by the Create Forms action on the list page.</source>
+          <target state="translated">Specifies the adjustment amount per period and IRS code calculated by the Create Forms action on the list page.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form Subform - Control Calculated Adjustment Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 908679286 - Control 3366083856 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount per period and IRS code calculated by the Create Forms action on the list page. This value cannot be changed.</source>
+          <target state="translated">Specifies the amount per period and IRS code calculated by the Create Forms action on the list page. This value cannot be changed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form Subform - Control Calculated Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 908679286 - Control 856142431 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the IRS code.</source>
+          <target state="translated">Specifies the IRS code.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form Subform - Control IRS Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 908679286 - Control 1286329895 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the line has been changed manually.</source>
+          <target state="translated">Specifies that the line has been changed manually.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form Subform - Control Manually Changed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 908679286 - Control 3692706522 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount used for printing the form. This value matches the calculated amount minus calculated adjustment amount after clicking the Create Forms action and can be changed manually.</source>
+          <target state="translated">Specifies the amount used for printing the form. This value matches the calculated amount minus calculated adjustment amount after clicking the Create Forms action and can be changed manually.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form Subform - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 908679286 - Control 1527594213 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor number.</source>
+          <target state="translated">Specifies the vendor number.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form Subform - Control Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Approve,Release,Print</source>
+          <target state="translated">New,Process,Report,Approve,Release,Print</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Property PromotedActionCategories</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1096 Forms</source>
+          <target state="translated">1096 Forms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Control 458406397 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ending date of the form.</source>
+          <target state="translated">Specifies the ending date of the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Control Ending Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Control 856142431 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the IRS code of the form.</source>
+          <target state="translated">Specifies the IRS code of the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Control IRS Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique number of the form.</source>
+          <target state="translated">Specifies the unique number of the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Control 460889064 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date of the form.</source>
+          <target state="translated">Specifies the starting date of the form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Control Starting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the form. Only released forms can be printed. Only opened forms can be changed.</source>
+          <target state="translated">Specifies the status of the form. Only released forms can be printed. Only opened forms can be changed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Action 1938994339 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create new 1096 forms for a certain period per each IRS code.</source>
+          <target state="translated">Create new 1096 forms for a certain period per each IRS code.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Action CreateForms - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Action 1938994339 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Forms</source>
+          <target state="translated">Create Forms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Action CreateForms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Action 3716952773 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prints all forms within period.</source>
+          <target state="translated">Prints all forms within period.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Action PrintPerPeriod - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Action 3716952773 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print-Per Period</source>
+          <target state="translated">Print-Per Period</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Action PrintPerPeriod - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Action 1710399589 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prints a single form.</source>
+          <target state="translated">Prints a single form.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Action PrintSingle - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 140355789 - Action 1710399589 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print-Single</source>
+          <target state="translated">Print-Single</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Forms - Action PrintSingle - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 Setup Wizard</source>
+          <target state="translated">IRS 1096 Setup Wizard</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - NamedType 2985793819" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 was not specified in %2. Do you want to continue?</source>
+          <target state="translated">%1 was not specified in %2. Do you want to continue?</target>
+          <note from="Developer" annotates="general" priority="2">%1 - no. series field caption; %2 = purchases &amp; payables table caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - NamedType NoSeriesIsNotSpecifiedQst</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - NamedType 984350027" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The setup is not complete.\\Are you sure you want to exit?</source>
+          <target state="translated">The setup is not complete.\\Are you sure you want to exit?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - NamedType SetupNotCompletedQst</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 300852202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control FinishedBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 2203603252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The IRS 1096 setup is complete.</source>
+          <target state="translated">The IRS 1096 setup is complete.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control FinishedChild - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 1182202415 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You're ready to create and print 1096 forms.</source>
+          <target state="translated">You're ready to create and print 1096 forms.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control FinishDescription - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 1182202415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control FinishDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 1121962313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control StandardBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 3647570164 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Choose Next to specify start a setup.</source>
+          <target state="translated">Choose Next to specify start a setup.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control Let's go! - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 3647570164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Let's go!</source>
+          <target state="translated">Let's go!</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control Let's go! - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 1156881414 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Form 1096 is used to transmit paper tax forms to the IRS. This feature enables running the Form 1096 report in Dynamics 365 Business Central and sending it to the IRS if this is required, and it is related only to already transmitted 1099 paper forms.</source>
+          <target state="translated">Form 1096 is used to transmit paper tax forms to the IRS. This feature enables running the Form 1096 report in Dynamics 365 Business Central and sending it to the IRS if this is required, and it is related only to already transmitted 1099 paper forms.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control Welcome to Intrastat Report Setup - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 1156881414 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Welcome to IRS 1096 Setup</source>
+          <target state="translated">Welcome to IRS 1096 Setup</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control Welcome to Intrastat Report Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated">General</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Control 3392878944 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for the number series that will be used to assign numbers for 1096 forms per certain period.</source>
+          <target state="translated">Specifies the code for the number series that will be used to assign numbers for 1096 forms per certain period.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Control IRS 1096 Form No. Series - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Action 2438272767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back</source>
+          <target state="translated">Back</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Action ActionBack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Action 3259912055 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finish</source>
+          <target state="translated">Finish</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Action ActionFinish - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3422618558 - Action 914282563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next</source>
+          <target state="translated">Next</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Setup Wizard - Action ActionNext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 Create Forms</source>
+          <target state="translated">IRS 1096 Create Forms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - NamedType 4197492268" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting and ending dates must be specified.</source>
+          <target state="translated">Starting and ending dates must be specified.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - NamedType DateAreNotSpecifiedErr</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - NamedType 359557753" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to replace the existing 1096 forms with the new ones?</source>
+          <target state="translated">Do you want to replace the existing 1096 forms with the new ones?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - NamedType ReplaceFormsQst</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Options</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - Control 3592094765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ending date for the forms creation. Only vendor ledger entries with posting date ending on this date will be considered.</source>
+          <target state="translated">Specifies the ending date for the forms creation. Only vendor ledger entries with posting date ending on this date will be considered.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - Control EndingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - Control 3592094765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target state="translated">Ending Date</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - Control EndingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - Control 363376037 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the newly created forms will replace the existing ones. If this option is not selected then only new forms will be created and the existing ones remain the same.</source>
+          <target state="translated">Specifies whether the newly created forms will replace the existing ones. If this option is not selected then only new forms will be created and the existing ones remain the same.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - Control ReplaceControl - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - Control 363376037 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="translated">Replace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - Control ReplaceControl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - Control 543275552 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date for the forms creation. Only vendor ledger entries with posting date starting from this date will be considered.</source>
+          <target state="translated">Specifies the starting date for the forms creation. Only vendor ledger entries with posting date starting from this date will be considered.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - Control StartingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2233012385 - Control 543275552 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Starting Date</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Create Forms - Control StartingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 Form</source>
+          <target state="translated">IRS 1096 Form</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 359018447 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Person to contact</source>
+          <target state="translated">Person to contact</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContractGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 563496984 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an e-mail of the person to contact.</source>
+          <target state="translated">Specifies an e-mail of the person to contact.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContactEmail - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 563496984 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email address</source>
+          <target state="translated">Email address</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContactEmail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 2305974544 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an fax number of the person to contact.</source>
+          <target state="translated">Specifies an fax number of the person to contact.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContactFaxNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 2305974544 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fax number</source>
+          <target state="translated">Fax number</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContactFaxNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 4144518489 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a name of the person to contact.</source>
+          <target state="translated">Specifies a name of the person to contact.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContactName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 4144518489 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name of person to contact</source>
+          <target state="translated">Name of person to contact</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContactName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 440591041 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a telephone number of the person to contact.</source>
+          <target state="translated">Specifies a telephone number of the person to contact.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContactPhoneNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 440591041 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Telephone number</source>
+          <target state="translated">Telephone number</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control ContactPhoneNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 3693723603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an employer identification number.</source>
+          <target state="translated">Specifies an employer identification number.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control IdentificationNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 3693723603 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employer identification number</source>
+          <target state="translated">Employer identification number</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control IdentificationNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 2183016322 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a social security number.</source>
+          <target state="translated">Specifies a social security number.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control SocialSecurityNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 2183016322 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Social security number</source>
+          <target state="translated">Social security number</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control SocialSecurityNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Options</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 846100057 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to print the 1096 form on blank paper before you print them on dedicated forms.</source>
+          <target state="translated">Specifies if you want to print the 1096 form on blank paper before you print them on dedicated forms.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control TestPrint - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4048141548 - Control 846100057 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Print</source>
+          <target state="translated">Test Print</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IRS 1096 Form - Control TestPrint - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 384592677 - Control 3392878944 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for the number series that will be used to assign numbers for 1096 forms.</source>
+          <target state="translated">Specifies the code for the number series that will be used to assign numbers for 1096 forms.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 384592677 - Field 3392878944 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS 1096 Form No. Series</source>
+          <target state="translated">IRS 1096 Form No. Series</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3921990236</note>
+        </trans-unit>
+        <trans-unit id="Enum 3364177672 - EnumValue 4259830144 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="translated">Open</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IRS 1096 Form Status - EnumValue Open - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3364177672 - EnumValue 4020758431 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Released</source>
+          <target state="translated">Released</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IRS 1096 Form Status - EnumValue Released - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
