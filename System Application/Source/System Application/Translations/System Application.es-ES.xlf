@@ -10438,7 +10438,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 751040678 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Published As</source>
-          <target state="translated">Publicado como</target>
+          <target state="translated">Publicada como</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control In_PublishedAs - Property Caption</note>
         </trans-unit>
@@ -10672,7 +10672,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 2351667098 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Published As</source>
-          <target state="translated">Publicado como</target>
+          <target state="translated">Publicada como</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Un_PublishedAs - Property Caption</note>
         </trans-unit>
@@ -10917,7 +10917,7 @@
         </trans-unit>
         <trans-unit id="Page 2005578726 - Control 852322270 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Published As</source>
-          <target state="translated">Publicado como</target>
+          <target state="translated">Publicada como</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Control Published As - Property Caption</note>
         </trans-unit>
