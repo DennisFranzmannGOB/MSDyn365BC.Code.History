@@ -73,6 +73,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = Field Caption, %2 = Application Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Default Dimension Handler CZA - Method TestSetupFieldsDuplicityCZA - NamedType BaseAppDuplicityErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 504783951 - Method 908586221 - NamedType 2188013312" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Changed settings will take effect for you immediately, for other users only after they log in again.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Dimension Auto.Create Mgt. CZA - Method CreateAndSendSignOutNotification - NamedType SignOutMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 504783951 - Method 2879428711 - NamedType 4058048616" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to initialize dimensions of the selected tables? This may take some time and you cannot undo your changes. Do you really want to continue?</source>
           <note from="Developer" annotates="general" priority="2"></note>

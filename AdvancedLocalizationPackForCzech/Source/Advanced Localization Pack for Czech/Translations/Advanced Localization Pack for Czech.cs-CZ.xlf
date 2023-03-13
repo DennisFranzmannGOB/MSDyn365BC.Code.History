@@ -141,6 +141,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Dimension Auto.Create Mgt. CZA - Method UpdateAllAutomaticDimValues - NamedType InitDimQst</note>
         </trans-unit>
+        <trans-unit id="Codeunit 504783951 - Method 908586221 - NamedType 2188013312" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Changed settings will take effect for you immediately, for other users only after they log in again.</source>
+          <target state="translated">Změněná nastavení se pro vás projeví okamžitě, pro ostatní uživatele až po opětovném přihlášení.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Dimension Auto.Create Mgt. CZA - Method CreateAndSendSignOutNotification - NamedType SignOutMsg</note>
+        </trans-unit>
         <trans-unit id="EnumExtension 3335123714 - EnumValue 1909666947 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No. Series</source>
           <target state="translated">Číselná řada zboží</target>
