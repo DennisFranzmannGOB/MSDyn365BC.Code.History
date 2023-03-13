@@ -32903,6 +32903,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Invt. Document Header CZL - Field Invt. Movement Template CZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 575568202 - Field 2254487529 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1001880325">
+          <source>G/L Correction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Invt. Posting Buffer CZL - Field G/L Correction CZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3841722071 - Field 3056514551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4076887508">
           <source>Inventory Movement Template</source>
           <note from="Developer" annotates="general" priority="2"></note>
