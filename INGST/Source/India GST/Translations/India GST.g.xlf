@@ -14663,6 +14663,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {3277542b-b49c-4ccd-b661-f72c71ced698}Lbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 2884579053" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {1bae51d1-ad26-40f8-bfd2-156024a23a7b}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 3556122914" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {364eaba8-df5d-4174-951e-9c9b375830d6}Lbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2680351807 - NamedType 870778515" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Information must have either GST Registration No. or ARN No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20523,6 +20533,101 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Multi Delivery Challan Subform - Action Dimensions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4218091040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Multi. Delivery Challan List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 3359238299 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the challan date of the delivery challan.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control Challan Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the delivery challan number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery Challan No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 3710982960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the posting date of the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 2926393677 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the delivery challan number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control Sub. order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 1527594213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the subcontractor vendor number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 2218805241 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of days till which the list will be filtered.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control Days - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 2218805241 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Days</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control Days - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 1523797681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether there is any remaining quantities available or not.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control RemainingQuantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 1523797681 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pending Quantities Exist</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control RemainingQuantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 2126592419 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the subcontracting order number filter.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control SubConorderNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 2126592419 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subcon order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control SubConorderNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 1936001480 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the subcontracting vendor number filter.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control Vendor - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Control 1936001480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Control Vendor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Action 3818708337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Delivery Challan</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Action &amp;Delivery Challan - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Action 2123807494 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Action &amp;Card - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4218091040 - Action 2123807494 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multi. Delivery Challan List - Action &amp;Card - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1339909187 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Multiple Delivery Challan</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20567,6 +20672,11 @@
           <source>Multiple Delivery Challan List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Multiple Delivery Challan List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1808006381 - NamedType 4094859519" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This Page has been marked as obsolete and will be removed from version 22.0. Instead of this Page use ‘Multi. Delivery Challan List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Multiple Delivery Challan List - NamedType UnusedPageLbl</note>
         </trans-unit>
         <trans-unit id="Page 1808006381 - Control 3359238299 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the challan date of the delivery challan.</source>
