@@ -31253,7 +31253,7 @@
         </trans-unit>
         <trans-unit id="Report 1653583588 - ReportLabel 2635438508" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account</source>
-          <target state="translated">Účet</target>
+          <target state="translated">Finanční účet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Accounting Sheets CZL - ReportLabel GLAccountLbl</note>
         </trans-unit>

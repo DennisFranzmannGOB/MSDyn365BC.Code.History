@@ -401,7 +401,7 @@
         </trans-unit>
         <trans-unit id="Enum 1996647254 - EnumValue 4274826855 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account</source>
-          <target state="translated">Účet</target>
+          <target state="translated">Finanční účet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Search Rule Account Type CZB - EnumValue G/L Account - Property Caption</note>
         </trans-unit>

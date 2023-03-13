@@ -679,7 +679,7 @@
         </trans-unit>
         <trans-unit id="Page 3012527878 - Action 113888489 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Rejects compensation.</source>
-          <target state="translated">Odmítne kompenzaci.</target>
+          <target state="translated">Odmítnutí zápočtu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Reject - Property ToolTip</note>
         </trans-unit>
@@ -2443,7 +2443,7 @@
         </trans-unit>
         <trans-unit id="Page 312536327 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Compensations</source>
-          <target state="translated">Zaúčtované zápočty</target>
+          <target state="translated">Účtované zápočty</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Property Caption</note>
         </trans-unit>
