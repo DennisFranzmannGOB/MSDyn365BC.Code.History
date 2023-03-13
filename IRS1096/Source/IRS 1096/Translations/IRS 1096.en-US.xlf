@@ -27,6 +27,12 @@
           <note from="Developer" annotates="general" priority="2">%1 - code of the form, %2,%3 - starting and ending dates of the period</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType FormPerPeriodAlreadyExistsQst</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2200371772 - NamedType 3258615253" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No IRS 1096 forms have been created</source>
+          <target state="translated">No IRS 1096 forms have been created</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IRS 1096 Form Mgt. - NamedType NoFormsHaveBeenCreatedMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2200371772 - NamedType 3266585836" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No entries have been found by filters specified.</source>
           <target state="translated">No entries have been found by filters specified.</target>
@@ -468,6 +474,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page IRS 1096 Form Subform - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1724306879 - Control 3499448041 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a name of the person to contact related with IRS.</source>
+          <target state="translated">Specifies a name of the person to contact related with IRS.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3469146285</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1724306879 - Control 3614363059 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an Employer Identification Number (EIN).</source>
+          <target state="translated">Specifies an Employer Identification Number (EIN).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3469146285</note>
+        </trans-unit>
         <trans-unit id="PageExtension 384592677 - Control 3392878944 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for the number series that will be used to assign numbers for 1096 forms.</source>
           <target state="translated">Specifies the code for the number series that will be used to assign numbers for 1096 forms.</target>
@@ -816,6 +836,20 @@
           <target state="translated">IRS 1096 Form Header</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table IRS 1096 Form Header - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1724306879 - Field 3499448041 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Contact No.</source>
+          <target state="translated">IRS Contact No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3469146285</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1724306879 - Field 3614363059 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EIN Number</source>
+          <target state="translated">EIN Number</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3469146285</note>
         </trans-unit>
         <trans-unit id="TableExtension 384592677 - Field 3392878944 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>IRS 1096 Form No. Series</source>
