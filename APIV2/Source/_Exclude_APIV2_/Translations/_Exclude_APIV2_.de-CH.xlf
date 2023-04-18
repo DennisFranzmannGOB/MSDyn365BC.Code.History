@@ -5003,13 +5003,13 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 1719523317 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order Id</source>
-          <target state="translated">Auftrags-ID</target>
+          <target state="translated">Bestell-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control orderId - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 3577402367 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order No.</source>
-          <target state="translated">Auftragsnr.</target>
+          <target state="translated">Bestellnr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control orderNumber - Property Caption</note>
         </trans-unit>
