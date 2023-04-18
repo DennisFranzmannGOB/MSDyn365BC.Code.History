@@ -7668,7 +7668,7 @@
         </trans-unit>
         <trans-unit id="Table 2442512937 - Field 1331641168 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>To Pay Amount (LCY)</source>
-          <target state="translated">Částka k zaplacení (LM)</target>
+          <target state="translated">Částka k úhradě (LM)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Field To Pay (LCY</note>
         </trans-unit>
@@ -8244,7 +8244,7 @@
         </trans-unit>
         <trans-unit id="Table 3911307783 - Field 1331641168 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>To Pay Amount (LCY)</source>
-          <target state="translated">Částka k zaplacení (LM)</target>
+          <target state="translated">Částka k úhradě (LM)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - Field To Pay (LCY</note>
         </trans-unit>
