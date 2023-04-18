@@ -1,4 +1,4 @@
-codeunit 11032 "Intrastat Report Filter Shpt."
+codeunit 11033 "Intrastat Report Reset Filter"
 {
     TableNo = "Data Exch.";
 
@@ -12,7 +12,7 @@ codeunit 11032 "Intrastat Report Filter Shpt."
         Rec."Table Filters".CreateInStream(InStreamFilters);
         InStreamFilters.ReadText(IntrastatReportLineFilters);
         IntrastatReportLine.SetView(IntrastatReportLineFilters);
-        IntrastatReportLine.SetRange(Type, IntrastatReportLine.Type::Shipment);
+        IntrastatReportLine.SetRange(Type);
 
         Clear(Rec."Table Filters");
         Rec."Table Filters".CreateOutStream(OutStreamFilters);
