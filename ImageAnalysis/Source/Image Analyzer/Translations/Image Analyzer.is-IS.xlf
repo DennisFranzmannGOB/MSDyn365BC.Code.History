@@ -183,12 +183,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType ContactQuestionnairePopulatedNotificationDescriptionTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3175899218 - NamedType 1478212858" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Don't ask again</source>
-          <target state="translated">Ekki spyrja aftur</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType DeactivateActionTxt</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 844885115" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Got it</source>
           <target state="translated">Ég skil</target>
@@ -236,12 +230,6 @@
           <target state="translated">Láta mig vita að viðbót myndgreiningar getur stungið upp á eigindum sem eru greindar í myndum sem fluttar eru inn.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType SetupNotificationDescriptionTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3175899218 - NamedType 3777354085" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>If you want, we can assign attributes based on the images you import for items and contacts.</source>
-          <target state="translated">Ef þú vilt getum við úthlutað eigindum sem byggjast á myndunum sem þú sendir inn fyrir vörur og tengiliði.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType SetupNotificationMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 3519161399" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer setup</source>
