@@ -2263,6 +2263,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Acquisition CZF - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 4247254988 - NamedType 696426120" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes,No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Acquisition CZF - NamedType BooleanValuesTxt</note>
+        </trans-unit>
         <trans-unit id="Report 4247254988 - NamedType 2413148159" size-unit="char" translate="yes" xml:space="preserve">
           <source>Acquisition report date must not be empty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2342,6 +2347,11 @@
           <source>FA Location</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Acquisition CZF - ReportLabel FALocationLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4247254988 - ReportLabel 2826403587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Acquisition CZF - ReportLabel InactiveLbl</note>
         </trans-unit>
         <trans-unit id="Report 4247254988 - ReportLabel 99927439" size-unit="char" translate="yes" xml:space="preserve">
           <source>1.</source>
@@ -2448,6 +2458,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Card CZF - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1612362103 - NamedType 696426120" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes,No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Card CZF - NamedType BooleanValuesTxt</note>
+        </trans-unit>
         <trans-unit id="Report 1612362103 - NamedType 216221698" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disposed Of</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2477,6 +2492,11 @@
           <source>Fixed Asset Card</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Card CZF - ReportLabel FixedAssetCardLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612362103 - ReportLabel 2826403587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Card CZF - ReportLabel InactiveLbl</note>
         </trans-unit>
         <trans-unit id="Report 1612362103 - ReportLabel 1877187315" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>

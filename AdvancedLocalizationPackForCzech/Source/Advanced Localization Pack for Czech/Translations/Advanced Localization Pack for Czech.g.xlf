@@ -68,16 +68,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = TableCaption, %2 = FieldCaption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Calculate Invent. Handler CZA - Method CheckFiltersOnAfterItemOnPreDataItem - NamedType ItemFilterErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1333083693 - Method 2666294569 - NamedType 398206678" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot set %1 in Base Application if the same field is set in %2.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Field Caption, %2 = Application Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Default Dimension Handler CZA - Method TestSetupFieldsDuplicityBaseApp - NamedType BaseAppDuplicityErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1333083693 - Method 2223051845 - NamedType 398206678" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot set %1 in %2 if the same field is set in Base Application.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Field Caption, %2 = Application Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Default Dimension Handler CZA - Method TestSetupFieldsDuplicityCZA - NamedType BaseAppDuplicityErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 504783951 - Method 908586221 - NamedType 2188013312" size-unit="char" translate="yes" xml:space="preserve">
           <source>Changed settings will take effect for you immediately, for other users only after they log in again.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -162,6 +152,11 @@
           <source>You cannot reverse %1 No %2 because the entry was either applied to another entry or has been changed by a batch job.</source>
           <note from="Developer" annotates="general" priority="2">%1 = TableCaption G/L Entry, %2 = Entry No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reversal Entry Handler CZA - Method GLEntryPostApplicationOnCheckGLAccOnBeforeTestFields - NamedType ReverseErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2147647392 - Method 1466707495 - NamedType 3808198992" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Function Reverse Register and Reverse Transaction cannot be used! Use function Cancel Entries instead.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reversal Entry Handler CZA - Method OnAfterMoveToGenJnlLine - NamedType CheckFaErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1997957299 - Method 84682111 - NamedType 272546004" size-unit="char" translate="yes" xml:space="preserve">
           <source>This shipment has already been received. Undo Shipment can be applied only to posted, but not received shipments.</source>
@@ -1374,7 +1369,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Transfer Shp. Subf. CZA - Action UndoShipmentCZA - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 120755117 - Action 1908199188 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2991235355">
-          <source>&amp;Undo Shipment</source>
+          <source>&amp;Undo Shipment (Obsolete)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Transfer Shp. Subf. CZA - Action UndoShipmentCZA - Property Caption</note>
         </trans-unit>

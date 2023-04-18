@@ -906,6 +906,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document List CZP - Action Category_Report - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1038428832 - Action 2524661601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document List CZP - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1038428832 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Document</source>
           <target state="translated">Pokladní doklad</target>
@@ -984,6 +990,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action Category_Report - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1242474714 - Action 2524661601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1242474714 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Document</source>
           <target state="translated">Pokladní doklad</target>
@@ -1026,6 +1038,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Events Setup CZP - Action &amp;Cash Desk Events - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1938499750 - Action 1107476520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <target state="translated">Otevře doklad, na kterém je vybraný řádek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Action 1107476520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <target state="translated">Zobrazit doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">Řáde&amp;k</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1970646769 - Action 1013253961 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies enu delegate of cash document.</source>
           <target state="translated">Určuje možnost delegovat schválení pokladního dokladu.</target>
@@ -1067,18 +1103,6 @@
           <target state="translated">Pokladní doklad</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Cash Document - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 1336921863 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow to link whole advance letters.</source>
-          <target state="translated">Umožňuje propojit celé zálohové faktury.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Link Whole Advance Letter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 1336921863 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Link Whole Advance Letter</source>
-          <target state="translated">Propojit celou zálohu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Link Whole Advance Letter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970646769 - Action 1344672713 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
@@ -1170,18 +1194,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Dimensions - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 217464279 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unlinks linked advance letters</source>
-          <target state="translated">Zruší propojení připojené zálohové faktury.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action UnLink Linked Advance Letters - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 217464279 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>UnLink Linked Advance Letters</source>
-          <target state="translated">Odpojit zálohové faktury</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action UnLink Linked Advance Letters - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1970646769 - Action 2206061110 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Releasing</source>
           <target state="translated">&amp;Vydání</target>
@@ -1272,6 +1284,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category6 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 3162358218 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category9 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1970646769 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Process</source>
           <target state="translated">Proces</target>
@@ -1349,18 +1367,6 @@
           <target state="translated">Účtovat a vy&amp;tisknout</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action PostAndPrint - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 781841601 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow to link partial payment of advance letters.</source>
-          <target state="translated">Umožňuje propojit dílčí platby zálohových faktur.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Link Advance Letters - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 781841601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Link Advance Letters</source>
-          <target state="translated">Propojit zálohové faktury</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Link Advance Letters - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970646769 - Action 803889193 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Relations to the workflow.</source>
@@ -1548,6 +1554,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action &amp;Print - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 1359316502 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a new cash document by copying an existing cash document.</source>
+          <target state="translated">Vytvořit nový pokladní doklad zkopírováním existujícího pokladního dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action CopyDocument - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 1359316502 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy Document</source>
+          <target state="translated">Kopírovat doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action CopyDocument - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4221146319 - Action 1587086413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Release</source>
           <target state="translated">Vydat</target>
@@ -1596,6 +1614,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Request Approval - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 2524661601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 3106002577 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>F&amp;unctions</source>
+          <target state="translated">F&amp;unkce</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action F&amp;unctions - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4221146319 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request Approval</source>
           <target state="translated">Schvalování požadavku</target>
@@ -1613,6 +1643,12 @@
           <target state="translated">Náhled účtování</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action PreviewPosting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4221146319 - Action 383335270 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Relations to the workflow.</source>
@@ -1728,6 +1764,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4259462887 - Action 1587086413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Document</source>
+          <target state="translated">Nový doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4259462887 - Action 189720262 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Edit users authorized to issue or post cash documents for defined cash desk.</source>
           <target state="translated">Upravit uživatele oprávněné vydávat nebo účtovat pokladní doklady pro definovanou pokladnu.</target>
@@ -1830,6 +1872,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Responsibility Hand Over - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4259462887 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4259462887 - Action 3128965844 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show the overview of opened cash documents.</source>
           <target state="translated">Zobrazení přehledu otevřených pokladních dokladů.</target>
@@ -1902,6 +1950,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Statistics - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4259462887 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Desk</source>
+          <target state="translated">Pokladna</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 548777415 - Action 1735507514 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line</source>
           <target state="translated">Řádek</target>
@@ -1938,6 +1992,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Subform CZP - Action F&amp;unctions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 57435133 - Action 1107476520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <target state="translated">Otevře doklad, na kterém jsou vybrané řádky.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 1107476520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <target state="translated">Zobrazit doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">Řáde&amp;k</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 2173385693 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <target state="translated">Zobrazení nebo úprava dimenzí, jako je oblast, projekt nebo středisko, které můžete přiřadit k prodejním a nákupním dokladům za účelem distribuce nákladů a analýzy historie transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 2173385693 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <target state="translated">Dimenze</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 673917101 - Action 1111476699 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the page with bank account ledger entries of this cash desk.</source>
           <target state="translated">Otevřete stránku s položkami bankovního účtu z této pokladny.</target>
@@ -1949,6 +2039,12 @@
           <target state="translated">Po&amp;ložky</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Ledger E&amp;ntries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 673917101 - Action 1269952864 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <target state="translated">Dimenze</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Dimensions - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 673917101 - Action 1369962772 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show the overview of released cash documents.</source>
@@ -1973,6 +2069,12 @@
           <target state="translated">Nastavení</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 673917101 - Action 1587086413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Document</source>
+          <target state="translated">Nový doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Category4 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 673917101 - Action 189720262 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Edit users authorized to issue or post cash documents for defined cash desk.</source>
@@ -2082,6 +2184,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Responsibility Hand Over - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 673917101 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 673917101 - Action 3128965844 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show the overview of opened cash documents.</source>
           <target state="translated">Zobrazte přehled otevřených pokladních dokladů.</target>
@@ -2165,6 +2273,12 @@
           <target state="translated">Dimenze-&amp;jedna</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Dimensions-Single - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 673917101 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Desk</source>
+          <target state="translated">Pokladna</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Category7 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1038428832 - Control 1650118938 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the unit price on the line should be displayed including or excluding VAT.</source>
@@ -2736,6 +2850,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control Shortcut Dimension 2 Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 1291090573 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 8 of line</source>
+          <target state="translated">Určuje kód zkratky dimenze 8 řádku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[8]5D; - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1938499750 - Control 1577567912 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code of the Shortcut Dimension 1, which is defined in the Shortcut Dimension 1 Code field in the General Ledger Setup window.</source>
           <target state="translated">Určuje kód zkratky dimenze 1, který je definován v poli kódu zkratky dimenze 1 v okně nastavení financí.</target>
@@ -2778,6 +2898,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control Cash Desk Event - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 3128656593 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 4 of line</source>
+          <target state="translated">Určuje kód zkratky dimenze 4 řádku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[4]5D; - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1938499750 - Control 333492497 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of cash desk.</source>
           <target state="translated">Určuje číslo pokladny.</target>
@@ -2790,11 +2916,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control Description - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 3685713487 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 6 of line</source>
+          <target state="translated">Určuje kód zkratky dimenze 6 řádku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[6]5D; - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1938499750 - Control 3699788827 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of account thet the entry will be posted to. To see the options, choose the field.</source>
           <target state="translated">Určuje typ účtu, na který bude zaúčtována položka. Chcete-li zobrazit dostupné možnosti, vyberte pole.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control Account Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 377216802 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 5 of line</source>
+          <target state="translated">Určuje kód zkratky dimenze 5 řádku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[5]5D; - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1938499750 - Control 3883264070 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which salesperson is assigned to the cash document line.</source>
@@ -2819,6 +2957,18 @@
           <target state="translated">Určuje celkovou částku, která je tvořena řádky pokladního dokladu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 655538596 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 3 of line</source>
+          <target state="translated">Určuje kód zkratky dimenze 3 řádku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[3]5D; - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 934273696 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 7 of line</source>
+          <target state="translated">Určuje kód zkratky dimenze 7 řádku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[7]5D; - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1970646769 - Control 1003760969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code of the Shortcut Dimension 2, which is defined in the Shortcut Dimension 2 Code field in the General Ledger Setup window.</source>
@@ -4134,6 +4284,264 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Subform CZP - Control ShortcutDimCode[7]5D; - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1003760969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the Shortcut Dimension 2, which is defined in the Shortcut Dimension 2 Code field in the General Ledger Setup window.</source>
+          <target state="translated">Určuje kód zkratky dimenze 2, který se definuje v poli Kód zkratky dimenze 2 v okně Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1108276017 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT amount for cash desk document line.</source>
+          <target state="translated">Určuje částku DPH pro řádek pokladního dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1246077090 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT % field.</source>
+          <target state="translated">Určuje hodnotu pole % DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1389243188 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the EET Transaction field.</source>
+          <target state="translated">Určuje hodnotu pole Transakce EET.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control EET Transaction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1527563463 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number that the vendor uses on the invoice they sent to you or number of receipt.</source>
+          <target state="translated">Určuje číslo, které dodavatel používá na faktuře, které Vám zaslal nebo číslo příjemky.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control External Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1577567912 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the Shortcut Dimension 1, which is defined in the Shortcut Dimension 1 Code field in the General Ledger Setup window.</source>
+          <target state="translated">Určuje kód zkratky dimenze 1, který je definován v poli kódu zkratky dimenze 1 v okně nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1622979514 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the account that the entry on the journal line will be posted to.</source>
+          <target state="translated">Určuje číslo účtu, na který bude zaúčtována položka v tomto řádku deníku.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Account No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1650118938 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the unit price on the line should be displayed including or excluding VAT.</source>
+          <target state="translated">Určuje, zda bude jednotková cena na řádku  zobrazena včetně nebo bez DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Amount Including VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1844012642 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a VAT business posting group code.</source>
+          <target state="translated">Určuje kód DPH obchodní účto skupiny.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1877866625 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the cash document line amount represents a acquisition cost (Acquisition Cost) or a custom 2 (Custom 2) or a maintenance (Maintenance) of Fixed Asset.</source>
+          <target state="translated">Určuje, zda částka řádku pokladního dokladu představuje náklady na pořízení (pořizovací náklady) nebo vlastní 2 (Vlastní 2) nebo údržbu (údržbu) dlouhodobého majetku.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control FA Posting Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1908046867 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the reason code on the entry.</source>
+          <target state="translated">Určuje kód příčiny položky.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Reason Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1915851633 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Posting Group field.</source>
+          <target state="translated">Určuje hodnotu pole Účto skupina.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2024361351 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the cash desk general document type is payment or refund.</source>
+          <target state="translated">Určuje, zda je typ pokladního dokladu platba nebo refundace.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Gen. Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2223214263 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for the depreciation book to which the line will be posted if you have selected Fixed Asset in the Type field for this line.</source>
+          <target state="translated">Určuje kód knihy odpisů, do které bude zaúčtován řádek, pokud jste v poli Typ na řádku zvolili Dlouhodobý majetek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Depreciation Book Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2247850105 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Responsibility Center field.</source>
+          <target state="translated">Určuje hodnotu pole Centrum odpovědnosti.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Responsibility Center - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2283884360 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the System-Created Entry field.</source>
+          <target state="translated">Určuje hodnotu pole Systémem vytvořená položka.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control System-Created Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2348384091 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Amount Including VAT (LCY) field.</source>
+          <target state="translated">Určuje hodnotu pole Částka včetně DPH (LM).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Amount Including VAT (LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 236064653 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a VAT product posting group code for the VAT Statement.</source>
+          <target state="translated">Určuje kód DPH účto skupiny zboží pro výkaz DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Cash Document Type field.</source>
+          <target state="translated">Určuje hodnotu pole Typ pokladního dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2385065524 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you have selected Fixed Asset in the Account Type field for this line.</source>
+          <target state="translated">Určuje, zda jste v poli Typ účtu tohoto řádku zvolili Dlouhodobý majetek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Duplicate in Depreciation Book - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2422551700 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a maintenance code.</source>
+          <target state="translated">Určuje kód údržby.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Maintenance Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2534656220 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Identifier field.</source>
+          <target state="translated">Určuje hodnotu pole Identifikátor DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Identifier - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2676088555 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Cash Document No. field.</source>
+          <target state="translated">Určuje hodnotu pole Číslo pokladního dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Cash Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2759347632 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the cash desk event in the cash document lines.</source>
+          <target state="translated">Určuje pokladní událost v řádcích pokladního dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Cash Desk Event - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2911518948 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Amount (LCY) field.</source>
+          <target state="translated">Určuje hodnotu pole Částka DPH (LM).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2971014054 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Calculation Type field.</source>
+          <target state="translated">Určuje hodnotu pole Typ výpočtu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Calculation Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2992823416 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Difference field.</source>
+          <target state="translated">Určuje hodnotu pole Odchylka DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Difference - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3144071522 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Use Tax field.</source>
+          <target state="translated">Určuje hodnotu pole Spotřební daň.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Use Tax - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3320823955 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Line No. field.</source>
+          <target state="translated">Určuje hodnotu pole Číslo řádku.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3322554545 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Dimension Set ID field.</source>
+          <target state="translated">Určuje hodnotu pole ID sady dimenzí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Dimension Set ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 333492497 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Cash Desk No. field.</source>
+          <target state="translated">Určuje hodnotu pole Číslo pokladního dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Cash Desk No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of cash document line.</source>
+          <target state="translated">Určuje popis pro řádek pokladního dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3699788827 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of account thet the entry will be posted to. To see the options, choose the field.</source>
+          <target state="translated">Určuje typ účtu, na který bude zaúčtována položka. Chcete-li zobrazit dostupné možnosti, vyberte pole.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Account Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3883264070 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which salesperson/purchaser is assigned to the cash desk document.</source>
+          <target state="translated">Určuje, který prodejce/nákupčí je přiřazen pokladnímu dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Salespers./Purch. Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 4198939294 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the currency of amounts on the document.</source>
+          <target state="translated">Určuje měnu částek na dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 47657272 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the another line for description if description is longer.</source>
+          <target state="translated">Určuje jiný řádek pro popis, pokud je popis delší.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Description 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 59113118 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the general posting type is purchase (Purchase) or sale (Sale).</source>
+          <target state="translated">Určuje, zda je obecné účtování nákup (Nákup) nebo prodej (Prodej).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Gen. Posting Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 592951229 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Amount (LCY) field.</source>
+          <target state="translated">Určuje hodnotu pole Částka (LM).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 607461957 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you have selected Fixed Asset in the Account Type field for this line.</source>
+          <target state="translated">Určuje, zda jste v poli Typ účtu tohoto řádku zvolili Dlouhodobý majetek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Use Duplication List - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 636392376 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total amount that the cash document line consists of.</source>
+          <target state="translated">Určuje celkovou částku, která je tvořena řádky pokladního dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 685875197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Difference (LCY) field.</source>
+          <target state="translated">Určuje hodnotu pole Odchylka DPH (LM).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Difference (LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 904390814 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total VAT base amount for lines. The program calculates this amount from the sum of line VAT base amount fields.</source>
+          <target state="translated">Určuje celkovou částku základu DPH pro řádky. Program vypočte tuto částku jako součet z pole Částka základu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Base Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 953833239 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Base Amount (LCY) field.</source>
+          <target state="translated">Určuje hodnotu pole Částka základu DPH (LM).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Base Amount (LCY</note>
+        </trans-unit>
         <trans-unit id="Page 673917101 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of cash desk.</source>
           <target state="translated">Určuje název pokladny.</target>
@@ -4361,6 +4769,12 @@
           <target state="translated">Řádky</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Subform CZP - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Cash Document Lines</source>
+          <target state="translated">Řádky účtovaného pokladního dokladu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 673917101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Desks</source>
@@ -5527,6 +5941,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Cash Desk Account Book CZP - Control EndDateCZP - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3309826356 - Control 2279373630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of copies to print.</source>
+          <target state="translated">Určuje počet kopií, které chcete vytisknout.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - Control NoOfCopiesCZP - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3309826356 - Control 2279373630 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of Copies</source>
+          <target state="translated">Počet kopií</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - Control NoOfCopiesCZP - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3309826356 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Možnosti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - Control Options - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3454630479 - Control 1084660530 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the accounting sheet is shown.</source>
           <target state="translated">Určuje, zda bude účtenka zobrazena.</target>
@@ -5688,6 +6120,24 @@
           <target state="translated">ID odpovědnosti (vydání)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Cash Desk Hand Over CZP - Control OldRespReleaseID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 744157261 - Control 2279373630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of copies to print.</source>
+          <target state="translated">Určuje počet kopií, které chcete vytisknout.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - Control NoOfCopiesCZP - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 744157261 - Control 2279373630 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of Copies</source>
+          <target state="translated">Počet kopií</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - Control NoOfCopiesCZP - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 744157261 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Možnosti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - Control Options - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1923483119 - NamedType 3642584667" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange Rate %1 %2 / %3 %4</source>
@@ -6193,6 +6643,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel VATBaseLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3309826356 - ReportLabel 3701423681" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated">Kopírovat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel CopyLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3309826356 - ReportLabel 3751533915" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Amount</source>
           <target state="translated">Částka DPH</target>
@@ -6456,6 +6912,12 @@
           <target state="translated">Základ DPH</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel VATBaseLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 744157261 - ReportLabel 3701423681" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated">Kopírovat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel CopyLbl</note>
         </trans-unit>
         <trans-unit id="Report 744157261 - ReportLabel 3751533915" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Amount</source>
@@ -7338,12 +7800,6 @@
           <target state="translated">Typ účtu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Account Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2453418483 - Field 3770308547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advance Letter Link Code</source>
-          <target state="translated">Kód propojení zálohy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Advance Letter Link Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2453418483 - Field 3883264070 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Salespers./Purch. Code</source>

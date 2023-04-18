@@ -159,6 +159,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Operations Functions CZL - NamedType BankAccountNoTooLongErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1736579922 - NamedType 116208538" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The replacing VAT Date CZ field with VAT Reporting Date is not enabled.\Please enable it by using Feature Management before use.</source>
+          <target state="translated">Nahrazení pole Datum DPH CZ polem Datum vykazování DPH není povoleno.\Před použitím povolte funkcionalitu pomocí Správy funkcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Replace VAT Date Mgt. CZL - NamedType ReplaceVATDateNotEnabledErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1736579922 - NamedType 1263877309" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The replacing VAT Date CZ field with VAT Reporting Date is already enabled.\Please use the new VAT Reporting Date feature instead.</source>
+          <target state="translated">Nahrazení pole Datum DPH CZ polem Datum vykazování DPH je již povoleno.\Použijte místo toho novou funkci Datum vykazování DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Replace VAT Date Mgt. CZL - NamedType ReplaceVATDateEnabledErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1880880969 - NamedType 1113740881" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 Lines have been created.</source>
           <target state="translated">Bylo vytvořeno %1 řádků.</target>
@@ -326,6 +338,12 @@
           <target state="translated">není v rozmezí povolených dat zaúčtování.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT LCY Correction-Post CZL - NamedType PostingDateOutRangeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2924102495 - NamedType 2255901053" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Relation Exch. Rate Amount for the Currency Code and for the VAT Currency Code must be the same if Normal VAT is used.</source>
+          <target state="translated">V případě použití normální DPH se musí rovnat Částka směnného kurzu pro Kód měny a Kód měny DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Posting Handler CZL - NamedType VATCalcTypeErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3714512334 - NamedType 171201099" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>CZ_DECIMAL_FORMAT</source>
@@ -1665,23 +1683,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit EET Management CZL - NamedType WarningsTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 826843495 - NamedType 1018463434" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Access to payment orders of bank account %1 is not allowed in extended user check.</source>
-          <target state="translated">Přístup k platebním příkazům bankovního konta %1 není povolen rozšířenou uživatelskou kontrolou.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = bank account number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit User Setup Adv. Management CZL - NamedType PaymOrdDeniedErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 826843495 - NamedType 1623557074" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Access to journal %1 is not allowed in extended user check.</source>
           <target state="translated">Přístup k deníku %1 není povolen rozšířenou uživatelskou kontrolou.</target>
           <note from="Developer" annotates="general" priority="2">%1 = journal template code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit User Setup Adv. Management CZL - NamedType JournalPermErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 826843495 - NamedType 3667203766" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Access to bank statements of bank account %1 is not allowed in extended user check.</source>
-          <target state="translated">Přístup k bankovním výpisům bankovního konta %1 není povolen rozšířenou uživatelskou kontrolou.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = bank account number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit User Setup Adv. Management CZL - NamedType BankStmtDeniedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 826843495 - NamedType 3711770470" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Access to statement %1 is not allowed in extended user check.</source>
@@ -2241,30 +2247,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Acc. Schedule Management CZL - Method ResultHeaderOnBeforeDeleteEvent - NamedType DeleteQst</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3526969792 - Method 3136274771 - NamedType 3365690235" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unit of Measure %1 not exist for Item No. %2.</source>
-          <target state="translated">Měrná jednotka %1 není zadáno pro zboží %2.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Unit of Measure Code, %2 = Item No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Tariff No. Handler CZL - Method CheckTariffNo - NamedType ItemUnitOfMeasureForVATNotExistErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3526969792 - Method 3136274771 - NamedType 3407409923" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>For commodity %1 and limit %2 not allowed VAT type %3 posting.\\Item List:\%4.</source>
-          <target state="translated">Pro komoditu %1 a limit %2 nelze účtovat DPH s typem %3.\\Seznam čísel:\%4.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Commodity Code, %2 = Commodity Limit Amount LCY, %3 = VAT Calculation Type, %4 = Item No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Tariff No. Handler CZL - Method CheckTariffNo - NamedType VATPostingSetupPostMismashErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3526969792 - Method 3136274771 - NamedType 3730310881" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Commodity Setup %1 for date %2 not exist.</source>
-          <target state="translated">Nastavení komodity %1 k datu %2 neexistuje.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Commodity Code, %2 = Date</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Tariff No. Handler CZL - Method CheckTariffNo - NamedType CommoditySetupForVATNotExistErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3526969792 - Method 3136274771 - NamedType 428057750" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The amount of the invoice is below the limit for Reverse VAT (%5).\\Item List:\%4\\Really post VAT type %3 for Deliverable Code %1 and limit %2?</source>
-          <target state="translated">Částka k fakturaci nedosahuje limitu pro vratnou DPH (%5).\\Seznam čísel:\%4\\Chcete skutečně účtovat DPH s typem %3 pro kód plnění %1 a limit %2?</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Commodity Code, %2 = Commodity Limit Amount LCY, %3 = VAT Calculation Type, %4 = List of Item No., %5 = AmountToCheckLimit</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Tariff No. Handler CZL - Method CheckTariffNo - NamedType VATPostingSetupPostMismashQst</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3670487610 - Method 1906110270 - NamedType 1271012751" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Web service returned error message.\\%1</source>
           <target state="translated">Webová služba vrátila chybovou zprávu.\\%1</target>
@@ -2744,6 +2726,30 @@
           <target state="translated">Standardní</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Accounting Schedule Type CZL - EnumValue Standard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1805458918 - EnumValue 3098773014 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blank</source>
+          <target state="translated">Prázdné</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Default Orig.Doc. VAT Date CZL - EnumValue Blank - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1805458918 - EnumValue 3163386377 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date</source>
+          <target state="translated">Datum DPH</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Default Orig.Doc. VAT Date CZL - EnumValue VAT Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1805458918 - EnumValue 3710982960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <target state="translated">Zúčtovací datum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Default Orig.Doc. VAT Date CZL - EnumValue Posting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1805458918 - EnumValue 580412389 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <target state="translated">Datum dokladu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Default Orig.Doc. VAT Date CZL - EnumValue Document Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2045267879 - EnumValue 1249475212 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Created</source>
@@ -3557,18 +3563,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Registration Log CZL - Action ValidationDetail - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1124383332 - Action 2132739703 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update verified data to card.</source>
-          <target state="translated">Aktualizujte ověřená data na kartu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Registration Log CZL - Action Update Card - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1124383332 - Action 2132739703 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update Card</source>
-          <target state="translated">Aktualizovat kartu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Registration Log CZL - Action Update Card - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1124383332 - Action 797376547 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Verify a Registration number. If the number is verified the Status field contains the value Valid.</source>
           <target state="translated">Ověří IČ. Pokud číslo je ověřeno, stav pole obsahuje hodnotu Platné.</target>
@@ -3887,6 +3881,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report Lines CZL - Action Show Document - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2183057582 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report Lines CZL - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2224198679 - Action 1002420131 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allows print the account schedule results.</source>
           <target state="translated">Umožňuje tisk výsledků účetního schématu.</target>
@@ -3988,6 +3988,30 @@
           <target state="translated">Předchozí sada</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Acc. Sched. Res. Overview CZL - Action Previous Set - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2411306259 - Action 1107476520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <target state="translated">Otevře doklad, na kterém jsou vybrané řádky.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Lines CZL - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2411306259 - Action 1107476520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <target state="translated">Zobrazit doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Lines CZL - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2411306259 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">Řáde&amp;k</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Lines CZL - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2411306259 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Lines CZL - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2446698645 - Action 1126048259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Change the Service URL to its default value. You cannot cancel this action to revert back to the current value.</source>
@@ -8999,6 +9023,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Lines CZL - Control EU Service - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2411306259 - Control 1499100466 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VIES Declaration No.</source>
+          <target state="translated">Určuje číslo souhrnného hlášení.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Lines CZL - Control VIES Declaration No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2411306259 - Control 284764054 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the country/region code.</source>
           <target state="translated">Určuje kód země nebo oblasti.</target>
@@ -10510,12 +10540,6 @@
           <target state="translated">Určuje, co bude řádek výkazu DPH obsahovat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Statement Preview Line CZL - Control Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3852892881 - Control 2265333407 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the VAT statement prepayment type.</source>
-          <target state="translated">Určuje typ platby předem pro výkaz DPH.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Statement Preview Line CZL - Control Prepayment Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3852892881 - Control 236064653 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT specification of the involved item or resource to link transactions made for this record with the appropriate general ledger account according to the VAT posting setup.</source>
@@ -12602,6 +12626,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1848868896</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1131239435 - Action 2992082427 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>O&amp;ther</source>
+          <target state="translated">Os&amp;tatní</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1848868896</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1178663328 - Action 919339557 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the EET Service Setup page.</source>
           <target state="translated">Otevřete stránku Nastavení služby EET.</target>
@@ -13121,15 +13152,15 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 2866362260</note>
         </trans-unit>
         <trans-unit id="PageExtension 2497122839 - Action 2694036731 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Substitutions</source>
-          <target state="translated">Náhrady</target>
+          <source>Substitutions (Obsolete)</source>
+          <target state="translated">Náhrady (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2866362260</note>
         </trans-unit>
         <trans-unit id="PageExtension 2497122839 - Action 3511394398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Posting Group</source>
-          <target state="translated">Účto s&amp;kupina</target>
+          <source>&amp;Posting Group (Obsolete)</source>
+          <target state="translated">&amp;Účto skupina (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2866362260</note>
@@ -13212,18 +13243,60 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 4189803996</note>
         </trans-unit>
         <trans-unit id="PageExtension 2793051327 - Action 2694036731 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Substitutions</source>
-          <target state="translated">Náhrady</target>
+          <source>Substitutions (Obsolete)</source>
+          <target state="translated">Náhrady (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4189803996</note>
         </trans-unit>
         <trans-unit id="PageExtension 2793051327 - Action 3511394398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Posting Group</source>
-          <target state="translated">Účto s&amp;kupina</target>
+          <source>&amp;Posting Group (Obsolete)</source>
+          <target state="translated">&amp;Účto skupina (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4189803996</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2879682083 - Action 1173525033 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Mapping allows to set up export to Excel. You can see three dots next to the field with Amount.</source>
+          <target state="translated">Mapování souborů umožňuje nastavení exportu do aplikace Excel. Zobrazí se třemi tečkami u pole s částkou.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3384004920</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2879682083 - Action 1173525033 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Mapping</source>
+          <target state="translated">Mapování souboru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3384004920</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2879682083 - Action 133815668 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies acc. schedule extensions page</source>
+          <target state="translated">Určuje stránku rozšíření úč.schémat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3384004920</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2879682083 - Action 133815668 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up Custom Functions</source>
+          <target state="translated">Nastavit vlastní funkce</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3384004920</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2879682083 - Action 2813176105 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens acc. schedule res. header list</source>
+          <target state="translated">Otevře seznam hlaviček výsledků úč. schémat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3384004920</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2879682083 - Action 2813176105 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Results</source>
+          <target state="translated">Výsledky</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3384004920</note>
         </trans-unit>
         <trans-unit id="PageExtension 3270158888 - Action 1356405507 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View, print, or send a report that shows a list of general ledger entries sorted by date of posting and document number with different G/L account groups.</source>
@@ -14415,6 +14488,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1257057922</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1307440360 - Control 3511394398 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3895515059</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1307440360 - Control 3627789026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's market type to link business transactions to.</source>
           <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
@@ -14730,6 +14810,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 3627789026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1445684589 - Control 3666594103 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a bank identification number of your own choice.</source>
           <target state="translated">Určuje identifikační číslo banky podle vlastního výběru.</target>
@@ -14740,6 +14827,13 @@
         <trans-unit id="PageExtension 1445684589 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
@@ -15293,6 +15387,20 @@
         <trans-unit id="PageExtension 1701483311 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 407220332</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1701483311 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 407220332</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1701483311 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 407220332</note>
@@ -15892,6 +16000,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2248515987</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1961763160 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2248515987</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1961763160 - Control 3931052456 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the document number which the VAT entries were closed.</source>
           <target state="translated">Určuje číslo dokladu, na kterém byly DPH položky uzavřeny.</target>
@@ -16053,6 +16168,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 714858205</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1978455234 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 714858205</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1978455234 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 714858205</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1978455234 - Control 789290082 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the total amount that the journal line consists of.</source>
           <target state="translated">Určuje celkovou částku, která tvoří tento řádek deníku.</target>
@@ -16063,6 +16192,13 @@
         <trans-unit id="PageExtension 2014616720 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1887905131</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2014616720 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1887905131</note>
@@ -16329,6 +16465,13 @@
         <trans-unit id="PageExtension 2048408385 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4222048109</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4222048109</note>
@@ -16641,6 +16784,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4048657685</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2091246586 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4048657685</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2091246586 - Control 4085459416 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code for the purchase document's transaction specification, for the purpose of reporting to INTRASTAT.</source>
           <target state="translated">Určuje kód specifikace transakce v nákupním dokladu pro hlášení INTRASTAT.</target>
@@ -16893,6 +17043,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4135951594</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2313415238 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4135951594</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2313415238 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4135951594</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2313415238 - Control 4265101683 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that entry will be excluded from intrastat.</source>
           <target state="translated">Určuje, že položka bude vyloučena z Intrastatu</target>
@@ -17082,6 +17246,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3196174509</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2352722418 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3196174509</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2352722418 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3196174509</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2352722418 - Control 958090087 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the additional symbol of bank payments.</source>
           <target state="translated">Určuje další symbol bankovních plateb.</target>
@@ -17092,6 +17270,13 @@
         <trans-unit id="PageExtension 2362678560 - Control 2991760298 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the vendor's market type to link business transactions made for the vendor with the appropriate account in the general ledger.</source>
           <target state="translated">Určuje typ dodavatele k propojení obchodní transakce s odpovídajícím účtem hlavní knihy.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1182696142</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2362678560 - Control 3511394398 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1182696142</note>
@@ -17271,6 +17456,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1598289728</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2386123627 - Control 3627789026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1598289728</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2386123627 - Control 3666594103 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a bank identification number of your own choice.</source>
           <target state="translated">Určuje identifikační číslo banky podle vlastního výběru.</target>
@@ -17281,6 +17473,13 @@
         <trans-unit id="PageExtension 2386123627 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1598289728</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2386123627 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1598289728</note>
@@ -17523,6 +17722,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2420212404</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2561975415 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2420212404</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2561975415 - Control 4140626140 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT registration number. The field will be used when you do business with partners from EU countries/regions.</source>
           <target state="translated">Určuje DIČ. Toto pole se používá při obchodování s partnery ze zemí EU.</target>
@@ -17747,6 +17953,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1727838235</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2664365664 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1727838235</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2664365664 - Control 958090087 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the additional symbol of bank payments.</source>
           <target state="translated">Určuje další symbol bankovních plateb.</target>
@@ -17764,6 +17977,13 @@
         <trans-unit id="PageExtension 2666637953 - Control 3478007346 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allows you to use a different posting group on the document than the one set on the customer.</source>
           <target state="translated">Umožňuje použít v dokladu jinou účto skupinu, než je skupina nastavená u zákazníka.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 297536702</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2666637953 - Control 3478007346 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Alter Posting Groups (Obsolete)</source>
+          <target state="translated">Povolit změnu účto skupin (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 297536702</note>
@@ -18209,6 +18429,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2716593954</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2716593954</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2763633325 - Control 4085459416 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code for the sales document's transaction specification, for the purpose of reporting to INTRASTAT.</source>
           <target state="translated">Určuje kód pro specifikaci transakce prodejního dokladu, z důvodu hlášení do INTRASTATu.</target>
@@ -18405,6 +18632,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 561208485</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2855886408 - Control 3511394398 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 674409955</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2855886408 - Control 3627789026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's market type to link business transactions to.</source>
           <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
@@ -18590,6 +18824,13 @@
         <trans-unit id="PageExtension 2879885508 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1778940791</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2879885508 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1778940791</note>
@@ -18790,9 +19031,23 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4050813720</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2910014531 - Control 2992082427 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Other</source>
+          <target state="translated">Ostatní</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4050813720</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2910014531 - Control 3262726203 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if you want to be able to record different accounting and VAT dates in accounting cases.</source>
           <target state="translated">Určuje, zda chcete mít v účetních případech možnost zaznamenat různá data zúčtování a DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4050813720</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2910014531 - Control 3858596340 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the default original document VAT date type for purchase document (posting date, document date, VAT date or blank).</source>
+          <target state="translated">Určuje původní výchozí typ data DPH dokladu pro nákupní doklad (účetní datum, datum dokladu, datum DPH nebo prázdný).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4050813720</note>
@@ -18827,7 +19082,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2910014531 - Control 889110063 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the system does or does not check the dimension setup by closing operation depending on whether the field is checked.</source>
-          <target state="translated">Určuje, zda systém má nebo nemá kontrolu nastavení dimenze prostřednictvím ukončení operace v závislosti na tom, zda je pole zaškrtnuté.</target>
+          <target state="translated">Určuje, zda má systém kontrolovat použití dimenzí na finančních účtech při závěrkových operacích.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4050813720</note>
@@ -18842,6 +19097,20 @@
         <trans-unit id="PageExtension 291050283 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1638686336</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 291050283 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1638686336</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 291050283 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1638686336</note>
@@ -18898,6 +19167,20 @@
         <trans-unit id="PageExtension 2935419853 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 540259714</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2935419853 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 540259714</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2935419853 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 540259714</note>
@@ -19231,6 +19514,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1555938241</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 2991760298 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu dodavatele spojeného s obchodními transakcemi.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1555938241</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3132071246 - Control 3206708405 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if there is physical transfer of the item.</source>
           <target state="translated">Určuje, zda jde o fyzický transfer zboží.</target>
@@ -19276,6 +19566,13 @@
         <trans-unit id="PageExtension 3132071246 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1555938241</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1555938241</note>
@@ -19381,6 +19678,20 @@
         <trans-unit id="PageExtension 3146356112 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4083191012</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3146356112 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4083191012</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3146356112 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4083191012</note>
@@ -19581,6 +19892,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1708100201</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3161673206 - Control 3627789026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1708100201</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3161673206 - Control 3666594103 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a bank identification number of your own choice.</source>
           <target state="translated">Určuje identifikační číslo banky podle vlastního výběru.</target>
@@ -19591,6 +19909,13 @@
         <trans-unit id="PageExtension 3161673206 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1708100201</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3161673206 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1708100201</note>
@@ -19721,6 +20046,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2557560783</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3226379868 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2557560783</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3226379868 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2557560783</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3226379868 - Control 4265101683 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that entry will be excluded from intrastat.</source>
           <target state="translated">Určuje, že položka bude vyloučena z Intrastatu</target>
@@ -19784,6 +20123,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3434938165</note>
         </trans-unit>
+        <trans-unit id="PageExtension 326266202 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3434938165</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 326266202 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3434938165</note>
+        </trans-unit>
         <trans-unit id="PageExtension 326266202 - Control 4265101683 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that entry will be excluded from intrastat.</source>
           <target state="translated">Určuje, že položka bude vyloučena z Intrastatu</target>
@@ -19836,6 +20189,13 @@
         <trans-unit id="PageExtension 3293968451 - Control 2991760298 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the vendor's market type to link business transactions made for the vendor with the appropriate account in the general ledger.</source>
           <target state="translated">Určuje typ dodavatele k propojení obchodní transakce s odpovídajícím účtem hlavní knihy.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3517081721</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3293968451 - Control 3511394398 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3517081721</note>
@@ -19938,9 +20298,23 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1556019237</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3369956010 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1556019237</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3369956010 - Control 3931052456 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the document number which the VAT entries were closed.</source>
           <target state="translated">Určuje číslo dokladu, na kterém byly DPH položky uzavřeny.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1556019237</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3369956010 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1556019237</note>
@@ -19955,6 +20329,13 @@
         <trans-unit id="PageExtension 3378979135 - Control 3478007346 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allows you to use a different posting group on the document than the one set on the vendor.</source>
           <target state="translated">Umožňuje použít v dokladu jinou účto skupinu, než je skupina nastavená u dodavatele.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3378979135 - Control 3478007346 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Alter Posting Groups (Obsolete)</source>
+          <target state="translated">Povolit změnu účto skupin (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
@@ -20267,6 +20648,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2437096118</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3546948249 - Control 2991760298 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu dodavatele spojeného s obchodními transakcemi.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2437096118</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3546948249 - Control 3243078520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Details</source>
           <target state="translated">Detaily platby</target>
@@ -20305,6 +20693,13 @@
         <trans-unit id="PageExtension 3546948249 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2437096118</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3546948249 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2437096118</note>
@@ -20407,6 +20802,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1598250302</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3569519361 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1598250302</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3569519361 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1598250302</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3613323165 - Control 3805707464 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code for the resource's tariff number.</source>
           <target state="translated">Určuje kód pro číslo sazebníku pro zboží.</target>
@@ -20487,6 +20896,13 @@
         <trans-unit id="PageExtension 3626449897 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3580867622</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3626449897 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3580867622</note>
@@ -20820,6 +21236,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2583272393</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3758748566 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2583272393</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3758748566 - Control 919790400 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of partner (customer or vendor). It's possible for VAT Control Report.</source>
           <target state="translated">Určuje typ partnera (zákazník nebo dodavatel). To je možné pro kontrolní hlášení DPH.</target>
@@ -20865,6 +21288,13 @@
         <trans-unit id="PageExtension 3786959161 - Control 1207194903 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number used by the bank for the bank account.</source>
           <target state="translated">Určuje číslo, které banka používá pro bankovní účet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2832910486</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 1407413765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of the document. The posting description also appers on customer and G/L entries.</source>
+          <target state="translated">Určuje popis dokladu. Popis se také objeví na zaúčtovaných položkách zákazníka a věcných položkách.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2832910486</note>
@@ -20946,6 +21376,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2832910486</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 3627789026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2832910486</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3786959161 - Control 3666594103 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a bank identification number of your own choice.</source>
           <target state="translated">Určuje identifikační číslo banky podle vlastního výběru.</target>
@@ -20956,6 +21393,13 @@
         <trans-unit id="PageExtension 3786959161 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2832910486</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2832910486</note>
@@ -21156,6 +21600,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4034894651</note>
         </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 3627789026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4034894651</note>
+        </trans-unit>
         <trans-unit id="PageExtension 381903040 - Control 3666594103 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a bank identification number of your own choice.</source>
           <target state="translated">Určuje identifikační číslo banky podle vlastního výběru.</target>
@@ -21166,6 +21617,13 @@
         <trans-unit id="PageExtension 381903040 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4034894651</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4034894651</note>
@@ -21292,6 +21750,13 @@
         <trans-unit id="PageExtension 3876850525 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3301928242</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3876850525 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3301928242</note>
@@ -21625,6 +22090,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4009097684 - Control 2991760298 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu dodavatele spojeného s obchodními transakcemi.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4009097684 - Control 3243078520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Details</source>
           <target state="translated">Detaily platby</target>
@@ -21663,6 +22135,13 @@
         <trans-unit id="PageExtension 4009097684 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4009097684 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
@@ -21936,6 +22415,13 @@
         <trans-unit id="PageExtension 4078133603 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2854365759</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4078133603 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2854365759</note>
@@ -22248,6 +22734,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4145206282</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4206265461 - Control 3478007346 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Alter Posting Groups (Obsolete)</source>
+          <target state="translated">Povolit změnu účto skupin (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4145206282</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4206265461 - Control 672128306 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT</source>
           <target state="translated">DPH</target>
@@ -22363,6 +22856,13 @@
         <trans-unit id="PageExtension 421120322 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2145436509</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 421120322 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2145436509</note>
@@ -22528,6 +23028,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4042331808</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 2991760298 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu dodavatele spojeného s obchodními transakcemi.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4042331808</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4281810571 - Control 3206708405 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if there is physical transfer of the item.</source>
           <target state="translated">Určuje, zda jde o fyzický transfer zboží.</target>
@@ -22573,6 +23080,13 @@
         <trans-unit id="PageExtension 4281810571 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4042331808</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4042331808</note>
@@ -23108,13 +23622,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 388992258</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 581112402 - Control 3511394398 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies posting group for the payment reconciliation journal line</source>
-          <target state="translated">Určuje účto skupinu účtování pro řádek deníku odsouhlasení plateb.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3039851816</note>
         </trans-unit>
         <trans-unit id="PageExtension 583147558 - Control 1509242559 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the detail information for payment.</source>
@@ -23907,6 +24414,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1224914752</note>
         </trans-unit>
+        <trans-unit id="PageExtension 957356907 - Control 3627789026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer's market type to link business transactions to.</source>
+          <target state="translated">Určuje typ trhu zákazníka k propojení obchodních transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1224914752</note>
+        </trans-unit>
         <trans-unit id="PageExtension 957356907 - Control 3666594103 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a bank identification number of your own choice.</source>
           <target state="translated">Určuje identifikační číslo banky podle vlastního výběru.</target>
@@ -23917,6 +24431,13 @@
         <trans-unit id="PageExtension 957356907 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
           <target state="translated">Určuje datum, dle kterého bude účetní transakce vstupovat do výkazu DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1224914752</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 957356907 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1224914752</note>
@@ -24026,6 +24547,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 909755016</note>
         </trans-unit>
+        <trans-unit id="PageExtension 983886803 - Control 3753419350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <target state="translated">Datum DPH (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 909755016</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 983886803 - Control 4254893720 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <target state="translated">Určuje datum použité k zahrnutí položek do sestav DPH v období DPH. Toto je buď datum, kdy byl doklad vytvořen nebo zaúčtován, v závislosti na nastavení na stránce Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 909755016</note>
+        </trans-unit>
         <trans-unit id="PageExtension 8677550 - Action 2077635842 - Method 1377591017 - NamedType 1140120722" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New Line No. can not be calculated.</source>
           <target state="translated">Nové číslo řádku nemůže být vypočítáno.</target>
@@ -24069,126 +24604,6 @@
           <target state="translated">Funkcionalita pro finanční pracovníky v českém jazyce provádějící jakoukoliv denní práci a manažerský reporting.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile Accountant CZ CZL - Property ProfileDescription</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 1878130204 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies type of update</source>
-          <target state="translated">Určuje typ aktualizace</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 1878130204 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Type</source>
-          <target state="translated">Typ</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 2115788395 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the vat registration No. will be updated from ares</source>
-          <target state="translated">Určuje, že DIČ bude aktualizováno z ARES.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::VATRegNo]5D; - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 2115788395 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update VAT Registration No.</source>
-          <target state="translated">Aktualizovat DIČ</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::VATRegNo]5D; - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 2232224472 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the city will be updated from ares</source>
-          <target state="translated">Určuje, že město bude aktualizováno z ARES.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::City]5D; - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 2232224472 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update City</source>
-          <target state="translated">Aktualizovat město</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::City]5D; - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Options</source>
-          <target state="translated">Možnosti</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control Options - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>General</source>
-          <target state="translated">Obecné</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control General - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 3142874495 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the address will be updated from ares</source>
-          <target state="translated">Určuje, že adresa bude aktualizována z ARES.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::Address]5D; - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 3142874495 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update Address</source>
-          <target state="translated">Aktualizovat adresu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::Address]5D; - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 4252717218 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the post code will be updated from ares</source>
-          <target state="translated">Určuje, že PSČ bude aktualizován z ARES.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::PostCode]5D; - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 4252717218 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update Post Code</source>
-          <target state="translated">Aktualizovat PSČ</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::PostCode]5D; - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 45723723 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the company's registration number</source>
-          <target state="translated">Určuje identifikační číslo společnosti.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control RegNo - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 45723723 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Registration No.</source>
-          <target state="translated">IČ</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control RegNo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 949215307 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of the vendor/customer</source>
-          <target state="translated">Určuje číslo dodavatele/zákazníka.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control No - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 949215307 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <target state="translated">Číslo</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control No - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 951258510 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if all fields will be updated from ares</source>
-          <target state="translated">Určuje, zda budou všechna pole aktualizována z ARES</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::All]5D; - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 951258510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update All</source>
-          <target state="translated">Aktualizovat vše</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::All]5D; - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 962448744 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the name will be updated from ares</source>
-          <target state="translated">Určuje, zda bude název aktualizován z ARES</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::Name]5D; - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 104033955 - Control 962448744 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update Name</source>
-          <target state="translated">Aktualizovat název</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Control FieldUpdateMask[FieldType::Name]5D; - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1100710838 - Control 2020777325 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if you want the program to record the service quote you print as Interactions and add them to the Interaction Log Entry table.</source>
@@ -25977,6 +26392,48 @@
           <target state="translated">Zobrazit detail</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Joining Bank. Acc. Adj. CZL - Control ShowDetailField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - Control 2020777325 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the program to record the blanket order you print as Interactions and add them to the Interaction Log Entry table.</source>
+          <target state="translated">Určuje, zda chcete, aby program zaznamenal tisk hromadné objednávky jako interakci a přidal ji do tabulky Položka protokolu interakce.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - Control LogInteractionCZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - Control 2020777325 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Log Interaction</source>
+          <target state="translated">Protokolovat interakce</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - Control LogInteractionCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - Control 2148404082 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of copies to print.</source>
+          <target state="translated">Určuje počet kopií, které chcete vytisknout.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - Control NoOfCopiesCZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - Control 2148404082 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of Copies</source>
+          <target state="translated">Počet kopií</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - Control NoOfCopiesCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Možnosti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - Control 2826885220 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the document will be archived</source>
+          <target state="translated">Určuje, zda bude doklad archivován.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - Control ArchiveDocumentCZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - Control 2826885220 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archive Document</source>
+          <target state="translated">Archivovat doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - Control ArchiveDocumentCZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3074087627 - Control 1613153082 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if every user will appear in a new page</source>
@@ -31396,6 +31853,126 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Joining Bank. Acc. Adj. CZL - NamedType EnterBankAccountNoFilterErr</note>
         </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 1156901045" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor</source>
+          <target state="translated">Dodavatel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType VendLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 117108317" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <target state="translated">Zákazník</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType CustLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 1721277456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Číslo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType DocumentNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 1811756935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment Method</source>
+          <target state="translated">Způsob dodávky</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType ShipmentMethodLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 1862618165" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to</source>
+          <target state="translated">Příjemce</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType ShipToLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 1877187315" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="translated">Strana</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 1908025102" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The blanket purchase order is attached to this message.</source>
+          <target state="translated">Nákupní objednávka je připojena k této zprávě.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType BodyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 2264983066" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted by</source>
+          <target state="translated">Vytvořil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType CreatorLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 2410138484" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>total</source>
+          <target state="translated">celkem</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType TotalLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 2617756395" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT</source>
+          <target state="translated">DPH</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType VATLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 2694455927" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Terms</source>
+          <target state="translated">Platební podmínky</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType PaymentTermsLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 2771379227" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sincerely</source>
+          <target state="translated">S pozdravem</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType ClosingLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 2883700407" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UoM</source>
+          <target state="translated">MJ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType UoMLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 3014721408" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subtotal</source>
+          <target state="translated">Mezisoučet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType SubtotalLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 3387190221" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchaser</source>
+          <target state="translated">Nákupčí</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType PurchaserLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 3701423681" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated">Kopírovat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType CopyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 4058751071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blanket Purchase Order</source>
+          <target state="translated">Hromadná nákupní objednávka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType DocumentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 4207761921" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Method</source>
+          <target state="translated">Způsob platby</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType PaymentMethodLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 514421613" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hello</source>
+          <target state="translated">Dobrý den</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType GreetingLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - NamedType 69318880" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount %</source>
+          <target state="translated">Sleva %</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - NamedType DiscPercentLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3097259909 - NamedType 1291060491" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>of it</source>
           <target state="translated">z toho</target>
@@ -33148,6 +33725,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - NamedType CustLbl</note>
         </trans-unit>
+        <trans-unit id="Report 4009097684 - NamedType 1200899643" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created by</source>
+          <target state="translated">Vytvořil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - NamedType CreatedByLbl</note>
+        </trans-unit>
         <trans-unit id="Report 4009097684 - NamedType 1721277456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <target state="translated">Číslo</target>
@@ -33177,12 +33760,6 @@
           <target state="translated">Nákupní objednávka je připojena k této zprávě.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - NamedType BodyLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 4009097684 - NamedType 2264983066" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Posted by</source>
-          <target state="translated">Vytvořil</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - NamedType CreatorLbl</note>
         </trans-unit>
         <trans-unit id="Report 4009097684 - NamedType 2410138484" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>total</source>
@@ -34384,12 +34961,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report VAT Documents List CZL - ReportDataItem VAT Entry - Method OnAfterGetRecord - NamedType NoneTxt</note>
         </trans-unit>
-        <trans-unit id="Report 104033955 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ARES Update</source>
-          <target state="translated">Aktualizace ARES</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report ARES Update CZL - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Report 1100710838 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Quote</source>
           <target state="translated">Servisní nabídka</target>
@@ -34629,6 +35200,12 @@
           <target state="translated">Vyrovnání bankovního konta</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Joining Bank. Acc. Adj. CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3033299029 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blanket Purchase Order</source>
+          <target state="translated">Hromadná nákupní objednávka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Blanket Purchase Order CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3074087627 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>User Setup List</source>
@@ -43220,6 +43797,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 4050813720</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2910014531 - Field 3858596340 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Original Document VAT Date</source>
+          <target state="translated">Výchozí datum DPH pův.dokladu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4050813720</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2910014531 - Field 3974331008 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mark Neg. Qty as Correction</source>
           <target state="translated">Označit záporné množství jako opravu</target>
@@ -45509,6 +46093,34 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 26925697</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2910014531 - Change 2138202056 - Method 3059879501 - NamedType 11770877" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>If you check field %1 you will let system post using %2 different from %3. Field %2 will be initialized from field %3 in all tables. It may take some time and you will not be able to undo this change after posting entries. Do you really want to continue?</source>
+          <target state="translated">Zaškrtnete-li políčko %1, umožníte tím systému účtovat s použitím jiné hodnoty %2 než %3. Pole %2 bude ve všech tabulkách inicializováno pomocí pole %3. Tato operace může trvat delší dobu a po zaúčtování položek nebude možné vrátit změnu zpět. Skutečně chcete pokračovat?</target>
+          <note from="Developer" annotates="general" priority="2">%1 = fieldcaption of Use VAT Date; %2 = fieldcaption of VAT Date; %3 = fieldcaption of Posting Date</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 2910014531</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2910014531 - Change 2138202056 - Method 3059879501 - NamedType 1441326726" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Enabled option allows editing VAT Reporting Date in the VAT Entries which is not in line with Czech functionality. Use the Enabled (Prevent modification) option.</source>
+          <target state="translated">Volba Povoleno umožňuje editaci data DPH v položkách DPH, což není v souladu s českou funkčností. Použijte volbu Povoleno (zabránit úpravám).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 2910014531</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2910014531 - Change 2138202056 - Method 3059879501 - NamedType 2005473175" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to disable VAT Date functionality?</source>
+          <target state="translated">Skutečně chcete vypnout funkci data DPH?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 2910014531</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2910014531 - Change 2138202056 - Method 3059879501 - NamedType 3035674716" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot change the contents of the %1 field because there are posted ledger entries.</source>
+          <target state="translated">Nemůžete měnit obsah pole %1, protože existují zaúčtované položky.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = field caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 2910014531</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2910014531 - Field 3262726203 - Method 2126772001 - NamedType 11770877" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>If you check field %1 you will let system post using %2 different from %3. Field %2 will be initialized from field %3 in all tables. It may take some time and you will not be able to undo this change after posting entries. Do you really want to continue?</source>
           <target state="translated">Zaškrtnete-li políčko %1, umožníte tím systému účtovat s použitím jiné hodnoty %2 než %3. Pole %2 bude ve všech tabulkách inicializováno pomocí pole %3. Tato operace může trvat delší dobu a po zaúčtování položek nebude možné vrátit změnu zpět. Skutečně chcete pokračovat?</target>
@@ -45537,13 +46149,6 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 2923598995</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2991760298 - Method 4126983082 - NamedType 1276189059" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Do you really want to change %1 although open entries exist?</source>
-          <target state="translated">Opravdu chcete změnit %1 přestože existují otevřené položky?</target>
-          <note from="Developer" annotates="general" priority="2">%1 = fieldcaption</note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 2991760298</note>
-        </trans-unit>
         <trans-unit id="TableExtension 303015527 - Method 1511383419 - NamedType 523624780" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is required for Item %2.</source>
           <target state="translated">Je vyžadována hodnota %1 pro zboží %2.</target>
@@ -45564,13 +46169,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = compared field caption, %2 = compared field value</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3451318086</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3627789026 - Method 26306626 - NamedType 1276189059" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Do you really want to change %1 although open entries exist?</source>
-          <target state="translated">Opravdu chcete změnit %1 přestože existují otevřené položky?</target>
-          <note from="Developer" annotates="general" priority="2">%1 = fieldcaption</note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3627789026</note>
         </trans-unit>
         <trans-unit id="TableExtension 3767416395 - Method 1475244952 - NamedType 2498812861" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> cannot be changed</source>

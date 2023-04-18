@@ -1408,11 +1408,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Adv. Payments Approv. Mgt. CZZ - Method PrePostApprovalCheckSalesAdvanceLetter - NamedType PrePostCheckSalesAdvanceLetterErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1612709404 - Method 2524283828 - NamedType 239136818" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advance Payments Localization for Czech is installed.\Please use this instead of obsoleted version.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Advance Payments Mgt. CZZ - Method DontUseObsoleteAdvancePayments - NamedType AdvancePaymentsInstalledErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 1612709404 - Method 3166424899 - NamedType 4196406974" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advance Payments feature is not enabled.\Please enable it using Feature Management before use.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1883,6 +1878,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advance Letter Appl. Edit CZZ - Action AdvanceCard - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 848262532 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Advance Letter Appl. Edit CZZ - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3056476423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advance Letter Application</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1912,6 +1912,11 @@
           <source>Advance Letter</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advance Letter Application CZZ - Action AdvanceCard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3056476423 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Advance Letter Application CZZ - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1813680169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advance Letter Link</source>
@@ -2083,6 +2088,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Preview Adv. VAT Entries CZZ - Control VAT Date CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1849656631 - Control 3753419350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Preview Adv. VAT Entries CZZ - Control VAT Date CZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1849656631 - Control 2992823416 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the difference between the calculated VAT amount and a VAT amount that you have entered manually.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2097,6 +2107,11 @@
           <source>Specifies the VAT registration number of the customer or vendor that the entry is linked to.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Preview Adv. VAT Entries CZZ - Control VAT Registration No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1849656631 - Control 4254893720 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date used to include entries on VAT reports in a VAT period. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Preview Adv. VAT Entries CZZ - Control VAT Reporting Date CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1849656631 - Control 446909107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total VAT</source>
@@ -2507,6 +2522,106 @@
           <source>VAT Base Amount (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter FactBox CZZ - Control VAT Base Amount (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Advance Letter Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 592951229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies amount (LCY).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 1650118938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifie amount including VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control Amount Including VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 2348384091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies amount including VAT (LCY).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control Amount Including VAT (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies description.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Document No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Line No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 1246077090 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT %.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control VAT % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 1108276017 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control VAT Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 2911518948 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT amount (LCY).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control VAT Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 1844012642 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Bus. Posting Group field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 2971014054 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT calculation type.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control VAT Calculation Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 2162283589 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Clause Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control VAT Clause Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 2534656220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Identifier field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control VAT Identifier - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Control 236064653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT prod. posting group.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Control VAT Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Action 1107476520 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Action 1107476520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2335272073 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Lines CZZ - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1389122248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Advance Usage</source>
@@ -3098,10 +3213,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letter CZZ - Action Category_Approve - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2509033255 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letter CZZ - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2509033255 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Advance Letter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letter CZZ - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2509033255 - Action 2847165967 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>History</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letter CZZ - Action Category_History - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2509033255 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letter CZZ - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2509033255 - Action 2633184146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Release</source>
@@ -3212,11 +3342,6 @@
           <source>Total Amount Incl. VAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letter Line CZZ - Control Total Amount Incl. VAT (LCY) - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2936817786 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Release,History,Print/Send,Navigate</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2936817786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Advance Letters</source>
@@ -3333,6 +3458,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Control To Pay - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2936817786 - Control 1331641168 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies to pay (LCY) amount.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Control To Pay (LCY) - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2936817786 - Control 777791220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies to use amount.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3367,6 +3497,16 @@
           <source>Advance Letter</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action AdvanceLetterGr - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2936817786 - Action 3860314472 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This function opens the approvals entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Approvals - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2936817786 - Action 3860314472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approvals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Approvals - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2936817786 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
@@ -3419,7 +3559,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action ReleaseGr - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2936817786 - Action 4032263875 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Release the document.</source>
+          <source>Release the advance letter document to indicate that it has been account. The status then changes to To Pay.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Release - Property ToolTip</note>
         </trans-unit>
@@ -3429,7 +3569,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Release - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2936817786 - Action 2071937805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reopen the document.</source>
+          <source>Reopen the document to change it after it has been approved. Approved documents have the To Pay status and must be opened before they can be changed.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Reopen - Property ToolTip</note>
         </trans-unit>
@@ -3437,6 +3577,21 @@
           <source>Reopen</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Reopen - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2936817786 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2936817786 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2936817786 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Advance Letter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Action Category_Category7 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2936817786 - Action 2746354657 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allows the print list of advance letters.</source>
@@ -3778,6 +3933,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action UnlinkAdvancePayment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 688385878 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reports</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action Category_Report - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 688385878 - Action 1285973296 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to email the document. The Send Email window opens prefilled with the customer's email address so you can add or edit information.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3867,6 +4027,106 @@
           <source>VAT Base Amount (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter FactBox CZZ - Control VAT Base Amount (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance Letter Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 592951229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies amount (LCY).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 1650118938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifie amount including VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control Amount Including VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 2348384091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies amount including VAT (LCY).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control Amount Including VAT (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies description.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Document No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Line No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 1246077090 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT %.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control VAT % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 1108276017 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control VAT Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 2911518948 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT amount (LCY).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control VAT Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 1844012642 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Bus. Posting Group field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 2971014054 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT calculation type.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control VAT Calculation Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 2162283589 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Clause Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control VAT Clause Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 2534656220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Identifier field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control VAT Identifier - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Control 236064653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies VAT prod. posting group.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Control VAT Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Action 1107476520 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Action 1107476520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1599406615 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Lines CZZ - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3404484522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Advance Usage</source>
@@ -4438,10 +4698,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter CZZ - Action Category_Approve - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2641234761 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print/Send</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter CZZ - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2641234761 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance Letter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter CZZ - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2641234761 - Action 2847165967 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>History</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter CZZ - Action Category_History - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2641234761 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter CZZ - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2641234761 - Action 2633184146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Release</source>
@@ -4562,11 +4837,6 @@
           <source>Total Amount Incl. VAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter Line CZZ - Control Total Amount Incl. VAT (LCY) - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2081690216 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Release,History,Print/Send,Navigate</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2081690216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Advance Letters</source>
@@ -4698,6 +4968,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action AdvanceLetterGr - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2081690216 - Action 3860314472 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This function opens the approvals entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Approvals - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2081690216 - Action 3860314472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approvals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Approvals - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2081690216 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4749,7 +5029,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action ReleaseGr - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2081690216 - Action 4032263875 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Release the document.</source>
+          <source>Release the advance letter document to indicate that it has been account. The status then changes to To Pay.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Release - Property ToolTip</note>
         </trans-unit>
@@ -4759,7 +5039,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Release - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2081690216 - Action 2071937805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reopen the document.</source>
+          <source>Reopen the document to change it after it has been approved. Approved documents have the To Pay status and must be opened before they can be changed.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Reopen - Property ToolTip</note>
         </trans-unit>
@@ -4767,6 +5047,21 @@
           <source>Reopen</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Reopen - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2081690216 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2081690216 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print/Send</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2081690216 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance Letter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Category_Category7 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2081690216 - Action 765910240 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allows the print of advance letter.</source>
@@ -7128,11 +7423,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchases &amp; Payables Setup CZZ - Action AdvanceLetterTemplatesCZZ - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1993297039 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4145206282">
-          <source>New,Process,Report,Customer Groups,Payments,Advance</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales &amp; Receivables Setup CZZ - Property PromotedActionCategories</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1993297039 - Action 1477509200 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4145206282">
           <source>Show advance letter templates.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7837,6 +8127,36 @@
           <source>Advance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Copy - VAT Posting Setup CZZ - Control AdvanceCZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1952836223 - Control 2640546398 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 3097259909">
+          <source>Specifies what advance entries will be printed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Open Cust. Entries to Date CZZ - Control PrintAdvanceEntriesCZZ - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1952836223 - Control 2640546398 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 3097259909">
+          <source>Print Advance Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Open Cust. Entries to Date CZZ - Control PrintAdvanceEntriesCZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1952836223 - Control 2640546398 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 3097259909">
+          <source>Including,Without Advances,Only Advances</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Open Cust. Entries to Date CZZ - Control PrintAdvanceEntriesCZZ - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2428696519 - Control 2640546398 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 3573120205">
+          <source>Specifies what advance entries will be printed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Open Vend. Entries to Date CZZ - Control PrintAdvanceEntriesCZZ - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2428696519 - Control 2640546398 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 3573120205">
+          <source>Print Advance Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Open Vend. Entries to Date CZZ - Control PrintAdvanceEntriesCZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2428696519 - Control 2640546398 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 3573120205">
+          <source>Including,Without Advances,Only Advances</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Open Vend. Entries to Date CZZ - Control PrintAdvanceEntriesCZZ - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="ReportExtension 1424402322 - ReportDataItem 3911307783 - Method 72583909 - NamedType 2550693102" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 1424402322">
           <source>Processing Purchase Advances...</source>

@@ -69,12 +69,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = External Document No. FieldCaption; %2 = Issue Bank Stmt Header TableCaption; %3 = No. FieldSaption; %4 = No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Bank Statement CZB - NamedType AlreadyExistErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2997711707 - NamedType 901367092" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 %2 was found. Resolve this before issue banking document.</source>
-          <target state="translated">%1 %2 bylo nalezeno. Vyřešte to před vydáním bankovního dokladu.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = TableCaption, %2 = No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Bank Statement CZB - NamedType DuplicityFoundErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2997711707 - NamedType 973432246" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is nothing to issue.</source>
           <target state="translated">Není nic k vydání.</target>
@@ -116,12 +110,6 @@
           <target state="translated">Není nic k vydání.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Payment Order CZB - NamedType NothingtoIssueErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4147864434 - NamedType 901367092" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 %2 was found. Resolve this before issue banking document.</source>
-          <target state="translated">%1 %2 bylo nalezeno. Vyřešte to před vydáním bankovního dokladu.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = TableCaption, %2 = No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Payment Order CZB - NamedType DuplicityFoundErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4164059914 - NamedType 1643415992" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Order</source>
@@ -284,18 +272,6 @@
           <target state="translated">%1 %2 v %3 je uzavřen.</target>
           <note from="Developer" annotates="general" priority="2">%1 = TableCaption; %2 = No.; %3 = RecordId</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Management CZB - Method CheckPaymentOrderLineCustVendBlocked - NamedType CustVendBlockedErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3420928472 - Method 3437982689 - NamedType 1118573040" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 %2 in %3 is already applied on other or the same payment order.</source>
-          <target state="translated">%1 %2 v %3 je již vyrovnána na jiném nebo stejném platebním příkazu.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = fieldcaption of Letter No.; %2 = Letter No.; %3 = recordid</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Management CZB - Method CheckPaymentOrderLineApplyToAdvanceLetter - NamedType AdvanceAlreadyAppliedErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3420928472 - Method 3437982689 - NamedType 1388888926" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 and %2 %3 %4 in %5 is already applied on other or the same payment order.</source>
-          <target state="translated">%1 a %2 %3 %4 v %5 je již vyrovnán na jiném nebo stejném platební příkazu.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = fieldcaption of Letter No.; %2 = fieldcaption of Letter Line No.; %3 = Letter No.; %4 = Letter Line No.; %5 = recordid</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Management CZB - Method CheckPaymentOrderLineApplyToAdvanceLetter - NamedType AdvanceLineAlreadyAppliedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3420928472 - Method 555018757 - NamedType 3576202793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to continue?</source>
@@ -599,6 +575,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action F&amp;unctions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1252050781 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1252050781 - Action 3150094508 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report specifies how the bank statement entries will be applied.</source>
           <target state="translated">Sestavy určuje, jak budou vyrovnány položky bankovního výpisu.</target>
@@ -611,6 +593,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action Test Report - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1252050781 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1252050781 - Action 3986159229 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a PDF file and attach it to the document.</source>
           <target state="translated">Vytvořte soubor PDF a připojte jej k dokumentu.</target>
@@ -622,6 +610,12 @@
           <target state="translated">Připojit jako PDF</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action PrintToAttachment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1252050781 - Action 4108625301 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issuing</source>
+          <target state="translated">Vydání</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action Category_Issuing - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1252050781 - Action 4142352379 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issue the bank statement to indicate that it has been printed or exported. Bank statement will be moved to issued bank statement.</source>
@@ -658,6 +652,36 @@
           <target state="translated">Vydat a &amp;vytisknout</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action IssueAndPrint - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1252050781 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Statement</source>
+          <target state="translated">Bankovní výpis</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 15803542 - Action 1107476520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <target state="translated">Otevře doklad, na kterém je vybraný řádek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Lines CZB - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 15803542 - Action 1107476520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <target state="translated">Zobrazit doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Lines CZB - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 15803542 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">Řáde&amp;k</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Lines CZB - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 15803542 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Lines CZB - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1627540393 - Action 1062429549 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add a file as an attachment. You can attach images as well as documents.</source>
@@ -707,6 +731,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement CZB - Action CreateJournal - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1627540393 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement CZB - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1627540393 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement CZB - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1627540393 - Action 3972573057 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the payment reconciliation or joural.</source>
           <target state="translated">Otevřete odsouhlasení plateb nebo deník.</target>
@@ -742,6 +778,12 @@
           <target state="translated">Statistika</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement CZB - Action Statistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1627540393 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Statement</source>
+          <target state="translated">Bankovní výpis</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement CZB - Action Category_Category7 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1667797560 - Action 1062429549 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add a file as an attachment. You can attach images as well as documents.</source>
@@ -791,6 +833,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Action CreateJournal - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1667797560 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1667797560 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1667797560 - Action 3972573057 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the payment reconciliation or journal.</source>
           <target state="translated">Otevřete odsouhlasení plateb nebo deník.</target>
@@ -827,6 +881,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Action Statistics - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1667797560 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Statement</source>
+          <target state="translated">Bankovní výpis</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1866448740 - Action 1062429549 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add a file as an attachment. You can attach images as well as documents.</source>
           <target state="translated">Přidejte soubor jako přílohu. Můžete připojit obrázky, stejně jako dokumenty.</target>
@@ -844,6 +904,12 @@
           <target state="translated">Vy&amp;dání</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action &amp;Issuing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1866448740 - Action 1587086413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issuing</source>
+          <target state="translated">Vydání</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action Category_Category4 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1866448740 - Action 2329722010 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allows import bank statement in the system.</source>
@@ -875,6 +941,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action F&amp;unctions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1866448740 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1866448740 - Action 3150094508 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report specifies how the bank statement entries will be applied.</source>
           <target state="translated">Sestavy určuje, jak budou vyrovnány položky bankovního výpisu.</target>
@@ -886,6 +958,12 @@
           <target state="translated">Testovací sestava</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action Test Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1866448740 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1866448740 - Action 3986159229 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a PDF file and attach it to the document.</source>
@@ -935,6 +1013,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action IssueAndPrint - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1866448740 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Statement</source>
+          <target state="translated">Bankovní výpis</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2313358256 - Action 1013253961 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies enu delegate of payment order.</source>
           <target state="translated">Umožňuje delegovat schválení platebního příkazu.</target>
@@ -982,6 +1066,12 @@
           <target state="translated">Schvalování požadavku</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action RequestApproval - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 2224783030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Approval</source>
+          <target state="translated">Schvalování požadavku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Category_Category5 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2313358256 - Action 2247418985 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Checks uncertaintie vat of the vendor</source>
@@ -1031,6 +1121,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action F&amp;unctions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2313358256 - Action 3150094508 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies test report</source>
           <target state="translated">Určuje testovací sestavu.</target>
@@ -1054,6 +1150,12 @@
           <target state="translated">Importovat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Import - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2313358256 - Action 383335270 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Relations to the workflow.</source>
@@ -1090,6 +1192,12 @@
           <target state="translated">Připojit jako PDF</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action PrintToAttachment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 4108625301 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issuing</source>
+          <target state="translated">Vydání</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Category_Issuing - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2313358256 - Action 4142352379 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issue the payment order to indicate that it has been printed or exported. Payment order will be moved to issued payment order.</source>
@@ -1151,6 +1259,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action IssueAndPrint - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Order</source>
+          <target state="translated">Platební příkaz</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2332419393 - Action 278110413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="translated">Nové</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Card CZB - Action Category_New - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2332419393 - Action 3269502094 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inserts default search rule lines.</source>
           <target state="translated">Vloží výchozí řádky pravidla hledání.</target>
@@ -1199,6 +1319,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Order CZB - Action &amp;Navigate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2680259572 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Order CZB - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680259572 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Order CZB - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2680259572 - Action 343445508 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the report for expor payment order to the bank.</source>
           <target state="translated">Otevřete sestavu pro export platebního příkazu do banky.</target>
@@ -1234,6 +1366,12 @@
           <target state="translated">Statistika</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Order CZB - Action Statistics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680259572 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Order</source>
+          <target state="translated">Platební příkaz</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Order CZB - Action Category_Category7 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3020756237 - Action 1014787843 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the report for payment order.</source>
@@ -1271,6 +1409,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Orders CZB - Action &amp;Navigate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3020756237 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Orders CZB - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3020756237 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Orders CZB - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3020756237 - Action 343445508 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the report for expor payment order to the bank.</source>
           <target state="translated">Otevřete sestavu pro export platebního příkazu do banky.</target>
@@ -1307,6 +1457,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Orders CZB - Action Statistics - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3020756237 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Order</source>
+          <target state="translated">Platební příkaz</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Orders CZB - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3141359231 - Action 127686680 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the document that the selected line exists on.</source>
           <target state="translated">Otevře doklad, na kterém jsou vybrané řádky.</target>
@@ -1324,6 +1480,12 @@
           <target state="translated">Řáde&amp;k</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Order Lines CZB - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3141359231 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Payment Order Lines CZB - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3141359231 - Action 788258546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This function deletes selected payment order lines.</source>
@@ -1360,6 +1522,30 @@
           <target state="translated">Přesunout dolů</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Action MoveDown - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3392398863 - Action 1107476520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <target state="translated">Otevře doklad, na kterém je vybraný řádek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement Lines CZB - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3392398863 - Action 1107476520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <target state="translated">Zobrazit doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement Lines CZB - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3392398863 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">Řáde&amp;k</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement Lines CZB - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3392398863 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement Lines CZB - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3668461697 - Action 1013253961 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies enu delegate of payment order.</source>
@@ -1403,6 +1589,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action &amp;Issuing - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 1587086413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issuing</source>
+          <target state="translated">Vydání</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3668461697 - Action 1733675610 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request Approval</source>
           <target state="translated">Schvalování požadavku</target>
@@ -1420,6 +1612,12 @@
           <target state="translated">Znovu o&amp;tevřít</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Reopen - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 2224783030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Approval</source>
+          <target state="translated">Schvalování požadavku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Category_Category5 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3668461697 - Action 2269891240 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Checks VAT unreliability of the vendor.</source>
@@ -1469,6 +1667,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action F&amp;unctions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3668461697 - Action 3150094508 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies test report</source>
           <target state="translated">Určuje testovací sestavu.</target>
@@ -1492,6 +1696,12 @@
           <target state="translated">Importovat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Import - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3668461697 - Action 383335270 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Relations to the workflow.</source>
@@ -1588,6 +1798,36 @@
           <target state="translated">Vydat a &amp;vytisknout</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action IssueAndPrint - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Order</source>
+          <target state="translated">Platební příkaz</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3836292078 - Action 1107476520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <target state="translated">Otevře doklad, na kterém je vybraný řádek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement Lines CZB - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3836292078 - Action 1107476520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <target state="translated">Zobrazit doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement Lines CZB - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3836292078 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">Řáde&amp;k</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement Lines CZB - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3836292078 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement Lines CZB - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 453317662 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Line</source>
@@ -1811,12 +2051,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Subform CZB - Control Amount (Paym. Order Currency</note>
         </trans-unit>
-        <trans-unit id="Page 1588770455 - Control 1520496226 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the letter type is a sales (Sales) or a purchase (Purchase).</source>
-          <target state="translated">Určuje, zda je záloha typu prodej (Prodej) nebo nákup (Nákup).</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Subform CZB - Control Letter Type - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 1588770455 - Control 1622979514 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number used by the bank for the bank account.</source>
           <target state="translated">Určuje číslo, které banka používá pro bankovní účet.</target>
@@ -1877,12 +2111,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Subform CZB - Control Type - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 1588770455 - Control 1881051561 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies letter line number.</source>
-          <target state="translated">Určuje číslo řádku zálohy.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Subform CZB - Control Letter Line No. - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 1588770455 - Control 2019545054 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the account is third party bank account.</source>
           <target state="translated">Určuje, zda účet je bankovním účtem třetí strany.</target>
@@ -1930,12 +2158,6 @@
           <target state="translated">Určuje, zda musí být částka přeskočena.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Subform CZB - Control Skip Payment - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1588770455 - Control 3101342379 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of letter.</source>
-          <target state="translated">Určuje číslo zálohy.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order Subform CZB - Control Letter No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1588770455 - Control 31804261 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the amount must be checked.</source>
@@ -3083,6 +3305,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement Lines CZB - Control Cust./Vendor Bank Account Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3392398863 - Control 3320823955 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Line No. field.</source>
+          <target state="translated">Určuje hodnotu pole Číslo řádku.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement Lines CZB - Control Line No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3392398863 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description of the bank statement line.</source>
           <target state="translated">Určuje popis řádku bankovního výpisu.</target>
@@ -3286,6 +3514,12 @@
           <target state="translated">Určuje kód bankovního účtu zákazníka nebo dodavatele.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement Lines CZB - Control Cust./Vendor Bank Account Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3836292078 - Control 3320823955 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Line No. field.</source>
+          <target state="translated">Určuje hodnotu pole Číslo řádku.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement Lines CZB - Control Line No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3836292078 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description of the bank statement line.</source>
@@ -3785,12 +4019,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2313358256 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Approve,Request Approval</source>
-          <target state="translated">Nový,Proces,Sestava,Schválit,Schvalování požadavku</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Property PromotedActionCategories</note>
-        </trans-unit>
         <trans-unit id="Page 2313358256 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Orders</source>
           <target state="translated">Platební příkazy</target>
@@ -3838,12 +4066,6 @@
           <target state="translated">Řádky bankovního výpisu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement Lines CZB - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3668461697 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Approve,Request Approval</source>
-          <target state="translated">Nový,Proces,Sestava,Schválit,Schvalování požadavku</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 3668461697 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Order</source>
@@ -4731,18 +4953,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Suggest Payments CZB - ReportDataItem Cust. Ledger Entry - Method OnPreDataItem - NamedType CustEntriesTxt</note>
         </trans-unit>
-        <trans-unit id="Report 3299552698 - ReportDataItem 3259047883 - Method 72583909 - NamedType 1096267246" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Processing Purchase Advance Letters...</source>
-          <target state="translated">Zpracování nákupních záloh...</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Suggest Payments CZB - ReportDataItem Purch. Advance Letter Header - Method OnPreDataItem - NamedType PurchAdvLettersTxt</note>
-        </trans-unit>
-        <trans-unit id="Report 3299552698 - ReportDataItem 3916211266 - Method 72583909 - NamedType 3485798144" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Processing Purchase Advance Letter Lines...</source>
-          <target state="translated">Zpracování řádků nákupní zálohy...</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Suggest Payments CZB - ReportDataItem PurchAdvLetterHdrPerLine - Method OnPreDataItem - NamedType PurchAdvLetterLinesTxt</note>
-        </trans-unit>
         <trans-unit id="Report 3299552698 - ReportDataItem 406314583 - Method 72583909 - NamedType 2588012549" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Processing Vendors Entries...</source>
           <target state="translated">Zpracování položek dodavatelů...</target>
@@ -4917,18 +5127,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Iss. Payment Order Line CZB - Field Specific Symbol - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1217936122 - Field 1520496226 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Letter Type</source>
-          <target state="translated">Typ zálohy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Iss. Payment Order Line CZB - Field Letter Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1217936122 - Field 1520496226 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source> ,,Purchase</source>
-          <target state="translated"> ,,Nákup</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Iss. Payment Order Line CZB - Field Letter Type - Property OptionCaption</note>
-        </trans-unit>
         <trans-unit id="Table 1217936122 - Field 1622979514 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account No.</source>
           <target state="translated">Číslo účtu</target>
@@ -4965,12 +5163,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Iss. Payment Order Line CZB - Field Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1217936122 - Field 1881051561 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Letter Line No.</source>
-          <target state="translated">Č. řádku zálohové faktury</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Iss. Payment Order Line CZB - Field Letter Line No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1217936122 - Field 2019545054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Third Party Bank Account</source>
           <target state="translated">Bank.účet třetí strany</target>
@@ -5006,12 +5198,6 @@
           <target state="translated">Kód banky Zákazníka/Dodavatele</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Iss. Payment Order Line CZB - Field Cust./Vendor Bank Account Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1217936122 - Field 3101342379 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Letter No.</source>
-          <target state="translated">Č. zálohy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Iss. Payment Order Line CZB - Field Letter No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1217936122 - Field 3224173994 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Order Currency Factor</source>
@@ -5258,12 +5444,6 @@
           <target state="translated">Zůstatek</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Match Bank Payment Buffer CZB - Field Remaining Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1618970480 - Field 3101342379 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Letter No.</source>
-          <target state="translated">Č. zálohy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Match Bank Payment Buffer CZB - Field Letter No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1618970480 - Field 3315287198 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pmt. Discount Due Date</source>
@@ -6015,18 +6195,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - Field Amount (Paym. Order Currency</note>
         </trans-unit>
-        <trans-unit id="Table 2707096979 - Field 1520496226 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Letter Type</source>
-          <target state="translated">Typ zálohy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - Field Letter Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2707096979 - Field 1520496226 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source> ,,Purchase</source>
-          <target state="translated"> ,,Nákup</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - Field Letter Type - Property OptionCaption</note>
-        </trans-unit>
         <trans-unit id="Table 2707096979 - Field 1622979514 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account No.</source>
           <target state="translated">Číslo účtu</target>
@@ -6075,12 +6243,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - Field Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2707096979 - Field 1881051561 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Letter Line No.</source>
-          <target state="translated">Č. řádku zálohové faktury</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - Field Letter Line No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 2707096979 - Field 2019545054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Third Party Bank Account</source>
           <target state="translated">Bank.účet třetí strany</target>
@@ -6128,12 +6290,6 @@
           <target state="translated">Neplatit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - Field Skip Payment - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2707096979 - Field 3101342379 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Letter No.</source>
-          <target state="translated">Č. zálohy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - Field Letter No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2707096979 - Field 31804261 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount Must Be Checked</source>
@@ -6525,18 +6681,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = FieldCaption, %2 = TableCaption, %3 = Applies-to Doc. No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - NamedType ExistEntryErr</note>
         </trans-unit>
-        <trans-unit id="Table 2707096979 - NamedType 1592368980" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advance Payment</source>
-          <target state="translated">Záloha</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - NamedType AdvancePaymentTxt</note>
-        </trans-unit>
-        <trans-unit id="Table 2707096979 - NamedType 2382908234" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advance Payment Line</source>
-          <target state="translated">Řádek zálohy</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - NamedType AdvancePaymentLineTxt</note>
-        </trans-unit>
         <trans-unit id="Table 2707096979 - NamedType 2649628228" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ledger entry %1 is already applied on payment order. Continue?</source>
           <target state="translated">Položka %1 je již vyrovnána na platebním příkazu. Pokračovat?</target>
@@ -6548,18 +6692,6 @@
           <target state="translated">Pro pole %1 v tabulce %2 neexistuje hodnota %3.</target>
           <note from="Developer" annotates="general" priority="2">%1 = FieldCaption, %2 = TableCaption, %3 = Applies-to Doc. No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - NamedType NotExistEntryErr</note>
-        </trans-unit>
-        <trans-unit id="Table 2707096979 - NamedType 3096075009" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advanced payment %1 is already applied on payment order. Continue?</source>
-          <target state="translated">Záloha %1 je již na platebním příkazu vyrovnána. Pokračovat?</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Letter No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - NamedType AdvanceAlreadyAppliedQst</note>
-        </trans-unit>
-        <trans-unit id="Table 2707096979 - NamedType 3838223946" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advanced payment %1 is already applied on payment order. Continue?</source>
-          <target state="translated">Záloha %1 je již na platebním příkazu vyrovnána. Pokračovat?</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Letter No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Order Line CZB - NamedType LedgerAlreadyAppliedLineQst</note>
         </trans-unit>
         <trans-unit id="Table 3644851036 - NamedType 1129096776" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to update the exchange rate?</source>

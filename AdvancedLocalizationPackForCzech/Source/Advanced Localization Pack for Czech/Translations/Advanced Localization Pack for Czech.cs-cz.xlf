@@ -69,18 +69,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = TableCaption G/L Entry, %2 = Entry No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit G/L Entry Post Application CZA - NamedType UnapplyErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1333083693 - Method 2223051845 - NamedType 398206678" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot set %1 in %2 if the same field is set in Base Application.</source>
-          <target state="translated">%1 v %2 nelze nastavit, pokud je stejné pole nastaveno v Base Application.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Field Caption, %2 = Application Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Default Dimension Handler CZA - Method TestSetupFieldsDuplicityCZA - NamedType BaseAppDuplicityErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1333083693 - Method 2666294569 - NamedType 398206678" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot set %1 in Base Application if the same field is set in %2.</source>
-          <target state="translated">V Base Application nelze nastavit %1, pokud je stejné pole nastaveno v %2.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Field Caption, %2 = Application Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Default Dimension Handler CZA - Method TestSetupFieldsDuplicityBaseApp - NamedType BaseAppDuplicityErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 151968679 - Method 3980220125 - NamedType 1731395011" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify %1 or %2.</source>
           <target state="translated">Je nutné zadat %1 nebo %2.</target>
@@ -134,6 +122,12 @@
           <target state="translated">Když použijete %1 beze změny, %2 musí být nastaven na jednu hodnotu.</target>
           <note from="Developer" annotates="general" priority="2">%1 = TableCaption, %2 = FieldCaption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Calculate Invent. Handler CZA - Method CheckFiltersOnAfterItemOnPreDataItem - NamedType ItemFilterErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2147647392 - Method 1466707495 - NamedType 3808198992" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Function Reverse Register and Reverse Transaction cannot be used! Use function Cancel Entries instead.</source>
+          <target state="translated">Funkci Stornovat žurnál a Storno transakce nelze pro položky DM použít! Použijte funkci storno položek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reversal Entry Handler CZA - Method OnAfterMoveToGenJnlLine - NamedType CheckFaErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2147647392 - Method 4217993601 - NamedType 2033887935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot reverse %1 No %2 because the entry was either applied to another entry or has been changed by a batch job.</source>
@@ -846,8 +840,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 2991235355</note>
         </trans-unit>
         <trans-unit id="PageExtension 120755117 - Action 1908199188 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Undo Shipment</source>
-          <target state="translated">V&amp;rátit dodávku</target>
+          <source>&amp;Undo Shipment (Obsolete)</source>
+          <target state="translated">&amp;Vrátit dodávku (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2991235355</note>

@@ -305,6 +305,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Lines CZC - Action Dimensions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1705393029 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Lines CZC - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2069854880 - Action 1002420131 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
           <target state="translated">Příprava na tisk dokumentu. V okně možností sestavy pro dokument můžete určit, co chcete zahrnout do tisku.</target>
@@ -329,17 +335,89 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action DocAttach - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 1462451023 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The function changes the remaining amount of compensation. Compensation balance must be applied.</source>
+          <target state="translated">Funkce změní zbývající částku zápočtu. Saldo zápočtu musí být vyrovnáno.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action ApplyDocumentBalance - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 1462451023 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Apply Document Balance</source>
+          <target state="translated">Vyrovnat saldo dokladu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action ApplyDocumentBalance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 1587086413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <target state="translated">Vydat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 1730580216 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <target state="translated">Vydat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Releasing - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2069854880 - Action 1733675610 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request Approval</source>
           <target state="translated">Schvalování požadavku</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action RequestApproval - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 1929393835 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>F&amp;unctions</source>
+          <target state="translated">F&amp;unkce</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Functions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 2071937805 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reopen the document to change it after it has been approved. Approved documents have the Released status and must be opened before they can be changed.</source>
+          <target state="translated">Znovuotevření dokladu k jeho změně, poté, co byl schválen. Schválené dokumenty mají stav Vydáno a musí být otevřeny před tím, než jsou změněny.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Reopen - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 2071937805 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Re&amp;open</source>
+          <target state="translated">Znovu o&amp;tevřít</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Reopen - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 2224783030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting</source>
+          <target state="translated">Účtovani</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Category_Category5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 2524661601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Approval</source>
+          <target state="translated">Schvalování požadavku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2069854880 - Action 2808404044 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;osting</source>
           <target state="translated">Úč&amp;tování</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Posting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 3294421439 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The function allows propose compensation lines.</source>
+          <target state="translated">Funkce umožňuje navrhnout řádky zápočtu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action ProposeCompensationLines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 3294421439 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Propose Compensation Lines</source>
+          <target state="translated">Navrhnout řádky zápočtu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action ProposeCompensationLines - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2069854880 - Action 3298750150 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review the result of the posting lines before the actual posting.</source>
@@ -352,6 +430,12 @@
           <target state="translated">Náhled účtování</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action PreviewPosting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2069854880 - Action 383335270 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Relations to the workflow.</source>
@@ -389,6 +473,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action PrintToAttachment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 4032263875 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release the compensation document to indicate that it has been account. The status then changes to Released.</source>
+          <target state="translated">Vydat doklad zápočtu k indikování, že může být zaúčtován. Stav se pak změní na Vydaný.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Release - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 4032263875 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Re&amp;lease</source>
+          <target state="translated">&amp;Vydat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Release - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2069854880 - Action 4236135242 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize the compensation. The values are posted to the related accounts.</source>
           <target state="translated">Dokončit zápočet. Hodnoty budou zaúčtovány na odpovídající účty.</target>
@@ -425,6 +521,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action CancelApprovalRequest - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2069854880 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Compensation</source>
+          <target state="translated">Zápočet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2647720189 - Action 1002420131 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
           <target state="translated">Příprava na tisk dokumentu. V okně možností sestavy pro dokument můžete určit, co chcete zahrnout do tisku.</target>
@@ -436,6 +538,18 @@
           <target state="translated">T&amp;isk</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2647720189 - Action 1062429549 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add a file as an attachment. You can attach images as well as documents.</source>
+          <target state="translated">Přidejte soubor jako přílohu. Můžete připojit obrázky, stejně jako dokumenty.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action DocAttach - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2647720189 - Action 1062429549 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <target state="translated">Přílohy</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action DocAttach - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2647720189 - Action 1671420421 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Creates incoming document from file</source>
@@ -479,6 +593,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action IncomingDocCard - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2647720189 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2647720189 - Action 3306084698 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming Document</source>
+          <target state="translated">Došlý doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action Category_Category10 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2647720189 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2647720189 - Action 3538210097 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Find all entries and documents that exist for the document number and posting date on the selected entry or document.</source>
           <target state="translated">Najdete všechny položky a doklady, které existují pro zadané číslo dokladu a zúčtovací datum pro vybranou položku nebo dokument.</target>
@@ -491,6 +623,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action Navigate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2647720189 - Action 3860314472 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.</source>
+          <target state="translated">Zobrazuje seznam záznamů, které čekají na schválení. Například můžete vidět, kdo požádal o schválení záznamu, kdy byl požadavek odeslán, a kdy má být schválen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action Approvals - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2647720189 - Action 3860314472 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approvals</source>
+          <target state="translated">Schvalování</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action Approvals - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2647720189 - Action 3986159229 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a PDF file and attach it to the document.</source>
           <target state="translated">Vytvořte soubor PDF a připojte jej k dokumentu.</target>
@@ -502,6 +646,12 @@
           <target state="translated">Připojit jako PDF</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action PrintToAttachment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2647720189 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Compensation</source>
+          <target state="translated">Zápočet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Action Category_Category7 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2725993544 - Action 1735507514 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Line</source>
@@ -695,6 +845,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action ApplyDocumentBalance - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3012527878 - Action 1587086413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <target state="translated">Vydat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3012527878 - Action 1671420421 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create an incoming document record by selecting a file to attach, and then link the incoming document record to the entry or document.</source>
           <target state="translated">Vytvoří záznam došlého dokladu výběrem souboru přílohy a propojí záznam došlého dokladu k položce nebo dokladu.</target>
@@ -749,11 +905,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Reopen - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3012527878 - Action 2224783030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting</source>
+          <target state="translated">Účtovani</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Category_Category5 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3012527878 - Action 227370865 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approval</source>
           <target state="translated">Schválení</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Approval - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3012527878 - Action 2524661601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Approval</source>
+          <target state="translated">Schvalování požadavku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Category_Category8 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3012527878 - Action 2748447179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incoming Document</source>
@@ -803,6 +971,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action PostAndNew - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3012527878 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3012527878 - Action 3162358218 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approval</source>
+          <target state="translated">Schválení</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Category_Category9 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3012527878 - Action 3294421439 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The function allows propose compensation lines.</source>
           <target state="translated">Funkce umožňuje navrhnout řádky zápočtu.</target>
@@ -826,6 +1006,12 @@
           <target state="translated">Náhled účtování</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action PreviewPosting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3012527878 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3012527878 - Action 383335270 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Relations to the workflow.</source>
@@ -935,6 +1121,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action RemoveIncomingDoc - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3012527878 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Compensation</source>
+          <target state="translated">Zápočet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 312536327 - Action 1002420131 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
           <target state="translated">Příprava na tisk dokumentu. V okně možností sestavy pro dokument můžete určit, co chcete zahrnout do tisku.</target>
@@ -946,6 +1138,78 @@
           <target state="translated">T&amp;isk</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 1062429549 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add a file as an attachment. You can attach images as well as documents.</source>
+          <target state="translated">Přidejte soubor jako přílohu. Můžete připojit obrázky, stejně jako dokumenty.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action DocAttach - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 1062429549 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachments</source>
+          <target state="translated">Přílohy</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action DocAttach - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 1671420421 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creates incoming document from file</source>
+          <target state="translated">Vytváří došlý doklad ze souboru.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action IncomingDocAttachFile - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 1671420421 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Incoming Document from File</source>
+          <target state="translated">Vytvořit došlý doklad ze souboru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action IncomingDocAttachFile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 1744698506 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selects incoming document</source>
+          <target state="translated">Vybere došlý doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action SelectIncomingDoc - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 1744698506 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select Incoming Document</source>
+          <target state="translated">Vybrat došlý doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action SelectIncomingDoc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 2748447179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming Document</source>
+          <target state="translated">Došlý doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action IncomingDocument - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 2879753038 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies incoming document</source>
+          <target state="translated">Určuje došlý doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action IncomingDocCard - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 2879753038 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View Incoming Document</source>
+          <target state="translated">Zobrazit došlý doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action IncomingDocCard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 311693179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <target state="translated">Tisk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 3306084698 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming Document</source>
+          <target state="translated">Došlý doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action Category_Category10 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 312536327 - Action 3538210097 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Find all entries and documents that exist for the document number and posting date on the selected entry or document.</source>
@@ -959,6 +1223,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action Navigate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 312536327 - Action 3860314472 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.</source>
+          <target state="translated">Zobrazuje seznam záznamů, které čekají na schválení. Například můžete vidět, kdo požádal o schválení záznamu, kdy byl požadavek odeslán, a kdy má být schválen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action Approvals - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 3860314472 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approvals</source>
+          <target state="translated">Schvalování</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action Approvals - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 312536327 - Action 3986159229 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a PDF file and attach it to the document.</source>
           <target state="translated">Vytvořte soubor PDF a připojte jej k dokumentu.</target>
@@ -970,6 +1246,48 @@
           <target state="translated">Připojit jako PDF</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action PrintToAttachment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 312536327 - Action 949389796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Compensation</source>
+          <target state="translated">Zápočet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation List CZC - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Action 1107476520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <target state="translated">Otevře doklad, na kterém je vybraný řádek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Action 1107476520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <target state="translated">Zobrazit doklad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">Řáde&amp;k</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Action 2173385693 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <target state="translated">Zobrazení nebo úprava dimenzí, jako je oblast, projekt nebo středisko, které můžete přiřadit k prodejním a nákupním dokladům za účelem distribuce nákladů a analýzy historie transakcí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Action 2173385693 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <target state="translated">Dimenze</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Proces</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1021558782 - Control 1900957152 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the source number.</source>
@@ -2363,6 +2681,156 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compens. Report Selections CZC - Control ReportUsage2 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 804245894 - Control 1003760969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the Shortcut Dimension 2, which is defined in the Shortcut Dimension 2 Code field in the General Ledger Setup window.</source>
+          <target state="translated">Určuje kód zkratky dimenze 2, který se definuje v poli Kód zkratky dimenze 2 v okně Nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 1577567912 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the Shortcut Dimension 1, which is defined in the Shortcut Dimension 1 Code field in the General Ledger Setup window.</source>
+          <target state="translated">Určuje kód zkratky dimenze 1, který je definován v poli kódu zkratky dimenze 1 v okně nastavení financí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 1699078524 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the original amount of the source customer or vendor entry that can be included in the compensation. The amount is in the local currency.</source>
+          <target state="translated">Určuje původní částku zdrojové položky zákazníka nebo dodavatele, která může být zahrnuta do zápočtu. Částka je v lokální měně.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Ledg. Entry Original Amt.(LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 1753214751 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the company type in compensation line (customer or vendor).</source>
+          <target state="translated">Určuje typ společnosti v řádku zápočtu (zákazník nebo dodavatel).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Source Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 1882905478 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of customer or vendor.</source>
+          <target state="translated">Určuje číslo zákazníka nebo dodavatele.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Source No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 1915851633 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the posting group used on the source customer or vendor entry.</source>
+          <target state="translated">Určuje použitou účto skupinu na původní položce zákazníka či dodavatele.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 2324056710 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Currency Factor field.</source>
+          <target state="translated">Určuje hodnotu pole Faktor měny.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Currency Factor - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document type of the customer or vendor ledger entry.</source>
+          <target state="translated">Určuje typ dokladu v položce zákazníka nebo dodavatele.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 2700662257 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount after doing compensation process. The amount is in the local currency.</source>
+          <target state="translated">Určuje částku po provedení procesu zápočtu. Částka je v lokální měně.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Remaining Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 2924064839 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the original amount of the source customer or vendor entry that can be included in the compensation.</source>
+          <target state="translated">Určuje původní částku zdrojové položky zákazníka nebo dodavatele, která může být zahrnuta do zápočtu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Ledg. Entry Original Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 2975378708 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount after doing compensation process.</source>
+          <target state="translated">Určuje částku po provedení procesu zápočtu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Remaining Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 3033221207 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the remaining amount of the source customer or vendor entry that can be included in the compensation. The amount is in the local currency.</source>
+          <target state="translated">Určuje zůstatek částky původní položky zákazníka či dodavatele, který je možno zahrnout do zápočtu. Částka je v lokální měně.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Ledg. Entry Rem. Amt. (LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 3320823955 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Line No. field.</source>
+          <target state="translated">Určuje hodnotu pole Číslo řádku.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 3321391396 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Compensation Posting Date field.</source>
+          <target state="translated">Určuje hodnotu pole Zúčtovací datum zápočtu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Compensation Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 3322554545 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Dimension Set ID field.</source>
+          <target state="translated">Určuje hodnotu pole ID sady dimenzí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Dimension Set ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description for compensation.</source>
+          <target state="translated">Určuje popis pro zápočet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 348895196 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document number for the payment system.</source>
+          <target state="translated">Určuje číslo dokladu pro platební systém.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Variable Symbol - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 3627141058 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry number of customer or vendor entry that is the subject of the compensation.</source>
+          <target state="translated">Určuje číslo položky zákazníka či dodavatele, která je předmětem zápočtu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Source Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 3710982960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the posting date of the original customer or vendor entry that is the subject of the compensation.</source>
+          <target state="translated">Určuje zúčtovací datum původní položky zákazníka či dodavatele, která je předmětem zápočtu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 4052499268 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the remaining amount of the source customer or vendor entry that can be included in the compensation.</source>
+          <target state="translated">Určuje zůstatek částky původní položky zákazníka či dodavatele, který je možno zahrnout do zápočtu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Ledg. Entry Remaining Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 4198939294 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the currency of amounts on the document.</source>
+          <target state="translated">Určuje měnu částek dokladu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 486908828 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document number of the customer or vendor ledger entry.</source>
+          <target state="translated">Určuje číslo dokladu položky zákazníka nebo dodavatele.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 592951229 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount which will be included in the compensation. The amount is in the local currency.</source>
+          <target state="translated">Určuje částku, která bude započtena. Částka je v lokální měně.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 636392376 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount which will be included in the compensation.</source>
+          <target state="translated">Určuje částku, která bude započtena.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Control 89861893 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Compensation No. field.</source>
+          <target state="translated">Určuje hodnotu pole Číslo zápočtu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Control Compensation No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3012527878 - NamedType 2760521569" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The compensation has been posted and moved to the posted compensations window.\\Do you want to open the posted compensation?</source>
           <target state="translated">Zápočet byl zaúčtován a přesunut do okna Účtované zápočty.\\Chcete otevřít kartu účtovaného zápočtu?</target>
@@ -2392,12 +2860,6 @@
           <target state="translated">Řádky zápočtu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Lines CZC - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2069854880 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Approve,Request Approval</source>
-          <target state="translated">Nový,Proces,Sestava,Schválit,Schvalování požadavku</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation List CZC - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2069854880 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Compensations</source>
@@ -2435,12 +2897,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Subf. CZC - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3012527878 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Approve,Request Approval</source>
-          <target state="translated">Nový,Proces,Sestava,Schválit,Schvalování požadavku</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Property PromotedActionCategories</note>
-        </trans-unit>
         <trans-unit id="Page 3012527878 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Compensation Card</source>
           <target state="translated">Karta zápočtu</target>
@@ -2464,6 +2920,12 @@
           <target state="translated">Výběr sestav - zápočty</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compens. Report Selections CZC - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 804245894 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Compensation Lines</source>
+          <target state="translated">Řádek účtovaného zápočtu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Lines CZC - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2316771610 - Action 3950432719 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View and edit compensations.</source>

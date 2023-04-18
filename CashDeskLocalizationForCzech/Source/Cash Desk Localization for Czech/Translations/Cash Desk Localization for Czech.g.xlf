@@ -863,11 +863,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Account Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2453418483 - Field 3770308547 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advance Letter Link Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Advance Letter Link Code - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 2453418483 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2468,6 +2463,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Responsibility Hand Over - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4259462887 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4259462887 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4259462887 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Desk</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4259462887 - Action 278110413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>New</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2887,6 +2897,26 @@
           <source>Responsibility Hand Over</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Responsibility Hand Over - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 673917101 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 673917101 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 673917101 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Desk</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 673917101 - Action 1269952864 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk List CZP - Action Category_Dimensions - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 673917101 - Action 278110413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>New</source>
@@ -3448,36 +3478,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action CopyDocument - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 781841601 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow to link partial payment of advance letters.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Link Advance Letters - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 781841601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Link Advance Letters</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Link Advance Letters - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 1336921863 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow to link whole advance letters.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Link Whole Advance Letter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 1336921863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Link Whole Advance Letter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Link Whole Advance Letter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 217464279 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unlinks linked advance letters</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action UnLink Linked Advance Letters - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 217464279 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>UnLink Linked Advance Letters</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action UnLink Linked Advance Letters - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1970646769 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;osting</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3563,11 +3563,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category6 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1970646769 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Process</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Process - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1970646769 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3577,6 +3572,16 @@
           <source>Release</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 3162358218 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Category9 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970646769 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document CZP - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970646769 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report</source>
@@ -3682,6 +3687,56 @@
           <source>Specifies the code of the Shortcut Dimension 2, which is defined in the Shortcut Dimension 2 Code field in the General Ledger Setup window.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 655538596 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 3 of line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[3] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 3128656593 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 4 of line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[4] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 377216802 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 5 of line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[5] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 3685713487 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 6 of line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[6] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 934273696 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 7 of line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[7] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Control 1291090573 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies shortcut dimension code No. 8 of line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Control ShortcutDimCode[8] - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Action 1107476520 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Action 1107476520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1938499750 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document Lines CZP - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4221146319 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Documents</source>
@@ -3823,6 +3878,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Release and &amp;Print - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>F&amp;unctions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action F&amp;unctions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 1359316502 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a new cash document by copying an existing cash document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action CopyDocument - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 1359316502 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action CopyDocument - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4221146319 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;osting</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3902,6 +3972,16 @@
           <source>Cash Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 2524661601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4221146319 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Document List CZP - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4221146319 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report</source>
@@ -4478,6 +4558,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action Category_Category6 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1242474714 - Action 2524661601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1242474714 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Process</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4507,6 +4592,256 @@
           <source>Attach as PDF</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document CZP - Action PrintToAttachment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Cash Document Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1622979514 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the account that the entry on the journal line will be posted to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Account No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3699788827 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of account thet the entry will be posted to. To see the options, choose the field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Account Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total amount that the cash document line consists of.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 592951229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Amount (LCY) field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1650118938 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the unit price on the line should be displayed including or excluding VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Amount Including VAT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2348384091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Amount Including VAT (LCY) field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Amount Including VAT (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2759347632 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the cash desk event in the cash document lines.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Cash Desk Event - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 333492497 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Cash Desk No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Cash Desk No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2676088555 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Cash Document No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Cash Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 4198939294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the currency of amounts on the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Currency Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2223214263 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code for the depreciation book to which the line will be posted if you have selected Fixed Asset in the Type field for this line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Depreciation Book Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description of cash document line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 47657272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the another line for description if description is longer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Description 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3322554545 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Dimension Set ID field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Dimension Set ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2363328873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Cash Document Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2385065524 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you have selected Fixed Asset in the Account Type field for this line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Duplicate in Depreciation Book - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1389243188 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the EET Transaction field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control EET Transaction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1527563463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number that the vendor uses on the invoice they sent to you or number of receipt.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control External Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1877866625 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the cash document line amount represents a acquisition cost (Acquisition Cost) or a custom 2 (Custom 2) or a maintenance (Maintenance) of Fixed Asset.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control FA Posting Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2024361351 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the cash desk general document type is payment or refund.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Gen. Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 59113118 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the general posting type is purchase (Purchase) or sale (Sale).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Gen. Posting Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3320823955 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Line No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2422551700 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a maintenance code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Maintenance Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1915851633 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Posting Group field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1908046867 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the reason code on the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Reason Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2247850105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Responsibility Center field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Responsibility Center - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3883264070 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies which salesperson/purchaser is assigned to the cash desk document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Salespers./Purch. Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the Shortcut Dimension 1, which is defined in the Shortcut Dimension 1 Code field in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1003760969 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the Shortcut Dimension 2, which is defined in the Shortcut Dimension 2 Code field in the General Ledger Setup window.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2283884360 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the System-Created Entry field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control System-Created Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 607461957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you have selected Fixed Asset in the Account Type field for this line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Use Duplication List - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 3144071522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Use Tax field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control Use Tax - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1246077090 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT % field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1108276017 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT amount for cash desk document line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2911518948 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Amount (LCY) field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 904390814 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total VAT base amount for lines. The program calculates this amount from the sum of line VAT base amount fields.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Base Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 953833239 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Base Amount (LCY) field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Base Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 1844012642 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a VAT business posting group code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2971014054 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Calculation Type field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Calculation Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2992823416 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Difference field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Difference - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 685875197 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Difference (LCY) field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Difference (LCY) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 2534656220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the VAT Identifier field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Identifier - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Control 236064653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a VAT product posting group code for the VAT Statement.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Control VAT Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 1107476520 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the document that the selected line exists on.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Show Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 1107476520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Show Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 57435133 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document Lines CZP - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1038428832 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Cash Documents</source>
@@ -4602,6 +4937,11 @@
           <source>Cash Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document List CZP - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1038428832 - Action 2524661601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Cash Document List CZP - Action Category_Category8 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1038428832 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Process</source>
@@ -6278,6 +6618,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel CompanyLbl</note>
         </trans-unit>
+        <trans-unit id="Report 744157261 - ReportLabel 3701423681" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel CopyLbl</note>
+        </trans-unit>
         <trans-unit id="Report 744157261 - ReportLabel 291269830" size-unit="char" translate="yes" xml:space="preserve">
           <source>Created by</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6338,6 +6683,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel VATPercentLbl</note>
         </trans-unit>
+        <trans-unit id="Report 744157261 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 744157261 - Control 2279373630 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of copies to print.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - Control NoOfCopiesCZP - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 744157261 - Control 2279373630 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of Copies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - Control NoOfCopiesCZP - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3309826356 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Withdrawal Cash Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6352,6 +6712,11 @@
           <source>Company</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel CompanyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3309826356 - ReportLabel 3701423681" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel CopyLbl</note>
         </trans-unit>
         <trans-unit id="Report 3309826356 - ReportLabel 291269830" size-unit="char" translate="yes" xml:space="preserve">
           <source>Created by</source>
@@ -6412,6 +6777,21 @@
           <source>VAT %</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel VATPercentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3309826356 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3309826356 - Control 2279373630 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of copies to print.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - Control NoOfCopiesCZP - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3309826356 - Control 2279373630 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of Copies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - Control NoOfCopiesCZP - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2016893039 - Action 3528064754 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3761073867">
           <source>View and edit cash desk events.</source>

@@ -3,11 +3,6 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="OnPrem Permissions (CZ)">
     <body>
       <group id="body">
-        <trans-unit id="PermissionSet 2911930936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bank Acc.,Payment,Stat. Read</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet BANK-DOCUMENT - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PermissionSet 2175001789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Payment, Statement Post</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -27,26 +22,6 @@
           <source>EET - User</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet EET - USER - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 3211026405 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Advance Read</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PURCH-ADVANCE - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 1334621833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Advance Post</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PURCH-ADVANCE, POST - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 4175674417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales Advance Read</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SALES-ADVANCE - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 2640703037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales Advance Post</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SALES-ADVANCE, POST - Property Caption</note>
         </trans-unit>
       </group>
     </body>

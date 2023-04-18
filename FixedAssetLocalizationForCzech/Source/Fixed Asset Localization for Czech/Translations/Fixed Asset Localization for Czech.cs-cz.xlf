@@ -2906,6 +2906,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Card CZF - NamedType NotDispTxt</note>
         </trans-unit>
+        <trans-unit id="Report 1612362103 - NamedType 696426120" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes,No</source>
+          <target state="translated">Ano,Ne</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Card CZF - NamedType BooleanValuesTxt</note>
+        </trans-unit>
         <trans-unit id="Report 2645448874 - NamedType 1177097414" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Starting Date must be specified when you use the option %1.</source>
           <target state="translated">Když použijete volbu %1, musíte zadat Počáteční datum.</target>
@@ -3320,6 +3326,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Acquisition CZF - NamedType EmptyNoErr</note>
         </trans-unit>
+        <trans-unit id="Report 4247254988 - NamedType 696426120" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes,No</source>
+          <target state="translated">Ano,Ne</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Acquisition CZF - NamedType BooleanValuesTxt</note>
+        </trans-unit>
         <trans-unit id="Report 4247254988 - NamedType 998281110" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Depreciation book code must not be empty.</source>
           <target state="translated">Kód knihy odpisů nesmí být prázdný.</target>
@@ -3499,6 +3511,12 @@
           <target state="translated">Odpovědný zaměstnanec</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Card CZF - ReportLabel ResponsibleEmployeeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612362103 - ReportLabel 2826403587" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <target state="translated">Neaktivní</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Card CZF - ReportLabel InactiveLbl</note>
         </trans-unit>
         <trans-unit id="Report 1612362103 - ReportLabel 3421824196" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>FA Location</source>
@@ -3865,6 +3883,12 @@
           <target state="translated">2.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Acquisition CZF - ReportLabel N2Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4247254988 - ReportLabel 2826403587" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <target state="translated">Neaktivní</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Fixed Asset Acquisition CZF - ReportLabel InactiveLbl</note>
         </trans-unit>
         <trans-unit id="Report 4247254988 - ReportLabel 3286606726" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comments</source>
