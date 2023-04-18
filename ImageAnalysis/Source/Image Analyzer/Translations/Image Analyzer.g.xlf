@@ -153,11 +153,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType ContactQuestionnairePopulatedNotificationDescriptionTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3175899218 - NamedType 1478212858" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Don't ask again</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType DeactivateActionTxt</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 844885115" size-unit="char" translate="yes" xml:space="preserve">
           <source>Got it</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -197,11 +192,6 @@
           <source>Notify me that the Image Analyzer extension can suggest attributes detected in imported images.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType SetupNotificationDescriptionTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3175899218 - NamedType 3777354085" size-unit="char" translate="yes" xml:space="preserve">
-          <source>If you want, we can assign attributes based on the images you import for items and contacts.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType SetupNotificationMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 3519161399" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer setup</source>
