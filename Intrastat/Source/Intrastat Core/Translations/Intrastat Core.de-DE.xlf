@@ -251,7 +251,7 @@
         </trans-unit>
         <trans-unit id="Enum 279669342 - EnumValue 538715564 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment</source>
-          <target state="translated">Ausgang</target>
+          <target state="translated">Lieferung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Intrastat Report Line Type - EnumValue Shipment - Property Caption</note>
         </trans-unit>
