@@ -1,4 +1,12 @@
 {
+  "settings": {
+    "al.enableCodeActions": false,
+    "al.enableCodeAnalysis": false,
+    "allint.enabled": false,
+    "search.exclude": {
+      "**.xlf": true
+    }
+  },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
@@ -19,6 +27,9 @@
       "path": "./salesandinventoryforecast/test/Sales and Inventory Forecast Tests"
     },
     {
+      "path": "./ReviewGLEntries/Test/_Exclude_Review_General_Ledger_Entries_Tests"
+    },
+    {
       "path": "./shopify/test/Shopify Connector Test"
     },
     {
@@ -29,6 +40,12 @@
     },
     {
       "path": "./Email - SMTP Connector/Test/Email - SMTP Connector Tests"
+    },
+    {
+      "path": "./MasterDataManagement/Test Library/_Exclude_Master_Data_Management_Test_Library"
+    },
+    {
+      "path": "./MasterDataManagement/Test/_Exclude_Master_Data_Management_Tests"
     },
     {
       "path": "./Email - Microsoft 365 Connector/Test/Email - Microsoft 365 Connector Tests"
@@ -85,6 +102,12 @@
       "path": "./onprem permissions/test/OnPrem Permissions Tests"
     },
     {
+      "path": "./statisticalaccounts/test/Statistical Accounts Tests"
+    },
+    {
+      "path": "./AuditFileExport/Test/Audit File Export Tests"
+    },
+    {
       "path": "./CustomsDeclarationTracking/test/Customs Declaration Tracking for Russia Tests"
     },
     {
@@ -95,9 +118,6 @@
     },
     {
       "path": "./simplifiedbankstatementimport/test/Simplified Bank Statement Import Test"
-    },
-    {
-      "path": "./BaseApp/Source/Base Application/Test Framework"
     },
     {
       "path": "./BaseApp/Test/Tests-Bank"
@@ -198,13 +218,5 @@
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
     }
-  ],
-  "settings": {
-    "search.exclude": {
-      "**.xlf": true
-    },
-    "al.enableCodeActions": false,
-    "al.enableCodeAnalysis": false,
-    "allint.enabled": false
-  }
+  ]
 }
