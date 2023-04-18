@@ -15836,7 +15836,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2910014531 - Control 3974331008 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies to automatically mark postings with negative quantities as corrections. This will set the Correction field to Yes for any lines with negative quantities.</source>
-          <target state="translated">Určuje, že se automaticky označí účtování se záporným množstvím jako opravy. Toto nastaví pro všechny řádky se zápornúm množstvím Ano do pole Oprava.</target>
+          <target state="translated">Určuje, že se automaticky označí účtování se záporným množstvím jako opravy. Toto nastaví pro všechny řádky se záporným množstvím Ano do pole Oprava.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4050813720</note>
@@ -15864,7 +15864,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2910014531 - Control 889110063 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the system does or does not check the dimension setup by closing operation depending on whether the field is checked.</source>
-          <target state="translated">Určuje, zda systém má nebo nemá kontrolu nastavení dimenze prostřednictvím ukončení operace v závislosti na tom, zda je pole zaškrtnuté.</target>
+          <target state="translated">Určuje, zda má systém kontrolovat použití dimenzí na finančních účtech při závěrkových operacích.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4050813720</note>
@@ -20993,7 +20993,7 @@
         </trans-unit>
         <trans-unit id="Report 1744894992 - Control 1756753968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the stockkeeping unit will be created only for the stockkeeping unit templates.</source>
-          <target state="translated">Určuje, zda bude skladová jednotka vytvořena pouze pro šablony SKU.</target>
+          <target state="translated">Určuje, zda bude skladová jednotka vytvořena pouze pro šablony SKJ.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create Stockkeeping Unit CZL - Control OnlyForSKUTemplatesCZL - Property ToolTip</note>
         </trans-unit>
