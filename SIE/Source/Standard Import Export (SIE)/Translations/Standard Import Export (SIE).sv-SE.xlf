@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="sv-SE" original="Standard Import Export (SIE)">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 265557824 - NamedType 3074412423" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 page is part of the new SIE feature, which is not enabled yet in your Business Central. An administrator can enable the feature on the Feature Management page.</source>
+          <target state="translated">Sidan %1 ingår i den nya SIE-funktionen, som ännu inte har aktiverats i ditt Business Central. En administratör kan aktivera funktionen på sidan Funktionshantering.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - page caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SIE Management - NamedType FeatureNotEnabledMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2979476788 - NamedType 1877971069" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Master Data and G/L Entries</source>
+          <target state="translated">Huvuddata och redovisningstransaktioner</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Data Handling SIE - NamedType CustomDataTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2979476788 - NamedType 895813024" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Master Data</source>
+          <target state="translated">Huvuddata</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Data Handling SIE - NamedType MasterDataTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 312765062 - NamedType 1071446415" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing object balance amount   #7#### @8@@@@@@@@@@@\</source>
+          <target state="translated">Behandlar objektsaldobelopp        #7#### @8@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2">#7 - current G/L Account No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SIE - NamedType ProcessObjectBalAmountTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 312765062 - NamedType 1611552769" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing transactions            #5#### @6@@@@@@@@@@@\</source>
+          <target state="translated">Behandlar transaktioner            #5#### @6@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2">#5 - current G/L Entry Document No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SIE - NamedType ProcessTransactTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 312765062 - NamedType 1696908038" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating SIE file\</source>
+          <target state="translated">Skapar SIE-fil\</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SIE - NamedType CreateFileTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 312765062 - NamedType 2591738958" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing periodic balance amount #5#### @6@@@@@@@@@@@\</source>
+          <target state="translated">Behandlar periodiskt saldobelopp   #5#### @6@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2">#5 - current G/L Account No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SIE - NamedType ProcessPeriodicBalAccTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 312765062 - NamedType 2724987107" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing G/L Account             #3#### @4@@@@@@@@@@@\</source>
+          <target state="translated">Behandlar redovisningskonto        #3#### @4@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2">#3 - current G/L Account No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SIE - NamedType ProcessGLAccTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 312765062 - NamedType 3300958449" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIE type                           #2##################\</source>
+          <target state="translated">SIE-typ                            #2##################\</target>
+          <note from="Developer" annotates="general" priority="2">#2 - File Type SIE</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SIE - NamedType SIETypeTxt</note>
+        </trans-unit>
+        <trans-unit id="Enum 2719730587 - EnumValue 1273505751 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>3. Object Balances</source>
+          <target state="translated">3. Objektssaldon</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum File Type SIE - EnumValue 3. Object Balances - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2719730587 - EnumValue 1553920738 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>2. Periodic Balances</source>
+          <target state="translated">2. Periodiska saldon</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum File Type SIE - EnumValue 2. Periodic Balances - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2719730587 - EnumValue 222180551 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>4. Transactions</source>
+          <target state="translated">4. Transaktioner</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum File Type SIE - EnumValue 4. Transactions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2719730587 - EnumValue 2299097089 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1. Year - End Balances</source>
+          <target state="translated">1. År – Slutsaldon</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum File Type SIE - EnumValue 1. Year - End Balances - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 743340957 - EnumValue 1235353201 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIE</source>
+          <target state="translated">SIE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 1217862704</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 819980703 - EnumValue 2381253450 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Four Digit Standard Account (SRU)</source>
+          <target state="translated">Fyrsiffrigt standardkonto (SRU)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 2341503086</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Action 2438272767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back</source>
+          <target state="translated">Tillbaka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Action ActionBack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Action 3259912055 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finish</source>
+          <target state="translated">Slutför</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Action ActionFinish - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Action 914282563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next</source>
+          <target state="translated">Nästa</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Action ActionNext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1903914832 - Control 2623957639 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a dimension code.</source>
+          <target state="translated">Anger en dimensionskod.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Dimensions SIE - Control Dimension Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1903914832 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a descriptive name for the dimension.</source>
+          <target state="translated">Anger ett beskrivande namn på dimensionen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Dimensions SIE - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1903914832 - Control 373890305 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number you want to assign to the dimension.</source>
+          <target state="translated">Anger numret som du vill tilldela dimensionen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Dimensions SIE - Control SIE Dimension - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1903914832 - Control 90423963 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if this dimension should be used when importing or exporting G/L data.</source>
+          <target state="translated">Anger om den här dimensionen ska användas när redovisningsdata importeras eller exporteras.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Dimensions SIE - Control Selected - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1121962313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control StandardBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1182202415 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You're ready to use the SIE functionality. Do an additional mapping on the G/L Account Mapping page if needed. Open the Audit File Export Document page to export the data in the SIE format.</source>
+          <target state="translated">Du kan nu börja använda SIE-funktionerna. Gör en ytterligare mappning på sidan Mappning av redovisningskonto om det behövs. Öppna sidan Exportdokument för verifieringsfil om du vill exportera data i SIE-format.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control FinishDescription - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1182202415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control FinishDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1412901032 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the period of the first SIE file. Choose Next to map your chart of accounts to the values that SIE requires.</source>
+          <target state="translated">Ange perioden för den första SIE-filen. Välj Nästa för att mappa kontoplanen till de värden som krävs för SIE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control ChooseMappingRangeChild - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1412901032 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the period of the first SIE file</source>
+          <target state="translated">Ange perioden för den första SIE-filen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control ChooseMappingRangeChild - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1447842579 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The SIE (Standard Import Export) is a standard file format for exporting various types of accounting transactional data. This guide helps you set up SIE for Dynamics 365 Business Central. If you do not want to set this up right now, close this page.</source>
+          <target state="translated">SIE (Standard Import Export) är ett standardfilformat för export av olika typer av redovisningstransaktionsdata. Den här guiden hjälper dig att konfigurera SIE för Dynamics 365 Business Central. Stäng sidan om du inte vill göra konfigurationen just nu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control SIEDescription - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1447842579 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control SIEDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 146194493 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>When sending your SIE file to the tax authorities, each G/L account must be mapped to a financial standard account.</source>
+          <target state="translated">När du skickar SIE-filen till skattemyndigheterna måste varje redovisningskonto mappas till ett standardkonto för finansiella transaktioner.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control MappingSourceNotLoaded - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 146194493 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select the standard chart of accounts</source>
+          <target state="translated">Välj standardkontoplan</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control MappingSourceNotLoaded - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1597877536 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date of the accounting period.</source>
+          <target state="translated">Anger bokföringsperiodens startdatum.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control AccountingPeriod - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1597877536 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accounting Period</source>
+          <target state="translated">Bokföringsperiod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control AccountingPeriod - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1891128134 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of mapped G/L accounts out of the total number of G/L accounts to map.</source>
+          <target state="translated">Anger antalet mappade redovisningskonton av det totala antalet redovisningskonton som ska mappas.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control GLAccountsMappedInfo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 1891128134 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Accounts Mapped:</source>
+          <target state="translated">Mappade redovisningskonton:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control GLAccountsMappedInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 2203603252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The SIE setup is completed!</source>
+          <target state="translated">SIE-konfigurationen är klar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control FinishedChild - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 2414211674 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the preferred standard account type and choose Next.</source>
+          <target state="translated">Ange förvald kontotyp och välj Nästa.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control MappingSourceLoaded - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 300852202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control FinishedBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 3338322724 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the standard general ledger accounts.</source>
+          <target state="translated">Anger typen av standardredovisningskonton.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control StandardAccountTypeField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 3338322724 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Standard Account Type</source>
+          <target state="translated">Standardkontotyp</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control StandardAccountTypeField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 3592094765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ending date of the period in which the mapping is valid.</source>
+          <target state="translated">Anger slutdatumet för den period som mappningen gäller för.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control EndingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 3592094765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target state="translated">Slutdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control EndingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 3800514526 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Welcome to the setup of SIE</source>
+          <target state="translated">Välkommen till konfigurationen av SIE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control Welcome - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 414586598 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add SIE dimensions if necessary, and set Selected for those dimensions which must be exported to the SIE file. You can update the dimensions later on the Dimensions SIE page.</source>
+          <target state="translated">Lägg till SIE-dimensioner om det behövs och ange Vald för de dimensioner som måste exporteras till SIE-filen. Du kan uppdatera dimensionerna senare på sidan Dimensioner för SIE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control DimensionExportGeneral - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 414586598 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export dimensions to SIE</source>
+          <target state="translated">Exportera dimensioner till SIE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control DimensionExportGeneral - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 43593927 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the accounting period.</source>
+          <target state="translated">Anger bokföringsperiodens typ.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control PeriodType - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 43593927 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accounting Period Type</source>
+          <target state="translated">Typ av bokföringsperiod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control PeriodType - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 543275552 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date of the period in which the mapping is valid.</source>
+          <target state="translated">Anger startdatumet för den period som mappningen gäller för.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control StartingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 543275552 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Startdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control StartingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 575692331 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>For each general ledger account, select the SIE account.</source>
+          <target state="translated">Välj SIE-kontot för varje redovisningskonto.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control DoMappingGeneral - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Control 575692331 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Map SIE accounts to your chart of accounts</source>
+          <target state="translated">Mappa SIE-konton till din kontoplan</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Control DoMappingGeneral - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1903914832 - NamedType 2184476466" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIE dimension cannot be added or deleted when the page is opened in lookup mode. To add, remove or edit SIE dimensions, search for the page Dimensions SIE and open it.</source>
+          <target state="translated">Det går inte att lägga till eller ta bort en SIE-dimension när sidan öppnas i uppslagsläge. Lägg till, ta bort eller redigera SIE-dimensioner genom att söka efter sidan Dimensioner för SIE och öppna den.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Dimensions SIE - NamedType CannotEditInLookupModeErr</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - NamedType 1248164630" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A source for mapping was not loaded due to the following error: %1.</source>
+          <target state="translated">Det gick inte att läsa in en källa för mappning på grund av följande fel: %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - error text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - NamedType MappingSourceNotLoadedMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - NamedType 1269338287" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the setup page to define which dimensions to export to SIE.</source>
+          <target state="translated">Öppna konfigurationssidan för att definiera vilka dimensioner som ska exporteras till SIE.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - NamedType OpenDimensionExportSetupLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - NamedType 1730087084" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A mapping range was not set up due to the following error: %1.</source>
+          <target state="translated">Inget mappningsintervall har konfigurerats på grund av följande fel: %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - error text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - NamedType MappingRangeNotSetupMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - NamedType 1934323751" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the setup page to define G/L account mappings.</source>
+          <target state="translated">Öppna konfigurationssidan för att definiera mappningar av redovisningskonton.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - NamedType OpenMappingSetupLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - NamedType 2838187212" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A standard account type is not specified.</source>
+          <target state="translated">Ingen standardkontotyp har angetts.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - NamedType StandardAccTypeNotSpecifiedErr</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - NamedType 984350027" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up SIE has not been completed.\\Are you sure that you want to exit?</source>
+          <target state="translated">Konfigurationen av SIE har inte slutförts än.\\Vill du avsluta?</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Set-up of SIE</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - NamedType SetupNotCompletedQst</note>
+        </trans-unit>
+        <trans-unit id="Page 1903914832 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions SIE</source>
+          <target state="translated">Dimensioner för SIE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Dimensions SIE - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 819335509 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIE Audit File Export Setup Guide</source>
+          <target state="translated">Konfigurationsguide för export av SIE-verifieringsfil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SIE Setup Wizard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4269233896 - Control 2055464223 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tax year that the export process refers to.</source>
+          <target state="translated">Anger skatteåret som exporten avser.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4269233896 - Control 2173385693 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the dimensions covered by the export process.</source>
+          <target state="translated">Anger de dimensioner som omfattas av exporten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4269233896 - Control 2588561902 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the filter for G/L Account record.</source>
+          <target state="translated">Anger filtret för redovisningskontoposten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4269233896 - Control 3054325674 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of SIE file to create.</source>
+          <target state="translated">Anger vilken typ av SIE-fil som ska skapas.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 1070872126 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the general journal batch to use during the import process.</source>
+          <target state="translated">Anger namnet på redovisningsjournalen som ska användas under importen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control JournalBatchName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 1070872126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Journal Batch</source>
+          <target state="translated">Redovisningsjournal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control JournalBatchName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 1465000000 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the dimensions covered by the import process.</source>
+          <target state="translated">Anger de dimensioner som omfattas av importen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control ColumnDimField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 1465000000 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <target state="translated">Dimensioner</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control ColumnDimField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 1744706346 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the general journal to use during the import process.</source>
+          <target state="translated">Anger namnet på redovisningsjournalen som ska användas under importen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control JournalTemplateName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 1744706346 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Journal Template</source>
+          <target state="translated">Redovisningsjournalmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control JournalTemplateName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Alternativ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 3083641644 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the general ledger account in the import file is missing in the chart of accounts, and must be set up during the import process.</source>
+          <target state="translated">Anger om redovisningskontot i importfilen saknas i kontoplanen och måste skapas under importprocessen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control InsertNewAccField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 3083641644 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insert G/L Account</source>
+          <target state="translated">Infoga redovisningskonto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control InsertNewAccField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 3097694510 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether to use the number series functionality if document numbers are not provided in the import file.</source>
+          <target state="translated">Anger om du vill använda nummerseriefunktionen om dokumentnummer inte anges i importfilen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control UseSeriesField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Control 3097694510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use Number Series for Doc. No.</source>
+          <target state="translated">Använd nummerserie för dok.nr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Control UseSeriesField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - NamedType 132321811" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIE files(*.se)|*.se|All files|*.*</source>
+          <target state="translated">SIE-filer (*.se)|*.se|Alla filer|*.*</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - NamedType SieFileFilterTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - NamedType 224531149" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import SIE File</source>
+          <target state="translated">Importera SIE-fil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - NamedType ImportFileTitleTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - NamedType 3123268874" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The file was imported successfully. </source>
+          <target state="translated">Filen har importerats. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - NamedType ImportSuccessTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - NamedType 3635651297" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to open the General Journal window with the imported lines?</source>
+          <target state="translated">Vill du öppna fönstret Redovisningsjournal med de importerade raderna?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - NamedType OpenGenJournalQst</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - NamedType 3770880951" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create journal             @2@@@@@@@@@@\</source>
+          <target state="translated">Skapa journal           @2@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - NamedType CreateJournalTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - NamedType 4173423584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reading SIE file lines     #1##########\</source>
+          <target state="translated">Läser SIE-filrader     #1##########\</target>
+          <note from="Developer" annotates="general" priority="2">#1 - number of current line</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - NamedType ReadingFileTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 3167011382 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import SIE</source>
+          <target state="translated">Importera SIE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Import SIE - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 1374694229 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 4</source>
+          <target state="translated">Importera fält 4</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 1843481823 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 2</source>
+          <target state="translated">Importera fält 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 2012390846 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 5</source>
+          <target state="translated">Importera fält 5</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 2481178440 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 3</source>
+          <target state="translated">Importera fält 3</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 2591533986 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 10</source>
+          <target state="translated">Importera fält 10</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 10 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 268210018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 9</source>
+          <target state="translated">Importera fält 9</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 9 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 3756571674 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 1</source>
+          <target state="translated">Importera fält 1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 3925480697 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 8</source>
+          <target state="translated">Importera fält 8</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 736997612 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 7</source>
+          <target state="translated">Importera fält 7</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 883711285 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target state="translated">Löpnr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Field 99300995 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Field 6</source>
+          <target state="translated">Importera fält 6</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Field Import Field 6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3676126961 - Field 2623957639 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension Code</source>
+          <target state="translated">Dimensionskod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dimension SIE - Field Dimension Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3676126961 - Field 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Namn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dimension SIE - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3676126961 - Field 373890305 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIE Dimension</source>
+          <target state="translated">SIE-dimension</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dimension SIE - Field SIE Dimension - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3676126961 - Field 3857433715 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ShortCutDimNo</source>
+          <target state="translated">ShortCutDimNo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dimension SIE - Field ShortCutDimNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3676126961 - Field 90423963 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected</source>
+          <target state="translated">Vald</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dimension SIE - Field Selected - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3676126961 - NamedType 1817527122" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1; %2</source>
+          <target state="translated">%1; %2</target>
+          <note from="Developer" annotates="general" priority="2">%1 - existing string with dimensions codes, %2 - dimension code to add</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dimension SIE - NamedType DimCodesTxt</note>
+        </trans-unit>
+        <trans-unit id="Table 3676126961 - NamedType 3099724144" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1;...</source>
+          <target state="translated">%1;...</target>
+          <note from="Developer" annotates="general" priority="2">%1 - existing string with dimensions codes</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dimension SIE - NamedType DimCodesThreeDotsTxt</note>
+        </trans-unit>
+        <trans-unit id="Table 3239958910 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIE Import Buffer</source>
+          <target state="translated">SIE-importbuffert</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Import Buffer SIE - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3676126961 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension SIE</source>
+          <target state="translated">Dimension för SIE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Dimension SIE - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - Field 1987624935 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fiscal Year</source>
+          <target state="translated">Räkenskapsår</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - Field 2173385693 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <target state="translated">Dimensioner</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - Field 2663815879 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Account View String</source>
+          <target state="translated">Sträng för redovisningskontots vy</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - Field 3004095410 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Type</source>
+          <target state="translated">Filtyp</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - Field 3940118353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Account Filter</source>
+          <target state="translated">Redov.kontofilter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - NamedType 2200152239" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not parse the filter expression. Use the lookup action, or type a string in the following format: "Account Type: Total, Account Category: Assets".</source>
+          <target state="translated">Det gick inte att parsa filteruttrycket. Använd uppslagsåtgärden eller skriv en sträng i följande format: "Kontotyp: Summa, Kontokategori: Tillgångar".</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3406206665</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - NamedType 3074412423" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIE feature is not enabled yet in your Business Central. An administrator can enable the feature on the Feature Management page.</source>
+          <target state="translated">SIE-funktionen har ännu inte aktiverats i ditt Business Central. En administratör kan aktivera funktionen på sidan Funktionshantering.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3406206665</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - NamedType 556315339" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You have selected too many filters for G/L accounts. Open the filter page again and set fewer filters.</source>
+          <target state="translated">Du har valt för många filter för redovisningskonton. Öppna filtersidan igen och ange färre filter.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3406206665</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
