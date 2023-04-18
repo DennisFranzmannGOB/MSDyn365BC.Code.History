@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="sv-SE" original="Automatic Account Codes">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 2364731494 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Auto. Acc. Page Setup</source>
+          <target state="translated">Konfiguration av Auto.kont.-sida</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Auto. Acc. Page Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2364731494 - Field 415504711 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Auto. Acc. Page Setup - Field Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2364731494 - Field 3794539444 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ObjectId</source>
+          <target state="translated">ObjectId</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Auto. Acc. Page Setup - Field ObjectId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4095356157 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Header</source>
+          <target state="translated">Automatiskt kontohuvud</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Header - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4095356157 - Field 25700210 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="translated">Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Header - Field Balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4095356157 - Field 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Beskrivning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Header - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4095356157 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Nr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Header - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Line</source>
+          <target state="translated">Automatkonteringsrad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Field 2777694911 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allocation %</source>
+          <target state="translated">Fördelning %</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Field Allocation % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Field 3493999359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Acc. No.</source>
+          <target state="translated">Automatiskt kontonr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Field Automatic Acc. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Field 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Beskrivning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Field 3322554545 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension Set ID</source>
+          <target state="translated">Dimensionsuppsättnings-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Field Dimension Set ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Field 3852983238 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Account No.</source>
+          <target state="translated">Redovisningskontonr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Field G/L Account No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Field 3320823955 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <target state="translated">Radnr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Field 1577567912 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shortcut Dimension 1 Code</source>
+          <target state="translated">Genväg dimension 1 kod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Field Shortcut Dimension 1 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2128902358 - Field 1003760969 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shortcut Dimension 2 Code</source>
+          <target state="translated">Genväg dimension 2 kod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Automatic Account Line - Field Shortcut Dimension 2 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1578769520 - NamedType 2270306401" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Records from %1, %2 tables</source>
+          <target state="translated">Poster från tabellerna %1, %2</target>
+          <note from="Developer" annotates="general" priority="2">%1, %2 - table captions</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Feature Auto. Acc. Codes - NamedType Description1Txt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1578769520 - NamedType 2232770848" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>will be copied to the Automatic Account Header and Automatic Account Line tables.</source>
+          <target state="translated">kommer att kopieras till tabellerna Automatiskt kontohuvud och Automatisk kontorad.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Feature Auto. Acc. Codes - NamedType Description2Txt</note>
+        </trans-unit>
+        <trans-unit id="Page 4095356157 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Groups</source>
+          <target state="translated">Automatiska redovisningsmallar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Header - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4095356157 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated">Allmänt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Header - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4095356157 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an appropriate description of the automatic account group in this field.</source>
+          <target state="translated">Anger en lämplig beskrivning av den automatiska redovisningsmallen i det här fältet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Header - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4095356157 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the automatic account group number in this field.</source>
+          <target state="translated">Anger numret för den automatiska redovisningsmallen i det här fältet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Header - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Line</source>
+          <target state="translated">Automatkonteringsrad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - NamedType 965223736" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="translated">Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - NamedType BalanceLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 938567880 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that the balance is the sum of the Allocation Percentage field. The balance must be zero.</source>
+          <target state="translated">Anger att saldot är summan i fältet Allokeringsprocent. Saldot måste vara noll.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control TotalBalance - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 938567880 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Balance</source>
+          <target state="translated">Totalt saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control TotalBalance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 2777694911 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the percentage of the source line amount that is to be allocated.</source>
+          <target state="translated">Anger procentandelen av ursprungsradbeloppet som ska fördelas.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control Allocation % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies text that describes the G/L account.</source>
+          <target state="translated">Anger text som beskriver redovisningskontot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 3852983238 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the general ledger account that the allocation must be posted to.</source>
+          <target state="translated">Anger redovisningskontot som fördelningen måste bokföras på.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control G/L Account No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 1577567912 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the dimension value code for the G/L transaction.</source>
+          <target state="translated">Anger dimensionsvärdeskoden för redovisningstransaktionen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control Shortcut Dimension 1 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 1003760969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the dimension value code for the G/L transaction.</source>
+          <target state="translated">Anger dimensionsvärdeskoden för redovisningstransaktionen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control Shortcut Dimension 2 Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 655538596 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a placeholder for a dimension value code.</source>
+          <target state="translated">Anger en platshållare för en dimensionsvärdekod.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control ShortcutDimCode[3]5D; - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 3128656593 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a placeholder for a dimension value code.</source>
+          <target state="translated">Anger en platshållare för en dimensionsvärdekod.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control ShortcutDimCode[4]5D; - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 377216802 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a placeholder for a dimension value code.</source>
+          <target state="translated">Anger en platshållare för en dimensionsvärdekod.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control ShortcutDimCode[5]5D; - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 3685713487 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a placeholder for a dimension value code.</source>
+          <target state="translated">Anger en platshållare för en dimensionsvärdekod.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control ShortcutDimCode[6]5D; - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 934273696 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a placeholder for a dimension value code.</source>
+          <target state="translated">Anger en platshållare för en dimensionsvärdekod.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control ShortcutDimCode[7]5D; - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Control 1291090573 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a placeholder for a dimension value code.</source>
+          <target state="translated">Anger en platshållare för en dimensionsvärdekod.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Control ShortcutDimCode[8]5D; - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Action 1402615620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Line</source>
+          <target state="translated">&amp;Rad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Action &amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Action 2173385693 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to journal lines to distribute costs and analyze transaction history.</source>
+          <target state="translated">Visa eller redigera mått, till exempel område, projekt eller avdelning, som du kan tilldela till journalrader för att fördela kostnader och analysera transaktionshistorik.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2128902358 - Action 2173385693 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <target state="translated">Dimensioner</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account Line - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 466853842 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Groups</source>
+          <target state="translated">Automatiska redovisningsmallar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 466853842 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an appropriate description of the automatic account group in this field.</source>
+          <target state="translated">Anger en lämplig beskrivning av den automatiska redovisningsmallen i det här fältet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 466853842 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the automatic account group number in this field.</source>
+          <target state="translated">Anger numret för den automatiska redovisningsmallen i det här fältet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Automatic Account List - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3289649241 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the automatic account group on the sales credit memo line that was posted.</source>
+          <target state="translated">Anger koden för den automatiska redovisningsmallen på försäljningskreditnotan som bokfördes.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1257057922</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3628972490 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the automatic account group on the purchase credit memo line which was posted.</source>
+          <target state="translated">Anger koden för den automatiska redovisningsmallen på inköpskreditnotan som bokfördes.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2618934728</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 55816979 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies  the code of the automatic account group on the purchase invoice line which was posted.</source>
+          <target state="translated">Anger koden för den automatiska redovisningsmallen på inköpsfakturaraden som bokfördes.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2410131092</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3367680967 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the automatic account group on the sales invoice line which was posted.</source>
+          <target state="translated">Anger koden för den automatiska redovisningsmallen på försäljningsfakturaraden som bokfördes.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1379883806</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2746075055 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an automatic account group code.</source>
+          <target state="translated">Anger koden för en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1521900543</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 334682264 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an automatic account group code.</source>
+          <target state="translated">Anger koden för en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2937746743</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1874595194 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code relating to an automatic account group.</source>
+          <target state="translated">Anger en kod som berör en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3053760138</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2191356017 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an automatic account group code.</source>
+          <target state="translated">Anger koden för en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4219821699</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2725859595 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the automatic account group code.</source>
+          <target state="translated">Anger koden för den automatiska redovisningsmallen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2583272393</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1272719665 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an automatic account group code.</source>
+          <target state="translated">Anger koden för en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 896930563</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3234878195 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an automatic account group code.</source>
+          <target state="translated">Anger koden för en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 526152577</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2452853011 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code relating to an automatic account group.</source>
+          <target state="translated">Anger en kod som berör en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1056066689</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2842687087 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code relating to an automatic account group.</source>
+          <target state="translated">Anger en kod som berör en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3689007477</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 365157614 - Control 71291101 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code relating to an automatic account group.</source>
+          <target state="translated">Anger en kod som berör en automatisk redovisningsmall.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2026081320</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1037592973 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 445935536</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3605726733 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4274826855</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3958853757 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2581483433 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 149196923</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 657865729 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 518488723</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4099130935 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2575310733</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 823410307 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 959319265</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3717525381 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1519909599</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3461016543 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3059602325</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4222385123 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2079186865</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 626825588 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2574427010</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2505129204 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1114148978</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1664456081 - Field 71291101 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Automatic Account Group</source>
+          <target state="translated">Automatisk redovisningsmall</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2247222673</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 2084751806 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AutomaticAccountCodes - Edit</source>
+          <target state="translated">AutomaticAccountCodes – Redigera</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet AAC - Edit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 1128226388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AutomaticAccountCodes - Objects</source>
+          <target state="translated">AutomaticAccountCodes – Objekt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet AAC - Objects - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 2481923416 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AutomaticAccountCodes - Read</source>
+          <target state="translated">AutomaticAccountCodes – Läsa</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet AAC - Read - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
