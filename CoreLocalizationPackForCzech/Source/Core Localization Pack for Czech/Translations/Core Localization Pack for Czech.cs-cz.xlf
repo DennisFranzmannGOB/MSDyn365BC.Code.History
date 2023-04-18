@@ -327,6 +327,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT LCY Correction-Post CZL - NamedType PostingDateOutRangeErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2924102495 - NamedType 2255901053" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Relation Exch. Rate Amount for the Currency Code and for the VAT Currency Code must be the same if Normal VAT is used.</source>
+          <target state="translated">V případě použití normální DPH se musí rovnat Částka směnného kurzu pro Kód měny a Kód měny DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Posting Handler CZL - NamedType VATCalcTypeErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3714512334 - NamedType 171201099" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>CZ_DECIMAL_FORMAT</source>
           <target state="translated">CZ_DECIMAL_FORMAT</target>
@@ -18827,7 +18833,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2910014531 - Control 889110063 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the system does or does not check the dimension setup by closing operation depending on whether the field is checked.</source>
-          <target state="translated">Určuje, zda systém má nebo nemá kontrolu nastavení dimenze prostřednictvím ukončení operace v závislosti na tom, zda je pole zaškrtnuté.</target>
+          <target state="translated">Určuje, zda má systém kontrolovat použití dimenzí na finančních účtech při závěrkových operacích.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4050813720</note>
@@ -25444,6 +25450,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control Options - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - Control 2737174276 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the correction lines of an undoing of quantity posting will be shown on the report.</source>
+          <target state="translated">Určuje, zda řádky korekce o zrušení účtování množství se zobrazí v sestavě.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control Show Correction Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - Control 2737174276 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Correction Lines</source>
+          <target state="translated">Zobrazit řádky opravy</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control Show Correction Lines - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 266556782 - Control 1245058279 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies to display the business unit code that the budget entry is linked to.</source>
           <target state="translated">Určuje zobrazení kódu obchodní jednotky, se kterou je položka rozpočtu spojena.</target>
@@ -30820,6 +30838,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType CustLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 1292293871" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Číslo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType NoCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 1811756935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Method</source>
           <target state="translated">Způsob dodávky</target>
@@ -30868,17 +30892,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType UoMLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 2934480447" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expiration Date</source>
+          <target state="translated">Datum expirace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType ExpirationDateLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 3014721408" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Subtotal</source>
           <target state="translated">Mezisoučet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType SubtotalLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 3246368361" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target state="translated">Množství</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType QuantityCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 3701423681" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
           <target state="translated">Kopírovat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType CopyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 3926274846" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lot No.</source>
+          <target state="translated">Číslo šarže</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType LotNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 4058751071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment</source>
@@ -30892,11 +30934,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType PaymentMethodLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 601422815" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No.</source>
+          <target state="translated">Sériové číslo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType SerialNoCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 69318880" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount %</source>
           <target state="translated">Sleva %</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType DiscPercentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 817831222" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Popis</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType DescriptionCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 266556782 - NamedType 1334893634" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The fiscal year does not exist.</source>

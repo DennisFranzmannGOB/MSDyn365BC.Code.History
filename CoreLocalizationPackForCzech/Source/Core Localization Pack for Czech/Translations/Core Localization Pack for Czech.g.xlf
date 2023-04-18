@@ -5273,6 +5273,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Release VIES Declaration CZL - NamedType NothingToReleaseErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2924102495 - NamedType 2255901053" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Relation Exch. Rate Amount for the Currency Code and for the VAT Currency Code must be the same if Normal VAT is used.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Posting Handler CZL - NamedType VATCalcTypeErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2924102495 - Method 3595746155 - NamedType 2750237292" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 must be specified.</source>
           <note from="Developer" annotates="general" priority="2">%1 = FieldCaption</note>
@@ -21488,6 +21493,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType CustLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 817831222" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType DescriptionCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 69318880" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount %</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -21497,6 +21507,21 @@
           <source>Shipment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType DocumentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 2934480447" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expiration Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType ExpirationDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 3926274846" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lot No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType LotNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 1292293871" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType NoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>
@@ -21513,10 +21538,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType PaymentTermsLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 3246368361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType QuantityCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 1075159697" size-unit="char" translate="yes" xml:space="preserve">
           <source>Salesperson</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType SalespersonLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 601422815" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType SerialNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 1811756935" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Method</source>
@@ -21577,6 +21612,16 @@
           <source>No. of Copies</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control NoOfCopiesCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - Control 2737174276 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the correction lines of an undoing of quantity posting will be shown on the report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control Show Correction Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - Control 2737174276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Correction Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control Show Correction Lines - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2645458183 - Control 2304383912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the show serial/lot number appendixis to be show</source>
