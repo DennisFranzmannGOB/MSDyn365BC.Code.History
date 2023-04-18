@@ -1,1 +1,75 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr-FR" original="Intrastat FR">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 1967977557 - NamedType 3415447349" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat-%1.xml</source>
+          <target state="translated">Intrastat-%1.xml</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementFR - NamedType FileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1967977557 - NamedType 1813144090" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receipt-%1.xml</source>
+          <target state="translated">Receipt-%1.xml</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementFR - NamedType ReceptFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1967977557 - NamedType 452222717" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment-%1.xml</source>
+          <target state="translated">Shipment-%1.xml</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementFR - NamedType ShipmentFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1967977557 - NamedType 2312043988" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat-%1.zip</source>
+          <target state="translated">Intrastat-%1.zip</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagementFR - NamedType ZipFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1633072164 - Control 67810456 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Obligation level used to filter the reported data.</source>
+          <target state="translated">Spécifie le niveau d’obligation utilisé pour filtrer les données déclarées.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1633072164 - Control 2858800491 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a filter for which types of transactions on Intrastat lines that will be processed for the chosen obligation level. Leave the field blank to include all transaction specifications.</source>
+          <target state="translated">Spécifie un filtre pour les types de transactions sur les lignes feuille intracommunautaire qui vont être traités pour le niveau d’obligation choisi. Laissez le champ vide pour inclure toutes les spécifications de transaction.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1633072164 - Control 2858800491 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transaction Specification Filter</source>
+          <target state="translated">Filtre régime</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4278253177 - Field 676614124 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Used Intrastat Declaration ID</source>
+          <target state="translated">ID dernière D.E.B. utilisée</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3469146285</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1005187201 - Field 67810456 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Obligation Level</source>
+          <target state="translated">Niveau d’obligation</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2491010837</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1005187201 - Field 1444174225 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transaction Specification Filter</source>
+          <target state="translated">Filtre régime</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2491010837</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
