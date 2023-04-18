@@ -8925,7 +8925,7 @@
         </trans-unit>
         <trans-unit id="Page 2622225351 - Control 3088155792 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Insert Permission</source>
-          <target state="translated">Indrykningstilladelse</target>
+          <target state="translated">Indsæt-rettighed</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Control Insert Permission - Property Caption</note>
         </trans-unit>
@@ -8937,7 +8937,7 @@
         </trans-unit>
         <trans-unit id="Page 2622225351 - Control 3135917451 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Read Permission</source>
-          <target state="translated">Læsetilladelse</target>
+          <target state="translated">Læserettighed</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Control Read Permission - Property Caption</note>
         </trans-unit>
@@ -8973,7 +8973,7 @@
         </trans-unit>
         <trans-unit id="Page 2622225351 - Control 480834248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Execute Permission</source>
-          <target state="translated">Udfør tilladelse</target>
+          <target state="translated">Udfør-rettighed</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Control Execute Permission - Property Caption</note>
         </trans-unit>
