@@ -1988,11 +1988,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Acknowledgement Setup - Action EditInExcel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3496913511 - Action 158382408 - Method 1377591017 - NamedType 433937072" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Financial Year</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Acknowledgement Setup - Action EditInExcel - Method OnAction - NamedType FinancialYearLbl</note>
-        </trans-unit>
         <trans-unit id="Page 3205163301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Act Applicable</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2067,11 +2062,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Allowed Sections - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3536987742 - Action 158382408 - Method 1377591017 - NamedType 4134734490" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = TDS Section Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Allowed Sections - Action EditInExcel - Method OnAction - NamedType SectionCodeLbl</note>
         </trans-unit>
         <trans-unit id="Page 2732527726 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Apply Provisional Entries</source>
@@ -2272,11 +2262,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Customer Allowed Sections - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4113136290 - Action 158382408 - Method 1377591017 - NamedType 3515321735" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1= TDS Section Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Customer Allowed Sections - Action EditInExcel - Method OnAction - NamedType TDSSectionCodeLbl</note>
         </trans-unit>
         <trans-unit id="Page 2651257877 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay TDS</source>
@@ -3208,11 +3193,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TDS Concessional Codes - Action EditInExcel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2938641352 - Action 158382408 - Method 1377591017 - NamedType 2193582545" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Vendor No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TDS Concessional Codes - Action EditInExcel - Method OnAction - NamedType VendorNoLbl</note>
-        </trans-unit>
         <trans-unit id="Page 3480485879 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TDS Customer Concessional Codes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3257,11 +3237,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TDS Cust Concessional Codes - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3480485879 - Action 158382408 - Method 1377591017 - NamedType 2602010310" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Customer No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TDS Cust Concessional Codes - Action EditInExcel - Method OnAction - NamedType CustomerEditLbl</note>
         </trans-unit>
         <trans-unit id="Page 75884955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TDS Entries</source>
@@ -3877,11 +3852,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TDS Sections - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 35034611 - Action 158382408 - Method 1377591017 - NamedType 839226108" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = TDS Section Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TDS Sections - Action EditInExcel - Method OnAction - NamedType TDSSectionLbl</note>
         </trans-unit>
         <trans-unit id="Page 1174313832 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TDS Setup</source>

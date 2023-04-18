@@ -1568,11 +1568,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Allowed NOC - Action EditInExcel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1958049646 - Action 158382408 - Method 1377591017 - NamedType 3426680361" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code'%1'</source>
-          <note from="Developer" annotates="general" priority="2">%1= Customer No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Allowed NOC - Action EditInExcel - Method OnAction - NamedType CodeLbl</note>
-        </trans-unit>
         <trans-unit id="Page 4170394885 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Concessional Codes</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1607,11 +1602,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Customer Concessional Codes - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4170394885 - Action 158382408 - Method 1377591017 - NamedType 3426680361" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq '%1'</source>
-          <note from="Developer" annotates="general" priority="2">%1=Customer No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Customer Concessional Codes - Action EditInExcel - Method OnAction - NamedType CodeLbl</note>
         </trans-unit>
         <trans-unit id="Page 1656389264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay TCS</source>
@@ -1917,11 +1907,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page T.C.A.N. Nos. - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4110272672 - Action 158382408 - Method 1377591017 - NamedType 1920544541" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = T.C.A.N No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page T.C.A.N. Nos. - Action EditInExcel - Method OnAction - NamedType TCANNoLbl</note>
         </trans-unit>
         <trans-unit id="Page 318733294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TCS Adjustment Journal</source>
@@ -2658,11 +2643,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TCS Nature Of Collections - Action EditInExcel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1504238691 - Action 158382408 - Method 1377591017 - NamedType 595705356" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = TCS Nature of Collection</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TCS Nature Of Collections - Action EditInExcel - Method OnAction - NamedType TCSNatureofCollectionLbl</note>
-        </trans-unit>
         <trans-unit id="Page 1504238691 - Action 3383318727 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the TCS rates for each NOC and assessee type in the TCS rates window.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2702,11 +2682,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page TCS Posting Setup - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 241039981 - Action 158382408 - Method 1377591017 - NamedType 3426680361" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq '%1'</source>
-          <note from="Developer" annotates="general" priority="2">%1=TCS Nature of Collection Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page TCS Posting Setup - Action EditInExcel - Method OnAction - NamedType CodeLbl</note>
         </trans-unit>
         <trans-unit id="Page 3383318727 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TCS Rates</source>

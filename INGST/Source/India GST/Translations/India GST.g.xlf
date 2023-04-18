@@ -15243,11 +15243,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Charge Deemed Value Setup - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3168498084 - NamedType 4094187503" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1</source>
-          <note from="Developer" annotates="general" priority="2">%1=Bank Charge Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Charge Deemed Value Setup - NamedType BankChargeMsg</note>
-        </trans-unit>
         <trans-unit id="Page 3168498084 - Control 4085653179 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code to identify the set of bank charges.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15302,11 +15297,6 @@
           <source>Bank Charge</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Charges - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3409406505 - NamedType 4094187503" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1</source>
-          <note from="Developer" annotates="general" priority="2">%1=Bank Charge Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Charges - NamedType BankChargeMsg</note>
         </trans-unit>
         <trans-unit id="Page 3409406505 - Control 1267408499 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the general ledger account number to which to post bank charge amount against code.</source>
@@ -17228,11 +17218,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Comm. Merchant Id - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4174357583 - NamedType 392772076" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Customer No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Comm. Merchant Id - NamedType CustomerNumLbl</note>
-        </trans-unit>
         <trans-unit id="Page 4174357583 - Control 2492704634 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the company's GST Reg. number issued by authorized body.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17262,11 +17247,6 @@
           <source>e-Commerce Merchant</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Commerce Merchant Id - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 879857166 - NamedType 392772076" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Customer No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Commerce Merchant Id - NamedType CustomerNumLbl</note>
         </trans-unit>
         <trans-unit id="Page 879857166 - NamedType 3010701400" size-unit="char" translate="yes" xml:space="preserve">
           <source>This Page has been marked as obsolete and will be removed from version 23.0. Instead of this Page use ‘E-Comm. Merchant Id</source>
@@ -17742,11 +17722,6 @@
           <source>GST Component Dist. List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page GST Component Dist. List - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 409009755 - NamedType 751168829" size-unit="char" translate="yes" xml:space="preserve">
-          <source>GST Component Code %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 =GST Component Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page GST Component Dist. List - NamedType GstComponentCodeMsg</note>
         </trans-unit>
         <trans-unit id="Page 409009755 - Control 3790105820 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies distribution component code for input service distribution ledgers.</source>
@@ -19428,11 +19403,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page GST Posting Setup - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2568193321 - NamedType 2903136160" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = State Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page GST Posting Setup - NamedType CodeValueLbl</note>
-        </trans-unit>
         <trans-unit id="Page 2568193321 - NamedType 1337224174" size-unit="char" translate="yes" xml:space="preserve">
           <source>GST component code must be selected</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20012,11 +19982,6 @@
           <source>GST Registration Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page GST Registration Nos. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2396374983 - NamedType 2903136160" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = GST Registration No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page GST Registration Nos. - NamedType CodeValueLbl</note>
         </trans-unit>
         <trans-unit id="Page 2396374983 - Control 707985127 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies GST registration code of locations situated in different states.</source>

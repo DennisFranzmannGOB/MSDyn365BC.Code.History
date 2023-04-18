@@ -333,11 +333,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Assessee Codes - Action EditInExcel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 674273518 - Action 158382408 - Method 1377591017 - NamedType 1720382893" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1= Assessee Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Assessee Codes - Action EditInExcel - Method OnAction - NamedType AssesseeCodeLbl</note>
-        </trans-unit>
         <trans-unit id="Page 52617824 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4478,11 +4473,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Concessional Codes - Action EditInExcel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3864552009 - Action 158382408 - Method 1377591017 - NamedType 2045980706" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1= Concessional Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Concessional Codes - Action EditInExcel - Method OnAction - NamedType ConcessionalCodeLbl</note>
-        </trans-unit>
         <trans-unit id="Page 2018235175 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5527,11 +5517,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Deductor Categories - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1727624792 - Action 158382408 - Method 1377591017 - NamedType 2814039567" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1= Deductory Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Deductor Categories - Action EditInExcel - Method OnAction - NamedType DeductorCategoryCodeLbl</note>
         </trans-unit>
         <trans-unit id="Page 3336251243 - Property 2019332006" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Bank,Application,Payroll,Approve,Page,Post/Print,Line,Account</source>
@@ -6613,11 +6598,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Ministries - Action EditInExcel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3490379211 - Action 158382408 - Method 1377591017 - NamedType 2510261972" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1= Ministry Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Ministries - Action EditInExcel - Method OnAction - NamedType MinistryCodeLbl</note>
-        </trans-unit>
         <trans-unit id="Page 550407604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parties</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6708,11 +6688,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page States - Action EditInExcel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3651789288 - Action 158382408 - Method 1377591017 - NamedType 745916404" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1= State Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page States - Action EditInExcel - Method OnAction - NamedType StateCodeLbl</note>
-        </trans-unit>
         <trans-unit id="Page 1855941299 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>T.A.N. Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6737,11 +6712,6 @@
           <source>Edit in Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page T.A.N. Nos. - Action EditInExcel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1855941299 - Action 158382408 - Method 1377591017 - NamedType 2749211204" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code eq %1</source>
-          <note from="Developer" annotates="general" priority="2">%1= T.A.N. No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page T.A.N. Nos. - Action EditInExcel - Method OnAction - NamedType TANNoLbl</note>
         </trans-unit>
         <trans-unit id="Page 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tax Accounting Periods</source>

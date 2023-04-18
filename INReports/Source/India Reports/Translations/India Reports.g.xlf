@@ -2265,12 +2265,12 @@
         </trans-unit>
         <trans-unit id="Report 3346116784 - NamedType 925243587" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 must not be specified when %2 is %3.</source>
-          <note from="Developer" annotates="general" priority="2">%1 =FieldCaption("IC Partner G/L Acc. No."), %2 = FieldCaption("IC Direction"),%3 = Format("IC Direction")</note>
+          <note from="Developer" annotates="general" priority="2">%1 =FieldCaption("IC Account No."), %2 = FieldCaption("IC Direction"),%3 = Format("IC Direction")</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report General Journal - Test GST - NamedType ICPartnerGLAccDirectionLbl</note>
         </trans-unit>
         <trans-unit id="Report 3346116784 - NamedType 1989256112" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 must not be specified when the document is not an intercompany transaction.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = FieldCaption("IC Partner G/L Acc. No.")</note>
+          <note from="Developer" annotates="general" priority="2">%1 = FieldCaption("IC Account No.")</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report General Journal - Test GST - NamedType ICPartnerGLAccLbl</note>
         </trans-unit>
         <trans-unit id="Report 3346116784 - NamedType 1064811530" size-unit="char" translate="yes" xml:space="preserve">
