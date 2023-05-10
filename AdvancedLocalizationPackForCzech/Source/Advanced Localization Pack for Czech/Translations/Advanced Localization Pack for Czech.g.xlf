@@ -153,35 +153,50 @@
           <note from="Developer" annotates="general" priority="2">%1 = TableCaption G/L Entry, %2 = Entry No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reversal Entry Handler CZA - Method GLEntryPostApplicationOnCheckGLAccOnBeforeTestFields - NamedType ReverseErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 84682111 - NamedType 272546004" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This shipment has already been received. Undo Shipment can be applied only to posted, but not received shipments.</source>
+        <trans-unit id="Codeunit 1997957299 - NamedType 3497319792" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This shipment has already been received. Undo Shipment can only be applied to posted, but not received Transfer Lines.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method CheckTransShptLine - NamedType ShptAlreadyReceiptErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType AlreadyReceivedErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 3004954119 - NamedType 2109322063" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Undo Quantity posting...</source>
+        <trans-unit id="Codeunit 1997957299 - NamedType 883549673" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This shipment has already been reversed.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method Code - NamedType UndoQtyPostingMsg</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType AlreadyReversedErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 3004954119 - NamedType 3943784158" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 1997957299 - NamedType 3943784158" size-unit="char" translate="yes" xml:space="preserve">
           <source>Checking lines...</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method Code - NamedType CheckingLinesMsg</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType CheckingLinesMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 3336414311 - NamedType 1336088190" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There is not enough space to insert correction lines.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method GetNextTransferShipmentLineNo - NamedType NotEnoughSpaceErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 1665861916 - NamedType 4118026048" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Do you really want to undo the selected Shipment lines?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method OnRun - NamedType UndoShptLinesQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 1665861916 - NamedType 2248902352" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 1997957299 - NamedType 2248902352" size-unit="char" translate="yes" xml:space="preserve">
           <source>Undo Shipment can be performed only for lines with nonempty Item No. Please select a line with nonempty Item No. and repeat the procedure.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method OnRun - NamedType EmptyItemNoErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType EmptyItemNoErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 2679889270" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot undo transfer shipment line %1 because this line is Reserved. Reservation Entry No. %2</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Line No., %2 = Entry No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType NonSurplusResEntriesErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 2945496368" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is not enough space to insert correction lines.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType NotEnoughLineSpaceErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 113201905" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Transfer Shipment Line is missing a value in the field Trans. Order Line No. This is automatically populated when posting new Transfer Shipments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType NoTransOrderLineNoErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 1763528203" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you really want to undo the selected Shipment lines?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType ReallyUndoQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 4081020711" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Undo quantity posting...</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType UndoQtyMsg</note>
         </trans-unit>
         <trans-unit id="Page 756275509 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Applied General Ledger Entries</source>
@@ -1253,6 +1268,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Assembly Order Subf CZA - Control Gen. Bus. Posting Group CZA - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1702769014 - Control 1447799953 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3908294399">
+          <source>Specifies general bussiness posting group.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Trans. Sub. CZA - Control Gen. Bus. Posting Group CZA - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3923861281 - Control 1447799953 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2674868969">
+          <source>Specifies general bussiness posting group.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Transfer CZA - Control Gen. Bus. Posting Group CZA - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 120755117 - Action 1908199188 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2991235355">
           <source>Withdraw the line from the shipment. This is useful for making corrections, because the line is not deleted. You can make changes and post it again.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1357,6 +1382,16 @@
           <source> ,Create,Update</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Default Dimension CZA - Field Dim. Description Update CZA - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4020517586 - Field 1447799953 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2710603322">
+          <source>Gen. Bus. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Direct Trans. Header CZA - Field Gen. Bus. Posting Group CZA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1663219753 - Field 1447799953 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 593634465">
+          <source>Gen. Bus. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Direct Trans. Line CZA - Field Gen. Bus. Posting Group CZA - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3309469980 - Field 1040549453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2825951060">
           <source>Amount to Apply</source>
@@ -1487,6 +1522,11 @@
           <source>Gen. Bus. Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Posted Assembly Line CZA - Field Gen. Bus. Posting Group CZA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2570785984 - NamedType 1378695750" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2570785984">
+          <source>The Gen. Business Posting Groups for receive and ship must be the same.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transfer Header CZA - NamedType GenBusPostGroupErr</note>
         </trans-unit>
         <trans-unit id="TableExtension 2570785984 - Field 617672214 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 151805736">
           <source>Gen. Bus. Post. Group Receive</source>

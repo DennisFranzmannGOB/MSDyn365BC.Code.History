@@ -14982,6 +14982,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 997019036</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1572572907 - Control 4265101683 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that entry will be excluded from intrastat.</source>
+          <target state="translated">Určuje, že položka bude vyloučena z Intrastatu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2777758400</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1575680578 - Control 2995460303 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the origin country/region code.</source>
           <target state="translated">Určuje kód země nebo oblasti původu.</target>
@@ -16052,6 +16059,34 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 714858205</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 110736062 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the net weight of the item.</source>
+          <target state="translated">Určuje čistou hmotnost zboží.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 2995460303 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the origin country/region code.</source>
+          <target state="translated">Určuje kód země/oblasti původu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 3346642257 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the statistic indication code.</source>
+          <target state="translated">Určuje kód statistického údaje.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 3805707464 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code for the item's tariff number.</source>
+          <target state="translated">Určuje kód pro číslo sazebníku pro zboží.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
         </trans-unit>
         <trans-unit id="PageExtension 2014616720 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
@@ -20406,6 +20441,34 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1021026680</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 1040450579 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the entry is an Intrastat transaction.</source>
+          <target state="translated">Určuje, zda je tato položka transakcí Intrastat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 1040450579 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat Transaction</source>
+          <target state="translated">Transakce Intrastat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 3624777196 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Foreign Trade</source>
+          <target state="translated">Zahraniční obchod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 4265101683 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that entry will be excluded from intrastat.</source>
+          <target state="translated">Určuje, že položka bude vyloučena z Intrastatu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
         </trans-unit>
         <trans-unit id="PageExtension 3626449897 - Control 10130681 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code to idenfity bank account of company.</source>
@@ -40031,6 +40094,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Subst. Vend. Posting Group CZL - NamedType PostGrpSubstErr</note>
         </trans-unit>
+        <trans-unit id="Table 3601084426 - NamedType 3302785979" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Commodity code is used in the Tariff Number and therefore cannot be removed.</source>
+          <target state="translated">Kód komodity se používá v čísle sazebníku, a proto jej nelze odstranit.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Commodity CZL - NamedType CommodityUsedErr</note>
+        </trans-unit>
         <trans-unit id="Table 3856835045 - NamedType 2330775634" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot insert multiple settings.</source>
           <target state="translated">Nelze vložit více nastavení.</target>
@@ -44361,6 +44430,27 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1192395785</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 2995460303 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region of Origin Code</source>
+          <target state="translated">Kód země/oblasti původu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 593634465</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 3346642257 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statistic Indication</source>
+          <target state="translated">Statistický údaj</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 593634465</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 3805707464 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tariff No.</source>
+          <target state="translated">Číslo sazebníku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 593634465</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4061138646 - Field 2777272918 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incl. in Intrastat Amount</source>
           <target state="translated">Zahrn. do částky Intrastat</target>
@@ -44766,6 +44856,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2199490085</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 832034501 - Field 4265101683 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat Exclude</source>
+          <target state="translated">Nezahrnuto do Intrastatu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2710603322</note>
         </trans-unit>
         <trans-unit id="TableExtension 838900900 - Field 10130681 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account Code</source>

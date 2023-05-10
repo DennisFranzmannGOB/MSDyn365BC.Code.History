@@ -628,6 +628,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Commodity CZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3601084426 - NamedType 3302785979" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Commodity code is used in the Tariff Number and therefore cannot be removed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Commodity CZL - NamedType CommodityUsedErr</note>
+        </trans-unit>
         <trans-unit id="Table 3601084426 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -25893,6 +25898,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Physical Invt. Order Subf. CZL - Control Invt. Movement Template CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 2995460303 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3908294399">
+          <source>Specifies the origin country/region code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Trans. Sub. CZL - Control Country/Reg. of Orig. Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 110736062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3908294399">
+          <source>Specifies the net weight of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Trans. Sub. CZL - Control Net Weight CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 3346642257 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3908294399">
+          <source>Specifies the statistic indication code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Trans. Sub. CZL - Control Statistic Indication CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 3805707464 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3908294399">
+          <source>Specifies a code for the item's tariff number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Trans. Sub. CZL - Control Tariff No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 3624777196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2674868969">
+          <source>Foreign Trade</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Transfer CZL - Control Foreign Trade - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 4265101683 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2674868969">
+          <source>Specifies that entry will be excluded from intrastat.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Transfer CZL - Control Intrastat Exclude CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 1040450579 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2674868969">
+          <source>Specifies if the entry is an Intrastat transaction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Transfer CZL - Control IsIntrastatTransactionCZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 1040450579 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2674868969">
+          <source>Intrastat Transaction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Transfer CZL - Control IsIntrastatTransactionCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1572572907 - Control 4265101683 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2777758400">
+          <source>Specifies that entry will be excluded from intrastat.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Direct Transfers CZL - Control Intrastat Exclude CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2352266941 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050300754">
           <source>Specifies the VAT date of the original document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32162,6 +32212,26 @@
           <source>Vendor Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Detailed Vend. Ledg. Entry CZL - Field Vendor Posting Group CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 832034501 - Field 4265101683 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2710603322">
+          <source>Intrastat Exclude</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Direct Trans. Header CZL - Field Intrastat Exclude CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 2995460303 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 593634465">
+          <source>Country/Region of Origin Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Direct Trans. Line CZL - Field Country/Reg. of Orig. Code CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 3346642257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 593634465">
+          <source>Statistic Indication</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Direct Trans. Line CZL - Field Statistic Indication CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 3805707464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 593634465">
+          <source>Tariff No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Direct Trans. Line CZL - Field Tariff No. CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1637705938 - Field 958090087 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1874461389">
           <source>Constant Symbol</source>

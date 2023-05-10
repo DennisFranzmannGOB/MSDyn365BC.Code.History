@@ -3,6 +3,60 @@
   <file datatype="xml" source-language="en-US" target-language="cs-CZ" original="Advanced Localization Pack for Czech">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 1997957299 - NamedType 113201905" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Transfer Shipment Line is missing a value in the field Trans. Order Line No. This is automatically populated when posting new Transfer Shipments</source>
+          <target state="translated">Na řádku dodávky transferu chybí hodnota v poli Číslo řádku objednávky transferu. Tato hodnota se automaticky plní při účtování nových dodávek transferu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType NoTransOrderLineNoErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 1763528203" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you really want to undo the selected Shipment lines?</source>
+          <target state="translated">Chcete opravdu vrátit vybrané řádky dodávky?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType ReallyUndoQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 2248902352" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Undo Shipment can be performed only for lines with nonempty Item No. Please select a line with nonempty Item No. and repeat the procedure.</source>
+          <target state="translated">Vrácení dodávky lze provést pouze u řádků, kde je vyplněno Číslo zboží. Vyberte řádek, kde je vyplněno Číslo zboží a akci opakujte.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType EmptyItemNoErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 2679889270" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot undo transfer shipment line %1 because this line is Reserved. Reservation Entry No. %2</source>
+          <target state="translated">Nemůžete vrátit zpět řádek %1 dodávky transferu, protože tento řádek je rezervován. Rezervace č. %2</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Line No., %2 = Entry No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType NonSurplusResEntriesErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 2945496368" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is not enough space to insert correction lines.</source>
+          <target state="translated">Pro vložení opravných řádků není dostatek místa.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType NotEnoughLineSpaceErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 3497319792" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This shipment has already been received. Undo Shipment can only be applied to posted, but not received Transfer Lines.</source>
+          <target state="translated">Tato dodávka již byla přijata. Vrácení dodávky lze použít pouze u zaúčtovaných, ale ne přijatých řádků transferu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType AlreadyReceivedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 3943784158" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Checking lines...</source>
+          <target state="translated">Kontrola řádků...</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType CheckingLinesMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 4081020711" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Undo quantity posting...</source>
+          <target state="translated">Vrácení zaúčtování množství zpět...</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType UndoQtyMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1997957299 - NamedType 883549673" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This shipment has already been reversed.</source>
+          <target state="translated">Tato dodávka již byla stornována.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - NamedType AlreadyReversedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 884737566 - NamedType 1185054713" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is nothing to apply.</source>
           <target state="translated">Není co vyrovnat.</target>
@@ -86,42 +140,6 @@
           <target state="translated">Je nutné zadat %1 nebo %2.</target>
           <note from="Developer" annotates="general" priority="2">%1 = FieldCaption Document No., %2 = FieldCaption Applies-to ID</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen. Jnl.-Apply Handler CZA - Method ApplyGLEntryCZA - NamedType MustSpecifyErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 1665861916 - NamedType 2248902352" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Undo Shipment can be performed only for lines with nonempty Item No. Please select a line with nonempty Item No. and repeat the procedure.</source>
-          <target state="translated">Vrácení dodávky lze provést pouze u řádků, kde je vyplněno Číslo zboží. Vyberte řádek, kde je vyplněno Číslo zboží a akci opakujte.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method OnRun - NamedType EmptyItemNoErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 1665861916 - NamedType 4118026048" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Do you really want to undo the selected Shipment lines?</source>
-          <target state="translated">Chcete opravdu vrátit vybrané řádky dodávky?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method OnRun - NamedType UndoShptLinesQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 3004954119 - NamedType 2109322063" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Undo Quantity posting...</source>
-          <target state="translated">Účtování vrácení množství...</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method Code - NamedType UndoQtyPostingMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 3004954119 - NamedType 3943784158" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Checking lines...</source>
-          <target state="translated">Kontrola řádků...</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method Code - NamedType CheckingLinesMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 3336414311 - NamedType 1336088190" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There is not enough space to insert correction lines.</source>
-          <target state="translated">Pro vložení opravných řádků není dostatek místa.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method GetNextTransferShipmentLineNo - NamedType NotEnoughSpaceErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1997957299 - Method 84682111 - NamedType 272546004" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This shipment has already been received. Undo Shipment can be applied only to posted, but not received shipments.</source>
-          <target state="translated">Tato dodávka již byla přijata. Vrácení dodávky lze použít pouze u dodávek, které jsou zaúčtovány, nikoli však přijaty.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Undo Transfer Ship. Line CZA - Method CheckTransShptLine - NamedType ShptAlreadyReceiptErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2147647392 - Method 4217993601 - NamedType 2033887935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot reverse %1 No %2 because the entry was either applied to another entry or has been changed by a batch job.</source>
@@ -1015,6 +1033,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1379888169</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1702769014 - Control 1447799953 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies general bussiness posting group.</source>
+          <target state="translated">Určuje obecnou obchodní účtovací skupinu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1716206927 - Control 1461697477 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies general bussiness posting group for items ship.</source>
           <target state="translated">Určuje obecnou obchodní účto skupinu pro dodávku zboží.</target>
@@ -1147,6 +1172,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3842111185</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3923861281 - Control 1447799953 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies general bussiness posting group.</source>
+          <target state="translated">Určuje obecnou obchodní účtovací skupinu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
         </trans-unit>
         <trans-unit id="PageExtension 4172369888 - Control 782758102 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that the entry is closed.</source>
@@ -1673,6 +1705,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2916177371</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1663219753 - Field 1447799953 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Bus. Posting Group</source>
+          <target state="translated">Obecná obch.účto skupina</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 593634465</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1913808028 - Field 1447799953 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gen. Bus. Posting Group</source>
           <target state="translated">Obecná obch.účto skupina</target>
@@ -1981,6 +2020,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 128399837</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4020517586 - Field 1447799953 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Bus. Posting Group</source>
+          <target state="translated">Obecná obch.účto skupina</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2710603322</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4219322330 - Field 3999414358 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Date Formula</source>
           <target state="translated">Vzorec data</target>
@@ -2029,6 +2075,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1720227611</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2570785984 - NamedType 1378695750" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Gen. Business Posting Groups for receive and ship must be the same.</source>
+          <target state="translated">Obecné obchodní účto skupiny pro příjem a dodání musí být stejné.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 2570785984</note>
         </trans-unit>
         <trans-unit id="TableExtension 3309469980 - Field 1040549453 - Method 2126772001 - NamedType 1873694584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 must have the same sign as %2.</source>
