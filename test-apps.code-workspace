@@ -1,12 +1,4 @@
 {
-  "settings": {
-    "al.enableCodeActions": false,
-    "al.enableCodeAnalysis": false,
-    "allint.enabled": false,
-    "search.exclude": {
-      "**.xlf": true
-    }
-  },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
@@ -106,6 +98,9 @@
     },
     {
       "path": "./onprem permissions/test/OnPrem Permissions Tests"
+    },
+    {
+      "path": "./AuditFileExport/Test/Audit File Export Tests"
     },
     {
       "path": "./PlanConfiguration/Test/_Exclude_PlanConfiguration_ Tests"
@@ -224,5 +219,13 @@
     {
       "path": "./servicedeclaration/test/Service Declaration Tests"
     }
-  ]
+  ],
+  "settings": {
+    "search.exclude": {
+      "**.xlf": true
+    },
+    "al.enableCodeAnalysis": false,
+    "allint.enabled": false,
+    "al.enableCodeActions": false
+  }
 }
