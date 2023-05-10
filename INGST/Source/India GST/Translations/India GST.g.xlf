@@ -14673,6 +14673,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {364eaba8-df5d-4174-951e-9c9b375830d6}Lbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 3460352999" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {62275f50-6f85-4ea6-aa4f-0bacf20cf65e}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 870265944" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {ab179237-ef7c-4bb1-9406-46b7b6dd1449}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 2676033666" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {8df66c94-890c-4007-9341-18d0565000fe}Lbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2680351807 - NamedType 870778515" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Information must have either GST Registration No. or ARN No.</source>
           <note from="Developer" annotates="general" priority="2"></note>

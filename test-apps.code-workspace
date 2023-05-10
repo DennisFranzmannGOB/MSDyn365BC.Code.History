@@ -1,12 +1,4 @@
 {
-  "settings": {
-    "al.enableCodeActions": false,
-    "al.enableCodeAnalysis": false,
-    "allint.enabled": false,
-    "search.exclude": {
-      "**.xlf": true
-    }
-  },
   "folders": [
     {
       "path": "./INGateEntry/Test/India Gate Entry Tests"
@@ -103,6 +95,9 @@
     },
     {
       "path": "./onprem permissions/test/OnPrem Permissions Tests"
+    },
+    {
+      "path": "./AuditFileExport/Test/Audit File Export Tests"
     },
     {
       "path": "./INFADepreciation/Test/Fixed Asset Depreciation Tests"
@@ -224,5 +219,13 @@
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
     }
-  ]
+  ],
+  "settings": {
+    "search.exclude": {
+      "**.xlf": true
+    },
+    "al.enableCodeAnalysis": false,
+    "allint.enabled": false,
+    "al.enableCodeActions": false
+  }
 }
