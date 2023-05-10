@@ -1588,6 +1588,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Intrastat Report Get Lines - Control StartingDate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3076093313 - NamedType 1113046263" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No lines are suggested for the period. Please check %1.</source>
+          <target state="translated">No se sugieren líneas para el periodo. Consulte %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Intrastat Report Setup caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Intrastat Report Get Lines - NamedType NoLinesMsg</note>
+        </trans-unit>
         <trans-unit id="Report 3076093313 - NamedType 653000579" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prices including VAT cannot be calculated when %1 is %2.</source>
           <target state="translated">No se pueden calcular precios IVA incluido cuando %1 es %2.</target>

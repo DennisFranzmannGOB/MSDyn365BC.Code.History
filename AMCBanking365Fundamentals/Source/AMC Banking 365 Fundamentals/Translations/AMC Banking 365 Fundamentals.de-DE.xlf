@@ -1671,7 +1671,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking 365 Fundamentals Assisted Setup</source>
-          <target state="translated">AMC Banking 365 Fundamentals – Unterstützte Einrichtung</target>
+          <target state="translated">AMC Banking 365 Fundamentals: Setuphilfe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Property Caption</note>
         </trans-unit>
