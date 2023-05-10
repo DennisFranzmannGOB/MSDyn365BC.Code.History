@@ -1,12 +1,4 @@
 {
-  "settings": {
-    "al.enableCodeActions": false,
-    "al.enableCodeAnalysis": false,
-    "allint.enabled": false,
-    "search.exclude": {
-      "**.xlf": true
-    }
-  },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
@@ -115,6 +107,9 @@
     },
     {
       "path": "./FixedAssetLocalizationForCzech/Test/Fixed Asset Localization for Czech Tests"
+    },
+    {
+      "path": "./AuditFileExport/Test/Audit File Export Tests"
     },
     {
       "path": "./PlanConfiguration/Test/_Exclude_PlanConfiguration_ Tests"
@@ -227,5 +222,13 @@
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
     }
-  ]
+  ],
+  "settings": {
+    "search.exclude": {
+      "**.xlf": true
+    },
+    "al.enableCodeAnalysis": false,
+    "allint.enabled": false,
+    "al.enableCodeActions": false
+  }
 }

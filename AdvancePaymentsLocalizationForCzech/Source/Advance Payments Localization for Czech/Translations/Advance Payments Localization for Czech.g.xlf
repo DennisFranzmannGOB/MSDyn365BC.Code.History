@@ -848,6 +848,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Entry CZZ - Field Cust. Ledger Entry No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 762426360 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Entry CZZ - Field Customer No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 762426360 - Field 4219401734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Detailed Cust. Ledger Entry No.</source>
           <note from="Developer" annotates="general" priority="2"></note>

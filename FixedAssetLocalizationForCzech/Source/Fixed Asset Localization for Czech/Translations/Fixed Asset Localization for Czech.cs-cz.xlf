@@ -4539,6 +4539,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 4291531020</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4291531020 - Method 912381294 - NamedType 2855538097" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 must be the same as the %2 in %3 '%4'.</source>
+          <target state="translated">%1 musí být stejné jako %2 v %3 '%4'.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = field caption, %2 = field caption, %3 = table caption, %4 = fa subclass code</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 4291531020</note>
+        </trans-unit>
       </group>
     </body>
   </file>
