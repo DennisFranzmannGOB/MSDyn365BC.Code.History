@@ -1061,6 +1061,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action &amp;Issuing - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 1587086413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approval</source>
+          <target state="translated">Schválení</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2313358256 - Action 1733675610 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request Approval</source>
           <target state="translated">Schvalování požadavku</target>
@@ -1636,6 +1642,12 @@
           <target state="translated">Schválení</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Approval - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 2524661601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approval</source>
+          <target state="translated">Schválení</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Category_Category8 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3668461697 - Action 2790486453 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies payment order comments.</source>
@@ -2441,6 +2453,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Card CZB - Control Constant Symbol Filter - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1627831747 - Control 3293627248 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction IBAN filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <target state="translated">Specifikuje filtr IBAN transakce bankovního výpisu. Pokud systém v řádku bankovního výpisu na základě zadaných filtrů najde shodu, pak se do řádku finančního deníku zapíše typ účtu a číslo účtu z řádku pravidla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Card CZB - Control IBAN Filter - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1627831747 - Control 3320823955 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the line number of the rule.</source>
           <target state="translated">Určuje číslo řádku pravidla.</target>
@@ -2494,6 +2512,12 @@
           <target state="translated">Určuje, která logická část řádku je platná pro nalezení odpovídající položky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Card CZB - Control Search Scope - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1627831747 - Control 966614657 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction Account No. filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <target state="translated">Specifikuje filtr čísla účtu transakce bankovního výpisu. Pokud systém v řádku bankovního výpisu na základě zadaných filtrů najde shodu, pak se do řádku finančního deníku zapíše typ účtu a číslo účtu z řádku pravidla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Card CZB - Control Bank Account Filter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1667797560 - Control 1658766258 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments</source>
@@ -3113,6 +3137,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Control Constant Symbol Filter - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3252996523 - Control 3293627248 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction IBAN filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <target state="translated">Specifikuje filtr IBAN transakce bankovního výpisu. Pokud systém v řádku bankovního výpisu na základě zadaných filtrů najde shodu, pak se do řádku finančního deníku zapíše typ účtu a číslo účtu z řádku pravidla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Control IBAN Filter - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3252996523 - Control 3358234606 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Defines restrictions on the type of bank transaction. Values can be + (credit), - (debit), or both (no resolution).</source>
           <target state="translated">Definuje omezení typu bankovní transakce. Hodnoty mohou být + (kreditní), - (debetní) nebo Obě (bez rozlišení).</target>
@@ -3154,6 +3184,12 @@
           <target state="translated">Určuje, která logická část řádku je platná pro nalezení odpovídající položky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Control Search Scope - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3252996523 - Control 966614657 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction Account No. filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <target state="translated">Specifikuje filtr čísla účtu transakce bankovního výpisu. Pokud systém v řádku bankovního výpisu na základě zadaných filtrů najde shodu, pak se do řádku finančního deníku zapíše typ účtu a číslo účtu z řádku pravidla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Control Bank Account Filter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3253042013 - Control 1176583840 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the bank account's international bank account number.</source>
@@ -3869,6 +3905,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Lookup CZB - Control Constant Symbol Filter - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 672324457 - Control 3293627248 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction IBAN filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <target state="translated">Specifikuje filtr IBAN transakce bankovního výpisu. Pokud systém v řádku bankovního výpisu na základě zadaných filtrů najde shodu, pak se do řádku finančního deníku zapíše typ účtu a číslo účtu z řádku pravidla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Lookup CZB - Control IBAN Filter - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 672324457 - Control 3358234606 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Defines restrictions on the type of bank transaction. Values can be + (credit), - (debit), or both (no resolution).</source>
           <target state="translated">Definuje omezení typu bankovní transakce. Hodnoty mohou být + (kreditní), - (debetní) nebo Obě (bez rozlišení).</target>
@@ -3910,6 +3952,12 @@
           <target state="translated">Určuje, která logická část řádku je platná pro nalezení odpovídající položky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Lookup CZB - Control Search Scope - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 672324457 - Control 966614657 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction Account No. filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <target state="translated">Specifikuje filtr čísla účtu transakce bankovního výpisu. Pokud systém v řádku bankovního výpisu na základě zadaných filtrů najde shodu, pak se do řádku finančního deníku zapíše typ účtu a číslo účtu z řádku pravidla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Lookup CZB - Control Bank Account Filter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 673819498 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>General</source>
@@ -4439,8 +4487,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 2292249509</note>
         </trans-unit>
         <trans-unit id="PageExtension 2498504260 - Control 3892663200 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description which will be transfered into payment order line</source>
-          <target state="translated">Určuje popis, který bude převeden do řádku platebního příkazu.</target>
+          <source>Specifies the description which will be transfered into payment order line. Placeholders: %1 = document type, %2 = document no., %3 = partner no., %4 = partner name, %5 = external document no.</source>
+          <target state="translated">Určuje popis, který bude převeden na řádek platebního příkazu. Zástupné symboly: %1 = typ dokladu, %2 = číslo dokladu, %3 = číslo partnera, %4 = název partnera, %5 = číslo externího dokladu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2292249509</note>
@@ -6603,6 +6651,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Search Rule Line CZB - Field Constant Symbol Filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 481323743 - Field 3293627248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IBAN Filter</source>
+          <target state="translated">filtr IBAN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Search Rule Line CZB - Field IBAN Filter - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 481323743 - Field 3320823955 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
           <target state="translated">Číslo řádku</target>
@@ -6650,6 +6704,12 @@
           <target state="translated">Obor hledání</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Search Rule Line CZB - Field Search Scope - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 481323743 - Field 966614657 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account Filter</source>
+          <target state="translated">Filtr bankovního účtu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Search Rule Line CZB - Field Bank Account Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 923144373 - Field 1383905037 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default</source>

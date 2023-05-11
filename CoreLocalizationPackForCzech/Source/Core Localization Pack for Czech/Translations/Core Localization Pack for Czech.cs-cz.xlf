@@ -15083,6 +15083,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3603089623</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1572572907 - Control 4265101683 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that entry will be excluded from intrastat.</source>
+          <target state="translated">Určuje, že položka bude vyloučena z Intrastatu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2777758400</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1575680578 - Control 2995460303 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the origin country/region code.</source>
           <target state="translated">Určuje kód země nebo oblasti původu.</target>
@@ -15965,6 +15972,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2248515987</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1961763160 - Control 1470278247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT entry's Original Document VAT Date.</source>
+          <target state="translated">Určuje datum DPH původního dokladu položky DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2248515987</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1961763160 - Control 196745586 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of line in the VAT control report.</source>
           <target state="translated">Určuje číslo řádku v Kontrolním výkazu DPH.</target>
@@ -16188,6 +16202,34 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 714858205</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 110736062 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the net weight of the item.</source>
+          <target state="translated">Určuje čistou hmotnost zboží.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 2995460303 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the origin country/region code.</source>
+          <target state="translated">Určuje kód země/oblasti původu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 3346642257 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the statistic indication code.</source>
+          <target state="translated">Určuje kód statistického údaje.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2002647585 - Control 3805707464 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a code for the item's tariff number.</source>
+          <target state="translated">Určuje kód pro číslo sazebníku pro zboží.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3908294399</note>
         </trans-unit>
         <trans-unit id="PageExtension 2014616720 - Control 3753419350 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
@@ -20836,6 +20878,34 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1021026680</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 1040450579 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the entry is an Intrastat transaction.</source>
+          <target state="translated">Určuje, zda je tato položka transakcí Intrastat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 1040450579 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat Transaction</source>
+          <target state="translated">Transakce Intrastat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 3624777196 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Foreign Trade</source>
+          <target state="translated">Zahraniční obchod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3623982710 - Control 4265101683 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that entry will be excluded from intrastat.</source>
+          <target state="translated">Určuje, že položka bude vyloučena z Intrastatu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2674868969</note>
         </trans-unit>
         <trans-unit id="PageExtension 3626449897 - Control 10130681 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code to idenfity bank account of company.</source>
@@ -25858,6 +25928,18 @@
           <target state="translated">Možnosti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - Control 2737174276 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the correction lines of an undoing of quantity posting will be shown on the report.</source>
+          <target state="translated">Určuje, zda řádky korekce o zrušení účtování množství se zobrazí v sestavě.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control Show Correction Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - Control 2737174276 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Correction Lines</source>
+          <target state="translated">Zobrazit řádky opravy</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - Control Show Correction Lines - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 266556782 - Control 1245058279 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies to display the business unit code that the budget entry is linked to.</source>
@@ -31277,6 +31359,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType CustLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 1292293871" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Číslo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType NoCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 1811756935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Method</source>
           <target state="translated">Způsob dodávky</target>
@@ -31325,17 +31413,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType UoMLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 2934480447" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expiration Date</source>
+          <target state="translated">Datum expirace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType ExpirationDateLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 3014721408" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Subtotal</source>
           <target state="translated">Mezisoučet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType SubtotalLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 3246368361" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target state="translated">Množství</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType QuantityCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 3701423681" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
           <target state="translated">Kopírovat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType CopyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 3926274846" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lot No.</source>
+          <target state="translated">Číslo šarže</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType LotNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 4058751071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment</source>
@@ -31349,17 +31455,59 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType PaymentMethodLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 601422815" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No.</source>
+          <target state="translated">Sériové číslo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType SerialNoCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2645458183 - NamedType 69318880" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount %</source>
           <target state="translated">Sleva %</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType DiscPercentLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2645458183 - NamedType 817831222" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Popis</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Shipment CZL - NamedType DescriptionCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 266556782 - NamedType 1087545044" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account No.         #1##################\</source>
+          <target state="translated">Číslo účtu          #1##################\</target>
+          <note from="Developer" annotates="general" priority="2">%1 = G/L Account No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType AccountNoDialogTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 266556782 - NamedType 1155527495" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The journal lines have successfully been created.</source>
+          <target state="translated">Řádky deníku byly úspěšně vytvořeny.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType JournalLinesCreatedMsg</note>
+        </trans-unit>
+        <trans-unit id="Report 266556782 - NamedType 1159158266" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>                    @3@@@@@@@@@@@@@@@@@@\</source>
+          <target state="translated">                    @3@@@@@@@@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2">@3 = Progress Ratio</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType Progress3Tok</note>
+        </trans-unit>
+        <trans-unit id="Report 266556782 - NamedType 131917499" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>                    @4@@@@@@@@@@@@@@@@@@\</source>
+          <target state="translated">                    @4@@@@@@@@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2">@4 = Progress Ratio</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType Progress4Tok</note>
+        </trans-unit>
         <trans-unit id="Report 266556782 - NamedType 1334893634" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The fiscal year does not exist.</source>
           <target state="translated">Fiskální rok neexistuje.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType FiscalYearNotExistErr</note>
+        </trans-unit>
+        <trans-unit id="Report 266556782 - NamedType 1828690273" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Now performing      #2##################\</source>
+          <target state="translated">Probíhá zpracování  #2##################\</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Operation Text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType PerformingActionDialogTxt</note>
         </trans-unit>
         <trans-unit id="Report 266556782 - NamedType 2135303737" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The following G/L Accounts have mandatory dimension codes:</source>
@@ -31368,10 +31516,28 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType MandatoryDimTxt</note>
         </trans-unit>
         <trans-unit id="Report 266556782 - NamedType 2404826851" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Creating general journal lines...\\Account No. #1##########</source>
-          <target state="translated">Vytvoření řádků finančního deníku...\\Číslo účtu #1 ##########</target>
-          <note from="Developer" annotates="general" priority="2">%1 = G/L Account No.</note>
+          <source>Creating general journal lines...\\</source>
+          <target state="translated">Vytváření řádků finančního deníku...\\</target>
+          <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType CreatingJnlDialogTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 266556782 - NamedType 2670658819" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The closing entries have successfully been posted.</source>
+          <target state="translated">Uzávěrkové položky byly úspěšně zaúčtovány.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType ClosingEntriesPostedMsg</note>
+        </trans-unit>
+        <trans-unit id="Report 266556782 - NamedType 2857526158" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculating Amounts</source>
+          <target state="translated">Výpočet částek</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType CalcAmountsTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 266556782 - NamedType 3015739812" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creating Gen. Journal lines</source>
+          <target state="translated">Vytváření řádků finančního deníku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Close Balance Sheet CZL - NamedType CreatingGenJnlLinesTxt</note>
         </trans-unit>
         <trans-unit id="Report 266556782 - NamedType 3197350461" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>\\Continue and create journal?</source>
@@ -36449,6 +36615,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Cash Flow Date List CZL - ReportLabel DateFromCaption</note>
         </trans-unit>
+        <trans-unit id="Report 320362316 - ReportLabel 1434325001" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advances</source>
+          <target state="translated">Prodejní zálohy</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Cash Flow Date List CZL - ReportLabel SalesAdvancesCaption</note>
+        </trans-unit>
         <trans-unit id="Report 320362316 - ReportLabel 1501542159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Taxes</source>
           <target state="translated">Daně</target>
@@ -40861,6 +41033,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Subst. Vend. Posting Group CZL - NamedType PostGrpSubstErr</note>
         </trans-unit>
+        <trans-unit id="Table 3601084426 - NamedType 3302785979" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Commodity code is used in the Tariff Number and therefore cannot be removed.</source>
+          <target state="translated">Kód komodity se používá v čísle sazebníku, a proto jej nelze odstranit.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Commodity CZL - NamedType CommodityUsedErr</note>
+        </trans-unit>
         <trans-unit id="Table 3856835045 - NamedType 2330775634" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot insert multiple settings.</source>
           <target state="translated">Nelze vložit více nastavení.</target>
@@ -45211,6 +45389,27 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1192395785</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 2995460303 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region of Origin Code</source>
+          <target state="translated">Kód země/oblasti původu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 593634465</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 3346642257 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statistic Indication</source>
+          <target state="translated">Statistický údaj</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 593634465</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4045097198 - Field 3805707464 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tariff No.</source>
+          <target state="translated">Číslo sazebníku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 593634465</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4061138646 - Field 2777272918 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incl. in Intrastat Amount</source>
           <target state="translated">Zahrn. do částky Intrastat</target>
@@ -45658,6 +45857,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2199490085</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 832034501 - Field 4265101683 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intrastat Exclude</source>
+          <target state="translated">Nezahrnuto do Intrastatu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2710603322</note>
         </trans-unit>
         <trans-unit id="TableExtension 838900900 - Field 10130681 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account Code</source>
@@ -46281,12 +46487,6 @@
           <target state="translated">Pro dodatečný nebo dodatečný/opravný výkazu DPH je třeba zadat hodnotu data zjištění důvodů.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort VAT Statement DPHDP3 CZL - NamedType ReasonObserverReqErr</note>
-        </trans-unit>
-        <trans-unit id="XmlPort 2145211580 - NamedType 3450464380" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 file format requires %2 to be added to Supplementary or Supplementary/Corrective VAT Statement.</source>
-          <target state="translated">Formát souboru %1 vyžaduje přidání %2 do dodatečného nebo dodatečného/opravného výkazu DPH.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = XXL format, %2 = fieldcaption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">XmlPort VAT Statement DPHDP3 CZL - NamedType FileFormatErr</note>
         </trans-unit>
         <trans-unit id="XmlPort 2533767483 - NamedType 2152940307" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 length must not be greater than %2.</source>

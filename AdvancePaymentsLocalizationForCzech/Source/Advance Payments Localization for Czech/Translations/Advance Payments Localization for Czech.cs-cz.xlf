@@ -9373,6 +9373,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Entry CZZ - Field Cancelled - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 762426360 - Field 4190130733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target state="translated">Číslo zákazníka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Entry CZZ - Field Customer No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 762426360 - Field 4198939294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency Code</source>
           <target state="translated">Kód měny</target>
@@ -10062,10 +10068,17 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 1900491339</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1900491339 - Field 58856918 - Method 2126772001 - NamedType 1745332564" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Advance %1</source>
-          <target state="translated">Nákupní zálohová faktura %1</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Purchase Advance Letter No.</note>
+        <trans-unit id="TableExtension 1900491339 - NamedType 4122567990" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance</source>
+          <target state="translated">Záloha</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 1900491339</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1900491339 - NamedType 934718213" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance %1</source>
+          <target state="translated">Záloha %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Advance No.</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 1900491339</note>
         </trans-unit>

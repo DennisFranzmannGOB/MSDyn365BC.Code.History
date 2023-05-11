@@ -1453,6 +1453,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Search Rule Line CZB - Field Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 481323743 - Field 966614657 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Search Rule Line CZB - Field Bank Account Filter - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 481323743 - Field 4248640148 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1482,6 +1487,11 @@
           <source>Description Filter</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Search Rule Line CZB - Field Description Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 481323743 - Field 3293627248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IBAN Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Search Rule Line CZB - Field IBAN Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 481323743 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
@@ -3823,6 +3833,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Category_Category7 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 2524661601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approval</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3668461697 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Process</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4388,6 +4403,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action SendApprovalRequest - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approval</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2313358256 - Action 2224783030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request Approval</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4478,6 +4498,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Card CZB - Control Account Type - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1627831747 - Control 966614657 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction Account No. filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Card CZB - Control Bank Account Filter - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1627831747 - Control 2654839796 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the transaction constant symbol filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4487,6 +4512,11 @@
           <source>Specifies the transaction description filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Card CZB - Control Description Filter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1627831747 - Control 3293627248 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction IBAN filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Card CZB - Control IBAN Filter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1627831747 - Control 2216799362 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the transaction specific symbol filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
@@ -4588,6 +4618,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Lookup CZB - Control Amount - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 672324457 - Control 966614657 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction Account No. filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Lookup CZB - Control Bank Account Filter - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 672324457 - Control 4248640148 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether to consider a bank account number for automatically applying a payment to an open record.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4617,6 +4652,11 @@
           <source>Specifies the transaction description filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Lookup CZB - Control Description Filter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 672324457 - Control 3293627248 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction IBAN filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Line Lookup CZB - Control IBAN Filter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 672324457 - Control 195135658 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the match related party only</source>
@@ -4693,6 +4733,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Control Amount - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3252996523 - Control 966614657 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction Account No. filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Control Bank Account Filter - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3252996523 - Control 4248640148 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether to consider a bank account number for automatically applying a payment to an open record.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4722,6 +4767,11 @@
           <source>Specifies the transaction description filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Control Description Filter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3252996523 - Control 3293627248 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the transaction IBAN filter from the bank statement. If the system finds a match in the bank statement line based on the specified filters, then the account type and account number from the rule line are entered in the financial journal line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Search Rule Subform CZB - Control IBAN Filter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3252996523 - Control 195135658 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the match related party only</source>
@@ -5364,7 +5414,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card CZB - Control Foreign Payment Orders CZB - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2498504260 - Control 3892663200 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
-          <source>Specifies the description which will be transfered into payment order line</source>
+          <source>Specifies the description which will be transfered into payment order line. Placeholders: %1 = document type, %2 = document no., %3 = partner no., %4 = partner name, %5 = external document no.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card CZB - Control Payment Order Line Descr. CZB - Property ToolTip</note>
         </trans-unit>
