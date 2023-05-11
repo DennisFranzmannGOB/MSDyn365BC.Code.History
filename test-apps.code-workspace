@@ -1,11 +1,11 @@
 {
   "settings": {
-    "al.enableCodeActions": false,
     "al.enableCodeAnalysis": false,
-    "allint.enabled": false,
     "search.exclude": {
       "**.xlf": true
-    }
+    },
+    "al.enableCodeActions": false,
+    "allint.enabled": false
   },
   "folders": [
     {
@@ -28,6 +28,9 @@
     },
     {
       "path": "./ReviewGLEntries/Test/_Exclude_Review_General_Ledger_Entries_Tests"
+    },
+    {
+      "path": "./IntrastatIT/Test/Intrastat IT Tests"
     },
     {
       "path": "./shopify/test/Shopify Connector Test"
@@ -214,6 +217,9 @@
     },
     {
       "path": "./BaseApp/Test/Tests-Workflow"
+    },
+    {
+      "path": "./ServiceDeclarationIT/Test/Service Declaration IT Tests"
     },
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
