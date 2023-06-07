@@ -767,7 +767,7 @@
         </trans-unit>
         <trans-unit id="Page 3665447164 - Control 1459662141 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if you want to be notified about the post code that has not been set up correctly.</source>
-          <target state="translated">Specifies if you want to be notified about the ZIP Code that has not been set up correctly.</target>
+          <target state="translated">Specifies if you want to be notified about the ZIP code that has not been set up correctly.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Setup - Control CheckPostCode - Property ToolTip</note>
         </trans-unit>
@@ -779,7 +779,7 @@
         </trans-unit>
         <trans-unit id="Page 3665447164 - Control 1509787282 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the post code to use when no values specified in the customer or vendor card.</source>
-          <target state="translated">Specifies the ZIP Code to use when no values specified in the customer or vendor card.</target>
+          <target state="translated">Specifies the ZIP code to use when no values specified in the customer or vendor card.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Setup - Control DefaultPostCode - Property ToolTip</note>
         </trans-unit>
