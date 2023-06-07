@@ -383,13 +383,13 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Action 2056370978 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check that data is ready to be exported to the audit file.</source>
-          <target state="translated">Cheque that data is ready to be exported to the audit file.</target>
+          <target state="translated">Check that data is ready to be exported to the audit file.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action DataCheck - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2635072399 - Action 2056370978 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Data check</source>
-          <target state="translated">Data Cheque</target>
+          <target state="translated">Data check</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action DataCheck - Property Caption</note>
         </trans-unit>
@@ -617,7 +617,7 @@
         </trans-unit>
         <trans-unit id="Page 2246936125 - Control 573914478 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archive to Zip</source>
-          <target state="translated">Archive to Postal/ZIP</target>
+          <target state="translated">Archive to Zip</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Format Setup - Control ArchiveToZip - Property ToolTip</note>
         </trans-unit>
@@ -677,7 +677,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 2196498870 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that multiple Zip files will be generated.</source>
-          <target state="translated">Specifies that multiple Postal/ZIP files will be generated.</target>
+          <target state="translated">Specifies that multiple Zip files will be generated.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control CreateMultipleZipFiles - Property ToolTip</note>
         </trans-unit>
@@ -707,7 +707,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 3080159262 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of the most recent data check.</source>
-          <target state="translated">Specifies the status of the most recent data Cheque.</target>
+          <target state="translated">Specifies the status of the most recent data check.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control DataCheckStatus - Property ToolTip</note>
         </trans-unit>
@@ -719,7 +719,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 3569484669 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that all files will be packed into a Zip archive.</source>
-          <target state="translated">Specifies that all files will be packed into a Postal/ZIP archive.</target>
+          <target state="translated">Specifies that all files will be packed into a Zip archive.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control ZipFileGeneration - Property ToolTip</note>
         </trans-unit>
@@ -749,7 +749,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 4292961824 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the most recent data check was run.</source>
-          <target state="translated">Specifies when the most recent data Cheque was run.</target>
+          <target state="translated">Specifies when the most recent data check was run.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control LatestDataCheckDateTime - Property ToolTip</note>
         </trans-unit>
@@ -767,7 +767,7 @@
         </trans-unit>
         <trans-unit id="Page 3665447164 - Control 1459662141 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if you want to be notified about the post code that has not been set up correctly.</source>
-          <target state="translated">Specifies if you want to be notified about the Postal/ZIP Code that has not been set up correctly.</target>
+          <target state="translated">Specifies if you want to be notified about the postal/ZIP code that has not been set up correctly.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Setup - Control CheckPostCode - Property ToolTip</note>
         </trans-unit>
@@ -779,7 +779,7 @@
         </trans-unit>
         <trans-unit id="Page 3665447164 - Control 1509787282 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the post code to use when no values specified in the customer or vendor card.</source>
-          <target state="translated">Specifies the Postal/ZIP Code to use when no values specified in the customer or vendor card.</target>
+          <target state="translated">Specifies the postal/ZIP code to use when no values specified in the customer or vendor card.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Setup - Control DefaultPostCode - Property ToolTip</note>
         </trans-unit>
@@ -1199,13 +1199,13 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 2148955958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Multiple Zip Files</source>
-          <target state="translated">Create Multiple Postal/ZIP Files</target>
+          <target state="translated">Create Multiple Zip Files</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Create Multiple Zip Files - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 2172196565 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Latest Data Check Date/Time</source>
-          <target state="translated">Latest Data Cheque Date/Time</target>
+          <target state="translated">Latest Data Check Date/Time</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Latest Data Check Date/Time - Property Caption</note>
         </trans-unit>
@@ -1265,7 +1265,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 513618646 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archive to Zip</source>
-          <target state="translated">Archive to Postal/ZIP</target>
+          <target state="translated">Archive to Zip</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Archive to Zip - Property Caption</note>
         </trans-unit>
@@ -1283,7 +1283,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 898403966 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Data check status</source>
-          <target state="translated">Data Cheque status</target>
+          <target state="translated">Data check status</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Data check status - Property Caption</note>
         </trans-unit>
@@ -1325,7 +1325,7 @@
         </trans-unit>
         <trans-unit id="Table 2246936125 - Field 513618646 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archive to Zip</source>
-          <target state="translated">Archive to Postal/ZIP</target>
+          <target state="translated">Archive to Zip</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Format Setup - Field Archive to Zip - Property Caption</note>
         </trans-unit>
@@ -1427,7 +1427,7 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 1533897310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Customer</source>
-          <target state="translated">Cheque Customer</target>
+          <target state="translated">Check Customer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Customer - Property Caption</note>
         </trans-unit>
@@ -1451,13 +1451,13 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 2998338620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Address</source>
-          <target state="translated">Cheque Address</target>
+          <target state="translated">Check Address</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Address - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 3187525439 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Company Information</source>
-          <target state="translated">Cheque Company Information</target>
+          <target state="translated">Check Company Information</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Company Information - Property Caption</note>
         </trans-unit>
@@ -1469,13 +1469,13 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 38781331 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Bank Account</source>
-          <target state="translated">Cheque Bank Account</target>
+          <target state="translated">Check Bank Account</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Bank Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 4166757670 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Vendor</source>
-          <target state="translated">Cheque Vendor</target>
+          <target state="translated">Check Vendor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Vendor - Property Caption</note>
         </trans-unit>
