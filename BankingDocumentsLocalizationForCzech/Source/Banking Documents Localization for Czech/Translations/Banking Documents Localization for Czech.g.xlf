@@ -5258,6 +5258,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card CZB - Control Payment Partial Suggestion CZB - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2498504260 - Control 906482737 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
+          <source>Specifies the name of payment journal batch.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card CZB - Control Pmt. Jnl. Batch Name Order CZB - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2498504260 - Control 2043839015 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
+          <source>Specifies the name of payment journal template.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card CZB - Control Pmt.Jnl. Templ. Name Order CZB - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2498504260 - Control 1618742473 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
           <source>Payment Journal</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5484,12 +5494,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account CZB - Field Payment Import Format CZB - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1253495400 - Field 168840248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
-          <source>Payment Jnl. Batch Name</source>
+          <source>Payment Jnl. Batch Name - Statement</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account CZB - Field Payment Jnl. Batch Name CZB - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1253495400 - Field 2388237988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
-          <source>Payment Jnl. Template Name</source>
+          <source>Payment Jnl. Template Name - Statement</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account CZB - Field Payment Jnl. Template Name CZB - Property Caption</note>
         </trans-unit>
@@ -5507,6 +5517,16 @@
           <source>Payment Partial Suggestion</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account CZB - Field Payment Partial Suggestion CZB - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1253495400 - Field 906482737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>Payment Jnl. Batch Name - Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account CZB - Field Pmt. Jnl. Batch Name Order CZB - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1253495400 - Field 2043839015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>Payment Jnl. Template Name - Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account CZB - Field Pmt.Jnl. Templ. Name Order CZB - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1253495400 - Field 1216199422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
           <source>Post Per Line</source>

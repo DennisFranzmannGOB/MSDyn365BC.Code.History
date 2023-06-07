@@ -383,13 +383,13 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Action 2056370978 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check that data is ready to be exported to the audit file.</source>
-          <target state="translated">Cheque that data is ready to be exported to the audit file.</target>
+          <target state="translated">Check that data is ready to be exported to the audit file.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action DataCheck - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2635072399 - Action 2056370978 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Data check</source>
-          <target state="translated">Data Cheque</target>
+          <target state="translated">Data check</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action DataCheck - Property Caption</note>
         </trans-unit>
@@ -707,7 +707,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 3080159262 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of the most recent data check.</source>
-          <target state="translated">Specifies the status of the most recent data Cheque.</target>
+          <target state="translated">Specifies the status of the most recent data check.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control DataCheckStatus - Property ToolTip</note>
         </trans-unit>
@@ -749,7 +749,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 4292961824 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the most recent data check was run.</source>
-          <target state="translated">Specifies when the most recent data Cheque was run.</target>
+          <target state="translated">Specifies when the most recent data check was run.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control LatestDataCheckDateTime - Property ToolTip</note>
         </trans-unit>
@@ -1205,7 +1205,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 2172196565 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Latest Data Check Date/Time</source>
-          <target state="translated">Latest Data Cheque Date/Time</target>
+          <target state="translated">Latest Data Check Date/Time</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Latest Data Check Date/Time - Property Caption</note>
         </trans-unit>
@@ -1283,7 +1283,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 898403966 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Data check status</source>
-          <target state="translated">Data Cheque status</target>
+          <target state="translated">Data check status</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Data check status - Property Caption</note>
         </trans-unit>
@@ -1421,13 +1421,13 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 1387593085 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Post Code</source>
-          <target state="translated">Cheque postcode</target>
+          <target state="translated">Check Postcode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Post Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 1533897310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Customer</source>
-          <target state="translated">Cheque Customer</target>
+          <target state="translated">Check Customer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Customer - Property Caption</note>
         </trans-unit>
@@ -1439,7 +1439,7 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 1882811858 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default Post Code</source>
-          <target state="translated">Default postcode</target>
+          <target state="translated">Default Postcode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Default Post Code - Property Caption</note>
         </trans-unit>
@@ -1451,31 +1451,31 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 2998338620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Address</source>
-          <target state="translated">Cheque Address</target>
+          <target state="translated">Check Address</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Address - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 3187525439 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Company Information</source>
-          <target state="translated">Cheque Company Information</target>
+          <target state="translated">Check Company Information</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Company Information - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 3397053526 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Tax Code</source>
-          <target state="translated">Last US Tax Code</target>
+          <target state="translated">Last Tax Code</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Last Tax Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 38781331 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Bank Account</source>
-          <target state="translated">Cheque Bank Account</target>
+          <target state="translated">Check Bank Account</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Bank Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 4166757670 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Vendor</source>
-          <target state="translated">Cheque Vendor</target>
+          <target state="translated">Check Vendor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Check Vendor - Property Caption</note>
         </trans-unit>
