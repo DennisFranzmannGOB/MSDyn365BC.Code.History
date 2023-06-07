@@ -33069,7 +33069,7 @@
         </trans-unit>
         <trans-unit id="Report 381903040 - NamedType 3701423681" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target state="translated">Kopírovat</target>
+          <target state="translated">Kopie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Invoice CZL - NamedType CopyLbl</note>
         </trans-unit>
@@ -36036,6 +36036,12 @@
           <target state="translated">Od</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Cash Flow Date List CZL - ReportLabel DateFromCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 320362316 - ReportLabel 1434325001" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advances</source>
+          <target state="translated">Prodejní zálohy</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Cash Flow Date List CZL - ReportLabel SalesAdvancesCaption</note>
         </trans-unit>
         <trans-unit id="Report 320362316 - ReportLabel 1501542159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Taxes</source>
