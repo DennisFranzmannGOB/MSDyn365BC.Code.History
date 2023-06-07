@@ -4205,7 +4205,7 @@
         </trans-unit>
         <trans-unit id="Page 1206474225 - Action 865964493 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Apply Manually</source>
-          <target state="translated">Použít ručně</target>
+          <target state="translated">Spustit ručně</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Action ApplyManually - Property Caption</note>
         </trans-unit>
@@ -4481,7 +4481,7 @@
         </trans-unit>
         <trans-unit id="Page 1431104360 - Action 865964493 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Apply Manually</source>
-          <target state="translated">Použít ručně</target>
+          <target state="translated">Spustit ručně</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Reten. Policy Setup ListPart - Action ApplyManually - Property Caption</note>
         </trans-unit>
@@ -5843,7 +5843,7 @@
         </trans-unit>
         <trans-unit id="Page 3918924451 - Action 865964493 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Apply Manually</source>
-          <target state="translated">Použít ručně</target>
+          <target state="translated">Spustit ručně</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup List - Action ApplyManually - Property Caption</note>
         </trans-unit>
