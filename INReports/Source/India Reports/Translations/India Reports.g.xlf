@@ -8298,6 +8298,111 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Service Transfer Shipment - Control ShowInternalInfo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2568815683 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TCS 27 EQ Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 3811590374 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date from which TCS 27 EQ report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control Date From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 3811590374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date From</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control Date From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 2164282105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date to which TCS 27 EQ report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control Date To - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 2164282105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date To</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control Date To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 222945763 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the TAN number on the TDS entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control TCAN No - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 222945763 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T.C.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control TCAN No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TDS 26Q Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 3811590374 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date from which TDS 26 Q report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control Date From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 3811590374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date From</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control Date From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 2164282105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date to which TDS 26 Q report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control Date To - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 2164282105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date To</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control Date To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 2143095406 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the TAN number on the TDS entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control TAN No - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 2143095406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control TAN No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TDS 27Q Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 3811590374 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date from which TDS 27 Q report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control Date From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 3811590374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date From</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control Date From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 2164282105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date to which TDS 27 Q report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control Date To - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 2164282105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date To</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control Date To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 2143095406 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the TAN number on the TDS entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control TAN No - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 2143095406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control TAN No - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 134669670 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TDS Certificate Receivable</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9052,6 +9157,16 @@
           <source>GSTR2SGSTAmt</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query GSTR2SGSTAmt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 924829079 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TCS 27 EQ</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query TCS 27 EQ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 374880457 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TDS 27Q</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query TDS 27Q - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 340522122 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
           <source>Report</source>

@@ -17043,6 +17043,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Detailed GST Ledger Entry - Action Show Related Information - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3664566763 - Action 2764524437 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Display the additional information of detailed GST ledger entry by document number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Detailed GST Ledger Entry - Action Show Related Information By Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3664566763 - Action 2764524437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Related Information By Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Detailed GST Ledger Entry - Action Show Related Information By Document No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 466323673 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Detailed GST Ledger Entry Info</source>
           <note from="Developer" annotates="general" priority="2"></note>
