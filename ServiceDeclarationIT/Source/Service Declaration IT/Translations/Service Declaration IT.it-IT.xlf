@@ -258,6 +258,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 3320466390 - Control 3717594877 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the corrected file reference number.</source>
+          <target state="translated">Specifica il numero di riferimento file corretto.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 816629217</note>
@@ -460,6 +461,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1866486210 - Field 2514410951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Corrected Service Declaration No.</source>
+          <target state="translated">Nr. dichiarazione di servizio corretta</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2713885285</note>
@@ -669,7 +671,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3342663985 - NamedType 2236746637" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot change %1 when Service Declaration Lines for report %2 exists.</source>
-          <target state="translated">Impossibile modificare %1 se sono presenti righe report Intrastat per il report %2.</target>
+          <target state="translated">Impossibile modificare %1 se sono presenti righe dichiarazione di servizio per il report %2.</target>
           <note from="Developer" annotates="general" priority="2">%1 - Changed Field Name, %2 - Service Declaration No.</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3342663985</note>
