@@ -93,6 +93,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-ERM Elec Document Sales - NamedType BaseQuantityTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4277811839 - NamedType 668993081" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DK</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-ERM Elec Document Sales - NamedType CountryRegionCodeLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4277811839 - NamedType 4275031487" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region Code must have a value in Country/Region: Code=DK.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-ERM Elec Document Sales - NamedType CountryRegionErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4277811839 - NamedType 3927793954" size-unit="char" translate="yes" xml:space="preserve">
           <source>DEFAULT</source>
           <note from="Developer" annotates="general" priority="2">Translate as we translate default term in local languages</note>
@@ -102,6 +112,16 @@
           <source>Procurement-BilSim-1.0</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-ERM Elec Document Sales - NamedType DefaultProfileIDTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4277811839 - NamedType 4152665731" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error must match.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-ERM Elec Document Sales - NamedType ErrorMustMatchErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4277811839 - NamedType 462925793" size-unit="char" translate="yes" xml:space="preserve">
+          <source>4701234560006</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-ERM Elec Document Sales - NamedType GLNLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 4277811839 - NamedType 3424856200" size-unit="char" translate="yes" xml:space="preserve">
           <source>3974567891234</source>
@@ -132,6 +152,11 @@
           <source>cbc:TaxExclusiveAmount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-ERM Elec Document Sales - NamedType TaxAmountTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4277811839 - NamedType 3737299204" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DK12345678</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-ERM Elec Document Sales - NamedType VATRegNoLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 4277811839 - NamedType 1298703648" size-unit="char" translate="yes" xml:space="preserve">
           <source>Wrong value of "AllowanceCharge".</source>
