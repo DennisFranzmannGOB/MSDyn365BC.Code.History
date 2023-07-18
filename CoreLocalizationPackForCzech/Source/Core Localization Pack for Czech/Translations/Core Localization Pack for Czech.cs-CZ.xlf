@@ -2963,13 +2963,13 @@
         </trans-unit>
         <trans-unit id="Enum 3513811977 - EnumValue 598849107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Liabilities</source>
-          <target state="translated">Závazky</target>
+          <target state="translated">Pasiva</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Assets Liabilities Type CZL - EnumValue Liabilities - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3513811977 - EnumValue 661859261 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assets</source>
-          <target state="translated">Majetek</target>
+          <target state="translated">Aktiva</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Assets Liabilities Type CZL - EnumValue Assets - Property Caption</note>
         </trans-unit>

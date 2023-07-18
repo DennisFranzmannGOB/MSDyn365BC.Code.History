@@ -1166,6 +1166,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1180040559</note>
         </trans-unit>
+        <trans-unit id="PageExtension 339927671 - Control 60243737 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the default general business posting group for direct transfer.</source>
+          <target state="translated">Určuje výchozí obecnou obchodní účto skupinu pro přímý transfer.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1180040559</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3720681779 - Control 3179923559 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Date formula for calculating the resulting date</source>
           <target state="translated">Určuje vzorec data pro výpočet výsledného data.</target>
@@ -1904,6 +1911,13 @@
         <trans-unit id="TableExtension 339927671 - Field 4138656314 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exact Cost Reversing Mandatory</source>
           <target state="translated">Nutné vrác.přesn.nákladů</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1180040559</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 339927671 - Field 60243737 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Gen. Bus. Posting Group for Direct Transfer</source>
+          <target state="translated">Výchozí obecná obch.účto skupina pro přímý transfer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1180040559</note>
