@@ -441,6 +441,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType OnlineServicesTermLinkTxt</note>
         </trans-unit>
+        <trans-unit id="Page 872216054 - NamedType 3991945333" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>https://go.microsoft.com/fwlink/?LinkId=724009</source>
+          <target state="translated">https://go.microsoft.com/fwlink/?LinkId=724009</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType PrivacyStatementLinkLinkTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 872216054 - NamedType 2463698469" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Privacy Statement</source>
+          <target state="translated">Déclaration de confidentialité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType PrivacyStatementLinkTxt</note>
+        </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 1591904854" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Your use of the Image Analyzer may be subject to the additional licensing terms in the Microsoft Cognitive Services section of the Online Services Terms.</source>
           <target state="translated">Votre utilisation de l'analyseur Image peut être soumise aux conditions de licence supplémentaires dans la section Microsoft Cognitive Services des conditions d'utilisation des service en ligne.</target>
