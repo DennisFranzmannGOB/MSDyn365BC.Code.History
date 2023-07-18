@@ -2465,7 +2465,6 @@
         </trans-unit>
         <trans-unit id="Codeunit 1603529812 - Method 3982220544 - NamedType 2190545488" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1:%2</source>
-          <target state="translated">%1 :%2</target>
           <note from="Developer" annotates="general" priority="2">%1 = Key; %2 = Value</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stor. Serv. Auth. Shared Key - Method GetCanonicalizedResource - NamedType KeyValuePairLbl</note>
         </trans-unit>
@@ -2537,7 +2536,6 @@
         </trans-unit>
         <trans-unit id="Codeunit 790992369 - Method 3087343453 - NamedType 2760667186" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1=%2</source>
-          <target state="translated">%1=%2</target>
           <note from="Developer" annotates="general" priority="2">%1 = Key; %2 = Value</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stor. Serv. Auth. SAS - Method CreateSasUrlString - NamedType KeyValueLbl</note>
         </trans-unit>
