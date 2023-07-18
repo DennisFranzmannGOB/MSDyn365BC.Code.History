@@ -11,7 +11,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1148211046 - NamedType 137853743" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sends print jobs to the printer's email address</source>
-          <target state="translated">Odešle tiskové úlohy na e-mailovou adresu tiskárny.</target>
+          <target state="translated">Odešle tiskové úlohy na emailovou adresu tiskárny.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Setup Printers - NamedType DefaultDescriptionTxt</note>
         </trans-unit>
@@ -78,7 +78,7 @@
         </trans-unit>
         <trans-unit id="Page 3508446305 - Action 709640958 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Opens new email printer card page.</source>
-          <target state="translated">Otevře novou stránku karty e-mailové tiskárny.</target>
+          <target state="translated">Otevře novou stránku karty emailové tiskárny.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Action NewPrinter - Property ToolTip</note>
         </trans-unit>
@@ -132,7 +132,7 @@
         </trans-unit>
         <trans-unit id="Page 3508446305 - Control 2639240192 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>For this printer to work, a user with respective permissions needs to set up an email account in Business Central.</source>
-          <target state="translated">Aby tato tiskárna fungovala, musí uživatel s příslušnými oprávněními nastavit e-mailový účet v Business Central.</target>
+          <target state="translated">Aby tato tiskárna fungovala, musí uživatel s příslušnými oprávněními nastavit emailový účet v Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control EmailAccountPermissionsRequired - Property Caption</note>
         </trans-unit>
@@ -216,7 +216,7 @@
         </trans-unit>
         <trans-unit id="Page 3508446305 - Control 586428704 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the body of the sent email. Some printers may print the body of the email along with the attachment(s).</source>
-          <target state="translated">Určuje text odeslaného e-mailu. Některé tiskárny mohou vytisknout tělo e-mailu spolu s přílohami.</target>
+          <target state="translated">Určuje text odeslaného emailu. Některé tiskárny mohou vytisknout tělo emailu spolu s přílohami.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control EmailBody - Property ToolTip</note>
         </trans-unit>
@@ -234,7 +234,7 @@
         </trans-unit>
         <trans-unit id="Page 3508446305 - Control 967933656 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>For this printer to work, set up an email account in Business Central to use for sending print jobs to the email printers.</source>
-          <target state="translated">Aby tato tiskárna fungovala, nastavte e-mailový účet v Business Central, který se bude používat pro odesílání tiskových úloh na e-mailové tiskárny.</target>
+          <target state="translated">Aby tato tiskárna fungovala, nastavte emailový účet v Business Central, který se bude používat pro odesílání tiskových úloh na emailové tiskárny.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control EmailAccountRequired - Property Caption</note>
         </trans-unit>
@@ -252,7 +252,7 @@
         </trans-unit>
         <trans-unit id="Page 3508446305 - NamedType 2619791218" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>For this printer to work, set up an email account in Business Central to use for sending print jobs to the email printers.</source>
-          <target state="translated">Aby tato tiskárna fungovala, nastavte e-mailový účet v Business Central, který se bude používat pro odesílání tiskových úloh na e-mailové tiskárny.</target>
+          <target state="translated">Aby tato tiskárna fungovala, nastavte emailový účet v Business Central, který se bude používat pro odesílání tiskových úloh na emailové tiskárny.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType EmailAccountRequiredLbl</note>
         </trans-unit>
@@ -264,7 +264,7 @@
         </trans-unit>
         <trans-unit id="Page 3508446305 - NamedType 2891017306" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>For this printer to work, a user with respective permissions needs to set up an email account in Business Central.</source>
-          <target state="translated">Aby tato tiskárna fungovala, musí uživatel s příslušnými oprávněními nastavit e-mailový účet v Business Central.</target>
+          <target state="translated">Aby tato tiskárna fungovala, musí uživatel s příslušnými oprávněními nastavit emailový účet v Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType EmailAccountPermissionsRequiredLbl</note>
         </trans-unit>
@@ -288,7 +288,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2148701171 - Action 709640958 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a new email printer.</source>
-          <target state="translated">Vytvořte novou e-mailovou tiskárnu.</target>
+          <target state="translated">Vytvořte novou emailovou tiskárnu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1215073847</note>
@@ -309,7 +309,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2148701171 - Change 2224783030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> Email Print</source>
-          <target state="translated"> Tisk e-mailem</target>
+          <target state="translated"> Tisk emailem</target>
           <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 4.</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1215073847</note>
