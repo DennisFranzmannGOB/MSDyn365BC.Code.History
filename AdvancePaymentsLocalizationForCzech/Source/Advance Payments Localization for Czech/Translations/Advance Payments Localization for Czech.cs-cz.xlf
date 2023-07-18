@@ -1861,7 +1861,7 @@
         </trans-unit>
         <trans-unit id="Page 688385878 - Action 2049962466 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize and prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.</source>
-          <target state="translated">Dokončete a připravte se na odeslání dokumentu podle profilu odesílání zákazníka, který je například připojen k e-mailu. Nejprve se otevře okno Odeslat dokument do, ve kterém můžete potvrdit nebo vybrat profil odesílání.</target>
+          <target state="translated">Dokončit a připravit doklad k odeslání podle profilu odesílání dokladů pro zákazníka, např. jako přílohu emailu. Odeslat doklad otevře nejprve okno, kde můžete potvrdit nebo vybrat profil odesílání.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostAndSendPaymentVAT - Property ToolTip</note>
         </trans-unit>

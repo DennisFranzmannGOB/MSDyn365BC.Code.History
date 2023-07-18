@@ -24603,18 +24603,33 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Contact Card CZL - Control Registration No. CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1361176307 - Control 2153225461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3542408424">
+          <source>Registration No. (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Contact Card CZL - Control Registration No. CZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1361176307 - Control 715756482 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3542408424">
           <source>Specifies the secondary VAT registration number for the contact.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Contact Card CZL - Control Tax Registration No. CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3904792401 - Control 2153225461 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1023993454">
-          <source>Specifies the registration number of customer.</source>
+          <source>Specifies the registration number of contact.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Contact List CZL - Control Registration No. CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3904792401 - Control 2153225461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1023993454">
+          <source>Registration No. (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Contact List CZL - Control Registration No. CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3904792401 - Control 1375841905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1023993454">
+          <source>Specifies the registration number of contact.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Contact List CZL - Control Registration Number CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3904792401 - Control 617267791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1023993454">
-          <source>Specifies the customer's VAT registration number for customers in EU countries/regions.</source>
+          <source>Specifies the contact's VAT registration number for contacts in EU countries/regions.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Contact List CZL - Control VAT Registration No. - Property ToolTip</note>
         </trans-unit>
@@ -24652,6 +24667,11 @@
           <source>Specifies the registration number of customer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Card CZL - Control Registration No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1640560951 - Control 2153225461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+          <source>Registration No. (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer Card CZL - Control Registration No. CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1640560951 - Control 715756482 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Specifies the secondary VAT registration number for the customer.</source>
@@ -24767,6 +24787,16 @@
           <source>Specifies the registration number of customer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer List CZL - Control Registration No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2508098237 - Control 2153225461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
+          <source>Registration No. (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer List CZL - Control Registration No. CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2508098237 - Control 1375841905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
+          <source>Specifies the registration number of customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Customer List CZL - Control Registration Number CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2508098237 - Control 617267791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
           <source>Specifies the customer's VAT registration number for customers in EU countries/regions.</source>
@@ -32113,6 +32143,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Card CZL - Control Registration No. CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3731745343 - Control 2153225461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Registration No. (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Card CZL - Control Registration No. CZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3731745343 - Control 715756482 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
           <source>Specifies the secondary VAT registration number for the vendor.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32254,12 +32289,22 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor List CZL - Action Balance Reconciliation CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1275922885 - Control 2153225461 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4194195770">
-          <source>Specifies the registration number of customer.</source>
+          <source>Specifies the registration number of vendor.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor List CZL - Control Registration No. CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1275922885 - Control 2153225461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4194195770">
+          <source>Registration No. (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor List CZL - Control Registration No. CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1275922885 - Control 1375841905 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4194195770">
+          <source>Specifies the registration number of vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor List CZL - Control Registration Number CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1275922885 - Control 617267791 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4194195770">
-          <source>Specifies the customer's VAT registration number for customers in EU countries/regions.</source>
+          <source>Specifies the vendor's VAT registration number for vendors in EU countries/regions.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor List CZL - Control VAT Registration No. - Property ToolTip</note>
         </trans-unit>
