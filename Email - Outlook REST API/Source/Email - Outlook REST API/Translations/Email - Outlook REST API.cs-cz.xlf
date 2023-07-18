@@ -29,7 +29,7 @@
         </trans-unit>
         <trans-unit id="Table 923233499 - Field 72161626 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Outlook API Email Connector</source>
-          <target state="translated">Konektor e-mailu rozhraní API aplikace Outlook</target>
+          <target state="translated">Konektor emailu rozhraní API aplikace Outlook</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email - Outlook Account - Field Outlook API Email Connector - Property Caption</note>
         </trans-unit>
@@ -101,7 +101,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 1683059839" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client ID or Client secret is not set up on the Email Application AAD Registration page.</source>
-          <target state="translated">ID klienta nebo tajný klíč klienta není nastaven na stránce Registrace AAD e-mailové aplikace.</target>
+          <target state="translated">ID klienta nebo tajný klíč klienta není nastaven na stránce Registrace AAD emailové aplikace.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType CannotConnectToMailServerErr</note>
         </trans-unit>
@@ -143,7 +143,7 @@
         </trans-unit>
         <trans-unit id="Page 3074962881 - NamedType 680356195" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>If you clear the app registration on this page, users will not be able to send email messages from their Exchange accounts. Do you want to continue?</source>
-          <target state="translated">Pokud na této stránce vymažete registraci aplikace, uživatelé nebudou moct odesílat e-mailové zprávy ze svých účtů Exchange. Chcete pokračovat?</target>
+          <target state="translated">Pokud na této stránce vymažete registraci aplikace, uživatelé nebudou moct odesílat emailové zprávy ze svých účtů Exchange. Chcete pokračovat?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - NamedType ThisWillClearTheFieldsTxt</note>
         </trans-unit>
