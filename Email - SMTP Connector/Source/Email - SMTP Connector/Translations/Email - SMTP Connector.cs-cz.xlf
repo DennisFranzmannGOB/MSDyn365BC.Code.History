@@ -258,7 +258,7 @@
         </trans-unit>
         <trans-unit id="Page 4170592685 - Control 3099537666 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a name to add in front of the sender email address on emails. The name depends on the Sender Email Address field. For Current User, this is the name from the account you used to sign in. For Specific Account, this can be any name. For example, if you enter Stan, and the address in the Email Address field is stan@cronus.coml, the sender name will appear as Stan stan@cronus.com.</source>
-          <target state="translated">Určuje jméno, které se má přidat před e-mailovou adresu odesílatele v e-mailech. Jméno závisí na poli E-mailová adresa odesílatele. V případě aktuálního uživatele se jedná o jméno z účtu, který jste použili k přihlášení. U konkrétního účtu to může být libovolné jméno. Pokud například zadáte Jan a adresa v poli E-mailová adresa je jan@cronus.com, jméno odesílatele se zobrazí jako Jan jan@cronus.com.</target>
+          <target state="translated">Určuje jméno, které se má přidat před emailovou adresu odesílatele v emailech. Jméno závisí na poli Emailová adresa odesílatele. V případě aktuálního uživatele se jedná o jméno z účtu, který jste použili k přihlášení. U konkrétního účtu to může být libovolné jméno. Pokud například zadáte Jan a adresa v poli Emailová adresa je jan@cronus.com, jméno odesílatele se zobrazí jako Jan jan@cronus.com.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page SMTP Account - Control SenderNameField - Property ToolTip</note>
         </trans-unit>
@@ -390,7 +390,7 @@
         </trans-unit>
         <trans-unit id="Page 707219180 - Control 3099537666 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a name to add in front of the sender email address. For example, if you enter Stan in this field, and the email address is stan@cronus.com, the recipient will see the sender as Stan stan@cronus.com.</source>
-          <target state="translated">Určuje jméno, které chcete přidat před e-mailovou adresu odesílatele. Pokud například do tohoto pole zadáte Stan a e-mailová adresa je stan@cronus.com, příjemce uvidí odesílatele jako Stan stan@cronus.com.</target>
+          <target state="translated">Určuje jméno, které chcete přidat před emailovou adresu odesílatele. Pokud například do tohoto pole zadáte Stan a emailová adresa je stan@cronus.com, příjemce uvidí odesílatele jako Stan stan@cronus.com.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page SMTP Account Wizard - Control SenderNameField - Property ToolTip</note>
         </trans-unit>
