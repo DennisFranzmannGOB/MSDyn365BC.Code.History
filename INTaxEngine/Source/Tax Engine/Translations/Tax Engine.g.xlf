@@ -8353,6 +8353,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line Posting Ext - Field Tax ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PermissionSet 1284038669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance Objects - Tax Engine</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Adv Objects - Tax Engine - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PermissionSet 512710803 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365 Access - IN Tax Engine</source>
           <note from="Developer" annotates="general" priority="2"></note>
