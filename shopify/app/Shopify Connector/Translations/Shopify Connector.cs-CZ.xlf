@@ -3324,7 +3324,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 4041163115 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if you want to export all customers with a valid e-mail address from D365BC to Shopify.</source>
-          <target state="translated">Určuje, zda chcete exportovat všechny zákazníky s platnou e-mailovou adresou z D365BC do Shopify.</target>
+          <target state="translated">Určuje, zda chcete exportovat všechny zákazníky s platnou emailovou adresou z D365BC do Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control ExportCustomerToShopify - Property ToolTip</note>
         </trans-unit>
