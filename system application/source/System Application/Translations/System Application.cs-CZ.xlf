@@ -593,19 +593,19 @@
         </trans-unit>
         <trans-unit id="Codeunit 2091346909 - NamedType 476866542" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>&lt;body&gt;&lt;p style="font-family:Verdana,Arial;font-size:10pt"&gt;&lt;b&gt;The user %1 sent this message to test their email settings. You do not need to reply to this message.&lt;/b&gt;&lt;/p&gt;&lt;p style="font-family:Verdana,Arial;font-size:9pt"&gt;&lt;b&gt;Sent through connector:&lt;/b&gt; %2&lt;BR&gt;&lt;/p&gt;&lt;/body&gt;</source>
-          <target state="translated">&lt;body&gt;&lt;p style="font-family:Verdana,Arial;font-size:10pt"&gt;&lt;b&gt;Uživatel %1 odeslal tuto zprávu, aby otestoval nastavení e-mailu. Na tuto zprávu není nutné odpovídat.&lt;/b&gt;&lt;/p&gt;&lt;p style="font-family:Verdana,Arial;font-size:9pt"&gt;&lt;b&gt;Odesláno prostřednictvím konektoru:&lt;/b&gt; %2&lt;BR&gt;&lt;/p&gt;&lt;/body&gt;</target>
+          <target state="translated">&lt;body&gt;&lt;p style="font-family:Verdana,Arial;font-size:10pt"&gt;&lt;b&gt;Uživatel %1 odeslal tuto zprávu, aby otestoval nastavení emailu. Na tuto zprávu není nutné odpovídat.&lt;/b&gt;&lt;/p&gt;&lt;p style="font-family:Verdana,Arial;font-size:9pt"&gt;&lt;b&gt;Odesláno prostřednictvím konektoru:&lt;/b&gt; %2&lt;BR&gt;&lt;/p&gt;&lt;/body&gt;</target>
           <note from="Developer" annotates="general" priority="2">%1 is an email address, such as user@domain.com; %2 is the name of a connector, such as SMTP;</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Test Mail - NamedType TestEmailBodyTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2091346909 - NamedType 559834860" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Test email has been sent to %1.\Check your email for messages to make sure that the email was delivered successfully.</source>
-          <target state="translated">Zkušební e-mail byl odeslán do %1.\Zkontrolujte vaši e-mailovou schránku pro ověření, že e-mail byl úspěšně doručen.</target>
+          <target state="translated">Zkušební email byl odeslán do %1.\Zkontrolujte vaši emailovou schránku pro ověření, že email byl úspěšně doručen.</target>
           <note from="Developer" annotates="general" priority="2">%1 is an email address.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Test Mail - NamedType TestEmailSuccessMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 215834149 - NamedType 2383621094" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Your user account does not give you permission to set up email. Please contact your administrator.</source>
-          <target state="translated">Váš uživatelský účet vám nedává oprávnění k nastavení e-mailu. Obraťte se na správce.</target>
+          <target state="translated">Váš uživatelský účet vám nedává oprávnění k nastavení emailu. Obraťte se na správce.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Account Impl. - NamedType CannotManageSetupErr</note>
         </trans-unit>
@@ -1949,7 +1949,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3795645336 - NamedType 2139460900" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You do not have the permissions required to send emails. Ask your administrator to grant you the Read, Insert, Modify and Delete permissions for the Sent Email and Email Outbox tables.</source>
-          <target state="translated">Nemáte oprávnění potřebná k odesílání e-mailů. Požádejte správce, aby vám udělil oprávnění ke čtení, vložení, změně a odstranění pro tabulky Odeslaná pošta a Pošta k odeslání.</target>
+          <target state="translated">Nemáte oprávnění potřebná k odesílání emailů. Požádejte správce, aby vám udělil oprávnění ke čtení, vložení, změně a odstranění pro tabulky Odeslaná pošta a Pošta k odeslání.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Impl - NamedType InsufficientPermissionsErr</note>
         </trans-unit>
@@ -2465,7 +2465,6 @@
         </trans-unit>
         <trans-unit id="Codeunit 1603529812 - Method 3982220544 - NamedType 2190545488" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1:%2</source>
-          <target state="translated">%1:%2</target>
           <note from="Developer" annotates="general" priority="2">%1 = Key; %2 = Value</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stor. Serv. Auth. Shared Key - Method GetCanonicalizedResource - NamedType KeyValuePairLbl</note>
         </trans-unit>
@@ -2537,7 +2536,6 @@
         </trans-unit>
         <trans-unit id="Codeunit 790992369 - Method 3087343453 - NamedType 2760667186" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1=%2</source>
-          <target state="translated">%1=%2</target>
           <note from="Developer" annotates="general" priority="2">%1 = Key; %2 = Value</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stor. Serv. Auth. SAS - Method CreateSasUrlString - NamedType KeyValueLbl</note>
         </trans-unit>
@@ -2735,7 +2733,7 @@
         </trans-unit>
         <trans-unit id="Enum 1707166242 - EnumValue 27127529 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Compose Context</source>
-          <target state="translated">Kontext pro psaní e-mailů</target>
+          <target state="translated">Kontext pro psaní emailů</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Email Relation Origin - EnumValue Compose Context - Property Caption</note>
         </trans-unit>
@@ -4055,7 +4053,7 @@
         </trans-unit>
         <trans-unit id="Page 1251581097 - Action 147247197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the page from where the email was sent.</source>
-          <target state="translated">Otevřete stránku, ze které byl e-mail odeslán.</target>
+          <target state="translated">Otevřete stránku, ze které byl email odeslán.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Outbox - Action ShowSourceRecord - Property ToolTip</note>
         </trans-unit>
@@ -4103,7 +4101,7 @@
         </trans-unit>
         <trans-unit id="Page 1251581097 - Action 743942932 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send the email for processing. The status will change to Pending until it's processed. If the email is successfully sent, it will no longer display in your Outbox.</source>
-          <target state="translated">Odešlete e-mail ke zpracování. Stav se změní na Čeká na vyřízení, dokud nebude zpracován. Pokud je e-mail úspěšně odeslán, nebude se již zobrazovat ve složce Pošta k odeslání.</target>
+          <target state="translated">Odešlete email ke zpracování. Stav se změní na Čeká na vyřízení, dokud nebude zpracován. Pokud je email úspěšně odeslán, nebude se již zobrazovat ve složce Pošta k odeslání.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Outbox - Action SendEmail - Property ToolTip</note>
         </trans-unit>
@@ -4601,7 +4599,7 @@
         </trans-unit>
         <trans-unit id="Page 2282749623 - Action 147247197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the page from where the email was sent.</source>
-          <target state="translated">Otevřete stránku, ze které byl e-mail odeslán.</target>
+          <target state="translated">Otevřete stránku, ze které byl email odeslán.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Action ShowSourceRecord - Property ToolTip</note>
         </trans-unit>
@@ -4649,7 +4647,7 @@
         </trans-unit>
         <trans-unit id="Page 2282749623 - Action 970153994 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use a Word template with data from the entity to fill the email body.</source>
-          <target state="translated">K vyplnění těla e-mailu použijte šablonu Wordu s daty z entity.</target>
+          <target state="translated">K vyplnění těla emailu použijte šablonu Wordu s daty z entity.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Action WordTemplate - Property ToolTip</note>
         </trans-unit>
@@ -4931,7 +4929,7 @@
         </trans-unit>
         <trans-unit id="Page 3368492679 - Action 3478438073 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reassign the selected scenarios to another email account.</source>
-          <target state="translated">Znovu přiřaďte vybrané scénáře k jinému e-mailovému účtu.</target>
+          <target state="translated">Znovu přiřaďte vybrané scénáře k jinému emailovému účtu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Setup - Action ChangeAccount - Property ToolTip</note>
         </trans-unit>
@@ -4955,7 +4953,7 @@
         </trans-unit>
         <trans-unit id="Page 3368492679 - Action 640341854 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unassign the selected scenarios. Afterward, the default email account will be used to send emails for the scenarios.</source>
-          <target state="translated">Zrušte přiřazení vybraných scénářů. Poté bude výchozí e-mailový účet použit k odesílání e-mailů pro scénáře.</target>
+          <target state="translated">Zrušte přiřazení vybraných scénářů. Poté bude výchozí emailový účet použit k odesílání emailů pro scénáře.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Setup - Action Unassign - Property ToolTip</note>
         </trans-unit>
@@ -5009,7 +5007,7 @@
         </trans-unit>
         <trans-unit id="Page 3389183890 - Action 2010558683 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mark the selected email account as the default account. This account will be used for all scenarios for which an account is not specified.</source>
-          <target state="translated">Označte vybraný e-mailový účet jako výchozí účet. Tento účet bude použit pro všechny scénáře, pro které není zadán účet.</target>
+          <target state="translated">Označte vybraný emailový účet jako výchozí účet. Tento účet bude použit pro všechny scénáře, pro které není zadán účet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Action MakeDefault - Property ToolTip</note>
         </trans-unit>
@@ -5039,7 +5037,7 @@
         </trans-unit>
         <trans-unit id="Page 3389183890 - Action 240443109 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent Emails</source>
-          <target state="translated">Odeslané e-maily</target>
+          <target state="translated">Odeslané emaily</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Action SentEmails - Property Caption</note>
         </trans-unit>
@@ -5423,7 +5421,7 @@
         </trans-unit>
         <trans-unit id="Page 4021082514 - Action 147247197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the page from where the email was sent.</source>
-          <target state="translated">Otevřete stránku, ze které byl e-mail odeslán.</target>
+          <target state="translated">Otevřete stránku, ze které byl email odeslán.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Viewer - Action ShowSourceRecord - Property ToolTip</note>
         </trans-unit>
@@ -5633,7 +5631,7 @@
         </trans-unit>
         <trans-unit id="Page 709229469 - Action 147247197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the page from where the email was sent.</source>
-          <target state="translated">Otevřete stránku, ze které byl e-mail odeslán.</target>
+          <target state="translated">Otevřete stránku, ze které byl email odeslán.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Action ShowSourceRecord - Property ToolTip</note>
         </trans-unit>
@@ -6311,7 +6309,7 @@
         </trans-unit>
         <trans-unit id="Page 1251581097 - Control 3083306301 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the extension that will be used to send the email.</source>
-          <target state="translated">Určuje rozšíření, které bude použito k odeslání e-mailu.</target>
+          <target state="translated">Určuje rozšíření, které bude použito k odeslání emailu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Outbox - Control Connector - Property ToolTip</note>
         </trans-unit>
@@ -6323,7 +6321,7 @@
         </trans-unit>
         <trans-unit id="Page 1251581097 - Control 3460611877 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user who triggered this email to be sent.</source>
-          <target state="translated">Určuje uživatele, který tento e-mail spustil, aby byl odeslán.</target>
+          <target state="translated">Určuje uživatele, který tento email spustil, aby byl odeslán.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Outbox - Control Sender - Property ToolTip</note>
         </trans-unit>
@@ -7677,7 +7675,7 @@
         </trans-unit>
         <trans-unit id="Page 2282749623 - Control 2439845918 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email addresses of people who should receive a copy of the email.</source>
-          <target state="translated">Určuje e-mailové adresy lidí, kteří by měli obdržet kopii e-mailu.</target>
+          <target state="translated">Určuje emailové adresy lidí, kteří by měli obdržet kopii emailu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Control CcField - Property ToolTip</note>
         </trans-unit>
@@ -7689,7 +7687,7 @@
         </trans-unit>
         <trans-unit id="Page 2282749623 - Control 2516836987 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email addresses to send the email to.</source>
-          <target state="translated">Určuje e-mailové adresy, na které chcete e-mail odeslat.</target>
+          <target state="translated">Určuje emailové adresy, na které chcete email odeslat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Control ToField - Property ToolTip</note>
         </trans-unit>
@@ -7719,7 +7717,7 @@
         </trans-unit>
         <trans-unit id="Page 2282749623 - Control 3825649316 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email addresses of people who should receive a blind carbon copy (Bcc) of the email. These addresses are not shown to other recipients.</source>
-          <target state="translated">Určuje e-mailové adresy osob, které by měly obdržet skrytou kopii e-mailu. Tyto adresy nejsou zobrazeny ostatním příjemcům.</target>
+          <target state="translated">Určuje emailové adresy osob, které by měly obdržet skrytou kopii emailu. Tyto adresy nejsou zobrazeny ostatním příjemcům.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Control BccField - Property ToolTip</note>
         </trans-unit>
@@ -9668,7 +9666,7 @@
         </trans-unit>
         <trans-unit id="Page 3368492679 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the scenarios that are using the email account.</source>
-          <target state="translated">Určuje scénáře, které používají e-mailový účet.</target>
+          <target state="translated">Určuje scénáře, které používají emailový účet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Setup - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -9704,7 +9702,7 @@
         </trans-unit>
         <trans-unit id="Page 3389183890 - Control 2725983395 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the email account will be used for all scenarios for which an account is not specified. You must have a default email account, even if you have only one account.</source>
-          <target state="translated">Určuje, zda bude e-mailový účet použit pro všechny scénáře, pro které není určen účet. Musíte mít výchozí e-mailový účet, i když máte pouze jeden účet.</target>
+          <target state="translated">Určuje, zda bude emailový účet použit pro všechny scénáře, pro které není určen účet. Musíte mít výchozí emailový účet, i když máte pouze jeden účet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Control DefaultField - Property ToolTip</note>
         </trans-unit>
@@ -9722,7 +9720,7 @@
         </trans-unit>
         <trans-unit id="Page 3389183890 - Control 3141900483 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the logo for the type of email account.</source>
-          <target state="translated">Určuje logo typu e-mailového účtu.</target>
+          <target state="translated">Určuje logo typu emailového účtu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Control LogoField - Property ToolTip</note>
         </trans-unit>
@@ -9734,7 +9732,7 @@
         </trans-unit>
         <trans-unit id="Page 3389183890 - Control 3749679881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of email extension that the account is added to.</source>
-          <target state="translated">Určuje typ rozšíření e-mailu, ke kterému je účet přidán.</target>
+          <target state="translated">Určuje typ rozšíření emailu, ke kterému je účet přidán.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Control EmailConnector - Property ToolTip</note>
         </trans-unit>
@@ -10333,7 +10331,7 @@
         </trans-unit>
         <trans-unit id="Page 3756518970 - Control 2725983395 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use this account for all scenarios for which an account is not specified. Scenarios are processes that involve sending documents or notifications by email.</source>
-          <target state="translated">Tento účet použijte pro všechny scénáře, pro které není účet zadán. Scénáře jsou procesy, které zahrnují odesílání dokumentů nebo oznámení e-mailem.</target>
+          <target state="translated">Tento účet použijte pro všechny scénáře, pro které není účet zadán. Scénáře jsou procesy, které zahrnují odesílání dokumentů nebo oznámení emailem.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Account Wizard - Control DefaultField - Property ToolTip</note>
         </trans-unit>
@@ -10369,7 +10367,7 @@
         </trans-unit>
         <trans-unit id="Page 3756518970 - Control 3030799777 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use caution when adding email accounts. Depending on your setup, accounts can be available to all users.</source>
-          <target state="translated">Při přidávání e-mailových účtů buďte opatrní. V závislosti na nastavení mohou být účty k dispozici všem uživatelům.</target>
+          <target state="translated">Při přidávání emailových účtů buďte opatrní. V závislosti na nastavení mohou být účty k dispozici všem uživatelům.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Account Wizard - Control UsageWarning - Property Caption</note>
         </trans-unit>
@@ -10417,7 +10415,7 @@
         </trans-unit>
         <trans-unit id="Page 3756518970 - Control 3832370403 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View information about how to set up the email capabilities.</source>
-          <target state="translated">Zobrazení informací o nastavení možností e-mailu.</target>
+          <target state="translated">Zobrazení informací o nastavení možností emailu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Account Wizard - Control LearnMore - Property ToolTip</note>
         </trans-unit>
@@ -10435,7 +10433,7 @@
         </trans-unit>
         <trans-unit id="Page 3756518970 - Control 4067785176 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specify the type of email account to add</source>
-          <target state="translated">Zadejte typ e-mailového účtu, který chcete přidat.</target>
+          <target state="translated">Zadejte typ emailového účtu, který chcete přidat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Account Wizard - Control Specify the type of email account to add - Property Caption</note>
         </trans-unit>
@@ -10453,13 +10451,13 @@
         </trans-unit>
         <trans-unit id="Page 3756518970 - Control 782802572 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There are no email apps available. To use this feature you must install an email app.</source>
-          <target state="translated">Nejsou k dispozici žádné e-mailové aplikace. Chcete-li tuto funkci používat, musíte nainstalovat e-mailovou aplikaci.</target>
+          <target state="translated">Nejsou k dispozici žádné emailové aplikace. Chcete-li tuto funkci používat, musíte nainstalovat emailovou aplikaci.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Account Wizard - Control NoConnectorsAvailable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3756518970 - Control 792907206 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Make outbound email communications easier by connecting email accounts to Business Central. For example, send sales quotes and orders without opening an email app.</source>
-          <target state="translated">Zjednodušte odchozí e-mailovou komunikaci připojením e-mailových účtů k Business Central. Můžete například odeslat prodejní nabídky a objednávky bez otevření e-mailové aplikace.</target>
+          <target state="translated">Zjednodušte odchozí emailovou komunikaci připojením emailových účtů k Business Central. Můžete například odeslat prodejní nabídky a objednávky bez otevření emailové aplikace.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Account Wizard - Control HeaderText - Property InstructionalText</note>
         </trans-unit>
@@ -11959,7 +11957,7 @@
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 792907206 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bring changes to user information from your Microsoft 365 organization to Business Central. Update license assignments, name changes, email addresses, preferred languages, and user access.</source>
-          <target state="translated">Přineste změny v informacích o uživatelích z organizace Microsoft 365 do Business Central. Aktualizujte přiřazení licencí, změny názvů, e-mailové adresy, preferované jazyky a přístup uživatelů.</target>
+          <target state="translated">Přineste změny v informacích o uživatelích z organizace Microsoft 365 do Business Central. Aktualizujte přiřazení licencí, změny názvů, emailové adresy, preferované jazyky a přístup uživatelů.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control HeaderText - Property InstructionalText</note>
         </trans-unit>
@@ -12091,7 +12089,7 @@
         </trans-unit>
         <trans-unit id="Page 709229469 - Control 539546824 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the range of emails to load sent after the date.</source>
-          <target state="translated">Určuje rozsah e-mailů, které se mají načíst, odeslaných po datu.</target>
+          <target state="translated">Určuje rozsah emailů, které se mají načíst, odeslaných po datu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Control DateFilter - Property ToolTip</note>
         </trans-unit>
@@ -12103,7 +12101,7 @@
         </trans-unit>
         <trans-unit id="Page 709229469 - Control 854218517 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of email extension that was used to send the email.</source>
-          <target state="translated">Určuje typ rozšíření e-mailu, který byl použit k odeslání e-mailu.</target>
+          <target state="translated">Určuje typ rozšíření emailu, který byl použit k odeslání emailu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Control ConnectorType - Property ToolTip</note>
         </trans-unit>
@@ -12217,7 +12215,7 @@
         </trans-unit>
         <trans-unit id="Page 825875962 - Control 854218517 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of email extension that was used to send the email.</source>
-          <target state="translated">Určuje typ rozšíření e-mailu, který byl použit k odeslání e-mailu.</target>
+          <target state="translated">Určuje typ rozšíření emailu, který byl použit k odeslání emailu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails List Part - Control ConnectorType - Property ToolTip</note>
         </trans-unit>
@@ -12403,7 +12401,7 @@
         </trans-unit>
         <trans-unit id="Page 2282749623 - NamedType 4178145242" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Keep as draft in Email Outbox,Discard email</source>
-          <target state="translated">Zachovat jako koncept v e-mailové schránce,zahodit e-mail</target>
+          <target state="translated">Zachovat jako koncept v emailové schránce,zahodit email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - NamedType OptionsOnClosePageNewEmailLbl</note>
         </trans-unit>
@@ -12673,7 +12671,7 @@
         </trans-unit>
         <trans-unit id="Page 4021082514 - NamedType 690053247" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent Email</source>
-          <target state="translated">E-mail odeslán</target>
+          <target state="translated">Odeslaný email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Viewer - NamedType PageCaptionTxt</note>
         </trans-unit>
@@ -12709,7 +12707,7 @@
         </trans-unit>
         <trans-unit id="Page 4217154468 - NamedType 3719062343" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No address suggestions were found. Click the menu action "Full Address Lists" to search for more email addresses.</source>
-          <target state="translated">Nebyly nalezeny žádné návrhy adres. Kliknutím na akci nabídky "Úplné seznamy adres" vyhledáte další e-mailové adresy.</target>
+          <target state="translated">Nebyly nalezeny žádné návrhy adres. Kliknutím na akci nabídky "Úplné seznamy adres" vyhledáte další emailové adresy.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - NamedType UserHelpNotificationTxt</note>
         </trans-unit>
@@ -12721,7 +12719,7 @@
         </trans-unit>
         <trans-unit id="Page 523480673 - NamedType 2580697080" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Number of updates ready to be applied: %1. These can be name, email address, preferred language, and user access changes. Choose View changes to see the list.</source>
-          <target state="translated">Počet aktualizací připravených k použití: %1. Může se jednat o jméno, e-mailovou adresu, preferovaný jazyk a změny přístupu uživatele. Chcete-li zobrazit seznam, zvolte Zobrazit změny.</target>
+          <target state="translated">Počet aktualizací připravených k použití: %1. Může se jednat o jméno, emailovou adresu, preferovaný jazyk a změny přístupu uživatele. Chcete-li zobrazit seznam, zvolte Zobrazit změny.</target>
           <note from="Developer" annotates="general" priority="2">%1 = An integer count of total updates ready to apply</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - NamedType TotalUpdatesReadyToApplyTxt</note>
         </trans-unit>
@@ -13536,7 +13534,7 @@
         </trans-unit>
         <trans-unit id="Page 4021082514 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent Email</source>
-          <target state="translated">E-mail odeslán</target>
+          <target state="translated">Odeslaný email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Viewer - Property Caption</note>
         </trans-unit>
@@ -13590,7 +13588,7 @@
         </trans-unit>
         <trans-unit id="Page 4217154468 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Suggested Email Addresses</source>
-          <target state="translated">Navrhované e-mailové adresy</target>
+          <target state="translated">Navrhované emailové adresy</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Property Caption</note>
         </trans-unit>
@@ -13656,7 +13654,7 @@
         </trans-unit>
         <trans-unit id="Page 709229469 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent Emails</source>
-          <target state="translated">Odeslané e-maily</target>
+          <target state="translated">Odeslané emaily</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Property Caption</note>
         </trans-unit>
@@ -13674,7 +13672,7 @@
         </trans-unit>
         <trans-unit id="Page 825875962 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent Emails</source>
-          <target state="translated">Odeslané e-maily</target>
+          <target state="translated">Odeslané emaily</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails List Part - Property Caption</note>
         </trans-unit>
@@ -13794,7 +13792,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 4138620843 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>(Obsolete) Email Usage</source>
-          <target state="translated">(Zastaralé) Využití e-mailu</target>
+          <target state="translated">(Zastaralé) Využití emailu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet EMAIL USAGE - Property Caption</note>
         </trans-unit>
@@ -13854,7 +13852,7 @@
         </trans-unit>
         <trans-unit id="Query 178519040 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Outbox Emails</source>
-          <target state="translated">E-maily pošty k odeslání</target>
+          <target state="translated">Emaily pošty k odeslání</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query Outbox Emails - Property Caption</note>
         </trans-unit>
@@ -13878,7 +13876,7 @@
         </trans-unit>
         <trans-unit id="Query 709229469 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent Emails</source>
-          <target state="translated">Odeslané e-maily</target>
+          <target state="translated">Odeslané emaily</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query Sent Emails - Property Caption</note>
         </trans-unit>
@@ -17190,7 +17188,7 @@
         </trans-unit>
         <trans-unit id="Table 1910832796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sent Email</source>
-          <target state="translated">E-mail odeslán</target>
+          <target state="translated">Odeslaný email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sent Email - Property Caption</note>
         </trans-unit>
@@ -17370,7 +17368,7 @@
         </trans-unit>
         <trans-unit id="Table 3016299816 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Connector Logo</source>
-          <target state="translated">Logo konektoru e-mailu</target>
+          <target state="translated">Logo konektoru emailu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email Connector Logo - Property Caption</note>
         </trans-unit>
