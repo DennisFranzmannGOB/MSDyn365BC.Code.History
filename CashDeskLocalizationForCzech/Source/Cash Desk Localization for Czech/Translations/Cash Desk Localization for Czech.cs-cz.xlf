@@ -3788,7 +3788,7 @@
         </trans-unit>
         <trans-unit id="Page 4259462887 - Control 1541011875 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the e-mail address associated with the cash desk card.</source>
-          <target state="translated">Určuje e-mailovou adresu spojenou s kartou pokladny.</target>
+          <target state="translated">Určuje emailovou adresu spojenou s kartou pokladny.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Card CZP - Control E-Mail - Property ToolTip</note>
         </trans-unit>
@@ -6975,7 +6975,7 @@
         </trans-unit>
         <trans-unit id="Table 1415786139 - Field 1541011875 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
-          <target state="translated">E-mail</target>
+          <target state="translated">Email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Cash Desk CZP - Field E-Mail - Property Caption</note>
         </trans-unit>

@@ -2969,13 +2969,13 @@
         </trans-unit>
         <trans-unit id="Enum 3513811977 - EnumValue 598849107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Liabilities</source>
-          <target state="translated">Závazky</target>
+          <target state="translated">Pasiva</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Assets Liabilities Type CZL - EnumValue Liabilities - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3513811977 - EnumValue 661859261 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assets</source>
-          <target state="translated">Majetek</target>
+          <target state="translated">Aktiva</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Assets Liabilities Type CZL - EnumValue Assets - Property Caption</note>
         </trans-unit>
@@ -9301,7 +9301,7 @@
         </trans-unit>
         <trans-unit id="Page 2846075811 - Control 1541011875 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the e-mail address for the company official.</source>
-          <target state="translated">Určuje e-mailovou adresu zástupce společnosti.</target>
+          <target state="translated">Určuje emailovou adresu zástupce společnosti.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Company Official List CZL - Control E-Mail - Property ToolTip</note>
         </trans-unit>
@@ -11041,7 +11041,7 @@
         </trans-unit>
         <trans-unit id="Page 805171329 - Control 1541011875 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the e-mail address for the company official.</source>
-          <target state="translated">Určuje e-mailovou adresu pro zástupce společnosti.</target>
+          <target state="translated">Určuje emailovou adresu zástupce společnosti.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Company Official Card CZL - Control E-Mail - Property ToolTip</note>
         </trans-unit>
@@ -11575,7 +11575,7 @@
         </trans-unit>
         <trans-unit id="Page 99819693 - Control 2778019469 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email address for VAT Control Report.</source>
-          <target state="translated">Určuje e-mailovou adresu pro Kontrolní hlášení DPH.</target>
+          <target state="translated">Určuje emailovou adresu pro Kontrolní hlášení DPH.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statutory Reporting Setup CZL - Control VAT Control Report E-mail - Property ToolTip</note>
         </trans-unit>
@@ -14453,16 +14453,30 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2714855698</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1275922885 - Control 1375841905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the registration number of vendor.</source>
+          <target state="translated">Určuje IČ dodavatele.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4194195770</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1275922885 - Control 2153225461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the registration number of customer.</source>
-          <target state="translated">Určuje IČ zákazníka.</target>
+          <source>Specifies the registration number of vendor.</source>
+          <target state="translated">Určuje IČ dodavatele.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4194195770</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1275922885 - Control 2153225461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration No. (Obsolete)</source>
+          <target state="translated">IČ (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4194195770</note>
         </trans-unit>
         <trans-unit id="PageExtension 1275922885 - Control 617267791 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the customer's VAT registration number for customers in EU countries/regions.</source>
-          <target state="translated">Určuje DIČ zákazníka pro zákazníky v zemích/oblastech EU.</target>
+          <source>Specifies the vendor's VAT registration number for vendors in EU countries/regions.</source>
+          <target state="translated">Určuje DIČ dodavatele pro dodavatele v zemích nebo oblastech EU.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4194195770</note>
@@ -14568,6 +14582,13 @@
         <trans-unit id="PageExtension 1361176307 - Control 2153225461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the registration number of contact.</source>
           <target state="translated">Určuje IČ kontaktu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3542408424</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1361176307 - Control 2153225461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration No. (Obsolete)</source>
+          <target state="translated">IČ (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3542408424</note>
@@ -15170,6 +15191,13 @@
         <trans-unit id="PageExtension 1640560951 - Control 2153225461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the registration number of customer.</source>
           <target state="translated">Určuje IČ zákazníka.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 523354100</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1640560951 - Control 2153225461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration No. (Obsolete)</source>
+          <target state="translated">IČ (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 523354100</note>
@@ -17582,9 +17610,23 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1251096278</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2508098237 - Control 1375841905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the registration number of customer.</source>
+          <target state="translated">Určuje IČ zákazníka.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2901867346</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2508098237 - Control 2153225461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the registration number of customer.</source>
           <target state="translated">Určuje IČ zákazníka.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2901867346</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2508098237 - Control 2153225461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration No. (Obsolete)</source>
+          <target state="translated">IČ (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2901867346</note>
@@ -21117,6 +21159,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3731745343 - Control 2153225461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration No. (Obsolete)</source>
+          <target state="translated">IČ (zastaralé)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3731745343 - Control 2565955595 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default Transport Method for Intrastat reporting purposes.</source>
           <target state="translated">Určuje výchozí typ přepravy pro účely vykazování v Intrastatu.</target>
@@ -21880,16 +21929,30 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1227332174</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3904792401 - Control 1375841905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the registration number of contact.</source>
+          <target state="translated">Určuje IČ kontaktu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1023993454</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3904792401 - Control 2153225461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the registration number of customer.</source>
-          <target state="translated">Určuje IČ zákazníka.</target>
+          <source>Specifies the registration number of contact.</source>
+          <target state="translated">Určuje IČ kontaktu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1023993454</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3904792401 - Control 2153225461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration No. (Obsolete)</source>
+          <target state="translated">IČ (zastaralé)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1023993454</note>
         </trans-unit>
         <trans-unit id="PageExtension 3904792401 - Control 617267791 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the customer's VAT registration number for customers in EU countries/regions.</source>
-          <target state="translated">Určuje DIČ zákazníka pro zákazníky v zemích/oblastech EU.</target>
+          <source>Specifies the contact's VAT registration number for contacts in EU countries/regions.</source>
+          <target state="translated">Určuje DIČ kontaktu pro kontakty v zemích nebo oblastech EU.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1023993454</note>
@@ -30221,7 +30284,7 @@
         </trans-unit>
         <trans-unit id="Report 1351626823 - NamedType 1908025102" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
-          <target state="translated">Pokud jste již provedli platbu, prosím ignorujte tento e-mail. Děkujeme vám za úhradu částky.</target>
+          <target state="translated">Pokud jste již provedli platbu, prosím ignorujte tento email. Děkujeme vám za úhradu částky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType BodyLbl</note>
         </trans-unit>
@@ -31775,7 +31838,7 @@
         </trans-unit>
         <trans-unit id="Report 2667580051 - NamedType 4061396043" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Mail</source>
-          <target state="translated">E-mail</target>
+          <target state="translated">Email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Cust.- Bal. Reconciliation CZL - NamedType CompanyInfoEMailCaptionLbl</note>
         </trans-unit>
@@ -32801,7 +32864,7 @@
         </trans-unit>
         <trans-unit id="Report 3377050038 - NamedType 4061396043" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Mail</source>
-          <target state="translated">E-mail</target>
+          <target state="translated">Email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Vendor-Bal. Reconciliation CZL - NamedType CompanyInfoEMailCaptionLbl</note>
         </trans-unit>
@@ -34799,7 +34862,7 @@
         </trans-unit>
         <trans-unit id="Report 881578325 - NamedType 1908025102" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
-          <target state="translated">Pokud jste již provedli platbu, prosím ignorujte tento e-mail. Děkujeme vám za úhradu částky.</target>
+          <target state="translated">Pokud jste již provedli platbu, prosím ignorujte tento email. Děkujeme vám za úhradu částky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Reminder CZL - NamedType BodyLbl</note>
         </trans-unit>
@@ -37639,7 +37702,7 @@
         </trans-unit>
         <trans-unit id="Table 1405083877 - Field 1541011875 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Mail</source>
-          <target state="translated">E-mail</target>
+          <target state="translated">Email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Company Official CZL - Field E-Mail - Property Caption</note>
         </trans-unit>
@@ -40705,7 +40768,7 @@
         </trans-unit>
         <trans-unit id="Table 99819693 - Field 2778019469 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Control Report E-mail</source>
-          <target state="translated">E-mail pro kontrolní hlášení DPH</target>
+          <target state="translated">Email pro kontrolní hlášení DPH</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statutory Reporting Setup CZL - Field VAT Control Report E-mail - Property Caption</note>
         </trans-unit>

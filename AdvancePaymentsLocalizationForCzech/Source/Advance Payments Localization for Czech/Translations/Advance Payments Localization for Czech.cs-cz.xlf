@@ -793,13 +793,13 @@
         </trans-unit>
         <trans-unit id="Page 2081690216 - Action 1285973296 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to email the document. The Send Email window opens prefilled with the customer's email address so you can add or edit information.</source>
-          <target state="translated">Připravte se na odeslání dokumentu e-mailem. Otevře se okno Odeslat e-mail s předvyplněnou e-mailovou adresou zákazníka, abyste mohli přidat nebo upravit informace.</target>
+          <target state="translated">Připravte se na odeslání dokumentu emailem. Otevře se okno Odeslat email s předvyplněnou emailovou adresou zákazníka, abyste mohli přidat nebo upravit informace.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Email - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2081690216 - Action 1285973296 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Send by Email</source>
-          <target state="translated">&amp;Odeslat e-mailem</target>
+          <target state="translated">&amp;Odeslat emailem</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Action Email - Property Caption</note>
         </trans-unit>
@@ -1375,13 +1375,13 @@
         </trans-unit>
         <trans-unit id="Page 2641234761 - Action 1285973296 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to email the document. The Send Email window opens prefilled with the customer's email address so you can add or edit information.</source>
-          <target state="translated">Připravte se na odeslání dokumentu e-mailem. Otevře se okno Odeslat e-mail s předvyplněnou e-mailovou adresou zákazníka, abyste mohli přidat nebo upravit informace.</target>
+          <target state="translated">Připravte se na odeslání dokumentu emailem. Otevře se okno Odeslat email s předvyplněnou emailovou adresou zákazníka, abyste mohli přidat nebo upravit informace.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter CZZ - Action Email - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2641234761 - Action 1285973296 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Send by Email</source>
-          <target state="translated">&amp;Odeslat e-mailem</target>
+          <target state="translated">&amp;Odeslat emailem</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letter CZZ - Action Email - Property Caption</note>
         </trans-unit>
@@ -1981,13 +1981,13 @@
         </trans-unit>
         <trans-unit id="Page 688385878 - Action 1285973296 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to email the document. The Send Email window opens prefilled with the customer's email address so you can add or edit information.</source>
-          <target state="translated">Připravte se na odeslání dokumentu e-mailem. Otevře se okno Odeslat e-mail s předvyplněnou e-mailovou adresou zákazníka, abyste mohli přidat nebo upravit informace.</target>
+          <target state="translated">Připravte se na odeslání dokumentu emailem. Otevře se okno Odeslat email s předvyplněnou emailovou adresou zákazníka, abyste mohli přidat nebo upravit informace.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action Email - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 688385878 - Action 1285973296 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Send by Email</source>
-          <target state="translated">&amp;Odeslat e-mailem</target>
+          <target state="translated">&amp;Odeslat emailem</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action Email - Property Caption</note>
         </trans-unit>
@@ -2005,7 +2005,7 @@
         </trans-unit>
         <trans-unit id="Page 688385878 - Action 2049962466 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize and prepare to send the document according to the customer's sending profile, such as attached to an email. The Send document to window opens first so you can confirm or select a sending profile.</source>
-          <target state="translated">Dokončete a připravte se na odeslání dokumentu podle profilu odesílání zákazníka, který je například připojen k e-mailu. Nejprve se otevře okno Odeslat dokument do, ve kterém můžete potvrdit nebo vybrat profil odesílání.</target>
+          <target state="translated">Dokončit a připravit doklad k odeslání podle profilu odesílání dokladů pro zákazníka, např. jako přílohu emailu. Odeslat doklad otevře nejprve okno, kde můžete potvrdit nebo vybrat profil odesílání.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostAndSendPaymentVAT - Property ToolTip</note>
         </trans-unit>
@@ -6765,7 +6765,7 @@
         </trans-unit>
         <trans-unit id="Report 1812518133 - NamedType 2079014799" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Contact E-Mail</source>
-          <target state="translated">E-mail kontaktu věřitele</target>
+          <target state="translated">Email kontaktu věřitele</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Purchase-Invoice with Adv. CZZ - NamedType PayToContactEmailLbl</note>
         </trans-unit>
@@ -6795,7 +6795,7 @@
         </trans-unit>
         <trans-unit id="Report 1812518133 - NamedType 2609547522" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Contact E-Mail</source>
-          <target state="translated">E-mail kontaktu dodavatele</target>
+          <target state="translated">Email kontaktu dodavatele</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Purchase-Invoice with Adv. CZZ - NamedType BuyFromContactEmailLbl</note>
         </trans-unit>
@@ -6951,7 +6951,7 @@
         </trans-unit>
         <trans-unit id="Report 1812518133 - NamedType 595034892" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
-          <target state="translated">E-mail</target>
+          <target state="translated">Email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Purchase-Invoice with Adv. CZZ - NamedType EMailCaptionLbl</note>
         </trans-unit>

@@ -1293,6 +1293,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entries CZA - Control RemainingAmountCZAField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 339927671 - Control 60243737 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
+          <source>Specifies the default general business posting group for direct transfer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Inventory Setup CZA - Control Def.G.Bus.P.Gr.-Dir.Trans. CZA - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 339927671 - Control 4138656314 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
           <source>Specifies that a storno transaction cannot be posted unless the Applies-from Entry field on the item journal line specifies an entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1532,6 +1537,11 @@
           <source>Date Filter</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension G/L Entry CZA - Field Date Filter CZA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 339927671 - Field 60243737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1180040559">
+          <source>Default Gen. Bus. Posting Group for Direct Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Inventory Setup CZA - Field Def.G.Bus.P.Gr.-Dir.Trans. CZA - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 339927671 - Field 4138656314 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1180040559">
           <source>Exact Cost Reversing Mandatory</source>
