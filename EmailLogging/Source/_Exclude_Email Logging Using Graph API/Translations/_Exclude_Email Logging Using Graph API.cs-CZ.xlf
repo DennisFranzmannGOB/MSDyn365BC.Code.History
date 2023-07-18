@@ -185,7 +185,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2120671752 - NamedType 719120474" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Log email interactions between salespeople and contacts.</source>
-          <target state="translated">Protokolujte e-mailové interakce mezi prodejci a kontakty.</target>
+          <target state="translated">Protokolujte emailové interakce mezi prodejci a kontakty.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Logging Management - NamedType EmailLoggingJobDescriptionTxt</note>
         </trans-unit>
@@ -323,13 +323,13 @@
         </trans-unit>
         <trans-unit id="Page 3925836548 - Control 90141998 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email address of the shared mailbox in Exchange Online that was created for email logging. The shared mailbox must be in the same tenant as Business Central.</source>
-          <target state="translated">Určuje e-mailovou adresu sdílené poštovní schránky v Exchange Online, která byla vytvořena pro protokolování e-mailů. Sdílená poštovní schránka musí být ve stejném tenantovi jako Business Central.</target>
+          <target state="translated">Určuje emailovou adresu sdílené poštovní schránky v Exchange Online, která byla vytvořena pro protokolování emailů. Sdílená poštovní schránka musí být ve stejném tenantovi jako Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup - Control Email Address - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3925836548 - Control 90141998 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shared Mailbox Email</source>
-          <target state="translated">E-mail se sdílenou poštovní schránkou</target>
+          <target state="translated">Email se sdílenou poštovní schránkou</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup - Control Email Address - Property Caption</note>
         </trans-unit>
@@ -455,7 +455,7 @@
         </trans-unit>
         <trans-unit id="Page 3925836548 - Action 1339347432 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recreate the job queue entry that processes email messages and creates interaction log entries.</source>
-          <target state="translated">Znovu vytvořte položku fronty úloh, která zpracovává e-mailové zprávy a vytváří položky protokolu interakce.</target>
+          <target state="translated">Znovu vytvořte položku fronty úloh, která zpracovává emailové zprávy a vytváří položky protokolu interakce.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup - Action RecreateJob - Property ToolTip</note>
         </trans-unit>
@@ -467,7 +467,7 @@
         </trans-unit>
         <trans-unit id="Page 3925836548 - Action 22890876 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Renew the token for connecting to the shared mailbox. You must sign in with an Exchange Online account that the scheduled job will use to connect to the shared mailbox and process emails. Use this to change the user, or if the token has expired.</source>
-          <target state="translated">Obnovte token pro připojení ke sdílené poštovní schránce. Musíte se přihlásit pomocí účtu Exchange Online, který naplánovaná úloha použije k připojení ke sdílené poštovní schránce a zpracování e-mailů. Použijte tuto hodnotu ke změně uživatele nebo pokud platnost tokenu vypršela.</target>
+          <target state="translated">Obnovte token pro připojení ke sdílené poštovní schránce. Musíte se přihlásit pomocí účtu Exchange Online, který naplánovaná úloha použije k připojení ke sdílené poštovní schránce a zpracování emailů. Použijte tuto hodnotu ke změně uživatele nebo pokud platnost tokenu vypršela.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup - Action RenewToken - Property ToolTip</note>
         </trans-unit>
@@ -527,7 +527,7 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - NamedType 2937150220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Learn how to set up a shared mailbox for email logging</source>
-          <target state="translated">Přečtěte si, jak nastavit sdílenou poštovní schránku pro protokolování e-mailů</target>
+          <target state="translated">Přečtěte si, jak nastavit sdílenou poštovní schránku pro protokolování emailů</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - NamedType LearnHowToSetupMailboxForEmailLoggingTxt</note>
         </trans-unit>
@@ -703,13 +703,13 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 1003846730 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Provide the email address of the shared mailbox that is configured for email logging. The shared mailbox must be in the same tenant as Business Central.</source>
-          <target state="translated">Zadejte e-mailovou adresu sdílené poštovní schránky, která je nakonfigurovaná pro protokolování e-mailů. Sdílená poštovní schránka musí být ve stejném tenantovi jako Business Central.</target>
+          <target state="translated">Zadejte emailovou adresu sdílené poštovní schránky, která je nakonfigurovaná pro protokolování emailů. Sdílená poštovní schránka musí být ve stejném tenantovi jako Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control Step4 - Property InstructionalText</note>
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 357018923 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Enter the number of email messages that the job queue entry for email logging will get from Exchange Online in one run. By balancing this number with how often the job queue entry runs you can fine tune the process. If a message is not logged in the current run it will be in the next one.</source>
-          <target state="translated">Zadejte počet e-mailových zpráv, které položka fronty úloh pro protokolování e-mailů obdrží z Exchange Online v jednom spuštění. Vyrovnáním tohoto čísla s četností spouštění záznamu fronty úloh můžete proces doladit. Pokud zpráva není přihlášena v aktuálním běhu, bude v následujícím.</target>
+          <target state="translated">Zadejte počet emailových zpráv, které položka fronty úloh pro protokolování emailů obdrží z Exchange Online v jednom spuštění. Vyrovnáním tohoto čísla s četností spouštění záznamu fronty úloh můžete proces doladit. Pokud zpráva není přihlášena v aktuálním běhu, bude v následujícím.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control AdvancedHeader - Property InstructionalText</note>
         </trans-unit>
@@ -727,13 +727,13 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 90141998 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email address of the shared mailbox. The shared mailbox must be in the same tenant as Business Central.</source>
-          <target state="translated">Určuje e-mailovou adresu sdílené poštovní schránky. Sdílená poštovní schránka musí být ve stejném tenantovi jako Business Central.</target>
+          <target state="translated">Určuje emailovou adresu sdílené poštovní schránky. Sdílená poštovní schránka musí být ve stejném tenantovi jako Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control Email Address - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 90141998 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shared Mailbox Email</source>
-          <target state="translated">E-mail se sdílenou poštovní schránkou</target>
+          <target state="translated">Email se sdílenou poštovní schránkou</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control Email Address - Property Caption</note>
         </trans-unit>
