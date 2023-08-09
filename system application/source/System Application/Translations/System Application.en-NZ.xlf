@@ -269,13 +269,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 1645891195 - NamedType 1383399196" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>All users must be assigned to the same license, either Basic, Essential, or Premium. %1 and %2 are assigned to different licenses, for example, but there may be other mismatches. Your system administrator or Microsoft partner can verify license assignments in your Microsoft 365 admin portal.\\We will sign you out when you choose the OK button.</source>
-          <target state="translated">All users must be assigned to the same licence, either Basic, Essential, or Premium. %1 and %2 are assigned to different licences, for example, but there may be other mismatches. Your system administrator or Microsoft partner can verify license assignments in your Microsoft 365 admin portal.\\We will sign you out when you choose the OK button.</target>
+          <target state="translated">All users must be assigned to the same licence, either Basic, Essential, or Premium. %1 and %2 are assigned to different licences, for example, but there may be other mismatches. Your system administrator or Microsoft partner can verify licence assignments in your Microsoft 365 admin portal.\\We will sign you out when you choose the OK button.</target>
           <note from="Developer" annotates="general" priority="2">%1 = %2 = Authnetication email.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Plan Impl. - NamedType MixedPlansNonAdminErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1645891195 - NamedType 1763109697" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Before you can update user information, go to your Microsoft 365 admin center and make sure that all users are assigned to the same Business Central license, either Basic, Essential, or Premium. For example, we found that users %1 and %2 are assigned to different licenses, but there may be other mismatches.</source>
-          <target state="translated">Before you can update user information, go to your Microsoft 365 admin Centre and make sure that all users are assigned to the same Business Central licence, either Basic, Essential, or Premium. For example, we found that users %1 and %2 are assigned to different licences, but there may be other mismatches.</target>
+          <target state="translated">Before you can update user information, go to your Microsoft 365 admin centre and make sure that all users are assigned to the same Business Central licence, either Basic, Essential, or Premium. For example, we found that users %1 and %2 are assigned to different licences, but there may be other mismatches.</target>
           <note from="Developer" annotates="general" priority="2">%1 = %2 = Authnetication email.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Plan Impl. - NamedType MixedPlansAdminErr</note>
         </trans-unit>
@@ -287,7 +287,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1645891195 - NamedType 3468023376" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>One or more users are not assigned to the same Business Central license. For example, we found that users %1 and %2 are assigned to different licenses, but there may be other mismatches. In your Microsoft 365 admin center, make sure that all users are assigned to the same Business Central license, either Basic, Essential, or Premium.  Afterward, update Business Central by opening the Users page and using the 'Update Users from Office 365' action.</source>
-          <target state="translated">One or more users are not assigned to the same Business Central licence. For example, we found that users %1 and %2 are assigned to different licences, but there may be other mismatches. In your Microsoft 365 admin Centre, make sure that all users are assigned to the same Business Central license, either Basic, Essential, or Premium.  Afterward, update Business Central by opening the Users page and using the 'Update Users from Office 365' action.</target>
+          <target state="translated">One or more users are not assigned to the same Business Central licence. For example, we found that users %1 and %2 are assigned to different licences, but there may be other mismatches. In your Microsoft 365 admin centre, make sure that all users are assigned to the same Business Central licence, either Basic, Essential, or Premium.  Afterward, update Business Central by opening the Users page and using the 'Update Users from Office 365' action.</target>
           <note from="Developer" annotates="general" priority="2">%1 = %2 = Authnetication email.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Plan Impl. - NamedType MixedPlansMsg</note>
         </trans-unit>
