@@ -23,6 +23,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Application CZZ - Field Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3056476423 - Field 592951229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Application CZZ - Field Amount (LCY) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3056476423 - Field 1233212560 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount to Use</source>
           <note from="Developer" annotates="general" priority="2"></note>
