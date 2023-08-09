@@ -83,11 +83,6 @@
           <note from="Developer" annotates="general" priority="2">%1=XML Element Name;%2=Expected XML Element Value;%3=Actual XML element Value</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SAF-T Test Helper - NamedType UnexpectedElementValueErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3129724570 - NamedType 3262655130" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Do you want to copy sales and purchase reporting codes to sales/purchase SAF-T standard tax codes?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SAF-T Unit Tests - NamedType CopyReportingCodesToSAFTCodesQst</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3129724570 - NamedType 2213276311" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to create a chart of accounts based on SAF-T standard account codes?</source>
           <note from="Developer" annotates="general" priority="2"></note>

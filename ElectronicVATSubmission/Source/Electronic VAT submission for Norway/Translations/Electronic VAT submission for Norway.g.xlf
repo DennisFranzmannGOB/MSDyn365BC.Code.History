@@ -743,6 +743,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Elec. VAT Report - Control Message Id - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2774160078 - Control 1224122553 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2120306285">
+          <source>Specifies whether the VAT rate value must be reported.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Elec. VAT Reporting Codes - Control Report VAT Rate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2774160078 - Control 31596600 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2120306285">
+          <source>Specifies the VAT rate to report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Elec. VAT Reporting Codes - Control VAT Rate For Reporting - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="TableExtension 771852649 - Field 1224122553 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1256068594">
           <source>Report VAT Rate</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -767,6 +777,16 @@
           <source>KID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT Report Header - Field KID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2834467843 - Field 1224122553 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2394636620">
+          <source>Report VAT Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT Reporting Code - Field Report VAT Rate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2834467843 - Field 31596600 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2394636620">
+          <source>VAT Rate For Reporting</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT Reporting Code - Field VAT Rate For Reporting - Property Caption</note>
         </trans-unit>
       </group>
     </body>
