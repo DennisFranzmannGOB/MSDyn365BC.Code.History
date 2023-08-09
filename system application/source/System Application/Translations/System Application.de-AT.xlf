@@ -12119,7 +12119,7 @@
         </trans-unit>
         <trans-unit id="Page 799089619 - Control 1013389983 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name translated locally.</source>
-          <target state="translated">Gibt den lokal übersetzten Namen an.</target>
+          <target state="translated">Gibt den Namen lokal übersetzten Namen an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Assisted Setup - Control TranslatedName - Property ToolTip</note>
         </trans-unit>
