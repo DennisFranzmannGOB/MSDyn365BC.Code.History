@@ -1067,7 +1067,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2693243134 - NamedType 566573917" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to reset the status for users who have already completed this checklist item?</source>
-          <target state="translated">¿Quiere restablecer el estado de los usuarios que ya completaron este elemento de la lista de comprobación?</target>
+          <target state="translated">¿Desea restablecer el estado de los usuarios que ya han completado este elemento de la lista de comprobación?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Checklist Administration - NamedType StatusResetLbl</note>
         </trans-unit>
@@ -5619,13 +5619,13 @@
         </trans-unit>
         <trans-unit id="Page 3692338268 - Action 1995162889 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get started</source>
-          <target state="translated">Introducción</target>
+          <target state="translated">Comenzar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Action StartSetup - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Action 1995162889 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get started</source>
-          <target state="translated">Introducción</target>
+          <target state="translated">Comenzar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Action StartSetup - Property Caption</note>
         </trans-unit>
