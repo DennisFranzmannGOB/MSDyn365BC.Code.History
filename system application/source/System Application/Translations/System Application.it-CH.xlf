@@ -1067,7 +1067,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2693243134 - NamedType 566573917" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to reset the status for users who have already completed this checklist item?</source>
-          <target state="translated">Reimpostare lo stato degli utenti che hanno già completato questa voce dell’elenco di controllo?</target>
+          <target state="translated">Reimpostare lo stato degli utenti che hanno già completato questa voce dell'elenco di controllo?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Checklist Administration - NamedType StatusResetLbl</note>
         </trans-unit>
