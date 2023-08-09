@@ -2141,7 +2141,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4071864290 - NamedType 947604962" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Looking for your checklist to set up Business Central?</source>
-          <target state="translated">Vous recherchez votre liste de contrôle pour configurer Business central ?</target>
+          <target state="translated">Vous recherchez votre liste de contrôle pour configurer Business Central ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Checklist Implementation - NamedType ChangeBannerVisibilityLbl</note>
         </trans-unit>
