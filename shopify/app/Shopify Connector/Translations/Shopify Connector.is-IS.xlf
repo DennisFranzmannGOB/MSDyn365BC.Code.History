@@ -1931,7 +1931,7 @@
         </trans-unit>
         <trans-unit id="Enum 934733066 - EnumValue 835052336 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fraud</source>
-          <target state="translated"> </target>
+          <target state="translated">Svik</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Cancel Reason - EnumValue Fraud - Property Caption</note>
         </trans-unit>
