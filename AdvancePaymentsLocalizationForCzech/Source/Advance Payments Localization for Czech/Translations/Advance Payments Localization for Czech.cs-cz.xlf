@@ -8731,6 +8731,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Application CZZ - Field Document No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3056476423 - Field 592951229 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (LCY)</source>
+          <target state="translated">Částka (LM)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Application CZZ - Field Amount (LCY</note>
+        </trans-unit>
         <trans-unit id="Table 3056476423 - Field 636392376 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <target state="translated">Částka</target>

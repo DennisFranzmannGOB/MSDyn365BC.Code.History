@@ -1,12 +1,4 @@
 {
-  "settings": {
-    "al.enableCodeActions": false,
-    "search.exclude": {
-      "**.xlf": true
-    },
-    "allint.enabled": false,
-    "al.enableCodeAnalysis": false
-  },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
@@ -70,6 +62,9 @@
     },
     {
       "path": "./recommendedapps/test/Recommended Apps Tests"
+    },
+    {
+      "path": "./saf-t/test/SAF-T Tests"
     },
     {
       "path": "./BankingDocumentsLocalizationForCzech/Test/Banking Documents Localization for Czech Tests"
@@ -248,5 +243,13 @@
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
     }
-  ]
+  ],
+  "settings": {
+    "allint.enabled": false,
+    "search.exclude": {
+      "**.xlf": true
+    },
+    "al.enableCodeActions": false,
+    "al.enableCodeAnalysis": false
+  }
 }
