@@ -318,37 +318,37 @@
         <trans-unit id="Codeunit 2673552518 - NamedType 2647155836" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export of goods and services</source>
           <target state="translated">Eksport av varer og tjenester</target>
-          <note from="Developer" annotates="general" priority="2">Utf++rsel av varer og tjenester</note>
+          <note from="Developer" annotates="general" priority="2">Utførsel av varer og tjenester</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType ExportOfGoodsAndServicesTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 134426147" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Importation of goods, not applicable for VAT</source>
           <target state="translated">Import av varer, ikke tilgjengelig for mva</target>
-          <note from="Developer" annotates="general" priority="2">Grunnlag innf++rsel av varer som det ikke skal beregnes merverdiavgift av</note>
+          <note from="Developer" annotates="general" priority="2">Grunnlag innførsel av varer som det ikke skal beregnes merverdiavgift av</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType ImportationOfGoodsNotApplicableForVATTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 2747642305" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Importation of goods, VAT deduct.</source>
           <target state="translated">Import av varer, mva-fradrag</target>
-          <note from="Developer" annotates="general" priority="2">Grunnlag innf++rsel av varer med fradragsrett for innf++rselsmerverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Grunnlag innførsel av varer med fradragsrett for innførselsmerverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType ImportationOfGoodsVATDeductibleTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 2911708556" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Importation of goods, without deduction of VAT</source>
           <target state="translated">Import av varer, uten fradrag av mva</target>
-          <note from="Developer" annotates="general" priority="2">Grunnlag innf++rsel av varer uten fradragsrett for innf++rselsmerverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Grunnlag innførsel av varer uten fradragsrett for innførselsmerverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType ImportationOfGoodsWithoutDeductionOfVATTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 1753922530" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Input VAT deduct. (domestic)</source>
           <target state="translated">Fradragsberettiget inngående mva. (innenlands)</target>
-          <note from="Developer" annotates="general" priority="2">Fradragsberettiget innenlands inng+�ende merverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Fradragsberettiget innenlands inngående merverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType InputVATDeductibleDomesticTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 1091217143" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Input VAT deduct. (payed on import)</source>
           <target state="translated">Fradragsberettiget inngående avgift (payed ved import)</target>
-          <note from="Developer" annotates="general" priority="2">Fradragsberettiget innf++rselsmerverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Fradragsberettiget innførselsmerverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType InputVATDeductiblePayedOnImportTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 3064793091" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
@@ -366,31 +366,31 @@
         <trans-unit id="Codeunit 2673552518 - NamedType 2895632704" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Output VAT</source>
           <target state="translated">Utgående avgift</target>
-          <note from="Developer" annotates="general" priority="2">Utg+�ende merverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Utgående merverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType OutputVATTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 1172885100" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase of emissions trading or gold, VAT deduct.</source>
           <target state="translated">Kjøp av utslipp handel eller gull, mva-fradrag</target>
-          <note from="Developer" annotates="general" priority="2">Kj++p av klimakvoter eller gull med fradragsrett for merverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Kjøp av klimakvoter eller gull med fradragsrett for merverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType PurchaseOfEmissionsTradingOrGoldVATDeductibleTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 543753386" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase of emissions trading or gold, without deduction of VAT</source>
           <target state="translated">Kjøp av utslipp handel eller gull, uten fradrag av mva</target>
-          <note from="Developer" annotates="general" priority="2">Kj++p av klimakvoter eller gull uten fradragsrett for merverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Kjøp av klimakvoter eller gull uten fradragsrett for merverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType PurchaseOfEmissionsTradingOrGoldWithoutVATDeductionTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 783981430" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Services purchased from abroad, VAT deduct.</source>
           <target state="translated">Tjenester som er kjøpt fra utland, mva-fradrag</target>
-          <note from="Developer" annotates="general" priority="2">Tjenester kj++pt fra utlandet med fradragsrett for merverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Tjenester kjøpt fra utlandet med fradragsrett for merverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType ServicesPurchasedFromAbroadVATDeductibleTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 4062508048" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Services purchased from abroad, without deduction of VAT</source>
           <target state="translated">Tjenester kjøpt fra utland, uten fradrag av mva</target>
-          <note from="Developer" annotates="general" priority="2">Tjenester kj++pt fra utlandet uten fradragsrett for merverdiavgift</note>
+          <note from="Developer" annotates="general" priority="2">Tjenester kjøpt fra utlandet uten fradragsrett for merverdiavgift</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Data Mgt. - NamedType ServicesPurchasedFromAbroadWithoutVATDeductionTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2673552518 - NamedType 2337179158" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
@@ -909,6 +909,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 962565375</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2774160078 - Control 1224122553 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the VAT rate value must be reported.</source>
+          <target state="translated">Angir om verdien for mva-sats må rapporteres.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2120306285</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2774160078 - Control 31596600 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT rate to report.</source>
+          <target state="translated">Angir mva-satsen som skal rapporteres.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2120306285</note>
+        </trans-unit>
         <trans-unit id="TableExtension 771852649 - Field 1224122553 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report VAT Rate</source>
           <target state="translated">MVA-sats for rapport</target>
@@ -943,6 +957,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 4272790790</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2834467843 - Field 1224122553 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report VAT Rate</source>
+          <target state="translated">Mva-sats for rapport</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2394636620</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2834467843 - Field 31596600 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Rate For Reporting</source>
+          <target state="translated">Mva-sats for rapportering</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2394636620</note>
         </trans-unit>
       </group>
     </body>
