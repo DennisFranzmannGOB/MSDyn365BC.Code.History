@@ -41,6 +41,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3520827309 - Control 1266733634 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the transaction number is used as the progressive number in the audit file. If you select the option, the transaction number is used as the progressive number. If you do not select the option, the general ledger register number is used as the progressive number.</source>
+          <target state="translated">Indique si le numéro de transaction est utilisé comme numéro progressif dans le fichier d’audit. Si vous sélectionnez cette option, le numéro de transaction est utilisé comme numéro progressif. Si vous ne sélectionnez pas cette option, le numéro du registre comptable est utilisé comme numéro progressif.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3520827309 - Control 1616889255 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if you want to include opening balances in the audit report file. The balances are calculated as of the date before the first date of the period covered by the report.</source>
           <target state="translated">Spécifie si vous souhaitez inclure des soldes d’ouverture dans le fichier de rapport d’audit. Les soldes sont calculés à la date précédant la première date de la période couverte par l’état.</target>
@@ -79,6 +86,13 @@
         <trans-unit id="TableExtension 3767080988 - Field 3940118353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account Filter</source>
           <target state="translated">Filtre compte général</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3767080988 - Field 449312564 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use Transaction No.</source>
+          <target state="translated">N° transaction d’utilisation</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
