@@ -1,4 +1,12 @@
 {
+  "settings": {
+    "search.exclude": {
+      "**.xlf": true
+    },
+    "allint.enabled": false,
+    "al.enableCodeAnalysis": false,
+    "al.enableCodeActions": false
+  },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
@@ -49,7 +57,13 @@
       "path": "./recommendedapps/test/Recommended Apps Tests"
     },
     {
+      "path": "./saf-t/test/SAF-T Tests"
+    },
+    {
       "path": "./ReportLayouts/test/Report Layouts Tests"
+    },
+    {
+      "path": "./paymentpractices/test/Payment Practices Tests"
     },
     {
       "path": "./testframework/TestLibraries"
@@ -62,6 +76,9 @@
     },
     {
       "path": "./testframework/performancetoolkit/Performance Toolkit Tests/src/Mock Tests"
+    },
+    {
+      "path": "./SAFTModificationDK/Test/SAF-T Modification DK Tests"
     },
     {
       "path": "./EssentialBusinessHeadlines/Test/Essential Business Headlines Test"
@@ -219,13 +236,5 @@
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
     }
-  ],
-  "settings": {
-    "allint.enabled": false,
-    "search.exclude": {
-      "**.xlf": true
-    },
-    "al.enableCodeActions": false,
-    "al.enableCodeAnalysis": false
-  }
+  ]
 }
