@@ -4007,7 +4007,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 1378235620 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies country/region code of the buy address.</source>
-          <target state="translated">Hiermee wordt de code voor het land of de regio van het inkoopadres opgegeven.</target>
+          <target state="translated">Hiermee wordt de land/regio-code van het inkoopadres opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control SellToCountryCode - Property ToolTip</note>
         </trans-unit>
