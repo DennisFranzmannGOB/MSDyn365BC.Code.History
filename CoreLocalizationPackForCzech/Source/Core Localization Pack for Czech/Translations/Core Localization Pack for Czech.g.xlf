@@ -5143,11 +5143,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reg. Lookup Ext. Data CZL - Method SendRequest - NamedType ServiceCallErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1553469770 - Method 3212637975 - NamedType 229413448" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Web service returned error message.\\Status Code: %1\Description: %2</source>
-          <note from="Developer" annotates="general" priority="2">%1 = HTTP error status, %2 = HTTP error description</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reg. Lookup Ext. Data CZL - Method SendRequest - NamedType ServiceStatusErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 1202452556 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registration No. Validation Service Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
