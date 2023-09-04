@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="da-DK" original="SAF-T Modification DK">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 1273939157 - NamedType 1845236427" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Regnskab Basies Export for %1 to %2.csv</source>
+          <target state="translated">Regnskab Basies-eksport for %1 til %2.csv</target>
+          <note from="Developer" annotates="general" priority="2">%1, %2 - starting and ending dates</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Regnskab Basis Export - NamedType FileNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1273939157 - NamedType 2121506767" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No G/L balance changes were found for the selected date range and mapping.</source>
+          <target state="translated">Der blev ikke fundet nogen ændringer i Finans - saldi for det valgte datointerval og den valgte tilknytning.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Regnskab Basis Export - NamedType NoEntriesFoundTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1273939157 - NamedType 2706800192" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Initialize codeunit with Initialize() before calling its methods.</source>
+          <target state="translated">Initialisér Codeunit med Initialiser (), før du kalder dets metoder.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Regnskab Basis Export - NamedType NotInitializedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1273939157 - NamedType 2726314617" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing lines:\#1 of #2</source>
+          <target state="translated">Behandlingslinjer: \ #1 af #2</target>
+          <note from="Developer" annotates="general" priority="2">#1 - current line, #2 - total lines</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Regnskab Basis Export - NamedType ProcessWindowTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1273939157 - NamedType 4210430314" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Download</source>
+          <target state="translated">Download</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Regnskab Basis Export - NamedType DownloadLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3265184008 - NamedType 1936075235" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 is not specified</source>
+          <target state="translated">%1 er ikke angivet</target>
+          <note from="Developer" annotates="general" priority="2">%1 - missed field caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Data Check SAF-T DK - NamedType FieldValueIsNotSpecifiedErr</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 597857080 - EnumValue 4112859505 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SAF-T Denmark</source>
+          <target state="translated">SAF-T Danmark</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 2721429565</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Action 4202866263 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generate Regnskab Basis Accounting File for selected mapping header and period.</source>
+          <target state="translated">Generér Regnskab Basisregnskabsfil for valgt tilknytningshoved og periode.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Action GenerateFile - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Action 4202866263 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generate File</source>
+          <target state="translated">Generer fil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Action GenerateFile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 1277537621 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount calculation method for balance sheet accounts.</source>
+          <target state="translated">Angiver beløbsberegningsmetoden for balancekonti.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control Balance Sheet Amount Calculation Method - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 1277537621 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance Sheet Amount Calculation Method</source>
+          <target state="translated">Beregningsmetode for balancebeløb</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control Balance Sheet Amount Calculation Method - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 1929327640 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount calculation method for income statement accounts.</source>
+          <target state="translated">Angiver beløbsberegningsmetoden for resultatopgørelseskonti.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control Income Statement Amount Calculation Method - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 1929327640 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income Statement Amount Calculation Method</source>
+          <target state="translated">Metode til beregning af resultatopgørelsesbeløb</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control Income Statement Amount Calculation Method - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period for Accounting File Export</source>
+          <target state="translated">Periode for eksport af regnskabsfil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the mapping code that represents the reporting period.</source>
+          <target state="translated">Angiver den tilknytningskode, der repræsenterer rapporteringsperioden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 3592094765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies ending date for Accounting File Export</source>
+          <target state="translated">Angiver slutdato for eksport af regnskabsfil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control EndingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 3592094765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target state="translated">Slutdato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control EndingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 3592496525 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please select a mapping header to use for export.</source>
+          <target state="translated">Vælg et tilknytningshoved, der skal bruges til eksport.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control MappingHeader - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 3592496525 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mapping Header</source>
+          <target state="translated">Tilknytningshoved</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control MappingHeader - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 543275552 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies starting date for Accounting File Export</source>
+          <target state="translated">Angiver startdato for eksport af regnskabsfil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control StartingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Control 543275552 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Startdato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control StartingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - NamedType 4276290099" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please select an initialized mapping header with appropriate period first.</source>
+          <target state="translated">Vælg et initialiseret tilknytningshoved med den relevante periode først.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - NamedType SelectMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Page 1969317913 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RB Accounting File</source>
+          <target state="translated">RB-regnskabsfil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
