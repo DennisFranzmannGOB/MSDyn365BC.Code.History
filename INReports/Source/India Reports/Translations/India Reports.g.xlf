@@ -8903,6 +8903,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query GSTR1NonGSTExemp - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Query 2006596438 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GSTR1NonGSTExempCrMemo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query GSTR1NonGSTExempCrMemo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Query 579416870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GSTR2ATADJ</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9057,6 +9062,16 @@
           <source>Report</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 340522122 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Select Voucher Narration option to check narration for a particular line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Narration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 340522122 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Narration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Narration - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 340522122 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
           <source>Select this option to take print of the voucher.</source>

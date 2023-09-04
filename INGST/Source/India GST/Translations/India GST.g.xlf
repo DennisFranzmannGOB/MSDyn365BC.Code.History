@@ -11848,11 +11848,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Purchase Subscribers - NamedType GSTARNErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3536484230 - NamedType 2374619853" size-unit="char" translate="yes" xml:space="preserve">
-          <source>GST Assessable Value must have a value in Purchase Line Document Type %1 and Document No %2.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Document Type , %2 = Document No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Purchase Subscribers - NamedType GSTAssessableErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3536484230 - NamedType 1974549406" size-unit="char" translate="yes" xml:space="preserve">
           <source>Please update GST Registration No. to blank in the record %1 from Order Address.</source>
           <note from="Developer" annotates="general" priority="2">%1 = Order Address Code</note>
