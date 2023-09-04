@@ -1740,7 +1740,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 225112926 - Control 2292565801 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies your bank file name incl. extension. (use %1 in filename to get DateTime as part of filename - if field is blank a Bankname.txt will be used as default filename).</source>
-          <target state="translated">Gibt den Bankdateinamen inkl. Erweiterung an. (Verwenden Sie %1 im Dateinamen, um DateTime als Teil des Dateinamens zu erhalten – wenn das Feld leer ist, wird ein Bankname.txt als Standarddateiname verwendet).</target>
+          <target state="translated">Gibt den Bankdateinamen inkl. Erweiterung an. (Verwenden Sie %1 im Dateinamen, um Datum/Uhrzeit als Teil des Dateinamens zu erhalten – wenn das Feld leer ist, wird ein Bankname.txt als Standarddateiname verwendet).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2292249509</note>
