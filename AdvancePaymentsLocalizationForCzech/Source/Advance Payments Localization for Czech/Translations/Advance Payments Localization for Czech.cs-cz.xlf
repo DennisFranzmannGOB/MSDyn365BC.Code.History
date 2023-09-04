@@ -3,6 +3,18 @@
   <file datatype="xml" source-language="en-US" target-language="cs-CZ" original="Advance Payments Localization for Czech">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 2748602711 - NamedType 2637046072" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No. and Dates cannot be empty.</source>
+          <target state="translated">Číslo dokladu a data nemohou být prázdná.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType DocumentNoOrDatesEmptyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - NamedType 272352229" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nothing to Post.</source>
+          <target state="translated">Není co účtovat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType NothingToPostErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2748602711 - NamedType 3254498843" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Document already exists.</source>
           <target state="translated">Doklad DPH již existuje.</target>
@@ -290,6 +302,12 @@
           <target state="translated">%1 nemůže být prázdné v tabulce %2, pro %3, %4. Musíte vyplnit pole a znovu zaúčtovat daňový doklad.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Field Caption, %2 = Table Caption, %3 = VAT Bus. Posting Group, %4 = "VAT Prod. Posting Group"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvancePaymentVAT - NamedType SettingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - Method 39679101 - NamedType 696753126" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount has been exceeded.</source>
+          <target state="translated">Částka byla překročena.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvancePaymentVAT - NamedType ExceededAmountErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 342808533 - Method 1405771318 - NamedType 3465082692" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales advance letter %1 must be approved and released before you can perform this action.</source>

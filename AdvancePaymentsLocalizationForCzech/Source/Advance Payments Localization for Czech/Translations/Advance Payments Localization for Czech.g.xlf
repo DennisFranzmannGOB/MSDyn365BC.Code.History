@@ -1663,6 +1663,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType DateEmptyErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - NamedType 2637046072" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No. and Dates cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType DocumentNoOrDatesEmptyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - NamedType 272352229" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nothing to Post.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType NothingToPostErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2748602711 - NamedType 3254498843" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Document already exists.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1707,6 +1717,11 @@
           <source>%1 cannot be empty in table %2, for %3, %4. You have to fill field and post VAT document again.</source>
           <note from="Developer" annotates="general" priority="2">%1 = Field Caption, %2 = Table Caption, %3 = VAT Bus. Posting Group, %4 = "VAT Prod. Posting Group"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvancePaymentVAT - NamedType SettingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - Method 39679101 - NamedType 696753126" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount has been exceeded.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvancePaymentVAT - NamedType ExceededAmountErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2748602711 - Method 2643373796 - NamedType 2033887935" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reverse amount %1 is not posible on entry %2.</source>
