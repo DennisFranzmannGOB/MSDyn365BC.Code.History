@@ -1,4 +1,12 @@
 {
+  "settings": {
+    "search.exclude": {
+      "**.xlf": true
+    },
+    "allint.enabled": false,
+    "al.enableCodeAnalysis": false,
+    "al.enableCodeActions": false
+  },
   "folders": [
     {
       "path": "./INGateEntry/Test/India Gate Entry Tests"
@@ -35,6 +43,9 @@
     },
     {
       "path": "./ReportLayouts/test/Report Layouts Tests"
+    },
+    {
+      "path": "./paymentpractices/test/Payment Practices Tests"
     },
     {
       "path": "./testframework/TestLibraries"
@@ -210,13 +221,5 @@
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
     }
-  ],
-  "settings": {
-    "allint.enabled": false,
-    "search.exclude": {
-      "**.xlf": true
-    },
-    "al.enableCodeActions": false,
-    "al.enableCodeAnalysis": false
-  }
+  ]
 }
