@@ -3,6 +3,78 @@
   <file datatype="xml" source-language="en-US" target-language="hr-HR" original="DIOT - Localization for Mexico">
     <body>
       <group id="body">
+        <trans-unit id="PageExtension 2511214395 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the DIOT operation type for this document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2583272393</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2511214395 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIOT Type of Operation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2583272393</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3581817271 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the DIOT operation type for this document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3196174509</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3581817271 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIOT Type of Operation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3196174509</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2701280096 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the DIOT operation type for this document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3580867622</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2701280096 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIOT Type of Operation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3580867622</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 447154957 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIOT Type of Operation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 447154957 - Field 1452465310 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Prof. Services,Lease and Rent,Others</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2519417953 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the DIOT operation type for this entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2248515987</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2519417953 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIOT Type of Operation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2248515987</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2677889483 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIOT Type of Operation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2941967353</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2677889483 - Field 1452465310 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Prof. Services,Lease and Rent,Others</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2941967353</note>
+        </trans-unit>
         <trans-unit id="Table 1187154282 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>DIOT Concept</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -638,41 +710,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create DIOT Report - Control StartingDate - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2511214395 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the DIOT operation type for this document.</source>
+        <trans-unit id="PageExtension 835251686 - Control 251155636 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the withholding tax percentage to be used with this VAT posting setup when exporting the DIOT report. Important: This field only affects the DIOT report.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2583272393</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4132487568</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2511214395 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DIOT Type of Operation</source>
+        <trans-unit id="TableExtension 835251686 - Field 251155636 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIOT WHT Percent</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2583272393</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3581817271 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the DIOT operation type for this document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3196174509</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3581817271 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DIOT Type of Operation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3196174509</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 116529096 - Control 349234259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the default DIOT operation type to be used for all vendors.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 116529096 - Control 349234259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Default Vendor DIOT Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4132487568</note>
         </trans-unit>
         <trans-unit id="PageExtension 391989008 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the DIOT operation type for this document.</source>
@@ -686,59 +734,41 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2437096118</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2701280096 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the DIOT operation type for this document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3580867622</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2701280096 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="TableExtension 1968756878 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>DIOT Type of Operation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3580867622</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2072992664</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2519417953 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the DIOT operation type for this entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2248515987</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2519417953 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DIOT Type of Operation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2248515987</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 835251686 - Control 251155636 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the withholding tax percentage to be used with this VAT posting setup when exporting the DIOT report. Important: This field only affects the DIOT report.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4132487568</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3229951978 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the DIOT operation type to be used for all documents with this vendor.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3229951978 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DIOT Type of Operation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 447154957 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DIOT Type of Operation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 447154957 - Field 1452465310 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="TableExtension 1968756878 - Field 1452465310 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,Prof. Services,Lease and Rent,Others</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1806786327</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Table 2072992664</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 59620640 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIOT Type of Operation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1592379974</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 59620640 - Field 1452465310 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Prof. Services,Lease and Rent,Others</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1592379974</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 116529096 - Control 349234259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the default DIOT operation type to be used for all vendors.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 116529096 - Control 349234259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Vendor DIOT Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
         </trans-unit>
         <trans-unit id="TableExtension 116529096 - NamedType 958265227" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Non-Mexican vendors cannot have Lease and Rent as their DIOT operation type. This default will only work for MX vendors. The rest will have their type changed to Others.</source>
@@ -758,47 +788,17 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3921990236</note>
         </trans-unit>
-        <trans-unit id="TableExtension 59620640 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="PageExtension 3229951978 - Control 1452465310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the DIOT operation type to be used for all documents with this vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3229951978 - Control 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>DIOT Type of Operation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1592379974</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 59620640 - Field 1452465310 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source> ,Prof. Services,Lease and Rent,Others</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1592379974</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1968756878 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DIOT Type of Operation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2072992664</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1968756878 - Field 1452465310 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source> ,Prof. Services,Lease and Rent,Others</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2072992664</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2677889483 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DIOT Type of Operation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2941967353</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2677889483 - Field 1452465310 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source> ,Prof. Services,Lease and Rent,Others</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2941967353</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 835251686 - Field 251155636 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DIOT WHT Percent</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 4132487568</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
         </trans-unit>
         <trans-unit id="TableExtension 2347064590 - Field 1452465310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>DIOT Type of Operation</source>

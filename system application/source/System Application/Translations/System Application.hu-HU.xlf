@@ -78,16 +78,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Translation Implementation - NamedType NoRecordIdErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1569885001 - NamedType 1194350794" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The user with the security ID %1 does not have a valid object ID in Azure Active Directory.</source>
-          <note from="Developer" annotates="general" priority="2">%1 =  The specified User Security ID</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Graph User Impl. - NamedType UserDoesNotObjectIdSetErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1569885001 - NamedType 3774820659" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>An Azure Active Directory user with the object ID %1 was not found.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = The specified object id</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Graph User Impl. - NamedType CouldNotFindGraphUserErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 162089418 - NamedType 1388208873" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>TODAY</source>
           <note from="Developer" annotates="general" priority="2">Must be uppercase</note>
@@ -392,16 +382,6 @@
           <source>Export</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Operation Impl - NamedType DialogTitleTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4126082712 - NamedType 4267348099" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You do not have sufficient permissions to manage extensions. Please contact your administrator.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Operation Impl - NamedType NotSufficientPermissionErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4205038922 - NamedType 2705830830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to retrieve the Azure Active Directory tenant domain name.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType AADTenantDomainNameErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4215518646 - NamedType 1905859220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is not an application secret.</source>
@@ -1758,16 +1738,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Manual Setup - Control ExtensionName - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 1358710565 - Control 1131619133 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The translated text.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Translation - Control Value - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1358710565 - Control 639974159 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The language to which the source text was translated.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Translation - Control LanguageName - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 1358710565 - Control 639974159 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Target Language</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3038,11 +3008,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details Part - Control Name - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4061016505 - Control 2325998030 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the new capability or change in design.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Control FeatureDescription - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 4061016505 - Control 2325998030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Feature</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3123,20 +3088,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control Language - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 523480673 - Control 2058393039 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The display name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control DisplayName - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 523480673 - Control 293070022 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Good work!</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control Finished - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 523480673 - Control 3355906073 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The new value of user entity</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control NewLicense - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 3355906073 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New plan</source>
@@ -3148,11 +3103,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control ConfirmPermissionChanges - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 523480673 - Control 3543816815 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Choose how this license change should be handled</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control PermissionAction - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 523480673 - Control 3543816815 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Action</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3162,11 +3112,6 @@
           <source>Welcome to user updates</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control Welcome - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 523480673 - Control 411686798 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The current of user entity</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control CurrentLicense - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 411686798 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Current plan</source>
@@ -3548,46 +3493,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Fields Sync Status - Field ID - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 1009384294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Keywords</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Keywords - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 2515772770 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Extension Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Extension Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 2766253784 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>App ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field App ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 3702373668 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Category</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Category - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 3733767603 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Setup Page ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Setup Page ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 4036313429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Icon</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Icon - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1358710565 - Field 1131619133 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Value</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3637,21 +3542,6 @@
           <source>First Login Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table User Login - Field First Login Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1584771742 - Field 3768090202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Business Setup Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Business Setup Icon - Field Business Setup Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1584771742 - Field 4036313429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Icon</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Business Setup Icon - Field Icon - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1584771742 - Field 4091014368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Media Resources Ref</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Business Setup Icon - Field Media Resources Ref - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1636419976 - Field 1260872790 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Current Value</source>
@@ -4208,95 +4098,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Temp Blob - Field Blob - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 799089619 - Field 1513519486 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Help Url</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Help Url - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 2515772770 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Extension Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Extension Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 2766253784 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>App ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field App ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 366198708 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Group</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Group Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 3665605423 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Completed</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Completed - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 4036313429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Icon</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Icon - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 649174547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Video Category</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Video Category - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 692639126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Video Url</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Video Url - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 894914730 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Page ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Page ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 812764647 - Field 1016837963 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date Time</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup Log - Field Date Time - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 812764647 - Field 2360837978 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Entery No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup Log - Field Entery No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 812764647 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup Log - Field No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Manual Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1358710565 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Translation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Translation - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1584771742 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Business Setup Icon</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Business Setup Icon - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1636419976 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Azure AD User Updates</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Azure AD User Update Buffer - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1704880675 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Upgrade Tags</source>
@@ -4347,16 +4152,6 @@
           <source>Tenant Web Service OData</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Tenant Web Service OData - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Assisted Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 812764647 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Assisted Setup Log</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup Log - Property Caption</note>
         </trans-unit>
       </group>
     </body>

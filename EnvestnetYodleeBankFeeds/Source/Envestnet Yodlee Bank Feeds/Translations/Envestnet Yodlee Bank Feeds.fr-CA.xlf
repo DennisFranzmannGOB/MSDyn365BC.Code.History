@@ -298,8 +298,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BadConsumerTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 2906420131" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Yodlee could not update your account because it appears to be locked by your bank. This usually results from too many unsuccessful login attempts in a short period of time. Please visit the bank or contact its customer support to resolve this issue. Once done, please update your account credentials in case they are changed.</source>
-          <target state="translated">Yodlee n'a pas pu mettre à jour votre compte, car il est verrouillé par votre banque. La cause est généralement un nombre trop élevé de tentatives d'ouverture de session infructueuses durant une période brève. Allez à la banque ou contactez son service d'assistance à la clientèle pour résoudre ce problème. Une fois terminé, mettez à jour les informations d'identification de votre compte si elles ont été modifiées.</target>
+          <source>Yodlee could not update your account because it appears to be locked by your bank. This usually results from too many unsuccessful login attempts in a short period of time. Please visit the bank or contact its customer support to resolve this issue. Once done, open the corresponding bank account card, choose action Edit Online Bank Account Information, provide credentials for your online bank account and close the page. Then choose action Refresh Online Bank Account to try downloading latest transactions again.</source>
+          <target state="translated">Yodlee n’a pas pu mettre à jour votre compte, car il est verrouillé par votre banque. La cause est généralement un nombre trop élevé de tentatives d’ouverture de session infructueuses durant une période brève. Allez à la banque ou contactez son service d’assistance à la clientèle pour résoudre ce problème. Une fois que vous avez terminé, ouvrez la fiche du compte bancaire correspondante, choisissez l’action Modifier les informations du compte bancaire en ligne, fournissez les identifiants de votre compte bancaire en ligne et fermez la page. Choisissez ensuite l’action Actualiser le compte bancaire en ligne pour réessayer de télécharger les dernières transactions.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshAccountLockedTxt</note>
         </trans-unit>
@@ -328,20 +328,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshBankInBetaMaintenanceTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 2877570477" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Yodlee could not update your account because your username and/or password were reported to be incorrect. You must open the corresponding bank account card and choose action Edit Online Bank Account Information.</source>
-          <target state="translated">Yodlee n’a pas pu mettre à jour votre compte, car vos nom d’utilisateur et/ou mot de passe ont été signalés comme incorrects. Vous devez ouvrir la fiche du compte bancaire correspondante et choisir l’action Modifier les informations du compte bancaire en ligne.</target>
+          <source>Yodlee could not download latest transactions from your online bank account because your credentials were reported to be incorrect. You must open the corresponding bank account card, choose action Edit Online Bank Account Information and provide credentials for your online bank account and close the page. Then choose action Refresh Online Bank Account.</source>
+          <target state="translated">Yodlee n’a pas pu télécharger les dernières transactions depuis votre compte bancaire en ligne, car vos identifiants ont été signalés comme incorrects. Vous devez ouvrir la fiche du compte bancaire correspondante, choisir l’action Modifier les informations du compte bancaire en ligne, fournir les identifiants de votre compte bancaire en ligne, puis fermer la page. Choisissez ensuite l’action Actualiser le compte bancaire en ligne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshInvalidCredentialsTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 3364155623" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Your request timed out due to technical reasons. Please try again.</source>
-          <target state="translated">Votre demande a expiré pour des raisons techniques. Réessayez.</target>
+          <source>Your request timed out due to technical reasons. Open the corresponding bank account card and choose action Edit Online Bank Account Information. Provide the credentials for the online bank account, close the page and then choose action Refresh Online Bank Account.</source>
+          <target state="translated">Votre demande a expiré pour des raisons techniques. Ouvrez la carte du compte bancaire correspondant et choisissez l’action Modifier les informations du compte bancaire en ligne. Fournissez les informations d’identification du compte bancaire en ligne, fermez la page, puis choisissez l’action Actualiser le compte bancaire en ligne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshTimedOutTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 1916303894" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>We are sorry, Yodlee encountered a technical problem while updating your account. Please try again later.</source>
-          <target state="translated">Nous sommes désolés, Yodlee a rencontré un problème technique lors de la mise à jour de votre compte. Réessayez plus tard.</target>
+          <source>Yodlee encountered a technical problem while downloading latest transactions from your online bank account. Open the corresponding bank account card, choose action Edit Online Bank Account Information and provide credentials for your online bank account and close the page. Then choose action Refresh Online Bank Account to try downloading latest transactions again.</source>
+          <target state="translated">Yodlee a rencontré un problème technique lors du téléchargement des dernières transactions depuis votre compte bancaire en ligne. Ouvrez la fiche du compte bancaire correspondante, choisissez l’action Modifier les informations du compte bancaire en ligne, puis fournissez les identifiants de votre compte bancaire en ligne et fermez la page. Choisissez ensuite l’action Actualiser le compte bancaire en ligne pour réessayer de télécharger les dernières transactions.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshUnknownErrorTxt</note>
         </trans-unit>
@@ -370,8 +370,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType ConcatAccountSummaryMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 44359669" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Yodlee is unable to retrieve the newest bank feeds without user assistance. To perform this activity manually, you must open the corresponding bank account card, and choose action Refresh Online Bank Account.</source>
-          <target state="translated">Yodlee ne peut pas récupérer les flux bancaires les plus récents sans l'intervention de l'utilisateur. Pour exécuter cette activité manuellement, vous devez ouvrir la fiche du compte bancaire correspondante et choisir l'action Actualiser le compte bancaire en ligne.</target>
+          <source>Yodlee is unable to download the latest transactions from the online bank account without user assistance. To perform this activity manually, you must open the corresponding bank account card, choose action Edit Online Bank Account and provide credentials for your online bank account and close the page. Then choose action Refresh Online Bank Account.</source>
+          <target state="translated">Yodlee ne peut pas télécharger les dernières transactions depuis le compte bancaire en ligne sans assistance de l’utilisateur. Pour effectuer cette activité manuellement, vous devez ouvrir la fiche du compte bancaire correspondante, choisir l’action Modifier le compte bancaire en ligne, fournir les identifiants de votre compte bancaire en ligne et fermer la page. Choisissez ensuite l’action Actualiser le compte bancaire en ligne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType CredentialsCommentTxt</note>
         </trans-unit>

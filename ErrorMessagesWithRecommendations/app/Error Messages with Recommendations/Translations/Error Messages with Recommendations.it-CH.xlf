@@ -95,13 +95,13 @@
         </trans-unit>
         <trans-unit id="Enum 2241984937 - EnumValue 1592819753 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to fix</source>
-          <target state="translated">Impossibile correggere l'errore</target>
+          <target state="translated">Impossibile risolvere l'errore</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Error Message Status - EnumValue Failed to fix - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2241984937 - EnumValue 744835066 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fixed</source>
-          <target state="translated">Corretto</target>
+          <target state="translated">Risolto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Error Message Status - EnumValue Fixed - Property Caption</note>
         </trans-unit>
@@ -252,7 +252,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1293078068 - Action 1122426095 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Hide fixed errors</source>
-          <target state="translated">Nascondi errori corretti</target>
+          <target state="translated">Nascondi errori risolti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2497559836</note>
