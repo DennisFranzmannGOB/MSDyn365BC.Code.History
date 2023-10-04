@@ -3,6 +3,316 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="India Gate Entry">
     <body>
       <group id="body">
+        <trans-unit id="PageExtension 3078407402 - Control 3990899220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
+          <source>Specifies the number series from which numbers are assigned to new Gate Entry Inward documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Inventory Setup - Control Inward Gate Entry Nos. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3078407402 - Control 2212096219 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
+          <source>Specifies the number series from which numbers are assigned to new Gate Entry Outward documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Inventory Setup - Control Outward Gate Entry Nos. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4046963520 - Field 3990899220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1180040559">
+          <source>Inward Gate Entry Nos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Inventory Setup Ext - Field Inward Gate Entry Nos. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4046963520 - Field 2212096219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1180040559">
+          <source>Outward Gate Entry Nos.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Inventory Setup Ext - Field Outward Gate Entry Nos. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1758755754 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
+          <source>View available gate entry lines for attachment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Transfer Order - Action Get Gate Entry Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1758755754 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
+          <source>Get Gate Entry Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Transfer Order - Action Get Gate Entry Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1758755754 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Transfer Order - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1758755754 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Transfer Order - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3599728971 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2714855698">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Transfr Rcpt - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3599728971 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2714855698">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Transfr Rcpt - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4201932270 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4201932270">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Transfer Shipment - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4201932270 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4201932270">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Transfer Shipment - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 855181324 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
+          <source>View available gate entry lines for attachment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Invoice - Action Get Gate Entry Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 855181324 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
+          <source>Get Gate Entry Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Invoice - Action Get Gate Entry Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 855181324 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Invoice - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 855181324 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Invoice - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 797066033 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>View available gate entry lines for attachment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Order - Action Get Gate Entry Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 797066033 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Get Gate Entry Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Order - Action Get Gate Entry Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 797066033 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Order - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 797066033 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Order - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 265204677 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Purch. Rcpt. - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 265204677 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Purch. Rcpt. - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 265204677 - Control 1535571897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
+          <source>Specifies the vehicle number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Purch. Rcpt. - Control Vehicle No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 265204677 - Control 481545316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
+          <source>Specifies the type of vehicle.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Purch. Rcpt. - Control Vehicle Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1106668395 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Retrn Shpmnt - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1106668395 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Retrn Shpmnt - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1106668395 - Control 1535571897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
+          <source>Specifies the vehicle number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Retrn Shpmnt - Control Vehicle No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1106668395 - Control 481545316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
+          <source>Specifies the type of vehicle.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Retrn Shpmnt - Control Vehicle Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 767294089 - Field 1535571897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1721347679">
+          <source>Vehicle No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Return Shipment Hdr - Field Vehicle No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 767294089 - Field 481545316 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1721347679">
+          <source>Vehicle Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Return Shipment Hdr - Field Vehicle Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 857178022 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the lorry receipt date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Invoice - Control LR/RR Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 857178022 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the lorry receipt number of the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Invoice - Control LR/RR No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1164750007 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the lorry receipt date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Order - Control LR/RR Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1164750007 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the lorry receipt number of the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Order - Control LR/RR No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1369737489 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>View available gate entry lines for attachment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Action Get Gate Entry Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1369737489 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Get Gate Entry Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Action Get Gate Entry Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1369737489 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1369737489 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1369737489 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Specifies the lorry receipt date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Control LR/RR Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1369737489 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Specifies the lorry receipt number of the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Control LR/RR No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1369737489 - Control 1535571897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Specifies the vehicle number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Control Vehicle No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1369737489 - Control 481545316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Specifies the type of vehicle.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Control Vehicle Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3156167304 - Field 2540259231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>LR/RR Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Header - Field LR/RR Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3156167304 - Field 552369994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>LR/RR No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Header - Field LR/RR No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 713946759 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Specifies the lorry receipt date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Posted Sales Inv. - Control LR/RR Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 713946759 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Specifies the lorry receipt number of the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Posted Sales Inv. - Control LR/RR No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3526383085 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52957233">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Return Rcpt. - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3526383085 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52957233">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Return Rcpt. - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1794717586 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1794717586 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1794717586 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>Specifies the lorry receipt date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Control LR/RR Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1794717586 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>Specifies the lorry receipt number of the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Control LR/RR No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1794717586 - Control 1535571897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>Specifies the vehicle number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Control Vehicle No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1794717586 - Control 481545316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
+          <source>Specifies the type of vehicle.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Control Vehicle Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1400638205 - Field 2540259231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>LR/RR Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Inv. Header - Field LR/RR Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1400638205 - Field 552369994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>LR/RR No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Inv. Header - Field LR/RR No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2165826051 - Field 2540259231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
+          <source>LR/RR Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Shpmnt Hdr - Field LR/RR Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2165826051 - Field 552369994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
+          <source>LR/RR No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Shpmnt Hdr - Field LR/RR No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1617996161 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3986227771">
+          <source>View available gate entry lines for attachment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Whse Rcpt - Action Get Gate Entry Lines - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1617996161 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3986227771">
+          <source>Get Gate Entry Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Whse Rcpt - Action Get Gate Entry Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1617996161 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3986227771">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Whse Rcpt - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1617996161 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3986227771">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Whse Rcpt - Action Attached Gate Entry - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 910066366 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gate Entry Attachment</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1753,326 +2063,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Posted Gate Entry List - NamedType Posted_Gate_Entry_ListCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3078407402 - Control 3990899220 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
-          <source>Specifies the number series from which numbers are assigned to new Gate Entry Inward documents.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Inventory Setup - Control Inward Gate Entry Nos. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3078407402 - Control 2212096219 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
-          <source>Specifies the number series from which numbers are assigned to new Gate Entry Outward documents.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Inventory Setup - Control Outward Gate Entry Nos. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 713946759 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
-          <source>Specifies the lorry receipt date.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Posted Sales Inv. - Control LR/RR Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 713946759 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
-          <source>Specifies the lorry receipt number of the document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Posted Sales Inv. - Control LR/RR No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 855181324 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
-          <source>View available gate entry lines for attachment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Invoice - Action Get Gate Entry Lines - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 855181324 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
-          <source>Get Gate Entry Lines</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Invoice - Action Get Gate Entry Lines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 855181324 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Invoice - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 855181324 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2437096118">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Invoice - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 797066033 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
-          <source>View available gate entry lines for attachment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Order - Action Get Gate Entry Lines - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 797066033 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
-          <source>Get Gate Entry Lines</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Order - Action Get Gate Entry Lines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 797066033 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Order - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 797066033 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Purch. Order - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 857178022 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the lorry receipt date.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Invoice - Control LR/RR Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 857178022 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the lorry receipt number of the document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Invoice - Control LR/RR No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1164750007 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the lorry receipt date.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Order - Control LR/RR Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1164750007 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the lorry receipt number of the document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Order - Control LR/RR No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1369737489 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>View available gate entry lines for attachment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Action Get Gate Entry Lines - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1369737489 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>Get Gate Entry Lines</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Action Get Gate Entry Lines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1369737489 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1369737489 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1369737489 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>Specifies the lorry receipt date.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Control LR/RR Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1369737489 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>Specifies the lorry receipt number of the document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Control LR/RR No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1369737489 - Control 1535571897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>Specifies the vehicle number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Control Vehicle No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1369737489 - Control 481545316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>Specifies the type of vehicle.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Sales Return Order - Control Vehicle Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1758755754 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
-          <source>View available gate entry lines for attachment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Transfer Order - Action Get Gate Entry Lines - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1758755754 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
-          <source>Get Gate Entry Lines</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Transfer Order - Action Get Gate Entry Lines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1758755754 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Transfer Order - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1758755754 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 66664215">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Transfer Order - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1617996161 - Action 3144850588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3986227771">
-          <source>View available gate entry lines for attachment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Whse Rcpt - Action Get Gate Entry Lines - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1617996161 - Action 3144850588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3986227771">
-          <source>Get Gate Entry Lines</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Whse Rcpt - Action Get Gate Entry Lines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1617996161 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3986227771">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Whse Rcpt - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1617996161 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3986227771">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gate Entry Whse Rcpt - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 265204677 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Purch. Rcpt. - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 265204677 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Purch. Rcpt. - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 265204677 - Control 1535571897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
-          <source>Specifies the vehicle number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Purch. Rcpt. - Control Vehicle No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 265204677 - Control 481545316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
-          <source>Specifies the type of vehicle.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Purch. Rcpt. - Control Vehicle Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1106668395 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Retrn Shpmnt - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1106668395 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Retrn Shpmnt - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1106668395 - Control 1535571897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
-          <source>Specifies the vehicle number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Retrn Shpmnt - Control Vehicle No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1106668395 - Control 481545316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
-          <source>Specifies the type of vehicle.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Retrn Shpmnt - Control Vehicle Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3526383085 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52957233">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Return Rcpt. - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3526383085 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52957233">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Return Rcpt. - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1794717586 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1794717586 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1794717586 - Control 2540259231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
-          <source>Specifies the lorry receipt date.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Control LR/RR Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1794717586 - Control 552369994 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
-          <source>Specifies the lorry receipt number of the document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Control LR/RR No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1794717586 - Control 1535571897 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
-          <source>Specifies the vehicle number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Control Vehicle No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1794717586 - Control 481545316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
-          <source>Specifies the type of vehicle.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Sales Shpmnt - Control Vehicle Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3599728971 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2714855698">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Transfr Rcpt - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3599728971 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2714855698">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Transfr Rcpt - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 801300882 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3013621822">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Whse Rcpt - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 801300882 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3013621822">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Whse Rcpt - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4201932270 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4201932270">
-          <source>View attached gate entry list.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Transfer Shipment - Action Attached Gate Entry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4201932270 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4201932270">
-          <source>Attached Gate Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Transfer Shipment - Action Attached Gate Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 767294089 - Field 1535571897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1721347679">
-          <source>Vehicle No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Return Shipment Hdr - Field Vehicle No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 767294089 - Field 481545316 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1721347679">
-          <source>Vehicle Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Return Shipment Hdr - Field Vehicle Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3156167304 - Field 2540259231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>LR/RR Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Header - Field LR/RR Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3156167304 - Field 552369994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
-          <source>LR/RR No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Header - Field LR/RR No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1400638205 - Field 2540259231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
-          <source>LR/RR Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Inv. Header - Field LR/RR Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1400638205 - Field 552369994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
-          <source>LR/RR No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Inv. Header - Field LR/RR No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2165826051 - Field 2540259231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
-          <source>LR/RR Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Shpmnt Hdr - Field LR/RR Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2165826051 - Field 552369994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3118382297">
-          <source>LR/RR No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gate Entry Sales Shpmnt Hdr - Field LR/RR No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4046963520 - Field 3990899220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1180040559">
-          <source>Inward Gate Entry Nos.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Inventory Setup Ext - Field Inward Gate Entry Nos. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4046963520 - Field 2212096219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1180040559">
-          <source>Outward Gate Entry Nos.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Inventory Setup Ext - Field Outward Gate Entry Nos. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 3702114698 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2167,6 +2157,16 @@
           <source>Transfer Shipment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Posted Gate Entry Source Type - EnumValue Transfer Shipment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 801300882 - Action 544882571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3013621822">
+          <source>View attached gate entry list.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Whse Rcpt - Action Attached Gate Entry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 801300882 - Action 544882571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3013621822">
+          <source>Attached Gate Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gate Entry Whse Rcpt - Action Attached Gate Entry - Property Caption</note>
         </trans-unit>
       </group>
     </body>

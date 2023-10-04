@@ -203,11 +203,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table COHUB Company KPI - Field My User Task Style - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1480219922 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table COHUB Company KPI - Field Name - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1480219922 - Field 3992271978 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>New Incoming Documents</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -692,11 +687,6 @@
           <source>Currency Symbol</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table COHUB Group Company Summary - Field Currency Symbol - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2821884881 - Field 2472339856 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enviroment Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table COHUB Group Company Summary - Field Enviroment Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2821884881 - Field 4114157096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Enviroment No.</source>

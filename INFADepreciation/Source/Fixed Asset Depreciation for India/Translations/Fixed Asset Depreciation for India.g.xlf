@@ -3,6 +3,96 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="Fixed Asset Depreciation for India">
     <body>
       <group id="body">
+        <trans-unit id="TableExtension 2559852671 - Field 4170398890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>FA Shift Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl Line Ext - Field FA Shift Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2559852671 - Field 251037758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Industry Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl Line Ext - Field Industry Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2559852671 - Field 3484110694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>No. of Days for Shift</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl Line Ext - Field No. of Days for Shift - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2559852671 - Field 1549810700 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Shift Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl Line Ext - Field Shift Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1488657543 - Control 1440419779 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
+          <source>Specifies the depreciation reduction % for the depreciation book.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control Depr. Reduction % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1488657543 - Control 1929363951 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
+          <source>Specifies the threshold days for depreciation calculation.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control Depr. Threshold Days - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1488657543 - Control 1830091234 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
+          <source>Specifies if the FA Book Type is Income tax.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control FA Book Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1488657543 - Control 1342627122 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
+          <source>Specifies the maximum number of days in seasonal industry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control No. of Days Non Seasonal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1488657543 - Control 3527816963 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
+          <source>Specifies the maximum number of days in non-seasonal industry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control No. of Days Seasonal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 110688613 - Control 2017133613 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2774212634">
+          <source>Specifies the first depreciation date where depreciation method is manual.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Depr. Books Subform Ext - Control First User Defined Depr. Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 110688613 - Control 567541820 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2774212634">
+          <source>Specifies the salvage value of the asset for the depreciation book.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Depr. Books Subform Ext - Control Salvage Value - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4139057499 - Field 1440419779 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
+          <source>Depr. Reduction %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field Depr. Reduction % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4139057499 - Field 1929363951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
+          <source>Depr. Threshold Days</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field Depr. Threshold Days - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4139057499 - Field 1830091234 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
+          <source>FA Book Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field FA Book Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4139057499 - Field 1342627122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
+          <source>No. of Days Non Seasonal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field No. of Days Non Seasonal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4139057499 - Field 3527816963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
+          <source>No. of Days Seasonal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field No. of Days Seasonal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3520897946 - Field 663139909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1786551609">
+          <source>FA Block Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension FA Depreciation Book Ext - Field FA Block Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3520897946 - Field 1830091234 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1786551609">
+          <source>FA Book Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension FA Depreciation Book Ext - Field FA Book Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1570602624 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>FA Accounting Period Inc. Tax</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1023,41 +1113,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create FA Fiscal Year - Control TotalPeriods - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1488657543 - Control 1440419779 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
-          <source>Specifies the depreciation reduction % for the depreciation book.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control Depr. Reduction % - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1488657543 - Control 1929363951 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
-          <source>Specifies the threshold days for depreciation calculation.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control Depr. Threshold Days - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1488657543 - Control 1830091234 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
-          <source>Specifies if the FA Book Type is Income tax.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control FA Book Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1488657543 - Control 1342627122 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
-          <source>Specifies the maximum number of days in seasonal industry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control No. of Days Non Seasonal - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1488657543 - Control 3527816963 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1855807544">
-          <source>Specifies the maximum number of days in non-seasonal industry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Depreciation Book Card Ext - Control No. of Days Seasonal - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 110688613 - Control 2017133613 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2774212634">
-          <source>Specifies the first depreciation date where depreciation method is manual.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Depr. Books Subform Ext - Control First User Defined Depr. Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 110688613 - Control 567541820 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2774212634">
-          <source>Specifies the salvage value of the asset for the depreciation book.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Depr. Books Subform Ext - Control Salvage Value - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1486240493 - Action 2211306194 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3133908286">
           <source>Calculates depreciation according to conditions that you specify. if the related depreciation book is set up to integrate with the general ledger, then the calculated entries are transferred to the fixed asset general ledger journal. Otherwise, the calculated entries are transferred to the fixed asset journal. You can then review the entries and post the journal.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1093,26 +1148,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset Card Ext - Control Gen. Prod. Posting Group - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2008918017 - Action 1523743680 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1080915793">
-          <source>Specifies the blocks assigned to Fixed Asset Class.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset Classes Ext - Action &amp;Blocks - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2008918017 - Action 1523743680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1080915793">
-          <source>&amp;Blocks</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset Classes Ext - Action &amp;Blocks - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1458853951 - Control 4170398890 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 714858205">
-          <source>Specifies the line number of FA shift being used in journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset GL Journal Ext - Control FA Shift Line No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1162185074 - Control 4170398890 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4232171073">
-          <source>Specifies the line number of FA shift being used in journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset Journal Ext - Control FA Shift Line No. - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 2241578375 - Action 3755212302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 949348664">
           <source>Calculate depreciation according to conditions that you specify. If the related depreciation book is set up to integrate with the general ledger, then the calculated entries are transferred to the fixed asset general ledger journal. Otherwise, the calculated entries are transferred to the fixed asset journal. You can then review the entries and post the journal.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1123,40 +1158,45 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset List Ext - Action Calculate FA Depreciation - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 4139057499 - Field 1440419779 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
-          <source>Depr. Reduction %</source>
+        <trans-unit id="TableExtension 4102496329 - NamedType 1756119327" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 4102496329">
+          <source>Delete the FA Lines for book type Income Tax before deleting the block code.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field Depr. Reduction % - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - NamedType DeleteFALineErr</note>
         </trans-unit>
-        <trans-unit id="TableExtension 4139057499 - Field 1929363951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
-          <source>Depr. Threshold Days</source>
+        <trans-unit id="TableExtension 4102496329 - Field 4257063121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
+          <source>Add. Depr. Applicable</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field Depr. Threshold Days - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field Add. Depr. Applicable - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 4139057499 - Field 1830091234 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
-          <source>FA Book Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field FA Book Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4139057499 - Field 1342627122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
-          <source>No. of Days Non Seasonal</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field No. of Days Non Seasonal - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4139057499 - Field 3527816963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1615433100">
-          <source>No. of Days Seasonal</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Depreciation Book Ext - Field No. of Days Seasonal - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3520897946 - Field 663139909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1786551609">
+        <trans-unit id="TableExtension 4102496329 - Field 663139909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
           <source>FA Block Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension FA Depreciation Book Ext - Field FA Block Code - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field FA Block Code - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3520897946 - Field 1830091234 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1786551609">
-          <source>FA Book Type</source>
+        <trans-unit id="TableExtension 4102496329 - Field 2139693550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
+          <source>Gen. Prod. Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension FA Depreciation Book Ext - Field FA Book Type - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field Gen. Prod. Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102496329 - Field 2552458873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
+          <source>Tax Group Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field Tax Group Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102496329 - Field 633887033 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
+          <source>VAT Product Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field VAT Product Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1458853951 - Control 4170398890 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 714858205">
+          <source>Specifies the line number of FA shift being used in journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset GL Journal Ext - Control FA Shift Line No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1162185074 - Control 4170398890 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4232171073">
+          <source>Specifies the line number of FA shift being used in journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset Journal Ext - Control FA Shift Line No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 835994963 - Field 4170398890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3539501460">
           <source>FA Shift Line No.</source>
@@ -1238,55 +1278,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension FA Ledger Entry Ext - Field Shift Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 4102496329 - NamedType 1756119327" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 4102496329">
-          <source>Delete the FA Lines for book type Income Tax before deleting the block code.</source>
+        <trans-unit id="PageExtension 2008918017 - Action 1523743680 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1080915793">
+          <source>Specifies the blocks assigned to Fixed Asset Class.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - NamedType DeleteFALineErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset Classes Ext - Action &amp;Blocks - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="TableExtension 4102496329 - Field 4257063121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
-          <source>Add. Depr. Applicable</source>
+        <trans-unit id="PageExtension 2008918017 - Action 1523743680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1080915793">
+          <source>&amp;Blocks</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field Add. Depr. Applicable - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4102496329 - Field 663139909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
-          <source>FA Block Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field FA Block Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4102496329 - Field 2139693550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
-          <source>Gen. Prod. Posting Group</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field Gen. Prod. Posting Group - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4102496329 - Field 2552458873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
-          <source>Tax Group Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field Tax Group Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4102496329 - Field 633887033 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 372951706">
-          <source>VAT Product Posting Group</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Fixed Asset Ext - Field VAT Product Posting Group - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2559852671 - Field 4170398890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>FA Shift Line No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl Line Ext - Field FA Shift Line No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2559852671 - Field 251037758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Industry Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl Line Ext - Field Industry Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2559852671 - Field 3484110694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>No. of Days for Shift</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl Line Ext - Field No. of Days for Shift - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2559852671 - Field 1549810700 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Shift Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl Line Ext - Field Shift Type - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset Classes Ext - Action &amp;Blocks - Property Caption</note>
         </trans-unit>
       </group>
     </body>

@@ -3,9 +3,9 @@
     "search.exclude": {
       "**.xlf": true
     },
-    "allint.enabled": false,
+    "al.enableCodeActions": false,
     "al.enableCodeAnalysis": false,
-    "al.enableCodeActions": false
+    "allint.enabled": false
   },
   "folders": [
     {
@@ -145,6 +145,9 @@
     },
     {
       "path": "./simplifiedbankstatementimport/test/Simplified Bank Statement Import Test"
+    },
+    {
+      "path": "./BaseApp/Source/Base Application/System/DevTools/CALTest"
     },
     {
       "path": "./BaseApp/Test/Tests-Bank"

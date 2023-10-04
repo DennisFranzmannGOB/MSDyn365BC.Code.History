@@ -3,6 +3,141 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="India Voucher Interface">
     <body>
       <group id="body">
+        <trans-unit id="TableExtension 3033648794 - NamedType 3157213660" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 3033648794">
+          <source>Stale Cheque Stipulated Period can't be negative.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account Ext - NamedType StipulatedPeriodNegativeErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3033648794 - Field 1593216058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>Stale Cheque Stipulated Period</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account Ext - Field Stale Cheque Stipulated Period - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3033648794 - Field 3506240275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>UPI ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account Ext - Field UPI ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2225167603 - Action 1417232546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
+          <source>Chec&amp;k</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Action Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2225167603 - Action 1165644947 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
+          <source>Select this option to  mark a check as stale. This function will update Stale Check, Check Stale Date and Entry Status fields to indicate that the check is void.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Action Stale Check - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2225167603 - Action 1165644947 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
+          <source>Stale Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Action Stale Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2225167603 - Control 3764421056 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
+          <source>Specifies the cheque stale date on the check ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Control Cheque Stale Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2225167603 - Control 2124105172 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
+          <source>Specifies if the cheque has been marked as stale on the check ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Control Stale Cheque - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2225167603 - Control 2996934741 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
+          <source>Specifies the date before which the cheque cannot be marked as stale cheque on the check ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Control Stale Cheque Expiry Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3717382282 - Field 3764421056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 717244561">
+          <source>Cheque Stale Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Check Led Entry Ext - Field Cheque Stale Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3717382282 - Field 2124105172 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 717244561">
+          <source>Stale Cheque</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Check Led Entry Ext - Field Stale Cheque - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3717382282 - Field 2996934741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 717244561">
+          <source>Stale Cheque Expiry Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Check Led Entry Ext - Field Stale Cheque Expiry Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - NamedType 3424203367" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2541129980">
+          <source>The cheque has already been marked stale.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - NamedType ChequeMarkedStaleMsg</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - NamedType 1893870962" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2541129980">
+          <source>Bank Ledger Entry can be marked as stale only after %1.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Stale Cheque Expiry Date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - NamedType StaleChequeExpiryDateErr</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - NamedType 3428306577" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2541129980">
+          <source>Financially stale check %1 to %2 %3</source>
+          <note from="Developer" annotates="general" priority="2">%1= Cheque No, %2 = Balance Account Type, %3= Balance Account No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - NamedType StaleConfirmLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - Action 1643187882 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Select this option to  mark a check as stale. This function will update Stale Check, Check Stale Date and Entry Status fields to indicate that the check is void.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Action Stale_Check - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - Action 1643187882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Stale Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Action Stale_Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Specifies the cheque date on the bank account ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Cheque Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Specifies the cheque number on the bank account ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Cheque No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - Control 3764421056 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Specifies the cheque stale date on the bank account ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Cheque Stale Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - Control 2124105172 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Specifies if the cheque has been marked as stale on the bank account ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Stale Cheque - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2541129980 - Control 2996934741 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Specifies the date before which the cheque cannot be marked as stale cheque on the bank account ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Stale Cheque Expiry Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2694622601 - Field 2807262541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
+          <source>Cheque Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Cheque Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2694622601 - Field 981725300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
+          <source>Cheque No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Cheque No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2694622601 - Field 3764421056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
+          <source>Cheque Stale Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Cheque Stale Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2694622601 - Field 2124105172 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
+          <source>Stale Cheque</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Stale Cheque - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2694622601 - Field 2996934741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
+          <source>Stale Cheque Expiry Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Stale Cheque Expiry Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3603762498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Voucher Posting Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1813,6 +1948,181 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Voucher Register - Control PrintLineNarration1 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3910192470 - Control 1593216058 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
+          <source>Specifies after how long the cheque can be marked stale for this bank account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card Ext - Control Stale Cheque Stipulated Period - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3910192470 - Control 1593216058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
+          <source>Stale Cheque Stipulated Period</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card Ext - Control Stale Cheque Stipulated Period - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3910192470 - Control 3506240275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
+          <source>Specifies UPI ID for this bank account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card Ext - Control UPI ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3910192470 - Control 3506240275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
+          <source>UPI ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card Ext - Control UPI ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2547165060 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2547165060 - EnumValue 2004364593 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Credit Memo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2547165060 - EnumValue 2503914580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finance Charge Memo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Finance Charge Memo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2547165060 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2547165060 - EnumValue 3346365350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Payment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2547165060 - EnumValue 4028787690 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refund</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Refund - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2547165060 - EnumValue 87408810 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Reminder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 914210448 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3603089623">
+          <source>Specify the Location code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Batch Ext. - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 914210448 - Control 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3603089623">
+          <source>Location Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Batch Ext. - Control Location Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3905379818 - Control 977137018 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
+          <source>Specifies if cheque is printed for the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Ext - Control Check Printed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3905379818 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
+          <source>Specifies the cheque date of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Ext - Control Cheque Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3905379818 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
+          <source>Specifies the cheque number of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Ext - Control Cheque No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2713101013 - Control 3855005364 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3492245880">
+          <source>Specifies the type of the journal template which are getting created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Templates Ext. - Control Voucher Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2713101013 - Control 3855005364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3492245880">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Templates Ext. - Control Voucher Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3522356808 - NamedType 3157689106" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 3522356808">
+          <source>Void Check %1?</source>
+          <note from="Developer" annotates="general" priority="2">%1= Cheque No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - NamedType VoidLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3522356808 - Action 2060302151 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Void the check if, for example, the check is not cashed by the bank.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Action IN_Void_Check - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3522356808 - Action 2060302151 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Void Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Action IN_Void_Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3522356808 - Action 2550476631 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Void the check if, for example, the check is not cashed by the bank.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Action Void_Check - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3522356808 - Action 2550476631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Void Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Action Void_Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3522356808 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Specifies the cheque date of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Control Cheque Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3522356808 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Specifies the cheque number of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Control Cheque No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2630692215 - Field 2807262541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Cheque Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen.Jnl Line Ext - Field Cheque Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2630692215 - Field 981725300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Cheque No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen.Jnl Line Ext - Field Cheque No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2630692215 - Field 1128136446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Narration Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen.Jnl Line Ext - Field Narration Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2630692215 - Field 2124105172 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Stale Cheque</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen.Jnl Line Ext - Field Stale Cheque - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 969546836 - Action 1774964744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Select this option to enter narration for the voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext. - Action Line Narration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 969546836 - Action 1774964744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Line Narration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext. - Action Line Narration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 969546836 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Select this option to enter narration for a particular line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext. - Action Narration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 969546836 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Narration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext. - Action Narration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 832321967 - Control 3742309595 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Specifies if you want to activate cheque number functionality.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GL Setup Ext - Control Activate Cheque No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3988382343 - Field 3742309595 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>Activate Cheque No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension General ledger Setup Ext - Field Activate Cheque No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2797930870 - Action 3930228087 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
           <source>Voucher Interface</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1899,7 +2209,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center VI - Action Day Book - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2797930870 - Action 3336251243 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Register transactions which are affecting neither the cash account nor the bank account are termed as Journal Vouchers.</source>
+          <source>Register transactions which are affecting neither the cash account nor the bank account are termed asÂ Journal Vouchers.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center VI - Action Journal Voucher - Property ToolTip</note>
         </trans-unit>
@@ -1927,161 +2237,6 @@
           <source>Voucher Register</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center VI - Action Voucher Register - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - NamedType 3424203367" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2541129980">
-          <source>The cheque has already been marked stale.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - NamedType ChequeMarkedStaleMsg</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - NamedType 1893870962" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2541129980">
-          <source>Bank Ledger Entry can be marked as stale only after %1.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Stale Cheque Expiry Date</note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - NamedType StaleChequeExpiryDateErr</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - NamedType 3428306577" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 2541129980">
-          <source>Financially stale check %1 to %2 %3</source>
-          <note from="Developer" annotates="general" priority="2">%1= Cheque No, %2 = Balance Account Type, %3= Balance Account No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - NamedType StaleConfirmLbl</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - Action 1643187882 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Select this option to  mark a check as stale. This function will update Stale Check, Check Stale Date and Entry Status fields to indicate that the check is void.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Action Stale_Check - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - Action 1643187882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Stale Check</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Action Stale_Check - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Specifies the cheque date on the bank account ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Cheque Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Specifies the cheque number on the bank account ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Cheque No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - Control 3764421056 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Specifies the cheque stale date on the bank account ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Cheque Stale Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - Control 2124105172 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Specifies if the cheque has been marked as stale on the bank account ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Stale Cheque - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2541129980 - Control 2996934741 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Specifies the date before which the cheque cannot be marked as stale cheque on the bank account ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext - Control Stale Cheque Expiry Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3910192470 - Control 1593216058 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
-          <source>Specifies after how long the cheque can be marked stale for this bank account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card Ext - Control Stale Cheque Stipulated Period - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3910192470 - Control 1593216058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
-          <source>Stale Cheque Stipulated Period</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card Ext - Control Stale Cheque Stipulated Period - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3910192470 - Control 3506240275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
-          <source>Specifies UPI ID for this bank account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card Ext - Control UPI ID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3910192470 - Control 3506240275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
-          <source>UPI ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card Ext - Control UPI ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - NamedType 2847126115" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 52617824">
-          <source>Void all printed checks?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - NamedType VoidAllCheckLbl</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - NamedType 128632937" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 52617824">
-          <source>Void Check %1?</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Check No</note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - NamedType VoidCheckConfirmationLbl</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 1995465164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>&amp;Check</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action &amp;Check - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 1160402318 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Select this option to preview computer check, if the Bank Payment Type field on the Payment Journal window is set to Computer Check, the checks must be printed before posting the journal.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action P&amp;review Check - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 1160402318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>P&amp;review Check</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action P&amp;review Check - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 3243840921 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Select this option to Print computer check, if the Bank Payment Type field on the Payment Journal window is set to Computer Check, the checks must be printed before posting the journal.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Print Check - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 3243840921 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Print Check</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Print Check - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 3668851114 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Select this option to void all checks which have printed but not posted on the journal</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Void &amp;All Checks - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 3668851114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Void &amp;All Checks</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Void &amp;All Checks - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 1787783558 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Select this option to void one check. Select the line with Computer Check in the Bank Payment Type field on the Journal.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Void Check - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Action 1787783558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Void Check</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Void Check - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Specifies the cheque date of the journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Control Cheque Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Specifies the cheque number of the journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Control Cheque No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Control 1261265694 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Specifies the cheque number of the journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Control Cheque No.2 - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 52617824 - Control 1261265694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
-          <source>Cheque No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Control Cheque No.2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1124727046 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1124727046">
-          <source>Specifies the cheque date of the journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Receipt Voucher - Control Cheque Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1124727046 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1124727046">
-          <source>Specifies the cheque number of the journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Receipt Voucher - Control Cheque No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3416248418 - Action 3930228087 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
           <source>Voucher Interface</source>
@@ -2169,7 +2324,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role VI - Action Day Book - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3416248418 - Action 3336251243 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Register transactions which are affecting neither the cash account nor the bank account are termed as Journal Vouchers.</source>
+          <source>Register transactions which are affecting neither the cash account nor the bank account are termed as Journal Vouchers.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role VI - Action Journal Voucher - Property ToolTip</note>
         </trans-unit>
@@ -2198,6 +2353,91 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role VI - Action Voucher Register - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 52617824 - NamedType 2847126115" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 52617824">
+          <source>Void all printed checks?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - NamedType VoidAllCheckLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - NamedType 128632937" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 52617824">
+          <source>Void Check %1?</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Check No</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - NamedType VoidCheckConfirmationLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 1995465164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>&amp;Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action &amp;Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 1160402318 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Select this option to preview computer check, if the Bank Payment Type field on the Payment Journal window is set to Computer Check, the checks must be printed before posting the journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action P&amp;review Check - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 1160402318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>P&amp;review Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action P&amp;review Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 3243840921 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Select this option to Print computer check, if the Bank Payment Type field on the Payment Journal window is set to Computer Check, the checks must be printed before posting the journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Print Check - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 3243840921 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Print Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Print Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 3668851114 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Select this option to void all checks which have printed but not posted on the journal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Void &amp;All Checks - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 3668851114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Void &amp;All Checks</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Void &amp;All Checks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 1787783558 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Select this option to void one check. Select the line with Computer Check in the Bank Payment Type field on the Journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Void Check - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Action 1787783558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Void Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Action Void Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Specifies the cheque date of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Control Cheque Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Specifies the cheque number of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Control Cheque No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Control 1261265694 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Specifies the cheque number of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Control Cheque No.2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 52617824 - Control 1261265694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52617824">
+          <source>Cheque No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Payment Voucher - Control Cheque No.2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1124727046 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1124727046">
+          <source>Specifies the cheque date of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Receipt Voucher - Control Cheque Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1124727046 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1124727046">
+          <source>Specifies the cheque number of the journal entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Receipt Voucher - Control Cheque No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1993654917 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1993654917">
           <source>Specifies the cheque date of the journal entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2217,46 +2457,6 @@
           <source>Specifies the cheque number of the journal entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cash Receipt Voucher - Control Cheque No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2225167603 - Action 1417232546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
-          <source>Chec&amp;k</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Action Check - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2225167603 - Action 1165644947 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
-          <source>Select this option to  mark a check as stale. This function will update Stale Check, Check Stale Date and Entry Status fields to indicate that the check is void.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Action Stale Check - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2225167603 - Action 1165644947 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
-          <source>Stale Check</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Action Stale Check - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2225167603 - Control 3764421056 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
-          <source>Specifies the cheque stale date on the check ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Control Cheque Stale Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2225167603 - Control 2124105172 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
-          <source>Specifies if the cheque has been marked as stale on the check ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Control Stale Cheque - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2225167603 - Control 2996934741 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 205270603">
-          <source>Specifies the date before which the cheque cannot be marked as stale cheque on the check ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Check Ledg Entry Ext - Control Stale Cheque Expiry Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 156412750 - Action 3603762498 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Select this option to define voucher no. series for different types of vouchers.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Company Information Ext - Action Journal Voucher Posting Setup - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 156412750 - Action 3603762498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Voucher Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Company Information Ext - Action Journal Voucher Posting Setup - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2018235175 - Action 1995465164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2018235175">
           <source>&amp;Check</source>
@@ -2323,86 +2523,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Contra Voucher - Control Cheque No.2 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1183321529 - Action 1774964744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Select this option to enter narration for a particular line.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext - Action Line Narration - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1183321529 - Action 1774964744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Line Narration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext - Action Line Narration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1183321529 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Select Voucher Narration option to enter narration for a particular line.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext - Action Narration - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1183321529 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Narration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext - Action Narration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 914210448 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3603089623">
-          <source>Specify the Location code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Batch Ext. - Control Location Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 914210448 - Control 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3603089623">
-          <source>Location Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Batch Ext. - Control Location Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3905379818 - Control 977137018 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
-          <source>Specifies if cheque is printed for the journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Ext - Control Check Printed - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3905379818 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
-          <source>Specifies the cheque date of the journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Ext - Control Cheque Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3905379818 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
-          <source>Specifies the cheque number of the journal entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Ext - Control Cheque No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2713101013 - Control 3855005364 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3492245880">
-          <source>Specifies the type of the journal template which are getting created.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Templates Ext. - Control Voucher Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2713101013 - Control 3855005364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3492245880">
-          <source>Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal Templates Ext. - Control Voucher Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 969546836 - Action 1774964744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
-          <source>Select this option to enter narration for the voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext. - Action Line Narration - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 969546836 - Action 1774964744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
-          <source>Line Narration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext. - Action Line Narration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 969546836 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
-          <source>Select this option to enter narration for a particular line.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext. - Action Narration - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 969546836 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
-          <source>Narration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext. - Action Narration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 832321967 - Control 3742309595 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
-          <source>Specifies if you want to activate cheque number functionality.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GL Setup Ext - Control Activate Cheque No. - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 3336251243 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3336251243">
           <source>Specifies the cheque date of the journal entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2412,6 +2532,106 @@
           <source>Specifies the cheque number of the journal entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Journal Voucher - Control Cheque No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 52617824 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Specifies the code linked to entries that are posted from a bank payment voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Bank Payment Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 52617824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Bank Payment Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Bank Payment Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 1124727046 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Specifies the code linked to entries that are posted from a bak receipt voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Bank Receipt Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 1124727046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Bank Receipt Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Bank Receipt Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 589901064 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Specifies the code linked to entries that are posted from a cash payment voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Cash Paymrnt Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 589901064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Cash Payment Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Cash Paymrnt Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 1802865343 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Specifies the code linked to entries that are posted from a cash receipt voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Cash Receipt Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 1802865343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Cash Receipt Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Cash Receipt Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 2018235175 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Specifies the code linked to entries that are posted from a contra voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Contra Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 2018235175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Contra Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Contra Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 3336251243 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Specifies the code linked to entries that are posted from a journal voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Journal Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2127320348 - Control 3336251243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Journal Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Journal Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2127320348 - Field 52617824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
+          <source>Bank Payment Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Bank Payment Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2127320348 - Field 1124727046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
+          <source>Bank Receipt Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Bank Receipt Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2127320348 - Field 1993654917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
+          <source>Cash Payment Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Cash Payment Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2127320348 - Field 1802865343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
+          <source>Cash Receipt Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Cash Receipt Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2127320348 - Field 2018235175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
+          <source>Contra Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Contra Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2127320348 - Field 3336251243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
+          <source>Journal Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Journal Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 156412750 - Action 3603762498 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Select this option to define voucher no. series for different types of vouchers.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Company Information Ext - Action Journal Voucher Posting Setup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 156412750 - Action 3603762498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Voucher Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Company Information Ext - Action Journal Voucher Posting Setup - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 108391818 - Action 2905359721 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
           <source>Select this option to define voucher no. series for different types of vouchers.</source>
@@ -2423,30 +2643,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card Ext. - Action Voucher Setup - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3522356808 - NamedType 3157689106" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 3522356808">
-          <source>Void Check %1?</source>
-          <note from="Developer" annotates="general" priority="2">%1= Cheque No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - NamedType VoidLbl</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3522356808 - Action 2550476631 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
-          <source>Void the check if, for example, the check is not cashed by the bank.</source>
+        <trans-unit id="PageExtension 2379150798 - Action 1774964744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Select this option to enter narration for a particular line.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Action Void_Check - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext. - Action Line Narration - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3522356808 - Action 2550476631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
-          <source>Void Check</source>
+        <trans-unit id="PageExtension 2379150798 - Action 1774964744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Line Narration</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Action Void_Check - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext. - Action Line Narration - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3522356808 - Control 2807262541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
-          <source>Specifies the cheque date of the journal entry.</source>
+        <trans-unit id="PageExtension 2379150798 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Select Voucher Narration option to enter narration for a particular line</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Control Cheque Date - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext. - Action Narration - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3522356808 - Control 981725300 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
-          <source>Specifies the cheque number of the journal entry.</source>
+        <trans-unit id="PageExtension 2379150798 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Narration</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal VI - Control Cheque No. - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext. - Action Narration - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1628931880 - Action 3930228087 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
           <source>Voucher Interface</source>
@@ -2534,7 +2749,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role VI - Action Day Book - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1628931880 - Action 3336251243 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Register transactions which are affecting neither the cash account nor the bank account are termed as Journal Vouchers.</source>
+          <source>Register transactions which are affecting neither the cash account nor the bank account are termed asÂ Journal Vouchers.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role VI - Action Journal Voucher - Property ToolTip</note>
         </trans-unit>
@@ -2562,6 +2777,26 @@
           <source>Voucher Register</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role VI - Action Voucher Register - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1183321529 - Action 1774964744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Select this option to enter narration for a particular line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext - Action Line Narration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1183321529 - Action 1774964744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Line Narration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext - Action Line Narration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1183321529 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Select Voucher Narration option to enter narration for a particular line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext - Action Narration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1183321529 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Narration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext - Action Narration - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3619043797 - Action 3930228087 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Voucher Interface</source>
@@ -2649,7 +2884,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Role Center Page Ext. - Action Day Book - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3619043797 - Action 3336251243 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Register transactions which are affecting neither the cash account nor the bank account are termed as Journal Vouchers.</source>
+          <source>Register transactions which are affecting neither the cash account nor the bank account are termed asÂ Journal Vouchers.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Role Center Page Ext. - Action Journal Voucher - Property ToolTip</note>
         </trans-unit>
@@ -2677,231 +2912,6 @@
           <source>Voucher Register</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Role Center Page Ext. - Action Voucher Register - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 52617824 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Specifies the code linked to entries that are posted from a bank payment voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Bank Payment Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 52617824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Bank Payment Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Bank Payment Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 1124727046 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Specifies the code linked to entries that are posted from a bak receipt voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Bank Receipt Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 1124727046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Bank Receipt Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Bank Receipt Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 589901064 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Specifies the code linked to entries that are posted from a cash payment voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Cash Paymrnt Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 589901064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Cash Payment Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Cash Paymrnt Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 1802865343 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Specifies the code linked to entries that are posted from a cash receipt voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Cash Receipt Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 1802865343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Cash Receipt Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Cash Receipt Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 2018235175 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Specifies the code linked to entries that are posted from a contra voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Contra Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 2018235175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Contra Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Contra Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 3336251243 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Specifies the code linked to entries that are posted from a journal voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Journal Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2127320348 - Control 3336251243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
-          <source>Journal Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup Ext. - Control Journal Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2379150798 - Action 1774964744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
-          <source>Select this option to enter narration for a particular line.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext. - Action Line Narration - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2379150798 - Action 1774964744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
-          <source>Line Narration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext. - Action Line Narration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2379150798 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
-          <source>Select Voucher Narration option to enter narration for a particular line</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext. - Action Narration - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2379150798 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
-          <source>Narration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext. - Action Narration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2694622601 - Field 2807262541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
-          <source>Cheque Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Cheque Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2694622601 - Field 981725300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
-          <source>Cheque No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Cheque No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2694622601 - Field 3764421056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
-          <source>Cheque Stale Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Cheque Stale Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2694622601 - Field 2124105172 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
-          <source>Stale Cheque</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Stale Cheque - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2694622601 - Field 2996934741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
-          <source>Stale Cheque Expiry Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Acc Led Entry Ext - Field Stale Cheque Expiry Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3033648794 - NamedType 3157213660" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 3033648794">
-          <source>Stale Cheque Stipulated Period can't be negative.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account Ext - NamedType StipulatedPeriodNegativeErr</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3033648794 - Field 1593216058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
-          <source>Stale Cheque Stipulated Period</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account Ext - Field Stale Cheque Stipulated Period - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3033648794 - Field 3506240275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
-          <source>UPI ID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Bank Account Ext - Field UPI ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3717382282 - Field 3764421056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 717244561">
-          <source>Cheque Stale Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Check Led Entry Ext - Field Cheque Stale Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3717382282 - Field 2124105172 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 717244561">
-          <source>Stale Cheque</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Check Led Entry Ext - Field Stale Cheque - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3717382282 - Field 2996934741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 717244561">
-          <source>Stale Cheque Expiry Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Check Led Entry Ext - Field Stale Cheque Expiry Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2630692215 - Field 2807262541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Cheque Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen.Jnl Line Ext - Field Cheque Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2630692215 - Field 981725300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Cheque No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen.Jnl Line Ext - Field Cheque No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2630692215 - Field 1128136446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Narration Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen.Jnl Line Ext - Field Narration Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2630692215 - Field 2124105172 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Stale Cheque</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen.Jnl Line Ext - Field Stale Cheque - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3988382343 - Field 3742309595 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
-          <source>Activate Cheque No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension General ledger Setup Ext - Field Activate Cheque No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2127320348 - Field 52617824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
-          <source>Bank Payment Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Bank Payment Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2127320348 - Field 1124727046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
-          <source>Bank Receipt Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Bank Receipt Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2127320348 - Field 1993654917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
-          <source>Cash Payment Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Cash Payment Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2127320348 - Field 1802865343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
-          <source>Cash Receipt Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Cash Receipt Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2127320348 - Field 2018235175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
-          <source>Contra Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Contra Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2127320348 - Field 3336251243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
-          <source>Journal Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup Ext. - Field Journal Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2547165060 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue   - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2547165060 - EnumValue 2004364593 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Credit Memo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Credit Memo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2547165060 - EnumValue 2503914580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Finance Charge Memo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Finance Charge Memo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2547165060 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Invoice - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2547165060 - EnumValue 3346365350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Payment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Payment - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2547165060 - EnumValue 4028787690 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Refund</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Refund - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2547165060 - EnumValue 87408810 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reminder</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum  Doc Type - EnumValue Reminder - Property Caption</note>
         </trans-unit>
       </group>
     </body>

@@ -3,6 +3,46 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="India Reports">
     <body>
       <group id="body">
+        <trans-unit id="PageExtension 340522122 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 340522122 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Select Voucher Narration option to check narration for a particular line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Narration - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 340522122 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Narration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Narration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 340522122 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Select this option to take print of the voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Print Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 340522122 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
+          <source>Print Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Print Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1944853794 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext - Action Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1944853794 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Select this option to take print of the voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext - Action Print Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1944853794 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
+          <source>Print Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext - Action Print Voucher - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1543519422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Arch. Sales Return Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8298,6 +8338,111 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Service Transfer Shipment - Control ShowInternalInfo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2568815683 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TCS 27 EQ Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 3811590374 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date from which TCS 27 EQ report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control Date From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 3811590374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date From</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control Date From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 2164282105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date to which TCS 27 EQ report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control Date To - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 2164282105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date To</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control Date To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 222945763 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the TAN number on the TDS entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control TCAN No - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2568815683 - Control 222945763 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T.C.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TCS 27 EQ Export - Control TCAN No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TDS 26Q Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 3811590374 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date from which TDS 26 Q report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control Date From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 3811590374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date From</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control Date From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 2164282105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date to which TDS 26 Q report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control Date To - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 2164282105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date To</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control Date To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 2143095406 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the TAN number on the TDS entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control TAN No - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2073640942 - Control 2143095406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 26Q Export - Control TAN No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TDS 27Q Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 3811590374 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date from which TDS 27 Q report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control Date From - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 3811590374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date From</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control Date From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 2164282105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Species the date to which TDS 27 Q report is to be generated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control Date To - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 2164282105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date To</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control Date To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 2143095406 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the TAN number on the TDS entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control TAN No - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1223937925 - Control 2143095406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report TDS 27Q Export - Control TAN No - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 134669670 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TDS Certificate Receivable</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9058,90 +9203,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query GSTR2SGSTAmt - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 340522122 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Report</source>
+        <trans-unit id="Query 924829079 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TCS 27 EQ</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Report - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query TCS 27 EQ - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 340522122 - Action 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Select Voucher Narration option to check narration for a particular line</source>
+        <trans-unit id="Query 374880457 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TDS 27Q</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Narration - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 340522122 - Action 2516326926 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Narration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Narration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 340522122 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Select this option to take print of the voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Print Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 340522122 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2591587468">
-          <source>Print Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Acc Ledg Entry Ext. - Action Print Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3614316979 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Report</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext. - Action Report - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3614316979 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Select this option to take print of the voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext. - Action Print Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3614316979 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
-          <source>Print Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext. - Action Print Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3482397921 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 377345500">
-          <source>Report</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Ledger Entry Ext - Action Report - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3482397921 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 377345500">
-          <source>Select this option to take print of the voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Ledger Entry Ext - Action Print Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3482397921 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 377345500">
-          <source>Print Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Ledger Entry Ext - Action Print Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1944853794 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
-          <source>Report</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext - Action Report - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1944853794 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
-          <source>Select this option to take print of the voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext - Action Print Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1944853794 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1887905131">
-          <source>Print Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Entry Ext - Action Print Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1225766744 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
-          <source>Report</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext - Action Report - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1225766744 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
-          <source>Select this option to take print of the voucher.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext - Action Print Voucher - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1225766744 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
-          <source>Print Voucher</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext - Action Print Voucher - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query TDS 27Q - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3962430981 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -9252,6 +9322,56 @@
           <source>IMPS</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Type of Supply - EnumValue IMPS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3482397921 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 377345500">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Ledger Entry Ext - Action Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3482397921 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 377345500">
+          <source>Select this option to take print of the voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Ledger Entry Ext - Action Print Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3482397921 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 377345500">
+          <source>Print Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension FA Ledger Entry Ext - Action Print Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1225766744 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext - Action Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1225766744 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Select this option to take print of the voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext - Action Print Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1225766744 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Print Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Vendor Ledger Entry Ext - Action Print Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3614316979 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext. - Action Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3614316979 - Action 2559125355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Select this option to take print of the voucher.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext. - Action Print Voucher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3614316979 - Action 2559125355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Print Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext. - Action Print Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 3604663564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GSTR1B2CSCrMemo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query GSTR1B2CSCrMemo - Property Caption</note>
         </trans-unit>
       </group>
     </body>

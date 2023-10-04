@@ -3,6 +3,311 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="India Tax Base">
     <body>
       <group id="body">
+        <trans-unit id="PageExtension 1638686336 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Specifies the location code for which the journal lines will be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cash Receipt Journal - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1638686336 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
+          <source>Specifies the T.A.N. number of the location for which the entry will be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cash Receipt Journal - Control T.A.N. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2583272393 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
+          <source>Specifies the location code for which the journal lines will be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2583272393 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
+          <source>Specifies the T.A.N. number of the location for which the entry will be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal - Control T.A.N. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3196174509 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Specifies the location code for which the journal lines will be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3196174509 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Specifies the T.A.N. number of the location for which the entry will be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal - Control T.A.N. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3580867622 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3580867622">
+          <source>Specifies the receiving location for the purchase journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Journal - Control Location Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3580867622 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3580867622">
+          <source>Specifies the T.A.N. number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Journal - Control T.A.N. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3881459925 - Field 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3690479385">
+          <source>Location Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Journal Batch - Field Location Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 3059961727 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Applied Provisional Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Applied Provisional Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Location Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Location Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 1967527897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Old Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Old Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 276340605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Party Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Party Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 148971114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Party Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Party Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 476147668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Provisional Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Provisional Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 643401806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>T.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field T.A.N. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 3105022 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>TDS Certificate Receivable</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field TDS Certificate Receivable - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 1211981681 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>TDS Section Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field TDS Section Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1263167612 - Field 3307800677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Work Tax Nature Of Deduction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Work Tax Nature Of Deduction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2499784741 - EnumValue 52617824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
+          <source>Bank Payment Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Bank Payment Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2499784741 - EnumValue 1124727046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
+          <source>Bank Receipt Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Bank Receipt Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2499784741 - EnumValue 1993654917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
+          <source>Cash Payment Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Cash Payment Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2499784741 - EnumValue 1802865343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
+          <source>Cash Receipt Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Cash Receipt Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2499784741 - EnumValue 2018235175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
+          <source>Contra Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Contra Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2499784741 - EnumValue 3336251243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
+          <source>Journal Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Journal Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 129378669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>India Taxation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action India Taxation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 36392006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Common Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Common Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 2568114977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Auto Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Auto Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 3651789288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Specifies the state of the specified address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action States - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 3651789288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>States</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action States - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 1999971382 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Specifies the  accounting periods which are required to file tax returns.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Tax Accounting Periods - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Tax Accounting Periods</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Tax Accounting Periods - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 3433576562 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Specifies the type of Tax to be calculated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Tax Types - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 3433576562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Tax Types</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Tax Types - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 2561499027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>User Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action User Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 674273518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Specifies a person by whom any tax or any other sum of money is payable under Income Tax Act.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Assessee Codes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 674273518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Assessee Codes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Assessee Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 3864552009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Specifies the concessional code for cases authorized for concessional rates exclusively by the government.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Concessional Codes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 3864552009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Concessional Codes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Concessional Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 1727624792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Specifies the code of type of deductor /employer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Deductor Categories - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 1727624792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Deductor Categories</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Deductor Categories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 1332320273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Specifies the Ministry name which is mandatory for deductor type Central - Govt (A), Statutory body - Central Govt. (D) &amp; Autonomous body - Central Govt. (G).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Ministry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3470244815 - Action 1332320273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
+          <source>Ministries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Ministry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 129378669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>India Taxation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action India Taxation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 36392006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Common Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Common Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 2568114977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Auto Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Auto Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 3651789288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Specifies the state of the specified address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action States - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 3651789288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>States</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action States - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 1999971382 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Specifies the  accounting periods which are required to file tax returns.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Tax Accounting Periods - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Tax Accounting Periods</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Tax Accounting Periods - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 3433576562 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Specifies the type of Tax to be calculated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Tax Types - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 3433576562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Tax Types</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Tax Types - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 2561499027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>User Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action User Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 674273518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Specifies a person by whom any tax or any other sum of money is payable under Income Tax Act.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Assessee Codes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 674273518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Assessee Codes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Assessee Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 3864552009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Specifies the concessional code for cases authorized for concessional rates exclusively by the government.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Concessional Codes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 3864552009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Concessional Codes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Concessional Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 1727624792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Specifies the code of type of deductor /employer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Deductor Categories - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 1727624792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Deductor Categories</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Deductor Categories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 1332320273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Specifies the Ministry name which is mandatory for deductor type Central - Govt (A), Statutory body - Central Govt. (D) &amp; Autonomous body - Central Govt. (G).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Ministry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2458191494 - Action 1332320273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
+          <source>Ministries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Ministry - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4117274083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assessee Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6549,7 +6854,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Line Narration - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1774964744 - Control 2516326926 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Select Narration option to specify the narration of a voucher.</source>
+          <source>Specifies the narration option of a voucher.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Line Narration - Control Narration - Property ToolTip</note>
         </trans-unit>
@@ -6559,7 +6864,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Line Narration - Control Narration - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1774964744 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies document number for which the voucher lines will be posted.</source>
+          <source>Specifies the document number for which the voucher lines will be posted.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Line Narration - Control Document No. - Property ToolTip</note>
         </trans-unit>
@@ -6868,311 +7173,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create Tax Accounting Period - Control Tax Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 129378669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>India Taxation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action India Taxation - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 36392006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Common Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Common Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 2568114977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Auto Configuration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Auto Configuration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 3651789288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Specifies the state of the specified address.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action States - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 3651789288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>States</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action States - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 1999971382 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Specifies the  accounting periods which are required to file tax returns.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Tax Accounting Periods - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Tax Accounting Periods</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Tax Accounting Periods - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 3433576562 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Specifies the type of Tax to be calculated.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Tax Types - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 3433576562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Tax Types</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Tax Types - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 2561499027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>User Configuration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action User Configuration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 674273518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Specifies a person by whom any tax or any other sum of money is payable under Income Tax Act.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Assessee Codes - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 674273518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Assessee Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Assessee Codes - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 3864552009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Specifies the concessional code for cases authorized for concessional rates exclusively by the government.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Concessional Codes - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 3864552009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Concessional Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Concessional Codes - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 1727624792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Specifies the code of type of deductor /employer.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Deductor Categories - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 1727624792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Deductor Categories</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Deductor Categories - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 1332320273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Specifies the Ministry name which is mandatory for deductor type Central - Govt (A), Statutory body - Central Govt. (D) &amp; Autonomous body - Central Govt. (G).</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Ministry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3470244815 - Action 1332320273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3470244815">
-          <source>Ministries</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Accountant Role Center - Action Ministry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2259427799 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2259427799">
-          <source>Tax Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Blanket Sales Order - Control Tax Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 129378669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>India Taxation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action India Taxation - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 36392006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Common Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Common Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 2568114977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Auto Configuration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Auto Configuration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 3651789288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Specifies the state of the specified address.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action States - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 3651789288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>States</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action States - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 1999971382 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Specifies the  accounting periods which are required to file tax returns.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Tax Accounting Periods - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Tax Accounting Periods</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Tax Accounting Periods - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 3433576562 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Specifies the type of Tax to be calculated.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Tax Types - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 3433576562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Tax Types</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Tax Types - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 2561499027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>User Configuration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action User Configuration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 674273518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Specifies a person by whom any tax or any other sum of money is payable under Income Tax Act.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Assessee Codes - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 674273518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Assessee Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Assessee Codes - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 3864552009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Specifies the concessional code for cases authorized for concessional rates exclusively by the government.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Concessional Codes - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 3864552009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Concessional Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Concessional Codes - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 1727624792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Specifies the code of type of deductor /employer.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Deductor Categories - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 1727624792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Deductor Categories</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Deductor Categories - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 1332320273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Specifies the Ministry name which is mandatory for deductor type Central - Govt (A), Statutory body - Central Govt. (D) &amp; Autonomous body - Central Govt. (G).</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Ministry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2458191494 - Action 1332320273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2458191494">
-          <source>Ministries</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Business Manager Role Center - Action Ministry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1638686336 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
-          <source>Specifies the location code for which the journal lines will be posted.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cash Receipt Journal - Control Location Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1638686336 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
-          <source>Specifies the T.A.N. number of the location for which the entry will be posted.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cash Receipt Journal - Control T.A.N. No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 693258133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the status of the company as Public Limited/Private Limited/Government or Others.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Company Status - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 693258133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Company Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Company Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 1376206118 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the DDO of the District Nodal Office. </source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control DDO Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 1376206118 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>DDO Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control DDO Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 1587272291 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the DDO registration number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control DDO Registration No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 1587272291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>DDO Registration No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control DDO Registration No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 1291080518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the deductor category of the company for TDS deduction.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Deductor Category - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 1291080518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Deductor Category</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Deductor Category - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 616277534 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the Ministry code.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Ministry Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 616277534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Ministry Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Ministry Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 120119081 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the ministry type as Regular or Other.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Ministry Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 120119081 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Ministry Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Ministry Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 2427139146 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the P.A.N. number of the company.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control P.A.N. No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 2427139146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>P.A.N. No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control P.A.N. No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 2798609015 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the PAN status of the company, whether the PAN number is available or not.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control P.A.N. Status - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 2798609015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>P.A.N. Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control P.A.N. Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 2832635245 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies pay and accounts officer code for eTDS return purpose.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control PAO Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 2832635245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>PAO Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control PAO Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 687729932 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies PAO registration number of the company for eTDS return purpose.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control PAO Registration No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 687729932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>PAO Registration No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control PAO Registration No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 2748392062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the State Code of Company</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control State Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 591338493 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the T.A.N No of Company</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control T.A.N. No. - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1496902179 - Control 2748392062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Specifies the customer's state code. This state code will appear on all sales documents for the customer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7202,606 +7202,6 @@
           <source>Specifies the PAN Status as PANAPPLIED,PANNOTAVBL,PANINVALID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension CustomerCardExt - Control P.A.N. Status - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2583272393 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
-          <source>Specifies the location code for which the journal lines will be posted.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal - Control Location Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2583272393 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
-          <source>Specifies the T.A.N. number of the location for which the entry will be posted.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Journal - Control T.A.N. No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1539246698 - Control 2748392062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
-          <source>Specifies the State Code of Location</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card IN - Control State Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1539246698 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
-          <source>Specifies the T.A.N No of Location</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card IN - Control T.A.N. No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 129378669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>India Taxation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action India Taxation - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 36392006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Common Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Common Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 2568114977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Auto Configuration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Auto Configuration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 3651789288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Specifies the state of the specified address.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action States - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 3651789288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>States</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action States - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 1999971382 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Specifies the  accounting periods which are required to file tax returns.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Tax Accounting Periods - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Tax Accounting Periods</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Tax Accounting Periods - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 3433576562 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Specifies the type of Tax to be calculated.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Tax Types - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 3433576562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Tax Types</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Tax Types - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 2561499027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>User Configuration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action User Configuration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 674273518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Specifies a person by whom any tax or any other sum of money is payable under Income Tax Act.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Assessee Codes - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 674273518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Assessee Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Assessee Codes - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 3864552009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Specifies the concessional code for cases authorized for concessional rates exclusively by the government.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Concessional Codes - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 3864552009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Concessional Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Concessional Codes - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 1727624792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Specifies the code of type of deductor /employer.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Deductor Categories - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 1727624792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Deductor Categories</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Deductor Categories - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 1332320273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Specifies the Ministry name which is mandatory for deductor type Central - Govt (A), Statutory body - Central Govt. (D) &amp; Autonomous body - Central Govt. (G).</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Ministry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3690954932 - Action 1332320273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Ministries</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Ministry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3196174509 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
-          <source>Specifies the location code for which the journal lines will be posted.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal - Control Location Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3196174509 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
-          <source>Specifies the T.A.N. number of the location for which the entry will be posted.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Payment Journal - Control T.A.N. No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2276255667 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1780952628">
-          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Cr. Memo Stats. - Control Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2276255667 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1780952628">
-          <source>Net Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Cr. Memo Stats. - Control Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2530478891 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1736440465">
-          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Inv. Statistics - Control Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2530478891 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1736440465">
-          <source>Net Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Inv. Statistics - Control Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2975972813 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3509888598">
-          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted sales Cr. Memo Stats. - Control Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2975972813 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3509888598">
-          <source>Net Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted sales Cr. Memo Stats. - Control Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2716593954 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Tax Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo - Control Tax Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1410372101 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173744464">
-          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Inv. Statistics - Control Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1410372101 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173744464">
-          <source>Net Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Inv. Statistics - Control Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2420212404 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
-          <source>Tax Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice - Control Tax Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1336880060 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1577340962">
-          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Inv. Statistics - Control Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1336880060 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1577340962">
-          <source>Net Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Inv. Statistics - Control Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1397320324 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
-          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1397320324 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
-          <source>Net Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3580867622 - Control 2161572060 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3580867622">
-          <source>Specifies the receiving location for the purchase journal.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Journal - Control Location Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3580867622 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3580867622">
-          <source>Specifies the T.A.N. number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Journal - Control T.A.N. No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 129378669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>India Taxation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action India Taxation - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 36392006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Common Setup</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Common Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 2568114977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Auto Configuration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Auto Configuration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 3651789288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Specifies the state of the specified address.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action States - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 3651789288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>States</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action States - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 1999971382 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Specifies the  accounting periods which are required to file tax returns.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Tax Accounting Periods - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Tax Accounting Periods</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Tax Accounting Periods - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 3433576562 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Specifies the type of Tax to be calculated.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Tax Types - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 3433576562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Tax Types</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Tax Types - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 2561499027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>User Configuration</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action User Configuration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 674273518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Specifies a person by whom any tax or any other sum of money is payable under Income Tax Act.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Assessee Codes - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 674273518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Assessee Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Assessee Codes - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 3864552009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Specifies the concessional code for cases authorized for concessional rates exclusively by the government.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Concessional Codes - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 3864552009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Concessional Codes</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Concessional Codes - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 1727624792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Specifies the code of type of deductor /employer.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Deductor Categories - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 1727624792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Deductor Categories</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Deductor Categories - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 1332320273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Specifies the Ministry name which is mandatory for deductor type Central - Govt (A), Statutory body - Central Govt. (D) &amp; Autonomous body - Central Govt. (G).</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Ministry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 743575308 - Action 1332320273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
-          <source>Ministries</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Ministry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1708100201 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1708100201">
-          <source>Tax Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Credit Memo - Control Tax Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 540732174 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2134475871">
-          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Inv. Statistics - Control Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 540732174 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2134475871">
-          <source>Net Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Inv. Statistics - Control Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4034894651 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Tax Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice - Control Tax Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2708057622 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
-          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2708057622 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
-          <source>Net Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1673401186 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Tax Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Control Tax Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 280137910 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
-          <source>Tax Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote - Control Tax Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1598289728 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>Tax Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Return Order - Control Tax Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3777779172 - Action 2327360480 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3777779172">
-          <source>Specifies the accounting period for the tax type.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tax Acc. Period Setup - Action Accounting Period - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3777779172 - Action 2327360480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3777779172">
-          <source>Accounting Period</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tax Acc. Period Setup - Action Accounting Period - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2293025083 - Control 2748392062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
-          <source>Specifies the State Code of Vendor</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control State Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2293025083 - Control 4117274083 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
-          <source>Specifies the Assessee Code by whom any tax or sum of money is payable</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control Assessee Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2293025083 - Control 2427139146 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
-          <source>Specifies the Permanent Account No. of Party</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control P.A.N. No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2293025083 - Control 1108792839 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
-          <source>Specifies the PAN Reference No. in case the PAN is not available or applied by the party</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control P.A.N. Reference No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2293025083 - Control 2798609015 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
-          <source>Specifies the PAN Status as PANAPPLIED,PANNOTAVBL,PANINVALID</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control P.A.N. Status - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 693258133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>Company Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field Company Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 1376206118 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>DDO Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field DDO Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 1587272291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>DDO Registration No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field DDO Registration No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 1291080518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>Deductor Category</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field Deductor Category - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 616277534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>Ministry Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field Ministry Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 120119081 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>Ministry Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field Ministry Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 2427139146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>P.A.N. No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field P.A.N. No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 2798609015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>P.A.N. Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field P.A.N. Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 2798609015 - Method 2126772001 - NamedType 2052427306" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 591338493">
-          <source>PANNOTREQD</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field P.A.N. Status - Method OnValidate - NamedType PANNotReqLbl</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 2832635245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>PAO Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field PAO Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 687729932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>PAO Registration No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field PAO Registration No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>State Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field State Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 591338493 - Field 643401806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>T.A.N. No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field T.A.N. No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3614316979 - Field 690911766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2733917450">
-          <source>TCS Nature of Collection</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Cust. Ledger Entry Ext. - Field TCS Nature of Collection - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3614316979 - Field 2101218793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2733917450">
-          <source>Total TCS Including SHE CESS</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Cust. Ledger Entry Ext. - Field Total TCS Including SHE CESS - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1713901351 - Field 3292168846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>Aggregate Turnover</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field Aggregate Turnover - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1713901351 - Field 4117274083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>Assessee Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field Assessee Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1713901351 - Field 2427139146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>P.A.N. No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field P.A.N. No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1713901351 - Field 1108792839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>P.A.N. Reference No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field P.A.N. Reference No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1713901351 - Field 2798609015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>P.A.N. Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field P.A.N. Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1713901351 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>State Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field State Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3881459925 - Field 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3690479385">
-          <source>Location Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Journal Batch - Field Location Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 3059961727 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Applied Provisional Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Applied Provisional Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Location Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Location Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 1967527897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Old Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Old Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 276340605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Party Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Party Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 148971114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Party Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Party Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 476147668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Provisional Entry</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Provisional Entry - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 643401806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>T.A.N. No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field T.A.N. No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 3105022 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>TDS Certificate Receivable</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field TDS Certificate Receivable - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 1211981681 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>TDS Section Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field TDS Section Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1263167612 - Field 3307800677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Work Tax Nature Of Deduction</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GeneralJournalLineExt - Field Work Tax Nature Of Deduction - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3269450672 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
-          <source>State Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LocationExt - Field State Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3269450672 - Field 643401806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
-          <source>T.A.N. No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LocationExt - Field T.A.N. No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3179004455 - Field 269761521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
-          <source>State</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Header Ext - Field State - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2668979912 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
-          <source>State Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PurchaseLineExtension - Field State Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2668979912 - Field 3307800677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
-          <source>Work Tax Nature Of Deduction</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PurchaseLineExtension - Field Work Tax Nature Of Deduction - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1044563679 - Field 707100447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3193866272">
-          <source>Transportation Mode</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transport Method Ext - Field Transportation Mode - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 406314583 - Field 1211981681 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 406314583">
-          <source>TDS Section Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Vendor Ledger Entry - Field TDS Section Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 406314583 - Field 3049776580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 406314583">
-          <source>Total TDS Including SHE CESS</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Vendor Ledger Entry - Field Total TDS Including SHE CESS - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3990907967 - Field 4117274083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
-          <source>Assessee Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field Assessee Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3990907967 - Field 2427139146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
-          <source>P.A.N. No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field P.A.N. No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3990907967 - Field 1108792839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
-          <source>P.A.N. Reference No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field P.A.N. Reference No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3990907967 - Field 2798609015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
-          <source>P.A.N. Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field P.A.N. Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3990907967 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
-          <source>State Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field State Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3990907967 - Field 2548350396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
-          <source>Tax Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field Tax Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1808227664 - EnumValue 18652612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -8063,35 +7463,635 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Report Selection Usage - EnumValue Posted Voucher - Property Caption</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 2499784741 - EnumValue 52617824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
-          <source>Bank Payment Voucher</source>
+        <trans-unit id="PageExtension 3777779172 - Action 2327360480 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3777779172">
+          <source>Specifies the accounting period for the tax type.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Bank Payment Voucher - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tax Acc. Period Setup - Action Accounting Period - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 2499784741 - EnumValue 1124727046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
-          <source>Bank Receipt Voucher</source>
+        <trans-unit id="PageExtension 3777779172 - Action 2327360480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3777779172">
+          <source>Accounting Period</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Bank Receipt Voucher - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tax Acc. Period Setup - Action Accounting Period - Property Caption</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 2499784741 - EnumValue 1993654917 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
-          <source>Cash Payment Voucher</source>
+        <trans-unit id="PageExtension 591338493 - Control 693258133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the status of the company as Public Limited/Private Limited/Government or Others.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Cash Payment Voucher - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Company Status - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 2499784741 - EnumValue 1802865343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
-          <source>Cash Receipt Voucher</source>
+        <trans-unit id="PageExtension 591338493 - Control 693258133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Company Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Cash Receipt Voucher - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Company Status - Property Caption</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 2499784741 - EnumValue 2018235175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
-          <source>Contra Voucher</source>
+        <trans-unit id="PageExtension 591338493 - Control 1376206118 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the DDO of the District Nodal Office. </source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Contra Voucher - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control DDO Code - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 2499784741 - EnumValue 3336251243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2168715013">
-          <source>Journal Voucher</source>
+        <trans-unit id="PageExtension 591338493 - Control 1376206118 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>DDO Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Voucher Enum - EnumValue Journal Voucher - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control DDO Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 1587272291 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the DDO registration number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control DDO Registration No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 1587272291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>DDO Registration No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control DDO Registration No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 1291080518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the deductor category of the company for TDS deduction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Deductor Category - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 1291080518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Deductor Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Deductor Category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 616277534 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the Ministry code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Ministry Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 616277534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Ministry Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Ministry Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 120119081 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the ministry type as Regular or Other.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Ministry Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 120119081 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Ministry Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control Ministry Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 2427139146 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the P.A.N. number of the company.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control P.A.N. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 2427139146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>P.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control P.A.N. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 2798609015 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the PAN status of the company, whether the PAN number is available or not.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control P.A.N. Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 2798609015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>P.A.N. Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control P.A.N. Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 2832635245 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies pay and accounts officer code for eTDS return purpose.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control PAO Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 2832635245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>PAO Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control PAO Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 687729932 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies PAO registration number of the company for eTDS return purpose.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control PAO Registration No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 687729932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>PAO Registration No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control PAO Registration No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 2748392062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the State Code of Company</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control State Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 591338493 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the T.A.N No of Company</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension CompanyInformation - Control T.A.N. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 693258133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>Company Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field Company Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 1376206118 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>DDO Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field DDO Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 1587272291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>DDO Registration No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field DDO Registration No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 1291080518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>Deductor Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field Deductor Category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 616277534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>Ministry Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field Ministry Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 120119081 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>Ministry Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field Ministry Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 2427139146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>P.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field P.A.N. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 2798609015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>P.A.N. Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field P.A.N. Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 2798609015 - Method 2126772001 - NamedType 2052427306" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 591338493">
+          <source>PANNOTREQD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field P.A.N. Status - Method OnValidate - NamedType PANNotReqLbl</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 2832635245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>PAO Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field PAO Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 687729932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>PAO Registration No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field PAO Registration No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>State Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field State Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 591338493 - Field 643401806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>T.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CompanyInformation - Field T.A.N. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1044563679 - Field 707100447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3193866272">
+          <source>Transportation Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Transport Method Ext - Field Transportation Mode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1539246698 - Control 2748392062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
+          <source>Specifies the State Code of Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card IN - Control State Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1539246698 - Control 643401806 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3870787835">
+          <source>Specifies the T.A.N No of Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Location Card IN - Control T.A.N. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3269450672 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
+          <source>State Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LocationExt - Field State Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3269450672 - Field 643401806 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
+          <source>T.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension LocationExt - Field T.A.N. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1336880060 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1577340962">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Inv. Statistics - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1336880060 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1577340962">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Inv. Statistics - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1397320324 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1397320324 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3179004455 - Field 269761521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>State</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Header Ext - Field State - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2668979912 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>State Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PurchaseLineExtension - Field State Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2668979912 - Field 3307800677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1519909599">
+          <source>Work Tax Nature Of Deduction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PurchaseLineExtension - Field Work Tax Nature Of Deduction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2276255667 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1780952628">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Cr. Memo Stats. - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2276255667 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1780952628">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Cr. Memo Stats. - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2530478891 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1736440465">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Inv. Statistics - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2530478891 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1736440465">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Inv. Statistics - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 406314583 - Field 1211981681 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 406314583">
+          <source>TDS Section Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Vendor Ledger Entry - Field TDS Section Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 406314583 - Field 3049776580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 406314583">
+          <source>Total TDS Including SHE CESS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Vendor Ledger Entry - Field Total TDS Including SHE CESS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 129378669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>India Taxation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action India Taxation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 36392006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Common Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Common Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 2568114977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Auto Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Auto Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 3651789288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Specifies the state of the specified address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action States - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 3651789288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>States</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action States - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 1999971382 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Specifies the  accounting periods which are required to file tax returns.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Tax Accounting Periods - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Tax Accounting Periods</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Tax Accounting Periods - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 3433576562 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Specifies the type of Tax to be calculated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Tax Types - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 3433576562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Tax Types</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Tax Types - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 2561499027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>User Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action User Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 674273518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Specifies a person by whom any tax or any other sum of money is payable under Income Tax Act.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Assessee Codes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 674273518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Assessee Codes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Assessee Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 3864552009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Specifies the concessional code for cases authorized for concessional rates exclusively by the government.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Concessional Codes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 3864552009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Concessional Codes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Concessional Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 1727624792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Specifies the code of type of deductor /employer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Deductor Categories - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 1727624792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Deductor Categories</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Deductor Categories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 1332320273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Specifies the Ministry name which is mandatory for deductor type Central - Govt (A), Statutory body - Central Govt. (D) &amp; Autonomous body - Central Govt. (G).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Ministry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 743575308 - Action 1332320273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 743575308">
+          <source>Ministries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchasing Agent Role Center - Action Ministry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293025083 - Control 2748392062 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the State Code of Vendor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control State Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293025083 - Control 4117274083 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the Assessee Code by whom any tax or sum of money is payable</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control Assessee Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293025083 - Control 2427139146 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the Permanent Account No. of Party</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control P.A.N. No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293025083 - Control 1108792839 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the PAN Reference No. in case the PAN is not available or applied by the party</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control P.A.N. Reference No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293025083 - Control 2798609015 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
+          <source>Specifies the PAN Status as PANAPPLIED,PANNOTAVBL,PANINVALID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VendorCardExt - Control P.A.N. Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3990907967 - Field 4117274083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>Assessee Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field Assessee Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3990907967 - Field 2427139146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>P.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field P.A.N. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3990907967 - Field 1108792839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>P.A.N. Reference No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field P.A.N. Reference No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3990907967 - Field 2798609015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>P.A.N. Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field P.A.N. Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3990907967 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>State Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field State Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3990907967 - Field 2548350396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>Tax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VendorExt - Field Tax Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 3292168846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Aggregate Turnover</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field Aggregate Turnover - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 4117274083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Assessee Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field Assessee Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 2427139146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>P.A.N. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field P.A.N. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 1108792839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>P.A.N. Reference No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field P.A.N. Reference No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 2798609015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>P.A.N. Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field P.A.N. Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 2748392062 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>State Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field State Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2259427799 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2259427799">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Blanket Sales Order - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1708100201 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1708100201">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Credit Memo - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 540732174 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2134475871">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Inv. Statistics - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 540732174 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2134475871">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Inv. Statistics - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4034894651 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2708057622 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2708057622 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1673401186 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 280137910 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1598289728 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Return Order - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2975972813 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3509888598">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted sales Cr. Memo Stats. - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2975972813 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3509888598">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted sales Cr. Memo Stats. - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2716593954 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1410372101 - Control 3692706522 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173744464">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Inv. Statistics - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1410372101 - Control 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173744464">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Inv. Statistics - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2420212404 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Tax Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Invoice - Control Tax Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3614316979 - Field 690911766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2733917450">
+          <source>TCS Nature of Collection</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Cust. Ledger Entry Ext. - Field TCS Nature of Collection - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3614316979 - Field 2101218793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2733917450">
+          <source>Total TCS Including SHE CESS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Cust. Ledger Entry Ext. - Field Total TCS Including SHE CESS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 129378669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>India Taxation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action India Taxation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 36392006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Common Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Common Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 2568114977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Auto Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Auto Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 3651789288 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Specifies the state of the specified address.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action States - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 3651789288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>States</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action States - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 1999971382 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Specifies the  accounting periods which are required to file tax returns.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Tax Accounting Periods - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 1999971382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Tax Accounting Periods</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Tax Accounting Periods - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 3433576562 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Specifies the type of Tax to be calculated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Tax Types - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 3433576562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Tax Types</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Tax Types - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 2561499027 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>User Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action User Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 674273518 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Specifies a person by whom any tax or any other sum of money is payable under Income Tax Act.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Assessee Codes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 674273518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Assessee Codes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Assessee Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 3864552009 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Specifies the concessional code for cases authorized for concessional rates exclusively by the government.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Concessional Codes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 3864552009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Concessional Codes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Concessional Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 1727624792 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Specifies the code of type of deductor /employer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Deductor Categories - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 1727624792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Deductor Categories</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Deductor Categories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 1332320273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Specifies the Ministry name which is mandatory for deductor type Central - Govt (A), Statutory body - Central Govt. (D) &amp; Autonomous body - Central Govt. (G).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Ministry - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3690954932 - Action 1332320273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Ministries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Order Processor Role Center IN - Action Ministry - Property Caption</note>
         </trans-unit>
       </group>
     </body>
