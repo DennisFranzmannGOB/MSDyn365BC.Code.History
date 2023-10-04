@@ -441,12 +441,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Archive Table ListPart - Action SaveToCSV - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PermissionSet 2219481149 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(Obsolete) Data Archive - Edit</source>
-          <target state="translated">(Obsoleto) Archivio dati - Modifica</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Data Archive - Edit - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PermissionSet 3448589511 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Data Archive - Read</source>
           <target state="translated">Archivio dati - Lettura</target>
