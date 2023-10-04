@@ -2051,11 +2051,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Setup - Field Umlaut Chars Encode Mode - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 726691145 - Field 1798299531 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Swiss-Cross Image</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Setup - Field Swiss-Cross Image - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 726691145 - Field 2179895180 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>SEPA Direct Debit</source>
           <note from="Developer" annotates="general" priority="2"></note>

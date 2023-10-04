@@ -3,6 +3,60 @@
   <file datatype="xml" source-language="en-US" target-language="sv-SE" original="Shopify Connector">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 1550130331 - NamedType 2319957109" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bulk operation failed</source>
+          <target state="translated">Massåtgärden misslyckades</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk Operation API - NamedType BulkOperationFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 1463487768" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade the Shopify connector and your Business Central environment.</source>
+          <target state="translated">Shopify-API:et som används av det aktuella Shopify-anslutningsprogrammet stöds inte längre. Uppgradera Shopify-anslutningsprogrammet och uppgradera Business Central-miljön om du vill fortsätta använda Shopify-anslutningsprogrammet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 1482680907" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify user of Shopify connector going out of support.</source>
+          <target state="translated">Meddela användaren om att stödet för Shopify-anslutningsprogrammet kommer att upphöra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType ExpirationNotificationNameTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 1829946207" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Don't show this again.</source>
+          <target state="translated">Visa inte detta igen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType DontShowThisAgainMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 1869486886" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify user of Shopify connector is out of support.</source>
+          <target state="translated">Meddela användaren om att stödet för Shopify-anslutningsprogrammet har upphört.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationNameTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 2529482528" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show a notification informing the user that Shopify connector is out of support.</source>
+          <target state="translated">Visa ett meddelande som informerar användaren om att stödet för Shopify-anslutningsprogrammet har upphört.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 3098940945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify API used by your current Shopify connector will go out of support on %1. Please upgrade the Shopify connector and your Business Central environment.</source>
+          <target state="translated">Stödet för Shopify-API:et som används av det befintliga Shopify-anslutningsprogrammet kommer att upphöra den %1. Uppgradera Shopify-anslutningsprogrammet och din Business Central-miljö.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - expiry date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType ExpirationNotificationMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 555667881" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show a notification informing the user that Shopify connector going out of support.</source>
+          <target state="translated">Visa ett meddelande som informerar användaren om att stödet för Shopify-anslutningsprogrammet kommer att upphöra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType ExpirationNotificationDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1829948211 - NamedType 1981706351" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update product image</source>
+          <target state="translated">Uppdatera produktbild</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk UpdateProductImage - NamedType NameLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2066436824 - NamedType 1210680421" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check that we got your company name and other basic information right.</source>
           <target state="translated">Kontrollera att vi har uppfattat ditt företagsnamn och annan grundläggande information på rätt sätt.</target>
@@ -159,6 +213,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Authentication Mgt. - NamedType EnableHttpRequestActionLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3329328528 - NamedType 2779573711" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify connector is only supported in SaaS environments.</source>
+          <target state="translated">Shopify-anslutningsprogrammet stöds bara i SaaS-miljöer.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Authentication Mgt. - NamedType NotSupportedOnPremErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3329328528 - NamedType 3369057591" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No callback was received from Shopify. Make sure that you haven't closed the page that says "Waiting for a response - do not close this page", and then try again.</source>
           <target state="translated">Inget återanrop mottogs från Shopify. Kontrollera att du inte har stängt sidan som säger "Väntar på ett svar. Stäng inte sidan." och försök sedan igen.</target>
@@ -183,11 +243,53 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType OutgoingRequestsNotEnabledConfirmLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3550761784 - NamedType 2820535834" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request length exceeded Shopify API limit.</source>
+          <target state="translated">Den begärda längden överskrider API-gränsen för Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType QueryParamTooLongErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3550761784 - NamedType 3191534689" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade the Shopify connector and your Business Central environment.</source>
+          <target state="translated">Shopify-API:et som används av det aktuella Shopify-anslutningsprogrammet stöds inte längre. Uppgradera Shopify-anslutningsprogrammet och uppgradera Business Central-miljön om du vill fortsätta använda Shopify-anslutningsprogrammet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType ApiVersionOutOfSupportErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3550761784 - NamedType 3973276347" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request length exceeded Shopify API limit. This may be due to longer marketing text or embed images.</source>
+          <target state="translated">Den begärda längden överskrider API-gränsen för Shopify. Det kan bero på en längre marknadsföringstext eller inbäddade bilder.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType ProductCreateQueryParamTooLongErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3550761784 - NamedType 4198223611" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Importing data to your Shopify shop is not enabled, navigate to shop card to enable.</source>
           <target state="translated">Importen av data till din Shopify-butik har inte aktiverats. Gå till butikskortet om du vill aktivera.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType OutgoingRequestsNotEnabledErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 393738779 - NamedType 3165048088" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ShopifyBulkAPI</source>
+          <target state="translated">ShopifyBulkAPI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk Operation Mgt. - NamedType BulkOperationFeatureIdTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 393738779 - NamedType 4127518601" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A bulk request was sent to Shopify. You can check the status of the synchronization in the Shopify Bulk Operations page.</source>
+          <target state="translated">En massbegäran skickades till Shopify. Du kan kontrollera synkroniseringens status på sidan Massåtgärd för Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk Operation Mgt. - NamedType BulkOperationCreatedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 393738779 - NamedType 4177491735" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must sign in with a Business Central licensed user to enable the feature.</source>
+          <target state="translated">Du måste logga in med en Business Central-licensierad användare för att kunna aktivera funktionen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk Operation Mgt. - NamedType InvalidUserErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4001961269 - NamedType 127200329" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No filters were set on table %1, %2. Please contact your Microsoft Partner for assistance.</source>
+          <target state="translated">Inga filter har angetts för tabell %1, %2. Kontakta din Microsoft-partner om du behöver hjälp.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = a id of a table (integer), %2 = the caption of the table.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Log Entries Delete - NamedType NoFiltersErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4014190514 - NamedType 1016867246" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payouts</source>
@@ -224,6 +326,24 @@
           <target state="translated">Order</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Background Syncs - NamedType OrderSyncTypeTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 435242949 - NamedType 1981706351" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update product price</source>
+          <target state="translated">Uppdatera produktpris</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk UpdateProductPrice - NamedType NameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 699354088 - NamedType 1172983856" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to register webhook with Shopify</source>
+          <target state="translated">Det gick inte att registrera webhook med Shopify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Webhooks Mgt. - NamedType WebhookRegistrationFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 819387808 - NamedType 3794962629" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Can not export customer %1 %2. The length of the string is %3, but it must be less than or equal to %4 characters. Value: %5, field: %6</source>
+          <target state="translated">Det går inte att exportera kunden %1 %2. Strängens längd är %3, men den får innehålla högst %4 tecken. Värde: %5, fält: %6</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Customer No., %2 - Customer Name, %3 - Length, %4 - Max Length, %5 - Value, %6 - Field Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Customer Export - NamedType CountyCodeTooLongLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 878519486 - NamedType 2164942842" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Not Supported</source>
@@ -561,6 +681,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Tax Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 4076199687 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Fulfillment Status</source>
+          <target state="translated">Uppfyllelsestatus i Shopify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 4230855559 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Mapping Direction</source>
           <target state="translated">Mappningsriktning i Shopify</target>
@@ -597,6 +723,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Remove Product Action - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 912748123 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Bulk Mutation Type</source>
+          <target state="translated">Typ av massändring för Shopify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 91976311 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Target Selection</source>
           <target state="translated">Välj mål i Shopify</target>
@@ -608,6 +740,48 @@
           <target state="translated">Annulleringsorsak i Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Cancel Reason - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035581800 - EnumValue 1090713286 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In Progress</source>
+          <target state="translated">Pågår</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Return Status - EnumValue In Progress - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035581800 - EnumValue 1162404133 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Return</source>
+          <target state="translated">Ingen retur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Return Status - EnumValue No Return - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035581800 - EnumValue 1208803006 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Return Requested</source>
+          <target state="translated">Retur begärd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Return Status - EnumValue Return Requested - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035581800 - EnumValue 1371923692 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <target state="translated"> </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Return Status - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035581800 - EnumValue 1767581163 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Return Failed</source>
+          <target state="translated">Returen misslyckades</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Return Status - EnumValue Return Failed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035581800 - EnumValue 2300298737 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inspection Complete</source>
+          <target state="translated">Inspektion avslutad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Return Status - EnumValue Inspection Complete - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1035581800 - EnumValue 3687201325 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Returned</source>
+          <target state="translated">Returnerat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Return Status - EnumValue Returned - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1036445677 - EnumValue 1371923692 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -801,6 +975,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Fulfillment Status - EnumValue Open - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 1348611408 - EnumValue 1864907812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disabled</source>
+          <target state="translated">Inaktiverat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Logging Mode - EnumValue Disabled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1348611408 - EnumValue 3703598467 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All</source>
+          <target state="translated">Alla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Logging Mode - EnumValue All - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1348611408 - EnumValue 4185115384 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error Only</source>
+          <target state="translated">Bara fel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Logging Mode - EnumValue Error Only - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 1420853479 - EnumValue 1864907812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disabled</source>
           <target state="translated">Inaktiverat</target>
@@ -951,6 +1143,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Tax By - EnumValue Sell-to -&gt; Bill-to -&gt; Ship-to - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 1984319471 - EnumValue 1010683005 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Bulk Operation</source>
+          <target state="translated">Hämta massåtgärd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetBulkOperation - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 1055219755 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Product Images</source>
           <target state="translated">Hämta produktbilder</target>
@@ -1041,6 +1239,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetProductById - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 1984319471 - EnumValue 2176302038 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Current Bulk Operation</source>
+          <target state="translated">Hämta aktuell massåtgärd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetCurrentBulkOperation - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 2180680759 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update Product Image</source>
           <target state="translated">Uppdatera produktbild</target>
@@ -1054,7 +1258,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue UpdateOrderAttributes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 2279339439 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get Refund Lineser</source>
+          <source>Get Refund Lines</source>
           <target state="translated">Hämta återbetalningsrader</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetRefundLines - Property Caption</note>
@@ -1076,6 +1280,12 @@
           <target state="translated">Hämta nästa produktvariant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetNextProductVariantIds - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1984319471 - EnumValue 2441276504 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Upload URL</source>
+          <target state="translated">Skapa uppladdnings-URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue CreateUploadUrl - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 2718353483 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Next Product Variant Images</source>
@@ -1215,6 +1425,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetFulfillmentOrdersFromOrder - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 1984319471 - EnumValue 4213732807 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Run Bulk Operation Mutation</source>
+          <target state="translated">Kör massåtgärd för förändring</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue RunBulkOperationMutation - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 4251599368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Product Variant Ids</source>
           <target state="translated">Hämta produktvariant-ID:n</target>
@@ -1228,7 +1444,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetLocations - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 4286111942 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get Next Refund Lineser</source>
+          <source>Get Next Refund Lines</source>
           <target state="translated">Hämta nästa återbetalningsrader</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue GetNextRefundLines - Property Caption</note>
@@ -1262,12 +1478,6 @@
           <target state="translated">Nästa orderreturer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue NextOrderReturns - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 1984319471 - EnumValue 739759541 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create Image Upload URL</source>
-          <target state="translated">Skapa URL för bilduppladdning</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy GraphQL Type - EnumValue CreateImageUploadUrl - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1984319471 - EnumValue 76124470 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modify Inventory</source>
@@ -1515,6 +1725,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy SKU Mapping - EnumValue Bar Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2723089908 - EnumValue 1090713286 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In Progress</source>
+          <target state="translated">Pågår</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Fulfill. Status - EnumValue In Progress - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 2723089908 - EnumValue 1371923692 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
           <target state="translated"> </target>
@@ -1527,23 +1743,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Fulfill. Status - EnumValue Partially Fulfilled - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 2723089908 - EnumValue 189987390 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Pending Fulfillment</source>
-          <target state="translated">Väntar på uppfyllelse</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Fulfill. Status - EnumValue Pending_Fulfillment - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 2723089908 - EnumValue 2368503014 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unfulfilled</source>
           <target state="translated">Ej uppfylld</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Fulfill. Status - EnumValue Unfulfilled - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 2723089908 - EnumValue 2451670943 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>In Progress</source>
-          <target state="translated">Pågår</target>
+        <trans-unit id="Enum 2723089908 - EnumValue 279401935 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pending Fulfillment</source>
+          <target state="translated">Väntar på uppfyllelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Fulfill. Status - EnumValue In_Progress - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Fulfill. Status - EnumValue Pending Fulfillment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2723089908 - EnumValue 4235111603 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfilled</source>
@@ -2235,6 +2445,54 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Tax Type - EnumValue None - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 4076199687 - EnumValue 1249475212 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created</source>
+          <target state="translated">Skapat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - EnumValue Created - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4076199687 - EnumValue 1371923692 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <target state="translated"> </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4076199687 - EnumValue 1481297009 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expired</source>
+          <target state="translated">Utgångna</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - EnumValue Expired - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4076199687 - EnumValue 1752522425 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Running</source>
+          <target state="translated">Kör</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - EnumValue Running - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4076199687 - EnumValue 3665605423 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Completed</source>
+          <target state="translated">Slutfört</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - EnumValue Completed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4076199687 - EnumValue 3826689261 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed</source>
+          <target state="translated">Misslyckades</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - EnumValue Failed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4076199687 - EnumValue 3844911025 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancelled</source>
+          <target state="translated">Annullerad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - EnumValue Canceled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4076199687 - EnumValue 4117897146 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancelling</source>
+          <target state="translated">Avbryter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Status - EnumValue Canceling - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 4230855559 - EnumValue 224320628 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>BC to Shopify</source>
           <target state="translated">BC till Shopify</target>
@@ -2373,6 +2631,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy ReturnRefund ProcessType - EnumValue Auto Create Credit Memo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 912748123 - EnumValue 2180680759 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Product Image</source>
+          <target state="translated">Uppdatera produktbild</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Type - EnumValue UpdateProductImage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 912748123 - EnumValue 3075167769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Product Price</source>
+          <target state="translated">Uppdatera produktpris</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Bulk Operation Type - EnumValue UpdateProductPrice - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 91976311 - EnumValue 2703287665 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entitled</source>
           <target state="translated">Berättigad</target>
@@ -2488,6 +2758,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Data Capture List - Action DownloadDataAction - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1285600670 - Action 2026913255 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refresh status of bulk operations.</source>
+          <target state="translated">Uppdatera status för massåtgärder.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Action Refresh - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Action 2026913255 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refresh</source>
+          <target state="translated">Uppdatera</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Action Refresh - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Action 2345119762 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get bulk operation data from Shopify.</source>
+          <target state="translated">Hämta massåtgärdsdata från Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Action GetData - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Action 2345119762 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Data</source>
+          <target state="translated">Hämta data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Action GetData - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Action 2375843283 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear the list of bulk operations that are older than 7 days.</source>
+          <target state="translated">Rensa listan med massåtgärder som är äldre än sju dagar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Action Delete7Days - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Action 2375843283 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Entries Older Than 7 Days</source>
+          <target state="translated">Ta bort transaktioner som är äldre än 7 dagar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Action Delete7Days - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1397901430 - Action 4268418197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open linked document</source>
           <target state="translated">Öppna länkade dokument</target>
@@ -2511,6 +2817,18 @@
           <target state="translated">Hämtade Shopify-data</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Return - Action RetrievedShopifyData - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Action 1110033960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clears the API version expiry date cache for this Shopify Shop. This will force the API version to be re-evaluated the next time the API is called.</source>
+          <target state="translated">Rensar cacheminnet för API-versionens utgångsdatum för den här Shopify-butiken. API-versionen måste då omvärderas nästa gång API:et anropas.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action ClearApiVersionExpiryDateCache - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Action 1110033960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clear API Version Expiry Date Cache</source>
+          <target state="translated">Rensar cacheminne för API-versionens utgångsdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action ClearApiVersionExpiryDateCache - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Action 1284804951 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View your Shopify refunds.</source>
@@ -2758,6 +3076,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action SyncCustomers - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1970429680 - Action 4263468516 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test connection to your Shopify store.</source>
+          <target state="translated">Testa anslutningen till din Shopify-butik.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action TestConnection - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Action 4263468516 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Connection</source>
+          <target state="translated">Testa anslutning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action TestConnection - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1970429680 - Action 478485645 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronize product images for this Shopify Shop. The direction depends on the settings in the Shopify Shop Card.</source>
           <target state="translated">Synkronisera produktbilder för den här Shopify-butiken. Riktningen beror på inställningarna i Shopify-butikskortet.</target>
@@ -2889,6 +3219,30 @@
           <target state="translated">Shopify-order</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Action ShopifyOrders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Action 2746818404 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View related posted sales shipments.</source>
+          <target state="translated">Visa relaterade bokförda försäljningsutleveranser.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Action Sales Shipment - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Action 2746818404 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Shipment</source>
+          <target state="translated">Försäljningsutleverans</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Action Sales Shipment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Action 3221194676 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the data retrieved from Shopify.</source>
+          <target state="translated">Visa data som hämtats från Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Action Retrieved Shopify Data - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Action 3221194676 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Retrieved Shopify Data</source>
+          <target state="translated">Hämtade Shopify-data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Action Retrieved Shopify Data - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2596605181 - Action 2746818404 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View related posted sales shipments.</source>
@@ -3165,6 +3519,18 @@
           <target state="translated">Taggar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products - Action Tags - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2953146964 - Action 1030013428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the data retrieved from Shopify.</source>
+          <target state="translated">Visa data som hämtats från Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Subform - Action RetrievedShopifyData - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2953146964 - Action 1030013428 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Retrieved Shopify Data</source>
+          <target state="translated">Hämtade Shopify-data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Subform - Action RetrievedShopifyData - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3081489686 - Action 4256907756 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the locations defined in Shopify.</source>
@@ -3454,6 +3820,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Action CreateSalesDocument - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 437915150 - Action 4188013569 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View an array of fulfillment orders associated with the Shopify Order.</source>
+          <target state="translated">Visa en matris med uppfyllelseorder som är associerade med Shopify-ordern.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Action FulfillmentOrders - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 437915150 - Action 4188013569 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fulfillment Orders</source>
+          <target state="translated">Uppfyllelseorder</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Action FulfillmentOrders - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 437915150 - Action 562921702 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start to resolve all mappings. (Customer, Item, Payment Method, ...)</source>
           <target state="translated">Starta för att lösa alla mappningar. (Kund, artikel, betalningsmetod, …)</target>
@@ -3676,6 +4054,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Card - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1167635784 - Control 2001565445 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique identifier for the order that appears on the order page in the Shopify admin and the order status page. For example, "#1001", "EN1001", or "1001-A".</source>
+          <target state="translated">Anger den unika identifieraren för ordern som visas på ordersidan i Shopify-administrationen och på sidan för orderstatus. Till exempel "#1001", "EN1001" eller "1001-A".</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Card - Control Shopify Order No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1167635784 - Control 2716979219 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shop Id field.</source>
           <target state="translated">Anger värdet i fältet Butiks-ID.</target>
@@ -3723,6 +4107,90 @@
           <target state="translated">Anger när ltransaktionen skapades.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Data Capture List - Control SystemCreatedAt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 1540107796 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date and time when the bulk operation was completed.</source>
+          <target state="translated">Anger datum och tidpunkt då massåtgärden utfördes.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Completed At - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 1540107796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Completed At</source>
+          <target state="translated">Slutfört kl.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Completed At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 1669136979 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the shop code of the shop that the bulk operation belongs to.</source>
+          <target state="translated">Anger butikskoden för den butik som massåtgärden tillhör.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Shop Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 1669136979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shop Code</source>
+          <target state="translated">Butikskod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Shop Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 1878130204 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the bulk operation.</source>
+          <target state="translated">Anger typen av massåtgärd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 1878130204 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <target state="translated">Typ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the bulk operation.</source>
+          <target state="translated">Anger namnet på massåtgärden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Namn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 3676003639 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the error code of the bulk operation.</source>
+          <target state="translated">Anger felkoden för massåtgärden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Error Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 3676003639 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error Code</source>
+          <target state="translated">Felkod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Error Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the bulk operation.</source>
+          <target state="translated">Anger status för massåtgärden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 937700988 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique identifier of the bulk operation.</source>
+          <target state="translated">Anger den unika identifieraren för massåtgärden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Bulk Operation Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Control 937700988 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Control Bulk Operation Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1397901430 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Document Type field.</source>
@@ -4000,6 +4468,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control PriceSynchronization - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1413016019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies end of support date for the current version. After this date Shopify connector will stop working.</source>
+          <target state="translated">Anger när stödet för den aktuella versionen upphör. Efter detta datum slutar Shopify-anslutningsprogrammet att fungera.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1413016019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of Support</source>
+          <target state="translated">Stödet upphör</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1582664428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of a product in Shopify when an item is create in Shopify via the sync.</source>
           <target state="translated">Anger statusen för en produkt i Shopify när en artikel skapas i Shopify via synkronisering.</target>
@@ -4133,8 +4613,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control InventorySync - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 239429557 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of a product in Shopify when an item is removed in Shopify via the sync.</source>
-          <target state="translated">Anger statusen för en produkt i Shopify när en artikel tas bort i Shopify via synkroniseringen.</target>
+          <source>Specifies the status of a product in Shopify via the sync when an item is removed in Shopify or an item is blocked in Business Central.</source>
+          <target state="translated">Anger status för en produkt i Shopify via synkroniseringen när en artikel tas bort i Shopify eller en artikel spärras i Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control RemoveProductAction - Property ToolTip</note>
         </trans-unit>
@@ -4145,7 +4625,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control SyncItemAttributes - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 2428217567 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specified how Shopify customers are synced to Business Central. If you choose none and there exists no mapping for that customer, the default customer will be used if exists.</source>
+          <source>Specifies how Shopify customers are synced to Business Central. If you choose none and there exists no mapping for that customer, the default customer will be used if exists.</source>
           <target state="translated">Anger hur Shopify-kunder synkroniseras till Business Central. Om du väljer Ingen och ingen mappning finns för kunden, används standardkunden om den finns.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control CustomerImportFromShopify - Property ToolTip</note>
@@ -4336,6 +4816,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control HasAccessKey - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 3462829460 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the log is activated.</source>
+          <target state="translated">Anger om loggen har aktiverats.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control LoggingMode - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1970429680 - Control 3480590187 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether Shopify can update items when synchronizing from Shopify.</source>
           <target state="translated">Anger om Shopify kan uppdatera artiklar vid synkronisering från Shopify.</target>
@@ -4377,6 +4863,12 @@
           <target state="translated">Anger hur kundens namn synkroniseras. Om värdet är tomt hämtas värdet av Namn 2 och Namn 2 blir tomt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control NameSource - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 3604362843 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if prices are synchronized to Shopify with product sync.</source>
+          <target state="translated">Anger om priser synkroniseras till Shopify med produktsynkronisering.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Sync Prices - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 3722795680 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how returns and refunds from Shopify are handles in Business Central. The import process is always done within the import of a Shopify order.</source>
@@ -4911,6 +5403,54 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Risks - Control Message - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2325977404 - Control 2024988880 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the url of the tracking page for the fulfillment.</source>
+          <target state="translated">Anger webbadressen till spårningssidan för uppfyllelsen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Control TrackingUrl - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Control 2466615012 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date and time when the fulfillment was last modified.</source>
+          <target state="translated">Anger datum och tidpunkt då uppfyllelsen senast ändrades.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Control UpdatedAt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Control 3045250535 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the id for the fulfillment in Shopify.</source>
+          <target state="translated">Anger ID:t för uppfyllelsen i Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Control ShopifyFulfillmentId - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Control 3471137671 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <target state="translated">Rader</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Control Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Control 3956013896 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tracking number of the fulfillment provided by the shipping company.</source>
+          <target state="translated">Anger spårningsnumret för uppfyllelsen som leveransföretaget tillhandahåller.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Control TrackingNumber - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the fulfillment in Shopify. Valid values are: pending, open, success, cancelled, error, failure.</source>
+          <target state="translated">Anger status för uppfyllelse i Shopify. Giltiga värden är: väntar, öppen, lyckades, avbruten, fel, misslyckades.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Control 775939211 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the id for the order in Shopify.</source>
+          <target state="translated">Anger ID:t för ordern i Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Control ShopifyOrderId - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Control 986080663 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date and time when the fulfillment was created.</source>
+          <target state="translated">Anger datum och tidpunkt då uppfyllelsen skapades.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Control CreatedAt - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 234408897 - Control 2054003858 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of imported products that aren't mapped.</source>
           <target state="translated">Anger antalet importerade produkter som inte har mappats.</target>
@@ -5020,8 +5560,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control SalesInvoiceNo - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 1778072510 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specified if the Shopify order is archived by D365BC.</source>
-          <target state="translated">Anges om Shopify-ordern arkiveras av D365BC.</target>
+          <source>Specifies if the Shopify order is archived by D365BC.</source>
+          <target state="translated">Anger om Shopify-ordern arkiveras av D365BC.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control Closed - Property ToolTip</note>
         </trans-unit>
@@ -5048,6 +5588,12 @@
           <target state="translated">Anger postnumret i faktureringsadressen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control BillToPostCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2760837339 - Control 2487006914 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status or returns assocuated with the order. Valid values are: inspection complete, in progress, no return, returned, return failed, return requested.</source>
+          <target state="translated">Anger statusen eller returer som associeras med ordern. Giltiga värden är inspektionen är klar, pågår, ingen retur, returnerat, returen misslyckades, retur begärd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control ReturnStatus - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 2506717839 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the risk level from the Shopify order.</source>
@@ -5589,6 +6135,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control ResponseData - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3259998644 - Control 2938108582 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the request has errors.</source>
+          <target state="translated">Anger om denna begäran innehåller fel.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control HasError - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3259998644 - Control 3003898253 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the URL with the data requested from.</source>
           <target state="translated">Anger webbadressen med begärda data.</target>
@@ -5601,11 +6153,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control UserId - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3259998644 - Control 3458278213 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies number of retries.</source>
+          <target state="translated">Anger antal nya försök.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control RetryCount - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3259998644 - Control 355226323 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the HTTP result status of the entry in the log.</source>
           <target state="translated">Anger transaktionens status för HTTP-resultatet i loggen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control StatusCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3259998644 - Control 4058268480 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the request ID.</source>
+          <target state="translated">Anger ID för begäran.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control RequestId - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3259998644 - Control 4132733409 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the used method.</source>
@@ -5618,6 +6182,12 @@
           <target state="translated">Anger datum och tidpunkt då transaktionen skapades.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control DateAndTime - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3259998644 - Control 966236635 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the query cost.</source>
+          <target state="translated">Anger frågans kostnad.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control QueryCost - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3259998644 - Control 969644539 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The data that was send in the request.</source>
@@ -5973,6 +6543,54 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Return Lines - Control Customer Note - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3602831783 - Control 1002454459 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Shopify Order Id field.</source>
+          <target state="translated">Anger värdet i fältet ID för Shopify-order.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment Lines - Control Shopify Order Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3602831783 - Control 1052240521 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Shopify Order Line Id field.</source>
+          <target state="translated">Anger värdet i fältet ID för Shopify-orderraden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment Lines - Control Shopify Order Line Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3602831783 - Control 25685789 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Shopify Fulfillment Line Id field.</source>
+          <target state="translated">Anger värdet i fältet ID för uppfyllelseraden för Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment Lines - Control Shopify Fulfillment Line Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3602831783 - Control 2704404533 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Quantity field.</source>
+          <target state="translated">Anger värdet i fältet Antal.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment Lines - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3602831783 - Control 4159319591 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Shopify Fulfillment Id field.</source>
+          <target state="translated">Anger värdet i fältet för uppfyllelse-ID för Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment Lines - Control Shopify Fulfillment Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3602831783 - Control 4189421006 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Is Gift Card field.</source>
+          <target state="translated">Anger värdet i fältet Är presentkort.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment Lines - Control Is Gift Card - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3627292940 - Control 1131619133 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The value of the attribute.</source>
+          <target state="translated">Värdet på attributet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Lines Attributes - Control Value - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3627292940 - Control 3348941625 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The key or name of the attribute.</source>
+          <target state="translated">Nyckeln eller namnet på attributet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Lines Attributes - Control Key - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3706164926 - Control 1016130111 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the entry, as assigned from the specific number series when the entry was created.</source>
           <target state="translated">Anger transaktionsnumret, som tilldelas från den angivna nummerserien när transaktionen skapas.</target>
@@ -5990,6 +6608,18 @@
           <target state="translated">Anger beskrivningen av transaktionens status för HTTP-resultatet i loggen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Control StatusDescription - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3706164926 - Control 2090943539 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the response preview.</source>
+          <target state="translated">Anger förhandsgranskning av svar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Control ResponsePreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3706164926 - Control 2938108582 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the request has errors.</source>
+          <target state="translated">Anger om denna begäran innehåller fel.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Control HasError - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3706164926 - Control 3003898253 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the URL with the data requested from.</source>
@@ -6020,6 +6650,12 @@
           <target state="translated">Anger datum och tidpunkt då transaktionen skapades.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Control DateAndTime - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3706164926 - Control 776652157 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the request preview.</source>
+          <target state="translated">Anger förhandsgranskning av begäran.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Control RequestPreview - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3726221007 - Control 1131619133 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The value of the attribute.</source>
@@ -6517,11 +7153,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Remaining Quantity - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4292255143 - Control 3450651614 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Variant Code field.</source>
+          <target state="translated">Anger värdet i fältet Variantkod.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Variant Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4292255143 - Control 3450651614 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variant Code</source>
+          <target state="translated">Variantkod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Variant Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4292255143 - Control 346344467 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Total Quantity field.</source>
           <target state="translated">Anger värdet i fältet Totalt antal.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Total Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4292255143 - Control 568743302 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Item No. field.</source>
+          <target state="translated">Anger värdet i fältet Artikelnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Item No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4292255143 - Control 568743302 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <target state="translated">Artikelnr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Item No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4292255143 - Control 822707320 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Product Id field.</source>
@@ -6674,8 +7334,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control SalesInvoiceNo - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 1778072510 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specified if the Shopify order is archived by D365BC.</source>
-          <target state="translated">Anges om Shopify-ordern arkiveras av D365BC.</target>
+          <source>Specifies if the Shopify order is archived by D365BC.</source>
+          <target state="translated">Anger om Shopify-ordern arkiveras av D365BC.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control Closed - Property ToolTip</note>
         </trans-unit>
@@ -6756,6 +7416,12 @@
           <target state="translated">Anger datum och tidpunkt då ordern senast ändrades.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control UpdatedAt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 437915150 - Control 2487006914 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status or returns assocuated with the order. Valid values are: inspection complete, in progress, no return, returned, return failed, return requested.</source>
+          <target state="translated">Anger statusen eller returer som associeras med ordern. Giltiga värden är inspektionen är klar, pågår, ingen retur, returnerat, returen misslyckades, retur begärd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control ReturnStatus - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 2506717839 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the risk level from the Shopify order.</source>
@@ -6942,6 +7608,12 @@
           <target state="translated">Adress</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control BillToAddress - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 437915150 - Control 3847126513 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Line Attributes</source>
+          <target state="translated">Orderradattribut</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control OrderLineAttributes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 3853348574 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the city, town, or village of the buy address.</source>
@@ -7351,6 +8023,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Orders - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 864923901 - Control 2001565445 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique identifier for the order that appears on the order page in the Shopify admin and the order status page. For example, "#1001", "EN1001", or "1001-A".</source>
+          <target state="translated">Anger den unika identifieraren för ordern som visas på ordersidan i Shopify-administrationen och på sidan för orderstatus. Till exempel "#1001", "EN1001" eller "1001-A".</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Orders - Control Shopify Order No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 864923901 - Control 2716979219 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shop Id field.</source>
           <target state="translated">Anger värdet i fältet Butiks-ID.</target>
@@ -7494,6 +8172,24 @@
           <target state="translated">Anger bruttobeloppet för transaktionen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Payment Transactions - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - NamedType 241708881" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Completed</source>
+          <target state="translated">Slutfört</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - NamedType CompletedLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - NamedType 3941846598" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <target state="translated">Fel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - NamedType ErrorLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - NamedType 684246044" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In Progress</source>
+          <target state="translated">Pågår</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - NamedType InProgressLbl</note>
         </trans-unit>
         <trans-unit id="Page 2760837339 - NamedType 3764383116" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create sales document(s) from the selected Shopify order(s)?</source>
@@ -7664,8 +8360,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Inventory FactBox - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1167635784 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fulfillment Order Card</source>
-          <target state="translated">Kort för uppfyllelseorder</target>
+          <source>Shopify Fulfillment Order</source>
+          <target state="translated">Shopify-uppfyllelseorder</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Card - Property Caption</note>
         </trans-unit>
@@ -7674,6 +8370,12 @@
           <target state="translated">Lista för dataöverföring i Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Data Capture List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1285600670 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Bulk Operations</source>
+          <target state="translated">Massåtgärd för Shopify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1397901430 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Linked Documents</source>
@@ -7718,8 +8420,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shops - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 1826476775 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Returns</source>
-          <target state="translated">Returer</target>
+          <source>Shopify Returns</source>
+          <target state="translated">Shopify-returer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Returns - Property Caption</note>
         </trans-unit>
@@ -7813,6 +8515,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Risks - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2325977404 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Fulfillment,Inspect</source>
+          <target state="translated">Ny,Process,Rapport,Uppfyllelse,Inspektera</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Property PromotedActionCategories</note>
+        </trans-unit>
+        <trans-unit id="Page 2325977404 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Fulfillment</source>
+          <target state="translated">Shopify-uppfyllelse</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 234408897 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Activities</source>
           <target state="translated">Shopify – Aktiviteter</target>
@@ -7826,8 +8540,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 2596605181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Shopify Order Fulfillments</source>
-          <target state="translated">Shopify-orderuppfyllelse</target>
+          <source>Shopify Fulfillments</source>
+          <target state="translated">Shopify-uppfyllelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Property Caption</note>
         </trans-unit>
@@ -7963,6 +8677,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Return Lines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3602831783 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Fulfillment Lines</source>
+          <target state="translated">Shopify-uppfyllelserader</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillment Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3627292940 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Order Line Attributes</source>
+          <target state="translated">Attribut för Shopify-orderrader</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Lines Attributes - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3706164926 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Log Entries</source>
           <target state="translated">Ny,Process,Rapport,Loggposter</target>
@@ -8012,8 +8738,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Selection - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4292255143 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fulfillment Order Lines</source>
-          <target state="translated">Rader för uppfyllelseorder</target>
+          <source>Shopify Fulfillment Order Lines</source>
+          <target state="translated">Uppfyllelseorderrader för Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Property Caption</note>
         </trans-unit>
@@ -8604,6 +9330,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1394997847 - Control 842844957 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Shopify Fulfillment ID.</source>
+          <target state="translated">Anger uppfyllelse-ID för Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 950053399</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1394997847 - Control 842844957 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Fulfillment Id</source>
+          <target state="translated">ID för Shopify-uppfyllelse</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 950053399</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1650470242 - Control 3700847453 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify</source>
           <target state="translated">Anger ordernumret från Shopify</target>
@@ -8646,6 +9386,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3332899200</note>
         </trans-unit>
+        <trans-unit id="PageExtension 260992916 - Control 3700847453 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the order number from Shopify</source>
+          <target state="translated">Anger ordernumret från Shopify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1948356160</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2901290268 - Control 3700847453 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify</source>
           <target state="translated">Anger ordernumret från Shopify</target>
@@ -8666,6 +9413,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3689007477</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3333615165 - Control 3700847453 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the order number from Shopify</source>
+          <target state="translated">Anger ordernumret från Shopify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1708100201</note>
         </trans-unit>
         <trans-unit id="PageExtension 647634336 - Control 3700847453 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify</source>
@@ -8742,6 +9496,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1379883806</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1394997847 - NamedType 382238845" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allowed values are 0 or -1</source>
+          <target state="translated">Tillåtna värden är 0 eller -1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1394997847</note>
         </trans-unit>
         <trans-unit id="PageExtension 1990282831 - NamedType 3394330590" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The item was added successfully. Do you want to view the new product in Shopify?</source>
@@ -9417,6 +10178,54 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Tax Area - Field Tax Liable - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1469669043 - Field 1540107796 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Completed At</source>
+          <target state="translated">Slutfört kl.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Field Completed At - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1469669043 - Field 1669136979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shop Code</source>
+          <target state="translated">Butikskod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Field Shop Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1469669043 - Field 1878130204 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <target state="translated">Typ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1469669043 - Field 1878130204 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>mutation,query</source>
+          <target state="translated">förändring,fråga</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Field Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 1469669043 - Field 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Namn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1469669043 - Field 3676003639 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error Code</source>
+          <target state="translated">Felkod</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Field Error Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1469669043 - Field 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1469669043 - Field 937700988 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bulk Operation Id</source>
+          <target state="translated">ID för massåtgärd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Field Bulk Operation Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1487806969 - Field 1452317374 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unprocessed Shipments</source>
           <target state="translated">Obearbetade utleveranser</target>
@@ -9458,6 +10267,30 @@
           <target state="translated">Omappade produkter</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Cue - Field Unmapped Products - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1712054676 - Field 1131619133 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value</source>
+          <target state="translated">Värde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Line Attribute - Field Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1712054676 - Field 1601172983 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Id</source>
+          <target state="translated">Rad-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Line Attribute - Field Order Line Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1712054676 - Field 2070199485 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Id</source>
+          <target state="translated">Order-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Line Attribute - Field Order Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1712054676 - Field 3348941625 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Key</source>
+          <target state="translated">Nyckel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Line Attribute - Field Key - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1724558899 - Field 1225278069 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Customer No.</source>
@@ -10707,6 +11540,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Name 2 Source - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2860632388 - Field 1475629819 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Created Webhook User Id</source>
+          <target state="translated">Order skapad, ID för webhook-användare</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Order Created Webhook User Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2860632388 - Field 1477330826 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sync Item Images</source>
           <target state="translated">Synkronisera artikelbilder</target>
@@ -10839,6 +11678,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Shipping Charges Account - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2860632388 - Field 2528278108 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Created Webhook Id</source>
+          <target state="translated">Order skapad, webhook-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Order Created Webhook Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2860632388 - Field 2529203789 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Auto Release Sales Orders</source>
           <target state="translated">Frisläpp försäljningsorder automatiskt</target>
@@ -10875,6 +11720,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Customer Price Group - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2860632388 - Field 2865560045 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bulk Operation Webhook Id</source>
+          <target state="translated">Webbhook-ID för massåtgärd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Bulk Operation Webhook Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2860632388 - Field 2891538263 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Enabled</source>
           <target state="translated">Aktiv</target>
@@ -10886,6 +11737,12 @@
           <target state="translated">Shopify kan uppdatera artiklar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Shopify Can Update Items - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2860632388 - Field 2992328790 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bulk Operation Webhook User Id</source>
+          <target state="translated">Webhook-användar-ID för massåtgärd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Bulk Operation Webhook User Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2860632388 - Field 3004954119 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
@@ -10930,8 +11787,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Sync Item Extended Text - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2860632388 - Field 3382674177 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Action for Removed Products</source>
-          <target state="translated">Åtgärd för borttagna produkter</target>
+          <source>Action for Removed Products and Blocked Items</source>
+          <target state="translated">Åtgärd för borttagna produkter och spärrade artiklar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Action for Removed Products - Property Caption</note>
         </trans-unit>
@@ -10946,6 +11803,12 @@
           <target state="translated">Senaste exportversion för produkt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Product Last Export Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2860632388 - Field 3604362843 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sync Prices with Products</source>
+          <target state="translated">Synkronisera priser med produkter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Sync Prices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2860632388 - Field 3608687262 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Name Source</source>
@@ -10976,6 +11839,12 @@
           <target state="translated">Kundbokföringsmall</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Customer Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2860632388 - Field 4112833316 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logging Mode</source>
+          <target state="translated">Loggningsläge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field Logging Mode - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2860632388 - Field 4137952506 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Product Last Import Version</source>
@@ -11109,11 +11978,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field User ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2931149216 - Field 2879750595 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Response Preview</source>
+          <target state="translated">Förhandsgranskning av svar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Response Preview - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2931149216 - Field 2915771342 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Has Error</source>
+          <target state="translated">Innehåller fel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Has Error - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2931149216 - Field 2928927360 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Id</source>
+          <target state="translated">Begärande-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Request Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2931149216 - Field 3003898253 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>URL</source>
           <target state="translated">URL</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2931149216 - Field 3210290851 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Query Cost</source>
+          <target state="translated">Frågans kostnad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Query Cost - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2931149216 - Field 3351914939 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request</source>
@@ -11121,11 +12014,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Request - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2931149216 - Field 3577092237 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Retry Count</source>
+          <target state="translated">Antal nya försök</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Retry Count - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2931149216 - Field 4132733409 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Method</source>
           <target state="translated">Metod</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Method - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2931149216 - Field 570913341 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Preview</source>
+          <target state="translated">Förhandsgranskning av begäran</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Request Preview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2931149216 - Field 883711285 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
@@ -11859,11 +12764,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Field Shopify Fulfillment Order Id - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4104547265 - Field 2001565445 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Order No.</source>
+          <target state="translated">Shopify-ordernr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Field Shopify Order No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4104547265 - Field 2716979219 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shop Id</source>
           <target state="translated">Butiks-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Field Shop Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4104547265 - Field 4268781252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Updated At</source>
+          <target state="translated">Uppdaterad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Field Updated At - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4104547265 - Field 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
@@ -12609,6 +13526,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Header - Field Test - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 75584159 - Field 3795285978 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Return Status</source>
+          <target state="translated">Returstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Header - Field Return Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 75584159 - Field 3855271124 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Method Code</source>
           <target state="translated">Kod för betalningssätt</target>
@@ -13029,11 +13952,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Tax Area - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1469669043 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Bulk Operation</source>
+          <target state="translated">Shopify-massåtgärd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Bulk Operation - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1487806969 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Cue</source>
           <target state="translated">Stack-ikon för Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Cue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1712054676 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Order Attributes</source>
+          <target state="translated">Attribut för Shopify-order</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Line Attribute - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1724558899 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Return Header</source>

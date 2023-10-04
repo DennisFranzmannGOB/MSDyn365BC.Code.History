@@ -1429,6 +1429,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Swiss QR-Bill Manual Print - Control CreditorIBAN - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4176324925 - Control 3579609357 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the region format for printing QR-bill.</source>
+          <target state="translated">Specifica il formato area geografica per la stampa della fattura QR.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Swiss QR-Bill Manual Print - Control FormatRegion - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 4176324925 - Control 3609552578 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Alternate Procedure 1</source>
           <target state="translated">Procedura alternativa 1</target>
@@ -2790,6 +2796,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Buffer - Field Creditor Country - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3123205156 - Field 2002724477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <target state="translated">Area geografica formato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Buffer - Field Format Region - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3123205156 - Field 2040024118 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Building Number Or Address Line 2</source>
           <target state="translated">Numero civico o riga indirizzo 2</target>
@@ -3065,12 +3077,6 @@
           <target state="translated">Modalità di codifica dei caratteri con umlaut tedeschi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Setup - Field Umlaut Chars Encode Mode - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 726691145 - Field 1798299531 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Swiss-Cross Image</source>
-          <target state="translated">Immagine croce svizzera</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Setup - Field Swiss-Cross Image - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 726691145 - Field 2179895180 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>SEPA Direct Debit</source>

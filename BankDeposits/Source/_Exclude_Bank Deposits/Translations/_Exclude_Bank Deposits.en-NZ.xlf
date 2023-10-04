@@ -39,29 +39,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Setup Bank Deposit Reports - NamedType BankDepositNoSeriesDescriptionTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2857945177 - NamedType 640825212" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must either post or delete all bank deposits and bank account reconciliations in company "%1 - %2" before disabling Bank Deposits feature.</source>
-          <target state="translated">You must either post or delete all bank deposits and bank account reconciliations in company "%1 - %2" before disabling Bank Deposits feature.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Company's name, %2 - Company's display name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit Subscribers - NamedType EnableFeatureErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2924804493 - NamedType 3136069924" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to post the bank deposit?</source>
           <target state="translated">Do you want to post the bank deposit?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post (Yes/No</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3514750067 - NamedType 1427565258" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Feature: Use standardized bank deposits.</source>
-          <target state="translated">Feature: Use standardised bank deposits.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Feature Bank Deposits - NamedType DescriptionTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3514750067 - NamedType 33623699" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This page cannot be used because the Bank Deposits feature is not switched on.</source>
-          <target state="translated">This page cannot be used because the Bank Deposits feature is not switched on.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Feature Bank Deposits - NamedType FeatureDisabledErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3539949115 - NamedType 3246919479" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank deposit report has not been set up.</source>
@@ -846,6 +828,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposits - Control Shortcut Dimension 1 Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2880731335 - Control 2002724477 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the bank account's region format from the Bank Account table.</source>
+          <target state="translated">Specifies the bank account's region format from the Bank Account table.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposits - Control Format Region - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2880731335 - Control 2273653569 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the bank account's language code from the Bank Account table.</source>
           <target state="translated">Specifies the bank account's language code from the Bank Account table.</target>
@@ -1302,12 +1290,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Bank Deposit - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1890430176 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Line,Functions</source>
-          <target state="translated">New,Process,Report,Line,Functions</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit Subform - Property PromotedActionCategories</note>
-        </trans-unit>
         <trans-unit id="Page 1890430176 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lines</source>
           <target state="translated">Lines</target>
@@ -1343,12 +1325,6 @@
           <target state="translated">Bank Account Comment List</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Comment List - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3865959199 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Line,Functions</source>
-          <target state="translated">New,Process,Report,Line,Functions</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Bank Deposit Subform - Property PromotedActionCategories</note>
         </trans-unit>
         <trans-unit id="Page 3865959199 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Bank Deposit Subform</source>
@@ -2099,6 +2075,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - Field Reason Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 26680403 - Field 2002724477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <target state="translated">Format Region</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - Field Format Region - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 26680403 - Field 2273653569 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language Code</source>
           <target state="translated">Language Code</target>
@@ -2278,6 +2260,12 @@
           <target state="translated">Reason Code</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Posted Bank Deposit Header - Field Reason Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4207681100 - Field 2002724477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <target state="translated">Format Region</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Bank Deposit Header - Field Format Region - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4207681100 - Field 2273653569 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language Code</source>

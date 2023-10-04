@@ -51,6 +51,66 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - Send Sales Document - NamedType ThereIsNothingToSellQuoteErr</note>
         </trans-unit>
+        <trans-unit id="Page 1982093874 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>APIV2 - Accounting Periods</source>
+          <target state="translated">APIV2  – Buchhaltungsperioden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accounting Period</source>
+          <target state="translated">Buchhaltungsperiode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accounting Periods</source>
+          <target state="translated">Buchhaltungsperioden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Control 245570718 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closed</source>
+          <target state="translated">Abgeschlossen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Control closed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Control 3315742746 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Locked</source>
+          <target state="translated">Datum gesperrt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Control dateLocked - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Control 3558812865 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Control name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Control 1563494139 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Fiscal Year</source>
+          <target state="translated">Neues Geschäftsjahr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Control newFiscalYear - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1982093874 - Control 1751904704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Startdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounting Periods - Control startingDate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3262323309 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Accounts</source>
           <target state="translated">APIV2 – Konten</target>
@@ -86,6 +146,24 @@
           <target state="translated">Kategorie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounts - Control category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3262323309 - Control 2375073266 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consolidation Credit Account</source>
+          <target state="translated">Konsolidierungshabenkonto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounts - Control consolidationCreditAccount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3262323309 - Control 2916783071 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consolidation Debit Account</source>
+          <target state="translated">Konsolidierungssollkonto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounts - Control consolidationDebitAccount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3262323309 - Control 2498190130 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consolidation Translation Method</source>
+          <target state="translated">Konsolidierungsumrechnungsmethode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounts - Control consolidationTranslationMethod - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3262323309 - Control 1862527191 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Direct Posting</source>
@@ -362,6 +440,12 @@
           <target state="translated">ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Apply Vendor Entries - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2708256709 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Apply Vendor Entries - Control lastModifiedDateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2708256709 - Control 1260828904 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date</source>
@@ -1539,17 +1623,71 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Property EntitySetCaption</note>
         </trans-unit>
+        <trans-unit id="Page 3095745287 - NamedType 1805429782" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The "currencyCode" does not match to a Currency.</source>
+          <target state="translated">„currencyCode“ stimmt nicht mit einer Währung überein.</target>
+          <note from="Developer" annotates="general" priority="2">currencyCode is a field name and should not be translated.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - NamedType CurrencyCodeDoesNotMatchACurrencyErr</note>
+        </trans-unit>
+        <trans-unit id="Page 3095745287 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The "currencyId" does not match to a Currency.</source>
+          <target state="translated">„currencyId“ stimmt nicht mit einer Währung überein.</target>
+          <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
+        </trans-unit>
+        <trans-unit id="Page 3095745287 - NamedType 2624287652" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The currency values do not match to a specific Currency.</source>
+          <target state="translated">Die Währungswerte stimmen nicht mit einer bestimmten Währung überein.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - NamedType CurrencyValuesDontMatchErr</note>
+        </trans-unit>
+        <trans-unit id="Page 3095745287 - Control 2041787016 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account Number</source>
+          <target state="translated">Bankkontonummer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control bankAccountNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3095745287 - Control 4247538596 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blocked</source>
+          <target state="translated">Gesperrt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control blocked - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3095745287 - Control 1808640270 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <target state="translated">Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control currencyCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3095745287 - Control 416025006 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Id</source>
+          <target state="translated">Währungskennung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control currencyId - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3095745287 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Display Name</source>
           <target state="translated">Anzeigename</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control displayName - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3095745287 - Control 2214516256 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IBAN</source>
+          <target state="translated">IBAN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control iban - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3095745287 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Id</source>
           <target state="translated">ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3095745287 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control lastModifiedDateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3095745287 - Control 2757394829 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
@@ -2115,6 +2253,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Cust Financial Details - Control id - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1301862717 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Cust Financial Details - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1301862717 - Control 2757394829 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <target state="translated">Nr.</target>
@@ -2228,6 +2372,12 @@
           <target state="translated">ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Cust. Return Reasons - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2390402837 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Cust. Return Reasons - Control lastModifiedDateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2757592336 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Customer Payments</source>
@@ -2715,6 +2865,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Default Dimensions - Control id - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1039810403 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Default Dimensions - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1039810403 - Control 2178989011 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parent Id</source>
           <target state="translated">Übergeordnete ID</target>
@@ -2841,6 +2997,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dimension Set Lines - Control code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2523640698 - Control 434177305 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consolidation Code</source>
+          <target state="translated">Konsolidierungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dimension Set Lines - Control consolidationCode - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2523640698 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Display Name</source>
           <target state="translated">Anzeigename</target>
@@ -2870,6 +3032,12 @@
           <target state="translated">Wertcode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dimension Set Lines - Control valueCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2523640698 - Control 421823752 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension Value Consolidation Code</source>
+          <target state="translated">Dimensionswert-Konsolidierungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dimension Set Lines - Control valueConsolidationCode - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2523640698 - Control 1189903266 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Value Display Name</source>
@@ -2906,6 +3074,12 @@
           <target state="translated">Code</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dimensions - Control code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3816473662 - Control 434177305 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consolidation Code</source>
+          <target state="translated">Konsolidierungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dimensions - Control consolidationCode - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3816473662 - Control 3627332572 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension Values</source>
@@ -3225,6 +3399,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Entries - Control accountNumber - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2974691313 - Control 2572286329 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional Currency Credit Amount</source>
+          <target state="translated">Zusätzlicher Währungs-Habenbetrag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Entries - Control additionalCurrencyCreditAmount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2974691313 - Control 1204293792 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional Currency Debit Amount</source>
+          <target state="translated">Zusätzlicher Währungs-Sollbetrag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Entries - Control additionalCurrencyDebitAmount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2974691313 - Control 8604086 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments</source>
           <target state="translated">Anhänge</target>
@@ -3291,6 +3477,72 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Entries - Control postingDate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2010091846 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>APIV2 - G/L Setup</source>
+          <target state="translated">APIV2 – Finanzbuchhaltungseinrichtung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General Ledger Setup</source>
+          <target state="translated">Finanzbuchhaltung Einrichtung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General Ledger Setup</source>
+          <target state="translated">Finanzbuchhaltung Einrichtung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Control 3373486276 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional Reporting Currency</source>
+          <target state="translated">Berichtswährung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Control additionalReportingCurrency - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Control 2463392873 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Posting From</source>
+          <target state="translated">Buchungen zugel. ab</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Control allowPostingFrom - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Control 2183341670 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Posting To</source>
+          <target state="translated">Buchungen zugel. bis</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Control allowPostingTo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Control 2691638497 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Query From Consolidation</source>
+          <target state="translated">Abfrage aus Konsolidierung zulassen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Control allowQueryFromConsolidation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Control 2528260897 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Local Currency Code</source>
+          <target state="translated">Lokaler Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Control localCurrencyCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2010091846 - Control 219189840 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Local Currency Symbol</source>
+          <target state="translated">Symbol der Landeswährung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - G/L Setup - Control localCurrencySymbol - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2439990863 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Gen. Prod. Post. Group</source>
           <target state="translated">APIV2-Produktbuchungsgruppe</target>
@@ -3338,6 +3590,12 @@
           <target state="translated">ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Gen. Prod. Post. Group - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2439990863 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Gen. Prod. Post. Group - Control lastModifiedDateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3591290529 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Income Statement</source>
@@ -3434,6 +3692,12 @@
           <target state="translated">ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Inventory Post. Group - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2465020886 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Inventory Post. Group - Control lastModifiedDateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3336580910 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Item Categories</source>
@@ -3644,6 +3908,12 @@
           <target state="translated">Artikelnr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Item Variants - Control itemNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 835543452 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Item Variants - Control lastModifiedDateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1180930185 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Items</source>
@@ -3909,23 +4179,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Jobs - Property EntitySetCaption</note>
         </trans-unit>
-        <trans-unit id="Page 3345245471 - Control 750067815 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Attachments</source>
-          <target state="translated">Beleganhänge</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Jobs - Control documentAttachments - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3345245471 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Display Name</source>
           <target state="translated">Anzeigename</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Jobs - Control displayName - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3345245471 - Control 750067815 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Attachments</source>
+          <target state="translated">Beleganhänge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Jobs - Control documentAttachments - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3345245471 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Id</source>
           <target state="translated">ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Jobs - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3345245471 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Jobs - Control lastModifiedDateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3345245471 - Control 2757394829 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
@@ -4262,6 +4538,12 @@
           <target state="translated">ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Locations - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2676188065 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Locations - Control lastModifiedDateTime - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2676188065 - Control 1842080825 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
@@ -10468,7 +10750,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Time Registr. Entries - Control jobTaskNumber - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4020415616 - Control 2514613749 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Last Modfied Date Time</source>
+          <source>Last Modified Date Time</source>
           <target state="translated">Datum/Uhrzeit der letzten Änderung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Time Registr. Entries - Control lastModfiedDateTime - Property Caption</note>
@@ -11097,6 +11379,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 Dimension Values Entity - Control code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3293418697 - Control 434177305 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consolidation Code</source>
+          <target state="translated">Konsolidierungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 Dimension Values Entity - Control consolidationCode - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3293418697 - Control 1742984367 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension Id</source>
           <target state="translated">Dimensions-ID</target>
@@ -11120,6 +11408,66 @@
           <target state="translated">Datum der letzten Änderung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 Dimension Values Entity - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>APIV2- Currency Exchange Rates</source>
+          <target state="translated">APIV2- Währungswechselkurse</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Exchange Rate</source>
+          <target state="translated">Währungswechselkurs</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Exchange Rates</source>
+          <target state="translated">Währungswechselkurse</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Control 1808640270 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <target state="translated">Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Control currencyCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Control 4065075415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exchange Rate Amount</source>
+          <target state="translated">Wechselkursbetrag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Control exchangeRateAmount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Datum der letzten Änderung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Control 4090207227 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Relational Currency Code</source>
+          <target state="translated">Bezug auf Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Control relationalCurrencyCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Control 3544747898 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Relational Exchange Rate Amount</source>
+          <target state="translated">Bezug auf Wechselkursbetrag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Control relationalExchangeRateAmount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3086483848 - Control 1751904704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Startdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2- Currency Exchange Rates - Control startingDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 1376762199 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Customer Sales</source>

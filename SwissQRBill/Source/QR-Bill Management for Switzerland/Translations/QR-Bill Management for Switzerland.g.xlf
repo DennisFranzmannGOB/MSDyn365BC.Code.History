@@ -3,6 +3,26 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="QR-Bill Management for Switzerland">
     <body>
       <group id="body">
+        <trans-unit id="TableExtension 2311869697 - Field 2250177960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>QR-IBAN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Bank Account - Field Swiss QR-Bill IBAN - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1996465967 - NamedType 1249939377" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1996465967">
+          <source>Do you want to copy Bal. Acount No. to the QR-Bill Bank Account No.?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Payment Method - NamedType ChangeQRBillBankAccountQst</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1996465967 - Field 2472119308 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
+          <source>QR-Bill Bank Account No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Payment Method - Field Swiss QR-Bill Bank Account No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1996465967 - Field 3265151286 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
+          <source>QR-Bill Layout</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Payment Method - Field Swiss QR-Bill Layout - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1758404270 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Swiss QR-Bill Billing Detail</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -172,6 +192,11 @@
           <source>QR-Bill PDF File Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Buffer - Field File Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3123205156 - Field 2002724477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Buffer - Field Format Region - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3123205156 - Field 1176583840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>IBAN</source>
@@ -407,11 +432,6 @@
           <source>SEPA Direct Debit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Setup - Field SEPA DD Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 726691145 - Field 1798299531 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Swiss-Cross Image</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Swiss QR-Bill Setup - Field Swiss-Cross Image - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 726691145 - Field 1784136230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>German Umlaut Chars Encoding Mode</source>
@@ -1197,6 +1217,11 @@
           <source>Specifies the QR-bill PDF file name.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Swiss QR-Bill Manual Print - Control FileName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4176324925 - Control 3579609357 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the region format for printing QR-bill.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Swiss QR-Bill Manual Print - Control FormatRegion - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4176324925 - Control 1859002777 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the language code for printing QR-bill captions.</source>
@@ -2423,151 +2448,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Swiss QR-Bill Vend.BankAccCard - Change IBAN - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2311869697 - Field 2250177960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
-          <source>QR-IBAN</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Bank Account - Field Swiss QR-Bill IBAN - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1249849977 - Field 2250177960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>QR-IBAN</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Company Info. - Field Swiss QR-Bill IBAN - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1265889221 - Field 2552919364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
-          <source>Swiss QR-Bill</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Gen Journal Line - Field Swiss QR-Bill - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 2552919364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>QR-Bill</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 3902819991 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Billing Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Bill Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 2845829568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Address Line 1</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor Address1 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 3483526185 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Address Line 2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor Address2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 2400799904 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>City</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor City - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 1926354757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Country</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor Country - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 4022542608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 809054810 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Postal Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor PostCode - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 1537549400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Payment Reference</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Reference No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 3416385933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Payment Reference Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Reference Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 3768444469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Unstructured Message</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Unstr. Message - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 3420249797 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Address Line 1</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor Address 1 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 2782553180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Address Line 2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor Address 2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 3410263725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>City</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor City - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 2252514384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Country</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor Country - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2051230818 - Field 275975563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
-          <source>Postal Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor Post Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1996465967 - NamedType 1249939377" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1996465967">
-          <source>Do you want to copy Bal. Acount No. to the QR-Bill Bank Account No.?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Payment Method - NamedType ChangeQRBillBankAccountQst</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1996465967 - Field 2472119308 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
-          <source>QR-Bill Bank Account No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Payment Method - Field Swiss QR-Bill Bank Account No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1996465967 - Field 3265151286 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
-          <source>QR-Bill Layout</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Payment Method - Field Swiss QR-Bill Layout - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3775621024 - Field 2552919364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
-          <source>Swiss QR-Bill</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3775621024 - Field 771988656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
-          <source>Amount</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3775621024 - Field 3902819991 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
-          <source>Billing Information</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Bill Info - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3775621024 - Field 2332928569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
-          <source>Currency</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Currency - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3775621024 - Field 814672312 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
-          <source>QR-Bill Has Zero Amount</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Has Zero Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3775621024 - Field 2250177960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
-          <source>IBAN/QR-IBAN</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill IBAN - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3775621024 - Field 3768444469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
-          <source>Unstructured Message</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Unstr. Message - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 2834304906 - EnumValue 3063367911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Combined</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2687,6 +2567,131 @@
           <source>Western European ISO-8859-1</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Swiss QR-Bill Umlaut Encoding - EnumValue Western European ISO-8859-1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 2552919364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>QR-Bill</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 3902819991 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Billing Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Bill Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 2845829568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Address Line 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor Address1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 3483526185 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Address Line 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor Address2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 2400799904 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 1926354757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Country</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor Country - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 4022542608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 809054810 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Postal Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Debitor PostCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 1537549400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Payment Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Reference No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 3416385933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Payment Reference Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Reference Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 3768444469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Unstructured Message</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Unstr. Message - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 3420249797 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Address Line 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor Address 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 2782553180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Address Line 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor Address 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 3410263725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 2252514384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Country</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor Country - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2051230818 - Field 275975563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 956135699">
+          <source>Postal Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Incoming Doc - Field Swiss QR-Bill Vendor Post Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1265889221 - Field 2552919364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Swiss QR-Bill</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Gen Journal Line - Field Swiss QR-Bill - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1249849977 - Field 2250177960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>QR-IBAN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Company Info. - Field Swiss QR-Bill IBAN - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3775621024 - Field 2552919364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Swiss QR-Bill</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3775621024 - Field 771988656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3775621024 - Field 3902819991 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Billing Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Bill Info - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3775621024 - Field 2332928569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Currency - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3775621024 - Field 814672312 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>QR-Bill Has Zero Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Has Zero Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3775621024 - Field 2250177960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>IBAN/QR-IBAN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill IBAN - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3775621024 - Field 3768444469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Unstructured Message</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Swiss QR-Bill Purchase Header - Field Swiss QR-Bill Unstr. Message - Property Caption</note>
         </trans-unit>
       </group>
     </body>
