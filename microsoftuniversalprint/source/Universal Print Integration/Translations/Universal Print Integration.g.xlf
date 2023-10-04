@@ -193,11 +193,6 @@
           <note from="Developer" annotates="general" priority="2">%1: a number.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NumberOfPrintersAddedTemplateTxt</note>
         </trans-unit>
-        <trans-unit id="Page 669761542 - NamedType 757360088" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more about how the data is handled.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType PrivacyLbl</note>
-        </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 2182510485" size-unit="char" translate="yes" xml:space="preserve">
           <source>Learn more about our Privacy Statement.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -318,11 +313,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.1 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 669761542 - Control 1012396828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control EmptySpace1 - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 669761542 - Control 128523262 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Universal Print is a Microsoft 365 subscription-based cloud printing solution. This setup helps you to add your registered cloud printers from Universal Print into Business Central.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -332,16 +322,6 @@
           <source>Note that a Universal Print subscription is required and Universal Print needs to be available in your region.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.1.2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - Control 3142569618 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens a privacy help article.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Privacy - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - Control 3142569618 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Click here to understand how the data is handled.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Privacy - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 4068484546 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose Next to get started.</source>

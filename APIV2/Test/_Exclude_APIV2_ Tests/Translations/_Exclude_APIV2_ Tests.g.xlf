@@ -398,6 +398,11 @@
           <note from="Developer" annotates="general" priority="2">%1=Property name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - Employees E2E - NamedType WrongPropertyValueErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3371121796 - NamedType 866661614" size-unit="char" translate="yes" xml:space="preserve">
+          <source>generalLedgerSetup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit APIV2 - G/L Setup E2E - NamedType ServiceNameTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2249702235 - NamedType 866661614" size-unit="char" translate="yes" xml:space="preserve">
           <source>generalProductPostingGroups</source>
           <note from="Developer" annotates="general" priority="2"></note>

@@ -152,6 +152,12 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1770625610</note>
         </trans-unit>
+        <trans-unit id="PermissionSet 1926055460 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EU3PartyTrade - Objects</source>
+          <target state="translated">EU3PartyTrade - Objects</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet EU3PartyTrade - Objects - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1072025877 - Field 4064467861 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>EU 3-Party Trade Filter</source>
           <target state="translated">EU 3-Party Trade Filter</target>

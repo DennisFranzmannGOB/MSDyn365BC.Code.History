@@ -167,7 +167,7 @@
         </trans-unit>
         <trans-unit id="Page 521072269 - Control 2951585809 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the context record.</source>
-          <target state="translated">Angiver sammenhængsrecorden.</target>
+          <target state="translated">Angiver kontekstrecorden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Error Messages Card Part - Control Context - Property ToolTip</note>
         </trans-unit>
@@ -336,14 +336,14 @@
         </trans-unit>
         <trans-unit id="TableExtension 2864634720 - Field 3093145114 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sub-Context Record ID</source>
-          <target state="translated">Record-id for undersammenhæng</target>
+          <target state="translated">Sub-Context-record-id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2852966117</note>
         </trans-unit>
         <trans-unit id="TableExtension 2864634720 - Field 3170822905 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sub-Context Field Number</source>
-          <target state="translated">Feltnummer for undersammenhæng</target>
+          <target state="translated">Sub-Context feltnummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2852966117</note>
