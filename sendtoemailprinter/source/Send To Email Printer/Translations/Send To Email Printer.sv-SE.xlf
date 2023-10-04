@@ -94,18 +94,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control PaperWidth - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 184311439 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Open SMTP mail setup page.</source>
-          <target state="translated">Öppna sidan SMTP-postinställningar.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SetupSMTP - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 184311439 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up SMTP</source>
-          <target state="translated">Konfigurera SMTP</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SetupSMTP - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3508446305 - Control 2259985461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the paper is in Landscape orientation.</source>
           <target state="translated">Anger om papperet skrivs ut i liggande format.</target>
@@ -135,18 +123,6 @@
           <target state="translated">För att den här skrivaren ska fungera måste en användare med respektive behörighet konfigurera ett e-postkonto i Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control EmailAccountPermissionsRequired - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 2665397048 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the requirement for the printer.</source>
-          <target state="translated">Anger kraven för skrivaren.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SMTPSetupRequired - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 2665397048 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This printer requires SMTP mail setup to print the jobs.</source>
-          <target state="translated">För den här skrivaren måste du ange SMTP-postinställningar om du vill skriva ut projekten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SMTPSetupRequired - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3508446305 - Control 2814033574 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email address of the printer.</source>
@@ -238,12 +214,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control EmailAccountRequired - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3508446305 - NamedType 1555763889" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up SMTP</source>
-          <target state="translated">Konfigurera SMTP</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType SetupSMTPLbl</note>
-        </trans-unit>
         <trans-unit id="Page 3508446305 - NamedType 2257926908" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set up email account</source>
           <target state="translated">Konfigurera e-postkonto</target>
@@ -267,12 +237,6 @@
           <target state="translated">För att den här skrivaren ska fungera måste en användare med respektive behörighet konfigurera ett e-postkonto i Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType EmailAccountPermissionsRequiredLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - NamedType 3212133970" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This printer requires SMTP mail setup to print the jobs.</source>
-          <target state="translated">För den här skrivaren måste du ange SMTP-postinställningar om du vill skriva ut projekten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType SMTPSetupRequiredLbl</note>
         </trans-unit>
         <trans-unit id="Page 3508446305 - NamedType 3399143437" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print jobs will be sent to the specified email address. Please take privacy precautions.</source>

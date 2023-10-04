@@ -407,7 +407,7 @@
         </trans-unit>
         <trans-unit id="Page 3524294527 - Control 3072753081 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the source for entries in the payment practice.</source>
-          <target state="translated">Specifies the source for entries in the payment practice.</target>
+          <target state="translated">Specifies the source for entries in the payment practise.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - Control Header Type - Property ToolTip</note>
         </trans-unit>
