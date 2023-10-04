@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="sv-SE" original="SE Core">
+    <body>
+      <group id="body">
+        <trans-unit id="ReportExtension 1425213955 - ReportLabel 1468660997" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Board of Directors Location (registered office)</source>
+          <target state="translated">Styrelsens säte (bolagsadress)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 448042849</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1425213955 - ReportLabel 2795446350" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company has Tax Assessment Note</source>
+          <target state="translated">Företaget har F-skattsedel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 448042849</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1425213955 - ReportLabel 1196058584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plus Giro No.</source>
+          <target state="translated">Plusgironr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 448042849</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2812855547 - NamedType 664955600" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Importing Company Sizes done. %1 matches found out of %2 total lines processed.</source>
+          <target state="translated">Företagsstorlekar har importerats. %1 matchningar hittades av totalt %2 bearbetade rader.</target>
+          <note from="Developer" annotates="general" priority="2">%1,%2 - number of lines.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Import Company Size Codes - NamedType ImportDoneMsg</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3792250489 - Action 3201496503 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Company Size Codes from the standard CSV file.</source>
+          <target state="translated">Importera företagsstorlekskoder från standard-CSV-filen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3336467451</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3792250489 - Action 3201496503 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Company Sizes file.</source>
+          <target state="translated">Importera fil för företagsstorlek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3336467451</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance Sheet - SE</source>
+          <target state="translated">Balansräkning – SE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - NamedType 1653612302" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="translated">Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - NamedType BalanceCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - NamedType 3283632364" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance brought forward</source>
+          <target state="translated">Ingående saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - NamedType Balance_brought_forwardCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - NamedType 2532042501" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance carried forward</source>
+          <target state="translated">Utgående saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - NamedType Balance_carried_forwardCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - NamedType 1648036126" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance sheet</source>
+          <target state="translated">Balansräkning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - NamedType Balance_sheetCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - NamedType 2763383773" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Namn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - NamedType NameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - NamedType 650077689" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="translated">Sida</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - NamedType PageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Alternativ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - Control 644882476 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether to include accounts without balances.</source>
+          <target state="translated">Anger om du vill ta med konton utan saldon.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - Control ShowAllAccounts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3644963817 - Control 644882476 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show all accounts</source>
+          <target state="translated">Visa alla konton</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Balance sheet - Control ShowAllAccounts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income Statement - SE</source>
+          <target state="translated">Resultaträkning – SE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 2563005660" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accumulated</source>
+          <target state="translated">Ackumulerat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType AccumulatedCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 1653612302" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="translated">Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType BalanceCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 1150316664" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="translated">Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType BalanceCaption_Control24Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 1906097019" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Budget</source>
+          <target state="translated">Budget</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType BudgetCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 3808813909" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Budget</source>
+          <target state="translated">Budget</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType BudgetCaption_Control28Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 533185967" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income statement</source>
+          <target state="translated">Resultaträkning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType Income_statementCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 2763383773" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Namn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType NameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 650077689" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="translated">Sida</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType PageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - NamedType 2716332507" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period</source>
+          <target state="translated">Period</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - NamedType PeriodCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Alternativ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - Control 644882476 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether to include accounts without balances.</source>
+          <target state="translated">Anger om du vill ta med konton utan saldon.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - Control ShowAllAccounts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2666907860 - Control 644882476 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show all accounts</source>
+          <target state="translated">Visa alla konton</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SE Income statement - Control ShowAllAccounts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3670324175 - Action 676708617 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View assets, liabilities, and equity on the balance sheet.</source>
+          <target state="translated">Visa tillgångar, skulder och eget kapital i balansräkningen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3670324175 - Action 676708617 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance Sheet - SE</source>
+          <target state="translated">Balansräkning – SE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3670324175 - Action 1180780276 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View a report that shows your company's income and expenses.</source>
+          <target state="translated">Visa en rapport som visar företagets intäkter och kostnader.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3670324175 - Action 1180780276 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income Statement - SE</source>
+          <target state="translated">Resultaträkning – SE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 176594429 - Action 676708617 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View assets, liabilities, and equity on the balance sheet.</source>
+          <target state="translated">Visa tillgångar, skulder och eget kapital i balansräkningen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1681328941</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 176594429 - Action 676708617 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance Sheet - SE</source>
+          <target state="translated">Balansräkning – SE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1681328941</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 176594429 - Action 1180780276 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View a report that shows your company's income and expenses.</source>
+          <target state="translated">Visa en rapport som visar företagets intäkter och kostnader.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1681328941</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 176594429 - Action 1180780276 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income Statement - SE</source>
+          <target state="translated">Resultaträkning – SE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1681328941</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3038009033 - Action 676708617 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View assets, liabilities, and equity on the balance sheet.</source>
+          <target state="translated">Visa tillgångar, skulder och eget kapital i balansräkningen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3038009033 - Action 676708617 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance Sheet - SE</source>
+          <target state="translated">Balansräkning – SE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3038009033 - Action 1180780276 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View a report that shows your company's income and expenses.</source>
+          <target state="translated">Visa en rapport som visar företagets intäkter och kostnader.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3038009033 - Action 1180780276 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income Statement - SE</source>
+          <target state="translated">Resultaträkning – SE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 828229267 - ReportLabel 588022376" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Sales of EU 3-Party Item Trade in the period</source>
+          <target state="translated">Total försäljning av EU trepartsartikelhandel under perioden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3904199006</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 828229267 - ReportLabel 1982688961" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Sales of Items in the period</source>
+          <target state="translated">Total försäljning av artiklar under perioden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3904199006</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 828229267 - ReportLabel 3792100681" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Sales of Services to EU in the period</source>
+          <target state="translated">Total försäljning av tjänster till EU under perioden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3904199006</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2116114951 - Control 1476518266 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the company's Registered Office.</source>
+          <target state="translated">Anger adressen till företagsstyrelsens säte.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3469146285</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2116114951 - Control 3345970854 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Plus Giro number used by the postal office for your Plus Giro account.</source>
+          <target state="translated">Anger plusgironumret som används av plusgirokontots postkontor.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3469146285</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2116114951 - NamedType 246896" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Board Of Directors Location (registered office)</source>
+          <target state="translated">Styrelsens säte (bolagsadress)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 2116114951</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2116114951 - Field 3345970854 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plus Giro No.</source>
+          <target state="translated">Plusgironr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3469146285</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2116114951 - Field 1476518266 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registered Office</source>
+          <target state="translated">Styrelsens säte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3469146285</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2812722839 - ReportLabel 1468660997" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Board of Directors Location (registered office)</source>
+          <target state="translated">Styrelsens säte (bolagsadress)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 2805454637</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2812722839 - ReportLabel 2795446350" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company has Tax Assessment Note</source>
+          <target state="translated">Företaget har F-skattsedel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 2805454637</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2812722839 - ReportLabel 1196058584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plus Giro No.</source>
+          <target state="translated">Plusgironr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 2805454637</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2802151429 - ReportLabel 1468660997" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Board of Directors Location (registered office)</source>
+          <target state="translated">Styrelsens säte (bolagsadress)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 1364772191</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2802151429 - ReportLabel 2795446350" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company has Tax Assessment Note</source>
+          <target state="translated">Företaget har F-skattsedel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 1364772191</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2802151429 - ReportLabel 1196058584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plus Giro No.</source>
+          <target state="translated">Plusgironr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 1364772191</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3726957836 - NamedType 4271917666" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company has Tax Assessment Note</source>
+          <target state="translated">Företaget har F-skattsedel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3726957836</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2927617204 - ReportLabel 1468660997" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Board of Directors Location (registered office)</source>
+          <target state="translated">Styrelsens säte (bolagsadress)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3319421275</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2927617204 - ReportLabel 2795446350" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company has Tax Assessment Note</source>
+          <target state="translated">Företaget har F-skattsedel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3319421275</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 2927617204 - ReportLabel 1196058584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plus Giro No.</source>
+          <target state="translated">Plusgironr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3319421275</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 3828489771 - ReportLabel 1468660997" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Board of Directors Location (registered office)</source>
+          <target state="translated">Styrelsens säte (bolagsadress)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 1511989657</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 3828489771 - ReportLabel 2795446350" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company has Tax Assessment Note</source>
+          <target state="translated">Företaget har F-skattsedel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 1511989657</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 3828489771 - ReportLabel 1196058584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plus Giro No.</source>
+          <target state="translated">Plusgironr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 1511989657</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 3490500301 - ReportLabel 1468660997" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Board of Directors Location (registered office)</source>
+          <target state="translated">Styrelsens säte (bolagsadress)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3289801783</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 3490500301 - ReportLabel 2795446350" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company has Tax Assessment Note</source>
+          <target state="translated">Företaget har F-skattsedel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3289801783</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 3490500301 - ReportLabel 1196058584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plus Giro No.</source>
+          <target state="translated">Plusgironr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 3289801783</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

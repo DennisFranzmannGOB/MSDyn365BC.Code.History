@@ -105,11 +105,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Sales Forecast Setup - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1767462481 - NamedType 2995302679" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You do not have permission to enable this feature. Please contact your administrator.</source>
-          <target state="translated">Nemáte oprávnění k povolení této funkce. Obraťte se na správce.</target>
+        <trans-unit id="Table 1767462481 - NamedType 1644091217" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must be an administrator to enable/disable sales forecasting. Ensure that you are assigned the 'SUPER' user permission set.</source>
+          <target state="translated">Chcete-li povolit nebo zakázat prognózování prodeje, musíte být správcem. Ujistěte se, že máte přiřazenou sadu uživatelských oprávnění 'SUPER'.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table MS - Sales Forecast Setup - NamedType NoPermissionToEnableErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table MS - Sales Forecast Setup - NamedType NotAdminErr</note>
         </trans-unit>
         <trans-unit id="Table 1767462481 - NamedType 3788244515" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify an API key and an API URI in the Sales and Inventory Forecast Setup page.</source>

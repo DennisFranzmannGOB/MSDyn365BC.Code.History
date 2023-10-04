@@ -297,11 +297,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Universal Printer Tray List - Control PaperTray - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 669761542 - Control 1012396828 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control EmptySpace1 - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 669761542 - Control 1178809860 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Done</source>
           <target state="translated">Fine</target>
@@ -404,18 +399,6 @@
           <target state="translated">Introduzione</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Intro - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - Control 3142569618 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens a privacy help article.</source>
-          <target state="translated">Apre un articolo della guida sulla privacy.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Privacy - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - Control 3142569618 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Click here to understand how the data is handled.</source>
-          <target state="translated">Fare clic qui per capire come vengono gestiti i dati.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Privacy - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 3145364638 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Your privacy is important to us</source>
@@ -574,12 +557,6 @@
           <target state="translated">Numero di stampanti aggiunte: %1.</target>
           <note from="Developer" annotates="general" priority="2">%1: a number.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NumberOfPrintersAddedTemplateTxt</note>
-        </trans-unit>
-        <trans-unit id="Page 669761542 - NamedType 757360088" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more about how the data is handled.</source>
-          <target state="translated">Ulteriori informazioni sulla gestione dei dati.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType PrivacyLbl</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 807771867" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Learn more about registering an Azure AD application</source>

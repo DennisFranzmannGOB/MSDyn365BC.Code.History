@@ -57,6 +57,18 @@
           <note from="Developer" annotates="general" priority="2">#2 - File Type SIE</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SIE - NamedType SIETypeTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4257936867 - NamedType 1584452023" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The starting date %1 must be within the existing accounting period.</source>
+          <target state="translated">Startdatumet %1 måste infalla inom den befintliga bokföringsperioden.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - starting date of the audit file export document</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Data Check SIE - NamedType AccPeriodForStartingDateNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4257936867 - NamedType 1779768094" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There must be the accounting period next to the accounting period %1.</source>
+          <target state="translated">Detta måste vara bokföringsperioden intill bokföringsperioden %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - starting date of accounting period</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Data Check SIE - NamedType NextAccPeriodForStartingDateNotFoundErr</note>
+        </trans-unit>
         <trans-unit id="Enum 2719730587 - EnumValue 1273505751 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>3. Object Balances</source>
           <target state="translated">3. Objektssaldon</target>
@@ -655,6 +667,13 @@
         <trans-unit id="TableExtension 3406206665 - NamedType 2200152239" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Could not parse the filter expression. Use the lookup action, or type a string in the following format: "Account Type: Total, Account Category: Assets".</source>
           <target state="translated">Det gick inte att parsa filteruttrycket. Använd uppslagsåtgärden eller skriv en sträng i följande format: "Kontotyp: Summa, Kontokategori: Tillgångar".</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3406206665</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3406206665 - NamedType 2712298054" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Audit File Export Format Setup does not exist for the SIE export format. Open the SIE Audit File Export Setup Guide page and follow the instructions.</source>
+          <target state="translated">Det finns ingen konfiguration av exportformat för verifieringsfil för SIE-exportformatet. Öppna sidan Konfigurationsguide för export av SIE-verifieringsfil och följ instruktionerna.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3406206665</note>
