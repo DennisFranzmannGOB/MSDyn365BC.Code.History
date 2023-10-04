@@ -75,6 +75,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Installation Impl - NamedType PermissionErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1128445799 - NamedType 3216137622" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You have selected to delete extension data for the %1 extension. Continuing deletion will delete the tables that contain data for the %1 extension and all of its dependents. This action cannot be undone. Do you want to continue?</source>
+          <target state="translated">You have selected to delete extension data for the %1 extension. Continuing deletion will delete the tables that contain data for the %1 extension and all of its dependents. This action cannot be undone. Do you want to continue?</target>
+          <note from="Developer" annotates="general" priority="2">%1=name of app</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Installation Impl - NamedType ClearExtensionSchemaOrphanMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1128445799 - NamedType 361688596" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Installed</source>
           <target state="translated">Installed</target>
@@ -267,16 +273,22 @@
           <note from="Developer" annotates="general" priority="2">%1 Upper threshold %2 Lower threshold</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Cues And KPIs Impl. - NamedType WrongThresholdsErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1329935681 - NamedType 1553374673" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The group ID %1 does not correspond to a valid AAD group.</source>
-          <target state="translated">The group ID %1 does not correspond to a valid AAD group.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = AAD security group ID</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType InvalidAadGroupErr</note>
+        <trans-unit id="Codeunit 1329935681 - NamedType 1108402701" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not find %1 group.</source>
+          <target state="translated">Could not find %1 group.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Active Directory / Microsoft Entra</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType CouldNotFindGroupErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1329935681 - NamedType 1554566241" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The group ID %1 does not correspond to a valid Microsoft Entra group.</source>
+          <target state="translated">The group ID %1 does not correspond to a valid Microsoft Entra group.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Microsoft Entra security group ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType InvalidEntraGroupErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1329935681 - NamedType 1589144608" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The group %1 could not be found in %2. The permission sets assigned to it will not have any effect.</source>
           <target state="translated">The group %1 could not be found in %2. The permission sets assigned to it will not have any effect.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = group code; %2 = Active Directory / Azure Active Directory</note>
+          <note from="Developer" annotates="general" priority="2">%1 = group code; %2 = Active Directory / Microsoft Entra</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType GroupNotFoundTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1329935681 - NamedType 2408550426" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
@@ -291,10 +303,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType NoPermissionsErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1329935681 - NamedType 2977379616" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The group %1 could not be found.</source>
+          <target state="translated">The group %1 could not be found.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = group name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType InvalidGroupNameErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1329935681 - NamedType 3151458208" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The group %1 already exists.</source>
           <target state="translated">The group %1 already exists.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = AAD group ID / Windows group name / group code</note>
+          <note from="Developer" annotates="general" priority="2">%1 = Microsoft Entra group ID / Windows group name / group code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType GroupAlreadyExistsErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1329935681 - NamedType 3420821080" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
@@ -306,14 +324,8 @@
         <trans-unit id="Codeunit 1329935681 - NamedType 3558804065" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The groups %1 could not be found in %2. The permission sets assigned to them will not have any effect.</source>
           <target state="translated">The groups %1 could not be found in %2. The permission sets assigned to them will not have any effect.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = comma separated list of group codes; %2 = Active Directory / Azure Active Directory</note>
+          <note from="Developer" annotates="general" priority="2">%1 = comma separated list of group codes; %2 = Active Directory / Microsoft Entra</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType GroupsNotFoundTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1329935681 - NamedType 4148705288" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Could not find Windows Group.</source>
-          <target state="translated">Could not find Windows Group.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType CouldNotFindWindowsGroupErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1384518899 - NamedType 1943873903" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must sign out and then sign in again to make the changes take effect.</source>
@@ -345,6 +357,12 @@
           <note from="Developer" annotates="general" priority="2">%1 - Table number</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Translation Implementation - NamedType NotAValidRecordForTranslationErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1516646291 - NamedType 2384367543" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The provided translation "%1" must not exceed %2 characters (Current Length: %3).</source>
+          <target state="translated">The provided translation "%1" must not exceed %2 characters (Current Length: %3).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Translation, %2 = Max Length for translation, %3 = Current Length of Translation</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Translation Implementation - NamedType MaxLenghtErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1516646291 - NamedType 2783749522" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The records cannot belong to different tables.</source>
           <target state="translated">The records cannot belong to different tables.</target>
@@ -358,14 +376,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Retention Period Custom Impl. - NamedType WrongInterfaceImplementationErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1569885001 - NamedType 1194350794" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The user with the security ID %1 does not have a valid object ID in Azure Active Directory.</source>
-          <target state="translated">The user with the security ID %1 does not have a valid object ID in Azure Active Directory.</target>
+          <source>The user with the security ID %1 does not have a valid object ID in Microsoft Entra.</source>
+          <target state="translated">The user with the security ID %1 does not have a valid object ID in Microsoft Entra.</target>
           <note from="Developer" annotates="general" priority="2">%1 =  The specified User Security ID</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Graph User Impl. - NamedType UserDoesNotObjectIdSetErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1569885001 - NamedType 3774820659" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>An Azure Active Directory user with the object ID %1 was not found.</source>
-          <target state="translated">An Azure Active Directory user with the object ID %1 was not found.</target>
+          <source>A Microsoft Entra user with the object ID %1 was not found.</source>
+          <target state="translated">A Microsoft Entra user with the object ID %1 was not found.</target>
           <note from="Developer" annotates="general" priority="2">%1 = The specified object id</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Graph User Impl. - NamedType CouldNotFindGraphUserErr</note>
         </trans-unit>
@@ -1029,12 +1047,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Editor - NamedType LoadingTemplateExitedMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2308444729 - NamedType 1398852855" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The existing picture will be replaced. Do you want to continue?</source>
-          <target state="translated">The existing picture will be replaced. Do you want to continue?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Camera Impl. - NamedType OverrideImageQst</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2308444729 - NamedType 3828681647" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Picture_%1.jpeg</source>
           <target state="translated">Picture_%1.jpeg</target>
@@ -1352,6 +1364,12 @@
           <target state="translated">You cannot insert a guided experience item with both an object to run and a link.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Guided Experience Impl. - NamedType ObjectAndLinkToRunErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2651603810 - NamedType 4112177587" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Expected Duration is too large: %1, it needs to be lower than 30000.</source>
+          <target state="translated">The Expected Duration is too large: %1, it needs to be lower than 30000.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Expected Duration in minutes</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Guided Experience Impl. - NamedType ExpectedDurationOverflowErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2651603810 - NamedType 510615997" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The object %1 %2 does not exist</source>
@@ -1958,6 +1976,12 @@
           <target state="translated">Could not put block on %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Blob</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS Client Impl. - NamedType PutBlockOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 335290041 - NamedType 2237835250" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not get properties for %1.</source>
+          <target state="translated">Could not get properties for %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Blob</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS Client Impl. - NamedType GetPropertiesOperationNotSuccessfulErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 335290041 - NamedType 2345547357" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Could not %3 Blob %1 in container %2.</source>
@@ -2613,23 +2637,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Operation Impl - NamedType DownloadExtensionSourceIsNotAllowedErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 4126082712 - NamedType 4267348099" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You do not have sufficient permissions to manage extensions. Please contact your administrator.</source>
-          <target state="translated">You do not have sufficient permissions to manage extensions. Please contact your administrator.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Operation Impl - NamedType NotSufficientPermissionErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 4126082712 - NamedType 742882831" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2</source>
           <target state="translated">%1 %2</target>
           <note from="Developer" annotates="general" priority="2">%1 = Page default caption %2 = App name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Operation Impl - NamedType PageCaptionTok</note>
         </trans-unit>
-        <trans-unit id="Codeunit 4205038922 - NamedType 2705830830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to retrieve the Azure Active Directory tenant domain name.</source>
-          <target state="translated">Failed to retrieve the Azure Active Directory tenant domain name.</target>
+        <trans-unit id="Codeunit 4205038922 - NamedType 1502122170" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant domain name.</source>
+          <target state="translated">Failed to retrieve the Microsoft Entra tenant domain name.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType AADTenantDomainNameErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType TenantDomainNameErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4215518646 - NamedType 1905859220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is not an application secret.</source>
@@ -3272,6 +3290,30 @@
           <target state="translated">Edit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Document Sharing Intent - EnumValue Edit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2063876488 - EnumValue 1573798499 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>150 ms</source>
+          <target state="translated">150 ms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Sampling Interval - EnumValue SampleEvery150ms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2063876488 - EnumValue 1712283760 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>100 ms</source>
+          <target state="translated">100 ms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Sampling Interval - EnumValue SampleEvery100ms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2063876488 - EnumValue 3371220206 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not specified</source>
+          <target state="translated">Not specified</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Sampling Interval - EnumValue None - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2063876488 - EnumValue 877708060 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>50 ms</source>
+          <target state="translated">50 ms</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Sampling Interval - EnumValue SampleEvery50ms - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 21381257 - EnumValue 238975602 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Append</source>
@@ -4911,6 +4953,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notices - Action ApproveAll - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1393501467 - Action 20513540 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sharing</source>
+          <target state="translated">Sharing</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - Action Sharing - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1393501467 - Action 2457075619 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clear the performance profiler recording data.</source>
           <target state="translated">Clear the performance profiler recording data.</target>
@@ -4947,6 +4995,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - Action ShareToOneDrive - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1393501467 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Process</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1393501467 - Action 593408208 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download the performance profile file of the recording performed.</source>
           <target state="translated">Download the performance profile file of the recording performed.</target>
@@ -4982,6 +5036,18 @@
           <target state="translated">Start</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - Action Start - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1393501467 - Action 698539839 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the configuration of the performance profiling recording.</source>
+          <target state="translated">Specify the configuration of the performance profiling recording.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - Action Settings - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1393501467 - Action 698539839 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">Settings</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - Action Settings - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1393501467 - Action 701918397 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Upload the performance profile file to be processed.</source>
@@ -5180,6 +5246,18 @@
           <target state="translated">Configure</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Configure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2005578726 - Action 2954564037 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete the data of orphaned extensions.</source>
+          <target state="translated">Delete the data of orphaned extensions.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Delete Orphaned Extension Data - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2005578726 - Action 2954564037 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Orphaned Extension Data</source>
+          <target state="translated">Delete Orphaned Extension Data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Delete Orphaned Extension Data - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2005578726 - Action 361094702 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unpublish the extension from the tenant.</source>
@@ -5385,18 +5463,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Action Back - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2282749623 - Action 1087410529 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach a file that was originally attached to the source document.</source>
-          <target state="translated">Attach a file that was originally attached to the source document.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Action SourceAttachments - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2282749623 - Action 1087410529 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get Source attachments</source>
-          <target state="translated">Get Source attachments</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Action SourceAttachments - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 2282749623 - Action 147247197 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open the page from where the email was sent.</source>
           <target state="translated">Open the page from where the email was sent.</target>
@@ -5432,18 +5498,6 @@
           <target state="translated">Send email</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Action Send - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2282749623 - Action 701918397 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach files, such as documents or images, to the email.</source>
-          <target state="translated">Attach files, such as documents or images, to the email.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Action Upload - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2282749623 - Action 701918397 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach file</source>
-          <target state="translated">Attach file</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Action Upload - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2282749623 - Action 970153994 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use a Word template with data from the entity to fill the email body.</source>
@@ -5553,6 +5607,72 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extn Deployment Status Detail - Action Refresh - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1332969265 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disallow access to insert data in the object.</source>
+          <target state="translated">Disallow access to insert data in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowInsertNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1332969265 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">No</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowInsertNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1385748499 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to read data in the object if there is read access to a related object.</source>
+          <target state="translated">Allow access to read data in the object if there is read access to a related object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowReadIndirect - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1385748499 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indirect</source>
+          <target state="translated">Indirect</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowReadIndirect - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1512593300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Delete</source>
+          <target state="translated">Allow Delete</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action Allow Delete - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1541994107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Modify</source>
+          <target state="translated">Allow Modify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action Allow Modify - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1588066546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to modify data in the object.</source>
+          <target state="translated">Allow access to modify data in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowModifyYes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1588066546 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Yes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowModifyYes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1613743017 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to perform all actions in the object.</source>
+          <target state="translated">Allow access to perform all actions in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowAllYes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1613743017 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Yes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowAllYes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1680668474 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Execute</source>
+          <target state="translated">Allow Execute</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action Allow Execute - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2622225351 - Action 1882529452 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add two or more objects.</source>
           <target state="translated">Add two or more objects.</target>
@@ -5565,6 +5685,60 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action SelectPermissions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1920419809 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disallow access to execute functions in the object.</source>
+          <target state="translated">Disallow access to execute functions in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowExecuteNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1920419809 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">No</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowExecuteNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1991324443 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disallow access to delete data in the object.</source>
+          <target state="translated">Disallow access to delete data in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowDeleteNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 1991324443 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">No</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowDeleteNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 2599408432 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to insert data in the object if there is insert access to a related object.</source>
+          <target state="translated">Allow access to insert data in the object if there is insert access to a related object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowInsertIndirect - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 2599408432 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indirect</source>
+          <target state="translated">Indirect</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowInsertIndirect - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 2794566556 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow All</source>
+          <target state="translated">Allow All</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action Allow All - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 2947107124 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disallow access to modify data in the object.</source>
+          <target state="translated">Disallow access to modify data in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowModifyNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 2947107124 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">No</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowModifyNo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2622225351 - Action 2959107463 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add read access to tables that are related to the selected tables.</source>
           <target state="translated">Add read access to tables that are related to the selected tables.</target>
@@ -5576,6 +5750,138 @@
           <target state="translated">Add Read Permission to Related Tables</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AddRelatedTablesAction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3022095057 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to delete data in the object.</source>
+          <target state="translated">Allow access to delete data in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowDeleteYes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3022095057 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Yes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowDeleteYes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3152096941 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Read</source>
+          <target state="translated">Allow Read</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action Allow Read - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3201895182 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to delete data in the object if there is delete access to a related object.</source>
+          <target state="translated">Allow access to delete data in the object if there is delete access to a related object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowDeleteIndirect - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3201895182 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indirect</source>
+          <target state="translated">Indirect</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowDeleteIndirect - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3490085286 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disallow access to read data in the object.</source>
+          <target state="translated">Disallow access to read data in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowReadNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3490085286 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">No</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowReadNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3546858992 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to read data in the object.</source>
+          <target state="translated">Allow access to read data in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowReadYes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3546858992 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Yes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowReadYes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3648934406 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to perform all actions in the object if there is full access to a related object.</source>
+          <target state="translated">Allow access to perform all actions in the object if there is full access to a related object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowAllIndirect - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3648934406 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indirect</source>
+          <target state="translated">Indirect</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowAllIndirect - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3746947429 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to modify data in the object if there is modify access to a related object.</source>
+          <target state="translated">Allow access to modify data in the object if there is modify access to a related object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowModifyIndirect - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 3746947429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indirect</source>
+          <target state="translated">Indirect</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowModifyIndirect - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 4091790907 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to execute functions in the object.</source>
+          <target state="translated">Allow access to execute functions in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowExecuteYes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 4091790907 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Yes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowExecuteYes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 4282832608 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to execute functions in the object if there is execute access to a related object.</source>
+          <target state="translated">Allow access to execute functions in the object if there is execute access to a related object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowExecuteIndirect - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 4282832608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indirect</source>
+          <target state="translated">Indirect</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowExecuteIndirect - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 718592139 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow access to insert data in the object.</source>
+          <target state="translated">Allow access to insert data in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowInsertYes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 718592139 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Yes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowInsertYes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 811972426 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Insert</source>
+          <target state="translated">Allow Insert</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action Allow Insert - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 996254851 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disallow access to perform all actions in the object.</source>
+          <target state="translated">Disallow access to perform all actions in the object.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowAllNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2622225351 - Action 996254851 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">No</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AllowAllNo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2638830259 - Action 2238371987 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assign licenses to existing users or create new users.</source>
@@ -5768,6 +6074,24 @@
           <target state="translated">Edit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - Action Edit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Action 1330269221 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Process</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Action ActionGroup13 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Action 397582083 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete the data from this extension.</source>
+          <target state="translated">Delete the data from this extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Action DeleteData - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Action 397582083 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Data</source>
+          <target state="translated">Delete Data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Action DeleteData - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3047977240 - Action 113888489 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disagree to the terms and conditions.</source>
@@ -6819,6 +7143,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Detached Media Cleanup - Action DownloadContent - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4208797499 - Action 397582083 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Extension Data</source>
+          <target state="translated">Delete Extension Data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Action DeleteData - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Action 397582083 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Extension Data</source>
+          <target state="translated">Delete Extension Data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Action DeleteData - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4217154468 - Action 2183420390 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add addresses from Users.</source>
           <target state="translated">Add addresses from Users.</target>
@@ -7720,8 +8056,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Template Selection Wizard - Control OutputOverview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1206474225 - Control 1290620507 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Displays the number of expired records.</source>
-          <target state="translated">Displays the number of expired records.</target>
+          <source>Specifies the number of expired records.</source>
+          <target state="translated">Specifies the number of expired records.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Expired Record Count - Property ToolTip</note>
         </trans-unit>
@@ -7792,8 +8128,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control TableID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1206474225 - Control 3956982287 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Displays the earliest expiration date for which there are more expired records than the maximum to be deleted in a single run.</source>
-          <target state="translated">Displays the earliest expiration date for which there are more expired records than the maximum to be deleted in a single run.</target>
+          <source>Specifies the earliest expiration date for which there are more expired records than the maximum to be deleted in a single run.</source>
+          <target state="translated">Specifies the earliest expiration date for which there are more expired records than the maximum to be deleted in a single run.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Expired Record Expiration Date - Property ToolTip</note>
         </trans-unit>
@@ -7966,8 +8302,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email View Policy List - Control Policy - Property AboutTitle</note>
         </trans-unit>
         <trans-unit id="Page 1268025941 - Control 371151164 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Assigned email policy</source>
-          <target state="translated">Assigned email policy</target>
+          <source>Specifies the assigned email policy</source>
+          <target state="translated">Specifies the assigned email policy</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email View Policy List - Control Policy - Property ToolTip</note>
         </trans-unit>
@@ -8134,14 +8470,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notices - Control Rejected - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1358710565 - Control 1131619133 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The translated text.</source>
-          <target state="translated">The translated text.</target>
+          <source>Specifies the translated text.</source>
+          <target state="translated">Specifies the translated text.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Translation - Control Value - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1358710565 - Control 639974159 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The language to which the source text was translated.</source>
-          <target state="translated">The language to which the source text was translated.</target>
+          <source>Specifies the language to which the source text was translated.</source>
+          <target state="translated">Specifies the language to which the source text was translated.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Translation - Control LanguageName - Property ToolTip</note>
         </trans-unit>
@@ -8170,8 +8506,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - Control Troubleshoot slow operations - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1393501467 - Control 1768041968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show details about the time each app took during the performance profiling.</source>
-          <target state="translated">Show details about the time each app took during the performance profiling.</target>
+          <source>Specifies details about the time each app took during the performance profiling.</source>
+          <target state="translated">Specifies details about the time each app took during the performance profiling.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - Control ShowTechnicalInformation - Property ToolTip</note>
         </trans-unit>
@@ -8253,8 +8589,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Reten. Policy Setup ListPart - Control Table Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1514646453 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The email scenario.</source>
-          <target state="translated">The email scenario.</target>
+          <source>Specifies the email scenario.</source>
+          <target state="translated">Specifies the email scenario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenarios for Account - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -8355,8 +8691,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Lines - Control Enabled - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1623743194 - Control 3846472926 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specified whether the retention policy is editable for this subset.</source>
-          <target state="translated">Specified whether the retention policy is editable for this subset.</target>
+          <source>Specifies whether the retention policy is editable for this subset.</source>
+          <target state="translated">Specifies whether the retention policy is editable for this subset.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Lines - Control Locked - Property ToolTip</note>
         </trans-unit>
@@ -8900,14 +9236,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Copy Security Group - Control NewWindowsSecurityGroupName - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2026770088 - Control 596588650 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the AAD security group.</source>
-          <target state="translated">Specifies the name of the AAD security group.</target>
+          <source>Specifies the name of the Microsoft Entra security group.</source>
+          <target state="translated">Specifies the name of the Microsoft Entra security group.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copy Security Group - Control NewAadSecurityGroupName - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2026770088 - Control 596588650 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New AAD security group name</source>
-          <target state="translated">New AAD security group name</target>
+          <source>New Microsoft Entra security group name</source>
+          <target state="translated">New Microsoft Entra security group name</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copy Security Group - Control NewAadSecurityGroupName - Property Caption</note>
         </trans-unit>
@@ -8966,8 +9302,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Item Users - Control User Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2204913418 - Control 1085746399 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The type of the application object.</source>
-          <target state="translated">The type of the application object.</target>
+          <source>Specifies the type of the application object.</source>
+          <target state="translated">Specifies the type of the application object.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Object - Control Object Type - Property ToolTip</note>
         </trans-unit>
@@ -8978,8 +9314,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Object - Control Object Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2204913418 - Control 1256520770 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the app that the application object belongs to.</source>
-          <target state="translated">The name of the app that the application object belongs to.</target>
+          <source>Specifies the name of the app that the application object belongs to.</source>
+          <target state="translated">Specifies the name of the app that the application object belongs to.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Object - Control App Name - Property ToolTip</note>
         </trans-unit>
@@ -8990,8 +9326,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Object - Control App Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2204913418 - Control 1418569422 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the application object.</source>
-          <target state="translated">The name of the application object.</target>
+          <source>Specifies the name of the application object.</source>
+          <target state="translated">Specifies the name of the application object.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Object - Control Object Name - Property ToolTip</note>
         </trans-unit>
@@ -9002,8 +9338,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Object - Control Object Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2204913418 - Control 330849211 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The amount of time spent in this application object.</source>
-          <target state="translated">The amount of time spent in this application object.</target>
+          <source>Specifies the amount of time spent in this application object.</source>
+          <target state="translated">Specifies the amount of time spent in this application object.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Object - Control Time Spent - Property ToolTip</note>
         </trans-unit>
@@ -9188,8 +9524,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Installation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 346708723 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Acceptance of terms and conditions.</source>
-          <target state="translated">Acceptance of terms and conditions.</target>
+          <source>Specifies the acceptance of terms and conditions.</source>
+          <target state="translated">Specifies the acceptance of terms and conditions.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Accepted - Property ToolTip</note>
         </trans-unit>
@@ -9704,8 +10040,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Resurfacing - Control Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2482016502 - Control 1085746399 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The type of the application object.</source>
-          <target state="translated">The type of the application object.</target>
+          <source>Specifies the type of the application object.</source>
+          <target state="translated">Specifies the type of the application object.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Object Type - Property ToolTip</note>
         </trans-unit>
@@ -9716,8 +10052,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Object Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2482016502 - Control 1256520770 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the app that the application object belongs to.</source>
-          <target state="translated">The name of the app that the application object belongs to.</target>
+          <source>Specifies the name of the app that the application object belongs to.</source>
+          <target state="translated">Specifies the name of the app that the application object belongs to.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control App Name - Property ToolTip</note>
         </trans-unit>
@@ -9728,8 +10064,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control App Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2482016502 - Control 1418569422 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the application object.</source>
-          <target state="translated">The name of the application object.</target>
+          <source>Specifies the name of the application object.</source>
+          <target state="translated">Specifies the name of the application object.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Object Name - Property ToolTip</note>
         </trans-unit>
@@ -9740,8 +10076,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Object Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2482016502 - Control 3902453275 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The amount of time spent only in this method.</source>
-          <target state="translated">The amount of time spent only in this method.</target>
+          <source>Specifies the amount of time spent only in this method.</source>
+          <target state="translated">Specifies the amount of time spent only in this method.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Self Time - Property ToolTip</note>
         </trans-unit>
@@ -9752,8 +10088,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Self Time - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2482016502 - Control 588697140 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the method that was called.</source>
-          <target state="translated">The name of the method that was called.</target>
+          <source>Specifies the name of the method that was called.</source>
+          <target state="translated">Specifies the name of the method that was called.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Method Name - Property ToolTip</note>
         </trans-unit>
@@ -9764,8 +10100,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Method Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2482016502 - Control 731840410 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The amount of time spent in this method and the methods it calls.</source>
-          <target state="translated">The amount of time spent in this method and the methods it calls.</target>
+          <source>Specifies the amount of time spent in this method and the methods it calls.</source>
+          <target state="translated">Specifies the amount of time spent in this method and the methods it calls.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Call Tree - Control Full Time - Property ToolTip</note>
         </trans-unit>
@@ -10057,6 +10393,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Settings - Control AppPublisher - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2547633168 - Control 739346273 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated">General</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Settings - Control Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 25890369 - Control 329424276 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the item.</source>
           <target state="translated">Specifies the name of the item.</target>
@@ -10224,6 +10566,12 @@
           <target state="translated">Specifies the name of the object to which the permissions apply.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Expanded Permissions - Control Object Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2624121137 - Control 1418569422 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Object Name</source>
+          <target state="translated">Object Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Expanded Permissions - Control Object Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2624121137 - Control 1682833869 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the permission set has modify permission to this object.</source>
@@ -10466,8 +10814,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Updates Part - Control Information - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2753250980 - Control 969389916 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the AAD user ID of the user who the update relates to.</source>
-          <target state="translated">Specifies the AAD user ID of the user who the update relates to.</target>
+          <source>Specifies the Microsoft Entra user ID of the user who the update relates to.</source>
+          <target state="translated">Specifies the Microsoft Entra user ID of the user who the update relates to.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Updates Part - Control Authentication Object ID - Property ToolTip</note>
         </trans-unit>
@@ -10986,6 +11334,65 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - Control EntityTextGroup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the publisher of the extension.</source>
+          <target state="translated">Specifies the publisher of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Publisher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 237762718 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of the extension.</source>
+          <target state="translated">Specifies the version of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 237762718 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version</source>
+          <target state="translated">Version</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 2461231353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the extension.</source>
+          <target state="translated">Specifies the status of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Stale - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 2461231353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Stale - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 2894250762 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a spacer for 'Brick' view mode.</source>
+          <target state="translated">Specifies a spacer for 'Brick' view mode.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Spacer - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 2894250762 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Spacer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the extension.</source>
+          <target state="translated">Specifies the name of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 852322270 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the extension is published as a per-tenant, development, or a global extension.</source>
+          <target state="translated">Specifies whether the extension is published as a per-tenant, development, or a global extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Published As - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Control 852322270 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Published As</source>
+          <target state="translated">Published As</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Control Published As - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3003645297 - Control 2387530096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the license.</source>
           <target state="translated">Specifies the name of the licence.</target>
@@ -11137,8 +11544,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page New Security Group - Control NewWindowsSecurityGroupName - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3071983575 - Control 3592776902 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create a new Security Group in Business Central corresponding to an AAD security group.</source>
-          <target state="translated">Create a new Security Group in Business Central corresponding to an AAD security group.</target>
+          <source>Create a new Security Group in Business Central corresponding to a Microsoft Entra security group.</source>
+          <target state="translated">Create a new Security Group in Business Central corresponding to a Microsoft Entra security group.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page New Security Group - Control IntroAad - Property InstructionalText</note>
         </trans-unit>
@@ -11149,14 +11556,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page New Security Group - Control LearnMore - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3071983575 - Control 596588650 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the AAD security group.</source>
-          <target state="translated">Specifies the name of the AAD security group.</target>
+          <source>Specifies the name of the Microsoft Entra security group.</source>
+          <target state="translated">Specifies the name of the Microsoft Entra security group.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page New Security Group - Control NewAadSecurityGroupName - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3071983575 - Control 596588650 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>AAD security group name</source>
-          <target state="translated">AAD security group name</target>
+          <source>Microsoft Entra security group name</source>
+          <target state="translated">Microsoft Entra security group name</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page New Security Group - Control NewAadSecurityGroupName - Property Caption</note>
         </trans-unit>
@@ -11209,8 +11616,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration Card - Control Customized - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3158499545 - Control 2703606168 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View all emails that were not successfully sent.</source>
-          <target state="translated">View all emails that were not successfully sent.</target>
+          <source>Specifies the emails that were not successfully sent.</source>
+          <target state="translated">Specifies the emails that were not successfully sent.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Activities - Control Failed Emails - Property ToolTip</note>
         </trans-unit>
@@ -11227,8 +11634,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Activities - Control OutboxCueContainer - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3158499545 - Control 466862854 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View all emails that are saved as drafts.</source>
-          <target state="translated">View all emails that are saved as drafts.</target>
+          <source>Specifies the emails that are saved as drafts.</source>
+          <target state="translated">Specifies the emails that are saved as drafts.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Activities - Control Draft Emails - Property ToolTip</note>
         </trans-unit>
@@ -11239,8 +11646,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Activities - Control Draft Emails - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3158499545 - Control 709229469 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sent Emails Last 30 Days</source>
-          <target state="translated">Sent Emails Last 30 Days</target>
+          <source>Specifies Sent Emails in the Last 30 Days</source>
+          <target state="translated">Specifies Sent Emails in the Last 30 Days</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Activities - Control Sent Emails - Property ToolTip</note>
         </trans-unit>
@@ -11251,8 +11658,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Activities - Control Sent Emails - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3163801880 - Control 910027226 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Which Emails Scenario does the attachment come from</source>
-          <target state="translated">Which Emails Scenario does the attachment come from</target>
+          <source>Specifies which Email Scenario the attachment comes from.</source>
+          <target state="translated">Specifies which Email Scenario the attachment comes from.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Choose Scenario Attach - Control Scenario - Property ToolTip</note>
         </trans-unit>
@@ -11647,8 +12054,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Field Data Classification - Control TableName - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 329821768 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The email scenario.</source>
-          <target state="translated">The email scenario.</target>
+          <source>Specifies the email scenario.</source>
+          <target state="translated">Specifies the email scenario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenarios FactBox - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -11881,8 +12288,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Template Creation Wizard - Control TemplateNameOverview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3314581104 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the file that was uploaded.</source>
-          <target state="translated">The name of the file that was uploaded.</target>
+          <source>Specifies the name of the file that was uploaded.</source>
+          <target state="translated">Specifies the name of the file that was uploaded.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Template Creation Wizard - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -11977,8 +12384,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set - Control PermissionsRelated - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3344272628 - Control 274605909 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The email account name for the current account.</source>
-          <target state="translated">The email account name for the current account.</target>
+          <source>Specifies the email account name for the current account.</source>
+          <target state="translated">Specifies the email account name for the current account.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Rate Limit Wizard - Control EmailName - Property ToolTip</note>
         </trans-unit>
@@ -11989,8 +12396,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Rate Limit Wizard - Control EmailName - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3344272628 - Control 2814033574 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The email address for the current email account.</source>
-          <target state="translated">The email address for the current email account.</target>
+          <source>Specifies the email address for the current email account.</source>
+          <target state="translated">Specifies the email address for the current email account.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Rate Limit Wizard - Control EmailAddress - Property ToolTip</note>
         </trans-unit>
@@ -12073,8 +12480,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Control EmailAddress - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3389183890 - Control 30176885 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set rate limit per minute for the email account.</source>
-          <target state="translated">Set rate limit per minute for the email account.</target>
+          <source>Specifies the rate limit per minute for the email account.</source>
+          <target state="translated">Specifies the rate limit per minute for the email account.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Control EmailRateLimit - Property ToolTip</note>
         </trans-unit>
@@ -12593,8 +13000,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 4093990710 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Language</source>
-          <target state="translated">Language</target>
+          <source>Specifies the language of the extension.</source>
+          <target state="translated">Specifies the language of the extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Language - Property ToolTip</note>
         </trans-unit>
@@ -12713,8 +13120,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Expanded Permissions Factbox - Control Execute Permission - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 1143596576 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Status</source>
-          <target state="translated">Status</target>
+          <source>Specifies the status.</source>
+          <target state="translated">Specifies the status.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskStatusText - Property ToolTip</note>
         </trans-unit>
@@ -12725,8 +13132,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskStatusText - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 1174257626 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Exclusive when started</source>
-          <target state="translated">Exclusive when started</target>
+          <source>Specifies the task is exclusive when started.</source>
+          <target state="translated">Specifies the task is exclusive when started.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskExclusiveWhenStarted - Property ToolTip</note>
         </trans-unit>
@@ -12737,8 +13144,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskExclusiveWhenStarted - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 1259303857 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Mark as completed</source>
-          <target state="translated">Mark as completed</target>
+          <source>Specifies the task as completed.</source>
+          <target state="translated">Specifies the task as completed.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskMarkAsCompleted - Property ToolTip</note>
         </trans-unit>
@@ -12749,8 +13156,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskMarkAsCompleted - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 1701803945 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Title</source>
-          <target state="translated">Title</target>
+          <source>Specifies the title.</source>
+          <target state="translated">Specifies the title.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TitleCollapsed - Property ToolTip</note>
         </trans-unit>
@@ -12761,26 +13168,26 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TitleCollapsed - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 1910944158 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Header</source>
-          <target state="translated">Header</target>
+          <source>Specifies the header.</source>
+          <target state="translated">Specifies the header.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskHeader - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 2380151491 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Status</source>
-          <target state="translated">Status</target>
+          <source>Specifies the status.</source>
+          <target state="translated">Specifies the status.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskStatus - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 2507416415 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Title</source>
-          <target state="translated">Title</target>
+          <source>Specifies the title.</source>
+          <target state="translated">Specifies the title.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskTitle - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 3009619052 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Mark as completed</source>
-          <target state="translated">Mark as completed</target>
+          <source>Specifies the task as completed.</source>
+          <target state="translated">Specifies the task as completed.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control SetupMarkAsDone - Property ToolTip</note>
         </trans-unit>
@@ -12791,8 +13198,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control SetupMarkAsDone - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 3224306516 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="translated">Description</target>
+          <source>Specifies the description.</source>
+          <target state="translated">Specifies the description.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control HeaderCollapsed - Property ToolTip</note>
         </trans-unit>
@@ -12803,8 +13210,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control HeaderCollapsed - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 329424276 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Title</source>
-          <target state="translated">Title</target>
+          <source>Specifies the title.</source>
+          <target state="translated">Specifies the title.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control Title - Property ToolTip</note>
         </trans-unit>
@@ -12815,8 +13222,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control Title - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="translated">Description</target>
+          <source>Specifies the description.</source>
+          <target state="translated">Specifies the description.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control Description - Property ToolTip</note>
         </trans-unit>
@@ -12833,14 +13240,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control Checklist - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 4050089437 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="translated">Description</target>
+          <source>Specifies the description.</source>
+          <target state="translated">Specifies the description.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control TaskDescription - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - Control 907109761 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Header</source>
-          <target state="translated">Header</target>
+          <source>Specifies the header.</source>
+          <target state="translated">Specifies the header.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control Header - Property ToolTip</note>
         </trans-unit>
@@ -12851,8 +13258,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Checklist Banner - Control Header - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3696778961 - Control 166597695 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name of the field that will be included in the Word Template.</source>
-          <target state="translated">Name of the field that will be included in the Word Template.</target>
+          <source>Specifies the name of the field that will be included in the Word Template.</source>
+          <target state="translated">Specifies the name of the field that will be included in the Word Template.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Templates Field Selection - Control FieldName - Property ToolTip</note>
         </trans-unit>
@@ -12863,8 +13270,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Templates Field Selection - Control FieldName - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3696778961 - Control 2547700717 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Number of the field that will be included in the Word Template.</source>
-          <target state="translated">Number of the field that will be included in the Word Template.</target>
+          <source>Specifies the number of the field that will be included in the Word Template.</source>
+          <target state="translated">Specifies the number of the field that will be included in the Word Template.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Templates Field Selection - Control FieldNo - Property ToolTip</note>
         </trans-unit>
@@ -12887,8 +13294,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Templates Field Selection - Control Included - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3696778961 - Control 391562508 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Type of the field that will be included in the Word Template.</source>
-          <target state="translated">Type of the field that will be included in the Word Template.</target>
+          <source>Specifies the type of the field that will be included in the Word Template.</source>
+          <target state="translated">Specifies the type of the field that will be included in the Word Template.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Templates Field Selection - Control FieldTypeField - Property ToolTip</note>
         </trans-unit>
@@ -13153,8 +13560,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Account Wizard - Control LearnMoreHeader - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3756518970 - Control 2725983395 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Use this account for all scenarios for which an account is not specified. Scenarios are processes that involve sending documents or notifications by email.</source>
-          <target state="translated">Use this account for all scenarios for which an account is not specified. Scenarios are processes that involve sending documents or notifications by email.</target>
+          <source>Specifies the Account is the default. Use this account for all scenarios for which an account is not specified. Scenarios are processes that involve sending documents or notifications by email.</source>
+          <target state="translated">Specifies the Account is the default. Use this account for all scenarios for which an account is not specified. Scenarios are processes that involve sending documents or notifications by email.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Account Wizard - Control DefaultField - Property ToolTip</note>
         </trans-unit>
@@ -13896,8 +14303,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Default Permission Set In Plan - Control PermissionScope - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3989631842 - Control 3133801257 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The permission set will be assigned to the first company that a user with this permission set signs in to.</source>
-          <target state="translated">The permission set will be assigned to the first company that a user with this permission set signs in to.</target>
+          <source>Specifies that the permission set will be assigned to the first company that a user with this permission set signs in to.</source>
+          <target state="translated">Specifies that the permission set will be assigned to the first company that a user with this permission set signs in to.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Default Permission Set In Plan - Control Company - Property ToolTip</note>
         </trans-unit>
@@ -14045,8 +14452,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Control AllDoneQuestionGroup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4001231554 - Control 3169764171 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enables Centralized Deployment on this environment.</source>
-          <target state="translated">Enables Centralized Deployment on this environment.</target>
+          <source>Specifies the use of Centralized Deployment on this environment.</source>
+          <target state="translated">Specifies the use of Centralized Deployment on this environment.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Control DeploymentType - Property ToolTip</note>
         </trans-unit>
@@ -14353,8 +14760,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Control DataUpdateStatus - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4061016505 - Control 2325998030 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the new capability or change in design.</source>
-          <target state="translated">The name of the new capability or change in design.</target>
+          <source>Specifies the name of the new capability or change in design.</source>
+          <target state="translated">Specifies the name of the new capability or change in design.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Control FeatureDescription - Property ToolTip</note>
         </trans-unit>
@@ -14467,8 +14874,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Advanced Settings - Control ManualSetupGroup - Property InstructionalText</note>
         </trans-unit>
         <trans-unit id="Page 4182844942 - Control 1097957507 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The maximum number of records to load. Depending on the limit, this may take a long time to complete.</source>
-          <target state="translated">The maximum number of records to load. Depending on the limit, this may take a long time to complete.</target>
+          <source>Specifies the maximum number of records to load. Depending on the limit, this may take a long time to complete.</source>
+          <target state="translated">Specifies the maximum number of records to load. Depending on the limit, this may take a long time to complete.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Detached Media Cleanup - Control LoadLimitField - Property ToolTip</note>
         </trans-unit>
@@ -14491,8 +14898,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Detached Media Cleanup - Control LoadDetachedMediaSetField - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4182844942 - Control 1569253015 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Filter to a specific company.</source>
-          <target state="translated">Filter to a specific company.</target>
+          <source>Specifies the filter to a specific company.</source>
+          <target state="translated">Specifies the filter to a specific company.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Detached Media Cleanup - Control CompanyFilterField - Property ToolTip</note>
         </trans-unit>
@@ -14593,68 +15000,128 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Lookup Permission Set - Control Scope - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 1065780641 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 5th value in the key of the record.</source>
-          <target state="translated">The 5th value in the key of the record.</target>
+          <source>Specifies the 5th value in the key of the record.</source>
+          <target state="translated">Specifies the 5th value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field5 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 128205453 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 9th value in the key of the record.</source>
-          <target state="translated">The 9th value in the key of the record.</target>
+          <source>Specifies the 9th value in the key of the record.</source>
+          <target state="translated">Specifies the 9th value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field9 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 1703477258 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 4th value in the key of the record.</source>
-          <target state="translated">The 4th value in the key of the record.</target>
+          <source>Specifies the 4th value in the key of the record.</source>
+          <target state="translated">Specifies the 4th value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field4 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 2341173875 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 3rd value in the key of the record.</source>
-          <target state="translated">The 3rd value in the key of the record.</target>
+          <source>Specifies the 3rd value in the key of the record.</source>
+          <target state="translated">Specifies the 3rd value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field3 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 2722624357 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 10th value in the key of the record.</source>
-          <target state="translated">The 10th value in the key of the record.</target>
+          <source>Specifies the 10th value in the key of the record.</source>
+          <target state="translated">Specifies the 10th value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field10 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 2978870492 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 2nd value in the key of the record.</source>
-          <target state="translated">The 2nd value in the key of the record.</target>
+          <source>Specifies the 2nd value in the key of the record.</source>
+          <target state="translated">Specifies the 2nd value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field2 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 3616567109 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 1st value in the key of the record.</source>
-          <target state="translated">The 1st value in the key of the record.</target>
+          <source>Specifies the 1st value in the key of the record.</source>
+          <target state="translated">Specifies the 1st value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field1 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 4085354703 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 7th value in the key of the record.</source>
-          <target state="translated">The 7th value in the key of the record.</target>
+          <source>Specifies the 7th value in the key of the record.</source>
+          <target state="translated">Specifies the 7th value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field7 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 428084024 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 6th value in the key of the record.</source>
-          <target state="translated">The 6th value in the key of the record.</target>
+          <source>Specifies the 6th value in the key of the record.</source>
+          <target state="translated">Specifies the 6th value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field6 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4192907353 - Control 765902070 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The 8th value in the key of the record.</source>
-          <target state="translated">The 8th value in the key of the record.</target>
+          <source>Specifies the 8th value in the key of the record.</source>
+          <target state="translated">Specifies the 8th value in the key of the record.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Control Field8 - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the extension.</source>
+          <target state="translated">Specifies the name of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 3666322463 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warning: Deletes tables that contain data owned by this extension. This action cannot be undone.</source>
+          <target state="translated">Warning: Deletes tables that contain data owned by this extension. This action cannot be undone.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control UninstallGroup - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 3666322463 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Extension Data</source>
+          <target state="translated">Delete Extension Data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control UninstallGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 415504711 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the app ID of the extension.</source>
+          <target state="translated">Specifies the app ID of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 415504711 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App ID</source>
+          <target state="translated">App ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 892210059 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of the extension.</source>
+          <target state="translated">Specifies the version of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control Ver - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 892210059 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version</source>
+          <target state="translated">Version</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control Ver - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 950256857 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the publisher of the extension.</source>
+          <target state="translated">Specifies the publisher of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control Pub - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Control 950256857 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Publisher</source>
+          <target state="translated">Publisher</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Control Pub - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4217154468 - Control 1619637574 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Select type of entity to show</source>
-          <target state="translated">Select type of entity to show</target>
+          <source>Specifies the type of entity to show</source>
+          <target state="translated">Specifies the type of entity to show</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Control Type of entity - Property ToolTip</note>
         </trans-unit>
@@ -14665,20 +15132,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Control Type of entity - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4217154468 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name.</source>
-          <target state="translated">Name.</target>
+          <source>Specifies the Name.</source>
+          <target state="translated">Specifies the Name.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Control Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4217154468 - Control 3133801257 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Company.</source>
-          <target state="translated">Company.</target>
+          <source>Specifies the Company.</source>
+          <target state="translated">Specifies the Company.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Control Company - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4217154468 - Control 90141998 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Mail Address.</source>
-          <target state="translated">E-Mail Address.</target>
+          <source>Specifies the E-Mail Address.</source>
+          <target state="translated">Specifies the E-Mail Address.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Control Email Address - Property ToolTip</note>
         </trans-unit>
@@ -14749,8 +15216,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Control Entity Text Editor - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 477017392 - Control 330849211 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The total time spent inside the method during the performance profiler recording.</source>
-          <target state="translated">The total time spent inside the method during the performance profiler recording.</target>
+          <source>Specifies the total time spent inside the method during the performance profiler recording.</source>
+          <target state="translated">Specifies the total time spent inside the method during the performance profiler recording.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Method - Control Time Spent - Property ToolTip</note>
         </trans-unit>
@@ -14761,8 +15228,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Method - Control Time Spent - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 477017392 - Control 588697140 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The name of the method in which the time was spent.</source>
-          <target state="translated">The name of the method in which the time was spent.</target>
+          <source>Specifies the name of the method in which the time was spent.</source>
+          <target state="translated">Specifies the name of the method in which the time was spent.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Profiling Duration By Method - Control Method Name - Property ToolTip</note>
         </trans-unit>
@@ -14809,8 +15276,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control Warning - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 513864971 - Control 4093990710 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Choose the language of the extension.</source>
-          <target state="translated">Choose the language of the extension.</target>
+          <source>Specifies the language of the extension.</source>
+          <target state="translated">Specifies the language of the extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control Language - Property ToolTip</note>
         </trans-unit>
@@ -14845,8 +15312,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control NoteGroup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 2058393039 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The display name</source>
-          <target state="translated">The display name</target>
+          <source>Specifies the display name</source>
+          <target state="translated">Specifies the display name</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control DisplayName - Property ToolTip</note>
         </trans-unit>
@@ -14863,8 +15330,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control Finished - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 3355906073 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The new value of user entity</source>
-          <target state="translated">The new value of user entity</target>
+          <source>Specifies the new value of user entity</source>
+          <target state="translated">Specifies the new value of user entity</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control NewLicense - Property ToolTip</note>
         </trans-unit>
@@ -14887,8 +15354,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control ConfirmPermissionChanges - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 3543816815 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Choose how this license change should be handled</source>
-          <target state="translated">Choose how this licence change should be handled</target>
+          <source>Specifies how this license change should be handled</source>
+          <target state="translated">Specifies how this licence change should be handled</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control PermissionAction - Property ToolTip</note>
         </trans-unit>
@@ -14911,8 +15378,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control Welcome - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 411686798 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The current of user entity</source>
-          <target state="translated">The current of user entity</target>
+          <source>Specifies the current of user entity</source>
+          <target state="translated">Specifies the current of user entity</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control CurrentLicense - Property ToolTip</note>
         </trans-unit>
@@ -15115,8 +15582,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Attach Setup - Control File Attachments Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 664053810 - Control 910027226 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The email scenario that the attachment came from. Attachments set as default for email scenarios are automatically attached to emails that are sent from processes related to the scenario.</source>
-          <target state="translated">The email scenario that the attachment came from. Attachments set as default for email scenarios are automatically attached to emails that are sent from processes related to the scenario.</target>
+          <source>Specifies the email scenario that the attachment came from. Attachments set as default for email scenarios are automatically attached to emails that are sent from processes related to the scenario.</source>
+          <target state="translated">Specifies the email scenario that the attachment came from. Attachments set as default for email scenarios are automatically attached to emails that are sent from processes related to the scenario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Attach Setup - Control Scenario - Property ToolTip</note>
         </trans-unit>
@@ -15522,6 +15989,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - NamedType ProfileFileTypeTxt</note>
         </trans-unit>
+        <trans-unit id="Page 1393501467 - NamedType 2128942777" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Choose the sampling interval of the performance profiler. Smaller intervals will result in more precise timings, but it might result in higher load of the system.</source>
+          <target state="translated">Choose the sampling interval of the performance profiler. Smaller intervals will result in more precise timings, but it might result in higher load of the system.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Performance Profiler - NamedType SamplingIntervalChoiceTxt</note>
+        </trans-unit>
         <trans-unit id="Page 1393501467 - NamedType 2160076607" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The file might contain sensitive data, so be sure to handle it securely and according to privacy requirements. Do you want to continue?</source>
           <target state="translated">The file might contain sensitive data, so be sure to handle it securely and according to privacy requirements. Do you want to continue?</target>
@@ -15749,6 +16222,18 @@
           <target state="translated">Select Edit to add text</target>
           <note from="Developer" annotates="general" priority="2">Edit refers to an action on this part with the same name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - NamedType NotEnabledPlaceholderTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - NamedType 3048439107" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>v. %1</source>
+          <target state="translated">v. %1</target>
+          <note from="Developer" annotates="general" priority="2">v=version abbr, %1=Version string</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - NamedType VersionFormatTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - NamedType 3216137622" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 extension data was deleted.</source>
+          <target state="translated">The %1 extension data was deleted.</target>
+          <note from="Developer" annotates="general" priority="2">%1=The extension which data was deleted</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - NamedType ClearExtensionSchemaOrphanMsg</note>
         </trans-unit>
         <trans-unit id="Page 3047977240 - NamedType 3334639707" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Privacy and Cookies</source>
@@ -16931,6 +17416,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2954564037 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Orphaned Extension Data</source>
+          <target state="translated">Delete Orphaned Extension Data</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2954564037 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>app,add-in,plug-in,appsource</source>
+          <target state="translated">app,add-in,plug-in,appsource</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Delete Orphaned Extension Data - Property AdditionalSearchTerms</note>
+        </trans-unit>
         <trans-unit id="Page 3003645297 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>License Configurations</source>
           <target state="translated">Licence Configurations</target>
@@ -17315,11 +17812,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details Part - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4061016505 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Managing change</source>
+          <target state="translated">Managing change</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Property AboutTitle</note>
+        </trans-unit>
         <trans-unit id="Page 4061016505 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Data Update</source>
           <target state="translated">New,Process,Report,Data Update</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Property PromotedActionCategories</note>
+        </trans-unit>
+        <trans-unit id="Page 4061016505 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Some new features are turned off when Business Central is updated to a newer version. These features are optional for a period of time until they are automatically enabled for all users in a later software update according to the [Release Plan](https://go.microsoft.com/fwlink/?linkid=2227906). You can prepare in advance by enabling these features for all users on the right environment at the right time that suits your schedule.</source>
+          <target state="translated">Some new features are turned off when Business Central is updated to a newer version. These features are optional for a period of time until they are automatically enabled for all users in a later software update according to the [Release Plan](https://go.microsoft.com/fwlink/?linkid=2227906). You can prepare in advance by enabling these features for all users on the right environment at the right time that suits your schedule.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Property AboutText</note>
         </trans-unit>
         <trans-unit id="Page 4061016505 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Feature Management</source>
@@ -17356,6 +17865,12 @@
           <target state="translated">Record Lookup</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Record Lookup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4208797499 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Orphaned Extension Data Details</source>
+          <target state="translated">Orphaned Extension Data Details</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extn. Orphaned App Details - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4217154468 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Full Address Lists</source>
@@ -17430,8 +17945,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Information - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 572257666 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenAI,AI,Copilot,Co-pilot</source>
-          <target state="translated">OpenAI,AI,Copilot,Co-pilot</target>
+          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT</source>
+          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Information - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -17525,11 +18040,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Edit in Excel-Admin - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PermissionSet 125615357 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(Obsolete) Email Setup</source>
-          <target state="translated">(Obsolete) Email Setup</target>
+        <trans-unit id="PermissionSet 125622728 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Data Analysis Mode</source>
+          <target state="translated">Allow Data Analysis Mode</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet EMAIL SETUP - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Data Analysis - Exec - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 1418631237 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Privacy Notice - Read</source>
@@ -17548,12 +18063,6 @@
           <target state="translated">Extension Management - Admin</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Exten. Mgt. - Admin - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 2319923570 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(Obsolete) Reten. Pol. Setup</source>
-          <target state="translated">(Obsolete) Reten. Pol. Setup</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet RETENTION POL. SETUP - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2399714810 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email - Admin</source>
@@ -17609,23 +18118,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet Feature Mgt. - Admin - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PermissionSet 408698970 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>SmartList Designer (Obsolete)</source>
-          <target state="translated">SmartList Designer (Obsolete)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SMARTLIST DESIGNER - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PermissionSet 4102442556 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Superuser of data</source>
           <target state="translated">Superuser of data</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SUPER (DATA</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 4138620843 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(Obsolete) Email Usage</source>
-          <target state="translated">(Obsolete) Email Usage</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet EMAIL USAGE - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 468515474 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attach Debug</source>
@@ -17711,6 +18208,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query Plan - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Query 2927673347 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RoleCenter from Plans</source>
+          <target state="translated">RoleCenter from Plans</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query Role Center from Plans - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Query 3212038148 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Device</source>
           <target state="translated">Device</target>
@@ -17734,6 +18237,12 @@
           <target state="translated">User State</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query Users in Plans - QueryColumn User_State - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 2927673347 - QueryColumn 2692906206 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Role Center ID</source>
+          <target state="translated">Role Centre ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query Role Center from Plans - QueryColumn Role_Center_ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2448602003 - NamedType 1528036445" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Your Password has been updated.</source>
@@ -18077,72 +18586,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Retention Policy Allowed Table - Field Mandatory Min. Reten. Days - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 1009384294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Keywords</source>
-          <target state="translated">Keywords</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Keywords - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 2515772770 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Extension Name</source>
-          <target state="translated">Extension Name</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Extension Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 2766253784 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>App ID</source>
-          <target state="translated">App ID</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field App ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <target state="translated">Name</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="translated">Description</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 3702373668 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Category</source>
-          <target state="translated">Category</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Category - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 3733767603 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Setup Page ID</source>
-          <target state="translated">Setup Page ID</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Setup Page ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1325297727 - Field 4036313429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Icon</source>
-          <target state="translated">Icon</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Field Icon - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1345601853 - Field 2035247194 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Valid</source>
-          <target state="translated">Valid</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Query Navigation Validation - Field Valid - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1345601853 - Field 3369789712 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reason</source>
-          <target state="translated">Reason</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Query Navigation Validation - Field Reason - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1345601853 - Field 970416965 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PK</source>
-          <target state="translated">PK</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Query Navigation Validation - Field PK - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1358710565 - Field 1131619133 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Value</source>
           <target state="translated">Value</target>
@@ -18250,24 +18693,6 @@
           <target state="translated">First Login Date</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table User Login - Field First Login Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1584771742 - Field 3768090202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Business Setup Name</source>
-          <target state="translated">Business Setup Name</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Business Setup Icon - Field Business Setup Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1584771742 - Field 4036313429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Icon</source>
-          <target state="translated">Icon</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Business Setup Icon - Field Icon - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1584771742 - Field 4091014368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Media Resources Ref</source>
-          <target state="translated">Media Resources Ref</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Business Setup Icon - Field Media Resources Ref - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1595900732 - Field 1924927433 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>List Id</source>
@@ -19403,18 +19828,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email Scenario - Field Scenario - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2655210482 - Field 1344630152 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Handler Extension Id</source>
-          <target state="translated">Handler Extension Id</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table SmartList Designer Handler - Field HandlerExtensionId - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2655210482 - Field 2333076789 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Primary Key</source>
-          <target state="translated">Primary Key</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table SmartList Designer Handler - Field PrimaryKey - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 2715881816 - Field 2897649021 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Session Id</source>
           <target state="translated">Session Id</target>
@@ -19930,24 +20343,6 @@
           <target state="translated">Connector</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email Connector Logo - Field Connector - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3029408820 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Primary Key</source>
-          <target state="translated">Primary Key</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Media - Field Primary Key - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3029408820 - Field 3252935640 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Media</source>
-          <target state="translated">Media</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Media - Field Media - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3029408820 - Field 376825882 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>MediaSet</source>
-          <target state="translated">MediaSet</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Media - Field MediaSet - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3049595448 - Field 1085746399 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Object Type</source>
@@ -20513,30 +20908,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Custom Permission Set In Plan - Field Scope - Property OptionCaption</note>
         </trans-unit>
-        <trans-unit id="Table 3456148789 - Field 2020331656 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Key Value Type</source>
-          <target state="translated">Key Value Type</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Signature Key - Field Key Value Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3456148789 - Field 31410331 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Key Index</source>
-          <target state="translated">Key Index</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Signature Key - Field Key Index - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3456148789 - Field 4003695205 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Signature Algorithm</source>
-          <target state="translated">Signature Algorithm</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Signature Key - Field Signature Algorithm - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3456148789 - Field 5357697 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Key Value</source>
-          <target state="translated">Key Value</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Signature Key - Field Key Value Blob - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3519071095 - Field 1009384294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Keywords</source>
           <target state="translated">Keywords</target>
@@ -20812,18 +21183,6 @@
           <target state="translated">Table ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Word Templates Table - Field Table ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3747771801 - Field 2564753503 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Teaching Tips</source>
-          <target state="translated">Teaching Tips</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Extra Settings - Field Teaching Tips - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3747771801 - Field 3021697414 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User Security ID</source>
-          <target state="translated">User Security ID</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Extra Settings - Field User Security ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3780677409 - Field 1950707465 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>User SID</source>
@@ -21851,77 +22210,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SharePoint File - Field OdataType - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 796130729 - Field 415504711 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">Id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SharePoint File - Field Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 796130729 - Field 4284597114 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unique Id</source>
           <target state="translated">Unique Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SharePoint File - Field Unique Id - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 1513519486 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Help Url</source>
-          <target state="translated">Help Url</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Help Url - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 2515772770 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Extension Name</source>
-          <target state="translated">Extension Name</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Extension Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 2766253784 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>App ID</source>
-          <target state="translated">App ID</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field App ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <target state="translated">Name</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="translated">Description</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 366198708 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Group</source>
-          <target state="translated">Group</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Group Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 3665605423 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Completed</source>
-          <target state="translated">Completed</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Completed - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 4036313429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Icon</source>
-          <target state="translated">Icon</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Icon - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 649174547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Video Category</source>
-          <target state="translated">Video Category</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Video Category - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 692639126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Video Url</source>
-          <target state="translated">Video Url</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Video Url - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 799089619 - Field 894914730 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Page ID</source>
-          <target state="translated">Page ID</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Field Page ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 802448848 - Field 1729142762 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Outbox Id</source>
@@ -21946,24 +22245,6 @@
           <target state="translated">Id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email Error - Field Id - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 812764647 - Field 1016837963 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date Time</source>
-          <target state="translated">Date Time</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup Log - Field Date Time - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 812764647 - Field 2360837978 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Entery No.</source>
-          <target state="translated">Entery No.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup Log - Field Entery No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 812764647 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <target state="translated">No.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup Log - Field No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 920931714 - Field 1393533604 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Table Caption</source>
@@ -22019,12 +22300,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Feature Key Buffer - NamedType TryItOutLbl</note>
         </trans-unit>
-        <trans-unit id="Table 2655210482 - NamedType 4002974012" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The table only supports a single record whose primary key is the empty string</source>
-          <target state="translated">The table only supports a single record whose primary key is the empty string</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table SmartList Designer Handler - NamedType SingleValueOnlyErr</note>
-        </trans-unit>
         <trans-unit id="Table 277020636 - NamedType 1994296487" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The specified endpoint should be using https.</source>
           <target state="translated">The specified endpoint should be using https.</target>
@@ -22079,12 +22354,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Guided Experience Item - NamedType LinkAndObjectErr</note>
         </trans-unit>
-        <trans-unit id="Table 3456148789 - Method 333252792 - NamedType 569519751" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unable to initialize certificate!</source>
-          <target state="translated">Unable to initialize certificate!</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Signature Key - Method FromBase64String - NamedType CertInitializeErr</note>
-        </trans-unit>
         <trans-unit id="Table 101689234 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>ABS Container Content</source>
           <target state="translated">ABS Container Content</target>
@@ -22133,18 +22402,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Retention Policy Allowed Table - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1325297727 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Manual Setup</source>
-          <target state="translated">Manual Setup</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Manual Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1345601853 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Query Navigation Validation</source>
-          <target state="translated">Query Navigation Validation</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Query Navigation Validation - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1358710565 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Translation</source>
           <target state="translated">Translation</target>
@@ -22163,12 +22420,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table User Login - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1584771742 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Business Setup Icon</source>
-          <target state="translated">Business Setup Icon</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Business Setup Icon - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1595900732 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>SharePoint List Item Attachment</source>
           <target state="translated">SharePoint List Item Attachment</target>
@@ -22182,8 +22433,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table SharePoint List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1636419976 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Azure AD User Updates</source>
-          <target state="translated">Azure AD User Updates</target>
+          <source>Microsoft Entra User Updates</source>
+          <target state="translated">Microsoft Entra User Updates</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Azure AD User Update Buffer - Property Caption</note>
         </trans-unit>
@@ -22355,12 +22606,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email Scenario - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2655210482 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>SmartList Designer Handler</source>
-          <target state="translated">SmartList Designer Handler</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table SmartList Designer Handler - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 2715881816 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retention Policy Log Entry</source>
           <target state="translated">Retention Policy Log Entry</target>
@@ -22445,12 +22690,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email Connector Logo - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3029408820 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Temp Media</source>
-          <target state="translated">Temp Media</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Temp Media - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3049595448 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Web Service Aggregate</source>
           <target state="translated">Web Service Aggregate</target>
@@ -22517,12 +22756,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Custom Permission Set In Plan - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3456148789 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Signature Key</source>
-          <target state="translated">Signature Key</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Signature Key - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3519071095 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Guided Experience Item</source>
           <target state="translated">Guided Experience Item</target>
@@ -22552,12 +22785,6 @@
           <target state="translated">Word Templates Table</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Word Templates Table - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3747771801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Extra Settings</source>
-          <target state="translated">Extra Settings</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Extra Settings - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3780677409 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>User Environment Login</source>
@@ -22745,23 +22972,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SharePoint File - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 799089619 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Assisted Setup</source>
-          <target state="translated">Assisted Setup</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 802448848 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Error</source>
           <target state="translated">Email Error</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email Error - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 812764647 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Assisted Setup Log</source>
-          <target state="translated">Assisted Setup Log</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Assisted Setup Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 920931714 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Word Template</source>

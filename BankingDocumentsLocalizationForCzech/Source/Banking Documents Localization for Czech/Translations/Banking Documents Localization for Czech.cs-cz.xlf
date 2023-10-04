@@ -513,7 +513,7 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Payment Order Head. Status CZB - EnumValue Open - Property Caption</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 1657760482 - EnumValue 4257245795 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="EnumExtension 1657760482 - EnumValue 2382095419 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Banking Documents</source>
           <target state="translated">Bankovní doklady</target>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7066,7 +7066,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1253495400 - Field 168840248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Jnl. Batch Name - Statement</source>
-          <target state="translated">Název listu deníku plateb - výpis</target>
+          <target state="translated">Název listu deníku plateb - výpisy</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1682139193</note>
@@ -7087,7 +7087,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1253495400 - Field 2043839015 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Jnl. Template Name - Order</source>
-          <target state="translated">Název šablony deníku plateb - příkaz</target>
+          <target state="translated">Název šablony deníku plateb - příkazy</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1682139193</note>
@@ -7108,7 +7108,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1253495400 - Field 2388237988 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Jnl. Template Name - Statement</source>
-          <target state="translated">Název šablony deníku plateb - výpis</target>
+          <target state="translated">Název šablony deníku plateb - výpisy</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1682139193</note>
@@ -7199,7 +7199,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1253495400 - Field 906482737 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Jnl. Batch Name - Order</source>
-          <target state="translated">Název listu deníku plateb - příkaz</target>
+          <target state="translated">Název listu deníku plateb - příkazy</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1682139193</note>

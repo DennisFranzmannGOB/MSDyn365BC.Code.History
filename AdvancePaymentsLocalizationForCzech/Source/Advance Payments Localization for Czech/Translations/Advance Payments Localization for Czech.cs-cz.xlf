@@ -696,7 +696,7 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Enum 4244706559</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 26321991 - EnumValue 2473906886 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="EnumExtension 26321991 - EnumValue 1707175179 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advance</source>
           <target state="translated">Záloha</target>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1883,6 +1883,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advance Letter Application CZZ - Action AdvanceCard - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 197730122 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post credit memo VAT.</source>
+          <target state="translated">Náhled účtování daňového dobropisu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCreditMemoVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 197730122 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Credit Memo VAT Preview</source>
+          <target state="translated">Náhled účtování daňového dobropisu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCreditMemoVATPreview - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4091573732 - Action 1981458640 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post payment VAT usage.</source>
           <target state="translated">Účtovat použití DPH.</target>
@@ -1907,6 +1919,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCreditMemoVAT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 2225574141 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <target state="translated">Posoudit výsledek účtovaných řádků před skutečným zaúčtováním.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 2225574141 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Payment VAT Preview</source>
+          <target state="translated">Náhled účtování daňového dokladu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATPreview - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4091573732 - Action 2768224571 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post payment VAT.</source>
           <target state="translated">Účtovat daňový doklad.</target>
@@ -1918,6 +1942,18 @@
           <target state="translated">Účtovat daňový doklad</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 3018979018 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <target state="translated">Posoudit výsledek účtovaných řádků před skutečným zaúčtováním.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATUsagePreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 3018979018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Payment VAT Usage Preview</source>
+          <target state="translated">Náhled účtování použití DPH</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATUsagePreview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4091573732 - Action 3050169775 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print VAT document.</source>
@@ -1985,6 +2021,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action AdvanceCard - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 4203781262 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post cancel usage VAT.</source>
+          <target state="translated">Náhled účtování storna použití DPH.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCancelUsageVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 4203781262 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Cancel Usage VAT Preview</source>
+          <target state="translated">Náhled účtování storna použití DPH</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCancelUsageVATPreview - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4091573732 - Action 454749684 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post cancel usage VAT.</source>
           <target state="translated">Účtovat storno použití DPH.</target>
@@ -2008,6 +2056,18 @@
           <target state="translated">&amp;Odeslat emailem</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action Email - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 197730122 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <target state="translated">Posoudit výsledek účtovaných řádků před skutečným zaúčtováním.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostCreditMemoVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 197730122 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Credit Memo VAT Preview</source>
+          <target state="translated">Náhled účtování daňového dobropisu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostCreditMemoVATPreview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 688385878 - Action 1981458640 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post payment VAT usage.</source>
@@ -2045,6 +2105,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostCreditMemoVAT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 688385878 - Action 2225574141 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <target state="translated">Posoudit výsledek účtovaných řádků před skutečným zaúčtováním.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 2225574141 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Payment VAT Preview</source>
+          <target state="translated">Náhled účtování daňového dokladu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATPreview - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 688385878 - Action 2234406979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reports</source>
           <target state="translated">Sestavy</target>
@@ -2062,6 +2134,18 @@
           <target state="translated">Účtovat daňový doklad</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 3018979018 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <target state="translated">Posoudit výsledek účtovaných řádků před skutečným zaúčtováním.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATUsagePreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 3018979018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Payment VAT Usage Preview</source>
+          <target state="translated">Náhled účtování použití DPH</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATUsagePreview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 688385878 - Action 3050169775 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print VAT document.</source>
@@ -2716,6 +2800,12 @@
           <target state="translated">Určuje číslo objednávky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Control Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2081690216 - Control 2247850105 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.</source>
+          <target state="translated">Určuje kód pro centrum odpovědnosti, jako je distribuční hub, který je spojen s daným uživatelem, společností, zákazníkem nebo dodavatelem. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Control Responsibility Center - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2081690216 - Control 2348384091 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies amount including VAT (LCY).</source>
@@ -3718,6 +3808,12 @@
           <target state="translated">Určuje číslo objednávky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Control Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2936817786 - Control 2247850105 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.</source>
+          <target state="translated">Určuje kód pro centrum odpovědnosti, jako je distribuční hub, který je spojen s daným uživatelem, společností, zákazníkem nebo dodavatelem. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Control Responsibility Center - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2936817786 - Control 2348384091 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies amount including VAT (LCY).</source>
@@ -8431,6 +8527,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Field VAT Bus. Posting Group - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2442512937 - Field 2002724477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <target state="translated">Formát oblasti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Field Format Region - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2442512937 - Field 2096911897 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Country/Region Code</source>
           <target state="translated">Kód země/oblasti plátce</target>
@@ -8779,35 +8881,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Advance Letter Cr. Memo Nos. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 370756209 - Field 2928330232 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice/Cr. Memo Report Caption (Obsolete)</source>
-          <target state="translated">Titulek sestavy faktura/dobropis (zastaralý)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Invoice/Cr. Memo Rep. Caption - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 370756209 - Field 3004954119 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <target state="translated">Kód</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Code - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 370756209 - Field 3209126864 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Report ID (Obsolete)</source>
-          <target state="translated">ID sestavy dokladu (zastaralý)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Document Report ID - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 370756209 - Field 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
           <target state="translated">Popis</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 370756209 - Field 360862913 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Report Caption (Obsolete)</source>
-          <target state="translated">Titulek sestavy dokladu (zastaralý)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Document Report Caption - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 370756209 - Field 4144934691 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advance Letter Invoice Nos.</source>
@@ -8820,12 +8904,6 @@
           <target state="translated">Automatické účtování zálohového daň. dokladu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Automatic Post VAT Document - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 370756209 - Field 734592308 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice/Cr. Memo Report ID (Obsolete)</source>
-          <target state="translated">ID sestavy faktura/dobropis (zastaralé)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Invoice/Cr. Memo Report ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 370756209 - Field 89563707 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advance Letter G/L Account</source>
@@ -9030,6 +9108,12 @@
           <target state="translated">Kontakt věřitele</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - Field Pay-to Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3911307783 - Field 2002724477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <target state="translated">Formát oblasti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - Field Format Region - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3911307783 - Field 2202932243 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order No.</source>
@@ -9649,6 +9733,12 @@
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Currency Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType ConfirmChangeQst</note>
         </trans-unit>
+        <trans-unit id="Table 2442512937 - NamedType 3262211605" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document. Your identification is set up to process from %1 %2 only.</source>
+          <target state="translated">Tento doklad nemůžete odstranit. Vaše identifikace povoluje pracovat pouze od %1 %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption of responsibility center, %2 = code of responsibility center</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType DocumentDeleteErr</note>
+        </trans-unit>
         <trans-unit id="Table 3903605776 - NamedType 1163970306" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 must be negative.</source>
           <target state="translated">%1 musí být negativní.</target>
@@ -9678,6 +9768,12 @@
           <target state="translated">Chcete změnit %1?</target>
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Currency Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType ConfirmChangeQst</note>
+        </trans-unit>
+        <trans-unit id="Table 3911307783 - NamedType 3262211605" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document. Your identification is set up to process from %1 %2 only.</source>
+          <target state="translated">Tento doklad nemůžete odstranit. Vaše identifikace povoluje pracovat pouze od %1 %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption of responsibility center, %2 = code of responsibility center</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType DocumentDeleteErr</note>
         </trans-unit>
         <trans-unit id="Table 1523723538 - Field 1650118938 - Method 2126772001 - NamedType 945221139" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot modify %1 because Advance Letter is linked to Document.</source>

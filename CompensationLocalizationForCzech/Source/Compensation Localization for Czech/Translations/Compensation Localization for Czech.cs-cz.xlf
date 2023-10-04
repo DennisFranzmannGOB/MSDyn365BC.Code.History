@@ -1499,6 +1499,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Control Attached Documents - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2647720189 - Control 2002724477 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the region format to be used on printouts for this document.</source>
+          <target state="translated">Určuje formát oblasti, který se má použít při výtiscích tohoto dokumentu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Control Format Region - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2647720189 - Control 2219442658 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the salesperson or purchaser.</source>
           <target state="translated">Určuje jméno prodejce nebo nákupčího.</target>
@@ -2440,6 +2446,12 @@
           <target state="translated">Přílohy</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3012527878 - Control 2002724477 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the region format to be used on printouts for this document.</source>
+          <target state="translated">Určuje formát oblasti, který se má použít při výtiscích tohoto dokumentu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Control Format Region - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3012527878 - Control 2219442658 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the salesperson or purchaser.</source>
@@ -3423,6 +3435,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Posted Compensation Header CZC - Field Company No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1408769188 - Field 2002724477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <target state="translated">Formát oblasti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Compensation Header CZC - Field Format Region - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1408769188 - Field 2178647059 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Balance (LCY)</source>
           <target state="translated">Saldo (LM)</target>
@@ -3704,6 +3722,12 @@
           <target state="translated">Číslo společnosti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Compensation Header CZC - Field Company No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3403374699 - Field 2002724477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <target state="translated">Formát oblasti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Compensation Header CZC - Field Format Region - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3403374699 - Field 2178647059 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Balance (LCY)</source>

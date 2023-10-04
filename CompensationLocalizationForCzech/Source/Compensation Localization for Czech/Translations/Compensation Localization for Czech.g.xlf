@@ -128,6 +128,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Compensation Header CZC - Field Document Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3403374699 - Field 2002724477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Compensation Header CZC - Field Format Region - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3403374699 - Field 596789822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incoming Document Entry No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -457,6 +462,11 @@
           <source>Document Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Posted Compensation Header CZC - Field Document Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1408769188 - Field 2002724477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Compensation Header CZC - Field Format Region - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1408769188 - Field 2273653569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language Code</source>
@@ -1332,6 +1342,11 @@
           <source>Specifies the date on which you created the compensation.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Control Document Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3012527878 - Control 2002724477 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the region format to be used on printouts for this document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Compensation Card CZC - Control Format Region - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3012527878 - Control 2273653569 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the language to be used on printouts for this document.</source>
@@ -2367,6 +2382,11 @@
           <source>Specifies the date on which you created the document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Control Document Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2647720189 - Control 2002724477 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the region format to be used on printouts for this document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Compensation Card CZC - Control Format Region - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2647720189 - Control 2273653569 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the language to be used on printouts for this document.</source>

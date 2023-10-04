@@ -118,26 +118,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Description - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 370756209 - Field 360862913 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Report Caption (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Document Report Caption - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 370756209 - Field 3209126864 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Report ID (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Document Report ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 370756209 - Field 2928330232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice/Cr. Memo Report Caption (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Invoice/Cr. Memo Rep. Caption - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 370756209 - Field 734592308 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice/Cr. Memo Report ID (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Template CZZ - Field Invoice/Cr. Memo Report ID - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 370756209 - Field 95732656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales/Purchase</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -368,6 +348,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Currency Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType ConfirmChangeQst</note>
         </trans-unit>
+        <trans-unit id="Table 3911307783 - NamedType 3262211605" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document. Your identification is set up to process from %1 %2 only.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption of responsibility center, %2 = code of responsibility center</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType DocumentDeleteErr</note>
+        </trans-unit>
         <trans-unit id="Table 3911307783 - NamedType 2007213257" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot reset %1 because the document still has one or more lines.</source>
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Bill-to Contact No.</note>
@@ -487,6 +472,11 @@
           <source>Document Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - Field Document Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3911307783 - Field 2002724477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - Field Format Region - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3911307783 - Field 1176583840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>IBAN</source>
@@ -978,6 +968,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Currency Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType ConfirmChangeQst</note>
         </trans-unit>
+        <trans-unit id="Table 2442512937 - NamedType 3262211605" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document. Your identification is set up to process from %1 %2 only.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption of responsibility center, %2 = code of responsibility center</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType DocumentDeleteErr</note>
+        </trans-unit>
         <trans-unit id="Table 2442512937 - NamedType 2007213257" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot reset %1 because the document still has one or more lines.</source>
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Bill-to Contact No.</note>
@@ -1152,6 +1147,11 @@
           <source>Document Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Field Document Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2442512937 - Field 2002724477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Format Region</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Field Format Region - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2442512937 - Field 1176583840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>IBAN</source>
@@ -2398,6 +2398,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCancelUsageVAT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 4203781262 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post cancel usage VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCancelUsageVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 4203781262 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Cancel Usage VAT Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCancelUsageVATPreview - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4091573732 - Action 2177836368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post credit memo VAT.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2407,6 +2417,16 @@
           <source>Post Credit Memo VAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCreditMemoVAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 197730122 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post credit memo VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCreditMemoVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 197730122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Credit Memo VAT Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostCreditMemoVATPreview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4091573732 - Action 2768224571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post payment VAT.</source>
@@ -2418,6 +2438,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVAT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 2225574141 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 2225574141 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Payment VAT Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATPreview - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4091573732 - Action 1981458640 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post payment VAT usage.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2427,6 +2457,16 @@
           <source>Post Payment VAT Usage</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATUsage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 3018979018 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATUsagePreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4091573732 - Action 3018979018 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Payment VAT Usage Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Adv. Letter Entries CZZ - Action PostPaymentVATUsagePreview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4091573732 - Action 3670857382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Navigate</source>
@@ -3448,6 +3488,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Control Posting Date - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2936817786 - Control 2247850105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Control Responsibility Center - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2936817786 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3898,6 +3943,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostCreditMemoVAT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 688385878 - Action 197730122 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostCreditMemoVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 197730122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Credit Memo VAT Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostCreditMemoVATPreview - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 688385878 - Action 2768224571 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post payment VAT.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3908,6 +3963,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVAT - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 688385878 - Action 2225574141 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATPreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 2225574141 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Payment VAT Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATPreview - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 688385878 - Action 1981458640 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post payment VAT usage.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3917,6 +3982,16 @@
           <source>Post Payment VAT Usage</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATUsage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 3018979018 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the result of the posting lines before the actual posting.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATUsagePreview - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 688385878 - Action 3018979018 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Payment VAT Usage Preview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Adv. Letter Entries CZZ - Action PostPaymentVATUsagePreview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 688385878 - Action 3670857382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Navigate</source>
@@ -4937,6 +5012,11 @@
           <source>Specifies posting date.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Control Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2081690216 - Control 2247850105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Control Responsibility Center - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2081690216 - Control 1577567912 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.</source>
@@ -8053,10 +8133,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Custom Report Sel. Sales CZZ - EnumValue Advance VAT Document CZZ - Property Caption</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 26321991 - EnumValue 2473906886 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1170745677">
+        <trans-unit id="EnumExtension 26321991 - EnumValue 1707175179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1170745677">
           <source>Advance</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension EET Applied Document Type CZZ - EnumValue Advance - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension EET Applied Document Type CZZ - EnumValue Advance CZZ - Property Caption</note>
         </trans-unit>
         <trans-unit id="EnumExtension 1342594411 - EnumValue 2641234761 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2593693414">
           <source>Sales Advance Letter</source>

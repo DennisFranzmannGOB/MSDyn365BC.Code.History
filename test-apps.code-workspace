@@ -3,13 +3,19 @@
     "search.exclude": {
       "**.xlf": true
     },
-    "allint.enabled": false,
+    "al.enableCodeActions": false,
     "al.enableCodeAnalysis": false,
-    "al.enableCodeActions": false
+    "allint.enabled": false
   },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
+    },
+    {
+      "path": "./EDocument/Test/E-Document Core Tests"
+    },
+    {
+      "path": "./EDocument/Test/E-Document Core Tests/src/TestImplementations"
     },
     {
       "path": "./CompensationLocalizationForCzech/Test/Compensation Localization for Czech Tests"
@@ -19,9 +25,6 @@
     },
     {
       "path": "./Email - Outlook REST API/Test"
-    },
-    {
-      "path": "./Intrastat/Test/Intrastat Core Tests"
     },
     {
       "path": "./APIV1/Test/_Exclude_APIV1_ Tests"
@@ -154,6 +157,9 @@
     },
     {
       "path": "./simplifiedbankstatementimport/test/Simplified Bank Statement Import Test"
+    },
+    {
+      "path": "./BaseApp/Source/Base Application/System/DevTools/CALTest"
     },
     {
       "path": "./BaseApp/Test/Tests-Bank"

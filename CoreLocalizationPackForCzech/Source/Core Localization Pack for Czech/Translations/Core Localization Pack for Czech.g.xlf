@@ -138,16 +138,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Acc. Schedule Extension CZL - Field Posting Group Filter - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 4226338242 - Field 1587433127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Prepayment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Acc. Schedule Extension CZL - Field Prepayment - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 4226338242 - Field 1587433127 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source> ,Yes,No</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Acc. Schedule Extension CZL - Field Prepayment - Property OptionCaption</note>
-        </trans-unit>
         <trans-unit id="Table 4226338242 - Field 521919925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reverse Sign</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5553,6 +5543,31 @@
           <note from="Developer" annotates="general" priority="2">%1 = VAT Date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT LCY Correction-Post CZL - NamedType VATRangeErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2430769589 - NamedType 3975508567" size-unit="char" translate="yes" xml:space="preserve">
+          <source>must be less or equal to %1</source>
+          <note from="Developer" annotates="general" priority="2">%1 = fieldcaption of VAT Reporting Date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Rep. Date Mgt. Handler CZL - NamedType MustBeLessOrEqualErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2430769589 - NamedType 1695682867" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The VAT Date was changed on VAT Entry registered in the VAT Control Report %1, which affected its values.\It will be necessary to check the VAT Control report manually.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = VAT Control Report No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Rep. Date Mgt. Handler CZL - NamedType VATControlReportAffectedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2430769589 - NamedType 3192610191" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The VAT Entry is suggested in the released or closed VAT Control Report %1.\The VAT Date cannot be changed.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = VAT Control Report No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Rep. Date Mgt. Handler CZL - NamedType VATControlReportClosedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2430769589 - NamedType 2055030713" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You have no right to post VAT to the period.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Rep. Date Mgt. Handler CZL - NamedType VATDateNotAllowedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2430769589 - NamedType 4255540718" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The VAT Date was changed on VAT Entry that can already be included in the VIES Declaration.\The VIES Declaration will need to be re-generated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Rep. Date Mgt. Handler CZL - NamedType VIESDeclarationAffectedMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2145211580 - Method 1623353540 - NamedType 225647726" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Statement %1 %2.xml</source>
           <note from="Developer" annotates="general" priority="2">%1 = VAT Statement Template Nam, %2 = VAT Statement Name</note>
@@ -6047,11 +6062,6 @@
           <source>Specifies filter setup of the posting group.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Acc. Schedule Extensions CZL - Control Posting Group Filter - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2252013879 - Control 1587433127 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if line of sales journal is prepayment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Acc. Schedule Extensions CZL - Control Prepayment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2252013879 - Control 521919925 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies reverse sign</source>
@@ -8377,6 +8387,91 @@
           <source>Take</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Company Official Picture CZL - Action TakePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>An action is requested regarding the VAT Entry update.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirm VAT Entries Update</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - NamedType 3120172066" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The following VAT Entries will be updated as well. Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - NamedType UpdateVATEntriesQst</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount of the VAT entry in LCY.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 2587701375 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount that the VAT amount (the amount shown in the Amount field) is calculated from.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Base - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 1778072510 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the VAT entry has been closed by the Calc. and Post VAT Settlement batch job.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Closed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document number on the VAT entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 2363328873 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document type that the VAT entry belongs to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the entry, as assigned from the specified number series when the entry was created.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 633819257 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor's or customer's trade type to link transactions made for this business partner with the appropriate general ledger account according to the general posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Gen. Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 2139693550 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the item's product type to link transactions made for this item with the appropriate general ledger account according to the general posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Gen. Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 3710982960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT entry's posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control Posting Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 1844012642 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT specification of the involved customer or vendor to link transactions made for this record with the appropriate general ledger account according to the VAT posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 3753419350 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT date on the VAT entry. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control VAT Date CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 3753419350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control VAT Date CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 236064653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT specification of the involved item or resource to link transactions made for this record with the appropriate general ledger account according to the VAT posting setup.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control VAT Prod. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1502949089 - Control 350412371 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT date on the VAT entry. This is either the date that the document was created or posted, depending on your setting on the General Ledger Setup page.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Confirm VAT Entries Update CZL - Control VAT Reporting Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1294611434 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Constant Symbols</source>
@@ -11312,6 +11407,11 @@
           <source>Specifies whether is allowed to close the Project.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Setup Card CZL - Control Allow Complete Job CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1266996361 - Control 2090795340 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether is allowed to change the VAT Date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page User Setup Card CZL - Control Allow VAT Date Changing CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1266996361 - Control 3344815357 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies check document date (system date) allowed for posting (set in lines).</source>
@@ -17493,106 +17593,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo CZL - Control PrintInterestDetailCZL - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 2957867605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Finance Charge Memo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 3701423681" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copy</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType CopyLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 2264983066" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Created by</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType CreatorLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 117108317" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType CustLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 4058751071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Finance Charge Memo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType DocumentLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Page</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType PageLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 2869287293" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total %1 including VAT</source>
-          <note from="Developer" annotates="general" priority="2">%1 = currency code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType TotalInclVATLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 2410138484" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType TotalLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 3751533915" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Amount</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType VATAmtLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 3259128960" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Base</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType VATBaseLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 621813197" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Recapitulation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType VATIdentLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 1101917782" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT %</source>
-          <note from="Developer" annotates="general" priority="2">VAT %</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType VATPercentLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - NamedType 1156901045" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Vendor</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - NamedType VendLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Options</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - Control Options - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - Control 2020777325 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if you want the program to record the finance charge memos you print as interactions, and add them to the Interaction Log Entry table.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - Control LogInteractionCZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - Control 2020777325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Log Interaction</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - Control LogInteractionCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - Control 2148404082 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of copies to print.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - Control NoOfCopiesCZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - Control 2148404082 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No. of Copies</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - Control NoOfCopiesCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - Control 561864821 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the interest details has to be printed.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - Control PrintInterestDetailCZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 2957867605 - Control 561864821 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Print Interest Detail</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Finance Charge Memo MIR CZL - Control PrintInterestDetailCZL - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Report 244531227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account Group Posting Check</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19918,6 +19918,31 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Phys. Inventory Document CZL - Control ReasonCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3623982710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Direct Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3623982710 - ReportLabel 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - ReportLabel PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3623982710 - ReportLabel 420176508" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted by</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - ReportLabel PostedByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3623982710 - ReportLabel 617781293" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Direct Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - ReportLabel ReportNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3623982710 - ReportLabel 2794163259" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - ReportLabel TransferLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2023013595 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Inventory Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20642,106 +20667,6 @@
           <source>Show Not Due Amounts</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Reminder CZL - Control ShowNotDueAmountsCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reminder</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 3197031362" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You are receiving this email to formally notify you that payment owed by you is past due. The payment was due on %1. Enclosed is a copy of invoice with the details of remaining amount.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = A due date</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType AmtDueLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 1908025102" size-unit="char" translate="yes" xml:space="preserve">
-          <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType BodyLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 2771379227" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sincerely</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType ClosingLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 3701423681" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copy</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType CopyLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 2264983066" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Created by</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType CreatorLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 117108317" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType CustLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 4058751071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reminder</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType DocumentLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 514421613" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Hello</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType GreetingLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 1355652404" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Interest Amount</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType InterestAmountLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Page</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType PageLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 2410138484" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType TotalLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - NamedType 1156901045" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Vendor</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - NamedType VendLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Options</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Control Options - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - Control 2020777325 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if you want the program to record the reminder you print as Interactions and add them to the Interaction Log Entry table.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Control LogInteractionCZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - Control 2020777325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Log Interaction</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Control LogInteractionCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - Control 2148404082 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of copies to print.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Control NoOfCopiesCZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - Control 2148404082 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No. of Copies</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Control NoOfCopiesCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - Control 3945450252 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if you want to show amounts that are not due from customers.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Control ShowNotDueAmountsCZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 1351626823 - Control 3945450252 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Not Due Amounts</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder MIR CZL - Control ShowNotDueAmountsCZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3161673206 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Credit Memo</source>
@@ -26753,6 +26678,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Credit Memo CZL - Action VATLCYCorrectionCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4078133603 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2854365759">
+          <source>Specifies a description of the document. The posting description also appers on vendor and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Credit Memo CZL - Control Posting Description CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4078133603 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2854365759">
           <source>Specifies the VAT date of the original document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -26802,6 +26732,11 @@
           <source>Specifies the VAT currency code of the purchase credit memo.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Credit Memo CZL - Control VAT Currency Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4078133603 - Control 3624777196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2854365759">
+          <source>Foreign Trade</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purch. Credit Memo CZL - Control Foreign Trade - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 4078133603 - Control 2340776342 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2854365759">
           <source>Specifies the area code used in the invoice</source>
@@ -27058,6 +26993,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purchase Invoice CZL - Action VATLCYCorrectionCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2091246586 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4048657685">
+          <source>Specifies a description of the document. The posting description also appers on vendor and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purchase Invoice CZL - Control Posting Description CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2091246586 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4048657685">
           <source>Specifies the VAT date of the original document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -27273,6 +27213,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purchase Invoices CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2560712797 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
+          <source>Specifies a description of the document. The posting description also appers on vendor and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Purchase Receipt CZL - Control Posting Description CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2560712797 - Control 2153225461 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2344297010">
           <source>Specifies the registration number of vendor.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -27368,6 +27313,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Ret. Shpt. Subform CZL - Control Tariff No. CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3934107038 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52957233">
+          <source>Specifies a description of the document. The posting description also appers on customer and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Return Receipt CZL - Control Posting Description CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3934107038 - Control 1054067672 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 52957233">
           <source>Specifies the reason code on the entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -27427,6 +27377,11 @@
           <source>Physical Transfer (Obsolete)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Return Receipts CZL - Control Physical Transfer CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1765649530 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
+          <source>Specifies a description of the document. The posting description also appers on vendor and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Return Shipment CZL - Control Posting Description CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1765649530 - Control 3307348949 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1514853781">
           <source>Specifies if you need to post a corrective entry to an account.</source>
@@ -27532,61 +27487,6 @@
           <source>Specifies a code for the item's tariff number.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales CM Subform CZL - Control Tariff No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Payment Details</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control PaymentsCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies a code to idenfity bank account of company.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Bank Account Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies the number used by the bank for the bank account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Bank Account No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies the number of the bank branch.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Bank Branch No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies the name of the bank.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Bank Name CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Constant Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies the bank account's international bank account number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control IBAN CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Specific Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control SWIFT Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies a bank identification number of your own choice.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Transit No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2763633325 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
-          <source>Specifies the detail information for payment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2763633325 - Control 817743510 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
           <source>Specifies the type of credit memo (corrective tax document, internal correction, insolvency tax document).</source>
@@ -27707,6 +27607,61 @@
           <source>Specifies the VAT country/region code of customer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control VAT Country/Region Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Payment Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control PaymentsCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies a code to idenfity bank account of company.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Bank Account Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies the number used by the bank for the bank account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Bank Account No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies the number of the bank branch.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Bank Branch No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies the name of the bank.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Bank Name CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Constant Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies the bank account's international bank account number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control IBAN CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Specific Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control SWIFT Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies a bank identification number of your own choice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Transit No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2763633325 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2716593954">
+          <source>Specifies the detail information for payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Sales Credit Memo CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3226379868 - Control 3753419350 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2557560783">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
@@ -28088,70 +28043,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. CM Subform CZL - Control Tariff No. CZL - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 3627789026 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the customer's market type to link business transakcions to.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Customer Posting Group CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Payment Details</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control PaymentsCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies a code to idenfity bank account of company.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Bank Account Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the number used by the bank for the bank account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Bank Account No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the number of the bank branch.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Bank Branch No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the name of the bank.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Bank Name CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Constant Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the bank account's international bank account number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control IBAN CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Specific Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control SWIFT Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies a bank identification number of your own choice.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Transit No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2048408385 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
-          <source>Specifies the detail information for payment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Variable Symbol CZL - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 2048408385 - Control 817743510 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
           <source>Specifies the type of credit memo (corrective tax document, internal correction, insolvency tax document).</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Credit Memo Type CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies a description of the document. The posting description also appers on customer and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Posting Description CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2048408385 - Control 747509869 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
           <source>Specifies a VAT business posting group code.</source>
@@ -28257,6 +28157,66 @@
           <source>Specifies the VAT country/region code of customer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control VAT Country/Region Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 3627789026 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the customer's market type to link business transakcions to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Customer Posting Group CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Payment Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control PaymentsCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies a code to idenfity bank account of company.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Bank Account Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the number used by the bank for the bank account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Bank Account No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the number of the bank branch.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Bank Branch No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the name of the bank.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Bank Name CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Constant Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the bank account's international bank account number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control IBAN CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Specific Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control SWIFT Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies a bank identification number of your own choice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Transit No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2048408385 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4222048109">
+          <source>Specifies the detail information for payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Serv. Credit Memo CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3146356112 - Control 3753419350 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4083191012">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
@@ -28367,6 +28327,11 @@
           <source>Specifies the detail information for payment.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Service Inv. Update CZL - Control Variable Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2879885508 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1778940791">
+          <source>Specifies a description of the document. The posting description also appers on customer and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Service Invoice CZL - Control Posting Description CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2879885508 - Control 747509869 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1778940791">
           <source>Specifies a VAT business posting group code.</source>
@@ -28908,46 +28873,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Return Order Arch. CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4281810571 - Control 2591900105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
-          <source>Specifies when the purchase header will use European Union third-party intermediate trade rules. This option complies with VAT accounting standards for EU third-party trade.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control EU 3-Party Intermed. Role CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281810571 - Control 3573781717 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
-          <source>Specifies whether the document is part of a three-party trade.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control EU 3-Party Trade CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281810571 - Control 4265101683 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
-          <source>Specifies that entry will be excluded from intrastat.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control Intrastat Exclude CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281810571 - Control 4265101683 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
-          <source>Intrastat Exclude (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control Intrastat Exclude CZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281810571 - Control 1040450579 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
-          <source>Specifies if the entry is an Intrastat transaction.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control IsIntrastatTransactionCZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281810571 - Control 1040450579 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
-          <source>Intrastat Transaction</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control IsIntrastatTransactionCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281810571 - Control 188646606 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
-          <source>Specifies the language to be used on printouts for this document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control Language Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281810571 - Control 4197964984 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
-          <source>Specifies the VAT country/region code of customer.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control VAT Country/Region Code CZL - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 4281810571 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
           <source>Payment Details</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -29072,6 +28997,46 @@
           <source>VAT Currency Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control VAT Currency Code CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 2591900105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Specifies when the purchase header will use European Union third-party intermediate trade rules. This option complies with VAT accounting standards for EU third-party trade.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control EU 3-Party Intermed. Role CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 3573781717 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Specifies whether the document is part of a three-party trade.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control EU 3-Party Trade CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 4265101683 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Specifies that entry will be excluded from intrastat.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control Intrastat Exclude CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 4265101683 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Intrastat Exclude (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control Intrastat Exclude CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 1040450579 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Specifies if the entry is an Intrastat transaction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control IsIntrastatTransactionCZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 1040450579 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Intrastat Transaction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control IsIntrastatTransactionCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 188646606 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Specifies the language to be used on printouts for this document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control Language Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281810571 - Control 4197964984 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Specifies the VAT country/region code of customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Credit Memo CZL - Control VAT Country/Region Code CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1395491950 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 291926049">
           <source>Specifies a code to idenfity bank account of company.</source>
@@ -30043,6 +30008,81 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Quotes CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies a description of the document. The posting description also appers on vendor and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Posting Description CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 4005239217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Your Reference CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies the VAT date of the original document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Original Doc. VAT Date CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 3753419350 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Date CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 3753419350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>VAT Date (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Date CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 3307348949 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies if you need to post a corrective entry to an account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Correction CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 2991760298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies the vendor's market type to link business transactions to.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Vendor Posting Group CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 2153225461 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies the registration number of vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Registration No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 715756482 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies the secondary VAT registration number for the vendor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Tax Registration No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 4140626140 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies the VAT registration number. The field will be used when you do business with partners from EU countries/regions.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Registration No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 2180203312 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies VAT currency code of purchase return order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Currency Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 2180203312 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>VAT Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Currency Code CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 3206708405 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies if there is physical transfer of the item.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Physical Transfer CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 3206708405 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Physical Transfer (Obsolete)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Physical Transfer CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3132071246 - Control 3223427937 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
+          <source>Specifies the code that represents the shipment method for this purchase.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Shipment Method Code CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3132071246 - Control 2591900105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
           <source>Specifies when the purchase header will use European Union third-party intermediate trade rules. This option complies with VAT accounting standards for EU third-party trade.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -30138,76 +30178,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 4005239217 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies the customer's reference. The contents will be printed on sales documents.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Your Reference CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 1470278247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies the VAT date of the original document.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Original Doc. VAT Date CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 3753419350 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Date CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 3753419350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>VAT Date (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Date CZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 3307348949 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies if you need to post a corrective entry to an account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Correction CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 2991760298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies the vendor's market type to link business transactions to.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Vendor Posting Group CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 2153225461 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies the registration number of vendor.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Registration No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 715756482 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies the secondary VAT registration number for the vendor.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Tax Registration No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 4140626140 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies the VAT registration number. The field will be used when you do business with partners from EU countries/regions.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Registration No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 2180203312 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies VAT currency code of purchase return order</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Currency Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 2180203312 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>VAT Currency Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control VAT Currency Code CZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 3206708405 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies if there is physical transfer of the item.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Physical Transfer CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 3206708405 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Physical Transfer (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Physical Transfer CZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3132071246 - Control 3223427937 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1555938241">
-          <source>Specifies the code that represents the shipment method for this purchase.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order CZL - Control Shipment Method Code CZL - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 2047797828 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3113493751">
           <source>Specifies a code to idenfity bank account of company.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -30257,16 +30227,6 @@
           <source>Specifies the detail information for payment.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Return Order List CZL - Control Variable Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3378979135 - Control 3478007346 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3921990236">
-          <source>Allows you to use a different posting group on the document than the one set on the vendor.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchases &amp; Payables Setup CZL - Control Allow Alter Posting Groups CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3378979135 - Control 3478007346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3921990236">
-          <source>Allow Alter Posting Groups (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchases &amp; Payables Setup CZL - Control Allow Alter Posting Groups CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3378979135 - Control 672128306 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3921990236">
           <source>VAT</source>
@@ -30473,16 +30433,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales &amp; Marketing Mngr. RC CZL - Action Quantity Shipped Check CZL - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4206265461 - Control 3478007346 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4145206282">
-          <source>Allows you to use a different posting group on the document than the one set on the customer.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales &amp; Receivables Setup CZL - Control Allow Alter Posting Groups CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4206265461 - Control 3478007346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4145206282">
-          <source>Allow Alter Posting Groups (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales &amp; Receivables Setup CZL - Control Allow Alter Posting Groups CZL - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 4206265461 - Control 672128306 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4145206282">
           <source>VAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -30517,11 +30467,6 @@
           <source>Specifies a code for the item's tariff number.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Cr. Memo Subform CZL - Control Tariff No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3161673206 - Control 2180203312 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1708100201">
-          <source>Specifies the currency of VAT on the sales credit memo.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Credit Memo CZL - Control VAT Currency Code CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3161673206 - Control 2591900105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1708100201">
           <source>Specifies when the sales header will use European Union third-party intermediate trade rules. This option complies with VAT accounting standards for EU third-party trade.</source>
@@ -30678,6 +30623,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Credit Memo CZL - Control Shipment Method Code CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3161673206 - Control 2180203312 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1708100201">
+          <source>Specifies the currency of VAT on the sales credit memo.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Credit Memo CZL - Control VAT Currency Code CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2966606443 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1948356160">
           <source>Specifies a code to idenfity bank account of company.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -30727,61 +30677,6 @@
           <source>Specifies the detail information for payment.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Credit Memos CZL - Control Variable Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Payment Details</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control PaymentsCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies a code to idenfity bank account of company.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Bank Account Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the number used by the bank for the bank account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Bank Account No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the number of the bank branch.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Bank Branch No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the name of the bank.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Bank Name CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Constant Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the bank account's international bank account number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control IBAN CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Specific Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control SWIFT Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies a bank identification number of your own choice.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Transit No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 381903040 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
-          <source>Specifies the detail information for payment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 381903040 - Control 1054067672 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
           <source>Specifies the reason code on the entry.</source>
@@ -30857,6 +30752,61 @@
           <source>Specifies the VAT country/region code of customer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control VAT Country/Region Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Payment Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control PaymentsCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies a code to idenfity bank account of company.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Bank Account Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the number used by the bank for the bank account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Bank Account No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the number of the bank branch.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Bank Branch No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the name of the bank.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Bank Name CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Constant Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the bank account's international bank account number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control IBAN CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Specific Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control SWIFT Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies a bank identification number of your own choice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Transit No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 381903040 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4034894651">
+          <source>Specifies the detail information for payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Invoice CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2850678570 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 561208485">
           <source>Specifies a code to idenfity bank account of company.</source>
@@ -31083,61 +31033,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Archives CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Payment Details</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control PaymentsCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies a code to idenfity bank account of company.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Bank Account Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the number used by the bank for the bank account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Bank Account No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the number of the bank branch.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Bank Branch No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the name of the bank.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Bank Name CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Constant Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the bank account's international bank account number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control IBAN CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Specific Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control SWIFT Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies a bank identification number of your own choice.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Transit No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1445684589 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Specifies the detail information for payment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Variable Symbol CZL - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1445684589 - Control 1054067672 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Specifies the reason code on the entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -31212,6 +31107,61 @@
           <source>Specifies the VAT country/region code of customer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control VAT Country/Region Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Payment Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control PaymentsCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies a code to idenfity bank account of company.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Bank Account Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the number used by the bank for the bank account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Bank Account No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the number of the bank branch.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Bank Branch No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the name of the bank.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Bank Name CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Constant Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the bank account's international bank account number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control IBAN CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Specific Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control SWIFT Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies a bank identification number of your own choice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Transit No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1445684589 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
+          <source>Specifies the detail information for payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 977671723 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3332899200">
           <source>Specifies a code to idenfity bank account of company.</source>
@@ -31382,6 +31332,11 @@
           <source>Specifies the detail information for payment.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote Archives CZL - Control Variable Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1218007193 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
+          <source>Specifies a description of the document. The posting description also appers on customer and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Quote CZL - Control Posting Description CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1218007193 - Control 1054067672 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
           <source>Specifies the reason code on the entry.</source>
@@ -31638,10 +31593,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Return Order Archive CZL - Control Variable Symbol CZL - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2386123627 - Control 2180203312 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
-          <source>Specifies the currency of VAT on the sales return order.</source>
+        <trans-unit id="PageExtension 2386123627 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Specifies a description of the document. The posting description also appers on customer and G/L entries.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Return Order CZL - Control VAT Currency Code CZL - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Return Order CZL - Control Posting Description CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2386123627 - Control 2591900105 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
           <source>Specifies when the sales header will use European Union third-party intermediate trade rules. This option complies with VAT accounting standards for EU third-party trade.</source>
@@ -31798,6 +31753,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Return Order CZL - Control Shipment Method Code CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2386123627 - Control 2180203312 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1598289728">
+          <source>Specifies the currency of VAT on the sales return order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Return Order CZL - Control VAT Currency Code CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 709616733 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 942220850">
           <source>Specifies a code to idenfity bank account of company.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -31898,61 +31858,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Cr. Memo Subform CZL - Control Statistic Indication CZL - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Payment Details</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control PaymentsCZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies a code to idenfity bank account of company.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Bank Account Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies the number used by the bank for the bank account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Bank Account No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies the number of the bank branch.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Bank Branch No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies the name of the bank.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Bank Name CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Constant Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies the bank account's international bank account number.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control IBAN CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies the additional symbol of bank payments.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Specific Symbol CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control SWIFT Code CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies a bank identification number of your own choice.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Transit No. CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3786959161 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
-          <source>Specifies the detail information for payment.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Variable Symbol CZL - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 3786959161 - Control 817743510 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
           <source>Specifies the type of credit memo (corrective tax document, internal correction, insolvency tax document).</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32048,6 +31953,61 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control VAT Country/Region Code CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Payment Details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control PaymentsCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies a code to idenfity bank account of company.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Bank Account Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 1207194903 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies the number used by the bank for the bank account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Bank Account No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 2335905532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies the number of the bank branch.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Bank Branch No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 4143895744 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies the name of the bank.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Bank Name CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 958090087 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Constant Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 21259915 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies the bank account's international bank account number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control IBAN CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 167070957 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies the additional symbol of bank payments.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Specific Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 1862212849 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies the international bank identifier code (SWIFT) of the bank where you have the account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control SWIFT Code CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 3666594103 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies a bank identification number of your own choice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Transit No. CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3786959161 - Control 1509242559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies the detail information for payment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memo CZL - Control Variable Symbol CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 588069160 - Control 10130681 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4014017923">
           <source>Specifies a code to idenfity bank account of company.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32097,6 +32057,11 @@
           <source>Specifies the detail information for payment.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Credit Memos CZL - Control Variable Symbol CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 957356907 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1224914752">
+          <source>Specifies a description of the document. The posting description also appers on customer and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Invoice CZL - Control Posting Description CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 957356907 - Control 1054067672 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1224914752">
           <source>Specifies the reason code on the entry.</source>
@@ -32318,16 +32283,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Lines CZL - Control Tariff No. CZL - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2666637953 - Control 3478007346 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 297536702">
-          <source>Allows you to use a different posting group on the document than the one set on the customer.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Mgt. Setup CZL - Control Allow Alter Posting Groups CZL - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2666637953 - Control 3478007346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 297536702">
-          <source>Allow Alter Posting Groups (Obsolete)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Mgt. Setup CZL - Control Allow Alter Posting Groups CZL - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 2666637953 - Control 672128306 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 297536702">
           <source>VAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32337,6 +32292,11 @@
           <source>Specifies the default VAT date type for service document (posting date, document date, blank).</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Mgt. Setup CZL - Control Default VAT Date CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 421120322 - Control 1407413765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
+          <source>Specifies a description of the document. The posting description also appers on customer and G/L entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order CZL - Control Posting Description CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 421120322 - Control 3753419350 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
           <source>Specifies date by which the accounting transaction will enter VAT statement.</source>
@@ -32734,7 +32694,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Stockkeeping Unit Card CZL - Control Gen. Prod. Posting Group CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2244770621 - Action 2024861458 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1688820690">
-          <source>Launch importing data from the list of codes published by the Customs Administration of the Czech Republic: https://www.celnisprava.cz/cz/aplikace/Stranky/ciselniky.aspx. 51 - KN Kombinovaná nomenklatura.</source>
+          <source>Launch importing data from the list of codes published by the Customs Administration of the Czech Republic: https://www.celnisprava.cz/cz/aplikace/Stranky/ciselniky.aspx. Kombinovaná nomenklatura (pro Intrastat).</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tariff Numbers CZL - Action Import Tariff Numbers CZL - Property ToolTip</note>
         </trans-unit>
@@ -34258,11 +34218,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Ledger Setup CZL - Change VAT Reporting Date Usage - Method OnAfterValidate - NamedType DisableVATDateQst</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2910014531 - Change 2138202056 - Method 3059879501 - NamedType 1441326726" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2910014531">
-          <source>The Enabled option allows editing VAT Reporting Date in the VAT Entries which is not in line with Czech functionality. Use the Enabled (Prevent modification) option.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension General Ledger Setup CZL - Change VAT Reporting Date Usage - Method OnAfterValidate - NamedType VATDateUsageEnabledErr</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3704866736 - Field 1784763174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 320642379">
           <source>Invt. Rounding Adj. Account</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -35463,11 +35418,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Line CZL - Field Tariff No. CZL - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3378979135 - Field 3478007346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3921990236">
-          <source>Allow Alter Posting Groups</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchases &amp; Payables Setup CZL - Field Allow Alter Posting Groups CZL - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3378979135 - Field 3858596340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3921990236">
           <source>Default Original Document VAT Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -35632,11 +35582,6 @@
           <source>Tariff No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Return Shipment Line CZL - Field Tariff No. CZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 4206265461 - Field 3478007346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4145206282">
-          <source>Allow Alter Posting Groups</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales &amp; Receivables Setup CZL - Field Allow Alter Posting Groups CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4206265461 - Field 2430857371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4145206282">
           <source>Default VAT Date</source>
@@ -36498,11 +36443,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Line CZL - Field Tariff No. CZL - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2666637953 - Field 3478007346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
-          <source>Allow Alter Posting Groups</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Mgt. Setup CZL - Field Allow Alter Posting Groups CZL - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2666637953 - Field 2430857371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Default VAT Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -36717,6 +36657,11 @@
           <source>Allow Posting to Closed Period</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension User Setup CZL - Field Allow Post.toClosed Period CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1641233037 - Field 2090795340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Allow VAT Date Changing</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension User Setup CZL - Field Allow VAT Date Changing CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1641233037 - Field 1542667627 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Allow VAT Posting From</source>

@@ -5998,10 +5998,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Calendar Source Type CZB - EnumValue Bank Account CZB - Property Caption</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 1657760482 - EnumValue 4257245795 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 4244706559">
+        <trans-unit id="EnumExtension 1657760482 - EnumValue 2382095419 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 4244706559">
           <source>Banking Documents</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Manual Setup Category CZB - EnumValue Banking Documents CZZ - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Manual Setup Category CZB - EnumValue Banking Documents CZB - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 4056552843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>CZ Bank Documents - Edit</source>
