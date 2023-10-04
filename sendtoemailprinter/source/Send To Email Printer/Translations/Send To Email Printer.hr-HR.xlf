@@ -58,16 +58,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control PaperWidth - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 184311439 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Open SMTP mail setup page.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SetupSMTP - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 184311439 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up SMTP</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SetupSMTP - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3508446305 - Control 2259985461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the paper is in Landscape orientation.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -82,11 +72,6 @@
           <source>Paper Units</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control PaperUnit - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 2665397048 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This printer requires SMTP mail setup to print the jobs.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SMTPSetupRequired - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3508446305 - Control 2814033574 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email address of the printer.</source>
@@ -143,20 +128,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control EmailBody - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3508446305 - NamedType 1555763889" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up SMTP</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType SetupSMTPLbl</note>
-        </trans-unit>
         <trans-unit id="Page 3508446305 - NamedType 284576615" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Learn more</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType LearnMoreActionLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - NamedType 3212133970" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This printer requires SMTP mail setup to print the jobs.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType SMTPSetupRequiredLbl</note>
         </trans-unit>
         <trans-unit id="Page 3508446305 - NamedType 3399143437" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print jobs will be sent to the specified email address. Please take privacy precautions.</source>
