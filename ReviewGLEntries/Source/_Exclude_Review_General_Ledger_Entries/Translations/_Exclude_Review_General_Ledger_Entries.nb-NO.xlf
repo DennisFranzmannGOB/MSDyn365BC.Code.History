@@ -10,8 +10,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType BalanceNotMatchingMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3107932718 - NamedType 2635438508" maxwidth="999" size-unit="char" translate="yes" xml:space="preserve">
-          <source>G/L Entries for G/L Account %1 %2 were not marked as reviewed since the G/L Account has a No Review Policy</source>
-          <target state="translated">Finansposter for finanskonto %1 %2 ble ikke merket som gjennomgått fordi finanskontoen ikke har noen gjennomgangspolicy</target>
+          <source>G/L Entries for G/L Account %1 %2 were not marked as reviewed since the G/L Account has Review Policy None</source>
+          <target state="translated">Finansposter for finanskonto %1 %2 er ikke merket som gjennomgått fordi finanskontoen har gjennomgangspolicyen Ingen</target>
           <note from="Developer" annotates="general" priority="2">%1 is G/L Account No. and %2 is G/L Account Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType GLAccountLbl</note>
         </trans-unit>
@@ -20,24 +20,6 @@
           <target state="translated">Ingen poster ble valgt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType NoEntriesSelectedLbl</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 1320218767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow Review and Match Balance</source>
-          <target state="translated">Tillat gjennomgang og samsvar saldo</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue Allow Review and Match Balance - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 171085621 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow Review</source>
-          <target state="translated">Tillat gjennomgang</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue Allow Review - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 3371220206 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">Ingen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue None - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3177632721 - EnumValue 1320218767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allow Review and Match Balance</source>
@@ -94,8 +76,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action Show All - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2247589152 - Action 2553591649 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>For selected G/L Entries, field Reviewer is set to blank, field Review Status is set to Not Reviewed, field Reviewed On is set to blank, field Review Id is to blank</source>
-          <target state="translated">For utvalgte finansposter er feltet Kontrollør tomt, feltet Gjennomgangsstatus satt til Ikke gjennomgått, feltet Gjennomgått den tomt, feltet Gjennomgangs-ID er tomt</target>
+          <source>This action can only be selected when the G/L Account's Review Policy is either "Review Allowed or "Review Allowed and Match Balance". For selected G/L Entries, field Reviewer is set to blank, field Review Status is set to Not Reviewed, field Reviewed On is set to blank, field Review Id is to blank</source>
+          <target state="translated">Denne handlingen kan bare velges når finanskontoens gjennomgangspolicy er Tillat gjennomgang eller Tillat gjennomgang og samsvar saldo. For valgte finansposter er feltet Kontrollør tomt, Ikke gjennomgått er valgt i feltet Gjennomgangsstatus, feltet Gjennomgått den er tomt og feltet Gjennomgangs-ID er tomt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsNotReviewed - Property ToolTip</note>
         </trans-unit>
@@ -112,8 +94,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsReviewed - Property AboutTitle</note>
         </trans-unit>
         <trans-unit id="Page 2247589152 - Action 3288081654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>For selected G/L Entries, field Reviewer is set to the current user, field Review Status is set to Reviewed, field Reviewed On is set to current date, field Review Id is to a number which all the marked entries share</source>
-          <target state="translated">For utvalgte finansposter er feltet Kontrollør satt til nåværende bruker, feltet Gjennomgangsstatus satt til Gjennomgått, feltet Gjennomgått satt til nåværende dato, feltet Gjennomgangs-ID er satt til et tall som alle de valgte postene deler</target>
+          <source>This action can only be selected when the G/L Account's Review Policy is either "Review Allowed or "Review Allowed and Match Balance". For selected G/L Entries, field Reviewer is set to the current user, field Review Status is set to Reviewed, field Reviewed On is set to current date, field Review Id is to a number which all the marked entries share</source>
+          <target state="translated">Denne handlingen kan bare velges når finanskontoens gjennomgangspolicy er Tillat gjennomgang eller Tillat gjennomgang og samsvar saldo. For valgte finansposter er den nåværende brukeren valgt i feltet Kontrollør, Gjennomgått er valgt i feltet Gjennomgangsstatus, nåværende dato er valgt i feltet Gjennomgått den og feltet Gjennomgangs-ID er et nummer som alle merkede poster deler</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsReviewed - Property ToolTip</note>
         </trans-unit>

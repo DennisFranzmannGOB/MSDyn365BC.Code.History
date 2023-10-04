@@ -272,12 +272,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BadConsumerTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 758984636 - NamedType 2906420131" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Yodlee could not update your account because it appears to be locked by your bank. This usually results from too many unsuccessful login attempts in a short period of time. Please visit the bank or contact its customer support to resolve this issue. Once done, please update your account credentials in case they are changed.</source>
-          <target state="translated">Yodlee could not update your account because it appears to be locked by your bank. This usually results from too many unsuccessful login attempts in a short period of time. Please visit the bank or contact its customer support to resolve this issue. Once done, please update your account credentials in case they are changed.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshAccountLockedTxt</note>
-        </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 3806022380" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Yodlee was unable to update your account as the online bank is temporarily down for maintenance. We apologize for the inconvenience. This problem is typically resolved in a few hours. Please try again later.</source>
           <target state="translated">Yodlee was unable to update your account as the online bank is temporarily down for maintenance. We apologize for the inconvenience. This problem is typically resolved in a few hours. Please try again later.</target>
@@ -295,18 +289,6 @@
           <target state="translated">Yodlee was unable to update your account because it has started providing data updates for this online bank, and it may take a few days to be successful. Please try again later.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshBankInBetaMaintenanceTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 758984636 - NamedType 3364155623" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Your request timed out due to technical reasons. Please try again.</source>
-          <target state="translated">Your request timed out due to technical reasons. Please try again.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshTimedOutTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 758984636 - NamedType 1916303894" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>We are sorry, Yodlee encountered a technical problem while updating your account. Please try again later.</source>
-          <target state="translated">We are sorry, Yodlee encountered a technical problem while updating your account. Please try again later.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshUnknownErrorTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 3737451022" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>All bank account links are up to date, or no online bank accounts exist.</source>
@@ -331,12 +313,6 @@
           <target state="translated">%1 %2</target>
           <note from="Developer" annotates="general" priority="2">Used to concat AccountLinkingSummaryMsg (%1) and AccountUnLinkingSummaryMsg (%2)</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType ConcatAccountSummaryMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 758984636 - NamedType 44359669" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Yodlee is unable to retrieve the newest bank feeds without user assistance. To perform this activity manually, you must open the corresponding bank account card, and choose action Refresh Online Bank Account.</source>
-          <target state="translated">Yodlee is unable to retrieve the newest bank feeds without user assistance. To perform this activity manually, you must open the corresponding bank account card, and choose action Refresh Online Bank Account.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType CredentialsCommentTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 3594519002" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The currency your bank account is using (%1) does not match the currency for your online bank account (%2).</source>

@@ -249,7 +249,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BadConsumerTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 2906420131" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Yodlee could not update your account because it appears to be locked by your bank. This usually results from too many unsuccessful login attempts in a short period of time. Please visit the bank or contact its customer support to resolve this issue. Once done, please update your account credentials in case they are changed.</source>
+          <source>Yodlee could not update your account because it appears to be locked by your bank. This usually results from too many unsuccessful login attempts in a short period of time. Please visit the bank or contact its customer support to resolve this issue. Once done, open the corresponding bank account card, choose action Edit Online Bank Account Information, provide credentials for your online bank account and close the page. Then choose action Refresh Online Bank Account to try downloading latest transactions again.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshAccountLockedTxt</note>
         </trans-unit>
@@ -274,17 +274,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshBankInBetaMaintenanceTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 2877570477" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Yodlee could not update your account because your username and/or password were reported to be incorrect. You must open the corresponding bank account card and choose action Edit Online Bank Account Information.</source>
+          <source>Yodlee could not download latest transactions from your online bank account because your credentials were reported to be incorrect. You must open the corresponding bank account card, choose action Edit Online Bank Account Information and provide credentials for your online bank account and close the page. Then choose action Refresh Online Bank Account.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshInvalidCredentialsTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 3364155623" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Your request timed out due to technical reasons. Please try again.</source>
+          <source>Your request timed out due to technical reasons. Open the corresponding bank account card and choose action Edit Online Bank Account Information. Provide the credentials for the online bank account, close the page and then choose action Refresh Online Bank Account.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshTimedOutTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 1916303894" size-unit="char" translate="yes" xml:space="preserve">
-          <source>We are sorry, Yodlee encountered a technical problem while updating your account. Please try again later.</source>
+          <source>Yodlee encountered a technical problem while downloading latest transactions from your online bank account. Open the corresponding bank account card, choose action Edit Online Bank Account Information and provide credentials for your online bank account and close the page. Then choose action Refresh Online Bank Account to try downloading latest transactions again.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType BankAccountRefreshUnknownErrorTxt</note>
         </trans-unit>
@@ -309,7 +309,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType ConcatAccountSummaryMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 44359669" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Yodlee is unable to retrieve the newest bank feeds without user assistance. To perform this activity manually, you must open the corresponding bank account card, and choose action Refresh Online Bank Account.</source>
+          <source>Yodlee is unable to download the latest transactions from the online bank account without user assistance. To perform this activity manually, you must open the corresponding bank account card, choose action Edit Online Bank Account and provide credentials for your online bank account and close the page. Then choose action Refresh Online Bank Account.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType CredentialsCommentTxt</note>
         </trans-unit>
