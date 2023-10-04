@@ -10,8 +10,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType BalanceNotMatchingMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3107932718 - NamedType 2635438508" maxwidth="999" size-unit="char" translate="yes" xml:space="preserve">
-          <source>G/L Entries for G/L Account %1 %2 were not marked as reviewed since the G/L Account has a No Review Policy</source>
-          <target state="translated">Fibuposten für das Fibukonto %1 %2 wurden nicht als überprüft gekennzeichnet, da für das Fibukonto die Richtlinie „Keine Überprüfung“ gilt</target>
+          <source>G/L Entries for G/L Account %1 %2 were not marked as reviewed since the G/L Account has Review Policy None</source>
+          <target state="translated">Fibuposten für das Fibukonto %1 %2 wurden nicht als überprüft gekennzeichnet, da für das Fibukonto die Überprüfungsrichtlinie „Keine“ gilt.</target>
           <note from="Developer" annotates="general" priority="2">%1 is G/L Account No. and %2 is G/L Account Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType GLAccountLbl</note>
         </trans-unit>
@@ -20,24 +20,6 @@
           <target state="translated">Keine Einträge ausgewählt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType NoEntriesSelectedLbl</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 1320218767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow Review and Match Balance</source>
-          <target state="translated">Überprüfung zulassen und Saldo abgleichen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue Allow Review and Match Balance - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 171085621 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow Review</source>
-          <target state="translated">Überprüfung zulassen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue Allow Review - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 3371220206 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">Keine</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue None - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3177632721 - EnumValue 1320218767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allow Review and Match Balance</source>
@@ -94,8 +76,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action Show All - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2247589152 - Action 2553591649 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>For selected G/L Entries, field Reviewer is set to blank, field Review Status is set to Not Reviewed, field Reviewed On is set to blank, field Review Id is to blank</source>
-          <target state="translated">Für ausgewählte Fibuposten wird das Feld „Prüfer“ auf leer gesetzt, das Feld „Überprüfungsstatus“ wird auf „nicht überprüft“ gesetzt, das Feld „Überprüft am“ wird auf leer gesetzt und das Feld „Überprüfungs-ID “ ist leer</target>
+          <source>This action can only be selected when the G/L Account's Review Policy is either "Review Allowed or "Review Allowed and Match Balance". For selected G/L Entries, field Reviewer is set to blank, field Review Status is set to Not Reviewed, field Reviewed On is set to blank, field Review Id is to blank</source>
+          <target state="translated">Diese Aktion kann nur ausgewählt werden, wenn die Überprüfungsrichtlinie des Fibukontos entweder „Überprüfung erlaubt“ oder „Überprüfung erlaubt und Saldo abgleichen“ lautet. Bei ausgewählten Fibuposten ist das Feld „Prüfer“ auf leer, das Feld „Überprüfungsstatus“ auf „Nicht überprüft“ und das Feld „Überprüft am“ auf leer und das Feld „Überprüfungs-ID“ auf leer gesetzt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsNotReviewed - Property ToolTip</note>
         </trans-unit>
@@ -112,8 +94,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsReviewed - Property AboutTitle</note>
         </trans-unit>
         <trans-unit id="Page 2247589152 - Action 3288081654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>For selected G/L Entries, field Reviewer is set to the current user, field Review Status is set to Reviewed, field Reviewed On is set to current date, field Review Id is to a number which all the marked entries share</source>
-          <target state="translated">Für ausgewählte Fibuposten wird das Feld „Prüfer“ auf den aktuellen Benutzer gesetzt, das Feld „Überprüfungsstatus“ wird auf „Überprüft“ gesetzt, das Feld „Überprüft am“ wird auf das aktuelle Datum gesetzt und das Feld „Überprüfungs-ID “ enthält eine Nummer, die für alle markierten Posten gleich ist</target>
+          <source>This action can only be selected when the G/L Account's Review Policy is either "Review Allowed or "Review Allowed and Match Balance". For selected G/L Entries, field Reviewer is set to the current user, field Review Status is set to Reviewed, field Reviewed On is set to current date, field Review Id is to a number which all the marked entries share</source>
+          <target state="translated">Diese Aktion kann nur ausgewählt werden, wenn die Überprüfungsrichtlinie des Fibukontos entweder „Überprüfung erlaubt“ oder „Überprüfung erlaubt und Saldo abgleichen“ lautet. Bei ausgewählten Fibuposten ist das Feld „Überprüfungsstatus“ auf „Überprüft“, das Feld „Überprüft am“ auf das aktuelle Datum, das Feld „Überprüfungs-ID“ auf eine Nummer festgelegt, die alle markierten Posten teilen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsReviewed - Property ToolTip</note>
         </trans-unit>
