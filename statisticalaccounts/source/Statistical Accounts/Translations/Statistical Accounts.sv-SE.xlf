@@ -172,6 +172,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Enum 1037990914</note>
         </trans-unit>
+        <trans-unit id="EnumExtension 3392792633 - EnumValue 3703212798 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statistical Account</source>
+          <target state="translated">Statistiskt konto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 2427009568</note>
+        </trans-unit>
         <trans-unit id="EnumExtension 397478488 - EnumValue 3703212798 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statistical Account</source>
           <target state="translated">Statistiskt konto</target>
@@ -206,8 +213,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account Card - Action LedgerEntries - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1103004858 - Action 1892509601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A&amp;ccount</source>
-          <target state="translated">&amp;Konto</target>
+          <source>Account</source>
+          <target state="translated">Konto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account Card - Action A&amp;ccount - Property Caption</note>
         </trans-unit>
@@ -1730,8 +1737,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Acc. Journal Line - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3691299527 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Stat. Acc. Balance Buffer</source>
-          <target state="translated">Buffert för saldo på statistiskt konto</target>
+          <source>Statistical Account Balance</source>
+          <target state="translated">Saldo på statistiskt konto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Stat. Acc. Balance Buffer - Property Caption</note>
         </trans-unit>
@@ -1755,6 +1762,13 @@
           <note from="ObjectTarget" annotates="general" priority="5">Table 2416796065</note>
         </trans-unit>
         <trans-unit id="TableExtension 1082028096 - Field 2218020965 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statistical Account Journal</source>
+          <target state="translated">Journal för statistiskt konto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1642199961</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1082028096 - Field 3714740080 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statistical Account Journal</source>
           <target state="translated">Journal för statistiskt konto</target>
           <note from="Developer" annotates="general" priority="2"></note>
