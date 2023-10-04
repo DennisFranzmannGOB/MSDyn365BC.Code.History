@@ -298,6 +298,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - WorldPay Standard Setup - NamedType ThirdPartyNoticeMsg</note>
         </trans-unit>
+        <trans-unit id="Page 259547023 - Method 716454850 - NamedType 2490322411" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WorldPay Payments Standard extension will be discontinued.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - WorldPay Standard Setup - Method OnOpenPage - NamedType DeprecationMsg</note>
+        </trans-unit>
         <trans-unit id="Page 259547023 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>General</source>
           <note from="Developer" annotates="general" priority="2"></note>

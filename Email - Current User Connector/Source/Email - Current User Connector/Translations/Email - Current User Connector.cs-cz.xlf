@@ -66,7 +66,7 @@
         </trans-unit>
         <trans-unit id="Page 1036501575 - Control 1205826660 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>An email account of this type is already set up for you. You can only use one account at a time.</source>
-          <target state="translated">Emailový účet tohoto typu je již nastaven pro vás. Najednou můžete používat pouze jeden účet.</target>
+          <target state="translated">Emailový účet tohoto typu je již pro vás nastaven. Najednou můžete používat pouze jeden účet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Current User Email Account - Control OnlyOne - Property InstructionalText</note>
         </trans-unit>

@@ -21,6 +21,12 @@
           <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ReceptFileNameLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 186519675" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This will create the default Intrastat %1 . \\All existing default Intrastat %1 will be overwritten.\\Do you want to continue?</source>
+          <target state="translated">Tím se vytvoří výchozí Intrastat %1 . \\Všechny existující výchozí %1 Intrastat budou přepsány.\\Chcete pokračovat?</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Data Exchange Definition caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ImportDefaultIntrastatDataExchDefConfirmQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 150943441 - NamedType 2188659467" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is empty.</source>
           <target state="translated">%1 je prázdný.</target>
@@ -137,19 +143,16 @@
         </trans-unit>
         <trans-unit id="Enum 1231915140 - EnumValue 295395480 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Country</source>
-          <target state="translated">Země příjemce</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Intrastat Report Shpt. Base - EnumValue Ship-to Country - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1231915140 - EnumValue 3089938559 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Country</source>
-          <target state="translated">Země plátce</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Intrastat Report Shpt. Base - EnumValue Bill-to Country - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1231915140 - EnumValue 3330898740 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Country</source>
-          <target state="translated">Země zákazníka</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Intrastat Report Shpt. Base - EnumValue Sell-to Country - Property Caption</note>
         </trans-unit>
@@ -356,6 +359,18 @@
           <target state="translated">Kontrolní seznam hlášení Intrastat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Action IntrastatReportChecklist - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3132071445 - Action 63770366 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create/Restore Default Data Exchange Definition(-s)</source>
+          <target state="translated">Vytvořit/obnovit výchozí definici(-e) výměny dat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Action ImportDefaultDataExchangeDef - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3132071445 - Action 63770366 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Default Data Exch. Def.</source>
+          <target state="translated">Vytvořit výchozí def. výměny dat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Action ImportDefaultDataExchangeDef - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3458657684 - Action 13632386 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Intrastat Report Checklist</source>
@@ -1083,6 +1098,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. Private Person VAT No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3132071445 - Control 3027822327 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if drop shipment transactions are included in Intrastat reports.</source>
+          <target state="translated">Určuje, zda jsou transakce přímé dodávky zahrnuty do výkazů Intrastat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Include Drop Shipment - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3132071445 - Control 3033389719 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that you must include shipments of dispatched items in Intrastat reports.</source>
           <target state="translated">Určuje, že musíte zahrnout dodávky zboží do sestav Intrastatu.</target>
@@ -1091,7 +1112,6 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 3496517085 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies based on which country code Intrastat report lines are taken.</source>
-          <target state="translated">Určuje, na základě kterého kódu země se přebírají řádky hlášení Intrastat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Shipments Based On - Property ToolTip</note>
         </trans-unit>
@@ -1133,13 +1153,11 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 4168804269 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shows the default receiving country code.</source>
-          <target state="translated">Zobrazuje výchozí kód přijímající země.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. Country/Region Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 694900210 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default VAT number for unknown state.</source>
-          <target state="translated">Určuje výchozí DIČ pro neznámý stát.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. VAT for Unknown State - Property ToolTip</note>
         </trans-unit>
@@ -1222,7 +1240,6 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 1818799312 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a customer's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
-          <target state="translated">Určuje, jak se DIČ zákazníka exportuje do souboru Intrastat. 0 je hodnota pole DIČ, 1 přidá kód země EU jako předponu, a 2 odstraní kód země EU.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Cust. VAT No. on File - Property ToolTip</note>
         </trans-unit>
@@ -1258,13 +1275,11 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 2680197960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a vendor's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
-          <target state="translated">Určuje, jak se DIČ dodavatele exportuje do souboru Intrastat. 0 je hodnota pole DIČ, 1 přidá kód země EU jako předponu, a 2 odstraní kód země EU.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Vend. VAT No. on File - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 2681653000 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how the company's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
-          <target state="translated">Určuje, jak se DIČ společnosti exportuje do souboru Intrastat. 0 je hodnota pole DIČ, 1 přidá kód země EU jako předčíslí a 2 odstraní kód země EU.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Company VAT No. on File - Property ToolTip</note>
         </trans-unit>
@@ -1285,6 +1300,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control FinishedBanner - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3458657684 - Control 3027822327 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if drop shipment transactions are included in Intrastat reports.</source>
+          <target state="translated">Určuje, zda jsou transakce přímé dodávky zahrnuty do výkazů Intrastat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Include Drop Shipment - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3458657684 - Control 3033389719 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that you must include shipments of dispatched items in Intrastat reports.</source>
           <target state="translated">Určuje, že musíte zahrnout dodávky zboží do sestav Intrastatu.</target>
@@ -1293,7 +1314,6 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 3496517085 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies based on which country code Intrastat report lines are taken.</source>
-          <target state="translated">Určuje, na základě kterého kódu země se přebírají řádky hlášení Intrastat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Shipments Based On - Property ToolTip</note>
         </trans-unit>
@@ -1353,13 +1373,11 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 4168804269 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shows the default receiving country code.</source>
-          <target state="translated">Zobrazuje výchozí kód přijímající země.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Def. Country/Region Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 694900210 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default VAT number for unknown state.</source>
-          <target state="translated">Určuje výchozí DIČ pro neznámý stát.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Def. VAT for Unknown State - Property ToolTip</note>
         </trans-unit>
@@ -1609,6 +1627,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1434786627</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3503152889 - Control 1335947384 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the item shall be excluded from Intrastat report.</source>
+          <target state="translated">Určuje, zda má být zboží vyloučeno z hlášení Intrastat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2185457841</note>
         </trans-unit>
         <trans-unit id="PageExtension 374427272 - Control 1663358532 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default transaction type for sales returns and service returns.</source>
@@ -2382,6 +2407,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3132071445 - Field 3027822327 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Include Drop Shipment</source>
+          <target state="translated">Zahrnout přímou dodávku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Include Drop Shipment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3132071445 - Field 3033389719 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report Shipments</source>
           <target state="translated">Vykazovat dodávky</target>
@@ -2432,7 +2463,6 @@
         </trans-unit>
         <trans-unit id="Table 3132071445 - Field 694900210 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Def. VAT Reg. No. for Unknown State</source>
-          <target state="translated">Vých. DPH pro neznámý stát</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Def. VAT for Unknown State - Property Caption</note>
         </trans-unit>
@@ -2562,6 +2592,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3276313895</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3503152889 - Field 1335947384 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exclude from Intrastat Report</source>
+          <target state="translated">Vyloučit z hlášení Intrastat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 463323981</note>
         </trans-unit>
         <trans-unit id="TableExtension 3644027860 - Field 1663358532 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default Trans. Type - Returns</source>

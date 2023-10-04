@@ -357,6 +357,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - WorldPay Standard Setup - NamedType ThirdPartyNoticeMsg</note>
         </trans-unit>
+        <trans-unit id="Page 259547023 - Method 716454850 - NamedType 2490322411" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WorldPay Payments Standard extension will be discontinued.</source>
+          <target state="translated">Tillägget WorldPay Payments Standard kommer att fasas ut.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - WorldPay Standard Setup - Method OnOpenPage - NamedType DeprecationMsg</note>
+        </trans-unit>
         <trans-unit id="Page 259547023 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>General</source>
           <target state="translated">Allmänt</target>

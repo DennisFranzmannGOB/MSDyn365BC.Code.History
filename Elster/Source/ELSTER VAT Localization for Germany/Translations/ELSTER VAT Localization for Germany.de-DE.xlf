@@ -243,18 +243,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales VAT Advance Notif. - Field XML-File Creation Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3039476855 - Field 3659064645 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>XSD-Filename</source>
-          <target state="translated">XSD-Dateiname</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Sales VAT Advance Notif. - Field XSD-Filename - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3039476855 - Field 406942621 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>XSL-Filename</source>
-          <target state="translated">XSL-Dateiname</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Sales VAT Advance Notif. - Field XSL-Filename - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Codeunit 726362064 - NamedType 2579569376" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Advance Notification</source>
           <target state="translated">MwSt.-Voranmeldung</target>
@@ -350,12 +338,6 @@
           <target state="translated">USt.-Voranmeldungskarte</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. Card - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1934416626 - NamedType 4173023661" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Selection of the XSL-File</source>
-          <target state="translated">Auswahl der XSL-Datei</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. Card - NamedType Text1140000Lbl</note>
         </trans-unit>
         <trans-unit id="Page 1934416626 - Control 3050372732 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Communication</source>
@@ -476,24 +458,6 @@
           <target state="translated">Gibt das Erstellungsdatum des an die Steuerbehörden zu übertragenden XML-Dokuments an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. Card - Control XML-File Creation Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1934416626 - Control 406942621 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the path and the file name of the style sheet for the VAT advance notification that you submit to and receive from the tax authorities.</source>
-          <target state="translated">Gibt den Pfad und den Dateinamen der Formatvorlage für die Umsatzsteuervoranmeldung an, die Sie an die Steuerbehörde übermitteln und von dieser erhalten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. Card - Control XSL-Filename - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1934416626 - Control 3185302227 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the path and the file name of the style sheet for the VAT advance notification that you submit to and receive from the tax authorities.</source>
-          <target state="translated">Gibt den Pfad und den Dateinamen der Formatvorlage für die Umsatzsteuervoranmeldung an, die Sie an die Steuerbehörde übermitteln und von dieser erhalten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. Card - Control XSL-Filename Desktop - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1934416626 - Control 3185302227 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>XSL-Filename</source>
-          <target state="translated">XSL-Dateiname</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. Card - Control XSL-Filename Desktop - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1934416626 - Action 36190024 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export the XML file that you can send to the tax authorities. </source>
@@ -638,18 +602,6 @@
           <target state="translated">Gibt das Anfangsdatum der Periode an, für die Sie die Umsatzsteuervoranmeldung erstellen und übertragen möchten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. List - Control Starting Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 323663860 - Control 2739575681 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the creation date of the XML document to be submitted to the tax authorities.</source>
-          <target state="translated">Gibt das Erstellungsdatum des an die Steuerbehörden zu übertragenden XML-Dokuments an.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. List - Control XML-File Creation Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 323663860 - Control 406942621 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the path and the file name of the style sheet for the VAT advance notification that you submit to and receive from the tax authorities.</source>
-          <target state="translated">Gibt den Pfad und den Dateinamen der Formatvorlage für die Umsatzsteuervoranmeldung an, die Sie an die Steuerbehörde übermitteln und von dieser erhalten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales VAT Adv. Notif. List - Control XSL-Filename - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 323663860 - Action 36190024 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export the XML file that you can send to the tax authorities. </source>
