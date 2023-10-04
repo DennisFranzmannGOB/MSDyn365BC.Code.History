@@ -719,7 +719,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Control Delay Job Scheduling - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1217273708 - Control 3997336476 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the cource company that you synchronize data from.</source>
+          <source>Specifies the name of the source company that you synchronize data from.</source>
           <target state="translated">Určuje název zdrojové společnosti, ze které synchronizujete data.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Control Company Name - Property ToolTip</note>
