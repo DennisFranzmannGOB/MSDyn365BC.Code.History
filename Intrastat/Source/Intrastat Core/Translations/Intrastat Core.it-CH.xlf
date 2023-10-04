@@ -21,6 +21,12 @@
           <note from="Developer" annotates="general" priority="2">%1 - Statistics Period</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ReceptFileNameLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 150943441 - NamedType 186519675" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This will create the default Intrastat %1 . \\All existing default Intrastat %1 will be overwritten.\\Do you want to continue?</source>
+          <target state="translated">Verrà creato l'Intrastat predefinito %1. \\L'Intrastat predefinito %1 esistente verrà sovrascritto.\\Continuare?</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Data Exchange Definition caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IntrastatReportManagement - NamedType ImportDefaultIntrastatDataExchDefConfirmQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 150943441 - NamedType 2188659467" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is empty.</source>
           <target state="translated">%1 è vuoto.</target>
@@ -356,6 +362,18 @@
           <target state="translated">Elenco di controllo report Intrastat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Action IntrastatReportChecklist - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3132071445 - Action 63770366 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create/Restore Default Data Exchange Definition(-s)</source>
+          <target state="translated">Crea/Ripristina definizioni di scambio dati predefinite</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Action ImportDefaultDataExchangeDef - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3132071445 - Action 63770366 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Default Data Exch. Def.</source>
+          <target state="translated">Crea definizione di scambio dati predefinita</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Action ImportDefaultDataExchangeDef - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3458657684 - Action 13632386 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Intrastat Report Checklist</source>
@@ -1083,6 +1101,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. Private Person VAT No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3132071445 - Control 3027822327 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if drop shipment transactions are included in Intrastat reports.</source>
+          <target state="translated">Specifica se le transazioni di spedizione diretta sono incluse nei report Intrastat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Include Drop Shipment - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3132071445 - Control 3033389719 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that you must include shipments of dispatched items in Intrastat reports.</source>
           <target state="translated">Specifica che è necessario includere le spedizioni degli articoli inviati nei report Intrastat.</target>
@@ -1284,6 +1308,12 @@
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control FinishedBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3458657684 - Control 3027822327 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if drop shipment transactions are included in Intrastat reports.</source>
+          <target state="translated">Specifica se le transazioni di spedizione diretta sono incluse nei report Intrastat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Include Drop Shipment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 3033389719 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that you must include shipments of dispatched items in Intrastat reports.</source>
@@ -1609,6 +1639,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1434786627</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3503152889 - Control 1335947384 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the item shall be excluded from Intrastat report.</source>
+          <target state="translated">Specifica se l'articolo è escluso dal report Intrastat.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2185457841</note>
         </trans-unit>
         <trans-unit id="PageExtension 374427272 - Control 1663358532 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default transaction type for sales returns and service returns.</source>
@@ -2382,6 +2419,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3132071445 - Field 3027822327 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Include Drop Shipment</source>
+          <target state="translated">Includi spedizione diretta</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Setup - Field Include Drop Shipment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3132071445 - Field 3033389719 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Report Shipments</source>
           <target state="translated">Dichiara spedizioni</target>
@@ -2562,6 +2605,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3276313895</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3503152889 - Field 1335947384 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exclude from Intrastat Report</source>
+          <target state="translated">Escludi da report Intrastat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 463323981</note>
         </trans-unit>
         <trans-unit id="TableExtension 3644027860 - Field 1663358532 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default Trans. Type - Returns</source>

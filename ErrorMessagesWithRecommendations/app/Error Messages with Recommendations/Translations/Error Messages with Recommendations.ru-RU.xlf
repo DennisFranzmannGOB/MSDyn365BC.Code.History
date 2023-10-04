@@ -322,7 +322,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2864634720 - Field 2057940895 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recommended action caption</source>
-          <target state="translated">Заголовок рекомендуемого действия</target>
+          <target state="translated">Подпись рекомендуемого действия</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2852966117</note>

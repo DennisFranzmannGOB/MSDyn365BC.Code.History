@@ -874,13 +874,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Action ActionSimple - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 34130476 - NamedType 685980417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This feature requires that you are using Microsoft Exchange Online. By enabling this feature, you consent to sharing some of your organization's data in Office 365 with Business Central. Business Central will access details about email messages in the shared mailbox that your administrator created for email logging. The details include the message’s IDs, whether it is a draft, the dates and times it was sent and received, the text from the Subject line, a link to the message in Exchange Online, and the email addresses of the sender and the recipients on the To and Cc lines.\\Business Central will store only the IDs, dates, subject, and weblink. We do not store the content of the messages, but there is a link that will open the email message in Outlook Online.\\Do you want to continue?</source>
-          <target state="translated">Tämä ominaisuus edellyttää, että käytät Microsoft Exchange Onlinea. Ottamalla tämän ominaisuuden käyttöön hyväksyt, että joitakin organisaatiosi Office 365:ssä olevia tietoja jaetaan Business Centralille. Business Central käyttää siinä jaetussa postilaatikossa oleviin sähköpostiviesteihin liittyviä tietoja, jonka järjestelmänvalvoja on luonut sähköpostin lokiinkirjausta varten. Näitä tietoja ovat viestin tunnus, tieto siitä, onko kyseessä luonnos, sähköpostiviestin lähetysaika ja -päivä sekä vastanottoaika ja -päivä, Aihe-rivin teksti, linkki viestiin Exchange Onlinessa sekä lähettäjän ja Vastaanottaja- ja Piilokopio-riveillä olevien vastaanottajien sähköpostiosoitteet.\\Business Central tallentaa vain tunnukset, päivämäärät, aiheen ja verkkolinkin. Viestien sisältöä ei tallenneta, mutta on olemassa linkki, joka avaa sähköpostiviestin Outlook Onlinessa.\\Haluatko jatkaa?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 34130476</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1985928904 - Field 1454496815 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Internet Message Checksum</source>
           <target state="translated">Internet-viestin tarkistussumma</target>
@@ -894,6 +887,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1159403147</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 34130476 - NamedType 685980417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This feature requires that you are using Microsoft Exchange Online. By enabling this feature, you consent to sharing some of your organization's data in Office 365 with Business Central. Business Central will access details about email messages in the shared mailbox that your administrator created for email logging. The details include the message’s IDs, whether it is a draft, the dates and times it was sent and received, the text from the Subject line, a link to the message in Exchange Online, and the email addresses of the sender and the recipients on the To and Cc lines.\\Business Central will store only the IDs, dates, subject, and weblink. We do not store the content of the messages, but there is a link that will open the email message in Outlook Online.\\Do you want to continue?</source>
+          <target state="translated">Tämä ominaisuus edellyttää, että käytät Microsoft Exchange Onlinea. Ottamalla tämän ominaisuuden käyttöön hyväksyt, että joitakin organisaatiosi Office 365:ssä olevia tietoja jaetaan Business Centralille. Business Central käyttää siinä jaetussa postilaatikossa oleviin sähköpostiviesteihin liittyviä tietoja, jonka järjestelmänvalvoja on luonut sähköpostin lokiinkirjausta varten. Näitä tietoja ovat viestin tunnus, tieto siitä, onko kyseessä luonnos, sähköpostiviestin lähetysaika ja -päivä sekä vastanottoaika ja -päivä, Aihe-rivin teksti, linkki viestiin Exchange Onlinessa sekä lähettäjän ja Vastaanottaja- ja Piilokopio-riveillä olevien vastaanottajien sähköpostiosoitteet.\\Business Central tallentaa vain tunnukset, päivämäärät, aiheen ja verkkolinkin. Viestien sisältöä ei tallenneta, mutta on olemassa linkki, joka avaa sähköpostiviestin Outlook Onlinessa.\\Haluatko jatkaa?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 34130476</note>
         </trans-unit>
       </group>
     </body>

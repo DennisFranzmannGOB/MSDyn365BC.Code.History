@@ -1988,66 +1988,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report SAF-T Copy Mapping - Control ReplaceControl - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3974796057 - Control 3675218945 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173385693">
-          <source>Specifies if information about this dimension will be exported to the SAF-T file.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Analysis - Control ExportToSAFT - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3974796057 - Control 3684495470 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173385693">
-          <source>Specifies the SAF-T code that will be exported to AnalysisType XML node of the SAF-T file.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Analysis - Control SAFTAnalysys - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3535736462 - Control 3797089627 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
-          <source>Specifies the employee of the company whose information will be exported as the contact for the SAF-T file.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Company Contact - Control SAFTContactNo - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 351339034 - Control 2374442188 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2170603285">
-          <source>Specifies the code that will be exported to the JournalID XML node in the SAF-T file.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Source Codes - Control SAFTSourceCode - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3968840133 - Control 3884584085 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
-          <source>Specifies the code of the VAT posting setup that will be used for the TaxCode XML node in the SAF-T file for the purchase VAT entries.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup Card - Control PurchaseSAFTTaxCode - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3968840133 - Control 2603357364 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
-          <source>Specifies the code of the VAT posting setup that will be used for the StandardTaxCode XML node in the SAF-T file for the purchase VAT entries.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup Card - Control PurchaseStandardTaxCode - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3968840133 - Control 2867432420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
-          <source>Specifies the code of the VAT posting setup that will be used for the TaxCode XML node in the SAF-T file for the sales VAT entries.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup Card - Control SalesSAFTTaxCode - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3968840133 - Control 4138765653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
-          <source>Specifies the code of the VAT posting setup that will be used for the StandardTaxCode XML node in the SAF-T file for the sales VAT entries.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup Card - Control SalesStandardTaxCode - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1489669071 - Control 3884584085 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
-          <source>Specifies the code of the VAT posting setup that will be used for the TaxCode XML node in the SAF-T file for the purchase VAT entries.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup List - Control PurchaseSAFTTaxCode - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1489669071 - Control 2603357364 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
-          <source>Specifies the code of the VAT posting setup that will be used for the StandardTaxCode XML node in the SAF-T file for the purchase VAT entries.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup List - Control PurchaseStandardTaxCode - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1489669071 - Control 2867432420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
-          <source>Specifies the code of the VAT posting setup that will be used for the TaxCode XML node in the SAF-T file for the sales VAT entries.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup List - Control SalesSAFTTaxCode - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1489669071 - Control 4138765653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
-          <source>Specifies the code of the VAT posting setup that will be used for the StandardTaxCode XML node in the SAF-T file for the sales VAT entries.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup List - Control SalesStandardTaxCode - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 766791453 - Control 3835983272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3059077503">
           <source>Specifies if the tax code is used for compensation.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2058,70 +1998,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T VAT Code - Control Compensation - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 405188335 - Control 3835983272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2120306285">
-          <source>Specifies if the tax code is used for compensation.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T VAT Reporting Code - Control Compensation - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3974796057 - Field 227023942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 881177948">
-          <source>Export to SAF-T</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Analysis - Field Export to SAF-T - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3974796057 - Field 1412124609 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 881177948">
-          <source>SAF-T Analysis Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Analysis - Field SAF-T Analysis Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3535736462 - Field 2377726822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
-          <source>SAF-T Contact No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Company Contact - Field SAF-T Contact No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 295034767 - Field 295034767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2720485332">
-          <source>SAF-T Source Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Source Code - Field SAF-T Source Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 417346265 - NamedType 1278416368" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 417346265">
-          <source>%1 is already used in VAT posting setup %2, %3, field %4</source>
-          <note from="Developer" annotates="general" priority="2">%1 - name of the field, like SAF-T Tax Code. %2 - VAT Business Group Code. %3 - VAT Product Group Code</note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - NamedType AlreadyUsedErr</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 417346265 - NamedType 92375278" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 417346265">
-          <source>SAF-T Tax Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - NamedType SAFTTaxCodeLbl</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 417346265 - Field 4150717296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
-          <source>Purchase SAF-T Standard Tax Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - Field Purch. SAF-T Standard Tax Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 417346265 - Field 127375946 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
-          <source>Purchase SAF-T Tax Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - Field Purchase SAF-T Tax Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 417346265 - Field 4053430370 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
-          <source>Sales SAF-T Standard Tax Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - Field Sales SAF-T Standard Tax Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 417346265 - Field 3378701591 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
-          <source>Sales SAF-T Tax Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - Field Sales SAF-T Tax Code - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 766791453 - Field 3835983272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1256068594">
           <source>Compensation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T VAT Code - Field Compensation - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 405188335 - Field 3835983272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2394636620">
-          <source>Compensation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T VAT Reporting Code - Field Compensation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1610557497 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -2182,6 +2062,126 @@
           <source>Two Digit Standard Account</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum SAF-T Mapping Type - EnumValue Two Digit Standard Account - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3974796057 - Control 3675218945 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173385693">
+          <source>Specifies if information about this dimension will be exported to the SAF-T file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Analysis - Control ExportToSAFT - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3974796057 - Control 3684495470 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173385693">
+          <source>Specifies the SAF-T code that will be exported to AnalysisType XML node of the SAF-T file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Analysis - Control SAFTAnalysys - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3974796057 - Field 227023942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 881177948">
+          <source>Export to SAF-T</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Analysis - Field Export to SAF-T - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3974796057 - Field 1412124609 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 881177948">
+          <source>SAF-T Analysis Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Analysis - Field SAF-T Analysis Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 405188335 - Control 3835983272 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2120306285">
+          <source>Specifies if the tax code is used for compensation.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T VAT Reporting Code - Control Compensation - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 405188335 - Field 3835983272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2394636620">
+          <source>Compensation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T VAT Reporting Code - Field Compensation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3968840133 - Control 3884584085 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
+          <source>Specifies the code of the VAT posting setup that will be used for the TaxCode XML node in the SAF-T file for the purchase VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup Card - Control PurchaseSAFTTaxCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3968840133 - Control 2603357364 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
+          <source>Specifies the code of the VAT posting setup that will be used for the StandardTaxCode XML node in the SAF-T file for the purchase VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup Card - Control PurchaseStandardTaxCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3968840133 - Control 2867432420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
+          <source>Specifies the code of the VAT posting setup that will be used for the TaxCode XML node in the SAF-T file for the sales VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup Card - Control SalesSAFTTaxCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3968840133 - Control 4138765653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
+          <source>Specifies the code of the VAT posting setup that will be used for the StandardTaxCode XML node in the SAF-T file for the sales VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup Card - Control SalesStandardTaxCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1489669071 - Control 3884584085 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
+          <source>Specifies the code of the VAT posting setup that will be used for the TaxCode XML node in the SAF-T file for the purchase VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup List - Control PurchaseSAFTTaxCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1489669071 - Control 2603357364 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
+          <source>Specifies the code of the VAT posting setup that will be used for the StandardTaxCode XML node in the SAF-T file for the purchase VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup List - Control PurchaseStandardTaxCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1489669071 - Control 2867432420 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
+          <source>Specifies the code of the VAT posting setup that will be used for the TaxCode XML node in the SAF-T file for the sales VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup List - Control SalesSAFTTaxCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1489669071 - Control 4138765653 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
+          <source>Specifies the code of the VAT posting setup that will be used for the StandardTaxCode XML node in the SAF-T file for the sales VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Tax Setup List - Control SalesStandardTaxCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 417346265 - NamedType 1278416368" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 417346265">
+          <source>%1 is already used in VAT posting setup %2, %3, field %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 - name of the field, like SAF-T Tax Code. %2 - VAT Business Group Code. %3 - VAT Product Group Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - NamedType AlreadyUsedErr</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 417346265 - NamedType 92375278" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 417346265">
+          <source>SAF-T Tax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - NamedType SAFTTaxCodeLbl</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 417346265 - Field 4150717296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
+          <source>Purchase SAF-T Standard Tax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - Field Purch. SAF-T Standard Tax Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 417346265 - Field 127375946 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
+          <source>Purchase SAF-T Tax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - Field Purchase SAF-T Tax Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 417346265 - Field 4053430370 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
+          <source>Sales SAF-T Standard Tax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - Field Sales SAF-T Standard Tax Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 417346265 - Field 3378701591 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
+          <source>Sales SAF-T Tax Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Tax Setup - Field Sales SAF-T Tax Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 351339034 - Control 2374442188 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2170603285">
+          <source>Specifies the code that will be exported to the JournalID XML node in the SAF-T file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Source Codes - Control SAFTSourceCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 295034767 - Field 295034767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2720485332">
+          <source>SAF-T Source Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Source Code - Field SAF-T Source Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3535736462 - Control 3797089627 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
+          <source>Specifies the employee of the company whose information will be exported as the contact for the SAF-T file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension SAF-T Company Contact - Control SAFTContactNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3535736462 - Field 2377726822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
+          <source>SAF-T Contact No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension SAF-T Company Contact - Field SAF-T Contact No. - Property Caption</note>
         </trans-unit>
       </group>
     </body>

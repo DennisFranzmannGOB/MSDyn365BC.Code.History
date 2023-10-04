@@ -778,16 +778,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT Code - Field VAT Rate For Reporting - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 346407172 - Field 1832736989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3364475416">
-          <source>Altinn Token</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT OAuth 2.0. Setup - Field Altinn Token - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1694509023 - NamedType 1604460421" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1694509023">
-          <source>The VAT code you have selected has a VAT rate for reporting (%1 %) that is different than a VAT rate in the VAT posting setup (%2)</source>
-          <note from="Developer" annotates="general" priority="2">%1,%2 = VAT rates/numbers</note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT Posting Setup - NamedType VATRateDoesNotMatchMsg</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3294506677 - Field 2318452738 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4272790790">
           <source>KID</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -802,6 +792,16 @@
           <source>VAT Rate For Reporting</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT Reporting Code - Field VAT Rate For Reporting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1694509023 - NamedType 1604460421" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1694509023">
+          <source>The VAT code you have selected has a VAT rate for reporting (%1 %) that is different than a VAT rate in the VAT posting setup (%2)</source>
+          <note from="Developer" annotates="general" priority="2">%1,%2 = VAT rates/numbers</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT Posting Setup - NamedType VATRateDoesNotMatchMsg</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 346407172 - Field 1832736989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3364475416">
+          <source>Altinn Token</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Elec. VAT OAuth 2.0. Setup - Field Altinn Token - Property Caption</note>
         </trans-unit>
       </group>
     </body>

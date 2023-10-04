@@ -937,20 +937,6 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1256068594</note>
         </trans-unit>
-        <trans-unit id="TableExtension 346407172 - Field 1832736989 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Altinn Token</source>
-          <target state="translated">Altinn-token</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3364475416</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1694509023 - NamedType 1604460421" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The VAT code you have selected has a VAT rate for reporting (%1 %) that is different than a VAT rate in the VAT posting setup (%2)</source>
-          <target state="translated">Mva-koden du har valgt, har en mva-sats for rapportering (%1 %) som er forskjellig fra en mva-sats i mva-bokføringsoppsettet (%2)</target>
-          <note from="Developer" annotates="general" priority="2">%1,%2 = VAT rates/numbers</note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 1694509023</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3294506677 - Field 2318452738 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>KID</source>
           <target state="translated">KID</target>
@@ -971,6 +957,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2394636620</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1694509023 - NamedType 1604460421" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The VAT code you have selected has a VAT rate for reporting (%1 %) that is different than a VAT rate in the VAT posting setup (%2)</source>
+          <target state="translated">Mva-koden du har valgt, har en mva-sats for rapportering (%1 %) som er forskjellig fra en mva-sats i mva-bokføringsoppsettet (%2)</target>
+          <note from="Developer" annotates="general" priority="2">%1,%2 = VAT rates/numbers</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 1694509023</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 346407172 - Field 1832736989 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Altinn Token</source>
+          <target state="translated">Altinn-token</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3364475416</note>
         </trans-unit>
       </group>
     </body>
