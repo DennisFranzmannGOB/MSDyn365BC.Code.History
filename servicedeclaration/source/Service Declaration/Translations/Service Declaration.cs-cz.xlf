@@ -221,7 +221,6 @@
         </trans-unit>
         <trans-unit id="Page 1204715772 - Control 1153001137 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which vendor must be taken to compare his country code with the country code from the Company Information page. Only documents where these two codes are different will be considered for the service declaration. Buy-From.: The country code will be taken from the Buy-From Vendor. Pay-To. : The country code will be taken from the Pay-To Vendor.</source>
-          <target state="translated">Určuje, který dodavatel musí porovnat kód země s kódem země na stránce Informace o společnosti. Pro prohlášení o službách budou brány v úvahu pouze dokumenty, u nichž se tyto dva kódy liší. Dodavatel: Kód země bude převzat od dodavatele. Věřitel: Kód země bude převzat od věřitele.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Decl. Setup Wizard - Control Buy-From/Pay-To Vendor No. - Property ToolTip</note>
         </trans-unit>
@@ -256,13 +255,11 @@
         </trans-unit>
         <trans-unit id="Page 1204715772 - Control 168704003 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer must be taken to compare his country code with the country code from the Company Information page. Only documents where these two codes are different will be considered for the service declaration. Bill-To.: The country code will be taken from the Bill-to Customer. Sell-To. : The country code will be taken from the Sell-to Customer.</source>
-          <target state="translated">Určuje, který zákazník musí porovnat kód země s kódem země na stránce Informace o společnosti. Pro prohlášení o službách budou brány v úvahu pouze dokumenty, u nichž se tyto dva kódy liší. Plátce: Kód země bude převzat z plátce. Zákazník : Kód země bude převzat od zákazníka.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Decl. Setup Wizard - Control Sell-To/Bill-To Customer No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1204715772 - Control 2065359991 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a customer's VAT registration number exports to the file. 0 is the value of the VAT Reg. No. field, 1 adds the country code as a prefix, and 2 removes the country code.</source>
-          <target state="translated">Určuje, jak se DIČ zákazníka exportuje do souboru. 0 je hodnota DIČ. 1 přidá kód země jako předponu a 2 odebere kód země.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Decl. Setup Wizard - Control Cust. VAT Reg. No. Type - Property ToolTip</note>
         </trans-unit>
@@ -291,7 +288,6 @@
         </trans-unit>
         <trans-unit id="Page 1204715772 - Control 3276852527 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a vendor's VAT registration number exports to the file. 0 is the value of the VAT Reg. No. field, 1 adds the country code as a prefix, and 2 removes the country code.</source>
-          <target state="translated">Určuje, jak se DIČ dodavatele exportuje do souboru. 0 je hodnota pole DIČ, 1 přidá kód země jako předponu a 2 odebere kód země.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Decl. Setup Wizard - Control Vend. VAT Reg. No. Type - Property ToolTip</note>
         </trans-unit>
@@ -387,7 +383,6 @@
         </trans-unit>
         <trans-unit id="Page 3454677590 - Control 1153001137 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which vendor must be taken to compare his country code with the country code from the Company Information page. Only documents where these two codes are different will be considered for the service declaration. Buy-From.: The country code will be taken from the Buy-From Vendor. Pay-To. : The country code will be taken from the Pay-To Vendor.</source>
-          <target state="translated">Určuje, který dodavatel musí porovnat kód země s kódem země na stránce Informace o společnosti. Pro prohlášení o službách budou brány v úvahu pouze dokumenty, u nichž se tyto dva kódy liší. Dodavatel: Kód země bude převzat od dodavatele. Věřitel: Kód země bude převzat od věřitele.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Declaration Setup - Control Buy-From/Pay-To Vendor No. - Property ToolTip</note>
         </trans-unit>
@@ -399,13 +394,11 @@
         </trans-unit>
         <trans-unit id="Page 3454677590 - Control 168704003 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer must be taken to compare his country code with the country code from the Company Information page. Only documents where these two codes are different will be considered for the service declaration. Bill-To.: The country code will be taken from the Bill-to Customer. Sell-To. : The country code will be taken from the Sell-to Customer.</source>
-          <target state="translated">Určuje, který zákazník musí porovnat kód země s kódem země na stránce Informace o společnosti. Pro prohlášení o službách budou brány v úvahu pouze dokumenty, u nichž se tyto dva kódy liší. Plátce: Kód země bude převzat z plátce. Zákazník : Kód země bude převzat od zákazníka.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Declaration Setup - Control Sell-To/Bill-To Customer No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3454677590 - Control 2065359991 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a customer's VAT registration number exports to the file. 0 is the value of the VAT Reg. No. field, 1 adds the country code as a prefix, and 2 removes the country code.</source>
-          <target state="translated">Určuje, jak se DIČ zákazníka exportuje do souboru. 0 je hodnota DIČ. 1 přidá kód země jako předponu a 2 odebere kód země.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Declaration Setup - Control Cust. VAT Reg. No. Type - Property ToolTip</note>
         </trans-unit>
@@ -417,7 +410,6 @@
         </trans-unit>
         <trans-unit id="Page 3454677590 - Control 3276852527 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a vendor's VAT registration number exports to the file. 0 is the value of the VAT Reg. No. field, 1 adds the country code as a prefix, and 2 removes the country code.</source>
-          <target state="translated">Určuje, jak se DIČ dodavatele exportuje do souboru. 0 je hodnota pole DIČ, 1 přidá kód země jako předponu a 2 odebere kód země.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Declaration Setup - Control Vend. VAT Reg. No. Type - Property ToolTip</note>
         </trans-unit>
