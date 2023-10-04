@@ -47,7 +47,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2195109935 - NamedType 3036052668" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email is not set up for the action you are trying to take. Ask your administrator to either add the %1 scenario to your email account, or to specify a default account for email scenarios.</source>
-          <target state="translated">Email není nastaven pro akci, kterou se pokoušíte provést. Požádejte správce, aby buď přidal scénář %1 do vašeho emailového účtu, nebo aby pro scénáře emailu určil výchozí účet.</target>
+          <target state="translated">Email není nastaven pro akci, kterou se pokoušíte provést. Požádejte správce, aby buď přidal scénář %1 do vašeho emailového účtu nebo aby pro scénáře emailu určil výchozí účet.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Email scenario. E.g. "Email Printer"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Document Print Ready - NamedType NoEmailAccountDefinedErr</note>
         </trans-unit>
@@ -84,7 +84,7 @@
         </trans-unit>
         <trans-unit id="Page 3508446305 - Action 709640958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add another email printer</source>
-          <target state="translated">Přidejte další emailovou tiskárnu</target>
+          <target state="translated">Přidat další emailovou tiskárnu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Action NewPrinter - Property Caption</note>
         </trans-unit>
@@ -93,18 +93,6 @@
           <target state="translated">Určuje šířku papíru.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control PaperWidth - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 184311439 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Open SMTP mail setup page.</source>
-          <target state="translated">Otevřete stránku nastavení pošty SMTP.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SetupSMTP - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 184311439 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up SMTP</source>
-          <target state="translated">Nastavení SMTP</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SetupSMTP - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3508446305 - Control 2259985461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the paper is in Landscape orientation.</source>
@@ -135,18 +123,6 @@
           <target state="translated">Aby tato tiskárna fungovala, musí uživatel s příslušnými oprávněními nastavit emailový účet v Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control EmailAccountPermissionsRequired - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 2665397048 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the requirement for the printer.</source>
-          <target state="translated">Určuje požadavek na tiskárnu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SMTPSetupRequired - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3508446305 - Control 2665397048 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This printer requires SMTP mail setup to print the jobs.</source>
-          <target state="translated">Tato tiskárna vyžaduje nastavení pošty SMTP k tisku úloh.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control SMTPSetupRequired - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3508446305 - Control 2814033574 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the email address of the printer.</source>
@@ -238,12 +214,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - Control EmailAccountRequired - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3508446305 - NamedType 1555763889" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up SMTP</source>
-          <target state="translated">Nastavení SMTP</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType SetupSMTPLbl</note>
-        </trans-unit>
         <trans-unit id="Page 3508446305 - NamedType 2257926908" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set up email account</source>
           <target state="translated">Nastavení emailového účtu</target>
@@ -268,12 +238,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType EmailAccountPermissionsRequiredLbl</note>
         </trans-unit>
-        <trans-unit id="Page 3508446305 - NamedType 3212133970" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This printer requires SMTP mail setup to print the jobs.</source>
-          <target state="translated">Tato tiskárna vyžaduje nastavení pošty SMTP k tisku úloh.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Printer Settings - NamedType SMTPSetupRequiredLbl</note>
-        </trans-unit>
         <trans-unit id="Page 3508446305 - NamedType 3399143437" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print jobs will be sent to the specified email address. Please take privacy precautions.</source>
           <target state="translated">Tiskové úlohy budou odeslány na zadanou emailovou adresu. Prosím, proveďte opatření na ochranu soukromí.</target>
@@ -295,7 +259,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2148701171 - Action 709640958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add an email printer</source>
-          <target state="translated">Přidání emailové tiskárny</target>
+          <target state="translated">Přidat emailovou tiskárnu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1215073847</note>

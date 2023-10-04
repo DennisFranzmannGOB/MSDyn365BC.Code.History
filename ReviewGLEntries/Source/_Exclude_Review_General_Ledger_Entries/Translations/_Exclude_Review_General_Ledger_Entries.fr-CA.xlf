@@ -10,8 +10,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType BalanceNotMatchingMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3107932718 - NamedType 2635438508" maxwidth="999" size-unit="char" translate="yes" xml:space="preserve">
-          <source>G/L Entries for G/L Account %1 %2 were not marked as reviewed since the G/L Account has a No Review Policy</source>
-          <target state="translated">Les écritures GL pour le compte du grand livre %1 %2 n’ont pas été marquées comme étant révisées, car le compte du grand livre a une politique de non révision</target>
+          <source>G/L Entries for G/L Account %1 %2 were not marked as reviewed since the G/L Account has Review Policy None</source>
+          <target state="translated">Les écritures GL pour le compte du grand livre %1 %2 n’ont pas été marquées comme révisées, car le compte du grand livre a une politique de révision définie sur Aucun</target>
           <note from="Developer" annotates="general" priority="2">%1 is G/L Account No. and %2 is G/L Account Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType GLAccountLbl</note>
         </trans-unit>
@@ -20,24 +20,6 @@
           <target state="translated">Aucune écriture n’a été sélectionnée</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Review G/L Entry - NamedType NoEntriesSelectedLbl</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 1320218767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow Review and Match Balance</source>
-          <target state="translated">Autoriser la révision et solde de correspondance</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue Allow Review and Match Balance - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 171085621 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow Review</source>
-          <target state="translated">Autoriser la révision</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue Allow Review - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 3059661478 - EnumValue 3371220206 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">Aucun</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum Review Policy Type - EnumValue None - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3177632721 - EnumValue 1320218767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allow Review and Match Balance</source>
@@ -94,8 +76,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action Show All - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2247589152 - Action 2553591649 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>For selected G/L Entries, field Reviewer is set to blank, field Review Status is set to Not Reviewed, field Reviewed On is set to blank, field Review Id is to blank</source>
-          <target state="translated">Pour les écritures GL sélectionnées, le champ Réviseur est défini sur vide, le champ d’état de la révision est défini sur Non révisé, le champ de date de révision est défini sur vide, le champ de code de révision est défini sur vide</target>
+          <source>This action can only be selected when the G/L Account's Review Policy is either "Review Allowed or "Review Allowed and Match Balance". For selected G/L Entries, field Reviewer is set to blank, field Review Status is set to Not Reviewed, field Reviewed On is set to blank, field Review Id is to blank</source>
+          <target state="translated">Cette action ne peut être sélectionnée que si la politique de révision du compte du grand livre est « Révision autorisée » ou « Autoriser la révision et solde de correspondance ». Pour les écritures GL sélectionnées, le champ Réviseur est défini sur vide, le champ État de la révision est défini sur Non révisé, le champ Date de révision est défini sur vide, le champ Code révision est défini sur vide</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsNotReviewed - Property ToolTip</note>
         </trans-unit>
@@ -112,8 +94,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsReviewed - Property AboutTitle</note>
         </trans-unit>
         <trans-unit id="Page 2247589152 - Action 3288081654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>For selected G/L Entries, field Reviewer is set to the current user, field Review Status is set to Reviewed, field Reviewed On is set to current date, field Review Id is to a number which all the marked entries share</source>
-          <target state="translated">Pour les écritures GL sélectionnées, le champ Réviseur est défini sur l’utilisateur actuel, le champ d’état de la révision est défini sur Révisé, le champ de date de révision est défini sur la date du jour, le champ de code de révision est défini sur un numéro que toutes les écritures marquées partagent</target>
+          <source>This action can only be selected when the G/L Account's Review Policy is either "Review Allowed or "Review Allowed and Match Balance". For selected G/L Entries, field Reviewer is set to the current user, field Review Status is set to Reviewed, field Reviewed On is set to current date, field Review Id is to a number which all the marked entries share</source>
+          <target state="translated">Cette action ne peut être sélectionnée que si la politique de révision du compte du grand livre est « Révision autorisée » ou « Autoriser la révision et solde de correspondance ». Pour les écritures GL sélectionnées, le champ Réviseur est défini sur l’utilisateur actuel, le champ État de la révision est défini sur Révisé, le champ Date de révision est défini sur la date du jour, le champ Code révision est défini sur un numéro que toutes les écritures marquées partagent</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Action SetSelectedAsReviewed - Property ToolTip</note>
         </trans-unit>

@@ -874,13 +874,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Action ActionSimple - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 34130476 - NamedType 685980417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This feature requires that you are using Microsoft Exchange Online. By enabling this feature, you consent to sharing some of your organization's data in Office 365 with Business Central. Business Central will access details about email messages in the shared mailbox that your administrator created for email logging. The details include the message’s IDs, whether it is a draft, the dates and times it was sent and received, the text from the Subject line, a link to the message in Exchange Online, and the email addresses of the sender and the recipients on the To and Cc lines.\\Business Central will store only the IDs, dates, subject, and weblink. We do not store the content of the messages, but there is a link that will open the email message in Outlook Online.\\Do you want to continue?</source>
-          <target state="translated">Esta característica requiere que esté usando Microsoft Exchange Online. Al habilitar esta característica, acepta compartir algunos de los datos de la organización en Office 365 con Business Central. Business Central tendrá acceso a detalles sobre mensajes de correo electrónico del buzón compartido que el administrador creó para registro de correo electrónico. Entre los detalles se incluyen los id. de mensaje, si se trata de un borrador, las fechas y las horas en que se enviaron y recibieron, el texto de la línea de asunto, un vínculo al mensaje en Exchange Online y las direcciones de correo electrónico del remitente y los destinatarios de las líneas Para y CC.\\Business Central almacenará solo los id., las fechas, el asunto y vínculo web. No almacenamos el contenido de los mensajes, pero hay un vínculo que abre el mensaje de correo electrónico en Outlook Online.\\¿Desea continuar?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 34130476</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1985928904 - Field 1454496815 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Internet Message Checksum</source>
           <target state="translated">Suma de comprobación de mensajes de Internet</target>
@@ -894,6 +887,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1159403147</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 34130476 - NamedType 685980417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This feature requires that you are using Microsoft Exchange Online. By enabling this feature, you consent to sharing some of your organization's data in Office 365 with Business Central. Business Central will access details about email messages in the shared mailbox that your administrator created for email logging. The details include the message’s IDs, whether it is a draft, the dates and times it was sent and received, the text from the Subject line, a link to the message in Exchange Online, and the email addresses of the sender and the recipients on the To and Cc lines.\\Business Central will store only the IDs, dates, subject, and weblink. We do not store the content of the messages, but there is a link that will open the email message in Outlook Online.\\Do you want to continue?</source>
+          <target state="translated">Esta característica requiere que esté usando Microsoft Exchange Online. Al habilitar esta característica, acepta compartir algunos de los datos de la organización en Office 365 con Business Central. Business Central tendrá acceso a detalles sobre mensajes de correo electrónico del buzón compartido que el administrador creó para registro de correo electrónico. Entre los detalles se incluyen los id. de mensaje, si se trata de un borrador, las fechas y las horas en que se enviaron y recibieron, el texto de la línea de asunto, un vínculo al mensaje en Exchange Online y las direcciones de correo electrónico del remitente y los destinatarios de las líneas Para y CC.\\Business Central almacenará solo los id., las fechas, el asunto y vínculo web. No almacenamos el contenido de los mensajes, pero hay un vínculo que abre el mensaje de correo electrónico en Outlook Online.\\¿Desea continuar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 34130476</note>
         </trans-unit>
       </group>
     </body>

@@ -1119,30 +1119,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table C5 CustTrans - Field Voucher - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2524746349 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>C5 Data Loader Status</source>
-          <target state="translated">C5-dataindlæserstatus</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2524746349 - Field 970416965 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PK</source>
-          <target state="translated">PK</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field PK - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2524746349 - Field 2320701699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Proccessed</source>
-          <target state="translated">Behandlet</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field Proccessed - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2524746349 - Field 245426702 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total</source>
-          <target state="translated">Total</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field Total - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3512382302 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>C5 Delivery</source>
           <target state="translated">C5-levering</target>
@@ -5710,6 +5686,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3857729393</note>
+        </trans-unit>
+        <trans-unit id="Table 2524746349 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>C5 Data Loader Status</source>
+          <target state="translated">C5-dataindlæserstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524746349 - Field 970416965 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PK</source>
+          <target state="translated">PK</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field PK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524746349 - Field 2320701699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Proccessed</source>
+          <target state="translated">Behandlet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field Proccessed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524746349 - Field 245426702 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <target state="translated">Total</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field Total - Property Caption</note>
         </trans-unit>
       </group>
     </body>

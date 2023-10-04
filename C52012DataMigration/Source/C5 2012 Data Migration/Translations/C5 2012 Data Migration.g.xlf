@@ -933,26 +933,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table C5 CustTrans - Field Voucher - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2524746349 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>C5 Data Loader Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2524746349 - Field 970416965 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PK</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field PK - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2524746349 - Field 2320701699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Proccessed</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field Proccessed - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2524746349 - Field 245426702 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field Total - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3512382302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>C5 Delivery</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4757,6 +4737,26 @@
           <source>Migrating Data from Microsoft Dynamics C5 2012</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Data Migration Overview Ext. - Control ProgressGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524746349 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>C5 Data Loader Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524746349 - Field 970416965 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PK</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field PK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524746349 - Field 2320701699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Proccessed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field Proccessed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524746349 - Field 245426702 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table C5 Data Loader Status - Field Total - Property Caption</note>
         </trans-unit>
       </group>
     </body>
