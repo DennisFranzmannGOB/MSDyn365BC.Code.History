@@ -106,8 +106,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType AccountNotFoundErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 1683059839" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Client ID or Client secret is not set up on the Email Application AAD Registration page.</source>
-          <target state="translated">El id. de cliente o el secreto de cliente no está instalado en la página de registro de AAD para aplicaciones de correo electrónico.</target>
+          <source>Client ID or Client secret is not set up on the Email Microsoft Entra application registration page.</source>
+          <target state="translated">El id. de cliente o el secreto de cliente no está configurado en la página Registro de aplicaciones de Microsoft Entra por correo electrónico.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType CannotConnectToMailServerErr</note>
         </trans-unit>
@@ -118,14 +118,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType OnPremOnlyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 3435643268" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To connect to your email account you must create an App registration in Azure Active Directory and then enter information about the registration on the Email Application AAD Registration Page in Business Central. Do you want to do that now?</source>
-          <target state="translated">Para conectarse a su cuenta de correo electrónico, debe crear un registro de aplicaciones en Azure Active Directory y, a continuación, escribir la información acerca del registro en la página Registro de AAD para aplicaciones de correo electrónico en Business Central. ¿Desea hacerlo ahora?</target>
+          <source>To connect to your email account you must create an App registration in Microsoft Entra and then enter information about the registration on the Email Microsoft Entra application registration page in Business Central. Do you want to do that now?</source>
+          <target state="translated">Para conectarse a su cuenta de correo electrónico, debe crear un registro de aplicaciones en Microsoft Entra y, a continuación, escribir la información acerca del registro en la página Registro de aplicaciones de Microsoft Entra por correo electrónico en Business Central. ¿Desea hacerlo ahora?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType SetupOutlookAPIQst</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Email Application AAD Registration</source>
-          <target state="translated">Registro de AAD para aplicaciones de correo electrónico</target>
+          <source>Email Microsoft Entra application registration</source>
+          <target state="translated">Registro de aplicaciones de Microsoft Entra por correo electrónico</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Property Caption</note>
         </trans-unit>
@@ -166,8 +166,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - NamedType UriIsNotValidErr</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Control 3123527090 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must already have registered your application in Azure Active Directory and granted certain permissions. Use the client ID and secret from that registration to authenticate the email account.</source>
-          <target state="translated">Debe haber registrado ya la aplicación en Azure Active Directory y haber concedido determinados permisos. Use el secreto y el id. de cliente de ese registro para autenticar la cuenta de correo electrónico.</target>
+          <source>You must already have registered your application in Microsoft Entra and granted certain permissions. Use the client ID and secret from that registration to authenticate the email account.</source>
+          <target state="translated">Debe haber registrado ya la aplicación en Microsoft Entra y haber concedido determinados permisos. Use el secreto y el id. de cliente de ese registro para autenticar la cuenta de correo electrónico.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Control Info - Property InstructionalText</note>
         </trans-unit>
@@ -238,8 +238,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Control NotDoneIcon - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Action 2457075619 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete the Azure Active Directory app registration information in Business Central.</source>
-          <target state="translated">Elimine la información del registro de aplicaciones de Azure Active Directory en Business central.</target>
+          <source>Delete the Microsoft Entra app registration information in Business Central.</source>
+          <target state="translated">Elimine la información del registro de aplicaciones de Microsoft Entra en Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Action Clear - Property ToolTip</note>
         </trans-unit>
