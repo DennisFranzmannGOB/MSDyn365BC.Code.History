@@ -3525,7 +3525,7 @@
         </trans-unit>
         <trans-unit id="Enum 50758251 - EnumValue 3916066021 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View if access to any related records</source>
-          <target state="translated">Vis om der er relaterede poster</target>
+          <target state="translated">Vis om der er adgang til relaterede poster</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Email View Policy - EnumValue AnyRelatedRecordEmails - Property Caption</note>
         </trans-unit>
