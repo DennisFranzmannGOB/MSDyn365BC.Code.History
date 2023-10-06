@@ -2007,12 +2007,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Install Application CZL - Method InitSWIFTCodes - NamedType CEKOCZPPTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1553469770 - Method 3212637975 - NamedType 229413448" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Web service returned error message.\\Status Code: %1\Description: %2</source>
-          <target state="translated">Webová služba vrátila chybovou zprávu.\\Stavový kód: %1\Popis: %2</target>
-          <note from="Developer" annotates="general" priority="2">%1 = HTTP error status, %2 = HTTP error description</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reg. Lookup Ext. Data CZL - Method SendRequest - NamedType ServiceStatusErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 1553469770 - Method 3212637975 - NamedType 2466045198" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Web service call failed.</source>
           <target state="translated">Volání webové služby se nezdařilo.</target>
@@ -45286,7 +45280,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 26925697 - Method 2522804495 - NamedType 334162638" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 does not exist for currency %2 and date %3.</source>
-          <target state="translated">%1neexistuje pro měnu %2 a datum %3.</target>
+          <target state="translated">%1 neexistuje pro měnu %2 a datum %3.</target>
           <note from="Developer" annotates="general" priority="2">%1 = CurrExchRate.TableCaption, %2 = Currency Code, %3 = Date</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 26925697</note>
@@ -45342,7 +45336,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3087185091 - Method 2522804495 - NamedType 334162638" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 does not exist for currency %2 and date %3.</source>
-          <target state="translated">%1neexistuje pro měnu %2 a datum %3.</target>
+          <target state="translated">%1 neexistuje pro měnu %2 a datum %3.</target>
           <note from="Developer" annotates="general" priority="2">%1 = CurrExchRate.TableCaption, %2 = Currency Code, %3 = Date</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3087185091</note>
@@ -45370,7 +45364,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 4002280534 - Method 2522804495 - NamedType 334162638" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 does not exist for currency %2 and date %3.</source>
-          <target state="translated">%1neexistuje pro měnu %2 a datum %3.</target>
+          <target state="translated">%1 neexistuje pro měnu %2 a datum %3.</target>
           <note from="Developer" annotates="general" priority="2">%1 = CurrExchRate.TableCaption, %2 = Currency Code, %3 = Date</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 4002280534</note>
