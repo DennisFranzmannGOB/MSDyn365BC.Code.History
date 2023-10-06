@@ -5979,7 +5979,7 @@
         </trans-unit>
         <trans-unit id="Page 4217154468 - Action 2183420390 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add addresses from Users.</source>
-          <target state="translated">Bætið við aðsetrum úr notendum.</target>
+          <target state="translated">Bætið við netföngum frá notendum.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Action Users - Property ToolTip</note>
         </trans-unit>
@@ -15109,7 +15109,7 @@
         </trans-unit>
         <trans-unit id="Page 4217154468 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Full Address Lists</source>
-          <target state="translated">Nýtt,Vinnsla,Skýrsla,Ítarlegir tengiliðalistar</target>
+          <target state="translated">Nýtt,Vinnsla,Skýrsla,Ítarlegir netfangalistar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Property PromotedActionCategories</note>
         </trans-unit>
