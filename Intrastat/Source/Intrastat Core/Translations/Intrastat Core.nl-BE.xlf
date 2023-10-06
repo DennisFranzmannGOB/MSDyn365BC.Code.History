@@ -1952,7 +1952,7 @@
         </trans-unit>
         <trans-unit id="Table 2113709934 - Field 284764054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Line - Field Country/Region Code - Property Caption</note>
         </trans-unit>
