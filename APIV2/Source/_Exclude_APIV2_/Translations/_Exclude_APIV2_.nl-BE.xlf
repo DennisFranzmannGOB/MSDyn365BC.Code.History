@@ -1547,7 +1547,7 @@
         </trans-unit>
         <trans-unit id="Page 2508781286 - Control 2807065388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Company Information - Control country - Property Caption</note>
         </trans-unit>
@@ -1709,7 +1709,7 @@
         </trans-unit>
         <trans-unit id="Page 79567422 - Control 2807065388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Contacts - Control country - Property Caption</note>
         </trans-unit>
@@ -2405,7 +2405,7 @@
         </trans-unit>
         <trans-unit id="Page 1278155290 - Control 2807065388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Customers - Control country - Property Caption</note>
         </trans-unit>
@@ -2867,7 +2867,7 @@
         </trans-unit>
         <trans-unit id="Page 950291140 - Control 2807065388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Employees - Control country - Property Caption</note>
         </trans-unit>
@@ -4025,7 +4025,7 @@
         </trans-unit>
         <trans-unit id="Page 2676188065 - Control 2807065388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Locations - Control country - Property Caption</note>
         </trans-unit>
@@ -9995,7 +9995,7 @@
         </trans-unit>
         <trans-unit id="Page 2680707570 - Control 2807065388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Vendors - Control country - Property Caption</note>
         </trans-unit>

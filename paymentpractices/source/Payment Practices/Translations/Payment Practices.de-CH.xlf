@@ -77,7 +77,7 @@
         </trans-unit>
         <trans-unit id="Table 1892886827 - Field 91730313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Size Code</source>
-          <target state="translated">Code für Unternehmensgröße</target>
+          <target state="translated">Code für Unternehmensgrösse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Data - Field Company Size Code - Property Caption</note>
         </trans-unit>
@@ -269,7 +269,7 @@
         </trans-unit>
         <trans-unit id="Table 3064368449 - Field 91730313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Size Code</source>
-          <target state="translated">Code für Unternehmensgröße</target>
+          <target state="translated">Code für Unternehmensgrösse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Line - Field Company Size Code - Property Caption</note>
         </trans-unit>
@@ -503,7 +503,7 @@
         </trans-unit>
         <trans-unit id="Page 1141634581 - Control 91730313 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the company size code of the vendor that is the source for this entry.</source>
-          <target state="translated">Gibt den Unternehmensgrößencode des Kreditors an, der die Quelle für diesen Posten ist.</target>
+          <target state="translated">Gibt den Unternehmensgrössencode des Kreditors an, der die Quelle für diesen Posten ist.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Data List - Control Company Size Code - Property ToolTip</note>
         </trans-unit>
@@ -581,7 +581,7 @@
         </trans-unit>
         <trans-unit id="Page 2851816216 - Control 91730313 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the company size code.</source>
-          <target state="translated">Gibt den Unternehmensgrößencode an.</target>
+          <target state="translated">Gibt den Unternehmensgrössencode an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Lines - Control Company Size Code - Property ToolTip</note>
         </trans-unit>
@@ -677,13 +677,13 @@
         </trans-unit>
         <trans-unit id="Report 284720075 - ReportLayout 2317443935 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Practice by Vendor Size</source>
-          <target state="translated">Zahlungsmethode nach Kreditorengröße</target>
+          <target state="translated">Zahlungsmethode nach Kreditorengrösse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Payment Practice - ReportLayout PaymentPractice_VendorSizeLayout - Property Summary</note>
         </trans-unit>
         <trans-unit id="Report 284720075 - ReportLayout 2317443935 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Practice by Vendor Size</source>
-          <target state="translated">Zahlungsmethode nach Kreditorengröße</target>
+          <target state="translated">Zahlungsmethode nach Kreditorengrösse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Payment Practice - ReportLayout PaymentPractice_VendorSizeLayout - Property Caption</note>
         </trans-unit>
