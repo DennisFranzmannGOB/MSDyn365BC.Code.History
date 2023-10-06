@@ -1,12 +1,4 @@
 {
-  "settings": {
-    "search.exclude": {
-      "**.xlf": true
-    },
-    "allint.enabled": false,
-    "al.enableCodeAnalysis": false,
-    "al.enableCodeActions": false
-  },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
@@ -19,9 +11,6 @@
     },
     {
       "path": "./Email - Outlook REST API/Test"
-    },
-    {
-      "path": "./Intrastat/Test/Intrastat Core Tests"
     },
     {
       "path": "./APIV1/Test/_Exclude_APIV1_ Tests"
@@ -254,5 +243,13 @@
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
     }
-  ]
+  ],
+  "settings": {
+    "al.enableCodeAnalysis": false,
+    "allint.enabled": false,
+    "al.enableCodeActions": false,
+    "search.exclude": {
+      "**.xlf": true
+    }
+  }
 }

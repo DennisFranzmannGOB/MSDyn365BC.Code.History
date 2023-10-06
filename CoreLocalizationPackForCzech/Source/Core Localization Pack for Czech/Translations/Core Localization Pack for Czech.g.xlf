@@ -19918,6 +19918,31 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Phys. Inventory Document CZL - Control ReasonCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3623982710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Direct Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3623982710 - ReportLabel 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - ReportLabel PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3623982710 - ReportLabel 420176508" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted by</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - ReportLabel PostedByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3623982710 - ReportLabel 617781293" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Direct Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - ReportLabel ReportNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3623982710 - ReportLabel 2794163259" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Direct Transfer CZL - ReportLabel TransferLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2023013595 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Inventory Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32734,7 +32759,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Stockkeeping Unit Card CZL - Control Gen. Prod. Posting Group CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2244770621 - Action 2024861458 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1688820690">
-          <source>Launch importing data from the list of codes published by the Customs Administration of the Czech Republic: https://www.celnisprava.cz/cz/aplikace/Stranky/ciselniky.aspx. 51 - KN Kombinovaná nomenklatura.</source>
+          <source>Launch importing data from the list of codes published by the Customs Administration of the Czech Republic: https://www.celnisprava.cz/cz/aplikace/Stranky/ciselniky.aspx. Kombinovaná nomenklatura (pro Intrastat).</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Tariff Numbers CZL - Action Import Tariff Numbers CZL - Property ToolTip</note>
         </trans-unit>

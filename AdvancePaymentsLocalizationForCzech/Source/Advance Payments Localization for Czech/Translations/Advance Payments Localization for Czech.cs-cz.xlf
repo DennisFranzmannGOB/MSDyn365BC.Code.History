@@ -2717,6 +2717,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Control Order No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2081690216 - Control 2247850105 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.</source>
+          <target state="translated">Určuje kód pro centrum odpovědnosti, jako je distribuční hub, který je spojen s daným uživatelem, společností, zákazníkem nebo dodavatelem. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Advance Letters CZZ - Control Responsibility Center - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2081690216 - Control 2348384091 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies amount including VAT (LCY).</source>
           <target state="translated">Určuje částku včetně DPH (LM).</target>
@@ -3718,6 +3724,12 @@
           <target state="translated">Určuje číslo objednávky.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Control Order No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2936817786 - Control 2247850105 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the responsibility center, such as a distribution hub, that is associated with the involved user, company, customer, or vendor.</source>
+          <target state="translated">Určuje kód pro centrum odpovědnosti, jako je distribuční hub, který je spojen s daným uživatelem, společností, zákazníkem nebo dodavatelem. </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purch. Advance Letters CZZ - Control Responsibility Center - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2936817786 - Control 2348384091 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies amount including VAT (LCY).</source>
@@ -9649,6 +9661,12 @@
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Currency Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType ConfirmChangeQst</note>
         </trans-unit>
+        <trans-unit id="Table 2442512937 - NamedType 3262211605" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document. Your identification is set up to process from %1 %2 only.</source>
+          <target state="translated">Tento doklad nemůžete odstranit. Vaše identifikace povoluje pracovat pouze od %1 %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption of responsibility center, %2 = code of responsibility center</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - NamedType DocumentDeleteErr</note>
+        </trans-unit>
         <trans-unit id="Table 3903605776 - NamedType 1163970306" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 must be negative.</source>
           <target state="translated">%1 musí být negativní.</target>
@@ -9678,6 +9696,12 @@
           <target state="translated">Chcete změnit %1?</target>
           <note from="Developer" annotates="general" priority="2">%1 = a Field Caption like Currency Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType ConfirmChangeQst</note>
+        </trans-unit>
+        <trans-unit id="Table 3911307783 - NamedType 3262211605" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete this document. Your identification is set up to process from %1 %2 only.</source>
+          <target state="translated">Tento doklad nemůžete odstranit. Vaše identifikace povoluje pracovat pouze od %1 %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = table caption of responsibility center, %2 = code of responsibility center</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purch. Adv. Letter Header CZZ - NamedType DocumentDeleteErr</note>
         </trans-unit>
         <trans-unit id="Table 1523723538 - Field 1650118938 - Method 2126772001 - NamedType 945221139" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot modify %1 because Advance Letter is linked to Document.</source>

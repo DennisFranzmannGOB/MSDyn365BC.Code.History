@@ -4512,7 +4512,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 572122291 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which VAT Country/Region Code is used to calculate the prices in Shopify.</source>
-          <target state="translated">Hiermee wordt opgegeven welke code voor btw-land/regio wordt gebruikt om de prijzen te berekenen in Shopify.</target>
+          <target state="translated">Hiermee wordt opgegeven welke land/regio-code voor btw wordt gebruikt om de prijzen te berekenen in Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control VAT Country/Region Code - Property ToolTip</note>
         </trans-unit>
@@ -5009,7 +5009,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 1378235620 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies country/region code of the buy address.</source>
-          <target state="translated">Hiermee wordt de code voor het land of de regio van het inkoopadres opgegeven.</target>
+          <target state="translated">Hiermee wordt de land/regio-code van het inkoopadres opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control SellToCountryCode - Property ToolTip</note>
         </trans-unit>
@@ -9011,7 +9011,7 @@
         </trans-unit>
         <trans-unit id="Table 1118872714 - Field 284764054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Customer Address - Field Country/Region Code - Property Caption</note>
         </trans-unit>
@@ -9395,7 +9395,7 @@
         </trans-unit>
         <trans-unit id="Table 1443881130 - Field 284764054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Tax Area - Field Country/Region Code - Property Caption</note>
         </trans-unit>
@@ -9887,7 +9887,7 @@
         </trans-unit>
         <trans-unit id="Table 2315241236 - Field 284764054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Customer Template - Field Country/Region Code - Property Caption</note>
         </trans-unit>
