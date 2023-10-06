@@ -1447,7 +1447,7 @@
         </trans-unit>
         <trans-unit id="Page 3327916022 - Control 1732083938 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the bank, and potentially its country/region code, that supports your setup for import/export of bank data using the AMC Banking feature.</source>
-          <target state="translated">Hiermee wordt de naam van de bank opgegeven, en mogelijk de land/regio-code ervan, die uw instelling ondersteunt voor het importeren en exporteren van bankgegevens met de functie AMC Banking.</target>
+          <target state="translated">Hiermee wordt de naam van de bank opgegeven en mogelijk de land/regio-code ervan, die uw instelling ondersteunt voor het importeren en exporteren van bankgegevens met de functie AMC Banking.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Bank Name List - Control Bank - Property ToolTip</note>
         </trans-unit>
@@ -1823,7 +1823,7 @@
         </trans-unit>
         <trans-unit id="Table 3203079048 - Field 284764054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AMC Bank Banks - Field Country/Region Code - Property Caption</note>
         </trans-unit>
