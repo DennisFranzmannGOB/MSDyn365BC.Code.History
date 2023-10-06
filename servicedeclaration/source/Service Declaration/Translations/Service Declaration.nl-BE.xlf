@@ -1078,7 +1078,7 @@
         </trans-unit>
         <trans-unit id="Table 2507548127 - Field 284764054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Declaration Buffer - Field Country/Region Code - Property Caption</note>
         </trans-unit>
@@ -1144,7 +1144,7 @@
         </trans-unit>
         <trans-unit id="Table 2713885285 - Field 284764054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region Code</source>
-          <target state="translated">Land/regio-code</target>
+          <target state="translated">Land-/regiocode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Declaration Line - Field Country/Region Code - Property Caption</note>
         </trans-unit>
