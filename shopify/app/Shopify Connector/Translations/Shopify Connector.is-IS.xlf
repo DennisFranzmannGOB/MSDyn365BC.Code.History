@@ -6603,7 +6603,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 1524478169 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Address</source>
-          <target state="translated">Netfang</target>
+          <target state="translated">Aðsetur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control ShipToAddress - Property Caption</note>
         </trans-unit>
@@ -6663,7 +6663,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 1704117941 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Address</source>
-          <target state="translated">Netfang</target>
+          <target state="translated">Aðsetur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control SellToAddress - Property Caption</note>
         </trans-unit>
@@ -6939,7 +6939,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 3816729986 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Address</source>
-          <target state="translated">Netfang</target>
+          <target state="translated">Aðsetur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control BillToAddress - Property Caption</note>
         </trans-unit>
