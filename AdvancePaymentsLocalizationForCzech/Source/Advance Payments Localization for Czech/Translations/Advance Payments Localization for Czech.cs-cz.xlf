@@ -21,6 +21,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType VATDocumentExistsErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - NamedType 4041393448" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date cannot be empty.</source>
+          <target state="translated">Zúčtovací datum nemůže být prázdné.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType PostingDateEmptyErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2748602711 - NamedType 519972416" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date and VAT Date cannot be empty.</source>
           <target state="translated">Zúčtovací datum a datum DPH nemohou být prázdné.</target>
@@ -92,6 +98,12 @@
           <target state="translated">Doklad DPH již existuje.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType VATDocumentExistsErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3588268779 - NamedType 4041393448" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date cannot be empty.</source>
+          <target state="translated">Zúčtovací datum nemůže být prázdné.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType PostingDateEmptyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 72781804" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Original Document VAT Date (%1) must be less or equal to VAT Date (%2).</source>
@@ -4577,6 +4589,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pur. Adv. Letter Ent.Prev. CZZ - Control VAT Base Amount (LCY</note>
         </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated">Obecné</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 3037438984 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies posting date.</source>
+          <target state="translated">Určuje datum zaúčtování.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control PostingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 3037438984 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <target state="translated">Zúčtovací datum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control PostingDate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4277280042 - Control 1108276017 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies VAT amount.</source>
           <target state="translated">Určuje částku DPH.</target>
@@ -5068,6 +5098,18 @@
           <target state="translated">Náhled položek nákupních záloh CZZ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Pur. Adv. Letter Ent.Prev. CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It is required to set the posting date.</source>
+          <target state="translated">Je nutné nastavit zúčtovací datum.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Posting Date</source>
+          <target state="translated">Získat datum účtování</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4277280042 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Adv. Letter Entries Preview CZZ</source>

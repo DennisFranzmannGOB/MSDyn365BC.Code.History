@@ -1418,11 +1418,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Adv. Payments Approv. Mgt. CZZ - Method PrePostApprovalCheckSalesAdvanceLetter - NamedType PrePostCheckSalesAdvanceLetterErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1612709404 - Method 3166424899 - NamedType 4196406974" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advance Payments feature is not enabled.\Please enable it using Feature Management before use.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Advance Payments Mgt. CZZ - Method TestIsEnabled - NamedType AdvancePaymentsFeatureNotEnabledErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 829789868 - NamedType 951629405" size-unit="char" translate="yes" xml:space="preserve">
           <source>Source data does not exist for %1: %2.</source>
           <note from="Developer" annotates="general" priority="2">%1 = caption of table, %2 = code of record, example: Source data doesn't exist for G/L Account: 8210.</note>
@@ -1527,6 +1522,11 @@
           <source>Original Document VAT Date (%1) must be less or equal to VAT Date (%2).</source>
           <note from="Developer" annotates="general" priority="2">%1 = OriginalDocVATDate, %2 = VATDate</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType OriginalDocVATDateMustBeLessOrVATDateErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3588268779 - NamedType 4041393448" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType PostingDateEmptyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 3254498843" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Document already exists.</source>
@@ -1672,6 +1672,11 @@
           <source>Nothing to Post.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType NothingToPostErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - NamedType 4041393448" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType PostingDateEmptyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2748602711 - NamedType 3254498843" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Document already exists.</source>
@@ -2037,6 +2042,31 @@
           <source>Specifies default VAT bus. posting group.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advance Letter Templates CZZ - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It is required to set the posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 3037438984 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control PostingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 3037438984 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control PostingDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1849656631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Preview Advance VAT Entries</source>
@@ -8148,11 +8178,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Email Scenario CZZ - EnumValue Sales Advance VAT Document CZZ - Property Caption</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 960125044 - EnumValue 4269074616 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1079378746">
-          <source>Advance Payments Localization for Czech</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Feature To Update - CZZ - EnumValue AdvancePaymentsLocalizationForCzech - Property Caption</note>
-        </trans-unit>
         <trans-unit id="EnumExtension 1100363000 - EnumValue 1288781342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 838578914">
           <source>Purchase Advance</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8212,21 +8237,6 @@
           <source>Advance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Search Scope CZZ - EnumValue Advance CZZ - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 1001558548 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>CZ Advance Payments - Edit</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet CZ Advance Payments - Edit CZZ - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 1047480703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>CZ Advance Payments - Objects</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet CZ Advance Payments - Obj. CZZ - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 1696479490 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>CZ Advance Payments - Read</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet CZ Advance Payments - Read CZZ - Property Caption</note>
         </trans-unit>
         <trans-unit id="ReportExtension 3098273889 - Control 2379072275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 4281532856">
           <source>Specifies if the advance G/L accounts have to be copied.</source>
@@ -8317,6 +8327,31 @@
           <source>Sales Advances</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Suggest Worksheet Lines CZZ - Control IsSalesAdvanceLettersConsidered - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1612709404 - Method 3166424899 - NamedType 4196406974" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance Payments feature is not enabled.\Please enable it using Feature Management before use.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Advance Payments Mgt. CZZ - Method TestIsEnabled - NamedType AdvancePaymentsFeatureNotEnabledErr</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 960125044 - EnumValue 4269074616 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1079378746">
+          <source>Advance Payments Localization for Czech</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Feature To Update - CZZ - EnumValue AdvancePaymentsLocalizationForCzech - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 1001558548 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CZ Advance Payments - Edit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet CZ Advance Payments - Edit CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 1047480703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CZ Advance Payments - Objects</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet CZ Advance Payments - Obj. CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 1696479490 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CZ Advance Payments - Read</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet CZ Advance Payments - Read CZZ - Property Caption</note>
         </trans-unit>
       </group>
     </body>

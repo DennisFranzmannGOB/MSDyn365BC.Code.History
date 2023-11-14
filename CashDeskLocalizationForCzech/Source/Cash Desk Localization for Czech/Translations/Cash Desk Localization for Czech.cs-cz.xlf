@@ -3666,6 +3666,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Activities CZP - Control Posted Documents - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4198796310 - Control 3381351663 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted documents for the last 30 days</source>
+          <target state="translated">Zaúčtované doklady za posledních 30 dní</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Cash Desk Activities CZP - Control Posted Documents - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4198796310 - Control 35450067 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted</source>
           <target state="translated">Účtované</target>
