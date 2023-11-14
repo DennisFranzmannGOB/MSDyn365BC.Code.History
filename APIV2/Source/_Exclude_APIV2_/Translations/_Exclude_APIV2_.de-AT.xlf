@@ -501,6 +501,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Attachments - NamedType MissingParentIdErr</note>
         </trans-unit>
+        <trans-unit id="Page 3383613133 - NamedType 3786093982" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parent type %1 is not supported. Use documentAttachments API instead.</source>
+          <target state="translated">Der übergeordnete Typ %1 wird nicht unterstützt. Verwenden Sie stattdessen die documentAttachments-API.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Parent type</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Attachments - NamedType ParentTypeNotSupportedErr</note>
+        </trans-unit>
         <trans-unit id="Page 3383613133 - Control 2895166340 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Content</source>
           <target state="translated">Inhalt</target>
@@ -1682,6 +1688,12 @@
           <target state="translated">ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3095745287 - Control 2666688330 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Intercompany Enabled</source>
+          <target state="translated">Intercompany aktiviert</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Bank Accounts - Control intercompanyEnabled - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3095745287 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Modified Date</source>
@@ -6254,6 +6266,12 @@
           <target state="translated">Zeilen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control purchaseInvoiceLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4099491740 - Control 1313438251 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchaser</source>
+          <target state="translated">Einkäufer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control purchaser - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 354324300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 1</source>
