@@ -45,6 +45,18 @@
           <note from="Developer" annotates="general" priority="2">%1 - expiry date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType ExpirationNotificationMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 3936287348" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show a notification informing the user that Shopify connector has no items.</source>
+          <target state="translated">Muestra una notificación que informa al usuario de que el conector de Shopify no tiene elementos.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType NoItemNotificationDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 4073336722" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify user of Shopify connector has no items.</source>
+          <target state="translated">Notificar al usuario de que el conector de Shopify no tiene elementos.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType NoItemNotificationNameTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 555667881" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show a notification informing the user that Shopify connector going out of support.</source>
           <target state="translated">Permite mostrar una notificación que informa al usuario de que el conector de Shopify deja de ser compatible.</target>
@@ -302,6 +314,12 @@
           <target state="translated">Imágenes de productos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Background Syncs - NamedType ProductImagesSyncTypeTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4014190514 - NamedType 1260200424" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You need to add items to Shopify first, do you want to do it now?</source>
+          <target state="translated">Necesita agregar elementos a Shopify primero, ¿desea hacerlo ahora?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Background Syncs - NamedType NothingToSyncErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4014190514 - NamedType 1548535943" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inventory</source>
@@ -994,8 +1012,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Logging Mode - EnumValue Error Only - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1420853479 - EnumValue 1864907812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Disabled</source>
-          <target state="translated">Deshabilitado</target>
+          <source>Off</source>
+          <target state="translated">Desactivado</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Stock Calculation - EnumValue Disabled - Property Caption</note>
         </trans-unit>
@@ -4997,8 +5015,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Tax Liable - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 567887726 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the currency of the Shopify Shop.</source>
-          <target state="translated">Especifica la divisa de la tienda de Shopify.</target>
+          <source>Specifies the currency of the Shopify Shop. Enter a currency code only if your online shop uses a different currency than the local currency (LCY). The specified currency must have exchange rates configured. If your online shop uses the same currency as Business Central, leave the field empty.</source>
+          <target state="translated">Especifica la divisa de la tienda de Shopify. Introduzca un código de moneda solo si la tienda en línea utiliza una moneda diferente a la divisa local (DL). La moneda especificada debe tener configurados los tipos de cambio. Si la tienda en línea usa la misma moneda que Business Central, deje el campo en blanco.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control CurrencyCode - Property ToolTip</note>
         </trans-unit>
@@ -8197,6 +8215,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - NamedType ConfirmLbl</note>
         </trans-unit>
+        <trans-unit id="Page 2806160088 - NamedType 1509721740" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There isn't data here yet. Do you want to synchronize products?</source>
+          <target state="translated">No hay datos aquí todavía. ¿Confirma que desea sincronizar los productos?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products - NamedType NoItemNotificationMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 2806160088 - NamedType 1829946207" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Don't show this again.</source>
+          <target state="translated">No volver a mostrar esto.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products - NamedType DontShowThisAgainMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 2806160088 - NamedType 2225004434" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sync Products</source>
+          <target state="translated">Sincronizar productos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products - NamedType SyncProductsMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 2806160088 - NamedType 722344482" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add Items to Shopify</source>
+          <target state="translated">Agregar producto a Shopify</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products - NamedType AddItemsMsg</note>
+        </trans-unit>
         <trans-unit id="Page 3918578631 - NamedType 1052459003" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Privacy and Cookies</source>
           <target state="translated">Privacidad y cookies</target>
@@ -10545,8 +10587,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Orders to Import - Field Fully Paid - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2016272457 - Field 2570673311 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Created At</source>
-          <target state="translated">Hora de creación</target>
+          <source>Created At (Shopify)</source>
+          <target state="translated">Hora de creación (Shopify)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Orders to Import - Field Created At - Property Caption</note>
         </trans-unit>
@@ -10611,8 +10653,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Orders to Import - Field Currency Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2016272457 - Field 4268781252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>UpdatedAt</source>
-          <target state="translated">Actualizado a las</target>
+          <source>Updated At (Shopify)</source>
+          <target state="translated">Hora de actualización (Shopify)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Orders to Import - Field Updated At - Property Caption</note>
         </trans-unit>
@@ -13879,6 +13921,12 @@
           <target state="translated">La URL debe referirse a la ubicación interna de la tienda en myshopify.com. No debe ser la dirección URL pública que usan los clientes, como myshop.com.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - NamedType InvalidShopUrlErr</note>
+        </trans-unit>
+        <trans-unit id="Table 2860632388 - NamedType 719452521" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The specified currency must have exchange rates configured. If your online shop uses the same currency as Business Central then leave the field empty.</source>
+          <target state="translated">La divisa especificada debe tener configurados los tipos de cambio. Si la tienda en línea usa la misma moneda que Business Central, deje el campo en blanco.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - NamedType CurrencyExchangeRateNotDefinedErr</note>
         </trans-unit>
         <trans-unit id="Table 2931149216 - NamedType 1981279871" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Are you sure that you want to delete Shopify log entries?</source>
