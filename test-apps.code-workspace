@@ -1,11 +1,11 @@
 {
   "settings": {
+    "al.enableCodeAnalysis": false,
+    "al.enableCodeActions": false,
+    "allint.enabled": false,
     "search.exclude": {
       "**.xlf": true
-    },
-    "al.enableCodeActions": false,
-    "al.enableCodeAnalysis": false,
-    "allint.enabled": false
+    }
   },
   "folders": [
     {
@@ -36,9 +36,6 @@
       "path": "./ErrorMessagesWithRecommendations/test/Error Messages with Recommendations Tests"
     },
     {
-      "path": "./ReviewGLEntries/Test/_Exclude_Review_General_Ledger_Entries_Tests"
-    },
-    {
       "path": "./IntrastatIT/Test/Intrastat IT Tests"
     },
     {
@@ -46,6 +43,9 @@
     },
     {
       "path": "./DataSearch/test/Data Search Tests"
+    },
+    {
+      "path": "./reviewglentries/Test/_Exclude_Review_General_Ledger_Entries_Tests"
     },
     {
       "path": "./APIV2/Test/_Exclude_APIV2_ Tests"
@@ -127,6 +127,9 @@
     },
     {
       "path": "./AuditFileExport/Test/Audit File Export Tests"
+    },
+    {
+      "path": "./BankAccRecWithAI/Test/Bank Account Reconciliation With AI Tests"
     },
     {
       "path": "./PlanConfiguration/Test/_Exclude_PlanConfiguration_ Tests"
