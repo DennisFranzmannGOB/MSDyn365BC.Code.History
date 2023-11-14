@@ -69,6 +69,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType CouldNotGetAccessTokenErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 571534387 - NamedType 2389531293" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not establish the connection to the remote service for sending email. Try again later.</source>
+          <target state="translated">Die Verbindung zum Remotedienst zum Senden von E-Mails konnte nicht hergestellt werden. Versuchen Sie es später erneut.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType ConnectionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 571534387 - NamedType 3949230830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request to send email has been blocked. To resolve the problem, enable outgoing HTTP requests for the Email - Outlook REST API app on the Extension Management page.</source>
+          <target state="translated">Die Anforderung zum Senden von E-Mails wurde blockiert. Um das Problem zu beheben, aktivieren Sie ausgehende HTTP-Anforderungen für die Email - Outlook REST API-App auf der Seite „Erweiterungsverwaltung“.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType EnvironmentBlocksErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2364649794" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Multi-Factor Authentication is enabled on this account but the user did not complete the setup. Please sign in to the account and try again.</source>
           <target state="translated">Für dieses Konto ist die mehrstufige Authentifizierung aktiviert, aber der Benutzer hat die Einrichtung nicht abgeschlossen. Melden Sie sich beim Konto an, und versuchen Sie es erneut.</target>
@@ -82,8 +94,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2917787611" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Could not send the email because the user is external.</source>
-          <target state="translated">Die E-Mail konnte nicht gesendet werden, da der Benutzer extern ist.</target>
+          <source>Could not send the email, because the user is delegated or external.</source>
+          <target state="translated">Die E-Mail konnte nicht gesendet werden, da der Benutzer delegiert oder extern ist.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailExternalUserErr</note>
         </trans-unit>
@@ -107,7 +119,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 1683059839" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client ID or Client secret is not set up on the Email Microsoft Entra application registration page.</source>
-          <target state="translated">Auf der Registrierungsseite der Anwendung Email Microsoft Entra ist keine Client-ID oder kein geheimer Clientschlüssel eingerichtet.</target>
+          <target state="translated">Auf der Registrierungsseite der Microsoft Entra-E-Mail-Anwendung ist keine Client-ID oder kein geheimer Clientschlüssel eingerichtet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType CannotConnectToMailServerErr</note>
         </trans-unit>
@@ -119,13 +131,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 3435643268" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>To connect to your email account you must create an App registration in Microsoft Entra and then enter information about the registration on the Email Microsoft Entra application registration page in Business Central. Do you want to do that now?</source>
-          <target state="translated">Zum Herstellen einer Verbindung mit Ihrem E-Mail-Konto müssen Sie eine App-Registrierung in Microsoft Entra erstellen und dann Informationen zur Registrierung auf der Registrierungsseite der Anwendung Email Microsoft Entra in Business Central eingeben. Möchten Sie das jetzt tun?</target>
+          <target state="translated">Zum Herstellen einer Verbindung mit Ihrem E-Mail-Konto müssen Sie eine App-Registrierung in Microsoft Entra erstellen und dann Informationen zur Registrierung auf der Registrierungsseite der Microsoft Entra-E-Mail-Anwendung in Business Central eingeben. Möchten Sie das jetzt tun?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType SetupOutlookAPIQst</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Microsoft Entra application registration</source>
-          <target state="translated">Registrierung der Anwendung Email Microsoft Entra</target>
+          <target state="translated">Registrierung der Microsoft Entra-E-Mail-Anwendung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Property Caption</note>
         </trans-unit>
