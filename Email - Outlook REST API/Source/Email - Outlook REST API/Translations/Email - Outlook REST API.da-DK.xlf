@@ -69,6 +69,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType CouldNotGetAccessTokenErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 571534387 - NamedType 2389531293" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not establish the connection to the remote service for sending email. Try again later.</source>
+          <target state="translated">Der kunne ikke oprettes forbindelse til den eksterne service til afsendelse af mail. Prøv igen senere.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType ConnectionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 571534387 - NamedType 3949230830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request to send email has been blocked. To resolve the problem, enable outgoing HTTP requests for the Email - Outlook REST API app on the Extension Management page.</source>
+          <target state="translated">Anmodningen om at sende mail er blevet spærret. Du kan løse problemet ved at aktivere udgående HTTP-anmodninger for appen Email - Outlook REST API på siden Udvidelsesstyring.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType EnvironmentBlocksErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2364649794" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Multi-Factor Authentication is enabled on this account but the user did not complete the setup. Please sign in to the account and try again.</source>
           <target state="translated">Multifaktorgodkendelse er aktiveret på denne konto, men brugeren fuldførte ikke opsætningen. Log på kontoen, og prøv igen.</target>
@@ -82,8 +94,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2917787611" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Could not send the email because the user is external.</source>
-          <target state="translated">Mailen kunne ikke sendes, da brugeren er ekstern.</target>
+          <source>Could not send the email, because the user is delegated or external.</source>
+          <target state="translated">Mailen kunne ikke sendes, da brugeren er delegeret eller ekstern.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailExternalUserErr</note>
         </trans-unit>
@@ -107,7 +119,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 1683059839" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client ID or Client secret is not set up on the Email Microsoft Entra application registration page.</source>
-          <target state="translated">Klient-id eller -hemmelighed er ikke konfigureret på registreringssiden til Email Microsoft Entra-applikationen.</target>
+          <target state="translated">Klient-id eller -hemmelighed er ikke konfigureret på registreringssiden til Microsoft Entra-mailapplikationen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType CannotConnectToMailServerErr</note>
         </trans-unit>
@@ -119,13 +131,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 3435643268" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>To connect to your email account you must create an App registration in Microsoft Entra and then enter information about the registration on the Email Microsoft Entra application registration page in Business Central. Do you want to do that now?</source>
-          <target state="translated">Hvis du vil oprette forbindelse til din mailkonto, skal du oprette en appregistrering i Microsoft Entra og derefter angive oplysninger om registreringen på registreringssiden til Email Microsoft Entra-applikationen i Business Central. Vil du gøre det nu?</target>
+          <target state="translated">Hvis du vil oprette forbindelse til din mailkonto, skal du oprette en appregistrering i Microsoft Entra og derefter angive oplysninger om registreringen på registreringssiden til Microsoft Entra-mailapplikationen i Business Central. Vil du gøre det nu?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType SetupOutlookAPIQst</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Microsoft Entra application registration</source>
-          <target state="translated">Registrering af Email Microsoft Entra-applikation</target>
+          <target state="translated">Registrering af Microsoft Entra-mailapplikation</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Property Caption</note>
         </trans-unit>
