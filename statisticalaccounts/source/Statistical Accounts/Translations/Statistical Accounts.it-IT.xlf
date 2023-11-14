@@ -51,6 +51,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType NumberOfEmployeesLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3354410436 - NamedType 2217930949" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EMPL HEADCOUNT DEP</source>
+          <target state="translated">DIP. NUMERO DIPENDENTI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType EmployeesAllocationAccountNoLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3354410436 - NamedType 2307979595" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is no demonstrational data available. Would you like to create the demonstrational data?</source>
           <target state="translated">Non sono disponibili dati dimostrativi. Creare i dati dimostrativi?</target>
@@ -74,6 +80,18 @@
           <target state="translated">Riduzione organico per %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 the value of the dimension, e.g. PROD, ADM...</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType EmployeesReductionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3354410436 - NamedType 2851057402" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OFFICE SPACE DEP</source>
+          <target state="translated">DIP. SPAZIO UFFICIO</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType OfficeSpaceAllocationAccountNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3354410436 - NamedType 3268329511" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Distribute cost per department employee headcount</source>
+          <target state="translated">Distribuire il costo per il numero dei dipendenti del reparto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType EmployeesAllocationAccountNameLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3354410436 - NamedType 3287583520" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create demonstrational data.</source>
@@ -110,6 +128,12 @@
           <target state="translated">Uffici dell'edificio principale - %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 the value of the dimension, e.g. PROD, ADM...</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType OfficesMainBuildingLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3354410436 - NamedType 4049828180" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Distribute the cost per department office space</source>
+          <target state="translated">Distribuire il costo per spazio ufficio di reparto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Demo Data - NamedType OfficeSpaceAllocationAccountNameLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3354410436 - NamedType 416802569" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>REVENUE</source>
@@ -469,6 +493,18 @@
           <target state="translated">Movimenti contabili</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account List - Action LedgerEntries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3735526716 - Action 16094294 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the allocation accounts page, where you can create allocation accounts that will distribute costs based on statistical account balance.</source>
+          <target state="translated">Apre la pagina dei conti di allocazione, in cui è possibile creare conti di allocazione che distribuiranno i costi in base al saldo statistico del conto.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account List - Action AllocationAccounts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3735526716 - Action 16094294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allocation Accounts</source>
+          <target state="translated">Conti allocazione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account List - Action AllocationAccounts - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3735526716 - Action 1892509601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A&amp;ccount</source>

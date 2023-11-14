@@ -312,7 +312,7 @@
         <trans-unit id="Codeunit 1329935681 - NamedType 3151458208" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The group %1 already exists.</source>
           <target state="translated">The group %1 already exists.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Microsoft Entra group ID / Windows group name / group code</note>
+          <note from="Developer" annotates="general" priority="2">%1 = group name or group code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Security Group Impl. - NamedType GroupAlreadyExistsErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1329935681 - NamedType 3420821080" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
@@ -867,6 +867,90 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Data Classification Mgt. Impl. - NamedType LegalDisclaimerTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 1249587391" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot capability '%1' has not been enabled. Please contact your system administrator.</source>
+          <target state="translated">Copilot capability '%1' has not been enabled. Please contact your system administrator.</target>
+          <note from="Developer" annotates="general" priority="2">%1 is the name of the Copilot Capability</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType CapabilityNotEnabledErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 1820538459" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The metaprompt has not been set, please provide a metaprompt.</source>
+          <target state="translated">The metaprompt has not been set, please provide a metaprompt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType EmptyMetapromptErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 223636344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The authentication was not configured.</source>
+          <target state="translated">The authentication was not configured.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType AuthenticationNotConfiguredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 2242774872" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request did not return a success status code.</source>
+          <target state="translated">The request did not return a success status code.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType GenerateRequestFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 2960713588" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot capability has not been set.</source>
+          <target state="translated">Copilot capability has not been set.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType CopilotCapabilityNotSetErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 309729604" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The chat completions generation failed.</source>
+          <target state="translated">The chat completions generation failed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ChatCompletionsFailedWithCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 3171573684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Available now to Insider Builds. Partners will be able to deploy and run to Business Central Online once we light this up in a minor update.</source>
+          <target state="translated">Available now to Insider Builds. Partners will be able to deploy and run to Business Central Online once we light this up in a minor update.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ThirdPartyCapabilitySaaSErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 3198080941" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected model type is not supported.</source>
+          <target state="translated">Selected model type is not supported.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType InvalidModelTypeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 3314650428" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot is not enabled for the tenant. Please contact your system administrator.</source>
+          <target state="translated">Copilot is not enabled for the tenant. Please contact your system administrator.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType CopilotDisabledForTenantErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 3639077204" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot capability '%1' has not been registered by the module.</source>
+          <target state="translated">Copilot capability '%1' has not been registered by the module.</target>
+          <note from="Developer" annotates="general" priority="2">%1 is the name of the Copilot Capability</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType CapabilityNotRegisteredErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 3979872569" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot is not enabled. Please contact your system administrator.</source>
+          <target state="translated">Copilot is not enabled. Please contact your system administrator.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType CopilotNotEnabledErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 4153883594" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The text completions generation failed.</source>
+          <target state="translated">The text completions generation failed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType CompletionsFailedWithCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 431016493" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Microsoft Copilot Capabilities are not allowed in the background.</source>
+          <target state="translated">Microsoft Copilot Capabilities are not allowed in the background.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType CapabilityBackgroundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 678597991" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The embeddings generation failed.</source>
+          <target state="translated">The embeddings generation failed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType EmbeddingsFailedWithCodeErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2091346909 - NamedType 2186304282" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Test Email Message</source>
           <target state="translated">Test Email Message</target>
@@ -987,6 +1071,30 @@
           <note from="Developer" annotates="general" priority="2">%1 = permssion set name, e.g. 'D365 READ'</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Plan Configuration Impl. - NamedType MissingPermissionSetErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2271687499 - NamedType 1951250809" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Presence penalty must be between -2.0 and 2.0.</source>
+          <target state="translated">Presence penalty must be between -2.0 and 2.0.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Compl Params Impl - NamedType PresencePenaltyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2271687499 - NamedType 3195876357" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Max history cannot be less than 1.</source>
+          <target state="translated">Max history cannot be less than 1.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Compl Params Impl - NamedType MaxHistoryErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2271687499 - NamedType 3417420507" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Temperature must be between 0.0 and 2.0.</source>
+          <target state="translated">Temperature must be between 0.0 and 2.0.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Compl Params Impl - NamedType TemperatureErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2271687499 - NamedType 615849526" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Frequency penalty must be between -2.0 and 2.0.</source>
+          <target state="translated">Frequency penalty must be between -2.0 and 2.0.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Compl Params Impl - NamedType FrequencyPenaltyErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2282749623 - NamedType 172355988" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There are no linked email source entities</source>
           <target state="translated">There are no linked email source entities</target>
@@ -1089,11 +1197,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Geolocation Impl. - NamedType LocationNotRetrievedErrorMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2424830836 - NamedType 1278342999" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sorry, your Copilot isn't activated for Entity Text. Contact the system administrator.</source>
+          <target state="translated">Sorry, your Copilot isn't activated for Entity Text. Contact the system administrator.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType CapabilityDisabledErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2424830836 - NamedType 1622659800" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Not enough facts were provided. At least two facts must be provided.</source>
-          <target state="translated">Not enough facts were provided. At least two facts must be provided.</target>
+          <source>There's not enough information available to draft a text. Please provide more.</source>
+          <target state="translated">There's not enough information available to draft a text. Please provide more.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType MinFactsErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2424830836 - NamedType 2202762837" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sorry, we could not generate a good suggestion for this. Review the information provided, consider your choice of words, and try again.</source>
+          <target state="translated">Sorry, we could not generate a good suggestion for this. Review the information provided, consider your choice of words, and try again.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType CompletionDeniedPhraseErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2424830836 - NamedType 2259528229" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The prompt definition is in an invalid format.</source>
@@ -1113,21 +1233,27 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType PromptFormatMissingPropsErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2424830836 - NamedType 3858986841" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Text cannot be generated. Please check your configuration and contact your partner.</source>
+          <target state="translated">Text cannot be generated. Please check your configuration and contact your partner.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType CannotGenerateErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2424830836 - NamedType 3909513047" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Not enough facts were provided for the requested format. At least four facts must be provided.</source>
-          <target state="translated">Not enough facts were provided for the requested format. At least four facts must be provided.</target>
+          <source>There's not enough information available to draft a text for the chosen format. Please provide more, or choose another format.</source>
+          <target state="translated">There's not enough information available to draft a text for the chosen format. Please provide more, or choose another format.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType NotEnoughFactsForFormatErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2424830836 - NamedType 493926488" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There was no handler to provide information for this entity. Contact your partner.</source>
-          <target state="translated">There was no handler to provide information for this entity. Contact your partner.</target>
+        <trans-unit id="Codeunit 2424830836 - NamedType 602840089" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There was no handler to provide authorization information for the suggestion. Contact your partner.</source>
+          <target state="translated">There was no handler to provide authorisation information for the suggestion. Contact your partner.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType NoHandlerErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType NoAuthorizationHandlerErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2424830836 - NamedType 727303529" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No facts were provided. The entity must have some facts.</source>
-          <target state="translated">No facts were provided. The entity must have some facts.</target>
+          <source>There's no information available to draft a text from.</source>
+          <target state="translated">There's no information available to draft a text from.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Entity Text Impl. - NamedType NoFactsErr</note>
         </trans-unit>
@@ -1551,6 +1677,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Document Sharing Impl. - NamedType PromptNoGuiErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2886620313 - NamedType 2781940443" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The value of the Content-Type header must be specified.</source>
+          <target state="translated">The value of the Content-Type header must be specified.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Http Content Impl. - NamedType ContentTypeEmptyErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2918810872 - NamedType 1469245251" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assign scenarios to account %1</source>
           <target state="translated">Assign scenarios to account %1</target>
@@ -1844,6 +1976,12 @@
           <target state="translated">The privacy notice %1 does not exist.</target>
           <note from="Developer" annotates="general" priority="2">%1 = the identifier of a privacy notice</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Privacy Notice Impl. - NamedType PrivacyNoticeDoesNotExistErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3250929112 - NamedType 3897654873" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unable to get deployment name, if this is a third party capability you must specify your own deployment name. You may need to contact your partner.</source>
+          <target state="translated">Unable to get deployment name, if this is a third party capability you must specify your own deployment name. You may need to contact your partner.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Deployments Impl - NamedType UnableToGetDeploymentNameErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3256925099 - NamedType 1019460973" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image input data is in wrong format</source>
@@ -2391,6 +2529,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Regex Impl. - NamedType TimeoutTooLowErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3830376076 - NamedType 1208146340" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Message id does not exist.</source>
+          <target state="translated">Message id does not exist.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MessageIdDoesNotExistErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3830376076 - NamedType 94536125" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>History length must be greater than 0.</source>
+          <target state="translated">History length must be greater than 0.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType HistoryLengthErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3866175241 - NamedType 142027412" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The user name %1 does not exist.</source>
           <target state="translated">The user name %1 does not exist.</target>
@@ -2667,6 +2817,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure Key Vault Impl. - NamedType InitializeAllowedSecretNamesErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4233997913 - NamedType 1334027089" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request failed: %1 %2</source>
+          <target state="translated">The request failed: %1 %2</target>
+          <note from="Developer" annotates="general" priority="2">%1 = HTTP status code, %2 = Reason phrase</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Rest Client Impl. - NamedType RequestFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4233997913 - NamedType 2389531293" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Connection to the remote service '%1' could not be established.</source>
+          <target state="translated">Connection to the remote service '%1' could not be established.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = url, e.g. https://microsoft.com</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Rest Client Impl. - NamedType ConnectionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4233997913 - NamedType 3949230830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Environment blocks an outgoing HTTP request to '%1'.</source>
+          <target state="translated">Environment blocks an outgoing HTTP request to '%1'.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = url, e.g. https://microsoft.com</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Rest Client Impl. - NamedType EnvironmentBlocksErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4236785502 - NamedType 539863752" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Permission set already exists.</source>
           <target state="translated">Permission set already exists.</target>
@@ -2756,6 +2924,24 @@
           <target state="translated">Cannot get current role centre for the user.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Page Action Provider Impl. - NamedType UnableToGetRoleCenterMessageTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 576697109 - NamedType 1951250809" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Presence penalty must be between -2.0 and 2.0.</source>
+          <target state="translated">Presence penalty must be between -2.0 and 2.0.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI TextCompletionParams Impl - NamedType PresencePenaltyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 576697109 - NamedType 3417420507" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Temperature must be between 0.0 and 2.0.</source>
+          <target state="translated">Temperature must be between 0.0 and 2.0.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI TextCompletionParams Impl - NamedType TemperatureErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 576697109 - NamedType 615849526" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Frequency penalty must be between -2.0 and 2.0.</source>
+          <target state="translated">Frequency penalty must be between -2.0 and 2.0.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI TextCompletionParams Impl - NamedType FrequencyPenaltyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 660764448 - NamedType 1521412279" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The schema definition is not valid XML.</source>
@@ -2889,53 +3075,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Table Information Cache Impl. - NamedType CrossCompanyDataLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 870156837 - NamedType 1334027089" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A suggestion couldn't be generated. Review the information provided, consider your choice of words, and try again.\The error code returned was %1.</source>
-          <target state="translated">A suggestion couldn't be generated. Review the information provided, consider your choice of words, and try again.\The error code returned was %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 is the http status code of the failed request (e.g. 401)</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAi Impl. - NamedType RequestFailedErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 870156837 - NamedType 1458493841" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No OpenAI endpoint has been specified for this request, or the specified endpoint is invalid. Open the OpenAI settings page and verify the settings.</source>
-          <target state="translated">No OpenAI endpoint has been specified for this request, or the specified endpoint is invalid. Open the OpenAI settings page and verify the settings.</target>
+        <trans-unit id="Codeunit 84388174 - NamedType 180896732" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot capability has not been registered by the module.</source>
+          <target state="translated">Copilot capability has not been registered by the module.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAi Impl. - NamedType NoEndpointErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copilot Capability Impl - NamedType NotRegisteredErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 870156837 - NamedType 2202762837" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The completion contains a denied phrase.</source>
-          <target state="translated">The completion contains a denied phrase.</target>
+        <trans-unit id="Codeunit 84388174 - NamedType 263925562" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To enable Copilot, please review and accept the privacy notice.</source>
+          <target state="translated">To enable Copilot, please review and accept the privacy notice.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAi Impl. - NamedType CompletionDeniedPhraseErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copilot Capability Impl - NamedType PrivacyNoticeDisagreedNotificationMessageLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 870156837 - NamedType 2369363134" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The service needs to be configured in the OpenAI settings page. No key has been provided.</source>
-          <target state="translated">The service needs to be configured in the OpenAI settings page. No key has been provided.</target>
+        <trans-unit id="Codeunit 84388174 - NamedType 3217465303" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Note that copilot and AI capabilities published by Microsoft are not available on-premises.</source>
+          <target state="translated">Note that copilot and AI capabilities published by Microsoft are not available on-premises.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAi Impl. - NamedType NoSecretErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copilot Capability Impl - NamedType CapabilitiesNotAvailableOnPremNotificationMessageLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 870156837 - NamedType 2920401369" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The service needs to be configured in the OpenAI settings page.\Would you like to open it?</source>
-          <target state="translated">The service needs to be configured in the OpenAI settings page.\Would you like to open it?</target>
+        <trans-unit id="Codeunit 84388174 - NamedType 3439175133" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capability has already been registered.</source>
+          <target state="translated">Capability has already been registered.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAi Impl. - NamedType NotConfiguredQst</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copilot Capability Impl - NamedType AlreadyRegisteredErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 870156837 - NamedType 33623699" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The feature has been disabled.</source>
-          <target state="translated">The feature has been disabled.</target>
+        <trans-unit id="Codeunit 84388174 - NamedType 3578806872" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review the privacy notice</source>
+          <target state="translated">Review the privacy notice</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAi Impl. - NamedType FeatureDisabledErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 870156837 - NamedType 3471054969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A suggestion couldn't be generated. Review the information provided, consider your choice of words, and try again.</source>
-          <target state="translated">A suggestion couldn't be generated. Review the information provided, consider your choice of words, and try again.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAi Impl. - NamedType RequestFailedUnknownErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 870156837 - NamedType 999401934" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The completion did not return a success status code.</source>
-          <target state="translated">The completion did not return a success status code.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAi Impl. - NamedType CompletionFailedErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copilot Capability Impl - NamedType ReviewPrivacyNoticeLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1122893324 - Method 4193945004 - NamedType 1951765689" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Accountant home page makes it easier for businesses to keep their books. We`ll also show you how to explore all Business Central features.</source>
@@ -3128,6 +3296,18 @@
           <target state="translated">Integer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Business Chart Data Type - EnumValue Integer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1571001237 - EnumValue 1370327870 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generally Available</source>
+          <target state="translated">Generally Available</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Availability - EnumValue Generally Available - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1571001237 - EnumValue 4266201246 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Preview</source>
+          <target state="translated">Preview</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Availability - EnumValue Preview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1639932302 - EnumValue 1085884228 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>StackedArea</source>
@@ -4096,8 +4276,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum Entity Text Emphasis - EnumValue Innovation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 4089632722 - EnumValue 3371220206 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <target state="translated"> </target>
+          <source>No Emphasis</source>
+          <target state="translated">No Emphasis</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Entity Text Emphasis - EnumValue None - Property Caption</note>
         </trans-unit>
@@ -4340,6 +4520,13 @@
           <target state="translated">Started</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Checklist Item Status - EnumValue Started - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 4246872218 - EnumValue 1535088282 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Marketing text suggestions</source>
+          <target state="translated">Marketing text suggestions</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 3058546390</note>
         </trans-unit>
         <trans-unit id="Page 1105213220 - Action 1085967800 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set the data sensitivity of the selected fields to Sensitive.</source>
@@ -5108,6 +5295,30 @@
           <target state="translated">Apply Manually</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Reten. Policy Setup ListPart - Action ApplyManually - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Action 2914568709 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learn more about Copilot in Business Central.</source>
+          <target state="translated">Learn more about Copilot in Business Central.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Action Learn about Copilot - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Action 2914568709 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learn about Copilot</source>
+          <target state="translated">Learn about Copilot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Action Learn about Copilot - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Action 3876189905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Check the health of the Azure OpenAI service for your region.</source>
+          <target state="translated">Check the health of the Azure OpenAI service for your region.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Action Check service health - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Action 3876189905 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Check service health</source>
+          <target state="translated">Check service health</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Action Check service health - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 176588632 - Action 2660599594 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Generate an encryption key on the server to enable encryption.</source>
@@ -5991,6 +6202,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Updates Part - Action Remove - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2774112874 - Action 1950833259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activates the selected Copilot Capability.</source>
+          <target state="translated">Activates the selected Copilot Capability.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Action Activate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Action 1950833259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activate</source>
+          <target state="translated">Activate</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Action Activate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Action 3941063023 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the supplemental terms of use for production ready preview capabilities.</source>
+          <target state="translated">Opens the supplemental terms of use for production ready preview capabilities.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Action SupplementalTerms - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Action 3941063023 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supplemental Terms of Use</source>
+          <target state="translated">Supplemental Terms of Use</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Action SupplementalTerms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Action 751227956 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deactivates the selected Copilot Capability.</source>
+          <target state="translated">Deactivates the selected Copilot Capability.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Action Deactivate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Action 751227956 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deactivate</source>
+          <target state="translated">Deactivate</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Action Deactivate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2817068111 - Action 2466022207 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a daily recurrence.</source>
           <target state="translated">Create a daily recurrence.</target>
@@ -6058,8 +6305,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - Action Suggest - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2929649512 - Action 1916437952 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create with Copilot</source>
-          <target state="translated">Create with Copilot</target>
+          <source>Draft with Copilot</source>
+          <target state="translated">Draft with Copilot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - Action Suggest - Property Caption</note>
         </trans-unit>
@@ -7095,6 +7342,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advanced Settings - Action Done - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4126829886 - Action 1950833259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activates the selected Copilot Capability.</source>
+          <target state="translated">Activates the selected Copilot Capability.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Action Activate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Action 1950833259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activate</source>
+          <target state="translated">Activate</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Action Activate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Action 3941063023 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the supplemental terms of use for generally available capabilities.</source>
+          <target state="translated">Opens the supplemental terms of use for generally available capabilities.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Action SupplementalTerms - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Action 3941063023 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supplemental Terms of Use</source>
+          <target state="translated">Supplemental Terms of Use</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Action SupplementalTerms - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Action 751227956 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deactivates the selected Copilot Capability.</source>
+          <target state="translated">Deactivates the selected Copilot Capability.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Action Deactivate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Action 751227956 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deactivate</source>
+          <target state="translated">Deactivate</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Action Deactivate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4182844942 - Action 2026913255 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Load detached media based on the settings.</source>
           <target state="translated">Load detached media based on the settings.</target>
@@ -7166,102 +7449,6 @@
           <target state="translated">Users</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Address Lookup - Action Users - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 1050383444 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Hide the extra settings related to how Copilot creates text</source>
-          <target state="translated">Hide the extra settings related to how Copilot creates text</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action HideOptions - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 1050383444 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Hide settings</source>
-          <target state="translated">Hide settings</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action HideOptions - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 1123753461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Let Copilot create and append a draft to the current text</source>
-          <target state="translated">Let Copilot create and append a draft to the current text</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action AppendDraft - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 1123753461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create and append draft</source>
-          <target state="translated">Create and append draft</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action AppendDraft - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 1155446613 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show extra settings related to how Copilot creates text</source>
-          <target state="translated">Show extra settings related to how Copilot creates text</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action ShowOptions - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 1155446613 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>More settings</source>
-          <target state="translated">More settings</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action ShowOptions - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 2012248768 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Clears the text</source>
-          <target state="translated">Clears the text</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action ClearText - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 2012248768 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Clear text</source>
-          <target state="translated">Clear text</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action ClearText - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 2049212732 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Undo the latest creation or clearing of the text</source>
-          <target state="translated">Undo the latest creation or clearing of the text</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action Undo - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 2049212732 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Undo</source>
-          <target state="translated">Undo</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action Undo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 2436316464 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Settings</source>
-          <target state="translated">Settings</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action ToggleAdvancedOptions - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 3924769960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Redo the latest creation or clearing of the text</source>
-          <target state="translated">Redo the latest creation or clearing of the text</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action Redo - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 3924769960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Redo</source>
-          <target state="translated">Redo</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action Redo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 4006306867 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Let Copilot create a new draft that replaces the current text</source>
-          <target state="translated">Let Copilot create a new draft that replaces the current text</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action CreateDraft - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 4006306867 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create draft</source>
-          <target state="translated">Create draft</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action CreateDraft - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4280351019 - Action 710972128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create</source>
-          <target state="translated">Create</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Part - Action Create - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 513864971 - Action 614615843 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Install the extension.</source>
@@ -7503,6 +7690,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Action Resend - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 753900946 - Action 3259912055 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OK</source>
+          <target state="translated">OK</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Not Available - Action ActionFinish - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 753900946 - Action 3259912055 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OK</source>
+          <target state="translated">OK</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Not Available - Action ActionFinish - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 761349018 - Action 1087410529 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attach a file that was originally attached to the source document, such as a Customer Record, Sales Invoice, etc.</source>
           <target state="translated">Attach a file that was originally attached to the source document, such as a Customer Record, Sales Invoice, etc.</target>
@@ -7670,6 +7869,30 @@
           <target state="translated">Specifies the id of the related entity.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Templates Related FactBox - Control Table ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1095148238 - Control 1785554304 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the reason for deactivating the capability.</source>
+          <target state="translated">Specifies the reason for deactivating the capability.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - Control DeactivateReason - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1095148238 - Control 1785554304 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reason for deactivating</source>
+          <target state="translated">Reason for deactivating</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - Control DeactivateReason - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1095148238 - Control 1785554304 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>,Not relevant to our business,Users are not ready for it yet,Performance is not good enough,There are privacy concerns,Suggestions not accurate enough,Suggestions are not helpful,Suggestions are offensive or inappropriate,Prefer not to give a reason,Our reason is not listed here</source>
+          <target state="translated">,Not relevant to our business,Users are not ready for it yet,Performance is not good enough,There are privacy concerns,Suggestions not accurate enough,Suggestions are not helpful,Suggestions are offensive or inappropriate,Prefer not to give a reason,Our reason is not listed here</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - Control DeactivateReason - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 1095148238 - Control 751227956 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please choose a reason so we can improve the capability:</source>
+          <target state="translated">Please choose a reason so we can improve the capability:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - Control Deactivate - Property InstructionalText</note>
         </trans-unit>
         <trans-unit id="Page 1105213220 - Control 1393533604 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the display name of the affected table.</source>
@@ -8629,6 +8852,42 @@
           <target state="translated">Content</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text - Control EntityTextPart - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 1014419112 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generally available</source>
+          <target state="translated">Generally available</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control GenerallyAvailableCapabilities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 1622127448 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production ready previews</source>
+          <target state="translated">Production ready previews</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control PreviewCapabilities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 2238262141 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether data movement across regions is allowed. This is required to enable Copilot in your environment.</source>
+          <target state="translated">Specifies whether data movement across regions is allowed. This is required to enable Copilot in your environment.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control DataMovement - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 2238262141 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow data movement</source>
+          <target state="translated">Allow data movement</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control DataMovement - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 3117944029 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generative AI capabilities are deactivated because Azure OpenAI Service is not available in your region. By allowing data movement, you agree to data being stored and processed by the Azure OpenAI Service outside of your environment's geographic region or compliance boundary.</source>
+          <target state="translated">Generative AI capabilities are deactivated because Azure OpenAI Service is not available in your region. By allowing data movement, you agree to data being stored and processed by the Azure OpenAI Service outside of your environment's geographic region or compliance boundary.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control NotAlwaysConnected - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 3698943402 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot and other generative AI capabilities use Azure OpenAI Service. Your environment connects to Azure OpenAI Service in your region.</source>
+          <target state="translated">Copilot and other generative AI capabilities use Azure OpenAI Service. Your environment connects to Azure OpenAI Service in your region.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control AlwaysConnected - Property InstructionalText</note>
         </trans-unit>
         <trans-unit id="Page 1550306620 - Control 1393533604 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the related entity.</source>
@@ -10842,6 +11101,54 @@
           <target state="translated">Secret</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure OpenAi Settings - Control Secret - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the publisher of this Copilot.</source>
+          <target state="translated">Specifies the publisher of this Copilot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Publisher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 1772640682 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Publisher</source>
+          <target state="translated">Publisher</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Publisher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 2454442123 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the Copilot's url to learn more about the capability.</source>
+          <target state="translated">Opens the Copilot's url to learn more about the capability.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Learn More - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 2454442123 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <target state="translated"> </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Learn More - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the Copilot is active and can be used in this environment.</source>
+          <target state="translated">Specifies if the Copilot is active and can be used in this environment.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 785629580 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Copilot capability's name.</source>
+          <target state="translated">Specifies the Copilot capability's name.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Capability - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 785629580 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capability</source>
+          <target state="translated">Capability</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Capability - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2776087363 - Control 2966611030 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Could not access the camera on the device. Make sure that you are using the app for Windows, Android, or iOS.</source>
@@ -14873,6 +15180,54 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advanced Settings - Control ManualSetupGroup - Property InstructionalText</note>
         </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the publisher of this Copilot.</source>
+          <target state="translated">Specifies the publisher of this Copilot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Publisher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 1772640682 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Publisher</source>
+          <target state="translated">Publisher</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Publisher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 2454442123 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the Copilot's url to learn more about the capability.</source>
+          <target state="translated">Opens the Copilot's url to learn more about the capability.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Learn More - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 2454442123 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <target state="translated"> </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Learn More - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the Copilot is active and can be used in this environment.</source>
+          <target state="translated">Specifies if the Copilot is active and can be used in this environment.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 785629580 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Copilot capability's name.</source>
+          <target state="translated">Specifies the Copilot capability's name.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Capability - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 785629580 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capability</source>
+          <target state="translated">Capability</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Capability - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4182844942 - Control 1097957507 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the maximum number of records to load. Depending on the limit, this may take a long time to complete.</source>
           <target state="translated">Specifies the maximum number of records to load. Depending on the limit, this may take a long time to complete.</target>
@@ -15875,6 +16230,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page OAuth2ControlAddIn - Control BodyGroup - Property InstructionalText</note>
         </trans-unit>
+        <trans-unit id="Page 1095148238 - NamedType 1214734847" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please select a reason for deactivating the capability.</source>
+          <target state="translated">Please select a reason for deactivating the capability.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - NamedType NoReasonSelecedErr</note>
+        </trans-unit>
+        <trans-unit id="Page 1095148238 - NamedType 3648714734" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deactivate %1</source>
+          <target state="translated">Deactivate %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = the name of the Copilot capability</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - NamedType DeactivateLbl</note>
+        </trans-unit>
         <trans-unit id="Page 1105213220 - NamedType 1965782370" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to set data sensitivity to %1 on %2 fields?</source>
           <target state="translated">Do you want to set data sensitivity to %1 on %2 fields?</target>
@@ -16012,6 +16379,18 @@
           <target state="translated">The Entity Text page could not be opened as it cannot be opened from another extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text - NamedType InvalidAppErr</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - NamedType 2730243809" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>How do I govern my Copilot data?</source>
+          <target state="translated">How do I govern my Copilot data?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - NamedType CopilotGovernDataLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - NamedType 3306048447" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Where is Azure OpenAI Service Located?</source>
+          <target state="translated">Where is Azure OpenAI Service Located?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - NamedType AOAIServiceLocatedLbl</note>
         </trans-unit>
         <trans-unit id="Page 1785861980 - NamedType 1154975446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review affected data</source>
@@ -16175,6 +16554,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Updates Part - NamedType RemoveRowsQst</note>
         </trans-unit>
+        <trans-unit id="Page 2774112874 - NamedType 1601324261" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learn More</source>
+          <target state="translated">Learn More</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - NamedType LearnMoreLbl</note>
+        </trans-unit>
         <trans-unit id="Page 2817068111 - NamedType 3764383116" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Some months have fewer than %1 days. These months will not be included in the recurrence.\\Do you want to continue?</source>
           <target state="translated">Some months have fewer than %1 days. These months will not be included in the recurrence.\\Do you want to continue?</target>
@@ -16193,23 +16578,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upcoming Changes Factbox - NamedType ReleasePlanLbl</note>
         </trans-unit>
-        <trans-unit id="Page 2929649512 - NamedType 1463011754" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Review and save this suggestion</source>
-          <target state="translated">Review and save this suggestion</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - NamedType ReviewSuggestionTxt</note>
-        </trans-unit>
         <trans-unit id="Page 2929649512 - NamedType 2028085711" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The context has not been set on the part. Ensure SetContext has been called from the parent page, contact your partner to fix this.</source>
           <target state="translated">The context has not been set on the part. Ensure SetContext has been called from the parent page, contact your partner to fix this.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - NamedType ContextNotSetErr</note>
-        </trans-unit>
-        <trans-unit id="Page 2929649512 - NamedType 2093243170" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dismiss</source>
-          <target state="translated">Dismiss</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - NamedType DismissSuggestionTxt</note>
         </trans-unit>
         <trans-unit id="Page 2929649512 - NamedType 3399540484" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>[Create text](). Then review and edit based on your needs.</source>
@@ -16222,6 +16595,12 @@
           <target state="translated">Select Edit to add text</target>
           <note from="Developer" annotates="general" priority="2">Edit refers to an action on this part with the same name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - NamedType NotEnabledPlaceholderTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2929649512 - NamedType 493926488" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There was no handler to provide an edit page for this entity. Contact your partner.</source>
+          <target state="translated">There was no handler to provide an edit page for this entity. Contact your partner.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text Factbox Part - NamedType NoHandlerErr</note>
         </trans-unit>
         <trans-unit id="Page 2954564037 - NamedType 3048439107" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>v. %1</source>
@@ -16331,6 +16710,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Template Creation Wizard - NamedType MissingDetailsErr</note>
         </trans-unit>
+        <trans-unit id="Page 3338462467 - NamedType 1757687175" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only users with the SUPER or the SECURITY permission set can delete permission sets.</source>
+          <target state="translated">Only users with the SUPER or the SECURITY permission set can delete permission sets.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set - NamedType CannotManagePermissionsErr</note>
+        </trans-unit>
         <trans-unit id="Page 3338462467 - NamedType 2511177201" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to add the recorded permissions?</source>
           <target state="translated">Do you want to add the recorded permissions?</target>
@@ -16342,6 +16727,12 @@
           <target state="translated">Do you want to start the recording now?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set - NamedType StartRecordingQst</note>
+        </trans-unit>
+        <trans-unit id="Page 3338462467 - NamedType 437409944" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You can only delete user-created or copied permission sets.</source>
+          <target state="translated">You can only delete user-created or copied permission sets.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set - NamedType CannotDeletePermissionSetErr</note>
         </trans-unit>
         <trans-unit id="Page 3344272628 - NamedType 286665424" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No limit</source>
@@ -16619,6 +17010,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advanced Settings - NamedType ManualSetupLbl</note>
         </trans-unit>
+        <trans-unit id="Page 4126829886 - NamedType 1601324261" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learn More</source>
+          <target state="translated">Learn More</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - NamedType LearnMoreLbl</note>
+        </trans-unit>
         <trans-unit id="Page 4182844942 - NamedType 1302452339" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The selected media does not have any content.</source>
           <target state="translated">The selected media does not have any content.</target>
@@ -16745,6 +17142,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - NamedType EmailConnectorHasBeenUninstalledMsg</note>
         </trans-unit>
+        <trans-unit id="Page 753900946 - NamedType 2608149152" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Don't want to miss out? Contact the system administrator to make this capability available in Business Central.</source>
+          <target state="translated">Don't want to miss out? Contact the system administrator to make this capability available in Business Central.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Not Available - NamedType CopilotNotAvailableLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 753900946 - NamedType 2817932088" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Overview Copilot &amp; AI Capabilities</source>
+          <target state="translated">Overview Copilot &amp; AI Capabilities</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Not Available - NamedType OpenCopilotLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 753900946 - NamedType 572699136" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sorry, your Copilot isn't activated for %1</source>
+          <target state="translated">Sorry, your Copilot isn't activated for %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Copilot Capability name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Not Available - NamedType CopilotNotAvailableTitleLbl</note>
+        </trans-unit>
         <trans-unit id="Page 761349018 - NamedType 2367821945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
           <target state="translated">Go ahead and delete?</target>
@@ -16816,6 +17231,12 @@
           <target state="translated">Related Entities</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Templates Related FactBox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1095148238 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot Deactivate Capability</source>
+          <target state="translated">Copilot Deactivate Capability</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1105213220 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New,Process,Report,Manage,View</source>
@@ -17013,6 +17434,30 @@
           <target state="translated">Entity Text</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>About Copilot</source>
+          <target state="translated">About Copilot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot is the AI-powered assistant that helps people across your organization unlock their creativity and automate tedious tasks.</source>
+          <target state="translated">Copilot is the AI-powered assistant that helps people across your organisation unlock their creativity and automate tedious tasks.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot &amp; AI capabilities</source>
+          <target state="translated">Copilot &amp; AI capabilities</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin</source>
+          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 1550306620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Related Entities</source>
@@ -17350,11 +17795,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure OpenAi Settings - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 277020636 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenAI,AI</source>
-          <target state="translated">OpenAI,AI</target>
+        <trans-unit id="Page 2774112874 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot Capabilities Preview</source>
+          <target state="translated">Copilot Capabilities Preview</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Azure OpenAi Settings - Property AdditionalSearchTerms</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2776087363 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Camera</source>
@@ -17848,6 +18293,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advanced Settings - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4126829886 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot Capabilities GA</source>
+          <target state="translated">Copilot Capabilities GA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4182844942 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Detached Media Cleanup</source>
           <target state="translated">Detached Media Cleanup</target>
@@ -17944,12 +18395,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Information - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 572257666 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT</source>
-          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Information - Property AdditionalSearchTerms</note>
-        </trans-unit>
         <trans-unit id="Page 658335382 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retention Policy Log Entries</source>
           <target state="translated">Retention Policy Log Entries</target>
@@ -17979,6 +18424,12 @@
           <target state="translated">Sent Emails</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 753900946 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot Not Available</source>
+          <target state="translated">Copilot Not Available</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Not Available - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 761349018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Attachments</source>
@@ -21892,6 +22343,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Edit in Excel Settings - Field Use Centralized deployments - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 632553577 - Field 1295436062 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Learn More Url</source>
+          <target state="translated">Learn More Url</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Copilot Settings - Field Learn More Url - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632553577 - Field 1772640682 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Publisher</source>
+          <target state="translated">Publisher</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Copilot Settings - Field Publisher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632553577 - Field 2336152139 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Availability</source>
+          <target state="translated">Availability</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Copilot Settings - Field Availability - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632553577 - Field 3834798520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Id</source>
+          <target state="translated">App Id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Copilot Settings - Field App Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632553577 - Field 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="translated">Status</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Copilot Settings - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632553577 - Field 785629580 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capability</source>
+          <target state="translated">Capability</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Copilot Settings - Field Capability - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 712487250 - Field 2007641260 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>System Id</source>
           <target state="translated">System Id</target>
@@ -22923,6 +23410,12 @@
           <target state="translated">Edit in Excel Settings</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Edit in Excel Settings - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 632553577 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot Settings</source>
+          <target state="translated">Copilot Settings</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Copilot Settings - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 712487250 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Related Record</source>
