@@ -1352,8 +1352,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 3408061871</note>
         </trans-unit>
         <trans-unit id="PageExtension 193514408 - Action 2880731335 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bank Deposits</source>
-          <target state="translated">Bankeinzahlungen</target>
+          <source>Posted Bank Deposits</source>
+          <target state="translated">Gebuchte Bankeinzahlungen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3408061871</note>
@@ -1380,8 +1380,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 2292249509</note>
         </trans-unit>
         <trans-unit id="PageExtension 532280814 - Action 2880731335 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bank Deposits</source>
-          <target state="translated">Bankeinzahlungen</target>
+          <source>Posted Bank Deposits</source>
+          <target state="translated">Gebuchte Bankeinzahlungen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2292249509</note>
