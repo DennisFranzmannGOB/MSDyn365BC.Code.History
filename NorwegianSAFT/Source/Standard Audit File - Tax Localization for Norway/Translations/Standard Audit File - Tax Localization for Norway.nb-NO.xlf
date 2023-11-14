@@ -1880,6 +1880,12 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3059077503</note>
         </trans-unit>
+        <trans-unit id="Query 2138522238 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SAF-T G/L Entry By Trans.</source>
+          <target state="translated">SAF-T-finanspost etter trans.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query SAF-T G/L Entry By Trans. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 683032088 - Control 362981690 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the mapping range code to copy mapping from</source>
           <target state="translated">Angir koden for tilordningsområde som tilordningen kopieres fra</target>
@@ -1934,6 +1940,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Parallel Processing - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2386421154 - Field 1176000704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of G/L Entries</source>
+          <target state="translated">Antall finansposter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Number of G/L Entries - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2386421154 - Field 1347859192 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Header Comment</source>
           <target state="translated">Hodemerknad</target>
@@ -1976,6 +1988,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Latest Data Check Date/Time - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2386421154 - Field 2420424136 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total G/L Entry Debit</source>
+          <target state="translated">Total finanspostdebet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Total G/L Entry Debit - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2386421154 - Field 2678142823 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Split By Date</source>
           <target state="translated">Del etter dato</target>
@@ -1993,6 +2011,12 @@
           <target state="translated">Tilordningsområdekode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Mapping Range Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2386421154 - Field 3598169969 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total G/L Entry Credit</source>
+          <target state="translated">Total finanspostkredit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Total G/L Entry Credit - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2386421154 - Field 3641927271 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID</source>

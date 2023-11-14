@@ -1648,8 +1648,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 2185457841</note>
         </trans-unit>
         <trans-unit id="PageExtension 374427272 - Control 1663358532 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the default transaction type for sales returns and service returns.</source>
-          <target state="translated">Specifies the default transaction nature code for sales returns and service returns.</target>
+          <source>Specifies the default transaction type for purchase returns.</source>
+          <target state="translated">Specifies the default transaction nature code for purchase returns.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
@@ -1669,8 +1669,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
         </trans-unit>
         <trans-unit id="PageExtension 374427272 - Control 830567041 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the default transaction type for regular sales shipments and service shipments.</source>
-          <target state="translated">Specifies the default transaction nature code for regular sales shipments and service shipments.</target>
+          <source>Specifies the default transaction type for regular purchase receipts.</source>
+          <target state="translated">Specifies the default transaction nature code for regular purchase receipts.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>

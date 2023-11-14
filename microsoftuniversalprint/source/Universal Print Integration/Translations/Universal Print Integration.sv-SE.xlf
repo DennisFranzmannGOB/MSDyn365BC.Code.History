@@ -10,8 +10,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Universal Print Graph Helper - NamedType NoAccessTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1382942930 - NamedType 2137350903" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User cannot be authenticated with Azure AD.</source>
-          <target state="translated">Användaren kan inte autentiseras med Azure AD.</target>
+          <source>User cannot be authenticated with Microsoft Entra.</source>
+          <target state="translated">Användaren kan inte autentiseras med Microsoft Entra.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Universal Print Graph Helper - NamedType UserNotAuthenticatedTxt</note>
         </trans-unit>
@@ -310,8 +310,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.1.1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 142461748 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Connect your Azure AD application</source>
-          <target state="translated">Anslut ditt Azure AD-program</target>
+          <source>Connect your Microsoft Entra application</source>
+          <target state="translated">Anslut din Microsoft Entra-app</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control OnPremAadSetup - Property Caption</note>
         </trans-unit>
@@ -343,8 +343,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para0.1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 21734773 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To add Universal Print printers to Business Central on-premises, you'll first need a registered application for Business Central in Azure Active Directory (Azure AD).</source>
-          <target state="translated">Om du lägga till skrivare för Universell utskrift i Business Central måste du först ha en app registrerad för Business Central i Azure Active Directory (Azure AD).</target>
+          <source>To add Universal Print printers to Business Central on-premises, you'll first need a registered application for Business Central in Microsoft Entra ID.</source>
+          <target state="translated">Om du lägga till skrivare för Universell utskrift i Business Central lokalt måste du först ha en app registrerad för Business Central i Microsoft Entra ID.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1.1 - Property Caption</note>
         </trans-unit>
@@ -424,8 +424,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para3.1.2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 3679005452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Once an Azure AD application has been registered, you're ready to continue with this setup. During setup, you'll provide information about Azure AD application. Choose Next to continue.</source>
-          <target state="translated">När en Azure AD-app har registrerats kan du fortsätta med konfigurationen. Under konfigurationen ska du ange information om Azure AD-appen. Välj Nästa om du vill fortsätta.</target>
+          <source>Once a Microsoft Entra application has been registered, you're ready to continue with this setup. During setup, you'll provide information about your Microsoft Entra application. Choose Next to continue.</source>
+          <target state="translated">När en Microsoft Entra-app har registrerats kan du fortsätta med konfigurationen. Under konfigurationen ska du ange information om Microsoft Entra-appen. Välj Nästa om du vill fortsätta.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1.2 - Property Caption</note>
         </trans-unit>
@@ -441,8 +441,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para3.1.3 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - Control 3724241072 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Connect with Azure</source>
-          <target state="translated">Anslut med Azure</target>
+          <source>Connect with Microsoft Entra</source>
+          <target state="translated">Anslut med Microsoft Entra</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - Control Para1.1 - Property Caption</note>
         </trans-unit>
@@ -529,8 +529,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NoTablePermissionsErr</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 2724577049" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>We couldn't connect to Universal Print using your Azure AD application registration. Run the Set Up Azure Active Directory assisted setup again, and make sure all the values are set correctly.</source>
-          <target state="translated">Det gick inte att ansluta till Universell utskrift med din Azure AD-appregistrering. Kör den assisterade konfigurationen Konfigurera Azure Active Directory igen och kontrollera att alla värden har angetts korrekt.</target>
+          <source>We couldn't connect to Universal Print using your Microsoft Entra application registration. Run the "Set up Microsoft Entra ID" assisted setup again, and make sure all the values are set correctly.</source>
+          <target state="translated">Det gick inte att ansluta till Universell utskrift med din Microsoft Entra-appregistrering. Kör den assisterade konfigurationen "Konfigurera Microsoft Entra ID" igen och kontrollera att alla värden har angetts korrekt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NoTokenForOnPremErr</note>
         </trans-unit>
@@ -559,8 +559,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType NumberOfPrintersAddedTemplateTxt</note>
         </trans-unit>
         <trans-unit id="Page 669761542 - NamedType 807771867" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more about registering an Azure AD application</source>
-          <target state="translated">Läs mer om hur du registrerar en Azure AD-app</target>
+          <source>Learn more about registering a Microsoft Entra application</source>
+          <target state="translated">Läs mer om hur du registrerar en Microsoft Entra-app</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Add Universal Printers Wizard - NamedType LearnMoreAzureAppTxt</note>
         </trans-unit>
