@@ -69,6 +69,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - OAuth Client - NamedType CouldNotGetAccessTokenErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 571534387 - NamedType 2389531293" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not establish the connection to the remote service for sending email. Try again later.</source>
+          <target state="translated">Etäpalveluun ei voitu muodostaa yhteyttä sähköpostin lähettämistä varten. Yritä myöhemmin uudelleen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType ConnectionErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 571534387 - NamedType 3949230830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request to send email has been blocked. To resolve the problem, enable outgoing HTTP requests for the Email - Outlook REST API app on the Extension Management page.</source>
+          <target state="translated">Sähköpostin lähetyspyyntö on estetty. Voit ratkaista ongelman ottamalla käyttöön lähtevät HTTP-pyynnöt Email - Outlook REST API -sovelluksessa Laajennusten hallinta -sivulla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType EnvironmentBlocksErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2364649794" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Multi-Factor Authentication is enabled on this account but the user did not complete the setup. Please sign in to the account and try again.</source>
           <target state="translated">Monimenetelmäinen todennus on otettu käyttöön tällä tilillä, mutta käyttäjä ei ole tehnyt määrityksiä loppuun. Kirjaudu tilille ja yritä uudelleen.</target>
@@ -82,8 +94,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 571534387 - NamedType 2917787611" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Could not send the email because the user is external.</source>
-          <target state="translated">Sähköpostiviestiä ei voitu lähettää, koska käyttäjä on ulkoinen.</target>
+          <source>Could not send the email, because the user is delegated or external.</source>
+          <target state="translated">Sähköpostiviestiä ei voitu lähettää, koska käyttäjä on delegoitu tai ulkoinen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Client - NamedType SendEmailExternalUserErr</note>
         </trans-unit>
@@ -107,7 +119,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 1683059839" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client ID or Client secret is not set up on the Email Microsoft Entra application registration page.</source>
-          <target state="translated">Asiakasohjelman tunnusta tai asiakasohjelman salasanaa ei ole määritetty Email Microsoft Entra -sovelluksen rekisteröintisivulla.</target>
+          <target state="translated">Asiakasohjelman tunnusta tai asiakasohjelman salasanaa ei ole määritetty sähköpostin Microsoft Entra -sovelluksen rekisteröintisivulla.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType CannotConnectToMailServerErr</note>
         </trans-unit>
@@ -119,13 +131,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 1049555962 - NamedType 3435643268" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>To connect to your email account you must create an App registration in Microsoft Entra and then enter information about the registration on the Email Microsoft Entra application registration page in Business Central. Do you want to do that now?</source>
-          <target state="translated">Jotta voit muodostaa yhteyden sähköpostitiliin, sinun on luotava sovelluksen rekisteröinti Microsoft Entraan ja syötettävä sitten rekisteröintitiedot Business Centralin Email Microsoft Entra -sovelluksen rekisteröintisivulle. Haluatko tehdä sen nyt?</target>
+          <target state="translated">Jotta voit muodostaa yhteyden sähköpostitiliin, sinun on luotava sovelluksen rekisteröinti Microsoft Entraan ja syötettävä sitten rekisteröintitiedot Business Centralin sähköpostin Microsoft Entra -sovelluksen rekisteröintisivulle. Haluatko tehdä sen nyt?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email - Outlook API Helper - NamedType SetupOutlookAPIQst</note>
         </trans-unit>
         <trans-unit id="Page 3074962881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Microsoft Entra application registration</source>
-          <target state="translated">Email Microsoft Entra -sovelluksen rekisteröinti</target>
+          <target state="translated">Sähköpostin Microsoft Entra -sovelluksen rekisteröinti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Property Caption</note>
         </trans-unit>
