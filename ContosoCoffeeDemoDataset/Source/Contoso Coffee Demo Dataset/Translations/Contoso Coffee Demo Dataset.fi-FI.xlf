@@ -27,6 +27,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Contoso Coffee Demo Data Setup - Field Country/Region Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3973021671 - Field 450009889 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language ID</source>
+          <target state="translated">Kielen tunnus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Contoso Coffee Demo Data Setup - Field Language ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3973021671 - Field 2604280068 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Price Factor</source>
           <target state="translated">Hintakerroin</target>
@@ -572,6 +578,12 @@
           <target state="translated">Tilin arvo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Whse. Demo Account - Field Account Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4176698602 - NamedType 291071016" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The demo data will be created with %1, which is different than the language used before (%2). Do you want to continue? \\ The differences in the language could cause issues with the demo data.</source>
+          <target state="translated">Demotietojen luontikieli on %1, joka poikkeaa aiemmin käytetystä kielestä (%2). Haluatko jatkaa? \\ Kielierot voivat aiheuttaa ongelmia demotiedoissa.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Language Name, %2 = Language Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Contoso Demo Tool - NamedType LanguageConfirmationMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 4176698602 - NamedType 1936135254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>All the selected modules have already been generated.</source>
@@ -1643,7 +1655,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 120532373 - NamedType 878558031" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>P-ORD</source>
-          <target state="translated">O-TILAUS</target>
+          <target state="translated">P-ORD</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PurchaseOrderTok</note>
         </trans-unit>
@@ -1655,7 +1667,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 120532373 - NamedType 2907645194" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>S-ORD</source>
-          <target state="translated">M-TIL</target>
+          <target state="translated">S-ORD</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType SalesOrderTok</note>
         </trans-unit>
@@ -2447,7 +2459,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1929627111 - NamedType 1102948949" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>CM_Commer</source>
-          <target state="translated">KM_Kaupal</target>
+          <target state="translated">KK_Kaupal</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg Item Category - NamedType CommercialModelTok</note>
         </trans-unit>
@@ -2459,7 +2471,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1929627111 - NamedType 2003774803" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>CM_Consum</source>
-          <target state="translated">KM_Kulutt</target>
+          <target state="translated">KK_Kulutt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg Item Category - NamedType ConsumerModelTok</note>
         </trans-unit>
@@ -2477,7 +2489,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3818209661 - NamedType 2940071644" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>START-MANF</source>
-          <target state="translated">AL.-VALM.</target>
+          <target state="translated">START-MANF</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg Item Jnl Line - NamedType StartManufacturingTok</note>
         </trans-unit>
@@ -2549,7 +2561,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4253797550 - NamedType 3178839878" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>M-FIRMP</source>
-          <target state="translated">T-SIT.S.</target>
+          <target state="translated">M-FIRMP</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg No Series - NamedType FirmPlannedOrderTok</note>
         </trans-unit>
@@ -2573,7 +2585,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4253797550 - NamedType 1242381318" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>M-PLAN</source>
-          <target state="translated">T-SUUN.</target>
+          <target state="translated">M-PLAN</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg No Series - NamedType PlannedOrderTok</note>
         </trans-unit>
@@ -2585,7 +2597,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4253797550 - NamedType 213633253" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>PRODBOM</source>
-          <target state="translated">T.TUOTERAK</target>
+          <target state="translated">PRODBOM</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg No Series - NamedType ProductionBOMTok</note>
         </trans-unit>
@@ -2597,7 +2609,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4253797550 - NamedType 3261983693" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>M-REL</source>
-          <target state="translated">T-VAP</target>
+          <target state="translated">M-REL</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg No Series - NamedType ReleasedOrderTok</note>
         </trans-unit>
@@ -2621,7 +2633,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4253797550 - NamedType 3330719942" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>M-SIM</source>
-          <target state="translated">T-SIM</target>
+          <target state="translated">M-SIM</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg No Series - NamedType SimulatedTok</note>
         </trans-unit>
@@ -2633,7 +2645,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4253797550 - NamedType 1204491286" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>WORKCTR</source>
-          <target state="translated">TYÖKESK</target>
+          <target state="translated">WORKCTR</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg No Series - NamedType WorkCenterTok</note>
         </trans-unit>
@@ -3419,7 +3431,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3095892194 - NamedType 217535955" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
           <source>SP ORDERED</source>
-          <target state="translated">HUOLTO TIL</target>
+          <target state="translated">SP ORDERED</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Svc Status - NamedType StatusSPORDERTok</note>
         </trans-unit>
@@ -3431,7 +3443,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3095892194 - NamedType 3534365264" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
           <source>SP RCVD</source>
-          <target state="translated">HUOLTO V.O</target>
+          <target state="translated">SP RCVD</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Svc Status - NamedType StatusSPRCVDTok</note>
         </trans-unit>
@@ -3443,7 +3455,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3095892194 - NamedType 1324042449" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
           <source>WAITCUST</source>
-          <target state="translated">ODOTASIAK</target>
+          <target state="translated">WAITCUST</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Svc Status - NamedType StatusWAITTok</note>
         </trans-unit>
@@ -3975,6 +3987,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Contoso Coffee Demo Data - Control Country/Region Code - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1577283206 - Control 696461927 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Language Name that you create the demo data with for the first time.</source>
+          <target state="translated">Määrittää kielen nimen, jolla demotiedot luodaan ensimmäistä kertaa.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Contoso Coffee Demo Data - Control Language Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1577283206 - Control 696461927 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language Name</source>
+          <target state="translated">Kielen nimi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Contoso Coffee Demo Data - Control Language Name - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1577283206 - Control 34877017 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Starting Year that you want to create the demo data with.</source>
           <target state="translated">Määrittää aloitusvuoden, jonka kanssa haluat luoda esittelytiedot.</target>
@@ -4004,6 +4028,12 @@
           <target state="translated">Contoson demotyökalu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Contoso Demo Tool - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4176698602 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Demo Data</source>
+          <target state="translated">Demotiedot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Contoso Demo Tool - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 4176698602 - Control 2358601378 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the demo data module installation level</source>
