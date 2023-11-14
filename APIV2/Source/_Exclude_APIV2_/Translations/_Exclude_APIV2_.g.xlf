@@ -418,6 +418,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Attachments - NamedType MissingParentIdErr</note>
         </trans-unit>
+        <trans-unit id="Page 3383613133 - NamedType 3786093982" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parent type %1 is not supported. Use documentAttachments API instead.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Parent type</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Attachments - NamedType ParentTypeNotSupportedErr</note>
+        </trans-unit>
         <trans-unit id="Page 3383613133 - Control 2895166340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Content</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5217,6 +5222,11 @@
           <source>Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control purchaseInvoiceLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4099491740 - Control 1313438251 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchaser</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control purchaser - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 354324300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 1</source>
