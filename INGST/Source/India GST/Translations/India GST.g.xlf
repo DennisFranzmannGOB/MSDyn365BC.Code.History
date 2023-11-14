@@ -20483,6 +20483,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sub Order Component List - Field Applies-to Entry (Sending) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2174943217 - Field 2814799924 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bin Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sub Order Component List - Field Bin Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2174943217 - Field 1863361678 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Location</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -23883,6 +23888,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sub Order Components - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1187788242 - Control 2814799924 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Bin Code for the company location.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sub Order Components - Control Bin Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1187788242 - Control 1863361678 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the company location code for the document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -26872,6 +26882,11 @@
           <source>GST Use Cases</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Cess Tax Type Setup - Method GetConfig - NamedType {DE8006B8-CF9F-474A-AE29-C7903A148261}Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 830023400 - Method 3738100424 - NamedType 3756847875" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Cess Tax Type Setup - Method GetConfig - NamedType {631DEFA0-165E-4BDC-8F8A-AB2A88DF90AD}Lbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 830023400 - Method 2638051844 - NamedType 1348115531" size-unit="char" translate="yes" xml:space="preserve">
           <source>GST CESS</source>

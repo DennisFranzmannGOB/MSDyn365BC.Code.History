@@ -8953,6 +8953,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query GSTR1B2CSCessAmt - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Query 3604663564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GSTR1B2CSCrMemo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query GSTR1B2CSCrMemo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Query 1048784409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GSTR1B2CSInter</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9367,11 +9372,6 @@
           <source>Print Voucher</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Cust. Ledger Entry Ext. - Action Print Voucher - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Query 3604663564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>GSTR1B2CSCrMemo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Query GSTR1B2CSCrMemo - Property Caption</note>
         </trans-unit>
       </group>
     </body>
