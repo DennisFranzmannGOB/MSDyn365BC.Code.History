@@ -207,18 +207,6 @@
           <note from="Developer" annotates="general" priority="2">%1 - start\from date, %2 - end\to date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Swiss QR-Bill Billing Info - NamedType DateRangeTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1807490859 - NamedType 1420859235" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up QR-Bill</source>
-          <target state="translated">Paramétrer QR-facture</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Swiss QR-Bill Install - NamedType AssistedSetupTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1807490859 - NamedType 1689235809" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up QR-Bills and easily generate, send and import QR-Bills in Dynamics 365 Business Central</source>
-          <target state="translated">Paramétrer des QR-factures et générer, envoyer et importer aisément des QR-factures dans Dynamics 365 Business Central</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Swiss QR-Bill Install - NamedType AssistedSetupDescriptionTxt</note>
-        </trans-unit>
         <trans-unit id="Codeunit 1807490859 - NamedType 1841904642" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>DEFAULT QR-IBAN</source>
           <target state="translated">QR-IBAN PAR DÉFAUT</target>
