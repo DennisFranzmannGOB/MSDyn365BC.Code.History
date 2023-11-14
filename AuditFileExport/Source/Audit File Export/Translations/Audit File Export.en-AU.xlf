@@ -429,6 +429,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action Start - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3546478469 - Action 3517601603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy the G/L account mapping from another mapping code.</source>
+          <target state="translated">Copy the G/L account mapping from another mapping code.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Action CopyMapping - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Action 3517601603 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy from Another Mapping</source>
+          <target state="translated">Copy from Another Mapping</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Action CopyMapping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Action 972680765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generate lines on the G/L Account Mapping page based on an existing chart of accounts.</source>
+          <target state="translated">Generate lines on the G/L Account Mapping page based on an existing chart of accounts.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Action InitMappingSource - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Action 972680765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Initialize Source for Mapping</source>
+          <target state="translated">Initialise Source for Mapping</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Action InitMappingSource - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3668181135 - Action 3517601603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy the G/L account mapping from another mapping code.</source>
           <target state="translated">Copy the G/L account mapping from another mapping code.</target>
@@ -765,6 +789,72 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control StartingDate - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 1163052056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the incoming balance of G/L account of type "Balance Account" needs to be considered for mapping instead of the reporting period's net change.</source>
+          <target state="translated">Specifies if the incoming balance of G/L account of type "Balance Account" needs to be considered for mapping instead of the reporting period's net change.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control IncludeIncomingBalance - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 1203412368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the audit file export format to which the standard general ledger accounts are linked.</source>
+          <target state="translated">Specifies the audit file export format to which the standard general ledger accounts are linked.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control AuditFileExportFormat - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 1377863565 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the code of the standard account or grouping code that is used for mapping.</source>
+          <target state="translated">Specifies the code of the standard account or grouping code that is used for mapping.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control StanadrdAccountNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 1597877536 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date of the accounting period that will be used as reporting period.</source>
+          <target state="translated">Specifies the starting date of the accounting period that will be used as reporting period.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control AccountingPeriod - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the mapping code that represents the reporting period.</source>
+          <target state="translated">Specifies the mapping code that represents the reporting period.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 3592094765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ending date of the reporting period.</source>
+          <target state="translated">Specifies the ending date of the reporting period.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control EndingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 43593927 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type for an accounting period or custom period with a flexible start date/time.</source>
+          <target state="translated">Specifies the type for an accounting period or custom period with a flexible start date/time.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control PeriodType - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 543275552 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date of the reporting period.</source>
+          <target state="translated">Specifies the starting date of the reporting period.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control StartingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 668720920 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mapping</source>
+          <target state="translated">Mapping</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control Mapping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the standard general ledger accounts.</source>
+          <target state="translated">Specifies the type of the standard general ledger accounts.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control StandardAccountType - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Control 772199925 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the category of the standard account or grouping code that is used for mapping.</source>
+          <target state="translated">Specifies the category of the standard account or grouping code that is used for mapping.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control StandardAccountCategoryNo - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3665447164 - Control 1459662141 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if you want to be notified about the post code that has not been set up correctly.</source>
           <target state="translated">Specifies if you want to be notified about the postcode that has not been set up correctly.</target>
@@ -812,6 +902,12 @@
           <target state="translated">Specifies if you want to be notified about fields that have not been set up correctly for specific bank accounts.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Setup - Control CheckBankAccount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3665447164 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the default type of the standard general ledger accounts.</source>
+          <target state="translated">Specifies the default type of the standard general ledger accounts.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Setup - Control StandardAccountType - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3668181135 - Control 1163052056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the incoming balance of G/L account of type "Balance Account" needs to be considered for mapping instead of the reporting period's net change.</source>
@@ -1088,6 +1184,18 @@
           <target state="translated">Audit File Export Document</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New, Process</source>
+          <target state="translated">New, Process</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Property PromotedActionCategories</note>
+        </trans-unit>
+        <trans-unit id="Page 3546478469 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Account Mapping</source>
+          <target state="translated">G/L Account Mapping</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3665447164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Setup</source>

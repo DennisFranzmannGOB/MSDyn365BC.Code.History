@@ -533,6 +533,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Forecast Setup Card - NamedType JobQueueCreationInProgressErr</note>
         </trans-unit>
+        <trans-unit id="Page 3997127860 - NamedType 1644091217" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must be an administrator to enable/disable sales forecasting. Ensure that you are assigned the 'SUPER' user permission set.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Forecast Setup Card - NamedType NotAdminErr</note>
+        </trans-unit>
         <trans-unit id="Page 3997127860 - NamedType 2687205535" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales forecasts are being updated in the background. This might take a minute.</source>
           <note from="Developer" annotates="general" priority="2"></note>
