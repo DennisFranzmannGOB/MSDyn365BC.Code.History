@@ -744,7 +744,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the integration table mapping entry.</source>
-          <target state="translated">Gibt den Namen des Zuordnungspostens in der Integrationstabelle an</target>
+          <target state="translated">Gibt den Namen des Integrations-Tabellenzuordnungspostens an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -1014,7 +1014,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 97595311" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This will synchronize all modified records in all integration table mappings. \\The synchronization will run in the background so you can continue with other tasks. \\Do you want to continue?</source>
-          <target state="translated">Dadurch werden alle geänderten Datensätze in allen Integrationstabellen-Zuordnungen synchronisiert. \\Die Synchronisierung wird im Hintergrund ausgeführt, sodass Sie mit anderen Aufgaben fortfahren können. \\Möchten Sie fortfahren?</target>
+          <target state="translated">Dadurch werden alle geänderten Datensätze in allen Integrations-Tabellenzuordnungen synchronisiert. \\Die Synchronisierung wird im Hintergrund ausgeführt, sodass Sie mit anderen Aufgaben fortfahren können. \\Möchten Sie fortfahren?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SynchronizeModifiedQst</note>
         </trans-unit>
