@@ -2838,7 +2838,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Action 1110033960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clears the API version expiry date cache for this Shopify Shop. This will force the API version to be re-evaluated the next time the API is called.</source>
-          <target state="translated">Hiermee wordt de vervaldatumcache van de API-versie gewist. Hierdoor wordt de API-versie opnieuw geëvalueerd wanneer de API de volgende keer wordt aangeroepen.</target>
+          <target state="translated">Hiermee wordt de vervaldatumcache van de API-versie gewist voor deze Shopify-winkel. Hierdoor wordt de API-versie opnieuw geëvalueerd wanneer de API de volgende keer wordt aangeroepen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action ClearApiVersionExpiryDateCache - Property ToolTip</note>
         </trans-unit>
@@ -4380,7 +4380,7 @@
         </trans-unit>
         <trans-unit id="Page 1602962213 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code to identify this Shopify Shop.</source>
-          <target state="translated">Hiermee wordt een code opgegeven om deze Shofipy-winkel te identificeren.</target>
+          <target state="translated">Hiermee wordt een code opgegeven om deze Shopify-winkel te identificeren.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shops - Control Code - Property ToolTip</note>
         </trans-unit>
@@ -4758,7 +4758,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code to identify this Shopify Shop.</source>
-          <target state="translated">Hiermee wordt een code opgegeven om deze Shofipy-winkel te identificeren.</target>
+          <target state="translated">Hiermee wordt een code opgegeven om deze Shopify-winkel te identificeren.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Code - Property ToolTip</note>
         </trans-unit>
