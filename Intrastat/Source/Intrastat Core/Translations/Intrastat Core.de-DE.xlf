@@ -2018,7 +2018,7 @@
         </trans-unit>
         <trans-unit id="Table 2113709934 - Field 3505749812 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Corrective entry</source>
-          <target state="translated">Korrekturposten</target>
+          <target state="translated">Stornoposten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Line - Field Corrective entry - Property Caption</note>
         </trans-unit>
@@ -2186,7 +2186,7 @@
         </trans-unit>
         <trans-unit id="Table 2491010837 - Field 1938232404 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Corrective Entry</source>
-          <target state="translated">Korrekturposten</target>
+          <target state="translated">Stornoposten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Header - Field Corrective Entry - Property Caption</note>
         </trans-unit>

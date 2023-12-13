@@ -1528,6 +1528,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType ExternalDocumentNoEmptyErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3588268779 - NamedType 341878808" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The linked advance letter %1 is paid after %2. If you continue, the advance letter won't be deducted.\\Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2">%1 = advance letter no., %2 = posting date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType LaterPostingDateQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 272352229" size-unit="char" translate="yes" xml:space="preserve">
           <source>Nothing to Post.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1562,6 +1567,11 @@
           <source>Usage all applicated advances is not possible.\Continue?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method CheckAdvancePayement - NamedType UsageQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3588268779 - Method 2414770578 - NamedType 4078034573" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Usage all applicated advances is not possible.\Continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method CheckAdvancePayment - NamedType UsageQst</note>
         </trans-unit>
         <trans-unit id="Codeunit 3588268779 - Method 2493569558 - NamedType 519972416" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date and VAT Date cannot be empty.</source>
@@ -1683,6 +1693,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType DocumentNoOrDatesEmptyErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - NamedType 341878808" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The linked advance letter %1 is paid after %2. If you continue, the advance letter won't be deducted.\\Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2">%1 = advance letter no., %2 = posting date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType LaterPostingDateQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2748602711 - NamedType 272352229" size-unit="char" translate="yes" xml:space="preserve">
           <source>Nothing to Post.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1712,6 +1727,11 @@
           <source>Usage all applicated advances is not possible.\Continue?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method CheckAdvancePayement - NamedType UsageQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - Method 2414770578 - NamedType 4078034573" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Usage all applicated advances is not possible.\Continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method CheckAdvancePayment - NamedType UsageQst</note>
         </trans-unit>
         <trans-unit id="Codeunit 2748602711 - Method 2844938974 - NamedType 2959983506" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advance VAT Correction</source>
