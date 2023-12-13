@@ -3672,7 +3672,7 @@
         </trans-unit>
         <trans-unit id="Page 1167635784 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Gibt den Wert des Felds „Shopify-Auftragserfüllungs-Auftrags-ID“ an</target>
+          <target state="translated">Gibt den Wert des Felds „Shopify-Auftragserfüllungsauftrags-ID“ an</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Card - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -6501,7 +6501,7 @@
         </trans-unit>
         <trans-unit id="Page 4292255143 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Gibt den Wert des Felds „Shopify-Auftragserfüllungs-Auftrags-ID“ an</target>
+          <target state="translated">Gibt den Wert des Felds „Shopify-Auftragserfüllungsauftrags-ID“ an</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -7347,7 +7347,7 @@
         </trans-unit>
         <trans-unit id="Page 864923901 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Gibt den Wert des Felds „Shopify-Auftragserfüllungs-Auftrags-ID“ an</target>
+          <target state="translated">Gibt den Wert des Felds „Shopify-Auftragserfüllungsauftrags-ID“ an</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Orders - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -11855,7 +11855,7 @@
         </trans-unit>
         <trans-unit id="Table 4104547265 - Field 192144605 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Order Id</source>
-          <target state="translated">Shopify-Auftragserfüllungs-Auftrags-ID</target>
+          <target state="translated">Shopify-Auftragserfüllungsauftrags-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Field Shopify Fulfillment Order Id - Property Caption</note>
         </trans-unit>
@@ -12983,7 +12983,7 @@
         </trans-unit>
         <trans-unit id="Table 298531255 - Field 2019373255 - Method 2126772001 - NamedType 2015683432" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You can not use standard Shopify Locations with FulFillment Service Locations.</source>
-          <target state="translated">Sie können keine Standard-Shopifystandorte mit Erfüllungsdienststandorten verwenden.</target>
+          <target state="translated">Sie können keine Shopify-Standardstandorte mit Erfüllungsdienststandorten verwenden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop Location - Field Default Product Location - Method OnValidate - NamedType MixLocationTypeErr</note>
         </trans-unit>
@@ -13229,7 +13229,7 @@
         </trans-unit>
         <trans-unit id="Table 4104547265 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fulfillment Order Header</source>
-          <target state="translated">Auftragserfüllungs-Auftragskopf</target>
+          <target state="translated">Auftragserfüllungsauftrags-Kopf</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Property Caption</note>
         </trans-unit>
@@ -13253,7 +13253,7 @@
         </trans-unit>
         <trans-unit id="Table 695100538 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>FulFillment Order Line</source>
-          <target state="translated">Auftragserfüllungs-Auftragszeile</target>
+          <target state="translated">Auftragserfüllungsauftrags-Zeile</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Line - Property Caption</note>
         </trans-unit>
