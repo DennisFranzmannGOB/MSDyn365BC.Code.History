@@ -98,6 +98,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Max No. Of Jobs - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2386421154 - Field 1176000704 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of G/L Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Number of G/L Entries - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2386421154 - Field 1045836580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parallel Processing</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -132,6 +137,16 @@
           <source>Not Started,In Progress,Failed,Completed</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Status - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 2386421154 - Field 3598169969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total G/L Entry Credit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Total G/L Entry Credit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2386421154 - Field 2420424136 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total G/L Entry Debit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Total G/L Entry Debit - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 909457577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>SAF-T Export Line</source>
@@ -1987,6 +2002,11 @@
           <source>Replace Existing Mapping</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report SAF-T Copy Mapping - Control ReplaceControl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 2138522238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SAF-T G/L Entry By Trans.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query SAF-T G/L Entry By Trans. - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3974796057 - Control 3675218945 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2173385693">
           <source>Specifies if information about this dimension will be exported to the SAF-T file.</source>
