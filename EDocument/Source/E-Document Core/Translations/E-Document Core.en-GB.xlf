@@ -3,6 +3,24 @@
   <file datatype="xml" source-language="en-US" target-language="en-GB" original="E-Document Core">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 1557577669 - NamedType 1079526110" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch processing is not supported with.</source>
+          <target state="translated">Batch processing is not supported with.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Data Exchange Impl. - NamedType BatchNotSupportedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1557577669 - NamedType 3471781426" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 for %2 %3 does not exist.</source>
+          <target state="translated">%1 for %2 %3 does not exist.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Data Exchange Mapping caption, %2 - Data Exchange Definition caption, %3 - Data Exchange Definition code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Data Exchange Impl. - NamedType NoDataExchMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1557577669 - NamedType 653572239" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to process the file with data exchange.</source>
+          <target state="translated">Failed to process the file with data exchange.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Data Exchange Impl. - NamedType ProcessFailedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1668421278 - NamedType 2589899165" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mapping of record can only be applied to temporary record</source>
           <target state="translated">Mapping of record can only be applied to temporary record</target>
@@ -86,6 +104,78 @@
           <target state="translated">No exchange rate exists for %1 on %2. You must add the exchange rate in the Currencies window.</target>
           <note from="Developer" annotates="general" priority="2">%1 reference to a concrete currency,%2 to the date for the transaction</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Document Create Jnl. Line - NamedType CurrencyExchangeDoesNotExistErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 1140857264" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The electronic document references invoice %1 from the vendor, but no purchase invoice exists for %1.</source>
+          <target state="translated">The electronic document references invoice %1 from the vendor, but no purchase invoice exists for %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - vendor invoice no.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType UnableToFindRelatedInvoiceErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 1206217062" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot find buy-from vendor '%1' based on the vendor's GLN %2 or VAT registration number %3 on the electronic document. Make sure that a card for the vendor exists with the corresponding GLN or VAT Registration No.</source>
+          <target state="translated">Cannot find buy-from vendor '%1' based on the vendor's GLN %2 or VAT registration number %3 on the electronic document. Make sure that a card for the vendor exists with the corresponding GLN or VAT Registration No.</target>
+          <note from="Developer" annotates="general" priority="2">%1 Vendor name (e.g. London Postmaster), %2 Vendor's GLN (13 digit number), %3 Vendor's VAT Registration Number</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType BuyFromVendorNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 1594685643" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice charge on the e-document has no reason code.</source>
+          <target state="translated">Invoice charge on the e-document has no reason code.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType InvoiceChargeHasNoReasonErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 2437766739" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot find pay-to vendor '%1' based on the vendor's GLN %2 or VAT registration number %3 on the electronic document. Make sure that a card for the vendor exists with the corresponding GLN or VAT Registration No.</source>
+          <target state="translated">Cannot find pay-to vendor '%1' based on the vendor's GLN %2 or VAT registration number %3 on the electronic document. Make sure that a card for the vendor exists with the corresponding GLN or VAT Registration No.</target>
+          <note from="Developer" annotates="general" priority="2">%1 Vendor name (e.g. London Postmaster), %2 Vendor's GLN (13 digit number), %3 Vendor's VAT Registration Number</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType PayToVendorNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 2545121665" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The currency code %1 on invoice line no. %2 must not be different from the currency code %3 on the electronic document.</source>
+          <target state="translated">The currency code %1 on invoice line no. %2 must not be different from the currency code %3 on the electronic document.</target>
+          <note from="Developer" annotates="general" priority="2">%1 Invoice line currency code (e.g. GBP), %2 invoice line no. (e.g. 2), %3 document currency code (e.g. DKK)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType ItemCurrencyCodeDifferentErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 2902681278" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The currency code %1 must not be different from the currency code %2 on the electronic document.</source>
+          <target state="translated">The currency code %1 must not be different from the currency code %2 on the electronic document.</target>
+          <note from="Developer" annotates="general" priority="2">%1 currency code (e.g. GBP), %2 the document currency code (e.g. DKK)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType CurrencyCodeDifferentErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 2946943764" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must specify a value for field '%1'.</source>
+          <target state="translated">You must specify a value for field '%1'.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - field caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType FieldMustHaveAValueErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 3063667477" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The currency code is missing on the electronic document.</source>
+          <target state="translated">The currency code is missing on the electronic document.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType CurrencyCodeMissingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 3072650758" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must make a new entry in the %1 of the %2 window, and enter '%3' or '%4' in the %5 field. Then, you must map it to the %6 field in the %7 table.</source>
+          <target state="translated">You must make a new entry in the %1 of the %2 window, and enter '%3' or '%4' in the %5 field. Then, you must map it to the %6 field in the %7 table.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Column Definitions (page caption),%2 - Data Exchange Definition (page caption),%3 - invoice (option caption),%4 - credit memo (option caption),%5 - Constant (field name),%6 - Document Type (field caption),%7 - Purchase Header (table caption)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType DocumentTypeUnknownErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 3156406416" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The electronic document has no total amount excluding VAT.</source>
+          <target state="translated">The electronic document has no total amount excluding VAT.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType UnableToFindTotalAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 3212879496" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot find an appropriate G/L account for the line with description '%1'. Choose the Map Text to Account button, and then map the core part of '%1' to the relevant G/L account.</source>
+          <target state="translated">Cannot find an appropriate G/L account for the line with description '%1'. Choose the Map Text to Account button, and then map the core part of '%1' to the relevant G/L account.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType UnableToFindAppropriateAccountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 5476336" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The electronic document references invoice %1 from the vendor. You must post related purchase invoice %2 before you create a new purchase document from this electronic document.</source>
+          <target state="translated">The electronic document references invoice %1 from the vendor. You must post related purchase invoice %2 before you create a new purchase document from this electronic document.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - vendor invoice no.,%2 posted purchase invoice no.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType YouMustFirstPostTheRelatedInvoiceErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4110245118 - NamedType 1330826680" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Workflow %1 defined for %2 in Document Sending Profile %3 is not found.</source>
@@ -357,6 +447,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Status - EnumValue Processed - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 397551968 - EnumValue 1459325709 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data Exchange</source>
+          <target state="translated">Data Exchange</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Format - EnumValue Data Exchange - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 397551968 - EnumValue 529166461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PEPPOL BIS 3.0</source>
+          <target state="translated">PEPPOL BIS 3.0</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Format - EnumValue PEPPOL BIS 3.0 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="EnumExtension 363119266 - EnumValue 3675331969 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Extended E-Document Service Flow</source>
           <target state="translated">Extended E-Document Service Flow</target>
@@ -453,6 +555,18 @@
           <target state="translated">E-Document Logs</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action EDocumentLogs - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2429668632 - Action 2888971102 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create an electronic document by manually uploading a file.</source>
+          <target state="translated">Create an electronic document by manually uploading a file.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action ImportManually - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2429668632 - Action 2888971102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create From File</source>
+          <target state="translated">Create From File</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action ImportManually - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2429668632 - Action 3866548800 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Opens E-Document Services page.</source>
@@ -675,6 +789,36 @@
           <target state="translated">Export Request Message</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Integration Logs - Action ExportRequestMsg - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 1308424011 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the data exchange code that is used for importing the data.</source>
+          <target state="translated">Specifies the data exchange code that is used for importing the data.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Impt. Data Exchange Def. Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 1326019134 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the data exchange name that is used for exporting the data.</source>
+          <target state="translated">Specifies the data exchange name that is used for exporting the data.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Expt. Data Exchange Def. Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document type that will use data exchange for importing/exporting the data.</source>
+          <target state="translated">Specifies the document type that will use data exchange for importing/exporting the data.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 3186336997 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the data exchange name that is used for importing the data.</source>
+          <target state="translated">Specifies the data exchange name that is used for importing the data.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Impt. Data Exchange Def. Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 3386985604 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the data exchange code that is used for exporting the data.</source>
+          <target state="translated">Specifies the data exchange code that is used for exporting the data.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Expt. Data Exchange Def. Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2161247858 - Control 3701310097 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the service code of an E-Dcoument</source>
@@ -1264,6 +1408,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Control Batch Minutes between runs - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4102148806 - Control 3457654205 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data Exchange Definition</source>
+          <target state="translated">Data Exchange Definition</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Control EDocumentDataExchDef - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4102148806 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the description of the electronic export setup.</source>
           <target state="translated">Specifies the description of the electronic export setup.</target>
@@ -1503,6 +1653,12 @@
           <target state="translated">There is no configuration setup for this service integration.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - NamedType ServiceIntegrationSetupMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Doc. Service Data Exch. Sub</source>
+          <target state="translated">E-Doc. Service Data Exch. Sub</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2161247858 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Service Status</source>
@@ -2230,6 +2386,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Integration Log - Field Entry No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 1308424011 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Data Exchange Def. Code</source>
+          <target state="translated">Import Data Exchange Def. Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Impt. Data Exchange Def. Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 1326019134 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export Data Exchange Def. Name</source>
+          <target state="translated">Export Data Exchange Def. Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Expt. Data Exchange Def. Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 2363328873 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <target state="translated">Document Type</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 3186336997 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Data Exchange Def. Name</source>
+          <target state="translated">Import Data Exchange Def. Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Impt. Data Exchange Def. Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 3386985604 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export Data Exchange Def. Code</source>
+          <target state="translated">Export Data Exchange Def. Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Expt. Data Exchange Def. Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 742984291 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field E-Document Format Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4102148806 - Field 1120844960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lookup Item Reference</source>
           <target state="translated">Lookup Item Reference</target>
@@ -2661,6 +2853,12 @@
           <target state="translated">E-Document Integration Log</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Integration Log - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Doc. Service Data Exch. Def.</source>
+          <target state="translated">E-Doc. Service Data Exch. Def.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4102148806 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Service</source>

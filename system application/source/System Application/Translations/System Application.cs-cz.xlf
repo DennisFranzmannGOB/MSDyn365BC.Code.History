@@ -873,6 +873,12 @@
           <note from="Developer" annotates="general" priority="2">%1 is the name of the Copilot Capability</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType CapabilityNotEnabledErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 1820538459" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The metaprompt has not been set, please provide a metaprompt.</source>
+          <target state="translated">Metaprompt nebyl nastaven, zadejte prosím metaprompt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType EmptyMetapromptErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 223636344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The authentication was not configured.</source>
           <target state="translated">Ověřování nebylo nakonfigurováno.</target>
@@ -896,6 +902,12 @@
           <target state="translated">Generování dokončení chatu se nezdařilo.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ChatCompletionsFailedWithCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 3171573684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Available now to Insider Builds. Partners will be able to deploy and run to Business Central Online once we light this up in a minor update.</source>
+          <target state="translated">Nyní je k dispozici pro Insider Builds. Partneři budou moci nasadit a spustit Business Central Online, jakmile to umožníme v menší aktualizaci.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ThirdPartyCapabilitySaaSErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 3198080941" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Selected model type is not supported.</source>
@@ -2247,12 +2259,6 @@
           <note from="Developer" annotates="general" priority="2">"sign out" and "sign in" are the same terms as shown in the Business Central client.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Power Automate Privacy Notice - NamedType SignInAgainMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3411327414 - NamedType 1274948781" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Limited the number of records to delete for table %1, %2 to %3 records. The maximum number of records that can be deleted at the same time is %4, and %5 records were previously deleted in one or more tables.</source>
-          <target state="translated">Omezen počet záznamů, které mají být odstraněny pro tabulku %1, %2 na %3 záznamů. Maximální počet záznamů, které lze odstranit současně, je %4 a %5 záznamů bylo již dříve odstraněno v jedné nebo více tabulkách.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = a id of a table (integer), %2 = the caption of the table, %3, %4, %5 = integer</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType LimitNumberOfRecordsLbl</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3411327414 - NamedType 1381496626" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Max. Number of Rec. To Delete is less than 0.</source>
           <target state="translated">Max. počet záznamů k odstranění je menší než 0.</target>
@@ -2264,12 +2270,6 @@
           <target state="translated">Nelze zkontrolovat počet záznamů, které chcete odstranit z důvodu chybějícího oprávnění ke čtení tabulky %1, %2</target>
           <note from="Developer" annotates="general" priority="2">%1 = table number, %2 = table caption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType MissingReadPermissionLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3411327414 - NamedType 3891174035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reached the maximum number of records that can be deleted at the same time. The maximum number allowed is %1.</source>
-          <target state="translated">Bylo dosaženo maximálního počtu záznamů, které lze odstranit současně. Maximální povolený počet je %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = integer</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType TooManyRecordsToDeleteLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3415626413 - NamedType 1944678805" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>450a2e22-8051-44ed-94b9-e33304c375b0</source>
@@ -3077,6 +3077,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 84388174 - NamedType 3217465303" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Note that copilot and AI capabilities published by Microsoft are not available on-premises.</source>
+          <target state="translated">Všimněte si, že funkce kopilotu a UI publikované Microsoftem nejsou k dispozici místně.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copilot Capability Impl - NamedType CapabilitiesNotAvailableOnPremNotificationMessageLbl</note>
         </trans-unit>
@@ -4508,6 +4509,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Checklist Item Status - EnumValue Started - Property Caption</note>
         </trans-unit>
+        <trans-unit id="EnumExtension 4246872218 - EnumValue 1535088282 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Marketing text suggestions</source>
+          <target state="translated">Návrhy marketingových textů</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 3058546390</note>
+        </trans-unit>
         <trans-unit id="Page 1105213220 - Action 1085967800 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set the data sensitivity of the selected fields to Sensitive.</source>
           <target state="translated">Nastavení citlivosti dat vybraných polí na citlivá.</target>
@@ -5287,6 +5295,12 @@
           <target state="translated">Další informace o funkci Copilot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Action Learn about Copilot - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Action 3876189905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Check the health of the Azure OpenAI service for your region.</source>
+          <target state="translated">Zkontrolujte stav služby Azure OpenAI pro vaši oblast.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Action Check service health - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1549657920 - Action 3876189905 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check service health</source>
@@ -6187,6 +6201,12 @@
           <target state="translated">Aktivovat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Action Activate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Action 3941063023 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the supplemental terms of use for production ready preview capabilities.</source>
+          <target state="translated">Otevře doplňkové podmínky použití náhledů fukcí přiravených pro produkční prostředí.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Action SupplementalTerms - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2774112874 - Action 3941063023 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Supplemental Terms of Use</source>
@@ -7321,6 +7341,12 @@
           <target state="translated">Aktivovat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Action Activate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Action 3941063023 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the supplemental terms of use for generally available capabilities.</source>
+          <target state="translated">Otevře dodatečné podmínky použití pro obecně dostupné funkce.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Action SupplementalTerms - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4126829886 - Action 3941063023 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Supplemental Terms of Use</source>
@@ -8815,6 +8841,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Entity Text - Control EntityTextPart - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 1014419112 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generally available</source>
+          <target state="translated">Obecná dostupnost</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control GenerallyAvailableCapabilities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 1622127448 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production ready previews</source>
+          <target state="translated">Náhledy připravené do produkce</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control PreviewCapabilities - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1549657920 - Control 2238262141 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether data movement across regions is allowed. This is required to enable Copilot in your environment.</source>
           <target state="translated">Určuje, zda je povolen přesun dat mezi oblastmi. To je nutné k povolení funkce Copilot ve vašem prostředí.</target>
@@ -8826,6 +8864,18 @@
           <target state="translated">Povolit přesun dat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control DataMovement - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 3117944029 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generative AI capabilities are deactivated because Azure OpenAI Service is not available in your region. By allowing data movement, you agree to data being stored and processed by the Azure OpenAI Service outside of your environment's geographic region or compliance boundary.</source>
+          <target state="translated">Generativní funkce UI jsou deaktivovány, protože služba Azure OpenAI není ve vaší oblasti dostupná. Povolením přesunu dat souhlasíte s tím, že data budou ukládána a zpracovávána službou Azure OpenAI mimo geografickou oblast vašeho prostředí nebo standardy dodržování předpisů.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control NotAlwaysConnected - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Control 3698943402 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot and other generative AI capabilities use Azure OpenAI Service. Your environment connects to Azure OpenAI Service in your region.</source>
+          <target state="translated">Copilot a další generativní funkce UI využívají službu Azure OpenAI. Vaše prostředí se připojuje ke službě Azure OpenAI ve vaší oblasti.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control AlwaysConnected - Property InstructionalText</note>
         </trans-unit>
         <trans-unit id="Page 1550306620 - Control 1393533604 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the related entity.</source>
@@ -11040,11 +11090,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure OpenAi Settings - Control Secret - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the publisher of this Copilot.</source>
+          <target state="translated">Určuje vydavatele funkce Copilot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Publisher - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2774112874 - Control 1772640682 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Publisher</source>
           <target state="translated">Vydavatel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Publisher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 2454442123 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the Copilot's url to learn more about the capability.</source>
+          <target state="translated">Otevře adresu URL Copilota, kde se dozvíte více o této funkci.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Learn More - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2774112874 - Control 2454442123 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -11052,11 +11114,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Learn More - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the Copilot is active and can be used in this environment.</source>
+          <target state="translated">Určuje, zda je Copilot aktivní a lze jej v tomto prostředí použít.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Status - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2774112874 - Control 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
           <target state="translated">Stav</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2774112874 - Control 785629580 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Copilot capability's name.</source>
+          <target state="translated">Určuje název funkce funkcionality Copilot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Capability - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2774112874 - Control 785629580 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Capability</source>
@@ -15094,11 +15168,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advanced Settings - Control ManualSetupGroup - Property InstructionalText</note>
         </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the publisher of this Copilot.</source>
+          <target state="translated">Určuje vydavatele funkce Copilot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Publisher - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 4126829886 - Control 1772640682 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Publisher</source>
           <target state="translated">Vydavatel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Publisher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 2454442123 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the Copilot's url to learn more about the capability.</source>
+          <target state="translated">Otevře adresu URL Copilota, kde se dozvíte více o této funkci.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Learn More - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4126829886 - Control 2454442123 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -15106,11 +15192,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Learn More - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the Copilot is active and can be used in this environment.</source>
+          <target state="translated">Určuje, zda je Copilot aktivní a lze jej v tomto prostředí použít.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Status - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 4126829886 - Control 513339096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
           <target state="translated">Stav</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4126829886 - Control 785629580 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Copilot capability's name.</source>
+          <target state="translated">Určuje název funkce funkcionality Copilot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Capability - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4126829886 - Control 785629580 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Capability</source>
@@ -16276,6 +16374,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - NamedType CopilotGovernDataLbl</note>
         </trans-unit>
+        <trans-unit id="Page 1549657920 - NamedType 3306048447" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Where is Azure OpenAI Service Located?</source>
+          <target state="translated">Kde se nachází služba Azure OpenAI?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - NamedType AOAIServiceLocatedLbl</note>
+        </trans-unit>
         <trans-unit id="Page 1785861980 - NamedType 1154975446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review affected data</source>
           <target state="translated">Kontrola ovlivněných dat</target>
@@ -17330,6 +17434,18 @@
           <target state="translated">Copilot je asistent s umělou inteligencí, který pomáhá lidem ve vaší organizaci odemknout jejich kreativitu a automatizovat zdlouhavé úkoly.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copilot &amp; AI capabilities</source>
+          <target state="translated">Funkce Copilot &amp; umělé inteligence</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1549657920 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin</source>
+          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Umělá inteligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Nastavení Copilot,Nastavení Copilot,povolit Copilot,Správce Copilota</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 1550306620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Related Entities</source>
