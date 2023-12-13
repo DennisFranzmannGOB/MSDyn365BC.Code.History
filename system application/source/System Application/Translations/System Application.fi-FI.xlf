@@ -12330,7 +12330,7 @@
         </trans-unit>
         <trans-unit id="Page 4001231554 - Control 1330212104 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>2. Choose ‘Get apps’, then search for and add ‘Microsoft Dynamics Office Add-in´.</source>
-          <target state="translated">2. Valitse Hanki sovelluksia ja hae sitten Microsoft Dynamicsin Office-apuohjelmaa ja lisää se.</target>
+          <target state="translated">2. Valitse Hanki sovelluksia ja hae sitten Microsoft Dynamics Office Add-in -sovellusta ja lisää se.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Control ConfigureMicrosoft365Step2 - Property InstructionalText</note>
         </trans-unit>
