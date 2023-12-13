@@ -431,9 +431,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action IntegrationTableMappings - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Resets the integration table mappings and synchronization jobs to the default values for a connection with the source company. All current mappings are deleted and recreated.</source>
+          <source>Resets the synchronization tables, fields, and job queue entries to the default values for the connection with the source company. All current synchronization tables are deleted and recreated.</source>
           <target state="translated">Ripristina i mapping della tabella di integrazione e i processi di sincronizzazione sui valori predefiniti per una connessione alla società di origine. Tutti i mapping correnti vengono ricreati.</target>
-          <note from="Developer" annotates="general" priority="2">Business Central is the name of a Microsoft Service and should not be translated.</note>
+          <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
@@ -443,7 +443,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 1723776373 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete couplings for the selected Business Central record types.</source>
+          <source>Delete couplings for the selected tables.</source>
           <target state="translated">Eliminare le associazioni per i tipi di record selezionati di Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action RemoveCoupling - Property ToolTip</note>
@@ -479,7 +479,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action SynchronizeNow - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 2573355370 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View fields that are synchronized.</source>
+          <source>Shows the fields that are synchronized.</source>
           <target state="translated">Visualizzare i campi sincronizzati.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action FieldMapping - Property ToolTip</note>
@@ -503,7 +503,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action JobQueueEntry - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 269808213 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the status of jobs for uncoupling records. The jobs were run either from the job queue, or manually, in Business Central.</source>
+          <source>View the status of jobs for uncoupling records.</source>
           <target state="translated">Visualizzare lo stato dei processi per l'annullamento dell'associazione dei record. I processi sono stati eseguiti dalla coda processi o manualmente in Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Uncouple Job Log - Property ToolTip</note>
@@ -515,7 +515,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Uncouple Job Log - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 2976546385 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Make couplings between the selected Business Central record types based on matching criteria.</source>
+          <source>Couple existing records in the selected tables based on matching criteria.</source>
           <target state="translated">Effettuare le associazioni tra i tipi di record selezionati di Business Central in base ai criteri di corrispondenza.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action MatchBasedCoupling - Property ToolTip</note>
@@ -545,7 +545,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action Enable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 3601201259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the status of the individual synchronization jobs that have been run for this table. This includes synchronization jobs that have been run from the job queue and manual synchronization jobs that were performed on records from the Business Central client.</source>
+          <source>View the status of the individual synchronization jobs that have been run for this table.</source>
           <target state="translated">Visualizzare lo stato di singoli processi di sincronizzazione che sono stati eseguiti per la tabella. Sono inclusi i processi di sincronizzazione che sono stati eseguiti dalla coda processi e i processi di sincronizzazione manuale che sono stati eseguiti sui record dal client Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Synch. Job Log - Property ToolTip</note>
@@ -581,7 +581,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action Disable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Resets the tables and synchronization jobs to the default values for a connection with the source company. All current mappings are deleted.</source>
+          <source>Resets the tables, fields and synchronization jobs to the default values for the connection with the source company. All default synchronization table definitions are deleted and recreated.</source>
           <target state="translated">Ripristina le tabelle e i processi di sincronizzazione sui valori predefiniti per una connessione alla società di origine. Tutte le mappature correnti vengono eliminate.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action ResetConfiguration - Property ToolTip</note>
@@ -659,7 +659,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Action Reset - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3185645072 - Action 2573355370 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Updates field mappings to match table schema. Use this action if the table schema was changed since the mappings were generated.</source>
+          <source>Updates field mappings to match table schema. Use this action if you added fields to the table with an extension.</source>
           <target state="translated">Aggiorna i mapping dei campi in modo che corrispondano allo schema della tabella. Utilizzare questa azione se lo schema della tabella è stato modificato dopo la generazione dei mapping.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Action FieldMapping - Property ToolTip</note>
@@ -725,13 +725,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Control Company Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 1439815520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the action to take when a coupled record is updated in both of the connected applications.</source>
+          <source>Specifies the action to take when a coupled record is updated both in the source and in the local company.</source>
           <target state="translated">Specifica l'azione da eseguire quando un record associato viene aggiornato in entrambe le applicazioni collegate.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Update-Conflict Resolution - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 1694497541 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the business data table in Business Central to map to the integration table.</source>
+          <source>Specifies the table caption.</source>
           <target state="translated">Specifica il nome della tabella di dati aziendali di Business Central da mappare alla tabella di integrazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableCaptionValue - Property ToolTip</note>
@@ -743,7 +743,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableCaptionValue - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the integration table mapping entry.</source>
+          <source>Specifies the name of the table.</source>
           <target state="translated">Specifica il nome del movimento di mapping della tabella di integrazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Name - Property ToolTip</note>
@@ -755,19 +755,19 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Disable Event Job Resch. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2987383563 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the action to take when a coupled record is deleted in one of the connected applications.</source>
+          <source>Specifies the action to take when a coupled record that is attempting to synchronize is deleted locally.</source>
           <target state="translated">Specifica l'azione da eseguire quando un record associato viene eliminato in una delle applicazioni collegate.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Deletion-Conflict Resolution - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3064002603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a configuration template to use when creating new records in the Dynamics 365 business table (specified by the Table ID field) during synchronization.</source>
+          <source>Specifies a configuration template to use when creating new records out of the table in the source company.</source>
           <target state="translated">Specifica un modello di configurazione da utilizzare quando si creano nuovi record nella tabella aziendale di Dynamics 365 (specificata dal campo ID tabella) durante la sincronizzazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Table Config Template Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3207106980 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a filter on the integration table to control which records can be synchronized with the corresponding records in the business data table that is specified by the Table field.</source>
+          <source>Specifies a filter on the table in the source company to control which records should be synchronized.</source>
           <target state="translated">Specifica un filtro nella tabella di integrazione per controllare i record che possono essere sincronizzati con i record corrispondenti della tabella dei dati aziendali specificata dal campo Tabella.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property ToolTip</note>
@@ -779,13 +779,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3252819777 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies how to handle uncoupled records in Dynamics 365 Sales entities and Dynamics 365 tables when synchronization is performed by an integration synchronization job.</source>
+          <source>Specifies if synchronization jobs should synchronize only currently coupled records. To synchronize newly inserted records, uncheck this checkbox.</source>
           <target state="translated">Specifica come gestire i record non associati nelle entità di Dynamics 365 Sales e nelle tabelle di Dynamics 365 quando viene eseguita la sincronizzazione da un processo di sincronizzazione di integrazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Only Coupled Records - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3277867247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the ID of the integration table to map to the business table.</source>
+          <source>Specifies the caption of the table.</source>
           <target state="translated">Specifica l'ID della tabella di integrazione da mappare alla tabella aziendale.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableCaptionValue - Property ToolTip</note>
@@ -797,7 +797,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableCaptionValue - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3696389755 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a date/time filter that uses the date on which records were modified to determine which records to synchronize from the chosen source company. The filter is based on the Modified On field on the integration table records.</source>
+          <source>Specifies a date/time that is used to determine which records to synchronize from the source company. Only records that have SystemModifiedAt value greater than this value, will be synchronized. This value keeps changing with every synchronization job.</source>
           <target state="translated">Specifica un filtro data/ora che utilizza la data di modifica dei record per determinare quelli da sincronizzare dalla società di origine scelta. Il filtro è basato sul campo Data modifica dei record della tabella di integrazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Modified On Filter - Property ToolTip</note>
@@ -809,7 +809,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Modified On Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4005701527 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a filter on the business data table in Dynamics 365 to control which records can be synchronized with the corresponding records in the integration table that is specified by the Integration Table ID field.</source>
+          <source>Specifies the filter on the table to control which records should be synchronized.</source>
           <target state="translated">Specifica un filtro nella tabella di dati aziendali in Dynamics 365 per controllare i record che possono essere sincronizzati con i record corrispondenti della tabella di integrazione specificata dal campo ID tabella integrazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableFilterValue - Property ToolTip</note>
@@ -827,13 +827,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Overwrite Local Change - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4108847349 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a date/time filter that uses the date on which records were modified to determine which records to synchronize to the chosen source company. The filter is based on the SystemModifiedAt field on the Business Central table records.</source>
+          <source>Specifies a date/time that is used to determine which records to synchronize to the source company. Only records that have SystemModifiedAt value greater than this value, will be synchronized. This value keeps changing with every synchronization job.</source>
           <target state="translated">Specifica un filtro data/ora che utilizza la data di modifica dei record per determinare quelli da sincronizzare nella società di origine scelta. Il filtro è basato sul campo SystemModifiedAt dei record della tabella di Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Int. Tbl. Mod. On Fltr. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if this mapping is enabled.</source>
+          <source>Specifies if synchronization is enabled for this table.</source>
           <target state="translated">Specifica se la mappatura è abilitata.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Status - Property ToolTip</note>
@@ -893,13 +893,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control Dependency Filter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 4125410309 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of jobs for data going to the integration table. </source>
+          <source>Specifies the status of jobs for data going to the source table. </source>
           <target state="translated">Specifica lo stato delle commesse per i dati destinati alla tabella di integrazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control To Int. Table Job Status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 4260367546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of jobs for data coming from the integration table. </source>
+          <source>Specifies the status of jobs for data coming from the source table. </source>
           <target state="translated">Specifica lo stato delle commesse per i dati provenienti dalla tabella di integrazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control From Int. Table Job Status - Property ToolTip</note>
@@ -911,7 +911,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control From Int. Table Job Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 1420580905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a rule for transforming imported text to a supported value before it can be mapped to a specified field in Microsoft Dynamics 365.</source>
+          <source>Specifies a rule for transforming the value that is being synchronized from the source company.</source>
           <target state="translated">Specifica una regola per la trasformazione del testo importato in un valore supportato che ne consente la mappatura a un campo specificato in Microsoft Dynamics 365.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Transformation Rule - Property ToolTip</note>
@@ -965,7 +965,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Transformation Direction - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 823559016 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the caption of the field in Business Central.</source>
+          <source>Specifies the caption of the field.</source>
           <target state="translated">Specifica la didascalia del campo in Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Field Caption - Property ToolTip</note>
@@ -1455,6 +1455,12 @@
           <target state="translated">La sincronizzazione dei dati con la società %1 è disabilitata.\\Si consiglia di mantenere le informazioni di setup e associazione della tabella, soprattutto se si intende riabilitare la sincronizzazione con la stessa società. \\Mantenere le informazioni di setup e associazione della tabella?</target>
           <note from="Developer" annotates="general" priority="2">%1 - a company name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Master Data Management Setup - NamedType KeepTheCouplingsQst</note>
+        </trans-unit>
+        <trans-unit id="Table 1217273708 - NamedType 881355107" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are existing synchronization table definitions in this company. Do you want to reset them to the default configuration?</source>
+          <target state="translated">In questa società sono presenti definizioni di tabelle di sincronizzazione. Ripristinare la configurazione predefinita?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Master Data Management Setup - NamedType ResetConfigQst</note>
         </trans-unit>
         <trans-unit id="Table 1037947899 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Master Data Mgt. Coupling</source>
