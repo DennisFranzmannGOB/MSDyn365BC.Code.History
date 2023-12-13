@@ -227,47 +227,289 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Enum 1522950594</note>
         </trans-unit>
-        <trans-unit id="Page 3918905259 - Action 1462567861 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 1410541002 - Action 1462567861 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a chart of accounts in Business Central from SAF-T standard accounts codes, with either two or four digits depending on mapping type selected in the previous step.</source>
           <target state="translated">Créez un plan comptable dans Business Central à partir des codes comptes standard SAF-T, avec deux ou quatre chiffres en fonction du type de mappage sélectionné à l’étape précédente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Action CreateChartOfAccounts - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Action CreateChartOfAccounts - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3918905259 - Action 1462567861 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 1410541002 - Action 1462567861 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create chart of accounts</source>
-          <target state="translated">Créer plan comptable</target>
+          <target state="translated">Créer un plan comptable</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Action CreateChartOfAccounts - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Action CreateChartOfAccounts - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3918905259 - Action 2438272767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 1410541002 - Action 2438272767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Back</source>
-          <target state="translated">Précédent</target>
+          <target state="translated">Retour</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Action ActionBack - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Action ActionBack - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3918905259 - Action 3259912055 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 1410541002 - Action 3259912055 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finish</source>
           <target state="translated">Terminer</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Action ActionFinish - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Action ActionFinish - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3918905259 - Action 326275288 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 1410541002 - Action 326275288 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Automatically match existing G/L accounts with SAF-T standard accounts codes, with either two or four digits depending on the mapping type selected in the previous step.</source>
           <target state="translated">Rapprochez automatiquement les comptes généraux existants avec les codes comptes standard SAF-T, avec deux ou quatre chiffres en fonction du type de mappage sélectionné à l’étape précédente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Action MatchChartOfAccounts - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Action MatchChartOfAccounts - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3918905259 - Action 326275288 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 1410541002 - Action 326275288 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Match chart of accounts</source>
           <target state="translated">Mettre en correspondance un plan comptable</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Action MatchChartOfAccounts - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Action MatchChartOfAccounts - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3918905259 - Action 914282563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 1410541002 - Action 914282563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Next</source>
           <target state="translated">Suivant</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Action ActionNext - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Action ActionNext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 1121962313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control StandardBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 1182202415 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You're ready to use the SAF-T functionality. Do an additional mapping on the G/L Account Mapping page if needed. Open the Audit File Export Document page to export the data in the SAF-T format.</source>
+          <target state="translated">Vous êtes prêt à utiliser la fonctionnalité SAF-T. Effectuez un mappage supplémentaire sur la page de mappage de compte général, le cas échéant. Ouvrez la page de document exportation de fichier d’audit pour exporter les données au format SAF-T.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control FinishDescription - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 1182202415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control FinishDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 1412901032 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the period of the first SAF-T file. Choose Next to map your chart of accounts to the values that SAF-T requires.</source>
+          <target state="translated">Indiquez la période du premier fichier SAF-T. Sélectionnez Suivant pour mapper votre plan comptable aux valeurs requises par SAF-T.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control ChooseMappingRangeChild - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 1412901032 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the period of the first SAF-T file</source>
+          <target state="translated">Indiquez la période du premier fichier SAF-T</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control ChooseMappingRangeChild - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 146194493 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>When sending your SAF-T file to the tax authorities, each G/L account must be mapped to either a financial standard account or the income statement for the type of business.</source>
+          <target state="translated">Lors de l’envoi de votre fichier SAF-T à l’administration fiscale, chaque compte général doit être mappé à un compte financier standard ou le compte de résultat pour le type d’activité.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control MappingSourceNotLoaded - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 146194493 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select standard chart of accounts</source>
+          <target state="translated">Sélectionner un plan comptable standard</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control MappingSourceNotLoaded - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 1597877536 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date of the accounting period.</source>
+          <target state="translated">Indique la date de début de la période comptable.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control AccountingPeriod - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 1597877536 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accounting Period</source>
+          <target state="translated">Période comptable</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control AccountingPeriod - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 1891128134 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Accounts Mapped:</source>
+          <target state="translated">Comptes généraux mappés :</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control GLAccountsMappedInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 2093587482 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify a value in the Sales VAT Reporting Code field and/or the Purchase VAT Reporting Code field depending on type of operations you perform with the certain combination.</source>
+          <target state="translated">Indiquez une valeur dans le champ Code déclaration TVA vente et/ou dans le champ Code déclaration TVA achat en fonction du type d’opérations réalisées avec cette combinaison.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control StandardTaxCodesGeneral - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 2093587482 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Map VAT posting setup to VAT reporting codes</source>
+          <target state="translated">Mapper paramètres comptabilisation TVA aux codes déclaration TVA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control StandardTaxCodesGeneral - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 2203603252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The SAF-T setup is completed!</source>
+          <target state="translated">La configuration de SAF-T est terminée.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control FinishedChild - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 2414211674 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the preferred standard account type and choose Next.</source>
+          <target state="translated">Indiquez le type de compte standard préféré et choisissez Suivant.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control MappingSourceLoaded - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 2758287844 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the user does understand the update procedure and agree to proceed.</source>
+          <target state="translated">Spécifie si l’utilisateur comprend la procédure de mise à jour et accepte de continuer.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control Agreed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 2758287844 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>I accept the data update</source>
+          <target state="translated">J’accepte la mise à jour des données</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control Agreed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 300852202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control FinishedBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3445333619 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify a value in the Starting Date field for each VAT posting setup entry.</source>
+          <target state="translated">Indiquez une valeur dans le champ Date début de chaque écriture paramètres comptabilisation TVA.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control VATStartingDateGeneral - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3445333619 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set starting date for the VAT posting setup entries</source>
+          <target state="translated">Définir la date de début pour les écritures des paramètres comptabilisation TVA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control VATStartingDateGeneral - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description of what is going to happen during the data update task.</source>
+          <target state="translated">Spécifie la description des opérations exécutées au cours de la tâche de mise à jour des données.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3520583103 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Posting Setup mapped:</source>
+          <target state="translated">Paramètres comptabilisation TVA mappés :</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control VATMappedCount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3572599862 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the preferred standard account type and then choose the Import the source files for mapping button. Import the mapping codes for standard tax and according to the mapping type specified in the field. Then choose Next.</source>
+          <target state="translated">Indiquez le type de compte standard préféré, puis cliquez sur le bouton Importer les fichiers source pour le mappage. Importez les codes de mappage pour la taxe standard et en fonction du type de mappage indiqué dans le champ. Ensuite, choisissez Suivant.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control MappingSourceOnPrem - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3592094765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the ending date of the period in which the mapping is valid.</source>
+          <target state="translated">Indique la date de fin de la période pendant laquelle le mappage est valide.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control EndingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3592094765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target state="translated">Date de fin</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control EndingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 376187383 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>What is updated</source>
+          <target state="translated">Données mises à jour</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control WhatIsUpdated - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3797089627 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee No.</source>
+          <target state="translated">N° salarié</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control SAFTContactNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 3800514526 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Welcome to the setup of SAF-T</source>
+          <target state="translated">Bienvenue dans la configuration de SAF-T</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control Welcome - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 414586598 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Change the value of SAF-T Export on Dimensions page if a certain dimension must be skipped from export to the SAF-T File.</source>
+          <target state="translated">Modifiez la valeur de l’exportation SAF-T sur la page Axes analytiques si vous devez ignorer l’exportation d’un certain axe analytique dans l’exportation vers le fichier SAF-T.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control DimensionExportGeneral - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 414586598 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export dimensions to SAF-T</source>
+          <target state="translated">Exporter des axes analytiques vers SAF-T</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control DimensionExportGeneral - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 43593927 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the accounting period.</source>
+          <target state="translated">Indique le type de la période comptable.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control PeriodType - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 43593927 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accounting Period Type</source>
+          <target state="translated">Type de période comptable</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control PeriodType - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 543275552 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the starting date of the period in which the mapping is valid.</source>
+          <target state="translated">Indique la date de début de la période pendant laquelle le mappage est valide.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control StartingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 543275552 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="translated">Date de début</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control StartingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 575692331 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>For each general ledger account, select the SAF-T account or grouping code depending on the mapping type selected in the previous step.</source>
+          <target state="translated">Pour chaque compte général, sélectionnez le compte SAF-T ou le code de groupe en fonction du type de mappage sélectionné à l’étape précédente.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control DoMappingGeneral - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 575692331 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Map SAF-T accounts to your chart of accounts</source>
+          <target state="translated">Mapper les comptes SAF-T à votre plan comptable</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control DoMappingGeneral - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the standard general ledger accounts.</source>
+          <target state="translated">Indique le type des comptes généraux standard.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control StandardAccountType - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 705636630 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Standard Account Type</source>
+          <target state="translated">Type de compte standard</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control StandardAccountType - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 793767738 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the employee responsible for the content of the SAF-T File. The information about the contact will be exported to the SAF-T file.</source>
+          <target state="translated">Indiquez le salarié responsable du contenu du fichier SAF-T. Les informations sur le contact seront exportées vers le fichier SAF-T.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control ContactGeneral - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 793767738 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specify the employee to contact</source>
+          <target state="translated">Indiquez le salarié à contacter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control ContactGeneral - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 859857378 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The SAF-T (Standard Audit File - Tax) is a standard file format for exporting various types of accounting transactional data using the XML format. This guide helps you set up SAF-T for Dynamics 365 Business Central. If you do not have a chart of accounts, this guide helps you to create it based on SAF-T standard chart of accounts. If you do not want to set this up right now, close this page.</source>
+          <target state="translated">Le format SAF-T (Standard Audit File - Tax) est un format de fichier standard pour exporter divers types de données transactionnelles à l’aide du format XML. Ce guide vous aide à configurer SAF-T pour Dynamics 365 Business Central. Si vous n’avez pas de plan comptable, ce guide vous aide à en créer un sur la base du plan comptable standard SAF-T. Si vous ne souhaitez pas configurer cela maintenant, fermez cette page.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control SAFTDescription - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - Control 859857378 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Control SAFTDescription - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3351508045 - Control 3891180100 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the values you missed you specify.</source>
@@ -298,248 +540,6 @@
           <target state="translated">Indique la description du code journal SAF-T.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Source Codes SAF-T - Control Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 1121962313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control StandardBanner - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 1182202415 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You're ready to use the SAF-T functionality. Do an additional mapping on the G/L Account Mapping page if needed. Open the Audit File Export Document page to export the data in the SAF-T format.</source>
-          <target state="translated">Vous êtes prêt à utiliser la fonctionnalité SAF-T. Effectuez un mappage supplémentaire sur la page de mappage de compte général, le cas échéant. Ouvrez la page de document exportation de fichier d’audit pour exporter les données au format SAF-T.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control FinishDescription - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 1182202415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control FinishDescription - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 1412901032 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify the period of the first SAF-T file. Choose Next to map your chart of accounts to the values that SAF-T requires.</source>
-          <target state="translated">Indiquez la période du premier fichier SAF-T. Sélectionnez Suivant pour mapper votre plan comptable aux valeurs requises par SAF-T.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control ChooseMappingRangeChild - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 1412901032 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify the period of the first SAF-T file</source>
-          <target state="translated">Indiquez la période du premier fichier SAF-T</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control ChooseMappingRangeChild - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 146194493 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>When sending your SAF-T file to the tax authorities, each G/L account must be mapped to either a financial standard account or the income statement for the type of business.</source>
-          <target state="translated">Lors de l’envoi de votre fichier SAF-T à l’administration fiscale, chaque compte général doit être mappé à un compte financier standard ou le compte de résultat pour le type d’activité.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control MappingSourceNotLoaded - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 146194493 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Select standard chart of accounts</source>
-          <target state="translated">Sélectionner le plan comptable standard</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control MappingSourceNotLoaded - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 1597877536 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the starting date of the accounting period.</source>
-          <target state="translated">Indique la date de début de la période comptable.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control AccountingPeriod - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 1597877536 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Accounting Period</source>
-          <target state="translated">Période comptable</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control AccountingPeriod - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 1891128134 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>G/L Accounts Mapped:</source>
-          <target state="translated">Comptes généraux mappés :</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control GLAccountsMappedInfo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 2093587482 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify a value in the Sales VAT Reporting Code field and/or the Purchase VAT Reporting Code field depending on type of operations you perform with the certain combination.</source>
-          <target state="translated">Indiquez une valeur dans le champ Code déclaration TVA vente et/ou dans le champ Code déclaration TVA achat en fonction du type d’opérations réalisées avec cette combinaison.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control StandardTaxCodesGeneral - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 2093587482 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map VAT posting setup to VAT reporting codes</source>
-          <target state="translated">Mapper paramètres comptabilisation TVA aux codes déclaration TVA</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control StandardTaxCodesGeneral - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 2203603252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The SAF-T setup is completed!</source>
-          <target state="translated">La configuration de SAF-T est terminée.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control FinishedChild - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 2414211674 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify the preferred standard account type and choose Next.</source>
-          <target state="translated">Indiquez le type de compte standard préféré et choisissez Suivant.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control MappingSourceLoaded - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 2758287844 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the user does understand the update procedure and agree to proceed.</source>
-          <target state="translated">Spécifie si l’utilisateur comprend la procédure de mise à jour et accepte de continuer.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control Agreed - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 2758287844 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>I accept the data update</source>
-          <target state="translated">J’accepte la mise à jour des données</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control Agreed - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 300852202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control FinishedBanner - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3445333619 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify a value in the Starting Date field for each VAT posting setup entry.</source>
-          <target state="translated">Indiquez une valeur dans le champ Date début de chaque écriture paramètres comptabilisation TVA.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control VATStartingDateGeneral - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3445333619 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set starting date for the VAT posting setup entries</source>
-          <target state="translated">Définir la date de début pour les entrées des paramètres comptabilisation TVA</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control VATStartingDateGeneral - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description of what is going to happen during the data update task.</source>
-          <target state="translated">Spécifie la description des opérations exécutées au cours de la tâche de mise à jour des données.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3520583103 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Posting Setup mapped:</source>
-          <target state="translated">Paramètres comptabilisation TVA mappé :</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control VATMappedCount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3572599862 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify the preferred standard account type and then choose the Import the source files for mapping button. Import the mapping codes for standard tax and according to the mapping type specified in the field. Then choose Next.</source>
-          <target state="translated">Indiquez le type de compte standard préféré, puis cliquez sur le bouton Importer les fichiers source pour le mappage. Importez les codes de mappage pour la taxe standard et en fonction du type de mappage indiqué dans le champ. Ensuite, choisissez Suivant.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control MappingSourceOnPrem - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3592094765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the ending date of the period in which the mapping is valid.</source>
-          <target state="translated">Indique la date de fin de la période pendant laquelle le mappage est valide.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control EndingDate - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3592094765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Ending Date</source>
-          <target state="translated">Date de fin</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control EndingDate - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 376187383 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>What is updated</source>
-          <target state="translated">Données mises à jour</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control WhatIsUpdated - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3797089627 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Employee No.</source>
-          <target state="translated">N° salarié</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control SAFTContactNo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 3800514526 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Welcome to the setup of SAF-T</source>
-          <target state="translated">Bienvenue dans la configuration de SAF-T</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control Welcome - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 414586598 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Change the value of SAF-T Export on Dimensions page if a certain dimension must be skipped from export to the SAF-T File.</source>
-          <target state="translated">Modifiez la valeur de l’exportation SAF-T sur la page Axes analytiques si vous devez ignorer l’exportation d’un certain axe analytique dans l’exportation vers le fichier SAF-T.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control DimensionExportGeneral - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 414586598 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export dimensions to SAF-T</source>
-          <target state="translated">Exporter axes analytiques vers SAF-T</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control DimensionExportGeneral - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 43593927 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the type of the accounting period.</source>
-          <target state="translated">Indique le type de la période comptable.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control PeriodType - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 43593927 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Accounting Period Type</source>
-          <target state="translated">Type période comptable</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control PeriodType - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 543275552 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the starting date of the period in which the mapping is valid.</source>
-          <target state="translated">Indique la date de début de la période pendant laquelle le mappage est valide.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control StartingDate - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 543275552 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Starting Date</source>
-          <target state="translated">Date de début</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control StartingDate - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 575692331 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>For each general ledger account, select the SAF-T account or grouping code depending on the mapping type selected in the previous step.</source>
-          <target state="translated">Pour chaque compte général, sélectionnez le compte SAF-T ou le code de groupe en fonction du type de mappage sélectionné à l’étape précédente.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control DoMappingGeneral - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 575692331 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map SAF-T accounts to your chart of accounts</source>
-          <target state="translated">Mapper les comptes SAF-T à votre plan comptable</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control DoMappingGeneral - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the type of the standard general ledger accounts.</source>
-          <target state="translated">Indique le type des comptes généraux standard.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control StandardAccountType - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 705636630 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Standard Account Type</source>
-          <target state="translated">Type de compte standard</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control StandardAccountType - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 793767738 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify the employee responsible for the content of the SAF-T File. The information about the contact will be exported to the SAF-T file.</source>
-          <target state="translated">Indiquez le salarié responsable du contenu du fichier SAF-T. Les informations sur le contact seront exportées vers le fichier SAF-T.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control ContactGeneral - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 793767738 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specify the employee to contact</source>
-          <target state="translated">Indiquez l’employé à contacter</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control ContactGeneral - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 859857378 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The SAF-T (Standard Audit File - Tax) is a standard file format for exporting various types of accounting transactional data using the XML format. This guide helps you set up SAF-T for Dynamics 365 Business Central. If you do not have a chart of accounts, this guide helps you to create it based on SAF-T standard chart of accounts. If you do not want to set this up right now, close this page.</source>
-          <target state="translated">Le format SAF-T (Standard Audit File - Tax) est un format de fichier standard pour exporter divers types de données transactionnelles à l’aide du format XML. Ce guide vous aide à configurer SAF-T pour Dynamics 365 Business Central. Si vous n’avez pas de plan comptable, ce guide vous aide à en créer un sur la base du plan comptable standard SAF-T. Si vous ne souhaitez pas configurer cela maintenant, fermez cette page.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control SAFTDescription - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Control 859857378 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Control SAFTDescription - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4189706051 - Control 1246077090 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the relevant VAT rate for the particular combination of VAT business posting group and VAT product posting group. Do not enter the percent sign, only the number. For example, if the VAT rate is 25 %, enter 25 in this field.</source>
@@ -601,71 +601,77 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Posting Setup SAF-T - Control Purchase VAT Code SAF-T - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 1154975446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review affected data</source>
+          <target state="translated">Vérifier les données affectées</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType ReviewDataTok</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 1248164630" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A source for mapping was not loaded due to the following error: %1.</source>
+          <target state="translated">Une source de mappage n’a pas été chargée à cause de l’erreur suivante : %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - error text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType MappingSourceNotLoadedMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 1269338287" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the setup page to define which dimensions to export to SAF-T.</source>
+          <target state="translated">Ouvrez la page de configuration pour définir les axes analytiques à exporter vers SAF-T.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType OpenDimensionExportSetupLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 1730087084" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A mapping range was not set up due to the following error: %1.</source>
+          <target state="translated">Une plage de mappage n’a pas été configurée à cause de l’erreur suivante : %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - error text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType MappingRangeNotSetupMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 1934323751" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the setup page to define G/L account mappings.</source>
+          <target state="translated">Ouvrez la page de configuration pour définir les mappages de compte général.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType OpenMappingSetupLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 243693635" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must provide mapping for all G/L accounts in the company.</source>
+          <target state="translated">Vous devez fournir un mappage pour tous les comptes généraux de la société.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType GLAccountMappingRemainderTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 2838187212" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A standard account type is not specified.</source>
+          <target state="translated">Aucun type de compte standard n’est indiqué.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType StandardAccTypeNotSpecifiedErr</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 2909238033" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT posting setups without a mapping will be exported with the NA value to the XML file.</source>
+          <target state="translated">Les paramètres comptabilisation TVA sans mappage seront exportés avec la valeur NA vers le fichier XML.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType VATMappingNARemainderTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 3999457684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the setup page to define VAT Posting Setup necessary field values.</source>
+          <target state="translated">Ouvrez la page de configuration pour définir les valeurs de champ nécessaire aux paramètres comptabilisation TVA.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType OpenTaxMappingSetupLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 1410541002 - NamedType 984350027" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up SAF-T has not been completed.\\Are you sure that you want to exit?</source>
+          <target state="translated">La configuration SAF-T n’est pas encore terminée.\\Êtes-vous sûr de vouloir quitter ?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - NamedType SetupNotCompletedQst</note>
+        </trans-unit>
         <trans-unit id="Page 3351508045 - NamedType 2104704394" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You can turn-off this notification in the SAF-T Setup page.</source>
           <target state="translated">Vous pouvez désactiver cette notification dans la page de configuration SAF-T.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Check SAF-T - NamedType TurnOffNotificationMsg</note>
         </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 1154975446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Review affected data</source>
-          <target state="translated">Vérifier les données affectées</target>
+        <trans-unit id="Page 1410541002 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SAF-T Setup Guide</source>
+          <target state="translated">Guide de configuration de SAF-T</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType ReviewDataTok</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 1248164630" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A source for mapping was not loaded due to the following error: %1.</source>
-          <target state="translated">Une source de mappage n’a pas été chargée à cause de l’erreur suivante : %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - error text</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType MappingSourceNotLoadedMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 1269338287" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Open the setup page to define which dimensions to export to SAF-T.</source>
-          <target state="translated">Ouvrez la page de configuration pour définir les axes analytiques à exporter vers SAF-T.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType OpenDimensionExportSetupLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 1730087084" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A mapping range was not set up due to the following error: %1.</source>
-          <target state="translated">Une plage de mappage n’a pas été configurée à cause de l’erreur suivante : %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - error text</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType MappingRangeNotSetupMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 1934323751" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Open the setup page to define G/L account mappings.</source>
-          <target state="translated">Ouvrez la page de configuration pour définir les mappages de compte général.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType OpenMappingSetupLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 243693635" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must provide mapping for all G/L accounts in the company.</source>
-          <target state="translated">Vous devez fournir un mappage pour tous les comptes généraux de la société.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType GLAccountMappingRemainderTxt</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 2838187212" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A standard account type is not specified.</source>
-          <target state="translated">Un type de compte standard n’est pas indiqué.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType StandardAccTypeNotSpecifiedErr</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 2909238033" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT posting setups without a mapping will be exported with the NA value to the XML file.</source>
-          <target state="translated">Les paramètres comptabilisation TVA sans mappage seront exportés avec la valeur NA vers le fichier XML.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType VATMappingNARemainderTxt</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 3999457684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Open the setup page to define VAT Posting Setup necessary field values.</source>
-          <target state="translated">Ouvrez la page de configuration pour définir les valeurs de champ nécessaire aux paramètres comptabilisation TVA.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType OpenTaxMappingSetupLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - NamedType 984350027" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Set up SAF-T has not been completed.\\Are you sure that you want to exit?</source>
-          <target state="translated">La configuration SAF-T n’est pas encore terminée.\\Êtes-vous sûr de vouloir quitter ?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - NamedType SetupNotCompletedQst</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Wizard - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3351508045 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The following fields are not set up correctly for SAF-T. Do you want to fill them in now?</source>
@@ -684,12 +690,6 @@
           <target state="translated">Codes journaux SAF-T</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Source Codes SAF-T - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3918905259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>SAF-T Setup Guide</source>
-          <target state="translated">Guide de configuration de SAF-T</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Setup Wizard - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4189706051 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Posting Setup SAF-T</source>
@@ -774,6 +774,12 @@
           <target state="translated">Écriture comptable article SAF-T</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query Item Ledger Entry SAF-T - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 3857884942 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Entry By Trans. SAF-T</source>
+          <target state="translated">Écriture comptable par trans. SAF-T</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query G/L Entry By Trans. SAF-T - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3219172725 - Field 1787409580 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Group No.</source>
@@ -876,9 +882,30 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2720485332</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3306340271 - Field 1176000704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of G/L Entries</source>
+          <target state="translated">Nombre d’écritures comptables</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3306340271 - Field 1786487985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export Currency Information</source>
           <target state="translated">Exporter les informations sur la devise</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3306340271 - Field 2420424136 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total G/L Entry Debit</source>
+          <target state="translated">Débit total de l’écriture comptable</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3306340271 - Field 3598169969 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total G/L Entry Credit</source>
+          <target state="translated">Crédit total de l’écriture comptable</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
