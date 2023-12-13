@@ -20288,6 +20288,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sub Order Comp. List Vend - Field Applies-to Entry - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3552992274 - Field 2814799924 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bin Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sub Order Comp. List Vend - Field Bin Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3552992274 - Field 2054288470 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Charge Recoverable</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -23792,6 +23797,11 @@
           <source>Sub Order Comp. List Vend</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sub Order Comp. List Vend - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3552992274 - Control 2814799924 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the company bin code for the document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sub Order Comp. List Vend - Control Bin Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3552992274 - Control 2054288470 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the change recoverable from vendor.</source>
