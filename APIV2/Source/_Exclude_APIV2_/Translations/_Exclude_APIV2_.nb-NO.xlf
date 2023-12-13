@@ -11583,6 +11583,156 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query APIV2 - Vendor Purchases - QueryColumn vendorNumber - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4240754908 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>APIV2 - FA Locations</source>
+          <target state="translated">APIV2 – aktivalokasjoner</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - FA Locations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4240754908 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset Location</source>
+          <target state="translated">Aktivalokasjon</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - FA Locations - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 4240754908 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset Locations</source>
+          <target state="translated">Aktivalokasjoner</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - FA Locations - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 4240754908 - Control 707985127 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Kode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - FA Locations - Control code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4240754908 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Navn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - FA Locations - Control displayName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4240754908 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - FA Locations - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4240754908 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Siste endringsdato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - FA Locations - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>APIV2 - Fixed Assets</source>
+          <target state="translated">APIV2 – aktiva</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset</source>
+          <target state="translated">Aktivum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Assets</source>
+          <target state="translated">Aktiva</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 4247538596 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blocked</source>
+          <target state="translated">Sperret</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control blocked - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 3819615285 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Class Code</source>
+          <target state="translated">Klassekode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control classCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Beskrivelse</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control displayName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 4152090830 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee</source>
+          <target state="translated">Ansatt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control employee - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 2307592673 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Id</source>
+          <target state="translated">Ansatt-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control employeeId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 783513395 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee No.</source>
+          <target state="translated">Ansattnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control employeeNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 4209265861 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset Location</source>
+          <target state="translated">Aktivalokasjon</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control fixedAssetLocation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 1000714202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset Location Code</source>
+          <target state="translated">Aktivalokasjonskode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control fixedAssetLocationCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 3638143482 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset Location Id</source>
+          <target state="translated">Aktivalokasjons-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control fixedAssetLocationId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 2245436958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Modified Date</source>
+          <target state="translated">Siste endringsdato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control lastModifiedDateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 2757394829 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 1279331005 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No.</source>
+          <target state="translated">Serienr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control serialNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 4145671201 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subclass Code</source>
+          <target state="translated">Underklassekode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control subclassCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3190328840 - Control 1970137439 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Under Maintenance</source>
+          <target state="translated">Under vedlikehold</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Fixed Assets - Control underMaintenance - Property Caption</note>
+        </trans-unit>
       </group>
     </body>
   </file>

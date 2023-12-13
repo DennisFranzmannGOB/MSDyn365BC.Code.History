@@ -9,11 +9,23 @@
           <note from="Developer" annotates="general" priority="2">Copilot is a Microsoft service name and must not be translated</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Rec. AI Matching Impl. - NamedType MatchedByCopilotTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1225237571 - NamedType 1780748572" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reconciling %1 statement %2 for %3</source>
+          <target state="translated">Riconciliare estratto conto %1 %2 per %3</target>
+          <note from="Developer" annotates="general" priority="2">%1 - bank account code, %2 - statement number, %3 - statement date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Rec. AI Matching Impl. - NamedType ContentAreaCaptionTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1225237571 - NamedType 2568840905" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There was an error with sending the call to Copilot. Log a Business Central support request about this.</source>
           <target state="translated">Si è verificato un errore durante l'invio della chiamata a Copilot. Registrare una richiesta di supporto di Business Central al riguardo.</target>
           <note from="Developer" annotates="general" priority="2">Copilot is a Microsoft service name and must not be translated</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Rec. AI Matching Impl. - NamedType ConstructingPromptFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 678420997 - NamedType 1795332495" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Choose G/L Account...</source>
+          <target state="translated">Scegli conto C/G...</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Acc. Rec. Trans. to Acc. - NamedType ChooseGLAccountLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 678420997 - NamedType 2568840905" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There was an error with sending the call to Copilot. Log a Business Central support request about this.</source>
@@ -231,6 +243,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control AutoMatchedLines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2697158489 - Control 2726838817 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a warning text</source>
+          <target state="translated">Specifica un testo di avviso</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control Warning Text - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2697158489 - Control 2726838817 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control Warning Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2697158489 - Control 2808404044 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <target state="translated"> </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control Posting - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2697158489 - Control 3450641912 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ending balance shown on the bank's statement that you want to reconcile with the bank account.</source>
           <target state="translated">Specifica il saldo finale visualizzato nell'estratto conto bancario che si desidera riconciliare con il conto corrente bancario.</target>
@@ -254,6 +283,11 @@
           <target state="translated">Nr. conto corrente bancario</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control BankAccountNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2697158489 - Control 3955473374 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control Warning - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Control 404393104 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -350,6 +384,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Control ChooseBankAccount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3767244041 - Control 2726838817 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a warning text</source>
+          <target state="translated">Specifica un testo di avviso</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Control Warning Text - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3767244041 - Control 2726838817 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Control Warning Text - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3767244041 - Control 2808404044 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <target state="translated"> </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Control Posting - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3767244041 - Control 2867766215 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of automatic matches created and saved by Business Central</source>
           <target state="translated">Specifica il numero di corrispondenze automatiche create e salvate da Business Central</target>
@@ -378,6 +429,11 @@
           <target state="translated">Saldo finale estratto conto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Control Statement Ending Balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3767244041 - Control 3955473374 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Control Warning - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3767244041 - Control 404393104 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -439,6 +495,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - NamedType OpenBankRecCardMsg</note>
         </trans-unit>
+        <trans-unit id="Page 2697158489 - NamedType 646177817" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statement line descriptions or G/L Account names with reserved AI chat completion prompt words were detected. For security reasons, they were excluded from the auto-matching process. You must match these statement lines or G/L Accounts manually.</source>
+          <target state="translated">Sono state rilevate descrizioni delle righe dell'estratto conto o nomi di conti C/G con parole di richiesta di completamento della chat IA riservate. Per motivi di sicurezza, sono stati esclusi dal processo di corrispondenza automatica. È necessario far corrispondere manualmente queste righe di estratto conto o conti C/G.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - NamedType InputWithReservedWordsRemovedTxt</note>
+        </trans-unit>
         <trans-unit id="Page 3767244041 - NamedType 1032855696" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify a bank statement import format on at least one bank account. Open the card of a bank account and either choose action 'Link to Online Bank Account' or let the notification guide you how to set up a file import format. Do you want to open the Bank Accounts list?</source>
           <target state="translated">È necessario specificare un formato di importazione dell'estratto conto bancario su almeno un conto corrente bancario. Aprire la scheda di un conto corrente bancario e scegliere l'azione "Collega a conto bancario online" o lascia che la notifica ti guidi su come impostare un formato di importazione dei file. Aprire la lista Conti bancari?</target>
@@ -453,7 +515,7 @@
         </trans-unit>
         <trans-unit id="Page 3767244041 - NamedType 19920758" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The selected bank account is the only one with a bank statement import format. To set up bank statement import format for another bank account, Open its card and either choose action 'Link to Online Bank Account' or let the notification guide you how to set up a file import format. Do you want to open the Bank Accounts list?</source>
-          <target state="translated">Il conto corrente bancario selezionato è l'unico con un formato di importazione dell'estratto conto bancario. Per configurare il formato di importazione degli estratti conto bancari per un altro conto corrente bancario, aprire la relativa scheda e scegliere l'azione "Collega a conto bancario online" o lasciare che la notifica indichi come configurare un formato di importazione dei file. Aprire la lista Conti bancari?</target>
+          <target state="translated">Il conto corrente bancario selezionato è l'unico con un formato di importazione dell'estratto conto bancario. Per configurare il formato di importazione degli estratti conto bancari per un altro conto corrente bancario, aprire la relativa scheda e scegliere l'azione "Collega a conto bancario online" o lasciare che la notifica indichi come configurare un formato di importazione dei file. Aprire l'elenco Conti bancari?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - NamedType OnlyOneWithImportFormatQst</note>
         </trans-unit>
@@ -504,6 +566,12 @@
           <target state="translated">Nella riconciliazione del conto corrente bancario sono ancora presenti righe non collegate. Aprirle ora?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - NamedType OpenBankRecCardUnappliedLinesQst</note>
+        </trans-unit>
+        <trans-unit id="Page 3767244041 - NamedType 646177817" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statement line descriptions or ledger entry descriptions with reserved AI chat completion prompt words were detected. For security reasons, they were excluded from the auto-matching process. You must match these statement lines or ledger entries manually.</source>
+          <target state="translated">Sono state rilevate descrizioni delle righe dell'estratto conto o descrizioni dei movimenti contabili con parole di richiesta di completamento della chat IA riservate. Per motivi di sicurezza, sono state escluse dal processo di corrispondenza automatica. È necessario far corrispondere manualmente queste righe di estratto conto o movimenti contabili.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - NamedType InputWithReservedWordsRemovedTxt</note>
         </trans-unit>
         <trans-unit id="Page 3767244041 - NamedType 903299789" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import transaction data...</source>
@@ -570,6 +638,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3675160336</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 658008251 - NamedType 1780748572" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reconciling %1 statement %2 for %3</source>
+          <target state="translated">Riconciliare estratto conto %1 %2 per %3</target>
+          <note from="Developer" annotates="general" priority="2">%1 - bank account code, %2 - statement number, %3 - statement date</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 658008251</note>
         </trans-unit>
         <trans-unit id="PageExtension 658008251 - NamedType 399319092" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Select the bank statement lines that have differences to transfer to the general journal.</source>
