@@ -10,7 +10,16 @@
       "path": "./EmailLogging/Test/_Exclude_Email Logging Using Graph API Tests"
     },
     {
+      "path": "./EnforcedDigitalVouchers/Test Library/Enforced Digital Vouchers Test Library"
+    },
+    {
+      "path": "./EnforcedDigitalVouchers/Test/Enforced Digital Vouchers Tests"
+    },
+    {
       "path": "./Email - Outlook REST API/Test"
+    },
+    {
+      "path": "./EnforcedDigitalVouchersDK/Test/Enforced Digital Vouchers Tests (DK)"
     },
     {
       "path": "./Intrastat/Test/Intrastat Core Tests"
@@ -53,6 +62,9 @@
     },
     {
       "path": "./recommendedapps/test/Recommended Apps Tests"
+    },
+    {
+      "path": "./ElectronicVATDeclarationDK/Test/Electronic VAT Declaration for Denmark Tests"
     },
     {
       "path": "./saf-t/test/SAF-T Tests"
@@ -98,6 +110,9 @@
     },
     {
       "path": "./BankDeposits/Test/_Exclude_Bank Deposits Tests"
+    },
+    {
+      "path": "./NemhandelNotification/Test/Nemhandel Notification Tests"
     },
     {
       "path": "./paypalpaymentsstandard/test/PayPal Payments Standard Tests"

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="da-DK" original="Nemhandel Notification in Denmark">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 1206018100 - NamedType 163619602" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notify me that the company with the given CVR number is not registered in Nemhandelsregisteret. The message is shown on the Company Information page.</source>
+          <target state="translated">Meddel mig, at virksomheden med det oplyste CVR-nummer ikke er registreret i Nemhandelsregisteret. Meddelelsen vises på siden Virksomhedsoplysninger.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Nemhandel Status Mgt. - NamedType EnableNemhandelNotRegisteredNotificationDescrTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1206018100 - NamedType 3590142191" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enable Nemhandel Not Registered Notification</source>
+          <target state="translated">Aktivér Nemhandel Notifikation om ikke registreret</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Nemhandel Status Mgt. - NamedType EnableNemhandelNotRegisteredNotificationTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1206018100 - NamedType 1304771032" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Your accounting software is not registered in Nemhandelsregisteret.</source>
+          <target state="translated">Dit regnskabsprogram er ikke registreret i Nemhandelsregisteret.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Nemhandel Status Mgt. - NamedType NotificationMsg</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3760349664 - NamedType 1284946795" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Check Company Status</source>
+          <target state="translated">Nemhandel Tjek virksomhedsstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3760349664</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3760349664 - NamedType 1359926344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Page Background Task</source>
+          <target state="translated">Nemhandel Sidebaggrundsopgave</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3760349664</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1614654803 - NamedType 1026825153" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot delete a company that is registered in the Nemhandel service.</source>
+          <target state="translated">Du kan ikke slette en virksomhed, der er registreret i Nemhandel-servicen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1614654803</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1088899281 - NamedType 1284946795" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Check Company Status</source>
+          <target state="translated">Nemhandel Tjek virksomhedsstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1088899281</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1088899281 - NamedType 1359926344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Page Background Task</source>
+          <target state="translated">Nemhandel Sidebaggrundsopgave</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1088899281</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3466512004 - NamedType 1284946795" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Check Company Status</source>
+          <target state="translated">Nemhandel Tjek virksomhedsstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3466512004</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3466512004 - NamedType 1359926344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Page Background Task</source>
+          <target state="translated">Nemhandel Sidebaggrundsopgave</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3466512004</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2310864020 - NamedType 1284946795" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Check Company Status</source>
+          <target state="translated">Nemhandel Tjek virksomhedsstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 2310864020</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2310864020 - NamedType 1359926344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Page Background Task</source>
+          <target state="translated">Nemhandel Sidebaggrundsopgave</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 2310864020</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2109492331 - NamedType 1284946795" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Check Company Status</source>
+          <target state="translated">Nemhandel Tjek virksomhedsstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 2109492331</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2109492331 - NamedType 1359926344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Page Background Task</source>
+          <target state="translated">Nemhandel Sidebaggrundsopgave</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 2109492331</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3297944416 - NamedType 1284946795" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Check Company Status</source>
+          <target state="translated">Nemhandel Tjek virksomhedsstatus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3297944416</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3297944416 - NamedType 1359926344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nemhandel Page Background Task</source>
+          <target state="translated">Nemhandel Sidebaggrundsopgave</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3297944416</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1088899281 - Field 3647392728 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Nemhandel Status Check DT</source>
+          <target state="translated">Sidste Nemhandel statustjek DT</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3469146285</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1088899281 - Field 2549841778 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registered with Nemhandel</source>
+          <target state="translated">Registreret hos Nemhandel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 3469146285</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
