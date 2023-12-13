@@ -3480,7 +3480,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 4247659737 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default customer when not creating a customer for each webshop user.</source>
-          <target state="translated">Определяет клиента по умолчанию, когда клиент для каждого пользователя веб-магазина не создается.</target>
+          <target state="translated">Определяет клиента по умолчанию, когда клиент для каждого пользователя интернет-магазина не создается.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control DefaultCustomer - Property ToolTip</note>
         </trans-unit>
@@ -4175,7 +4175,7 @@
         </trans-unit>
         <trans-unit id="Page 2806160088 - Control 3183089699 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the url to preview the product on the webshop.</source>
-          <target state="translated">Определяет URL-адрес для предварительного просмотра продукта в веб-магазине.</target>
+          <target state="translated">Определяет URL-адрес для предварительного просмотра продукта в интернет-магазине.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products - Control PreviewUrl - Property ToolTip</note>
         </trans-unit>
@@ -4211,7 +4211,7 @@
         </trans-unit>
         <trans-unit id="Page 2806160088 - Control 4165234317 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the url to the product on the webshop.</source>
-          <target state="translated">Определяет URL-адрес продукта в веб-магазине.</target>
+          <target state="translated">Определяет URL-адрес продукта в интернет-магазине.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products - Control Url - Property ToolTip</note>
         </trans-unit>
@@ -5985,7 +5985,7 @@
         </trans-unit>
         <trans-unit id="Page 834364629 - Control 2769882166 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default customer for this country when not creating a customer for each webshop user.</source>
-          <target state="translated">Определяет клиента по умолчанию для этой страны/региона, когда клиент для каждого пользователя веб-магазина не создается.</target>
+          <target state="translated">Определяет клиента по умолчанию для этой страны/региона, когда клиент для каждого пользователя интернет-магазина не создается.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Templates - Control FixCustomerNo - Property ToolTip</note>
         </trans-unit>
