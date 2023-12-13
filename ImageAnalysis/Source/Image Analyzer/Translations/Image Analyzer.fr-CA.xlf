@@ -71,13 +71,13 @@
         </trans-unit>
         <trans-unit id="Table 2062634445 - Field 1892013013 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Attribute Name Id</source>
-          <target state="translated">Code nom de l'attribut d'article</target>
+          <target state="translated">Code nom attribut d’article</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - Field Item Attribute Name Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2062634445 - Field 512056945 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Attribute Value Id</source>
-          <target state="translated">Code valeur d'attribut article</target>
+          <target state="translated">Code valeur d’attribut d’article</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - Field Item Attribute Value Id - Property Caption</note>
         </trans-unit>
