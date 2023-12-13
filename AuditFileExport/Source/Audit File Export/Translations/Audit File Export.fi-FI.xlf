@@ -1331,7 +1331,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 357413000 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Name</source>
-          <target state="translated">Tarkasta tiedoston nimi</target>
+          <target state="translated">Tarkistustiedoston nimi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Audit File Name - Property Caption</note>
         </trans-unit>
