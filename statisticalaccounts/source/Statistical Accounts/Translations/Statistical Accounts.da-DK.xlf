@@ -1132,7 +1132,7 @@
         </trans-unit>
         <trans-unit id="Page 3774659090 - Control 3394896907 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Change</source>
-          <target state="translated">Nettoændring</target>
+          <target state="translated">Bevægelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Stat. Account Balance Lines - Control NetChange - Property Caption</note>
         </trans-unit>
@@ -1492,7 +1492,7 @@
         </trans-unit>
         <trans-unit id="Table 3691299527 - Field 2304016699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Change</source>
-          <target state="translated">Nettoændring</target>
+          <target state="translated">Bevægelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Stat. Acc. Balance Buffer - Field Net Change - Property Caption</note>
         </trans-unit>
@@ -1552,7 +1552,7 @@
         </trans-unit>
         <trans-unit id="Table 3703212798 - Field 2304016699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Change</source>
-          <target state="translated">Nettoændring</target>
+          <target state="translated">Bevægelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Account - Field Net Change - Property Caption</note>
         </trans-unit>
