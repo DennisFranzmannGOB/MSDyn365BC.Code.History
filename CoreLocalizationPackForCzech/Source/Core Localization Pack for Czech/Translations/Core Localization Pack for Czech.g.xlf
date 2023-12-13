@@ -1713,6 +1713,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statutory Reporting Setup CZL - Field Apartment No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 99819693 - Field 714791889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Statutory Reporting Setup CZL - Field City - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 99819693 - Field 219915382 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Official Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10687,6 +10692,11 @@
           <source>Specifies company's apartment number.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statutory Reporting Setup CZL - Control Apartment No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 99819693 - Control 714791889 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies company's City.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Statutory Reporting Setup CZL - Control City - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 99819693 - Control 3604869285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the company's house number.</source>

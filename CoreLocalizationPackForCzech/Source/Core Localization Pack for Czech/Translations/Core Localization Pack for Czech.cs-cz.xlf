@@ -11783,6 +11783,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statutory Reporting Setup CZL - Control Registration - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 99819693 - Control 714791889 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies company's City.</source>
+          <target state="translated">Určuje město společnosti.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Statutory Reporting Setup CZL - Control City - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 99819693 - Control 752586859 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the company's street.</source>
           <target state="translated">Určuje ulici společnosti.</target>
@@ -40403,6 +40409,12 @@
           <target state="translated">Souhrnné hlášení - číslo zaměstnance oprávněné osoby</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statutory Reporting Setup CZL - Field VIES Decl. Auth. Employee No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 99819693 - Field 714791889 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <target state="translated">Město</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Statutory Reporting Setup CZL - Field City - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 99819693 - Field 752586859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Street</source>

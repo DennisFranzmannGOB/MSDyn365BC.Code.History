@@ -699,7 +699,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1933267346 - Control 2425194633 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that currency information must be included in the export to the audit file.</source>
-          <target state="translated">Angiver, at valutaoplysninger skal inkluderes i eksporten til overvågningsfilen.</target>
+          <target state="translated">Angiver, at valutaoplysninger skal inkluderes i eksporten til revisionsfilen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
