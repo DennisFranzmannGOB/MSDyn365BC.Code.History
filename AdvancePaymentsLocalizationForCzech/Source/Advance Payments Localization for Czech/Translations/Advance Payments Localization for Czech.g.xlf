@@ -1538,6 +1538,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = OriginalDocVATDate, %2 = VATDate</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType OriginalDocVATDateMustBeLessOrVATDateErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3588268779 - NamedType 4041393448" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType PostingDateEmptyErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 3254498843" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Document already exists.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1682,6 +1687,11 @@
           <source>Nothing to Post.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType NothingToPostErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2748602711 - NamedType 4041393448" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType PostingDateEmptyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2748602711 - NamedType 3254498843" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Document already exists.</source>
@@ -2047,6 +2057,31 @@
           <source>Specifies default VAT bus. posting group.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Advance Letter Templates CZZ - Control VAT Bus. Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It is required to set the posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 3037438984 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control PostingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4159237843 - Control 3037438984 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Get Posting Date CZZ - Control PostingDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1849656631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Preview Advance VAT Entries</source>

@@ -2828,6 +2828,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Control No. of Lines - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1667797560 - Control 1053380977 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the posting status of the payment journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Control Payment Journal Status - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1667797560 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachments</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5762,6 +5767,11 @@
           <source>Amount on Payment Order (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Employee Ledger Entry CZB - Field Amount on Pmt. Order (LCY) CZB - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3051869322 - Field 3610489353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
+          <source>Bank Statement No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Journal Line CZB - Field Bank Statement No. CZB - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3051869322 - Field 4118018210 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
           <source>Search Rule Code</source>
