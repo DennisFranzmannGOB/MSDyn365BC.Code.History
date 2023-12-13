@@ -2097,12 +2097,6 @@
           <note from="Developer" annotates="general" priority="2">"sign out" and "sign in" are the same terms as shown in the Business Central client.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Power Automate Privacy Notice - NamedType SignInAgainMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3411327414 - NamedType 1274948781" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Limited the number of records to delete for table %1, %2 to %3 records. The maximum number of records that can be deleted at the same time is %4, and %5 records were previously deleted in one or more tables.</source>
-          <target state="translated">Begrenset antall poster som skal slettes for tabell %1, %2, til %3 poster. Maksimalt antall poster som kan slettes samtidig, er %4, og %5 poster ble slettet tidligere i én eller flere tabeller.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = a id of a table (integer), %2 = the caption of the table, %3, %4, %5 = integer</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType LimitNumberOfRecordsLbl</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3411327414 - NamedType 1381496626" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Max. Number of Rec. To Delete is less than 0.</source>
           <target state="translated">Maks antall poster som skal slettes, er færre enn 0.</target>
@@ -2114,12 +2108,6 @@
           <target state="translated">Kan ikke sjekke antall poster som skal slettes, på grunn av manglende lesetillatelse for tabell %1, %2</target>
           <note from="Developer" annotates="general" priority="2">%1 = table number, %2 = table caption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType MissingReadPermissionLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3411327414 - NamedType 3891174035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reached the maximum number of records that can be deleted at the same time. The maximum number allowed is %1.</source>
-          <target state="translated">Nådd maksimalt antall poster som kan slettes samtidig. Maksimalt antall tillatte er %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = integer</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType TooManyRecordsToDeleteLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3415626413 - NamedType 1944678805" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>450a2e22-8051-44ed-94b9-e33304c375b0</source>
@@ -13962,7 +13950,7 @@
         </trans-unit>
         <trans-unit id="Page 4001231554 - Control 1330212104 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>2. Choose ‘Get apps’, then search for and add ‘Microsoft Dynamics Office Add-in´.</source>
-          <target state="translated">2. Velg Hent apper, og søk deretter etter og legg til Microsoft Dynamics Office-tillegg.</target>
+          <target state="translated">2. Velg Hent apper, og søk deretter etter og legg til Microsoft Dynamics Office Add-in.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Control ConfigureMicrosoft365Step2 - Property InstructionalText</note>
         </trans-unit>
