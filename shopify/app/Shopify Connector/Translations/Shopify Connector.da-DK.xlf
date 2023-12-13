@@ -3840,7 +3840,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Action 4188013569 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View an array of fulfillment orders associated with the Shopify Order.</source>
-          <target state="translated">Vis en matrix af de opfyldelser, der er knyttet til Shopify-ordren.</target>
+          <target state="translated">Vis en matrix af de opfyldelsesordrer, der er knyttet til Shopify-ordren.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Action FulfillmentOrders - Property ToolTip</note>
         </trans-unit>

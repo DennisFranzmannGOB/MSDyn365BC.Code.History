@@ -430,23 +430,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action IntegrationTableMappings - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1217273708 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Resets the integration table mappings and synchronization jobs to the default values for a connection with the source company. All current mappings are deleted and recreated.</source>
-          <target state="translated">Endurstillir varpanir samþættingartöflunnar og samstillingarverkanna á sjálfgildi til að koma á tengingu við upprunafyrirtækið. Öllum núverandi vörpunum eru eytt og þær endurgerðar.</target>
-          <note from="Developer" annotates="general" priority="2">Business Central is the name of a Microsoft Service and should not be translated.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use Default Synchronization Setup</source>
           <target state="translated">Nota sjálfgefinn samstillingargrunn</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Action 1723776373 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete couplings for the selected Business Central record types.</source>
-          <target state="translated">Eyða tengingum fyrir valdar gerðir Business Central-færslna.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action RemoveCoupling - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 1723776373 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Couplings</source>
@@ -478,12 +466,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action SynchronizeNow - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2401688108 - Action 2573355370 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View fields that are synchronized.</source>
-          <target state="translated">Skoða reiti sem eru samstilltir.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action FieldMapping - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 2401688108 - Action 2573355370 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fields</source>
           <target state="translated">Reitir</target>
@@ -502,23 +484,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action JobQueueEntry - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2401688108 - Action 269808213 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the status of jobs for uncoupling records. The jobs were run either from the job queue, or manually, in Business Central.</source>
-          <target state="translated">Skoða stöðu verka fyrir aftengingu á færslum. Verkin voru annaðhvort keyrð úr verkröðinni eða handvirkt í Business Central.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Uncouple Job Log - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 2401688108 - Action 269808213 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Integration Uncouple Job Log</source>
           <target state="translated">Verkkladdi fyrir aftengingu samþættingar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Uncouple Job Log - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Action 2976546385 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Make couplings between the selected Business Central record types based on matching criteria.</source>
-          <target state="translated">Koma á tengingum milli valdra færslugerða Business Central byggt á samsvarandi skilyrðum.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action MatchBasedCoupling - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 2976546385 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Match-Based Coupling</source>
@@ -543,12 +513,6 @@
           <target state="translated">Gera virkt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action Enable - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Action 3601201259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the status of the individual synchronization jobs that have been run for this table. This includes synchronization jobs that have been run from the job queue and manual synchronization jobs that were performed on records from the Business Central client.</source>
-          <target state="translated">Skoða stöðu einstakra samstillingarverka sem hafa verið keyrð fyrir þessa töflu. Þetta inniheldur samstillingarverk sem hafa verið keyrð úr verkröðinni og handvirk samstillingarverk fyrir færslur úr Business Central-biðlaranum.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Synch. Job Log - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 3601201259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronization Log</source>
@@ -579,12 +543,6 @@
           <target state="translated">Gera óvirkt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action Disable - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Resets the tables and synchronization jobs to the default values for a connection with the source company. All current mappings are deleted.</source>
-          <target state="translated">Endurstillir töflur og samstillingarverk á sjálfgildi til að koma á tengingu við upprunafyrirtækið. Öllum núverandi vörpunum verður eytt.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action ResetConfiguration - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 639242359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use Default Synchronization Setup</source>
@@ -658,12 +616,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Action Reset - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3185645072 - Action 2573355370 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Updates field mappings to match table schema. Use this action if the table schema was changed since the mappings were generated.</source>
-          <target state="translated">Uppfærir reitarvörpun til samræmis við töfluskema. Notið þessa aðgerð ef töfluskema hefur verið breytt síðan vörpun var gerð.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Action FieldMapping - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 3185645072 - Action 2573355370 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update Fields</source>
           <target state="translated">Uppfæra reiti</target>
@@ -724,29 +676,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Control Company Name - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 1439815520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the action to take when a coupled record is updated in both of the connected applications.</source>
-          <target state="translated">Tilgreinir aðgerðina þegar tengd færsla er uppfærð í báðum tengdu forritunum.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Update-Conflict Resolution - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 1694497541 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the business data table in Business Central to map to the integration table.</source>
-          <target state="translated">Tilgreinir heiti viðskiptagagnatöflunnar í Business Central sem á að varpa í samþættingartöfluna.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableCaptionValue - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 2401688108 - Control 1694497541 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Table</source>
           <target state="translated">Tafla</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableCaptionValue - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the name of the integration table mapping entry.</source>
-          <target state="translated">Tilgreinir heiti vörpunarfærslu samþættingartöflunnar.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2986416530 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if event-based rescheduling of synchronization jobs should be turned off for this table.</source>
@@ -754,41 +688,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Disable Event Job Resch. - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 2987383563 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the action to take when a coupled record is deleted in one of the connected applications.</source>
-          <target state="translated">Tilgreinir aðgerðina þegar tengdri færslu er eytt í öðru tengdu forritinu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Deletion-Conflict Resolution - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 3064002603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a configuration template to use when creating new records in the Dynamics 365 business table (specified by the Table ID field) during synchronization.</source>
-          <target state="translated">Tilgreinir grunnstillingarsniðmát sem nota á þegar nýjar færslur eru stofnaðar í viðskiptatöflu Dynamics 365 (tilgreint af reitnum Töflukenni) meðan samstilling stendur yfir.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Table Config Template Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 3207106980 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a filter on the integration table to control which records can be synchronized with the corresponding records in the business data table that is specified by the Table field.</source>
-          <target state="translated">Tilgreinir síu í samþættingartöflunni sem stjórnar því hvaða færslur er hægt að samstilla við samsvarandi færslur í viðskiptagagnatöflunni sem er tilgreind í reitnum Tafla.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3207106980 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Table Filter</source>
           <target state="translated">Töfluafmörkun</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 3252819777 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies how to handle uncoupled records in Dynamics 365 Sales entities and Dynamics 365 tables when synchronization is performed by an integration synchronization job.</source>
-          <target state="translated">Tilgreinir hvernig á að fara með ótengdar færslur í Dynamics 365 Sales-einingum og Dynamics 365-töflum þegar samstilling er framkvæmd með samþættingarsamstillingarverki.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Only Coupled Records - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 3277867247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the ID of the integration table to map to the business table.</source>
-          <target state="translated">Tilgreinir auðkenni samþættingartöflunnar sem á að varpa í viðskiptatöflu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableCaptionValue - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3277867247 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Integration Table</source>
@@ -796,23 +700,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableCaptionValue - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 3696389755 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a date/time filter that uses the date on which records were modified to determine which records to synchronize from the chosen source company. The filter is based on the Modified On field on the integration table records.</source>
-          <target state="translated">Tilgreinir síu dagsetningar/tíma sem notar dagsetninguna þegar færslum var breytt til að ákveða hvaða færslur á að samstilla frá völdu upprunafyrirtæki. Sían er byggð á reitnum „Breytt þann“ í færslum samþættingartöflu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Modified On Filter - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3696389755 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronize Changes Since</source>
           <target state="translated">Samstilla breytingar frá</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Modified On Filter - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 4005701527 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a filter on the business data table in Dynamics 365 to control which records can be synchronized with the corresponding records in the integration table that is specified by the Integration Table ID field.</source>
-          <target state="translated">Tilgreinir afmörkun í viðskiptagagnatöflunni í Dynamics 365 sem stjórnar því hvaða færslur er hægt að samstilla við samsvarandi færslur í samþættingartöflunni sem er tilgreind af reitnum Auðkenni samþættingartöflu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableFilterValue - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4005701527 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Table Filter</source>
@@ -825,18 +717,6 @@
           <target state="translated">Tilgreinir hvort samstillingarvélin eigi að skrifa yfir staðbundnar breytingar sem hafa verið gerðar frá síðustu samstillingu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Overwrite Local Change - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 4108847349 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a date/time filter that uses the date on which records were modified to determine which records to synchronize to the chosen source company. The filter is based on the SystemModifiedAt field on the Business Central table records.</source>
-          <target state="translated">Tilgreinir síu dagsetningar/tíma sem notar dagsetninguna þegar færslum var breytt til að ákveða hvaða færslur á að samstilla í völdu upprunafyrirtæki. Sían er byggð á reitnum SystemModifiedAt í færslum Business Central-töflu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Int. Tbl. Mod. On Fltr. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2401688108 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if this mapping is enabled.</source>
-          <target state="translated">Tilgreinir hvort þessi vörpun sé virk.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 2149455310 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether the session is active.</source>
@@ -892,29 +772,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control Dependency Filter - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3108456880 - Control 4125410309 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of jobs for data going to the integration table. </source>
-          <target state="translated">Tilgreinir stöðu verkefna fyrir gögn sem verða færð í samþættingartöfluna. </target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control To Int. Table Job Status - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3108456880 - Control 4260367546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of jobs for data coming from the integration table. </source>
-          <target state="translated">Tilgreinir stöðu verkefna fyrir gögn sem koma úr samþættingartöflu. </target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control From Int. Table Job Status - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 3108456880 - Control 4260367546 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Job Status</source>
           <target state="translated">Verkstaða</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control From Int. Table Job Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3185645072 - Control 1420580905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a rule for transforming imported text to a supported value before it can be mapped to a specified field in Microsoft Dynamics 365.</source>
-          <target state="translated">Tilgreinir reglu til að umbreyta innfluttum texta í stutt gildi áður en hægt er varpa honum á tiltekinn reit í Microsoft Dynamics 365.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Transformation Rule - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 2358106063 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the constant value that the mapped field will be set to.</source>
@@ -963,12 +825,6 @@
           <target state="translated">Tilgreinir stefnu umbreytingarinnar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Transformation Direction - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3185645072 - Control 823559016 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the caption of the field in Business Central.</source>
-          <target state="translated">Tilgreinir texta reitsins í Business Central.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Field Caption - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 2276280537" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The synchronization setup is imported. \\To view or edit the synchronization table setup, choose action Synchronization Tables.\\To view or edit the synchronization field setup, select a synchronization table and choose action Synchronization Fields.</source>
@@ -1455,6 +1311,12 @@
           <target state="translated">Gagnasamstilling við fyrirtæki %1 er óvirk. \\Mælt er með því að halda töfluuppsetningu og upplýsingum um tengingu, sérstaklega ef ætlunin er að virkja aftur samstillingu við sama fyrirtæki. \\Á að halda töfluuppsetningu og upplýsingum um tengingu?</target>
           <note from="Developer" annotates="general" priority="2">%1 - a company name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Master Data Management Setup - NamedType KeepTheCouplingsQst</note>
+        </trans-unit>
+        <trans-unit id="Table 1217273708 - NamedType 881355107" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are existing synchronization table definitions in this company. Do you want to reset them to the default configuration?</source>
+          <target state="translated">Það eru fyrirliggjandi skilgreiningar á samstillingartöflum í þessu fyrirtæki. Á að endurstilla þær á sjálfgefnar grunnstillingar?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Master Data Management Setup - NamedType ResetConfigQst</note>
         </trans-unit>
         <trans-unit id="Table 1037947899 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Master Data Mgt. Coupling</source>
