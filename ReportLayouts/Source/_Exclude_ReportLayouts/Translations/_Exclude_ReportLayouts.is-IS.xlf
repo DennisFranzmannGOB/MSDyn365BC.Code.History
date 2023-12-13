@@ -412,7 +412,7 @@
         </trans-unit>
         <trans-unit id="Page 2855939321 - Action 315672565 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy the file to your Business Central folder in OneDrive and open it in a new window so you can edit the file.</source>
-          <target state="translated">Áfram</target>
+          <target state="translated">Afritið skrána í möppu Business Central á OneDrive og opnið hana í nýjum glugga svo hægt sé að breyta henni.</target>
           <note from="Developer" annotates="general" priority="2">OneDrive should not be translated</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Action EditInOneDrive - Property ToolTip</note>
         </trans-unit>

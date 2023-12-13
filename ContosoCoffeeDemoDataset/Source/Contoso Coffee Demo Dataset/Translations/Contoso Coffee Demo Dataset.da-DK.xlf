@@ -1049,7 +1049,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1162009136 - NamedType 4271135061" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
           <source>Macao</source>
-          <target state="translated">SAR Macao</target>
+          <target state="translated">Det Særlige Administrative Område Macao</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common CountryOrRegion - NamedType MacaoLbl</note>
         </trans-unit>
