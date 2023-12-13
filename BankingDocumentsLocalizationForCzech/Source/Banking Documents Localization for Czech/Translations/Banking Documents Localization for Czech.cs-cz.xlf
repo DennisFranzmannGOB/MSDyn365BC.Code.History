@@ -7044,7 +7044,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1253495400 - Field 1216199422 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post Per Line</source>
-          <target state="translated">Účtovat po řádcích (Deník odsouhlasení)</target>
+          <target state="translated">Účtovat po řádcích</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1682139193</note>
