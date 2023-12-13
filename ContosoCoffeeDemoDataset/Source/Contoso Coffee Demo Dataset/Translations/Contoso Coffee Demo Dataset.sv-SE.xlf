@@ -3755,7 +3755,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2615925881 - NamedType 705456985" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inventory Put-Away</source>
-          <target state="translated">Lager, artikelinförsel</target>
+          <target state="translated">Lagerinförsel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Whse No Series - NamedType InventoryPutAwayLbl</note>
         </trans-unit>
