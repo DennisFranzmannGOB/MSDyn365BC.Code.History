@@ -3894,7 +3894,7 @@
         </trans-unit>
         <trans-unit id="Page 1602962213 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code to identify this Shopify Shop.</source>
-          <target state="translated">Hiermee wordt een code opgegeven om deze Shofipy-winkel te identificeren.</target>
+          <target state="translated">Hiermee wordt een code opgegeven om deze Shopify-winkel te identificeren.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shops - Control Code - Property ToolTip</note>
         </trans-unit>
@@ -4260,7 +4260,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code to identify this Shopify Shop.</source>
-          <target state="translated">Hiermee wordt een code opgegeven om deze Shofipy-winkel te identificeren.</target>
+          <target state="translated">Hiermee wordt een code opgegeven om deze Shopify-winkel te identificeren.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Code - Property ToolTip</note>
         </trans-unit>
