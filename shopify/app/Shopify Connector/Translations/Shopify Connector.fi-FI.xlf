@@ -8885,7 +8885,7 @@
         </trans-unit>
         <trans-unit id="Report 4093570814 - NamedType 2040151610" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Attributes</source>
-          <target state="translated">Nimikkeen määritteet</target>
+          <target state="translated">Nimikemääritteet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Shpfy Translator - NamedType AttributeTitleLbl</note>
         </trans-unit>

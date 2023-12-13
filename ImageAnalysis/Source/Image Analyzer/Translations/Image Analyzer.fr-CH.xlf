@@ -17,13 +17,13 @@
         </trans-unit>
         <trans-unit id="Table 2062634445 - NamedType 2883311424" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose item attribute</source>
-          <target state="translated">Choisir un attribut d'article</target>
+          <target state="translated">Choisir attribut article</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - NamedType ChooseItemAttributeTxt</note>
         </trans-unit>
         <trans-unit id="Table 2062634445 - NamedType 4279895527" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item attribute: '%1' = '%2'</source>
-          <target state="translated">Attribut article : %1 = %2</target>
+          <target state="translated">Attribut article : « %1 » = « %2 »</target>
           <note from="Developer" annotates="general" priority="2">%1 is the item attribute name (ex 'Color'), %2 is the item attribute value (ex 'Blue')</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - NamedType DetailsTextForItemAttributeTxt</note>
         </trans-unit>
@@ -77,13 +77,13 @@
         </trans-unit>
         <trans-unit id="Table 2062634445 - Field 512056945 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Attribute Value Id</source>
-          <target state="translated">ID valeur attribut article</target>
+          <target state="translated">ID valeur d'attribut article</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - Field Item Attribute Value Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2062634445 - Field 224590807 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Attribute Value Name</source>
-          <target state="translated">Nom valeur attribut article</target>
+          <target state="translated">Nom valeur d'attribut article</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - Field Item Attribute Value Name - Property Caption</note>
         </trans-unit>
