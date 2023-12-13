@@ -65,7 +65,7 @@
         </trans-unit>
         <trans-unit id="Table 2062634445 - Field 558890210 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Attribute Name</source>
-          <target state="translated">Id for attributnavn</target>
+          <target state="translated">Navn på vareattribut</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - Field Item Attribute Name - Property Caption</note>
         </trans-unit>
