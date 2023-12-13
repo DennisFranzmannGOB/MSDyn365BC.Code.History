@@ -8683,6 +8683,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sub Order Component List - Field Applies-to Entry (Sending) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2174943217 - Field 2814799924 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bin Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sub Order Component List - Field Bin Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2174943217 - Field 1863361678 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Location</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -24962,6 +24967,11 @@
           <source>Sub Order Components</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sub Order Components - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1187788242 - Control 2814799924 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Bin Code for the company location.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sub Order Components - Control Bin Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1187788242 - Control 1863361678 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the company location code for the document.</source>
