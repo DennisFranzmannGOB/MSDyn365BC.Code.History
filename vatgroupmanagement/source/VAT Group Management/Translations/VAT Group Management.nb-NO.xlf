@@ -395,13 +395,13 @@
         </trans-unit>
         <trans-unit id="Page 231648147 - Control 1173241261 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the caption for the codeunit VAT Report.</source>
-          <target state="translated">Angir tittelen for mva-rapporten for codeuniten.</target>
+          <target state="translated">Angir tittelen for mva-rapporten for codeunit.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Reports Configuration Part - Control Validate Codeunit Caption - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 231648147 - Control 1235910239 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the caption associated with the submission codeunit.</source>
-          <target state="translated">Angir tittelen som er knyttet til codeuniten for sending.</target>
+          <target state="translated">Angir tittelen som er knyttet til codeunit for sending.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Reports Configuration Part - Control Submission Codeunit Caption - Property ToolTip</note>
         </trans-unit>
@@ -419,7 +419,7 @@
         </trans-unit>
         <trans-unit id="Page 231648147 - Control 1578133954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ID associated with the submission codeunit.</source>
-          <target state="translated">Angir ID-en som er knyttet til codeuniten for sending.</target>
+          <target state="translated">Angir ID-en som er knyttet til codeunit for sending.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Reports Configuration Part - Control Submission Codeunit ID - Property ToolTip</note>
         </trans-unit>
@@ -431,7 +431,7 @@
         </trans-unit>
         <trans-unit id="Page 231648147 - Control 2605127120 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the codeunit caption code.</source>
-          <target state="translated">Angir tittelkoden for codeuniten.</target>
+          <target state="translated">Angir tittelkoden for codeunit.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Reports Configuration Part - Control Content Codeunit Caption - Property ToolTip</note>
         </trans-unit>
