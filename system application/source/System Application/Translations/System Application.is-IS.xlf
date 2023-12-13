@@ -683,7 +683,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2205383823 - NamedType 2617672994" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>One or more of the license configurations use implicit company permissions, which is not recommended.</source>
-          <target state="translated">Ein eða fleiri leyfisstillingar nota óbeinar heimildir fyrirtækis, sem er ekki mælt með.</target>
+          <target state="translated">Ein eða fleiri leyfisskilgreiningar nota óbeinar heimildir fyrirtækis, sem er ekki mælt með.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Plan Configuration Impl. - NamedType DefaultConfigurationNotificationTxt</note>
         </trans-unit>
@@ -12330,7 +12330,7 @@
         </trans-unit>
         <trans-unit id="Page 4001231554 - Control 1330212104 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>2. Choose ‘Get apps’, then search for and add ‘Microsoft Dynamics Office Add-in´.</source>
-          <target state="translated">2. Veljið „Sækja forrit“ og leitið síðan að og bætið við „Microsoft Dynamics Office-innbót“.</target>
+          <target state="translated">2. Veljið „Sækja forrit“ og leitið síðan að og bætið við „Microsoft Dynamics Office Add-in“.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Control ConfigureMicrosoft365Step2 - Property InstructionalText</note>
         </trans-unit>
