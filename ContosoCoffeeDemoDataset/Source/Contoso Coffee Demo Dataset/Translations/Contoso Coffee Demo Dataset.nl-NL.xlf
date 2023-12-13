@@ -581,7 +581,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4176698602 - NamedType 291071016" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The demo data will be created with %1, which is different than the language used before (%2). Do you want to continue? \\ The differences in the language could cause issues with the demo data.</source>
-          <target state="translated">De voorbeeldgegevens worden gemaakt met %1, wat afwijkt van de eerder gebruikte taal (%2). Wilt u doorgaan? \\ De verschillen in de taal kunnen problemen met de voorbeeldgegevens veroorzaken.</target>
+          <target state="translated">De demogegevens worden gemaakt met %1, dat afwijkt van de taal die eerder is gebruikt (%2). Wilt u doorgaan? \\ De verschillen in de taal kunnen problemen met de voorbeeldgegevens veroorzaken.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Language Name, %2 = Language Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Contoso Demo Tool - NamedType LanguageConfirmationMsg</note>
         </trans-unit>
@@ -3989,7 +3989,7 @@
         </trans-unit>
         <trans-unit id="Page 1577283206 - Control 696461927 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Language Name that you create the demo data with for the first time.</source>
-          <target state="translated">Hiermee geeft u de taalnaam op waarmee u de demogegevens de eerste keer maakt.</target>
+          <target state="translated">Hiermee wordt de taalnaam opgegeven waarmee u de voorbeeldgegevens voor het eerst maakt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Contoso Coffee Demo Data - Control Language Name - Property ToolTip</note>
         </trans-unit>
