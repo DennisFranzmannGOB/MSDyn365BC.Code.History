@@ -3,6 +3,24 @@
   <file datatype="xml" source-language="en-US" target-language="fi-FI" original="E-Document Core">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 1557577669 - NamedType 1079526110" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch processing is not supported with.</source>
+          <target state="translated">Eräkäsittelyä ei tueta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Data Exchange Impl. - NamedType BatchNotSupportedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1557577669 - NamedType 3471781426" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 for %2 %3 does not exist.</source>
+          <target state="translated">Kohdetta %1 kohteelle %2 %3 ei ole.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Data Exchange Mapping caption, %2 - Data Exchange Definition caption, %3 - Data Exchange Definition code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Data Exchange Impl. - NamedType NoDataExchMappingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1557577669 - NamedType 653572239" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to process the file with data exchange.</source>
+          <target state="translated">Tiedoston käsittely tiedonsiirron yhteydessä epäonnistui.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Data Exchange Impl. - NamedType ProcessFailedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1668421278 - NamedType 2589899165" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mapping of record can only be applied to temporary record</source>
           <target state="translated">Tietueen yhdistäminen voidaan kohdistaa vain väliaikaiseen tietueeseen</target>
@@ -86,6 +104,72 @@
           <target state="translated">Valuutalle %1 ei ole vaihtokurssia päivälle %2. Vaihtokurssi on lisättävä Valuutat-ikkunassa.</target>
           <note from="Developer" annotates="general" priority="2">%1 reference to a concrete currency,%2 to the date for the transaction</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Document Create Jnl. Line - NamedType CurrencyExchangeDoesNotExistErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 1140857264" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The electronic document references invoice %1 from the vendor, but no purchase invoice exists for %1.</source>
+          <target state="translated">Sähköinen asiakirja viittaa toimittajan laskuun %1, mutta ostolaskua ei ole olemassa %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - vendor invoice no.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType UnableToFindRelatedInvoiceErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 1206217062" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot find buy-from vendor '%1' based on the vendor's GLN %2 or VAT registration number %3 on the electronic document. Make sure that a card for the vendor exists with the corresponding GLN or VAT Registration No.</source>
+          <target state="translated">Tavarantoimittajaa %1 ei löydy toimittajan GLN-numeron %2 tai ALV-rekisterinumeron %3 perusteella sähköisestä asiakirjasta. Varmista, että toimittajalla on kortti, jossa mainitaan vastaava GLN- tai ALV-rekisterinumero.</target>
+          <note from="Developer" annotates="general" priority="2">%1 Vendor name (e.g. London Postmaster), %2 Vendor's GLN (13 digit number), %3 Vendor's VAT Registration Number</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType BuyFromVendorNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 2437766739" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot find pay-to vendor '%1' based on the vendor's GLN %2 or VAT registration number %3 on the electronic document. Make sure that a card for the vendor exists with the corresponding GLN or VAT Registration No.</source>
+          <target state="translated">Tavaran laskuttajaa %1 ei löydy toimittajan GLN-numeron %2 tai ALV-rekisterinumeron %3 perusteella sähköisestä asiakirjasta. Varmista, että toimittajalla on kortti, jossa mainitaan vastaava GLN- tai ALV-rekisterinumero.</target>
+          <note from="Developer" annotates="general" priority="2">%1 Vendor name (e.g. London Postmaster), %2 Vendor's GLN (13 digit number), %3 Vendor's VAT Registration Number</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType PayToVendorNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 2545121665" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The currency code %1 on invoice line no. %2 must not be different from the currency code %3 on the electronic document.</source>
+          <target state="translated">Valuuttakoodi %1 laskurivillä %2 ei voi olla eri kuin sähköisen asiakirjan valuuttakoodi %3.</target>
+          <note from="Developer" annotates="general" priority="2">%1 Invoice line currency code (e.g. GBP), %2 invoice line no. (e.g. 2), %3 document currency code (e.g. DKK)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType ItemCurrencyCodeDifferentErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 2902681278" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The currency code %1 must not be different from the currency code %2 on the electronic document.</source>
+          <target state="translated">Valuuttakoodi %1 ei voi olla eri kuin sähköisen asiakirjan valuuttakoodi %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 currency code (e.g. GBP), %2 the document currency code (e.g. DKK)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType CurrencyCodeDifferentErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 2946943764" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must specify a value for field '%1'.</source>
+          <target state="translated">Sinun tulee määrittää arvo kentälle %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - field caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType FieldMustHaveAValueErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 3063667477" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The currency code is missing on the electronic document.</source>
+          <target state="translated">Valuuttakoodi puuttuu sähköisestä asiakirjasta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType CurrencyCodeMissingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 3072650758" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must make a new entry in the %1 of the %2 window, and enter '%3' or '%4' in the %5 field. Then, you must map it to the %6 field in the %7 table.</source>
+          <target state="translated">Tee uusi merkintä ikkunan %2 kohtaan %1 ja syötä %3 tai %4 kenttään %5. Yhdistä merkintä sitten taulukon %7 kenttään %6.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Column Definitions (page caption),%2 - Data Exchange Definition (page caption),%3 - invoice (option caption),%4 - credit memo (option caption),%5 - Constant (field name),%6 - Document Type (field caption),%7 - Purchase Header (table caption)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType DocumentTypeUnknownErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 3156406416" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The electronic document has no total amount excluding VAT.</source>
+          <target state="translated">Sähköisessä asiakirjassa ei ole kokonaissummaa ilman ALV:tä.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType UnableToFindTotalAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 3212879496" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot find an appropriate G/L account for the line with description '%1'. Choose the Map Text to Account button, and then map the core part of '%1' to the relevant G/L account.</source>
+          <target state="translated">Asianomaista KP-tiliä ei löydy riville, jonka kuvaus on %1. Valitse Linkitä teksti tiliin -painike ja linkitä sitten kuvauksen %1 ydinosa asianomaiseen KP-tiliin.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - arbitrary text</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType UnableToFindAppropriateAccountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3873511525 - NamedType 5476336" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The electronic document references invoice %1 from the vendor. You must post related purchase invoice %2 before you create a new purchase document from this electronic document.</source>
+          <target state="translated">Sähköinen asiakirja viittaa toimittajan laskuun %1. Kirjaa siihen liittyvä ostolasku %2, ennen kuin luot uuden ostoasiakirjan tästä sähköisestä asiakirjasta.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - vendor invoice no.,%2 posted purchase invoice no.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType YouMustFirstPostTheRelatedInvoiceErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4110245118 - NamedType 1330826680" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Workflow %1 defined for %2 in Document Sending Profile %3 is not found.</source>
@@ -676,6 +760,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Integration Logs - Action ExportRequestMsg - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 1308424011 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the data exchange code that is used for importing the data.</source>
+          <target state="translated">Määrittää tietojen tuonnissa käytettävän tiedonsiirtokoodin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Impt. Data Exchange Def. Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 1326019134 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the data exchange name that is used for exporting the data.</source>
+          <target state="translated">Määrittää tietojen viennissä käytettävän tiedonsiirtonimen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Expt. Data Exchange Def. Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document type that will use data exchange for importing/exporting the data.</source>
+          <target state="translated">Määrittää asiakirjatyypin, joka käyttää tiedonsiirtoa tietojen tuontiin/vientiin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 3186336997 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the data exchange name that is used for importing the data.</source>
+          <target state="translated">Määrittää tietojen tuonnissa käytettävän tiedonsiirtonimen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Impt. Data Exchange Def. Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Control 3386985604 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the data exchange code that is used for exporting the data.</source>
+          <target state="translated">Määrittää tietojen viennissä käytettävän tiedonsiirtokoodin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Expt. Data Exchange Def. Code - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2161247858 - Control 3701310097 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the service code of an E-Dcoument</source>
           <target state="translated">Määrittää sähköisen asiakirjan huoltokoodin</target>
@@ -1264,6 +1378,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Control Batch Minutes between runs - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 4102148806 - Control 3457654205 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data Exchange Definition</source>
+          <target state="translated">Tiedonsiirtomääritys</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Control EDocumentDataExchDef - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4102148806 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the description of the electronic export setup.</source>
           <target state="translated">Määrittää sähköisen viennin asetusten kuvauksen.</target>
@@ -1503,6 +1623,12 @@
           <target state="translated">Tälle palveluintegraatiolle ei ole määritysasetuksia.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - NamedType ServiceIntegrationSetupMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 1029251849 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Doc. Service Data Exch. Sub</source>
+          <target state="translated">Sähköinen asiak. huoltotiedot vaiht. ali</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2161247858 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Service Status</source>
@@ -2230,6 +2356,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Integration Log - Field Entry No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 1308424011 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Data Exchange Def. Code</source>
+          <target state="translated">Tuo tiedonsiirtomäärityksen koodi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Impt. Data Exchange Def. Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 1326019134 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export Data Exchange Def. Name</source>
+          <target state="translated">Vie tiedonsiirtomäärityksen nimi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Expt. Data Exchange Def. Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 2363328873 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <target state="translated">Asiakirjatyyppi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 3186336997 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Data Exchange Def. Name</source>
+          <target state="translated">Tuo tiedonsiirtomäärityksen nimi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Impt. Data Exchange Def. Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 3386985604 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export Data Exchange Def. Code</source>
+          <target state="translated">Vie tiedonsiirtomäärityksen koodi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Expt. Data Exchange Def. Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Field 742984291 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Koodi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field E-Document Format Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4102148806 - Field 1120844960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lookup Item Reference</source>
           <target state="translated">Hae nimikeviittaus</target>
@@ -2661,6 +2823,12 @@
           <target state="translated">Sähköisen asiakirjan integrointiloki</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Integration Log - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2546100294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Doc. Service Data Exch. Def.</source>
+          <target state="translated">Sähköisen asiakirjan huoltotietojen vaihtomääritys</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4102148806 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Service</source>
