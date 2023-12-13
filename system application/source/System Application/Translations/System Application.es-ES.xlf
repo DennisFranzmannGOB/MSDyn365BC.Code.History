@@ -2097,12 +2097,6 @@
           <note from="Developer" annotates="general" priority="2">"sign out" and "sign in" are the same terms as shown in the Business Central client.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Power Automate Privacy Notice - NamedType SignInAgainMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3411327414 - NamedType 1274948781" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Limited the number of records to delete for table %1, %2 to %3 records. The maximum number of records that can be deleted at the same time is %4, and %5 records were previously deleted in one or more tables.</source>
-          <target state="translated">Se ha limitado el número de registros que se eliminarán para la tabla %1, %2 a %3 registros. El número máximo de registros que se pueden eliminar al mismo tiempo es %4 y los %5 registros se eliminaron anteriormente en una o más tablas.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = a id of a table (integer), %2 = the caption of the table, %3, %4, %5 = integer</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType LimitNumberOfRecordsLbl</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3411327414 - NamedType 1381496626" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Max. Number of Rec. To Delete is less than 0.</source>
           <target state="translated">N.º máx. reg. para eliminar es menor que 0.</target>
@@ -2114,12 +2108,6 @@
           <target state="translated">No se puede comprobar el número de registros que se eliminarán porque falta el permiso de lectura en la tabla %1, %2</target>
           <note from="Developer" annotates="general" priority="2">%1 = table number, %2 = table caption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType MissingReadPermissionLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3411327414 - NamedType 3891174035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reached the maximum number of records that can be deleted at the same time. The maximum number allowed is %1.</source>
-          <target state="translated">Ha alcanzado el número máximo de registros que se pueden eliminar al mismo tiempo. El número máximo permitido es %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = integer</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Reten. Pol. Delete. Impl. - NamedType TooManyRecordsToDeleteLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3415626413 - NamedType 1944678805" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>450a2e22-8051-44ed-94b9-e33304c375b0</source>
@@ -13962,7 +13950,7 @@
         </trans-unit>
         <trans-unit id="Page 4001231554 - Control 1330212104 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>2. Choose ‘Get apps’, then search for and add ‘Microsoft Dynamics Office Add-in´.</source>
-          <target state="translated">2. Elija "Obtener aplicaciones" y, a continuación, busque y agregue "Complemento de Microsoft Dynamics Office".</target>
+          <target state="translated">2. Elija "Obtener aplicaciones" y, a continuación, busque y agregue "Microsoft Dynamics Office Add-in".</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Control ConfigureMicrosoft365Step2 - Property InstructionalText</note>
         </trans-unit>
@@ -14822,7 +14810,7 @@
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 1154908253 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There are no updates from Microsoft 365. You can exit this guide.</source>
-          <target state="translated">No hay actualizaciones de Office 365. Puede salir de esta guía.</target>
+          <target state="translated">No hay actualizaciones de Microsoft 365. Puede salir de esta guía.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control No Updates - Property InstructionalText</note>
         </trans-unit>
@@ -14834,7 +14822,7 @@
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 1673237505 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>It can take up to 72 hours for a change in Microsoft 365 to become available to Business Central.</source>
-          <target state="translated">Se pueden tardar hasta 72 horas para que un cambio en Office 365 esté disponible en Business Central.</target>
+          <target state="translated">Se pueden tardar hasta 72 horas para que un cambio en Microsoft 365 esté disponible en Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control NoteGroup - Property InstructionalText</note>
         </trans-unit>
@@ -14948,7 +14936,7 @@
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 792907206 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bring changes to user information from your Microsoft 365 organization to Business Central. Update license assignments, name changes, email addresses, preferred languages, and user access.</source>
-          <target state="translated">Aporte cambios a la información de usuario desde su organización de Office 365 a Business Central. Actualice asignaciones de licencias, cambios de nombres, direcciones de correo electrónico, idiomas preferidos y acceso de usuario.</target>
+          <target state="translated">Aporte cambios a la información de usuario desde su organización de Microsoft 365 a Business Central. Actualice asignaciones de licencias, cambios de nombres, direcciones de correo electrónico, idiomas preferidos y acceso de usuario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control HeaderText - Property InstructionalText</note>
         </trans-unit>
