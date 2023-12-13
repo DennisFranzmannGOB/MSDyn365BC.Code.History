@@ -425,7 +425,7 @@
         </trans-unit>
         <trans-unit id="Page 259547023 - Action 2678035379 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Log listing events for this WorldPay account.</source>
-          <target state="translated">Log, der anfører hændelser for denne WorldPal-konto.</target>
+          <target state="translated">Log, der anfører hændelser for denne WorldPay-konto.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - WorldPay Standard Setup - Action ActivityLog - Property ToolTip</note>
         </trans-unit>
