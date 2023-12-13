@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Codeunit 2528467593 - NamedType 1082578776" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit file was generated.</source>
-          <target state="translated">Файл аудита сгенерирован.</target>
+          <target state="translated">Файл для аудита сгенерирован.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType AuditFileGeneratedTxt</note>
         </trans-unit>
@@ -17,7 +17,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 1833972103" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No audit file export document lines were created.</source>
-          <target state="translated">Строки документа экспорта файлов аудита не созданы.</target>
+          <target state="translated">Строки документа экспорта файлов для аудита не созданы.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType NoExportLinesCreatedErr</note>
         </trans-unit>
@@ -29,31 +29,31 @@
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 1969555425" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The generation of the audit file failed but no error message was logged.</source>
-          <target state="translated">Генерация файла аудита завершилась сбоем, однако сообщение об ошибке не было зарегистрировано в журнале.</target>
+          <target state="translated">Генерация файла для аудита завершилась сбоем, однако сообщение об ошибке не было зарегистрировано в журнале.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType NoErrorMessageErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 2102356600" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Starting audit file export with ID: %1, Parallel: %2, Split By Month: %3</source>
-          <target state="translated">Запуск экспорта файлов аудита с ИД: %1, параллельная обработка: %2, разбивка по месяцам: %3</target>
+          <target state="translated">Запуск экспорта файлов для аудита с ИД: %1, параллельная обработка: %2, разбивка по месяцам: %3</target>
           <note from="Developer" annotates="general" priority="2">%1 - integer; %2, %3 - boolean</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType StartingExportTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 2326780297" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export</source>
-          <target state="translated">Экспорт файлов аудита</target>
+          <target state="translated">Экспорт файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType AuditFileExportTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 2502530873" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not allowed to schedule the audit file generation</source>
-          <target state="translated">Вам не разрешено планировать генерацию файлов аудита</target>
+          <target state="translated">Вам не разрешено планировать генерацию файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType NotPossibleToScheduleMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 251770367" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The export was completed. You can download the export result choosing the Download Audit File action.\</source>
-          <target state="translated">Экспорт завершен. Вы можете загрузить результат экспорта, выбрав действие "Загрузить файл аудита".\</target>
+          <target state="translated">Экспорт завершен. Вы можете загрузить результат экспорта, выбрав действие "Загрузить файл для аудита".\</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType ExportIsCompletedQst</note>
         </trans-unit>
@@ -65,7 +65,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 2836027419" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit file was not generated.</source>
-          <target state="translated">Файл аудита не сгенерирован.</target>
+          <target state="translated">Файл для аудита не сгенерирован.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType AuditFileNotGeneratedTxt</note>
         </trans-unit>
@@ -89,7 +89,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 3281259537" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export audit file</source>
-          <target state="translated">Экспорт файла аудита</target>
+          <target state="translated">Экспорт файла для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType SaveFileDialogTxt</note>
         </trans-unit>
@@ -113,7 +113,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 3679109522" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancelling audit file export with ID: %1, Task ID: %2</source>
-          <target state="translated">Отмена экспорта файлов аудита с ИД: %1, ИД задачи: %2</target>
+          <target state="translated">Отмена экспорта файлов для аудита с ИД: %1, ИД задачи: %2</target>
           <note from="Developer" annotates="general" priority="2">%1 - integer; %2 - GUID</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType CancellingExportTxt</note>
         </trans-unit>
@@ -125,13 +125,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 3749558266" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parallel audit file generation</source>
-          <target state="translated">Параллельная генерация файлов аудита</target>
+          <target state="translated">Параллельная генерация файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType ParallelAuditFileGenerationTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 3884700983" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to restart the export to get a new audit file?</source>
-          <target state="translated">Перезапустить экспорт для получения нового файла аудита?</target>
+          <target state="translated">Перезапустить экспорт для получения нового файла для аудита?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType RestartExportQst</note>
         </trans-unit>
@@ -143,7 +143,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 4160512717" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The audit file already exists and is ready for downloading. Do you want to recreate the audit file?</source>
-          <target state="translated">Файл аудита уже существует и готов к загрузке. Создать файл аудита заново?</target>
+          <target state="translated">Файл для аудита уже существует и готов к загрузке. Создать файл для аудита заново?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType AuditFileAlreadyExistsQst</note>
         </trans-unit>
@@ -155,7 +155,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2528467593 - NamedType 569400846" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Since you did not schedule the audit file generation, it will be generated immediately which can take a while. Do you want to continue?</source>
-          <target state="translated">Поскольку вы не запланировали генерацию файла аудита на определенное время, файл будет создан немедленно, что может занять некоторое время. Продолжить?</target>
+          <target state="translated">Поскольку вы не запланировали генерацию файла для аудита на определенное время, файл будет создан немедленно, что может занять некоторое время. Продолжить?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Mgt. - NamedType GenerateAuditFileImmediatelyQst</note>
         </trans-unit>
@@ -263,7 +263,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3575212698 - NamedType 2326780297" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit file export</source>
-          <target state="translated">Экспорт файлов аудита</target>
+          <target state="translated">Экспорт файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit File Export Error Handl. - NamedType AuditFileExportTxt</note>
         </trans-unit>
@@ -293,13 +293,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 725404113 - NamedType 2773249335" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No file name was specified for the audit file export line.</source>
-          <target state="translated">Для строки экспорта файлов аудита не указано имя файла.</target>
+          <target state="translated">Для строки экспорта файлов для аудита не указано имя файла.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit Line Export Runner - NamedType NoFileNameErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 725404113 - NamedType 3650720917" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No file content was generated for the audit file export line.</source>
-          <target state="translated">Для строки экспорта файлов аудита не сгенерировано содержимое файлов.</target>
+          <target state="translated">Для строки экспорта файлов для аудита не сгенерировано содержимое файлов.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit Line Export Runner - NamedType NoFileContentErr</note>
         </trans-unit>
@@ -347,7 +347,7 @@
         </trans-unit>
         <trans-unit id="Page 2053205652 - Action 2787516006 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download the generated audit file.</source>
-          <target state="translated">Загрузка сгенерированного файла аудита.</target>
+          <target state="translated">Загрузка сгенерированного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit Files - Action DownloadFile - Property ToolTip</note>
         </trans-unit>
@@ -359,7 +359,7 @@
         </trans-unit>
         <trans-unit id="Page 2246936125 - Action 398213913 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Select data types that will be written to the audit file.</source>
-          <target state="translated">Выбор типов данных, которые будут записываться в файл аудита.</target>
+          <target state="translated">Выбор типов данных, которые будут записываться в файл для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Format Setup - Action SelectExportDataTypes - Property ToolTip</note>
         </trans-unit>
@@ -383,7 +383,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Action 2056370978 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check that data is ready to be exported to the audit file.</source>
-          <target state="translated">Проверка готовности данных к экспорту в файл аудита.</target>
+          <target state="translated">Проверка готовности данных к экспорту в файл для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action DataCheck - Property ToolTip</note>
         </trans-unit>
@@ -395,7 +395,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Action 2787516006 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download the generated audit files.</source>
-          <target state="translated">Загрузка сгенерированных файлов аудита.</target>
+          <target state="translated">Загрузка сгенерированных файлов для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action DownloadFile - Property ToolTip</note>
         </trans-unit>
@@ -413,13 +413,13 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Action 3858870864 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recreate Audit Files</source>
-          <target state="translated">Создать файлы аудита заново</target>
+          <target state="translated">Создать файлы для аудита заново</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action CreateAuditFiles - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2635072399 - Action 620325036 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start the generation of the audit file.</source>
-          <target state="translated">Запуск генерации файла аудита.</target>
+          <target state="translated">Запуск генерации файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Action Start - Property ToolTip</note>
         </trans-unit>
@@ -467,7 +467,7 @@
         </trans-unit>
         <trans-unit id="Page 4169847893 - Action 2787516006 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download the generated audit file.</source>
-          <target state="translated">Загрузка сгенерированного файла аудита.</target>
+          <target state="translated">Загрузка сгенерированного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Action DownloadFile - Property ToolTip</note>
         </trans-unit>
@@ -479,7 +479,7 @@
         </trans-unit>
         <trans-unit id="Page 4169847893 - Action 620325036 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Start the generation of the audit file.</source>
-          <target state="translated">Запуск генерации файла аудита.</target>
+          <target state="translated">Запуск генерации файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Action Start - Property ToolTip</note>
         </trans-unit>
@@ -491,7 +491,7 @@
         </trans-unit>
         <trans-unit id="Page 977616444 - Action 1700570109 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show the error that occurred during the generation the selected audit file.</source>
-          <target state="translated">Просмотр ошибки, которая произошла при генерации выбранного файла аудита.</target>
+          <target state="translated">Просмотр ошибки, которая произошла при генерации выбранного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Subpage - Action ShowError - Property ToolTip</note>
         </trans-unit>
@@ -503,7 +503,7 @@
         </trans-unit>
         <trans-unit id="Page 977616444 - Action 2316947810 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show the activity log for the generation of the selected audit file.</source>
-          <target state="translated">Просмотр журнала действий для генерации выбранного файла аудита.</target>
+          <target state="translated">Просмотр журнала действий для генерации выбранного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Subpage - Action LogEntries - Property ToolTip</note>
         </trans-unit>
@@ -515,7 +515,7 @@
         </trans-unit>
         <trans-unit id="Page 977616444 - Action 27446870 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Restart the generation of the selected audit file.</source>
-          <target state="translated">Перезапуск генерации выбранного файла аудита.</target>
+          <target state="translated">Перезапуск генерации выбранного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Subpage - Action RestartTask - Property ToolTip</note>
         </trans-unit>
@@ -527,7 +527,7 @@
         </trans-unit>
         <trans-unit id="Page 977616444 - Action 2787516006 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download the audit file for the selected line.</source>
-          <target state="translated">Загрузка файла аудита для выбранной строки.</target>
+          <target state="translated">Загрузка файла для аудита для выбранной строки.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Subpage - Action DownloadFile - Property ToolTip</note>
         </trans-unit>
@@ -575,13 +575,13 @@
         </trans-unit>
         <trans-unit id="Page 1894989714 - Control 1481486544 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the data type that can be written to the audit file.</source>
-          <target state="translated">Определяет тип данных, который может записываться в файл аудита.</target>
+          <target state="translated">Определяет тип данных, который может записываться в файл для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit Export Data Type Setup - Control ExportDataType - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1894989714 - Control 1876342979 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the selected data type is written to the audit file.</source>
-          <target state="translated">Определяет, записывается ли выбранный тип данных в файл аудита.</target>
+          <target state="translated">Определяет, записывается ли выбранный тип данных в файл для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit Export Data Type Setup - Control ExportEnabled - Property ToolTip</note>
         </trans-unit>
@@ -605,13 +605,13 @@
         </trans-unit>
         <trans-unit id="Page 2246936125 - Control 1203412368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format</source>
-          <target state="translated">Формат экспорта файлов аудита</target>
+          <target state="translated">Формат экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Format Setup - Control AuditFileExportFormat - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2246936125 - Control 4110364376 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default file name or the file name template for the audit file.</source>
-          <target state="translated">Определяет имя файла по умолчанию или шаблон имени файла для файла аудита.</target>
+          <target state="translated">Определяет имя файла по умолчанию или шаблон имени файла для файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Format Setup - Control AuditFileName - Property ToolTip</note>
         </trans-unit>
@@ -647,19 +647,19 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 1203412368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the format which is used for exporting the audit file.</source>
-          <target state="translated">Определяет формат, используемый для экспорта файла аудита.</target>
+          <target state="translated">Определяет формат, используемый для экспорта файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control AuditFileExportFormat - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 1347859192 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the comment that is exported to the header of the audit file</source>
-          <target state="translated">Определяет комментарий, который экспортируется в заголовок файла аудита.</target>
+          <target state="translated">Определяет комментарий, который экспортируется в заголовок файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control Header Comment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 1369749204 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the audit file generation will be processed by parallel background jobs.</source>
-          <target state="translated">Определяет, будет ли генерация файлов аудита обрабатываться с помощью параллельных заданий в фоновом режиме.</target>
+          <target state="translated">Определяет, будет ли генерация файлов для аудита обрабатываться с помощью параллельных заданий в фоновом режиме.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control ParallelProcessing - Property ToolTip</note>
         </trans-unit>
@@ -671,7 +671,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 1862936795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if multiple audit files will be generated per month.</source>
-          <target state="translated">Указывает, будет ли сгенерировано несколько файлов аудита (по одному за каждый месяц).</target>
+          <target state="translated">Указывает, будет ли сгенерировано несколько файлов для аудита (по одному за каждый месяц).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control SplitByMonth - Property ToolTip</note>
         </trans-unit>
@@ -683,7 +683,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 2286259903 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether multiple audit files will be generated for each day.</source>
-          <target state="translated">Определяет, будет ли сгенерировано несколько файлов аудита (по одному за каждый день).</target>
+          <target state="translated">Определяет, будет ли сгенерировано несколько файлов для аудита (по одному за каждый день).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control SplitByDate - Property ToolTip</note>
         </trans-unit>
@@ -713,7 +713,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 3518803488 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time when the audit file generation was completed.</source>
-          <target state="translated">Определяет дату и время, когда была завершена генерация файла аудита.</target>
+          <target state="translated">Определяет дату и время, когда была завершена генерация файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control ExecutionEndDateTime - Property ToolTip</note>
         </trans-unit>
@@ -737,13 +737,13 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 3993128796 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the contact that is exported to the header of the audit file</source>
-          <target state="translated">Определяет контакт, который экспортируется в заголовок файла аудита.</target>
+          <target state="translated">Определяет контакт, который экспортируется в заголовок файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control Contact - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 4085528741 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time when the audit file generation was started.</source>
-          <target state="translated">Определяет дату и время, когда была начата генерация файла аудита.</target>
+          <target state="translated">Определяет дату и время, когда была начата генерация файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control ExecutionStartDateTime - Property ToolTip</note>
         </trans-unit>
@@ -755,7 +755,7 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the overall status of one or more audit files being generated.</source>
-          <target state="translated">Определяет общий статус одного или нескольких генерируемых файлов аудита.</target>
+          <target state="translated">Определяет общий статус одного или нескольких генерируемых файлов для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Control Status - Property ToolTip</note>
         </trans-unit>
@@ -791,7 +791,7 @@
         </trans-unit>
         <trans-unit id="Page 3665447164 - Control 2051062043 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default audit file export format code.</source>
-          <target state="translated">Определяет код формата экспорта файлов аудита по умолчанию.</target>
+          <target state="translated">Определяет код формата экспорта файлов для аудита по умолчанию.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Setup - Control AuditFileExportFormatCode - Property ToolTip</note>
         </trans-unit>
@@ -821,7 +821,7 @@
         </trans-unit>
         <trans-unit id="Page 3668181135 - Control 1203412368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the audit file export format to which the standard general ledger accounts are linked.</source>
-          <target state="translated">Определяет формат экспорта файлов аудита, с которым связаны стандартные счета главной книги.</target>
+          <target state="translated">Определяет формат экспорта файлов для аудита, с которым связаны стандартные счета главной книги.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Control AuditFileExportFormat - Property ToolTip</note>
         </trans-unit>
@@ -899,13 +899,13 @@
         </trans-unit>
         <trans-unit id="Page 4169847893 - Control 1203412368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the format which is used for exporting the audit file.</source>
-          <target state="translated">Определяет формат, используемый для экспорта файла аудита.</target>
+          <target state="translated">Определяет формат, используемый для экспорта файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Control AuditFileExportFormat - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4169847893 - Control 1369749204 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the audit file generation will be processed by parallel background jobs.</source>
-          <target state="translated">Определяет, будет ли генерация файлов аудита обрабатываться с помощью параллельных заданий в фоновом режиме.</target>
+          <target state="translated">Определяет, будет ли генерация файлов для аудита обрабатываться с помощью параллельных заданий в фоновом режиме.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Control ParallelProcessing - Property ToolTip</note>
         </trans-unit>
@@ -917,13 +917,13 @@
         </trans-unit>
         <trans-unit id="Page 4169847893 - Control 1862936795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if multiple audit files will be generated per each month.</source>
-          <target state="translated">Указывает, будет ли сгенерировано несколько файлов аудита (по одному за каждый месяц).</target>
+          <target state="translated">Указывает, будет ли сгенерировано несколько файлов для аудита (по одному за каждый месяц).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Control SplitByMonth - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4169847893 - Control 2286259903 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether multiple audit files will be generated for each day.</source>
-          <target state="translated">Определяет, будет ли сгенерировано несколько файлов аудита (по одному за каждый день).</target>
+          <target state="translated">Определяет, будет ли сгенерировано несколько файлов для аудита (по одному за каждый день).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Control SplitByDate - Property ToolTip</note>
         </trans-unit>
@@ -941,7 +941,7 @@
         </trans-unit>
         <trans-unit id="Page 4169847893 - Control 3518803488 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time when the audit file generation was completed.</source>
-          <target state="translated">Определяет дату и время, когда была завершена генерация файла аудита.</target>
+          <target state="translated">Определяет дату и время, когда была завершена генерация файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Control ExecutionEndDateTime - Property ToolTip</note>
         </trans-unit>
@@ -953,19 +953,19 @@
         </trans-unit>
         <trans-unit id="Page 4169847893 - Control 3651544782 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the unique identifier of the audit file export document.</source>
-          <target state="translated">Определяет уникальный идентификатор документа экспорта файла аудита.</target>
+          <target state="translated">Определяет уникальный идентификатор документа экспорта файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Control DocumentId - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4169847893 - Control 4085528741 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time when the audit file generation was started.</source>
-          <target state="translated">Определяет дату и время, когда была начата генерация файла аудита.</target>
+          <target state="translated">Определяет дату и время, когда была начата генерация файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Control ExecutionStartDateTime - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4169847893 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the overall status of one or more audit files being generated.</source>
-          <target state="translated">Определяет общий статус одного или нескольких генерируемых файлов аудита.</target>
+          <target state="translated">Определяет общий статус одного или нескольких генерируемых файлов для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Control Status - Property ToolTip</note>
         </trans-unit>
@@ -1019,25 +1019,25 @@
         </trans-unit>
         <trans-unit id="Page 977616444 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the description of the selected audit file.</source>
-          <target state="translated">Определяет описание выбранного файла аудита.</target>
+          <target state="translated">Определяет описание выбранного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Subpage - Control Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 977616444 - Control 4237402031 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the progress of the generation of the selected audit file.</source>
-          <target state="translated">Определяет ход генерации выбранного файла аудита.</target>
+          <target state="translated">Определяет ход генерации выбранного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Subpage - Control Progress - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 977616444 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of the generation of the selected audit file.</source>
-          <target state="translated">Определяет статус генерации выбранного файла аудита.</target>
+          <target state="translated">Определяет статус генерации выбранного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Subpage - Control Status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 977616444 - Control 892252506 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time when the generation of the selected audit file was completed.</source>
-          <target state="translated">Определяет дату и время, когда была завершена генерация выбранного файла аудита.</target>
+          <target state="translated">Определяет дату и время, когда была завершена генерация выбранного файла для аудита.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Subpage - Control Created Date/Time - Property ToolTip</note>
         </trans-unit>
@@ -1061,7 +1061,7 @@
         </trans-unit>
         <trans-unit id="Page 2053205652 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit Files</source>
-          <target state="translated">Файлы аудита</target>
+          <target state="translated">Файлы для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit Files - Property Caption</note>
         </trans-unit>
@@ -1073,7 +1073,7 @@
         </trans-unit>
         <trans-unit id="Page 2246936125 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format Setup</source>
-          <target state="translated">Конфигурация формата экспорта файлов аудита</target>
+          <target state="translated">Конфигурация формата экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Format Setup - Property Caption</note>
         </trans-unit>
@@ -1085,13 +1085,13 @@
         </trans-unit>
         <trans-unit id="Page 2635072399 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Document</source>
-          <target state="translated">Документ экспорта файлов аудита</target>
+          <target state="translated">Документ экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Doc. Card - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3665447164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Setup</source>
-          <target state="translated">Конфигурация экспорта файлов аудита</target>
+          <target state="translated">Конфигурация экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Setup - Property Caption</note>
         </trans-unit>
@@ -1115,7 +1115,7 @@
         </trans-unit>
         <trans-unit id="Page 4169847893 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Documents</source>
-          <target state="translated">Документы экспорта файлов аудита</target>
+          <target state="translated">Документы экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Audit File Export Documents - Property Caption</note>
         </trans-unit>
@@ -1169,7 +1169,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 1217862704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format</source>
-          <target state="translated">Формат экспорта файлов аудита</target>
+          <target state="translated">Формат экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Audit File Export Format - Property Caption</note>
         </trans-unit>
@@ -1223,7 +1223,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Field 357413000 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Name</source>
-          <target state="translated">Имя файла аудита</target>
+          <target state="translated">Имя файла для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Field Audit File Name - Property Caption</note>
         </trans-unit>
@@ -1289,7 +1289,7 @@
         </trans-unit>
         <trans-unit id="Table 1894989714 - Field 1217862704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format</source>
-          <target state="translated">Формат экспорта файлов аудита</target>
+          <target state="translated">Формат экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit Export Data Type Setup - Field Audit File Export Format - Property Caption</note>
         </trans-unit>
@@ -1313,13 +1313,13 @@
         </trans-unit>
         <trans-unit id="Table 2246936125 - Field 1217862704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format</source>
-          <target state="translated">Формат экспорта файлов аудита</target>
+          <target state="translated">Формат экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Format Setup - Field Audit File Export Format - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2246936125 - Field 357413000 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Name</source>
-          <target state="translated">Имя файла аудита</target>
+          <target state="translated">Имя файла для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Format Setup - Field Audit File Name - Property Caption</note>
         </trans-unit>
@@ -1415,7 +1415,7 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 1217862704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format Code</source>
-          <target state="translated">Код формата экспорта файлов аудита</target>
+          <target state="translated">Код формата экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Audit File Export Format - Property Caption</note>
         </trans-unit>
@@ -1481,7 +1481,7 @@
         </trans-unit>
         <trans-unit id="Table 555467690 - Field 1217862704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format</source>
-          <target state="translated">Формат экспорта файлов аудита</target>
+          <target state="translated">Формат экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table G/L Account Mapping Header - Field Audit File Export Format - Property Caption</note>
         </trans-unit>
@@ -1571,13 +1571,13 @@
         </trans-unit>
         <trans-unit id="Table 746319915 - Field 357413000 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Name</source>
-          <target state="translated">Имя файла аудита</target>
+          <target state="translated">Имя файла для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Line - Field Audit File Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 746319915 - Field 3587329846 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Content</source>
-          <target state="translated">Содержимое файла аудита</target>
+          <target state="translated">Содержимое файла для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Line - Field Audit File Content - Property Caption</note>
         </trans-unit>
@@ -1679,7 +1679,7 @@
         </trans-unit>
         <trans-unit id="Table 555467690 - NamedType 2029889790" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>One or more audit file export documents exist for the mapping. Do you want to remove the mapping?</source>
-          <target state="translated">Для сопоставления существует один или несколько документов экспорта файлов аудита. Удалить сопоставление?</target>
+          <target state="translated">Для сопоставления существует один или несколько документов экспорта файлов для аудита. Удалить сопоставление?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table G/L Account Mapping Header - NamedType AuditFileExportDocExistsErr</note>
         </trans-unit>
@@ -1697,7 +1697,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Header</source>
-          <target state="translated">Заголовок экспорта файлов аудита</target>
+          <target state="translated">Заголовок экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Property Caption</note>
         </trans-unit>
@@ -1709,7 +1709,7 @@
         </trans-unit>
         <trans-unit id="Table 2246936125 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format Setup</source>
-          <target state="translated">Конфигурация формата экспорта файлов аудита</target>
+          <target state="translated">Конфигурация формата экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Format Setup - Property Caption</note>
         </trans-unit>
@@ -1733,7 +1733,7 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Setup</source>
-          <target state="translated">Конфигурация экспорта файлов аудита</target>
+          <target state="translated">Конфигурация экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Property Caption</note>
         </trans-unit>
@@ -1745,13 +1745,13 @@
         </trans-unit>
         <trans-unit id="Table 746319915 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Line</source>
-          <target state="translated">Строка экспорта файлов аудита</target>
+          <target state="translated">Строка экспорта файлов для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Line - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 936908093 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File</source>
-          <target state="translated">Файл аудита</target>
+          <target state="translated">Файл для аудита</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File - Property Caption</note>
         </trans-unit>
