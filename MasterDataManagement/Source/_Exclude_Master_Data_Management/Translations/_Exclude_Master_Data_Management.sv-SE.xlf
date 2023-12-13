@@ -768,7 +768,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3207106980 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a filter on the integration table to control which records can be synchronized with the corresponding records in the business data table that is specified by the Table field.</source>
-          <target state="translated">Anger ett filter för integreringstabellen som ska användas för att kontrollera vilka poster som går att synkronisera med motsvarande poster i affärsdatatabellen som anges i fältet Tabell.</target>
+          <target state="translated">Anger ett filter för integrationstabellen som ska användas för att kontrollera vilka poster som går att synkronisera med motsvarande poster i affärsdatatabellen som anges i fältet Tabell.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property ToolTip</note>
         </trans-unit>
@@ -810,7 +810,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4005701527 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a filter on the business data table in Dynamics 365 to control which records can be synchronized with the corresponding records in the integration table that is specified by the Integration Table ID field.</source>
-          <target state="translated">Anger ett filter för affärsdatatabellen i Dynamics 365 som ska användas för att kontrollera vilka poster som går att synkronisera med motsvarande poster i integreringstabellen som anges i fältet Tabell-ID för integrering.</target>
+          <target state="translated">Anger ett filter för affärsdatatabellen i Dynamics 365 som ska användas för att kontrollera vilka poster som går att synkronisera med motsvarande poster i integrationstabellen som anges i fältet Tabell-ID för integration.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableFilterValue - Property ToolTip</note>
         </trans-unit>
@@ -1014,7 +1014,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 97595311" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This will synchronize all modified records in all integration table mappings. \\The synchronization will run in the background so you can continue with other tasks. \\Do you want to continue?</source>
-          <target state="translated">Detta synkroniserar alla ändrade poster i alla tabellmappningar för integration. \\Synkroniseringen går att köra i bakgrunden så att du kan fortsätta med andra uppgifter. \\Vill du fortsätta?</target>
+          <target state="translated">Detta synkroniserar alla ändrade poster i alla mappningar för integrationstabell. \\Synkroniseringen går att köra i bakgrunden så att du kan fortsätta med andra uppgifter. \\Vill du fortsätta?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SynchronizeModifiedQst</note>
         </trans-unit>
@@ -1026,7 +1026,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 1360988555" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must choose at least one integration table mapping.</source>
-          <target state="translated">Du måste välja minst en tabellmappning för integration.</target>
+          <target state="translated">Du måste välja minst en mappning för integrationstabell.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType NoRecSelectedErr</note>
         </trans-unit>
