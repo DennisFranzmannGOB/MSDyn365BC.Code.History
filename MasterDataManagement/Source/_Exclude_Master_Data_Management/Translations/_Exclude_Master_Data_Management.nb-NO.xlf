@@ -161,7 +161,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 2618068198" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>One or more of the selected integration table mappings is custom.\\Restoring the default table mapping for a custom table mapping will restore all custom table mappings to their default.\\Do you want to continue?</source>
-          <target state="translated">Én eller flere av de valgte tilordningene for integreringstabell er tilpasset.\\Hvis du gjenoppretter standard tabelltilordning for en egendefinert tabelltilordning, gjenopprettes alle tilpassede tabelltilordninger til standard.\\Vil du fortsette?</target>
+          <target state="translated">En eller flere av de valgte integreringstabelltilknytningene er tilpasset.\\Hvis du gjenoppretter standard tabelltilknytning for en egendefinert tabelltilknytning, gjenopprettes alle tilpassede tabelltilknytninger til standard.\\Vil du fortsette?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType ResetAllCustomIntegrationTableMappingsLbl</note>
         </trans-unit>
@@ -432,7 +432,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Resets the integration table mappings and synchronization jobs to the default values for a connection with the source company. All current mappings are deleted and recreated.</source>
-          <target state="translated">Tilbakestiller tildelingene for integreringstabellen og synkroniseringsprosjektene til standardverdier for en tilkobling til kildeselskapet. Alle nåværende tildelinger blir slettet og opprettet på nytt.</target>
+          <target state="translated">Tilbakestiller integreringstabelltilknytningene og synkroniseringsprosjektene til standardverdier for en tilkobling til kildeselskapet. Alle nåværende tilknytninger blir slettet og opprettet på nytt.</target>
           <note from="Developer" annotates="general" priority="2">Business Central is the name of a Microsoft Service and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property ToolTip</note>
         </trans-unit>
@@ -744,7 +744,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the integration table mapping entry.</source>
-          <target state="translated">Angir navnet på tildelingsoppføringen i integreringstabellen.</target>
+          <target state="translated">Angir navnet på oppføringen i integreringstabelltilknytningen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -1014,7 +1014,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 97595311" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This will synchronize all modified records in all integration table mappings. \\The synchronization will run in the background so you can continue with other tasks. \\Do you want to continue?</source>
-          <target state="translated">Dette synkroniserer alle endrede poster i alle tildelinger for integreringstabell. \\Synkroniseringen kjøres i bakgrunnen slik at du kan fortsette med andre oppgaver. \\Vil du fortsette?</target>
+          <target state="translated">Dette synkroniserer alle endrede poster i alle integreringstabelltilknytninger. \\Synkroniseringen kjører i bakgrunnen slik at du kan fortsette med andre oppgaver. \\Vil du fortsette?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SynchronizeModifiedQst</note>
         </trans-unit>
@@ -1026,7 +1026,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 1360988555" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must choose at least one integration table mapping.</source>
-          <target state="translated">Du må velge minst én tildeling for integreringstabell.</target>
+          <target state="translated">Du må velge minst én integreringstabelltilknytning.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType NoRecSelectedErr</note>
         </trans-unit>
