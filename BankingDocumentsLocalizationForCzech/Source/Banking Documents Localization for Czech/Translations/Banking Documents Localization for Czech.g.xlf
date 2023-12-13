@@ -5254,7 +5254,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card CZB - Control Foreign Payment Orders CZB - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2498504260 - Control 3892663200 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
-          <source>Specifies the description which will be transfered into payment order line</source>
+          <source>Specifies the description which will be transfered into payment order line. Placeholders: %1 = document type, %2 = document no., %3 = partner no., %4 = partner name, %5 = external document no.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Bank Account Card CZB - Control Payment Order Line Descr. CZB - Property ToolTip</note>
         </trans-unit>

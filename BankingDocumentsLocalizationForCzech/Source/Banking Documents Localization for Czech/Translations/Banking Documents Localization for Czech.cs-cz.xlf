@@ -4224,8 +4224,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 2292249509</note>
         </trans-unit>
         <trans-unit id="PageExtension 2498504260 - Control 3892663200 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description which will be transfered into payment order line</source>
-          <target state="translated">Určuje popis, který bude převeden do řádku platebního příkazu.</target>
+          <source>Specifies the description which will be transfered into payment order line. Placeholders: %1 = document type, %2 = document no., %3 = partner no., %4 = partner name, %5 = external document no.</source>
+          <target state="translated">Určuje popis, který bude převeden na řádek platebního příkazu. Zástupné symboly: %1 = typ dokladu, %2 = číslo dokladu, %3 = číslo partnera, %4 = název partnera, %5 = číslo externího dokladu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2292249509</note>

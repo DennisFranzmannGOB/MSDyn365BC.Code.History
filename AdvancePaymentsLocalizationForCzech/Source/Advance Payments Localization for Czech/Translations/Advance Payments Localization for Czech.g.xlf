@@ -7543,15 +7543,20 @@
           <note from="Developer" annotates="general" priority="2">%1 = Advance Letter No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Payment Order Line CZZ - NamedType AdvanceLetterAlreadyAppliedQst</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1900491339 - NamedType 934718213" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1900491339">
+          <source>Advance %1</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Advance No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Payment Order Line CZZ - NamedType AdvanceNoTxt</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1900491339 - NamedType 4122567990" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1900491339">
+          <source>Advance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Payment Order Line CZZ - NamedType AdvanceTxt</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1900491339 - Field 58856918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2707096979">
           <source>Purchase Advance Letter No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Payment Order Line CZZ - Field Purch. Advance Letter No. CZZ - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1900491339 - Field 58856918 - Method 2126772001 - NamedType 1745332564" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1900491339">
-          <source>Purchase Advance %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Purchase Advance Letter No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Payment Order Line CZZ - Field Purch. Advance Letter No. CZZ - Method OnValidate - NamedType LineDescriptionTxt</note>
         </trans-unit>
         <trans-unit id="TableExtension 230743198 - Field 2060499916 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4056922900">
           <source>Advance Letter No.</source>
