@@ -3258,7 +3258,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 2406105719 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether you want to synchronize item attributes to Shopify.</source>
-          <target state="translated">Anger om du vill synkronisera artikelns attribut till Shopify.</target>
+          <target state="translated">Anger om du vill synkronisera artikelattributet till Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control SyncItemAttributes - Property ToolTip</note>
         </trans-unit>
@@ -9570,7 +9570,7 @@
         </trans-unit>
         <trans-unit id="Table 4104547265 - Field 192144605 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Fulfillment Order Id</source>
-          <target state="translated">Shopify-ID för uppfyllelse order</target>
+          <target state="translated">Shopify-ID för uppfyllelseorder</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy FulFillment Order Header - Field Shopify Fulfillment Order Id - Property Caption</note>
         </trans-unit>
