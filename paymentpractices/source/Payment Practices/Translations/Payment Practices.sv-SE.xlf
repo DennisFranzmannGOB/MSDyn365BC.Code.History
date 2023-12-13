@@ -77,7 +77,7 @@
         </trans-unit>
         <trans-unit id="Table 1892886827 - Field 91730313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Size Code</source>
-          <target state="translated">Kod för företagsstorleks</target>
+          <target state="translated">Kod för företagsstorlek</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Data - Field Company Size Code - Property Caption</note>
         </trans-unit>
@@ -269,7 +269,7 @@
         </trans-unit>
         <trans-unit id="Table 3064368449 - Field 91730313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Size Code</source>
-          <target state="translated">Kod för företagsstorleks</target>
+          <target state="translated">Kod för företagsstorlek</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Line - Field Company Size Code - Property Caption</note>
         </trans-unit>
@@ -503,7 +503,7 @@
         </trans-unit>
         <trans-unit id="Page 1141634581 - Control 91730313 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the company size code of the vendor that is the source for this entry.</source>
-          <target state="translated">Anger företagsstorlekskoden för leverantören som är källan till den här transaktionen.</target>
+          <target state="translated">Anger koden för företagsstorlek för leverantören som är källan till den här transaktionen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Data List - Control Company Size Code - Property ToolTip</note>
         </trans-unit>
