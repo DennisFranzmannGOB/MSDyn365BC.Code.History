@@ -58,6 +58,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Action GenerateFile - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1998412429 - Action 1139572727 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload the file in SAF-T format.</source>
+          <target state="translated">Upload filen i SAF-T-format.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Imported SAF-T Files DK - Action UploadFile - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1998412429 - Action 1139572727 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import SAF-T File</source>
+          <target state="translated">Indlæs SAF-T-fil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Imported SAF-T Files DK - Action UploadFile - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1969317913 - Control 1277537621 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the amount calculation method for balance sheet accounts.</source>
           <target state="translated">Angiver beløbsberegningsmetoden for balancekonti.</target>
@@ -130,6 +142,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Control StartingDate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1998412429 - Control 2898874155 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name with which the file was uploaded.</source>
+          <target state="translated">Angiver navnet på den fil, der er uploaded.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Imported SAF-T Files DK - Control SAFTFileName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1998412429 - Control 404159531 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which the file was uploaded.</source>
+          <target state="translated">Angiver datoen, hvor filen blev uploadet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Imported SAF-T Files DK - Control FileUploadDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1998412429 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the file.</source>
+          <target state="translated">Angiver nummeret på filen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Imported SAF-T Files DK - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1998412429 - Control 4261237773 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the size of the file.</source>
+          <target state="translated">Angiver filens størrelse.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Imported SAF-T Files DK - Control SAFTFileSize - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1969317913 - NamedType 4276290099" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Please select an initialized mapping header with appropriate period first.</source>
           <target state="translated">Vælg et initialiseret tilknytningshoved med den relevante periode først.</target>
@@ -141,6 +177,72 @@
           <target state="translated">RB-regnskabsfil</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page RB Accounting File - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1998412429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import SAF-T Files</source>
+          <target state="translated">Indlæs SAF-T-filer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Imported SAF-T Files DK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - Field 2022107547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File No.</source>
+          <target state="translated">Filenr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - Field File No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - Field 2166844813 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Size</source>
+          <target state="translated">Filstørrelse</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - Field File Size - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - Field 2268965417 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Content</source>
+          <target state="translated">Filindhold</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - Field File Content - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - Field 2640234697 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload Date</source>
+          <target state="translated">Uploadet d.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - Field Upload Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - Field 804481195 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Name</source>
+          <target state="translated">Filnavn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - Field File Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - NamedType 3281259537" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Save SAF-T file</source>
+          <target state="translated">Gem SAF-T-fil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - NamedType SaveFileDialogTxt</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - NamedType 3666587178" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The file cannot be downloaded because it does not have any content.</source>
+          <target state="translated">Filen kan ikke downloades, fordi den ikke har noget indhold.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - NamedType DownloadFileContentErr</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - NamedType 4126238723" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The file cannot be uploaded because it does not have any content.</source>
+          <target state="translated">Filen kan ikke uploades, fordi den ikke har noget indhold.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - NamedType UploadFileContentErr</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - NamedType 850786343" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload SAF-T file</source>
+          <target state="translated">Upload SAF-T-fil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - NamedType UploadFileDialogTxt</note>
+        </trans-unit>
+        <trans-unit id="Table 4119152972 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Imported SAF-T File DK</source>
+          <target state="translated">Indlæst SAF-T-fil DK</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Imported SAF-T File DK - Property Caption</note>
         </trans-unit>
       </group>
     </body>

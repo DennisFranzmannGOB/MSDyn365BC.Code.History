@@ -56,6 +56,13 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1088899281</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1088899281 - Change 3430636682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the company's CVR number. Once the CVR number that is registered in Nemhandelsregisteret is set, it cannot changed.</source>
+          <target state="translated">Angiver virksomhedens CVR-nummer. Når CVR-nummeret, der er registreret i Nemhandelsregisteret, er angivet, kan det ikke ændres.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3469146285</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3466512004 - NamedType 1284946795" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Nemhandel Check Company Status</source>
           <target state="translated">Nemhandel Tjek virksomhedsstatus</target>
@@ -111,6 +118,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3297944416</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1088899281 - NamedType 1354964366" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration No. cannot be changed when CVR number is registered in Nemhandelsregisteret.</source>
+          <target state="translated">Registreringsnr. kan ikke ændres, når CVR-nummer er registreret i Nemhandelsregisteret.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 1088899281</note>
         </trans-unit>
         <trans-unit id="TableExtension 1088899281 - Field 3647392728 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Nemhandel Status Check DT</source>

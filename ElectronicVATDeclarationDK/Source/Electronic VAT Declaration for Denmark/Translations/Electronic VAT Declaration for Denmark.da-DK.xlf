@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Table 138257382 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Elec. VAT Decl. Communication</source>
-          <target state="translated">Meddelelse om elektronisk moms inkl.</target>
+          <target state="translated">Meddelelse om elektronisk momsafgivelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Decl. Communication - Property Caption</note>
         </trans-unit>
@@ -17,7 +17,7 @@
         </trans-unit>
         <trans-unit id="Table 138257382 - Field 1768140843 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Related VAT Return No.</source>
-          <target state="translated">Momsafgivelsesnr.</target>
+          <target state="translated">Momsangivelsesnr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Decl. Communication - Field Related VAT Return No. - Property Caption</note>
         </trans-unit>
@@ -59,7 +59,7 @@
         </trans-unit>
         <trans-unit id="Table 3030497628 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Elec. VAT Decl. Parameters</source>
-          <target state="translated">Parametre for moms inkl. moms</target>
+          <target state="translated">Parametre for elektronisk momsafgivelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Decl. Parameters - Property Caption</note>
         </trans-unit>
@@ -95,7 +95,7 @@
         </trans-unit>
         <trans-unit id="Table 1923262567 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Elec. VAT Decl. Setup</source>
-          <target state="translated">Opsætning af elektronisk moms</target>
+          <target state="translated">Opsætning af elektronisk momsafgivelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Decl. Setup - Property Caption</note>
         </trans-unit>
@@ -131,13 +131,13 @@
         </trans-unit>
         <trans-unit id="Table 1923262567 - Field 581804001 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>ERP See Number</source>
-          <target state="translated">ERP Se nummer</target>
+          <target state="translated">ERP See-nummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Decl. Setup - Field ERP See Number - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1923262567 - Field 2554952325 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get VAT Return Periods Enpdoint</source>
-          <target state="translated">Hent momsangivelsesperioder</target>
+          <target state="translated">Hent slutpunkt for momsangivelsesperioder</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Decl. Setup - Field Get Periods Enpdoint - Property Caption</note>
         </trans-unit>
@@ -167,13 +167,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 2132353356 - NamedType 180942322" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The report has been successfully accepted.</source>
-          <target state="translated">Rapporten blev accepteret.</target>
+          <target state="translated">Rapporten blev genereret.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Check Status - NamedType ReportAcceptedMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 2132353356 - NamedType 2390285027" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The report was rejected. To find out why, download the response message and check the attached documents.</source>
-          <target state="translated">Rapporten blev forkastet. Download svarmeddelelsen, og kontroller de vedhæftede dokumenter for at finde svaret.</target>
+          <target state="translated">Rapporten blev forkastet. Download svarmeddelelsen, og kontrollér de vedhæftede dokumenter for at finde årsagen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Check Status - NamedType ReportRejectedMsg</note>
         </trans-unit>
@@ -197,7 +197,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4267795844 - NamedType 1880335692" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service has rejected authentication. Make sure you are using correct certificate, that has been registered with SKAT</source>
-          <target state="translated">Servicen har afvist godkendelse. Sørg for, at du bruger korrekt certifikat, der er registreret hos SKAT</target>
+          <target state="translated">Servicens har afvist godkendelse. Sørg for, at du bruger korrekt certifikat, der er registreret hos SKAT</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Http Comm. - NamedType CertificateErr</note>
         </trans-unit>
@@ -227,7 +227,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4267795844 - NamedType 465901996" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Statement draft is not approved yet, please log in to your SKAT.DK and approve it.</source>
-          <target state="translated">Er momsopgørelseskladden ikke godkendt endnu. Du skal logge ind på din SKAT. DK og godkende det.</target>
+          <target state="translated">Momsopgørelseskladden er ikke godkendt endnu. Du skal logge ind på din SKAT.DK og godkende det.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Http Comm. - NamedType Error4810Err</note>
         </trans-unit>
@@ -245,7 +245,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4267795844 - NamedType 3041832239" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service has returned Error code %1: %2</source>
-          <target state="translated">Servicen er returneret Fejlkode %1: %2</target>
+          <target state="translated">Servicen har returneret fejlkode %1: %2</target>
           <note from="Developer" annotates="general" priority="2">%1 - error code, %2 - error description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Http Comm. - NamedType ErrorTemplateErr</note>
         </trans-unit>
@@ -263,7 +263,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3277704362 - NamedType 816500046" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Return draft submitted successfully. You need confirm the draft as final on skat.dk website.\Do you want to open the submitted draft in your browser?</source>
-          <target state="translated">Momsangivelseskladden er indsendt uden fejl. Du skal bekræfte kladden som færdig på skat.dk websted.\Vil du åbne den indsendte kladde i din browser?</target>
+          <target state="translated">Momsangivelseskladden er indsendt. Du skal bekræfte kladden som færdig på webstedet skat.dk.\Vil du åbne den indsendte kladde i din browser?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Submit - NamedType SubmissionSuccessfulQst</note>
         </trans-unit>
@@ -323,19 +323,19 @@
         </trans-unit>
         <trans-unit id="Page 2528365561 - Control 1093055731 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of the request.</source>
-          <target state="translated">Angiver anmodningstypen.</target>
+          <target state="translated">Angiver typen af anmodning.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Elec. VAT Decl. Comm. Logs - Control Request Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2528365561 - Control 1280979054 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the unique ID of the response transaction.</source>
-          <target state="translated">Angiver diagrammets entydige id.</target>
+          <target state="translated">Angiver svartransaktionens entydige id.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Elec. VAT Decl. Comm. Logs - Control Response Transaction ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2528365561 - Control 2462979715 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the time when the request was sent.</source>
-          <target state="translated">Angiver dato og tidspunktet for afsendelse af notifikationen.</target>
+          <target state="translated">Angiver dato og tidspunktet for afsendelse af anmodningen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Elec. VAT Decl. Comm. Logs - Control TimeSent - Property ToolTip</note>
         </trans-unit>
@@ -359,13 +359,13 @@
         </trans-unit>
         <trans-unit id="Page 2528365561 - Action 2702945824 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download the XML Response which was received from SKAT.DK</source>
-          <target state="translated">Download XML-svaret, som blev sendt til SKAT.DK</target>
+          <target state="translated">Download XML-svaret, som blev modtaget fra SKAT.DK</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Elec. VAT Decl. Comm. Logs - Action DownloadResponseBLOB - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2528365561 - Action 2702945824 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download Response</source>
-          <target state="translated">Downloadsvar</target>
+          <target state="translated">Download svar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Elec. VAT Decl. Comm. Logs - Action DownloadResponseBLOB - Property Caption</note>
         </trans-unit>
@@ -389,7 +389,7 @@
         </trans-unit>
         <trans-unit id="Page 1923262567 - Control 581804001 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the SEE number used to report the VAT Return to service.</source>
-          <target state="translated">Angiver det SEE-nummer, der bruges til at rapportere momsangivelsen til retur til service.</target>
+          <target state="translated">Angiver det SEE-nummer, der bruges til at rapportere momsangivelsen til service.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Elec. VAT Decl. Setup - Control ERP See Number - Property ToolTip</note>
         </trans-unit>
