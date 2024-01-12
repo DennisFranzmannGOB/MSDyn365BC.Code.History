@@ -8506,7 +8506,7 @@
         </trans-unit>
         <trans-unit id="Page 1847243994 - Control 3707875720 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Related entities share a field, typically an identifier such as its name, code, or ID, with the source entity. When adding a related entity the list is filtered to predefined relations that are available. To define a relation, if you know the shared field, you can remove the filtering and define the relation.​</source>
-          <target state="translated">Liittyvät objektit jakavat lähdeobjektin kanssa kentän, yleensä tunnisteen, kuten sen nimen, koodin tai tunnuksen. Kun liittyvä objekti lisätään, luettelo suodatetaan siten, että siinä näkyvät käytettävissä olevat etukäteen määritetyt suhteet. Jos haluat määrittää suhteen ja tiedät jaetun kentät, voit poistaa suodatuksen ja määrittää suhteen.</target>
+          <target state="translated">Liittyvät objektit jakavat lähdeobjektin kanssa kentän, yleensä tunnisteen, kuten sen nimen, koodin tai tunnuksen. Kun liittyvä objekti lisätään, luettelo suodatetaan siten, että siinä näkyvät käytettävissä olevat etukäteen määritetyt suhteet. Jos haluat määrittää suhteen ja tiedät jaetun kentän, voit poistaa suodatuksen ja määrittää suhteen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Word Templates Related Edit - Control RelatedEntityOptions - Property Caption</note>
         </trans-unit>

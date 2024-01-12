@@ -5075,7 +5075,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3210053793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "id" cannot be changed.</source>
-          <target state="translated">Detta id kan inte ändras.</target>
+          <target state="translated">ID:t kan inte ändras.</target>
           <note from="Developer" annotates="general" priority="2">id is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CannotChangeIDErr</note>
         </trans-unit>
@@ -5099,13 +5099,13 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 1805429782" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyCode" does not match to a Currency.</source>
-          <target state="translated">Denna currencyCode matchar ingen valuta.</target>
+          <target state="translated">CurrencyCode matchar ingen valuta.</target>
           <note from="Developer" annotates="general" priority="2">currencyCode is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CurrencyCodeDoesNotMatchACurrencyErr</note>
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">Detta currencyId matchar ingen valuta.</target>
+          <target state="translated">CurrencyId matchar ingen valuta.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -5123,7 +5123,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 1940554256" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "invoiceId" does not match to an Invoice.</source>
-          <target state="translated">Detta invoiceId matchar inte en faktura.</target>
+          <target state="translated">InvoiceId matchar inte en faktura.</target>
           <note from="Developer" annotates="general" priority="2">invoiceId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType InvoiceIdDoesNotMatchAnInvoiceErr</note>
         </trans-unit>
@@ -5141,7 +5141,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 2002735526" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "paymentTermsId" does not match to a Payment Terms.</source>
-          <target state="translated">Detta paymentTermsId matchar inget betalningsvillkor.</target>
+          <target state="translated">PaymentTermsId matchar inget betalningsvillkor.</target>
           <note from="Developer" annotates="general" priority="2">paymentTermsId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType PaymentTermsIdDoesNotMatchAPaymentTermsErr</note>
         </trans-unit>
@@ -5165,7 +5165,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">Detta shipmentMethodId matchar inget utleveransvillkor.</target>
+          <target state="translated">ShipmentMethodId matchar inget utleveransvillkor.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>

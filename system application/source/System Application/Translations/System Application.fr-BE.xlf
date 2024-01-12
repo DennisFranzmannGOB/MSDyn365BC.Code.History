@@ -13950,7 +13950,7 @@
         </trans-unit>
         <trans-unit id="Page 4001231554 - Control 1330212104 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>2. Choose ‘Get apps’, then search for and add ‘Microsoft Dynamics Office Add-in´.</source>
-          <target state="translated">2. Sélectionnez « Obtenir des applications », puis recherchez et ajoutez « Macro complémentaire Office Microsoft Dynamics ».</target>
+          <target state="translated">2. Sélectionnez 'Obtenir des applications', puis recherchez et ajoutez 'Microsoft Dynamics Office Add-in'.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Control ConfigureMicrosoft365Step2 - Property InstructionalText</note>
         </trans-unit>
@@ -16819,7 +16819,7 @@
         </trans-unit>
         <trans-unit id="Page 2638830259 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>License configuration allows you to set up the default permissions that new users will get when accessing the system.</source>
-          <target state="translated">La configuration de la licence vous permet de configurer les autorisations par défaut que les nouveaux utilisateurs obtiendront lors de l’accès au système.</target>
+          <target state="translated">La configuration de licence vous permet de configurer les autorisations par défaut que les nouveaux utilisateurs obtiendront lors de l’accès au système.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Property AboutText</note>
         </trans-unit>

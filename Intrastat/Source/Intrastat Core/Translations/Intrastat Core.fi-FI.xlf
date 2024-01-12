@@ -971,7 +971,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 1001138814 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Intrastat contact type.</source>
-          <target state="translated">Määrittää Intrastat-yhteyshenkilön tyypin.</target>
+          <target state="translated">Määrittää Intrastat-kontaktin tyypin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Intrastat Contact Type - Property ToolTip</note>
         </trans-unit>
@@ -995,7 +995,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 1451650335 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Intrastat contact.</source>
-          <target state="translated">Määrittää Intrastat-yhteyshenkilön.</target>
+          <target state="translated">Määrittää Intrastat-kontaktin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Intrastat Contact No. - Property ToolTip</note>
         </trans-unit>
@@ -1145,7 +1145,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 1001138814 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Intrastat contact type.</source>
-          <target state="translated">Määrittää Intrastat-yhteyshenkilön tyypin.</target>
+          <target state="translated">Määrittää Intrastat-kontaktin tyypin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Intrastat Contact Type - Property ToolTip</note>
         </trans-unit>
@@ -1192,7 +1192,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 1451650335 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Intrastat contact.</source>
-          <target state="translated">Määrittää Intrastat-yhteyshenkilön.</target>
+          <target state="translated">Määrittää Intrastat-kontaktin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Intrastat Contact No. - Property ToolTip</note>
         </trans-unit>
