@@ -221,7 +221,7 @@
         </trans-unit>
         <trans-unit id="Table 2670224048 - Field 4242196510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retail - Gen. Prod. Posting Group</source>
-          <target state="translated">Detalj – gen. varebokføringsgruppe</target>
+          <target state="translated">Detaljhandel – varebokføringsgruppe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Manufacturing Demo Data Setup - Field Retail Code - Property Caption</note>
         </trans-unit>
@@ -503,7 +503,7 @@
         </trans-unit>
         <trans-unit id="Table 1613625135 - Field 4242196510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retail - Gen. Prod. Posting Group</source>
-          <target state="translated">Detaljhandel – gen. prod.bokføringsgruppe</target>
+          <target state="translated">Detaljhandel – varebokføringsgruppe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Whse Demo Data Setup - Field Retail Code - Property Caption</note>
         </trans-unit>
@@ -1487,7 +1487,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3220894869 - NamedType 1262072474" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Direct Cost Applied, Retail</source>
-          <target state="translated">Utlignet direkte kostnad, ferdigv.</target>
+          <target state="translated">Utl. kjøpsr/prod.kost – detalj</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common GL Account - NamedType DirectCostAppliedRetailLbl</note>
         </trans-unit>
@@ -1697,7 +1697,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1485704842 - NamedType 2939465930" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Other customers and vendors (not EU)</source>
-          <target state="translated">Andre kunder og lev. (ikke EU)</target>
+          <target state="translated">Andre kunder og leverandører (ikke EU)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Posting Group - NamedType ExportCustomerVendorLbl</note>
         </trans-unit>
