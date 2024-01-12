@@ -227,7 +227,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3522532737 - NamedType 3683577878" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify a starting date.</source>
-          <target state="translated">Aloituspäivämäärä on määritettävä.</target>
+          <target state="translated">Sinun tulee määrittää Aloituspvm.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit Mapping Helper - NamedType StartingDateNotFilledErr</note>
         </trans-unit>
@@ -1685,7 +1685,7 @@
         </trans-unit>
         <trans-unit id="Table 555467690 - NamedType 2715514529" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The starting date is later than the ending date.</source>
-          <target state="translated">Aloituspäivämäärä on myöhäisempi kuin lopetuspäivämäärä.</target>
+          <target state="translated">Aloituspäivä on myöhäisempi kuin lopetuspäivä.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table G/L Account Mapping Header - NamedType DatesAreNotCorrectErr</note>
         </trans-unit>
