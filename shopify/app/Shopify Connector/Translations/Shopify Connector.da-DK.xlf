@@ -3282,7 +3282,7 @@
         </trans-unit>
         <trans-unit id="Page 3706164926 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Slet poster, som er ældre end 7 dage</target>
+          <target state="translated">Slet poster ældre end syv dage</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Action Delete7days - Property Caption</note>
         </trans-unit>
@@ -5963,7 +5963,7 @@
         </trans-unit>
         <trans-unit id="Page 3553230413 - Control 568743302 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Item No. field.</source>
-          <target state="translated">Angiver værdien for feltet Varenr.</target>
+          <target state="translated">Angiver værdien i feltet Varenr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Return Lines - Control Item No. - Property ToolTip</note>
         </trans-unit>
@@ -6795,7 +6795,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 2892191201 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the sum of tax amounts on all lines in the document.</source>
-          <target state="translated">Angiver summen af skattebeløb på alle linjer i bilaget.</target>
+          <target state="translated">Angiver summen af momsbeløb på alle linjer i bilaget.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control VATAmount - Property ToolTip</note>
         </trans-unit>
@@ -7395,7 +7395,7 @@
         </trans-unit>
         <trans-unit id="Page 873703241 - Control 568743302 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Item No. field.</source>
-          <target state="translated">Angiver værdien for feltet Varenr.</target>
+          <target state="translated">Angiver værdien i feltet Varenr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Refund Lines - Control Item No. - Property ToolTip</note>
         </trans-unit>
