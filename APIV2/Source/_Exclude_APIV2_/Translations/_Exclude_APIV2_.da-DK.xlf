@@ -113,7 +113,7 @@
         </trans-unit>
         <trans-unit id="Page 3262323309 - Control 1867129195 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Change</source>
-          <target state="translated">Nettoændring</target>
+          <target state="translated">Bevægelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounts - Control netChange - Property Caption</note>
         </trans-unit>
@@ -1523,7 +1523,7 @@
         </trans-unit>
         <trans-unit id="Page 2291221921 - Control 1867129195 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Change</source>
-          <target state="translated">Nettoændring</target>
+          <target state="translated">Bevægelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Cash Flow Statement - Control netChange - Property Caption</note>
         </trans-unit>
@@ -2375,7 +2375,7 @@
         </trans-unit>
         <trans-unit id="Page 1278155290 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">"shipmentMethodId" matcher ikke en leveringsmetode.</target>
+          <target state="translated">"shipmentMethodId" matcher ikke en forsendelsesmetode.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Customers - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -3215,7 +3215,7 @@
         </trans-unit>
         <trans-unit id="Page 3591290529 - Control 1867129195 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Change</source>
-          <target state="translated">Nettoændring</target>
+          <target state="translated">Bevægelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Income Statement - Control netChange - Property Caption</note>
         </trans-unit>
@@ -4763,7 +4763,7 @@
         </trans-unit>
         <trans-unit id="Page 2715273378 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Nettobeløb inkl. moms</target>
+          <target state="translated">Samlet beløb ekskl. moms</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoice Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -4865,7 +4865,7 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Betal til-leverandøren blev ikke fundet.</target>
+          <target state="translated">Betal-til-kreditor blev ikke fundet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>
@@ -4907,13 +4907,13 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Leverandøradresse linje 1</target>
+          <target state="translated">Køb fra-adresse linje 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Leverandøradresse linje 2</target>
+          <target state="translated">Kreditoradresselinje 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5399,7 +5399,7 @@
         </trans-unit>
         <trans-unit id="Page 1779564587 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Nettobeløb inkl. moms</target>
+          <target state="translated">Samlet beløb ekskl. moms</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Order Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -5513,13 +5513,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 259424556" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The buy-from vendor cannot be found.</source>
-          <target state="translated">Leverandøren blev ikke fundet.</target>
+          <target state="translated">Køb-fra-kreditoren blev ikke fundet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CouldNotFindBuyFromVendorErr</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Betal til-leverandøren blev ikke fundet.</target>
+          <target state="translated">Betal-til-kreditor blev ikke fundet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>
@@ -5561,7 +5561,7 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">"shipmentMethodId" matcher ikke en leveringsmetode.</target>
+          <target state="translated">"shipmentMethodId" matcher ikke en forsendelsesmetode.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -5573,13 +5573,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Leverandøradresse linje 1</target>
+          <target state="translated">Køb fra-adresse linje 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Leverandøradresse linje 2</target>
+          <target state="translated">Kreditoradresselinje 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5675,13 +5675,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 2839400550 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Address Line 1</source>
-          <target state="translated">Betalingsadresselinje 1</target>
+          <target state="translated">Betal-til-adresselinje 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control payToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 926310699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Address Line 2</source>
-          <target state="translated">Betalingsadresse linje 2</target>
+          <target state="translated">Betal-til-adresselinje 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control payToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5885,13 +5885,13 @@
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Leverandøradresse linje 1</target>
+          <target state="translated">Køb fra-adresse linje 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Leverandøradresse linje 2</target>
+          <target state="translated">Kreditoradresselinje 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -6149,7 +6149,7 @@
         </trans-unit>
         <trans-unit id="Page 1678353562 - Control 1867129195 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Change</source>
-          <target state="translated">Nettoændring</target>
+          <target state="translated">Bevægelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Retained Earnings - Control netChange - Property Caption</note>
         </trans-unit>
@@ -6323,7 +6323,7 @@
         </trans-unit>
         <trans-unit id="Page 1420007888 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Nettobeløb inkl. moms</target>
+          <target state="translated">Samlet beløb ekskl. moms</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Mem Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -6533,7 +6533,7 @@
         </trans-unit>
         <trans-unit id="Page 3006414751 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">"shipmentMethodId" matcher ikke en leveringsmetode.</target>
+          <target state="translated">"shipmentMethodId" matcher ikke en forsendelsesmetode.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -6863,7 +6863,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - NamedType 3577643735" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The value for "sequence" cannot be modified. Delete and insert the line again.</source>
-          <target state="translated">Værdien for "sequence" kan ikke ændres. Slet, og indsæt linjen igen.</target>
+          <target state="translated">Værdien for sekvensen kan ikke ændres. Slet, og indsæt linjen igen.</target>
           <note from="Developer" annotates="general" priority="2">sequence is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - NamedType CannotChangeLineNoErr</note>
         </trans-unit>
@@ -6995,7 +6995,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Nettobeløb inkl. moms</target>
+          <target state="translated">Samlet beløb ekskl. moms</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -7109,7 +7109,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 3210053793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The id cannot be changed.</source>
-          <target state="translated">Id'et kan ikke ændres.</target>
+          <target state="translated">"id" kan ikke ændres.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType CannotChangeIDErr</note>
         </trans-unit>
@@ -7199,7 +7199,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">"shipmentMethodId" matcher ikke en leveringsmetode.</target>
+          <target state="translated">"shipmentMethodId" matcher ikke en forsendelsesmetode.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -7727,7 +7727,7 @@
         </trans-unit>
         <trans-unit id="Page 957521806 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Nettobeløb inkl. moms</target>
+          <target state="translated">Samlet beløb ekskl. moms</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Order Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -7901,7 +7901,7 @@
         </trans-unit>
         <trans-unit id="Page 48856144 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">"shipmentMethodId" matcher ikke en leveringsmetode.</target>
+          <target state="translated">"shipmentMethodId" matcher ikke en forsendelsesmetode.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -8393,7 +8393,7 @@
         </trans-unit>
         <trans-unit id="Page 505573178 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Nettobeløb inkl. moms</target>
+          <target state="translated">Samlet beløb ekskl. moms</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quote Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -8543,7 +8543,7 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">"shipmentMethodId" matcher ikke en leveringsmetode.</target>
+          <target state="translated">"shipmentMethodId" matcher ikke en forsendelsesmetode.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>

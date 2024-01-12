@@ -2650,7 +2650,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2480824916 - Method 1340944587 - NamedType 4132244079" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 can not be empty</source>
-          <target state="translated">Поле %1 не может быть пустым</target>
+          <target state="translated">Поле "%1" не может быть пустым</target>
           <note from="Developer" annotates="general" priority="2">%1 = Variable Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS URI Helper - Method TestConstructUrlParameter - NamedType ValueCanNotBeEmptyErr</note>
         </trans-unit>
@@ -8407,7 +8407,7 @@
         </trans-unit>
         <trans-unit id="Page 2303806024 - Control 639974159 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the display language, on all devices. You must sign out and then sign in again for the change to take effect.</source>
-          <target state="translated">Определяет язык отображения на всех устройствах. Чтобы изменения вступили в силу, нужно выйти из системы и снова войти в нее.</target>
+          <target state="translated">Определяет язык интерфейса на всех устройствах. Чтобы изменения вступили в силу, нужно выйти из системы и снова войти в нее.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Settings - Control LanguageName - Property ToolTip</note>
         </trans-unit>
@@ -8575,7 +8575,7 @@
         </trans-unit>
         <trans-unit id="Page 2491626637 - Control 1256520770 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the App.</source>
-          <target state="translated">Определяет имя приложения.</target>
+          <target state="translated">Определяет название приложения.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extn Deployment Status Detail - Control App Name - Property ToolTip</note>
         </trans-unit>
@@ -9906,7 +9906,7 @@
         </trans-unit>
         <trans-unit id="Page 3170013184 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the app.</source>
-          <target state="translated">Определяет имя приложения.</target>
+          <target state="translated">Определяет название приложения.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Deployment Status - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -10620,13 +10620,13 @@
         </trans-unit>
         <trans-unit id="Page 3389183890 - Control 1459871223 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the account.</source>
-          <target state="translated">Определяет имя счета.</target>
+          <target state="translated">Определяет название счета.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Control NameField - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3389183890 - Control 1983663785 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the account.</source>
-          <target state="translated">Определяет имя счета.</target>
+          <target state="translated">Определяет название счета.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Control NameFieldLookup - Property ToolTip</note>
         </trans-unit>
@@ -12734,7 +12734,7 @@
         </trans-unit>
         <trans-unit id="Page 4061016505 - Control 2889527988 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the id of the scheduled task.</source>
-          <target state="translated">Определяет идентификатор запланированной задачи.</target>
+          <target state="translated">Определяет ИД запланированной задачи.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Control Task Id - Property ToolTip</note>
         </trans-unit>
