@@ -497,7 +497,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1953614490 - NamedType 2296666171" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Table %1, %2, is not in the list of allowed tables.</source>
-          <target state="translated">Tabell %1, %2, er ikke i listen over tillatte tabeller.</target>
+          <target state="translated">Tabellen %1, %2, er ikke i listen over tillatte tabeller.</target>
           <note from="Developer" annotates="general" priority="2">%1 = table number, %2 = table name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Apply Retention Policy Impl. - NamedType TableNotAllowedErrorLbl</note>
         </trans-unit>
@@ -581,7 +581,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2027814023 - NamedType 433891438" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The authentication request URL %1 has been succesfully retrieved.</source>
-          <target state="translated">URL-adressen for godkjenningsforespørsel %1 er hentet.</target>
+          <target state="translated">Nettadressen for godkjenningsforespørsel %1 er hentet.</target>
           <note from="Developer" annotates="general" priority="2">%1=Authentication request URL</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit OAuth2Impl - NamedType AuthRequestUrlTxt</note>
         </trans-unit>
@@ -2650,7 +2650,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2480824916 - Method 1340944587 - NamedType 4132244079" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 can not be empty</source>
-          <target state="translated">%1 må ikke være tom.</target>
+          <target state="translated">%1 kan ikke være tom</target>
           <note from="Developer" annotates="general" priority="2">%1 = Variable Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS URI Helper - Method TestConstructUrlParameter - NamedType ValueCanNotBeEmptyErr</note>
         </trans-unit>
@@ -5493,7 +5493,7 @@
         </trans-unit>
         <trans-unit id="Page 3414198013 - Action 21227494 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add two or more permission sets.</source>
-          <target state="translated">Eksporter to eller flere tillatelsessett.</target>
+          <target state="translated">Legg til to eller flere tillatelsessett.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Subform - Action SelectPermissionSets - Property ToolTip</note>
         </trans-unit>
@@ -7646,7 +7646,7 @@
         </trans-unit>
         <trans-unit id="Page 1967324515 - Control 3064866762 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user role that defines the user’s default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.</source>
-          <target state="translated">Angir brukerrollen som definerer brukerens standard rollesenter og rollespesifikke tilpasninger. Brukerne kan endre rollen sin på Mine innstillinger-siden, med mindre det er begrenset av tillatelser.</target>
+          <target state="translated">Angir brukerrollen som definerer brukerens standard rollesenter og rollespesifikke tilpasninger. Brukerne kan endre rollen sin på siden Mine innstillinger, med mindre det er begrenset av tillatelser.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Settings FactBox - Control UserRoleCenter - Property ToolTip</note>
         </trans-unit>
@@ -7730,7 +7730,7 @@
         </trans-unit>
         <trans-unit id="Page 2005578726 - Control 3594686602 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a spacer for 'Brick' view mode.</source>
-          <target state="translated">Angir et mellomrom i komprimert listevisningsmodus.</target>
+          <target state="translated">Angir et tomrom i komprimert listevisningsmodus.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Control Control18 - Property ToolTip</note>
         </trans-unit>
@@ -9493,7 +9493,7 @@
         </trans-unit>
         <trans-unit id="Page 281796026 - Control 2339353424 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user role that defines the user’s default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.</source>
-          <target state="translated">Angir brukerrollen som definerer brukerens standard rollesenter og rollespesifikke tilpasninger. Brukerne kan endre rollen sin på Mine innstillinger-siden, med mindre det er begrenset av tillatelser.</target>
+          <target state="translated">Angir brukerrollen som definerer brukerens standard rollesenter og rollespesifikke tilpasninger. Brukerne kan endre rollen sin på siden Mine innstillinger, med mindre det er begrenset av tillatelser.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Settings List - Control Role - Property ToolTip</note>
         </trans-unit>
@@ -12662,7 +12662,7 @@
         </trans-unit>
         <trans-unit id="Page 4047916792 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the person or company that created the extension.</source>
-          <target state="translated">Angir personen eller firmaet som opprettet utvidelsen.</target>
+          <target state="translated">Angir personen eller selskapet som opprettet utvidelsen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details Part - Control Publisher - Property ToolTip</note>
         </trans-unit>

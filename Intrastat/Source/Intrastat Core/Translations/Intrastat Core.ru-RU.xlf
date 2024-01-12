@@ -545,7 +545,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 1624434300 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the counter party's VAT number.</source>
-          <target state="translated">Определяет номер НДС контрагента.</target>
+          <target state="translated">Определяет номер плательщика НДС контрагента.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Partner VAT ID - Property ToolTip</note>
         </trans-unit>
@@ -893,7 +893,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 3496517085 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies based on which country code Intrastat report lines are taken.</source>
-          <target state="translated">Определяет, по какому коду страны берутся строки отчета Интрастат.</target>
+          <target state="translated">Определяет, по какому коду страны/региона берутся строки отчета Интрастат.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Shipments Based On - Property ToolTip</note>
         </trans-unit>
@@ -935,7 +935,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 4168804269 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shows the default receiving country code.</source>
-          <target state="translated">Показывает код страны получения по умолчанию.</target>
+          <target state="translated">Показывает код страны/региона получения по умолчанию.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. Country/Region Code - Property ToolTip</note>
         </trans-unit>

@@ -629,7 +629,7 @@
         </trans-unit>
         <trans-unit id="Page 1056736409 - Action 2526477354 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clear the list of all log entries.</source>
-          <target state="translated">Alle logposten uit de lijst verwijderen.</target>
+          <target state="translated">Verwijder alle logposten uit de lijst.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Webcall Log - Action Delete0days - Property ToolTip</note>
         </trans-unit>
@@ -647,7 +647,7 @@
         </trans-unit>
         <trans-unit id="Page 1056736409 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Posten ouder dan 7 dagen verwijderen</target>
+          <target state="translated">Items ouder dan 7 dagen verwijderen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Webcall Log - Action Delete7days - Property Caption</note>
         </trans-unit>
@@ -1000,7 +1000,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Control 2099105517 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Bank Clearing Standards to be used on vendors bank accounts</source>
-          <target state="translated">Bankverrekeningsstandaards instellen die moeten gebruikt voor bankrekeningen van leveranciers.</target>
+          <target state="translated">Bankverrekeningsstandaards instellen die worden gebruikt voor bankrekeningen van leveranciers</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Control UpdBankClearGrp - Property InstructionalText</note>
         </trans-unit>
@@ -1913,7 +1913,7 @@
         </trans-unit>
         <trans-unit id="Table 3875559386 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Payment types</source>
-          <target state="translated">AMC Banking-betalingstypen</target>
+          <target state="translated">Betalingssoorten van AMC Banking</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AMC Bank Pmt. Type - Property Caption</note>
         </trans-unit>

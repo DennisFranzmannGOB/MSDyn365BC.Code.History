@@ -209,7 +209,7 @@
         </trans-unit>
         <trans-unit id="Page 3074962881 - Control 1464062987 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Redirect URL.</source>
-          <target state="translated">Angir omdirigerings-URL-en.</target>
+          <target state="translated">Angir nettadressen for omdirigering.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Control RedirectURL - Property ToolTip</note>
         </trans-unit>
@@ -263,7 +263,7 @@
         </trans-unit>
         <trans-unit id="Page 3074962881 - Action 273330248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sign in with a different account</source>
-          <target state="translated">Logg på med en annen konto</target>
+          <target state="translated">Logg deg på med en annen konto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Action SingInAgain - Property Caption</note>
         </trans-unit>
