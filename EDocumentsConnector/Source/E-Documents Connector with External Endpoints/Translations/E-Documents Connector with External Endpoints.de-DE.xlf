@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de-DE" original="E-Documents Connector with External Endpoints">
+    <body>
+      <group id="body">
+        <trans-unit id="Page 771339827 - Action 2823348192 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the OAuth 2.0 setup for the current user.</source>
+          <target state="translated">Öffnet die OAuth 2.0-Einrichtung für den aktuellen Benutzer.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Action OpenOAuthSetup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Action 2823348192 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open OAuth 2.0 setup</source>
+          <target state="translated">OAuth 2.0-Einrichtung öffnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Action OpenOAuthSetup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 2206183795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the fileparts URL.</source>
+          <target state="translated">Gibt die Fileparts-URL an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Fileparts URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 3242117461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the URL to connect to Pagero Online.</source>
+          <target state="translated">Gibt die URL an, um eine Verbindung zu Pagero Online herzustellen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Authentication URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 3856621992 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the client ID token.</source>
+          <target state="translated">Gibt das Client-ID-Token an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control ClientID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 3856621992 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client ID</source>
+          <target state="translated">Client-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control ClientID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 4069789961 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the client secret token.</source>
+          <target state="translated">Gibt das Token für den geheimen Clientschlüssel an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control ClientSecret - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 4069789961 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <target state="translated">Geheimer Clientschlüssel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control ClientSecret - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 4243455615 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the file API URL.</source>
+          <target state="translated">Gibt die Datei-API-URL an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control FileAPI URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 613381766 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the company ID.</source>
+          <target state="translated">Gibt die Mandanten-ID an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Company Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 618784563 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the redirect URL.</source>
+          <target state="translated">Gibt die Weiterleitungs-URL an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Redirect URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 753283736 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document API URL.</source>
+          <target state="translated">Gibt die URL der Dokument-API an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control DocumentAPI Url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Document External Connection Setup</source>
+          <target state="translated">Einrichtung der externen Verbindung für einen E-Beleg</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 1914619800 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DocumentAPI URL</source>
+          <target state="translated">DocumentAPI-URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field DocumentAPI URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 2206183795 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fileparts URL</source>
+          <target state="translated">Fileparts-URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Fileparts URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 2529110793 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <target state="translated">Geheimer Clientschlüssel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Client Secret - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 3242117461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Authentication URL</source>
+          <target state="translated">Authentifizierungs-URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Authentication URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 3490282128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OAuth 2.0 Code</source>
+          <target state="translated">OAuth 2.0-Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field OAuth Feature GUID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 4243455615 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FileAPI URL</source>
+          <target state="translated">FileAPI-URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field FileAPI URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 613381766 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company ID</source>
+          <target state="translated">Mandanten-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Company Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 618784563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Redirect URL</source>
+          <target state="translated">Umleitungs-URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Redirect URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 652819368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client ID</source>
+          <target state="translated">Client-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Client ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 970416965 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PK</source>
+          <target state="translated">PK</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field PK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Doc. Ext. Connection Setup</source>
+          <target state="translated">Externe Verbindungseinrichtung für E-Beleg</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3766969997 - Field 151161733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Id</source>
+          <target state="translated">Datei-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4128474945</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3766969997 - Field 2326231102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Id</source>
+          <target state="translated">Beleg-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4128474945</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3766969997 - Field 2560927856 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filepart Id</source>
+          <target state="translated">Filepart-ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4128474945</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

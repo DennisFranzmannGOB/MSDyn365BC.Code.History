@@ -988,7 +988,7 @@
         </trans-unit>
         <trans-unit id="Page 2694828564 - Control 486908828 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the related document.</source>
-          <target state="translated">Angiver nummeret på det relaterede dokument.</target>
+          <target state="translated">Angiver nummeret på det relaterede bilag.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Accounts Journal - Control Document No. - Property ToolTip</note>
         </trans-unit>
@@ -1018,7 +1018,7 @@
         </trans-unit>
         <trans-unit id="Page 2694828564 - Control 874212758 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the journal batch.</source>
-          <target state="translated">Angiver kladdenavnet.</target>
+          <target state="translated">Angiver navnet på kladdekørslen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Accounts Journal - Control CurrentJnlBatchName - Property ToolTip</note>
         </trans-unit>

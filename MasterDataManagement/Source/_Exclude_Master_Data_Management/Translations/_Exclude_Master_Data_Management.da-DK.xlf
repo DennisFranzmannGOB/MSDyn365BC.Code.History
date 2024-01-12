@@ -53,7 +53,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 1165506117" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The uncoupling has been scheduled.</source>
-          <target state="translated">Fjernelse af sammenkædning er blevet planlagt.</target>
+          <target state="translated">Ophævelsen af sammenkædning er blevet planlagt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType UncoupleScheduledMsg</note>
         </trans-unit>
@@ -131,7 +131,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 2228020419" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get data update from %1 for the selected records?</source>
-          <target state="translated">Vil du hente dataopdatering fra %1 for de valgte records?</target>
+          <target state="translated">Hent dataopdatering fra %1 for de valgte records?</target>
           <note from="Developer" annotates="general" priority="2">%1 = Business Central product name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType UpdateMultipleNowFromIntegrationQst</note>
         </trans-unit>
@@ -179,7 +179,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 298896617" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronize data for the selected records?</source>
-          <target state="translated">Vil du synkronisere data for de valgte records?</target>
+          <target state="translated">Vil du synkronisere data til de valgte records?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType UpdateMultipleNowTitleTxt</note>
         </trans-unit>
@@ -191,7 +191,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 3372014790" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The uncoupling has been skipped.</source>
-          <target state="translated">Fjernelse af sammenkædning er blevet sprunget over.</target>
+          <target state="translated">Ophævelsen af sammenkædning er blevet planlagt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType UncoupleSkippedMsg</note>
         </trans-unit>
@@ -251,7 +251,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 610115256" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send data update to %1 for the selected records?</source>
-          <target state="translated">Vil du sende dataopdatering til %1 for de valgte records?</target>
+          <target state="translated">Send dataopdatering til %1 for de valgte records?</target>
           <note from="Developer" annotates="general" priority="2">%1 = Business Central product name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType UpdateMultipleNowToIntegrationQst</note>
         </trans-unit>
@@ -335,7 +335,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 402828404 - NamedType 3595491119" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> %1 - %2 synchronization job.</source>
-          <target state="translated"> %1 – %2 synkroniseringsjob.</target>
+          <target state="translated"> %1 - %2 synkroniseringsjob.</target>
           <note from="Developer" annotates="general" priority="2">%1 = The Integration Table Name to synchronized (ex. CUSTOMER), %2 = Business Central product name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Mgt. Setup Default - NamedType JobQueueEntryNameTok</note>
         </trans-unit>
@@ -462,7 +462,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 1793113119 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Integration Coupling Job Log</source>
-          <target state="translated">Logfil til integrationssammenkædningsjob</target>
+          <target state="translated">Logfil til integrationssammenkædningssag</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Coupling Job Log - Property Caption</note>
         </trans-unit>
@@ -510,7 +510,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 269808213 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Integration Uncouple Job Log</source>
-          <target state="translated">Logfil for job til fjernelse af sammenkædning af integration</target>
+          <target state="translated">Logfil for job til ophævelse af integration</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Uncouple Job Log - Property Caption</note>
         </trans-unit>
@@ -852,7 +852,7 @@
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 2498855570 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of the job queue entry.</source>
-          <target state="translated">Angiver status af jobkøposten.</target>
+          <target state="translated">Angiver status af sagskøposten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control Job Queue Entry Status - Property ToolTip</note>
         </trans-unit>
@@ -1038,7 +1038,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 1624143781" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to uncouple the selected mappings, which means data for the records will no longer synchronize. \\Do you want to continue?</source>
-          <target state="translated">Du er ved at fjerne sammenkædningen af de valgte tilknytninger, hvilket betyder, at data til records ikke længere synkroniseres.\\Vil du fortsætte?</target>
+          <target state="translated">Du er ved at ophæve sammenkædningen af de valgte tilknytninger, hvilket betyder, at data til records ikke længere synkroniseres.\\Vil du fortsætte?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartUncouplingForegroundQst</note>
         </trans-unit>
@@ -1056,7 +1056,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 2564837436" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to uncouple the selected mappings, which means data for the records will no longer synchronize. \\The uncoupling will run in the background, so you can continue with other tasks.\\Do you want to continue?</source>
-          <target state="translated">Du er ved at fjerne sammenkædningen af de valgte tilknytninger, hvilket betyder, at data til records ikke længere synkroniseres.\\Fjernelsen af sammenkædningen vil køre i baggrunden, så du kan fortsætte med andre opgaver.\\Vil du fortsætte?</target>
+          <target state="translated">Du er ved at ophæve sammenkædningen af de valgte tilknytninger, hvilket betyder, at data til records ikke længere synkroniseres.\\Ophævelsen af sammenkædningen vil køre i baggrunden, så du kan fortsætte med andre opgaver.\\Vil du fortsætte?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartUncouplingQst</note>
         </trans-unit>
@@ -1134,7 +1134,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 974748676" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Uncoupling is scheduled for %2 mappings. %3 \\Details are available on the %1 page.</source>
-          <target state="translated">Fjernelse af sammenkædning er planlagt for %2 tilknytninger. %3\\Du kan få vist detaljer på siden %1.</target>
+          <target state="translated">Ophævelse af sammenkædning er planlagt for %2 tilknytninger. %3\\Du kan få vist detaljer på siden %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 - caption from page 5344, %2 - scheduled job count, %3 - additional foreground job message</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType RemoveCouplingsScheduledMsg</note>
         </trans-unit>
