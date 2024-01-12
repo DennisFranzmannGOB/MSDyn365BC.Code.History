@@ -3,6 +3,12 @@
   <file datatype="xml" source-language="en-US" target-language="cs-CZ" original="Intrastat CZ">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 3628305438 - NamedType 1249203108" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shorten the item description to the required length.</source>
+          <target state="translated">Zkraťte popis zboží na požadovanou délku.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Intrastat Transformation CZ - NamedType IntrastatItemDescriptionDescTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3628305438 - NamedType 1899026312" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Round to integer when the decimal is greater than 1.</source>
           <target state="translated">Zaokrouhlení na celé číslo, pokud je desetinné číslo větší než 1.</target>

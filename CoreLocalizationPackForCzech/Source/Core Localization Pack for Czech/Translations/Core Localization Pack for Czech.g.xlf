@@ -14093,6 +14093,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Documentation for VAT CZL - Control EndDateReqCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3170582681 - Control 3534864276 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the vat entries are to be merged by document no.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Documentation for VAT CZL - Control MergeByDocumentNoCZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3170582681 - Control 3534864276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Merge by Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Documentation for VAT CZL - Control MergeByDocumentNoCZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3170582681 - Control 1895481599 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the vat entries are to be show.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -32472,11 +32482,6 @@
           <source>Tariff No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Shipment Line CZL - Field Tariff No. CZL - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2924102495 - NamedType 2255901053" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Relation Exch. Rate Amount for the Currency Code and for the VAT Currency Code must be the same if Normal VAT is used.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Posting Handler CZL - NamedType VATCalcTypeErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2924102495 - Method 3595746155 - NamedType 2750237292" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 must be specified.</source>

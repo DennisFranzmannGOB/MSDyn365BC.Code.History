@@ -1503,6 +1503,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = Purch. Advance Letter No. CZZ FieldCaption; %2 = Purch. Advance Letter No. CZZ; %3 = RecordId</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Mgt. Handler CZZ - Method IsPurchAdvanceAppliedOnBeforeCheckPaymentOrderLineApplyToOtherEntries - NamedType PurchAdvanceAlreadyAppliedErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3588268779 - NamedType 519972416" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date and VAT Date cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType DateEmptyErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 2637046072" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No. and Dates cannot be empty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1557,11 +1562,6 @@
           <source>Usage all applicated advances is not possible.\Continue?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method CheckAdvancePayment - NamedType UsageQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 2493569558 - NamedType 519972416" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Posting Date and VAT Date cannot be empty.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method CloseAdvanceLetter - NamedType DateEmptyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3588268779 - Method 1483443012 - NamedType 933461970" size-unit="char" translate="yes" xml:space="preserve">
           <source>The amount cannot be higher than remaining amount on ledger entry.</source>

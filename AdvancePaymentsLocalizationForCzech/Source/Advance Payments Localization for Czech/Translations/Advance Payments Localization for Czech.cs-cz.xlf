@@ -117,6 +117,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType PostingDateEmptyErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3588268779 - NamedType 519972416" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date and VAT Date cannot be empty.</source>
+          <target state="translated">Zúčtovací datum a datum DPH nemohou být prázdné.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType DateEmptyErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 72781804" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Original Document VAT Date (%1) must be less or equal to VAT Date (%2).</source>
           <target state="translated">Datum DPH původního dokladu (%1) musí být menší nebo rovno datu DPH (%2).</target>
@@ -392,12 +398,6 @@
           <target state="translated">Použití všech aplikovaných záloh není možné.\Pokračovat?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method CheckAdvancePayment - NamedType UsageQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 2493569558 - NamedType 519972416" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Posting Date and VAT Date cannot be empty.</source>
-          <target state="translated">Zúčtovací datum a datum DPH nemohou být prázdné.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method CloseAdvanceLetter - NamedType DateEmptyErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3588268779 - Method 2643373796 - NamedType 2033887935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reverse amount %1 is not posible on entry %2.</source>
