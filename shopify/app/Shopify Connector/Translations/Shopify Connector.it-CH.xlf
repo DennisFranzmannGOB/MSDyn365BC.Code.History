@@ -3258,7 +3258,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 2406105719 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether you want to synchronize item attributes to Shopify.</source>
-          <target state="translated">Specifica se si desidera sincronizzare gli attributi dell'articolo in Shopify.</target>
+          <target state="translated">Specifica se si desidera sincronizzare gli attributi articolo in Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control SyncItemAttributes - Property ToolTip</note>
         </trans-unit>
