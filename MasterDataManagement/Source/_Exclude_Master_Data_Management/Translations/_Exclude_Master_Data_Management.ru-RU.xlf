@@ -852,7 +852,7 @@
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 2498855570 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of the job queue entry.</source>
-          <target state="translated">Определяет состояние операции очереди заданий.</target>
+          <target state="translated">Определяет статус операции очереди заданий.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control Job Queue Entry Status - Property ToolTip</note>
         </trans-unit>
@@ -990,7 +990,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 3295349667" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronization of modified records is scheduled. \\You can view details on the %1 page.</source>
-          <target state="translated">Запланирована синхронизация измененных записей. \\Подробности можно просмотреть на странице %1.</target>
+          <target state="translated">Синхронизация измененных записей запланирована. \\Подробности можно просмотреть на странице %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 = The localized caption of page Integration Synch. Job List</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SyncNowScheduledMsg</note>
         </trans-unit>

@@ -269,7 +269,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1926784871 - NamedType 3790335743" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>NOTE: This Is a test invoice. Therefore, no actual money transfer will be made.</source>
-          <target state="translated">ПРИМЕЧАНИЕ. Это тестовый счет, поэтому фактический денежный перевод не выполняется.</target>
+          <target state="translated">ПРИМЕЧАНИЕ. Это тестовый счет, поэтому реального перевода средств не произойдет.</target>
           <note from="Developer" annotates="general" priority="2">Will be shown next to Pay with PayPal link</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType DemoLinkCaptionTxt</note>
         </trans-unit>
@@ -617,7 +617,7 @@
         </trans-unit>
         <trans-unit id="Page 945518375 - NamedType 1102136885" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Settings have been set to default.</source>
-          <target state="translated">Были восстановлены значения параметров по умолчанию.</target>
+          <target state="translated">Установлены значения параметров по умолчанию.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Template - NamedType SetToDefaultMsg</note>
         </trans-unit>
