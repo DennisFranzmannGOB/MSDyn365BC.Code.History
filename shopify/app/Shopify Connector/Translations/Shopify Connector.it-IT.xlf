@@ -10,7 +10,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk Operation API - NamedType BulkOperationFailedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 1463487768" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The Shopify API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade the Shopify connector and your Business Central environment.</source>
+          <source>The Shopify Admin API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade your Business Central environment.</source>
           <target state="translated">L'API Shopify utilizzata dal connettore Shopify corrente non è più supportata. Per continuare a utilizzare il connettore Shopify, aggiornare il connettore Shopify e l'ambiente Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationMsg</note>
@@ -40,7 +40,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationDescTok</note>
         </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 3098940945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The Shopify API used by your current Shopify connector will go out of support on %1. Please upgrade the Shopify connector and your Business Central environment.</source>
+          <source>The Shopify Admin API used by your current Shopify connector will go out of support on %1. Please upgrade your Business Central environment.</source>
           <target state="translated">L'API Shopify utilizzata dal connettore Shopify corrente non sarà più supportata il %1. Aggiornare il connettore Shopify e l'ambiente Business Central.</target>
           <note from="Developer" annotates="general" priority="2">%1 - expiry date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType ExpirationNotificationMsg</note>
@@ -262,7 +262,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType QueryParamTooLongErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3550761784 - NamedType 3191534689" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The Shopify API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade the Shopify connector and your Business Central environment.</source>
+          <source>The Shopify Admin API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade the Shopify connector and your Business Central environment.</source>
           <target state="translated">L'API Shopify utilizzata dal connettore Shopify corrente non è più supportata. Per continuare a utilizzare il connettore Shopify, aggiornare il connettore Shopify e l'ambiente Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType ApiVersionOutOfSupportErr</note>
@@ -2808,7 +2808,7 @@
         </trans-unit>
         <trans-unit id="Page 1285600670 - Action 2375843283 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Elimina movimenti risalenti a più di 7 giorni precedenti</target>
+          <target state="translated">Elimina movimenti risalenti a più di 7 giorni prima</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Bulk Operations - Action Delete7Days - Property Caption</note>
         </trans-unit>
@@ -3180,7 +3180,7 @@
         </trans-unit>
         <trans-unit id="Page 202493269 - Action 1994005900 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit detailed information about the customer.</source>
-          <target state="translated">Visualizzare o modificare le informazioni dettagliate sul cliente.</target>
+          <target state="translated">Visualizzare o modificare informazioni dettagliate sul cliente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customers - Action CustomerCard - Property ToolTip</note>
         </trans-unit>
@@ -3216,7 +3216,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Action 1994005900 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit detailed information about the customer.</source>
-          <target state="translated">Visualizzare o modificare le informazioni dettagliate sul cliente.</target>
+          <target state="translated">Visualizzare o modificare informazioni dettagliate sul cliente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Action CustomerCard - Property ToolTip</note>
         </trans-unit>
@@ -3396,7 +3396,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Action 383844080 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sync Shipments To Shopify</source>
-          <target state="translated">Sincronizza spedizioni in Shopify</target>
+          <target state="translated">Sincronizzazione spedizioni a Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Action SyncShipments - Property Caption</note>
         </trans-unit>
@@ -3666,7 +3666,7 @@
         </trans-unit>
         <trans-unit id="Page 3706164926 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Elimina movimenti risalenti a più di 7 giorni precedenti</target>
+          <target state="translated">Elimina movimenti risalenti a più di 7 giorni prima</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Action Delete7days - Property Caption</note>
         </trans-unit>
@@ -4487,13 +4487,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control PriceSynchronization - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1413016019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies end of support date for the current version. After this date Shopify connector will stop working.</source>
+          <source>Specifies the date on which Business Central will no longer support Shopify Admin API version. To continue to use your integration, upgrade to the latest version of Business Central before this date.</source>
           <target state="translated">Specifica la data di fine assistenza per la versione corrente. Dopo questa data il connettore Shopify smetterà di funzionare.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1413016019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>End of Support</source>
+          <source>Update API Version Before</source>
           <target state="translated">Fine assistenza</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property Caption</note>
@@ -4527,6 +4527,16 @@
           <target state="translated">Specifica la modalità di sincronizzazione del nome 2 del cliente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Name2Source - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1796064905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of Shopify Admin API used by current version of the Shopify connector.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify Admin API Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1796064905 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Admin API Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify Admin API Version - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1833000074 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user who will run the Sync Orders from Shopify job on the Job Queue Entries page. This is the user who turned on the Auto Import Orders from Shopify toggle.</source>
@@ -5585,7 +5595,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 1846331655 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify</source>
-          <target state="translated">Specifica il numero di ordine da Shopify</target>
+          <target state="translated">Specifica il numero di ordine di Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control ShopifyOrderNo - Property ToolTip</note>
         </trans-unit>
@@ -7083,7 +7093,7 @@
         </trans-unit>
         <trans-unit id="Page 3918578631 - Control 860944352 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review the terms and conditions.</source>
-          <target state="translated">Esaminare i termini e le condizioni.</target>
+          <target state="translated">Esaminare le condizioni.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Connector Guide - Control StepConsent - Property InstructionalText</note>
         </trans-unit>
@@ -7359,7 +7369,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 1846331655 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify.</source>
-          <target state="translated">Specifica il numero di ordine da Shopify.</target>
+          <target state="translated">Specifica il numero di ordine di Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control ShopifyOrderNo - Property ToolTip</note>
         </trans-unit>
@@ -8019,7 +8029,7 @@
         </trans-unit>
         <trans-unit id="Page 834364629 - Control 3787812635 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer template to use when creating unknown customers for this country. This template will only be used if the  field "Fix CustomerNo." is blank</source>
-          <target state="translated">Specifica il modello di cliente da utilizzare per la creazione di clienti sconosciuti per il paese. Questo modello verrà utilizzato solo se il campo "Correggi nr. cliente" è vuoto</target>
+          <target state="translated">Specifica il modello di cliente da utilizzare per la creazione di clienti sconosciuti per il paese. Questo modello è utilizzato solo se il campo "Correggi nr. cliente" è vuoto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Templates - Control CustomerTemlateCode - Property ToolTip</note>
         </trans-unit>
@@ -9373,8 +9383,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
         </trans-unit>
         <trans-unit id="PageExtension 1394997847 - Control 842844957 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Shopify Fulfillment ID.</source>
-          <target state="translated">Specifica l'ID evasione Shopify.</target>
+          <source>Specifies the Shopify Fulfillment ID. Helps track the status of shipments within Shopify, with 0 indicating readiness to synchronize, -1 indicating an error, and -2 indicating that the shipment is skipped.</source>
+          <target state="translated">Specifica l'ID evasione di Shopify. Aiuta a monitorare lo stato delle spedizioni all'interno di Shopify, con 0 che indica la preparazione alla sincronizzazione, -1 che indica un errore e -2 che indica che la spedizione è stata saltata.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 950053399</note>
@@ -9540,8 +9550,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 1379883806</note>
         </trans-unit>
         <trans-unit id="PageExtension 1394997847 - NamedType 382238845" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allowed values are 0 or -1</source>
-          <target state="translated">I valori consentiti sono 0 e -1</target>
+          <source>Allowed values are 0, -1 or -2. 0 indicates readiness to synchronize, -1 indicates an error, and -2 indicates that the shipment is skipped.</source>
+          <target state="translated">I valori consentiti sono 0, -1 o -2. 0 indica la preparazione alla sincronizzazione, -1 indica un errore e -2 indica che la spedizione è stata ignorata.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1394997847</note>
@@ -11029,6 +11039,12 @@
           <target state="translated">ID buono regalo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Transaction - Field Gift Card Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2500861754 - Field 260925745 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Id</source>
+          <target state="translated">ID pagamento</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Order Transaction - Field Payment Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2500861754 - Field 3080618677 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Message</source>
