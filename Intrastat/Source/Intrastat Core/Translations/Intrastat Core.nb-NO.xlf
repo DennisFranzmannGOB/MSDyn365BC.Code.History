@@ -617,7 +617,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 284764054 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the country/region of the address.</source>
-          <target state="translated">Angir landet/området i adressen.</target>
+          <target state="translated">Angir landet/området for adressen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Country/Region Code - Property ToolTip</note>
         </trans-unit>
@@ -827,7 +827,7 @@
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 284764054 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the country/region of the address.</source>
-          <target state="translated">Angir landet/området i adressen.</target>
+          <target state="translated">Angir landet/området for adressen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Country/Region Code - Property ToolTip</note>
         </trans-unit>
@@ -1365,7 +1365,7 @@
         </trans-unit>
         <trans-unit id="Page 879680616 - Control 215497968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code that identifies the currency of the Intrastat report.</source>
-          <target state="translated">Angir en kode for valutaen til intrastatrapporten.</target>
+          <target state="translated">Angir en kode for valutaen til Intrastat-rapporten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report - Control Currency Identifier - Property ToolTip</note>
         </trans-unit>

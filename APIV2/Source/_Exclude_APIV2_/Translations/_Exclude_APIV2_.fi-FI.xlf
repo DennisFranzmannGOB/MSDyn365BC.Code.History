@@ -5045,7 +5045,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3395634949" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A "vendorNumber" or a "vendorId" must be provided.</source>
-          <target state="translated">vendorNumber tai vendorId on annettava.</target>
+          <target state="translated">VendorNumber tai vendorID on annettava.</target>
           <note from="Developer" annotates="general" priority="2">vendorNumber and vendorId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType BuyFromVendorNotProvidedErr</note>
         </trans-unit>
@@ -5075,7 +5075,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3210053793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "id" cannot be changed.</source>
-          <target state="translated">id-arvoa ei voi muuttaa.</target>
+          <target state="translated">Id-arvoa ei voi muuttaa.</target>
           <note from="Developer" annotates="general" priority="2">id is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CannotChangeIDErr</note>
         </trans-unit>
@@ -8015,7 +8015,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 3210053793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The id cannot be changed.</source>
-          <target state="translated">Tunnusta ei voi muuttaa.</target>
+          <target state="translated">Id-arvoa ei voi muuttaa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType CannotChangeIDErr</note>
         </trans-unit>
