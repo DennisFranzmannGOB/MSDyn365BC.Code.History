@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="da-DK" original="Enforced Digital Vouchers (DK)">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 1831995909 - NamedType 1834628893" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not allowed to change make this change when the feature is enforced.</source>
+          <target state="translated">Du har ikke tilladelse til at ændre. Foretag denne ændring, når funktionen håndhæves.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher DK Impl. - NamedType NotAllowedToChangeWhenEnforcedErr</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Table 2897050444 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transact. Storage Export State</source>
-          <target state="translated">Status af udlæsning af transaktionslager</target>
+          <target state="translated">Transaktionens lagringseksportstatus</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Export State - Property Caption</note>
         </trans-unit>
@@ -29,9 +29,21 @@
         </trans-unit>
         <trans-unit id="Table 1417909771 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transact. Storage Table Entry</source>
-          <target state="translated">Tabelpost for transaktionslager</target>
+          <target state="translated">Transaktionens lagertabelpost</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Table Entry - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1417909771 - Field 2520274893 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blob Name in ABS</source>
+          <target state="translated">BLOB-navn i ABS</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Table Entry - Field Blob Name in ABS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1417909771 - Field 1251516442 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exported To ABS</source>
+          <target state="translated">Eksporteret til ABS</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Table Entry - Field Exported To ABS - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1417909771 - Field 1018747870 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Handled Date/Time</source>
@@ -41,7 +53,7 @@
         </trans-unit>
         <trans-unit id="Table 1417909771 - Field 3835347471 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. Of Records Exported</source>
-          <target state="translated">Antal eksporterede poster</target>
+          <target state="translated">Antal udlæste records</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Table Entry - Field No. Of Records Exported - Property Caption</note>
         </trans-unit>
@@ -65,13 +77,13 @@
         </trans-unit>
         <trans-unit id="Table 907566166 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transact. Storage Task Entry</source>
-          <target state="translated">Opgavepost for transaktionslager</target>
+          <target state="translated">Transaktionens lagertabelpost</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Task Entry - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 907566166 - Field 155029819 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ending Date/Time</source>
-          <target state="translated">Slutdato og -klokkeslæt</target>
+          <target state="translated">Slutdato/tidspunkt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Task Entry - Field Ending Date/Time - Property Caption</note>
         </trans-unit>
@@ -83,7 +95,7 @@
         </trans-unit>
         <trans-unit id="Table 907566166 - Field 3446276168 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Error Call Stack</source>
-          <target state="translated">Fejlkaldestak</target>
+          <target state="translated">Fejlkaldstak</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Task Entry - Field Error Call Stack - Property Caption</note>
         </trans-unit>
@@ -101,7 +113,7 @@
         </trans-unit>
         <trans-unit id="Table 907566166 - Field 2625429122 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Starting Date/Time</source>
-          <target state="translated">Startdato og -klokkeslæt</target>
+          <target state="translated">Startdato/tidspunkt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Task Entry - Field Starting Date/Time - Property Caption</note>
         </trans-unit>
@@ -117,29 +129,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Task Entry - Field Task ID - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2866984155 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Transactions Storage Setup</source>
+        <trans-unit id="Table 3640406638 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transaction Storage Setup</source>
           <target state="translated">Opsætning af transaktionslager</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Transactions Storage Setup - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Transaction Storage Setup - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2866984155 - Field 1678404368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Table 3640406638 - Field 1678404368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Earliest Start Time</source>
           <target state="translated">Tidligste starttidspunkt</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Transactions Storage Setup - Field Earliest Start Time - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Transaction Storage Setup - Field Earliest Start Time - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2866984155 - Field 2387730797 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Table 3640406638 - Field 2387730797 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Max. Number of Hours</source>
           <target state="translated">Maks. antal timer</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Transactions Storage Setup - Field Max. Number of Hours - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Transaction Storage Setup - Field Max. Number of Hours - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2866984155 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Table 3640406638 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Primary Key</source>
           <target state="translated">Primærnøgle</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Transactions Storage Setup - Field Primary Key - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Transaction Storage Setup - Field Primary Key - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 3427217473 - NamedType 2674365958" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export of the table %1 %2</source>
@@ -147,41 +159,59 @@
           <note from="Developer" annotates="general" priority="2">%1 = table name; %2 = either 'starts' or 'ends'</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transact. Storage Export Data - NamedType ExportActionTok</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3427217473 - NamedType 130615405" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 records exported from the table %2</source>
-          <target state="translated">%1 records, der eksporteres fra tabellen %2</target>
+        <trans-unit id="Codeunit 3427217473 - NamedType 1202951203" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 records collected from the table %2</source>
+          <target state="translated">%1 records, der indsamles fra tabellen %2</target>
           <note from="Developer" annotates="general" priority="2">%1 = number; %2 = table name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transact. Storage Export Data - NamedType NoOfExportedRecordsTxt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transact. Storage Export Data - NamedType NoOfCollectedRecordsTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3056045548 - NamedType 1415679075" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 3526708079 - NamedType 2165877082" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export of incoming documents completed. Collected %1 documents, exported %2 documents</source>
+          <target state="translated">Eksport af indgående dokument er afsluttet. Indsamlede %1 dokumenter, eksporterede %2 dokumenter</target>
+          <note from="Developer" annotates="general" priority="2">%1 - collected documents count, %2 - exported documents count</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType ExportedDocCountTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3526708079 - NamedType 2835321973" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export of tables completed. Collected %1 tables, exported %2 tables</source>
+          <target state="translated">Eksport af tabeller afsluttet. Indsamlede %1 tabeller, eksporterede %2 tabeller</target>
+          <note from="Developer" annotates="general" priority="2">%1 - collected tables count, %2 - exported tables count</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType ExportedTablesCountTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3526708079 - NamedType 1962391205" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export of incoming document %1 with name %2</source>
+          <target state="translated">Eksport af indgående dokument %1 med navn %2</target>
+          <note from="Developer" annotates="general" priority="2">%1 - incoming document file name, %2 - blob name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType ExportOfIncomingDocTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 317939997 - NamedType 1415679075" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A time deadline of %1 hours for the export has been exceeded. The export has been stopped.</source>
-          <target state="translated">En deadline på %1 timer for eksporten er overskredet. Eksporten er stoppet.</target>
+          <target state="translated">En frist på %1 timer for udlæsningen er overskredet. Udlæsningen er stoppet.</target>
           <note from="Developer" annotates="general" priority="2">%1 = number of hours</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transactions Storage Impl. - NamedType TimeDeadlineExceededErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage Impl. - NamedType TimeDeadlineExceededErr</note>
         </trans-unit>
-        <trans-unit id="Page 2866984155 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Transactions Storage Setup</source>
+        <trans-unit id="Page 3640406638 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transaction Storage Setup</source>
           <target state="translated">Opsætning af transaktionslager</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Transactions Storage Setup - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Transaction Storage Setup - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2866984155 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 3640406638 - Control 2445482498 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>General</source>
           <target state="translated">Generelt</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Transactions Storage Setup - Control General - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Transaction Storage Setup - Control General - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2866984155 - Control 1678404368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 3640406638 - Control 1678404368 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the earliest time when the background job must be run.</source>
           <target state="translated">Angiver den tidligste dato og det tidligste klokkeslæt for, hvornår baggrundssagen skal køres.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Transactions Storage Setup - Control Earliest Start Time - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Transaction Storage Setup - Control Earliest Start Time - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 2866984155 - Control 2387730797 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 3640406638 - Control 2387730797 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the maximum number of hours for the scheduled task to be executed. The specified value must not be less than 3 hours.</source>
           <target state="translated">Angiver det maksimale antal timer for den planlagte opgave, der skal udføres. Den angivne værdi må ikke være mindre end 3 timer.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Transactions Storage Setup - Control Max. Number of Hours - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Transaction Storage Setup - Control Max. Number of Hours - Property ToolTip</note>
         </trans-unit>
       </group>
     </body>
