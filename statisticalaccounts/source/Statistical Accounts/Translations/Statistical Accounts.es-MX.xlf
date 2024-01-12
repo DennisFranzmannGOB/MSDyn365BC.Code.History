@@ -496,7 +496,7 @@
         </trans-unit>
         <trans-unit id="Page 3735526716 - Action 16094294 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Opens the allocation accounts page, where you can create allocation accounts that will distribute costs based on statistical account balance.</source>
-          <target state="translated">Abre la página Cuentas de asignación, donde puede crear cuentas de asignación que distribuirán costos en función del saldo de cuentas estadísticas.</target>
+          <target state="translated">Abre la página cuentas de asignación, donde puede crear cuentas de asignación que distribuirán costos en función del saldo de cuentas estadísticas.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Account List - Action AllocationAccounts - Property ToolTip</note>
         </trans-unit>
