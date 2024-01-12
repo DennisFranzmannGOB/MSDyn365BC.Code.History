@@ -599,7 +599,7 @@
         </trans-unit>
         <trans-unit id="Page 344073747 - Control 3669144757 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which role the search setup is valid for.</source>
-          <target state="translated">Määrittää, missä roolissa haun määritys on voimassa.</target>
+          <target state="translated">Määrittää, missä roolissa haun asetukset ovat voimassa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Lists</note>
         </trans-unit>

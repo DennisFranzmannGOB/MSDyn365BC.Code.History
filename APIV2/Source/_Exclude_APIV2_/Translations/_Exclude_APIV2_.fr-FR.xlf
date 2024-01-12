@@ -11585,7 +11585,7 @@
         </trans-unit>
         <trans-unit id="Page 4240754908 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - FA Locations</source>
-          <target state="translated">APIV2 - Emplacements des immobilisations</target>
+          <target state="translated">APIV2 – Emplacements immo.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - FA Locations - Property Caption</note>
         </trans-unit>

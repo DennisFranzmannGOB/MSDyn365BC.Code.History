@@ -3,6 +3,11 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="DK Core">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 3603781715 - NamedType 454175168" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot post without a valid CVR number filled in. Open the Company Information page and enter a CVR number in the Registration No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit DK Core Event Subscribers - NamedType CannotPostWithoutCVRNumberErr</note>
+        </trans-unit>
         <trans-unit id="ReportExtension 2704275659 - NamedType 1873750193" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 2704275659">
           <source>Bank Branch No.</source>
           <note from="Developer" annotates="general" priority="2"></note>

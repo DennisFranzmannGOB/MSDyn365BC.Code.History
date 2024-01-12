@@ -3,6 +3,12 @@
   <file datatype="xml" source-language="en-US" target-language="da-DK" original="DK Core">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 3603781715 - NamedType 454175168" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot post without a valid CVR number filled in. Open the Company Information page and enter a CVR number in the Registration No. field.</source>
+          <target state="translated">Du kan ikke bogføre uden et gyldigt CVR-nummer udfyldt. Åbn siden Virksomhedsoplysninger, og indsæt et CVR-nummer i feltet Registreringsnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit DK Core Event Subscribers - NamedType CannotPostWithoutCVRNumberErr</note>
+        </trans-unit>
         <trans-unit id="ReportExtension 2704275659 - NamedType 1873750193" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Branch No.</source>
           <target state="translated">Bankregistreringsnr.</target>
