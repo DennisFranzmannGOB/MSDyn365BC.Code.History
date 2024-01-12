@@ -137,7 +137,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2185341261 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in FA journals</source>
-          <target state="translated">Создание операций в журнале ОС</target>
+          <target state="translated">Созд. операций в журналах ОС</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet FA-JOURNAL - Property Caption</note>
         </trans-unit>
@@ -185,7 +185,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 3891191268 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Read G/L accounts and entries</source>
-          <target state="translated">Чтение карт. сч. и опер. ГК</target>
+          <target state="translated">Чтение счетов и операций ГК</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet G/L-ACCOUNT - Property Caption</note>
         </trans-unit>
@@ -827,7 +827,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2343558645 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in jnls. (S&amp;R)</source>
-          <target state="translated">Созд. записи в жур. (Продажи)</target>
+          <target state="translated">Созд. операций в жур. (прод.)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet S&amp;R-JOURNAL - Property Caption</note>
         </trans-unit>
@@ -959,7 +959,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2032439741 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete VAT Rate Change Log</source>
-          <target state="translated">Удал. журнал изм. ставки НДС</target>
+          <target state="translated">Удал. журнала изм. ставки НДС</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet VAT-RC-LOG, DELETE - Property Caption</note>
         </trans-unit>
@@ -995,7 +995,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 187964102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post receipt, put away,etc.</source>
-          <target state="translated">Учет накладной, размещ. и т.п.</target>
+          <target state="translated">Учет приемки, размещ. и т.п.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet WM-R/PA/A/P/S, POST - Property Caption</note>
         </trans-unit>
