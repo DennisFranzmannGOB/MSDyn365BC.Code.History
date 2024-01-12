@@ -155,13 +155,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 839727883 - NamedType 2310760446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The journal lines were successfully registered.</source>
-          <target state="translated">Le righe di registrazione sono state contabilizzate.</target>
+          <target state="translated">Le righe registrazione sono state registrate.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Post. Batch - NamedType JournalLinesWereSuccesfullyRegisteredMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 839727883 - NamedType 2867144877" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is nothing to register.</source>
-          <target state="translated">Niente da contabilizzare.</target>
+          <target state="translated">Niente da registrare.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Post. Batch - NamedType NotingToPostErr</note>
         </trans-unit>
@@ -1689,7 +1689,7 @@
         </trans-unit>
         <trans-unit id="Table 2740809939 - NamedType 1067105188" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>DEFAULT</source>
-          <target state="translated">PREDEFINITO</target>
+          <target state="translated">PREDEF.</target>
           <note from="Developer" annotates="general" priority="2">Maximum length of this string is 10 characters.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Acc. Journal Batch - NamedType DefaultBatchNameTxt</note>
         </trans-unit>

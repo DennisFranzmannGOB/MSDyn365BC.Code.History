@@ -719,7 +719,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 486908828 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the document number on the entry.</source>
-          <target state="translated">Angiver dokumentnummeret på posten.</target>
+          <target state="translated">Angiver bilagsnummeret på posten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Document No. - Property ToolTip</note>
         </trans-unit>
@@ -917,7 +917,7 @@
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 486908828 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the document number on the entry.</source>
-          <target state="translated">Angiver dokumentnummeret på posten.</target>
+          <target state="translated">Angiver bilagsnummeret på posten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Document No. - Property ToolTip</note>
         </trans-unit>
@@ -1258,7 +1258,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 2680197960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a vendor's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
-          <target state="translated">Angiver, hvordan en kreditors momsregistreringsnummer udlæses til Intrastat-filen. 0 er værdien i feltet Moms-reg.nr., 1 tilføjer EU-landekoden som et præfiks, og 2 fjerner EU-landekoden.</target>
+          <target state="translated">Angiver, hvordan en kreditors momsregistreringsnummer udlæses til Intrastat-filen. 0 er værdien i feltet Moms-reg. nr., 1 tilføjer EU-landeområdekoden som et præfiks, og 2 fjerner EU-landeområdekoden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Vend. VAT No. on File - Property ToolTip</note>
         </trans-unit>
@@ -1365,7 +1365,7 @@
         </trans-unit>
         <trans-unit id="Page 879680616 - Control 215497968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code that identifies the currency of the Intrastat report.</source>
-          <target state="translated">Angiver en kode, der identificerer valutaen i Intrastatrapporten.</target>
+          <target state="translated">Angiver en kode, der identificerer valutaen i Intrastat-rapporten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report - Control Currency Identifier - Property ToolTip</note>
         </trans-unit>
@@ -1419,7 +1419,7 @@
         </trans-unit>
         <trans-unit id="Page 879680616 - Control 970646220 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the month to report data for. Enter the period as a four-digit number, with no spaces or symbols. Enter the year first and then the month, for example, enter 1706 for June, 2017</source>
-          <target state="translated">Angiver den måned, der skal rapporteres data for. Indsæt perioden som et firecifret tal, uden mellemrum eller symboler. Afhængigt af landet/området indsættes måneden først og året derefter, eller omvendt. Indsæt f.eks. 1706 for juni 2017</target>
+          <target state="translated">Angiver den måned, der skal rapporteres data for. Indsæt perioden som et firecifret tal, uden mellemrum eller symboler. Angiv året først og derefter måneden, angiv f.eks. 1706 for juni, 2017.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report - Control Statistics Period - Property ToolTip</note>
         </trans-unit>

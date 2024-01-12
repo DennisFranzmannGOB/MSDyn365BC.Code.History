@@ -1244,7 +1244,7 @@
         </trans-unit>
         <trans-unit id="Page 2133839000 - NamedType 3246919479" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank deposit test report has not been set up.</source>
-          <target state="translated">Bankstortingstestrapport is niet ingesteld.</target>
+          <target state="translated">Testrapport van bankstorting is niet ingesteld.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit List - NamedType BankDepositReportSelectionErr</note>
         </trans-unit>
