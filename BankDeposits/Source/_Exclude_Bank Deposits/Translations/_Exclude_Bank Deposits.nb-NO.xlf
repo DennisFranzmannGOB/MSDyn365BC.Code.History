@@ -320,7 +320,7 @@
         </trans-unit>
         <trans-unit id="Page 2880731335 - Action 4236135242 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize the document or journal by posting the amounts and quantities to the related accounts in your company books.</source>
-          <target state="translated">Fullfør dokumentet eller kladden ved å bokføre beløpene og antallene til de relaterte kontiene i selskapstablåene.</target>
+          <target state="translated">Fullfør dokumentet eller kladden ved å bokføre beløpene og antallene til de relaterte kontoene i selskapstablåene.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposits - Action P&amp;ost - Property ToolTip</note>
         </trans-unit>
@@ -386,7 +386,7 @@
         </trans-unit>
         <trans-unit id="Page 3073362426 - Action 2282416948 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize the document or journal by posting the amounts and quantities to the related accounts in your company books.</source>
-          <target state="translated">Fullfør dokumentet eller kladden ved å bokføre beløpene og antallene til de relaterte kontiene i selskapstablåene.</target>
+          <target state="translated">Fullfør dokumentet eller kladden ved å bokføre beløpene og antallene til de relaterte kontoene i selskapstablåene.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit - Action Post - Property ToolTip</note>
         </trans-unit>

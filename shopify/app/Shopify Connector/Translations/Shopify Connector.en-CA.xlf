@@ -9383,7 +9383,7 @@
         </trans-unit>
         <trans-unit id="Table 1443881130 - Field 1844012642 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Bus. Posting Group</source>
-          <target state="translated">Tax Bus. Posting Group</target>
+          <target state="translated">VAT Bus. Posting Group</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Tax Area - Field VAT Bus. Posting Group - Property Caption</note>
         </trans-unit>
@@ -10745,7 +10745,7 @@
         </trans-unit>
         <trans-unit id="Table 2860632388 - Field 1844012642 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Bus. Posting Group</source>
-          <target state="translated">Tax Bus. Posting Group</target>
+          <target state="translated">VAT Bus. Posting Group</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Shop - Field VAT Bus. Posting Group - Property Caption</note>
         </trans-unit>
