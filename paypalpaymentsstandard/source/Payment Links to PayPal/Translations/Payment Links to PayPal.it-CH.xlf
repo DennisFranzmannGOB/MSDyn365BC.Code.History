@@ -737,19 +737,19 @@
         </trans-unit>
         <trans-unit id="PermissionSet 307601816 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>PayPal Payments Standard - Edit</source>
-          <target state="translated">Pagamenti PayPal standard-modifica</target>
+          <target state="translated">PayPal Payments Standard - Modifica</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PayPal - Edit - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2667343586 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>PayPal Payments Standard - Objects</source>
-          <target state="translated">Pagamenti PayPal standard-oggetti</target>
+          <target state="translated">PayPal Payments Standard - Oggetti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PayPal - Objects - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2029050654 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>PayPal Payments Standard - Read</source>
-          <target state="translated">Pagamenti PayPal standard-leggi</target>
+          <target state="translated">PayPal Payments Standard - Leggi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PayPal - Read - Property Caption</note>
         </trans-unit>
