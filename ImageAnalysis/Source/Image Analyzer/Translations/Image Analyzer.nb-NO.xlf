@@ -437,7 +437,7 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 3413784201" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Online Services Terms (OST)</source>
-          <target state="translated">Vilkår for webtjenester (OKFØR)</target>
+          <target state="translated">Vilkår for nettbaserte tjenester</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType OnlineServicesTermLinkTxt</note>
         </trans-unit>

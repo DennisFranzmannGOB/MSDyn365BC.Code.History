@@ -744,7 +744,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the integration table mapping entry.</source>
-          <target state="translated">Spécifie le nom de l’écriture de correspondance de la table d’intégration.</target>
+          <target state="translated">Spécifie le nom de l’écriture de mappage de table d’intégration.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -1026,7 +1026,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 1360988555" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must choose at least one integration table mapping.</source>
-          <target state="translated">Vous devez choisir au moins une correspondance table intégration.</target>
+          <target state="translated">Vous devez choisir au moins un mappage de table d’intégration.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType NoRecSelectedErr</note>
         </trans-unit>
