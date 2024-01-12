@@ -623,7 +623,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 2959979021 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the unit of measure code for the tariff number on this line.</source>
-          <target state="translated">Specifies the unit of measurement code for the Commodity Code on this line.</target>
+          <target state="translated">Specifies the unit of measurement code for the commodity code on this line.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Suppl. Unit of Measure - Property ToolTip</note>
         </trans-unit>

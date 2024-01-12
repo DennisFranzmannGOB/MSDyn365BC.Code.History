@@ -2988,7 +2988,7 @@
         </trans-unit>
         <trans-unit id="Page 1167635784 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Spécifie la valeur du champ Code ordre exécution Shopify.</target>
+          <target state="translated">Spécifie la valeur du champ Code ordre d’exécution Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Card - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -3480,7 +3480,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 4247659737 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default customer when not creating a customer for each webshop user.</source>
-          <target state="translated">Spécifie le client par défaut lorsqu’il n’est pas en train de créer un client pour chaque utilisateur de magasin en ligne.</target>
+          <target state="translated">Spécifie le client par défaut lorsqu’il n’est pas en train de créer un client pour chaque utilisateur de boutique en ligne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control DefaultCustomer - Property ToolTip</note>
         </trans-unit>
@@ -5343,7 +5343,7 @@
         </trans-unit>
         <trans-unit id="Page 4292255143 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Spécifie la valeur du champ Code ordre exécution Shopify.</target>
+          <target state="translated">Spécifie la valeur du champ Code ordre d’exécution Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -6015,7 +6015,7 @@
         </trans-unit>
         <trans-unit id="Page 864923901 - Control 192144605 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Fulfillment Order Id field.</source>
-          <target state="translated">Spécifie la valeur du champ Code ordre exécution Shopify.</target>
+          <target state="translated">Spécifie la valeur du champ Code ordre d’exécution Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Orders - Control Shopify Fulfillment Order Id - Property ToolTip</note>
         </trans-unit>
@@ -7170,7 +7170,7 @@
         </trans-unit>
         <trans-unit id="Report 4093570814 - NamedType 2040151610" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Attributes</source>
-          <target state="translated">Attributs article</target>
+          <target state="translated">Attributs d’article</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Shpfy Translator - NamedType AttributeTitleLbl</note>
         </trans-unit>

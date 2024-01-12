@@ -719,7 +719,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 486908828 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the document number on the entry.</source>
-          <target state="translated">Hiermee wordt het documentnummer in de post opgegeven.</target>
+          <target state="translated">Hiermee wordt het documentnummer op de post opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Document No. - Property ToolTip</note>
         </trans-unit>
@@ -935,7 +935,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 4168804269 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shows the default receiving country code.</source>
-          <target state="translated">Hiermee wordt de code van het ontvangende standaardland weergegeven.</target>
+          <target state="translated">Hiermee wordt de code van het ontvangende standaardland of de ontvangende standaardregio weergegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. Country/Region Code - Property ToolTip</note>
         </trans-unit>
