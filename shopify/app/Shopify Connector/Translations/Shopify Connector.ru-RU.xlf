@@ -3282,7 +3282,7 @@
         </trans-unit>
         <trans-unit id="Page 3706164926 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Удалить записи старше 7 дней</target>
+          <target state="translated">Удалить операции старше 7 дней</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Action Delete7days - Property Caption</note>
         </trans-unit>
@@ -4614,7 +4614,7 @@
         </trans-unit>
         <trans-unit id="Page 2016272457 - Control 271156415 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of payments associated with the order. Valid values are: pending, authorized, partially_paid, paid, partially_refunded, refunded, voided.</source>
-          <target state="translated">Определяет статус платежей, связанных с заказом. Допустимые значения: "Ожидание", "Авторизовано", "Частично оплачено", "Частично возвращено", "Возвращено", "Аннулировано".</target>
+          <target state="translated">Определяет статус платежей, связанных с заказом. Допустимые значения: "Ожидание", "Авторизовано", "Частично оплачено", "Оплачено", "Частично возвращено", "Возвращено", "Аннулировано".</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders to Import - Control FinancialStatus - Property ToolTip</note>
         </trans-unit>
@@ -5597,7 +5597,7 @@
         </trans-unit>
         <trans-unit id="Page 3259998644 - Control 3207102784 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ID of the user who posted the entry, to be used, for example, in the change log.</source>
-          <target state="translated">Определяет ИД пользователя, который выполнил учет операции, например для использования в журнале изменений.</target>
+          <target state="translated">Определяет ИД пользователя, который учел операцию. Этот ИД может использоваться, например, в журнале изменений.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control UserId - Property ToolTip</note>
         </trans-unit>
@@ -5999,7 +5999,7 @@
         </trans-unit>
         <trans-unit id="Page 3706164926 - Control 3207102784 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ID of the user who posted the entry, to be used, for example, in the change log.</source>
-          <target state="translated">Определяет ИД пользователя, который выполнил учет операции, например для использования в журнале изменений.</target>
+          <target state="translated">Определяет ИД пользователя, который учел операцию. Этот ИД может использоваться, например, в журнале изменений.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Control UserId - Property ToolTip</note>
         </trans-unit>
@@ -8097,7 +8097,7 @@
         </trans-unit>
         <trans-unit id="Page 881753888 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Waiting for a response - do not close this page</source>
-          <target state="translated">Ожидание отклика — не закрывайте эту страницу</target>
+          <target state="translated">Ожидание ответа. Не закрывайте эту страницу.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Authentication - Property Caption</note>
         </trans-unit>

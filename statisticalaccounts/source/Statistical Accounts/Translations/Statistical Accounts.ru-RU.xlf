@@ -1689,7 +1689,7 @@
         </trans-unit>
         <trans-unit id="Table 2740809939 - NamedType 1067105188" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>DEFAULT</source>
-          <target state="translated">ПО УМОЛЧАНИЮ</target>
+          <target state="translated">СТАНДАРТ</target>
           <note from="Developer" annotates="general" priority="2">Maximum length of this string is 10 characters.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Acc. Journal Batch - NamedType DefaultBatchNameTxt</note>
         </trans-unit>
