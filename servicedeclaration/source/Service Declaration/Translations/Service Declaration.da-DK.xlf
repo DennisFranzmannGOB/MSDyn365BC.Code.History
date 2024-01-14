@@ -1293,7 +1293,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 118093026 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Transaction Type Code</source>
-          <target state="translated">Typekode for servicetransaktion</target>
+          <target state="translated">Servicetransaktionstypekode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1308990239</note>
@@ -1475,7 +1475,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3429814826 - Field 3250917128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Transaction Type Code</source>
-          <target state="translated">Typekode for servicetransaktion</target>
+          <target state="translated">Servicetransaktionstypekode</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2850645989</note>
