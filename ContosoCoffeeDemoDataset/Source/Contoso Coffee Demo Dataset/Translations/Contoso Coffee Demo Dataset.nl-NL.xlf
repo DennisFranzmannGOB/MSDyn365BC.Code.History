@@ -221,7 +221,7 @@
         </trans-unit>
         <trans-unit id="Table 1613625135 - Field 350630476 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location Directed Pick and Put-away</source>
-          <target state="translated">Locatiegerichte pick en opslag</target>
+          <target state="translated">Vestiginggerichte pick en opslag</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Whse Demo Data Setup - Field Location Directed Pick - Property Caption</note>
         </trans-unit>
