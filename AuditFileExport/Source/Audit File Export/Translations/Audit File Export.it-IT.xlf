@@ -173,7 +173,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3522532737 - NamedType 1525031959" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify an ending date.</source>
-          <target state="translated">È necessario specificare una data di fine.</target>
+          <target state="translated">Specificare una Data fine.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit Mapping Helper - NamedType EndingDateNotFilledErr</note>
         </trans-unit>
@@ -227,7 +227,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3522532737 - NamedType 3683577878" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify a starting date.</source>
-          <target state="translated">È necessario specificare una data di inizio.</target>
+          <target state="translated">Specificare una Data inizio.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit Mapping Helper - NamedType StartingDateNotFilledErr</note>
         </trans-unit>
@@ -455,13 +455,13 @@
         </trans-unit>
         <trans-unit id="Page 3668181135 - Action 3517601603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy the G/L account mapping from another mapping code.</source>
-          <target state="translated">Copiare la mappatura del conto C/G da un altro codice di mappatura.</target>
+          <target state="translated">Copiare la mappatura del conto C/G da un altro codice di mapping.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Action CopyMapping - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3668181135 - Action 3517601603 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy from Another Mapping</source>
-          <target state="translated">Copia da un'altra mappatura</target>
+          <target state="translated">Copia da un altro mapping</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Action CopyMapping - Property Caption</note>
         </trans-unit>
@@ -473,7 +473,7 @@
         </trans-unit>
         <trans-unit id="Page 3668181135 - Action 972680765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Initialize Source for Mapping</source>
-          <target state="translated">Inizializza origine per la mappatura</target>
+          <target state="translated">Inizializza origine per mapping</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Action InitMappingSource - Property Caption</note>
         </trans-unit>
@@ -821,7 +821,7 @@
         </trans-unit>
         <trans-unit id="Page 3546478469 - Control 3592094765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ending date of the reporting period.</source>
-          <target state="translated">Specifica la data di fine del periodo contabile.</target>
+          <target state="translated">Specifica la data di fine del periodo di dichiarazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control EndingDate - Property ToolTip</note>
         </trans-unit>
@@ -833,7 +833,7 @@
         </trans-unit>
         <trans-unit id="Page 3546478469 - Control 543275552 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the starting date of the reporting period.</source>
-          <target state="translated">Specifica la data di inizio del periodo contabile.</target>
+          <target state="translated">Specifica la data di inizio del periodo di dichiarazione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control StartingDate - Property ToolTip</note>
         </trans-unit>
@@ -935,7 +935,7 @@
         </trans-unit>
         <trans-unit id="Page 3668181135 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the mapping code that represents the reporting period.</source>
-          <target state="translated">Specifica il codice di mappatura che rappresenta il periodo di dichiarazione.</target>
+          <target state="translated">Specifica il codice di mapping che rappresenta il periodo contabile.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Control Code - Property ToolTip</note>
         </trans-unit>
@@ -1079,7 +1079,7 @@
         </trans-unit>
         <trans-unit id="Page 729295803 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the mapping code that represents the reporting period.</source>
-          <target state="translated">Specifica il codice di mappatura che rappresenta il periodo di dichiarazione.</target>
+          <target state="translated">Specifica il codice di mapping che rappresenta il periodo contabile.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping - Control Code - Property ToolTip</note>
         </trans-unit>

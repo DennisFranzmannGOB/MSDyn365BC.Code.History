@@ -17,6 +17,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1145004488 - NamedType 1689235809" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>In some countries authorities require to make sure that for every single general ledger register ther is a digital vouchers assigned.</source>
+          <target state="translated">In some countries authorities require to make sure that for every single general ledger register there is a digital voucher assigned.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Impl. - NamedType AssistedSetupDescriptionTxt</note>
         </trans-unit>
@@ -217,6 +218,7 @@
         </trans-unit>
         <trans-unit id="Page 2319989076 - Control 2325998030 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>In some countries authorities require to make sure that for every single document there is a digital voucher assigned.</source>
+          <target state="translated">In some countries authorities require to make sure that for every single document there is a digital voucher assigned.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control FeatureDescription - Property InstructionalText</note>
         </trans-unit>
