@@ -903,12 +903,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ChatCompletionsFailedWithCodeErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2076688375 - NamedType 3171573684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Available now to Insider Builds. Partners will be able to deploy and run to Business Central Online once we light this up in a minor update.</source>
-          <target state="translated">Nyní je k dispozici pro Insider Builds. Partneři budou moci nasadit a spustit Business Central Online, jakmile to umožníme v menší aktualizaci.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ThirdPartyCapabilitySaaSErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 3198080941" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Selected model type is not supported.</source>
           <target state="translated">Vybraný typ modelu není podporován.</target>
@@ -950,6 +944,12 @@
           <target state="translated">Generování vkládání se nezdařilo.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType EmbeddingsFailedWithCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Metaprompt not found.</source>
+          <target state="translated">Metaprompt nebyl nalezen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType MetapromptLoadingErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2091346909 - NamedType 2186304282" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Test Email Message</source>
@@ -2523,6 +2523,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MessageIdDoesNotExistErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3830376076 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Metaprompt not found.</source>
+          <target state="translated">Metaprompt nebyl nalezen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MetapromptLoadingErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3830376076 - NamedType 94536125" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>History length must be greater than 0.</source>
           <target state="translated">Délka historie musí být větší než 0.</target>
@@ -2786,6 +2792,17 @@
           <target state="translated">Nepodařilo se načíst název domény tenanta Microsoft Entra.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType TenantDomainNameErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4205038922 - NamedType 2237935850" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant country letter code.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType CountryLetterCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4205038922 - NamedType 3300183334" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant preferred language code.</source>
+          <target state="translated">Nepodařilo se načíst kód upřednostňovaného jazyka tenanta Microsoft Entra.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType PreferredLanguageErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4215518646 - NamedType 1905859220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is not an application secret.</source>
@@ -3177,6 +3194,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Dynamics 2D QR-Code Encoder - Method EncodeImage - NamedType CannotCreateQrCodeErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 539680298 - Method 1842866781 - NamedType 644701202" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Acquire of token with Client Credentials failed.</source>
+          <target state="translated">Získání tokenu s přihlašovacími údaji klienta se nezdařilo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit HttpAuthOAuthClientCredentials - Method AcquireToken - NamedType AquireTokenFailedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 729626133 - Method 579378647 - NamedType 668814160" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Internal server error. Please contact your system administrator.</source>
           <target state="translated">Vnitřní chyba serveru. Obraťte se na správce systému.</target>
@@ -3542,6 +3565,18 @@
           <target state="translated">Aktualizace dat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Feature Status - EnumValue Updating - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2240422114 - EnumValue 1090351696 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active</source>
+          <target state="translated">Aktivní</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2240422114 - EnumValue 525852245 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <target state="translated">Neaktivní</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Inactive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 1002125975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statement paper (5.5 in. by 8.5 in.).</source>
@@ -10898,6 +10933,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Control Customized - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1256520770 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the extension that provides the permission set.</source>
+          <target state="translated">Určuje název rozšíření, které poskytuje sadu oprávnění.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control App Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1256520770 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Extension Name</source>
+          <target state="translated">Název rozšíření</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control App Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a permission set that defines the role.</source>
+          <target state="translated">Určuje sadu oprávnění, která definuje roli.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Role ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1918310387 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Permission Set</source>
+          <target state="translated">Sada oprávnění</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Role ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the permission set.</source>
+          <target state="translated">Určuje název sady oprávnění.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 593885934 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the permission set is specific to your tenant or generally available in the system.</source>
+          <target state="translated">Určuje, zda sada oprávnění je specifická pro vašeho nájemce nebo je obecně k dispozici v systému.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Scope - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2674634765 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a permission set that defines the role.</source>
           <target state="translated">Určuje sadu oprávnění, která definuje roli.</target>
@@ -11270,6 +11341,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control End Date - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 2677802402 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yearly Specific Day</source>
+          <target state="translated">Ročně konkrétní den</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control YearlySpecificDay - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2817068111 - Control 2683361118 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Yearly</source>
           <target state="translated">Ročně</target>
@@ -11299,6 +11376,12 @@
           <target state="translated">Opakování v pondělí</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control RecurOnMonday - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 3201366554 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly By Weekday</source>
+          <target state="translated">Měsíčně podle dne v týdnu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control MonthlyByWeekday - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2817068111 - Control 32562763 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the time of day when the recurrence takes effect. This is also the time of day for each occurrence.</source>
@@ -11419,6 +11502,18 @@
           <target state="translated">Určuje datum, kdy se projeví opakování.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control Start Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 588979259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly Specific Day</source>
+          <target state="translated">Měsíčně konkrétní den</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control MonthlySpecificDay - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 618477395 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yearly By Weekday</source>
+          <target state="translated">Ročně podle dne v týdnu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control YearlyByWeekday - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2817068111 - Control 809128117 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the day of the month for the recurrence.</source>
@@ -13241,8 +13336,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Disclaimer - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 1694176181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsft Business Central Disclaimer</source>
-          <target state="translated">Prohlášení Microsoft Business Central</target>
+          <source>Per-Tenant Extension (PTE) Disclaimer</source>
+          <target state="translated">Zřeknutí se odpovědnosti za rozšíření Per-Tenant (PTE)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Disclaimer - Property Caption</note>
         </trans-unit>
@@ -13289,8 +13384,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 346708723 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Accept the privacy policy and the disclaimer</source>
-          <target state="translated">Přijměte zásady ochrany osobních údajů a prohlášení o vyloučení odpovědnosti</target>
+          <source>By deploying this extension you acknowledge that your data may be sent outside the compliance boundary of Business Central. Each per-tenant extension is subject to its own third party terms and conditions and privacy policies.</source>
+          <target state="translated">Nasazením tohoto rozšíření berete na vědomí, že vaše data mohou být odeslána mimo hranice dodržování předpisů Business Central. Každé rozšíření pro jednotlivé tenanty podléhá vlastním podmínkám a ujednáním a zásadám ochrany osobních údajů třetích stran.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property Caption</note>
         </trans-unit>
@@ -13311,18 +13406,6 @@
           <target state="translated">Nahrát rozšíření</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Upload Extension - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - Control 607920654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the privacy and cookies.</source>
-          <target state="translated">Zobrazit soukromí a soubory cookie.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control PrivacyAndCookies - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - Control 607920654 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy and Cookies</source>
-          <target state="translated">Ochrana osobních údajů a soubory cookie</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control PrivacyAndCookies - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the file path of the extension.</source>
@@ -16801,16 +16884,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType DialogTitleTxt</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - NamedType 3405983715" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsoft Business Central PTE Disclaimer</source>
-          <target state="translated">Právní omezení pro Microsoft Business Central PTE</target>
+          <source>Per-Tenant Extension (PTE) Disclaimer</source>
+          <target state="translated">Zřeknutí se odpovědnosti za rozšíření Per-Tenant (PTE)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType DisclaimerLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - NamedType 4004070260" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy and Cookies</source>
-          <target state="translated">Ochrana osobních údajů a soubory cookie</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType PrivacyAndCookiesLbl</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - NamedType 54529786" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Are you sure that you want to skip the remaining steps of the checklist?</source>
@@ -17431,7 +17508,7 @@
         </trans-unit>
         <trans-unit id="Page 1549657920 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copilot is the AI-powered assistant that helps people across your organization unlock their creativity and automate tedious tasks.</source>
-          <target state="translated">Copilot je asistent s umělou inteligencí, který pomáhá lidem ve vaší organizaci odemknout jejich kreativitu a automatizovat zdlouhavé úkoly.</target>
+          <target state="translated">Copilot je asistent využívající umělou inteligenci, který pomáhá lidem v celé organizaci uvolnit jejich kreativitu a automatizovat únavné úkoly.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AboutText</note>
         </trans-unit>
@@ -17442,8 +17519,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1549657920 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin</source>
-          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Umělá inteligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Nastavení Copilot,Nastavení Copilot,povolit Copilot,Správce Copilota</target>
+          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin,Copilot and</source>
+          <target state="translated">OpenAI,UI,Copilot,Co-pilot,Umělá inteligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Nastavení Copilot,Nastavení Copilot,povolit Copilot,Správce Copilota,Copilot a</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -17758,6 +17835,12 @@
           <target state="translated">Konfigurace licence</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Permission Set Lookup</source>
+          <target state="translated">Hledání sady oprávnění</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2674634765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Security Group Permission Sets</source>
@@ -18112,6 +18195,12 @@
           <target state="translated">Tržiště rozšíření</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3666029466 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>app,add-in,customize,plug-in,appsource</source>
+          <target state="translated">aplikace,doplněk,přizpůsobit,plug-in,appsource</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Upload And Deploy Extension</source>

@@ -221,7 +221,7 @@
         </trans-unit>
         <trans-unit id="Table 2670224048 - Field 4242196510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retail - Gen. Prod. Posting Group</source>
-          <target state="translated">Detail – Produktbogføringsgruppe</target>
+          <target state="translated">Detail – Generel produktbogføringsgruppe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Manufacturing Demo Data Setup - Field Retail Code - Property Caption</note>
         </trans-unit>
@@ -1697,7 +1697,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1485704842 - NamedType 2939465930" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Other customers and vendors (not EU)</source>
-          <target state="translated">Debitorer/kreditorer uden for EU</target>
+          <target state="translated">Debitorer/kreditorer i lande/områder uden for EU</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Posting Group - NamedType ExportCustomerVendorLbl</note>
         </trans-unit>
@@ -2219,7 +2219,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3187161238 - NamedType 4247888177" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>WIP Account, Finished Goods</source>
-          <target state="translated">IGVA-konto, færdigvarer</target>
+          <target state="translated">VIA-konto, færdigvarer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg GL Account - NamedType WIPAccountFinishedGoodsLbl</note>
         </trans-unit>

@@ -3,6 +3,11 @@
   <file datatype="xml" source-language="en-US" target-language="da-DK" original="E-Document Core">
     <body>
       <group id="body">
+        <trans-unit id="Codeunit 1138806890 - NamedType 1557378347" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 is not supported by PEPPOL BIS30 Format</source>
+          <note from="Developer" annotates="general" priority="2">%1 - Document Type caption, %2 - Document Type</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit EDoc PEPPOL BIS 3.0 - NamedType DocumentTypeNotSupportedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1557577669 - NamedType 1079526110" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Batch processing is not supported with.</source>
           <target state="translated">Batchbehandling understøttes ikke med.</target>
@@ -26,6 +31,11 @@
           <target state="translated">Tilknytning af record kan kun anvendes på midlertidig record</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Mapping - NamedType NonTempRecordErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2348542397 - NamedType 3178693077" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-document is %1 and can not be sent in this state.</source>
+          <note from="Developer" annotates="general" priority="2">%1 - Status</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Integration Management - NamedType EDocumentSendErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2348542397 - NamedType 364111688" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to get exported blob from EDocument %1</source>
@@ -119,6 +129,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3873511525 - NamedType 1594685643" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice charge on the e-document has no reason code.</source>
+          <target state="translated">Fakturagebyret på det indgående e-dokument har ingen årsagskode.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType InvoiceChargeHasNoReasonErr</note>
         </trans-unit>
@@ -278,6 +289,11 @@
           <note from="Developer" annotates="general" priority="2">%1 International Standard Code or Code or Description for Unit of Measure</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Document Import Helper - NamedType UOMNotFoundErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 66696616 - NamedType 4071190614" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot find vendor '%1' based on the vendor's name, address or VAT registration number on the electronic document. Make sure that a card for the vendor exists with the corresponding name, address or VAT Registration No.</source>
+          <note from="Developer" annotates="general" priority="2">%1 Vendor name (e.g. London Postmaster)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Document Import Helper - NamedType VendorNotFoundErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 66696616 - NamedType 4084517828" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>&lt;NONE&gt;</source>
           <target state="translated">&lt;INGEN&gt;</target>
@@ -319,6 +335,11 @@
           <target state="translated">Udgående</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Direction - EnumValue Outgoing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2161247858 - EnumValue 1140477700 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch Imported</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Batch Imported - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 1249475212 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Created</source>
@@ -448,11 +469,13 @@
         </trans-unit>
         <trans-unit id="Enum 397551968 - EnumValue 1459325709 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Data Exchange</source>
+          <target state="translated">Dataudveksling</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Format - EnumValue Data Exchange - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 397551968 - EnumValue 529166461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>PEPPOL BIS 3.0</source>
+          <target state="translated">PEPPOL BIS 3.0</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Format - EnumValue PEPPOL BIS 3.0 - Property Caption</note>
         </trans-unit>
@@ -555,11 +578,13 @@
         </trans-unit>
         <trans-unit id="Page 2429668632 - Action 2888971102 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create an electronic document by manually uploading a file.</source>
+          <target state="translated">Opret et elektronisk dokument ved manuelt at uploade en fil.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action ImportManually - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2429668632 - Action 2888971102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create From File</source>
+          <target state="translated">Opret fra fil</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action ImportManually - Property Caption</note>
         </trans-unit>
@@ -598,6 +623,16 @@
           <target state="translated">Opsætning af serviceintegration</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Action SetupServiceIntegration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4102148806 - Action 3301255903 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setup Supported Document Types</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Action SupportedDocTypes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4102148806 - Action 3301255903 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supported Document Types</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Action SupportedDocTypes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Action 1457196661 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a mapping of text on electronic documents to identical text on specific debit, credit, and balancing accounts in the general ledger or on bank accounts so that the resulting document or journal lines are prefilled with the specified information.</source>
@@ -959,6 +994,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Control Document Date - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2744253236 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the supported source document type.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc Service Supported Types - Control Document Type - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3041189344 - Control 1165969121 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the line number.</source>
           <target state="translated">Angiver linjenummeret.</target>
@@ -1009,7 +1049,7 @@
         </trans-unit>
         <trans-unit id="Page 3041189344 - Control 3410398907 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the caption of the field.</source>
-          <target state="translated">Angiver feltets titel.</target>
+          <target state="translated">Angiver feltets tekst.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Changes Part - Control Field ID Caption - Property ToolTip</note>
         </trans-unit>
@@ -1679,6 +1719,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2744253236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Document Service Supported Source Document Types</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc Service Supported Types - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3041189344 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Doc. Changes Part</source>
           <target state="translated">Del med E-dok.-ændringer</target>
@@ -1715,11 +1760,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4102148806 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Edoc service,Electronic Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Property AdditionalSearchTerms</note>
+        </trans-unit>
         <trans-unit id="Page 4128474945 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document</source>
           <target state="translated">E-dokument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4128474945 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Edoc,Electronic Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 497947274 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Communication Logs</source>
@@ -1777,7 +1832,7 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 1331685701</note>
         </trans-unit>
         <trans-unit id="PageExtension 256357247 - Action 1505326866 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenEDocument</source>
+          <source>Open E-Document</source>
           <target state="translated">OpenEDocument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
@@ -2242,6 +2297,16 @@
           <target state="translated">Tabeltitel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Mapping - Field Table ID Caption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1890189815 - Field 3701310097 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Document Service Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Supported Type - Field E-Document Service Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1890189815 - Field 587895070 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Supported Type - Field Source Document Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 20105138 - Field 2584943505 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Replace Value</source>
@@ -2819,11 +2884,21 @@
           <note from="Developer" annotates="general" priority="2">%1 - General, %2 - Purchases, %3 - Payments, %4 - Sales, %5 - Cash, %6 - Receipts</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Service - NamedType TemplateTypeErr</note>
         </trans-unit>
+        <trans-unit id="Table 957206269 - NamedType 2664610491" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Document log entry does not contain data to export.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Log - NamedType EDocLogEntryNoExportMsg</note>
+        </trans-unit>
         <trans-unit id="Table 1668421278 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Mapping</source>
           <target state="translated">Tilknytning af e-dokument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Mapping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1890189815 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Doc. Service Supported Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Supported Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 20105138 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Mapping Log</source>
@@ -2886,6 +2961,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2752032398</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 688821345 - Field 4102148806 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Document Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4252311308</note>
         </trans-unit>
       </group>
     </body>

@@ -22,9 +22,6 @@
       "path": "./Email - Outlook REST API/Test"
     },
     {
-      "path": "./Intrastat/Test/Intrastat Core Tests"
-    },
-    {
       "path": "./APIV1/Test/_Exclude_APIV1_ Tests"
     },
     {
@@ -68,6 +65,9 @@
     },
     {
       "path": "./recommendedapps/test/Recommended Apps Tests"
+    },
+    {
+      "path": "./ISCore/Test/IS Core Tests"
     },
     {
       "path": "./ExternalEvents/test/_Exclude_Business_Events_Test"
@@ -254,11 +254,11 @@
     }
   ],
   "settings": {
-    "al.enableCodeAnalysis": false,
     "allint.enabled": false,
     "search.exclude": {
       "**.xlf": true
     },
+    "al.enableCodeAnalysis": false,
     "al.enableCodeActions": false
   }
 }
