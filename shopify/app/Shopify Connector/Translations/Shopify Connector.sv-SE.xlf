@@ -3282,7 +3282,7 @@
         </trans-unit>
         <trans-unit id="Page 3706164926 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Ta bort transaktioner som är äldre än 7 dagar</target>
+          <target state="translated">Ta bort transaktioner som är äldre än sju dagar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Action Delete7days - Property Caption</note>
         </trans-unit>
@@ -3900,7 +3900,7 @@
         </trans-unit>
         <trans-unit id="Page 1602962213 - Control 3983288659 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the URL of the Shopify Shop.</source>
-          <target state="translated">Anger webbadressen till Shopify-butiken.</target>
+          <target state="translated">Anger URL:en till Shopify-butiken.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shops - Control ShopifyURL - Property ToolTip</note>
         </trans-unit>
@@ -4464,7 +4464,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 4281524059 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the URL of the Shopify Shop.</source>
-          <target state="translated">Anger webbadressen till Shopify-butiken.</target>
+          <target state="translated">Anger URL:en till Shopify-butiken.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify URL - Property ToolTip</note>
         </trans-unit>
@@ -4794,7 +4794,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Control 1713889359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies an additional part of the name.</source>
-          <target state="translated">Anger en ytterligare del av namnet.</target>
+          <target state="translated">Anger ytterligare en del av namnet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Control Name2 - Property ToolTip</note>
         </trans-unit>
@@ -5213,7 +5213,7 @@
         </trans-unit>
         <trans-unit id="Page 2806160088 - Control 4165234317 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the url to the product on the webshop.</source>
-          <target state="translated">Anger webbadressen till produkten i webbutiken.</target>
+          <target state="translated">Anger URL:en till produkten i webbutiken.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products - Control Url - Property ToolTip</note>
         </trans-unit>
@@ -6435,7 +6435,7 @@
         </trans-unit>
         <trans-unit id="Page 4023966537 - Control 1669136979 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Shopify shop code.</source>
-          <target state="translated">Anger butikskoden för Shopify.</target>
+          <target state="translated">Anger koden för Shopify-butiken.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Initial Import - Control Shop Code - Property ToolTip</note>
         </trans-unit>

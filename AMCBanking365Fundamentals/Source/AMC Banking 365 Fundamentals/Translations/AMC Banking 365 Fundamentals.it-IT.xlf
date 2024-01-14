@@ -629,7 +629,7 @@
         </trans-unit>
         <trans-unit id="Page 1056736409 - Action 2526477354 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clear the list of all log entries.</source>
-          <target state="translated">Cancellare l'elenco di tutte le voci di log.</target>
+          <target state="translated">Cancellare la lista di tutte le voci di log.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Webcall Log - Action Delete0days - Property ToolTip</note>
         </trans-unit>
@@ -875,7 +875,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Control 1143591 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Bank Clearing Standards to be used on vendors bank accounts.</source>
-          <target state="translated">Setup Clearing Bancari Standard da utilizzare nei conti bancari fornitori.</target>
+          <target state="translated">Setup Clearing Bancario Standard da utilizzare nei C/C bancari fornitori.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Control UpdBankClearStd - Property ToolTip</note>
         </trans-unit>

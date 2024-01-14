@@ -8753,7 +8753,7 @@
         </trans-unit>
         <trans-unit id="Page 48856144 - NamedType 3870566702" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "pricesIncludeTax" cannot be set to true if VAT Calculation Type is Sales Tax.</source>
-          <target state="translated">The "pricesIncludeTax" cannot be set to true if VAT Calculation Type is Sales Tax.</target>
+          <target state="translated">The "pricesIncludeTax" cannot be set to true if VAT Calculation Type is VAT.</target>
           <note from="Developer" annotates="general" priority="2">pricesIncludeTax is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - NamedType CannotEnablePricesIncludeTaxErr</note>
         </trans-unit>
