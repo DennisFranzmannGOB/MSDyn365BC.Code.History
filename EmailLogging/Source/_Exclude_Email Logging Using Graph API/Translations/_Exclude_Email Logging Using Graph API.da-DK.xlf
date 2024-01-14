@@ -774,7 +774,7 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 799911313 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>When you choose Finish, the following will be created:</source>
-          <target state="translated">Når du vælger Udfør, vil følgende blive oprettet:</target>
+          <target state="translated">Når du vælger Udfør, oprettes følgende:</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control FinalStepDesc - Property InstructionalText</note>
         </trans-unit>
