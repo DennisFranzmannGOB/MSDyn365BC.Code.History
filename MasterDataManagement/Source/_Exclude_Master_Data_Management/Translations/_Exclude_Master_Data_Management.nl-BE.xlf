@@ -432,7 +432,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Resets the synchronization tables, fields, and job queue entries to the default values for the connection with the source company. All current synchronization tables are deleted and recreated.</source>
-          <target state="translated">Hiermee worden de toewijzingen van integratietabellen en synchronisatietaken opnieuw ingesteld op de standaardwaarden voor een verbinding met het bronbedrijf. Alle huidige toewijzingen worden verwijderd en opnieuw gemaakt.</target>
+          <target state="translated">Hiermee worden de synchronisatietabellen, velden en taakwachtrij-items opnieuw ingesteld op de standaardwaarden voor de verbinding met het bronbedrijf. Alle huidige synchronisatietabellen worden verwijderd en opnieuw gemaakt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property ToolTip</note>
         </trans-unit>
@@ -444,7 +444,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 1723776373 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete couplings for the selected tables.</source>
-          <target state="translated">Koppelingen verwijderen voor de geselecteerde Business Central-typen.</target>
+          <target state="translated">Koppelingen voor de geselecteerde tabellen verwijderen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action RemoveCoupling - Property ToolTip</note>
         </trans-unit>
@@ -480,7 +480,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 2573355370 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shows the fields that are synchronized.</source>
-          <target state="translated">Velden weergeven die zijn gesynchroniseerd.</target>
+          <target state="translated">Hiermee worden de velden weergegeven die worden gesynchroniseerd.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action FieldMapping - Property ToolTip</note>
         </trans-unit>
@@ -504,7 +504,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 269808213 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the status of jobs for uncoupling records.</source>
-          <target state="translated">De status weergeven van taken voor het ontkoppelen van records. De taken zijn uitgevoerd vanuit de taakwachtrij of handmatig in Business Central.</target>
+          <target state="translated">De status weergeven van projecten voor het ontkoppelen van records.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Uncouple Job Log - Property ToolTip</note>
         </trans-unit>
@@ -516,7 +516,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 2976546385 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Couple existing records in the selected tables based on matching criteria.</source>
-          <target state="translated">Koppelingen tussen de geselecteerde Business Central-recordtypen maken op basis van overeenkomstcriteria.</target>
+          <target state="translated">Bestaande records in de geselecteerde tabellen koppelen op basis van overeenkomstcriteria.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action MatchBasedCoupling - Property ToolTip</note>
         </trans-unit>
@@ -546,7 +546,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 3601201259 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the status of the individual synchronization jobs that have been run for this table.</source>
-          <target state="translated">De status weergeven van de afzonderlijke synchronisatietaken die zijn uitgevoerd voor deze tabel. Dit omvat synchronisatietaken die zijn uitgevoerd vanuit de taakwachtrij en handmatige synchronisatietaken die op records zijn uitgevoerd vanuit de Business Central-client.</target>
+          <target state="translated">De status weergeven van de afzonderlijke synchronisatietaken die voor deze tabel zijn uitgevoerd.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action View Integration Synch. Job Log - Property ToolTip</note>
         </trans-unit>
@@ -582,7 +582,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 639242359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Resets the tables, fields and synchronization jobs to the default values for the connection with the source company. All default synchronization table definitions are deleted and recreated.</source>
-          <target state="translated">Hiermee worden de tabellen en synchronisatietaken opnieuw ingesteld op de standaardwaarden voor een verbinding met het bronbedrijf. Alle huidige toewijzingen worden verwijderd.</target>
+          <target state="translated">Hiermee worden de tabellen, velden en synchronisatietaken opnieuw ingesteld op de standaardwaarden voor de verbinding met het bronbedrijf. Alle standaarddefinities van synchronisatietabellen worden verwijderd en opnieuw gemaakt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action ResetConfiguration - Property ToolTip</note>
         </trans-unit>
@@ -660,7 +660,7 @@
         </trans-unit>
         <trans-unit id="Page 3185645072 - Action 2573355370 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Updates field mappings to match table schema. Use this action if you added fields to the table with an extension.</source>
-          <target state="translated">Hiermee worden veldtoewijzingen aangepast aan het tabelschema. Gebruik deze actie als het tabelschema is gewijzigd sinds de toewijzingen zijn gegenereerd.</target>
+          <target state="translated">Hiermee worden veldtoewijzingen aangepast aan het tabelschema. Gebruik deze actie als u velden aan de tabel hebt toegevoegd met een extensie.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Action FieldMapping - Property ToolTip</note>
         </trans-unit>
@@ -726,13 +726,13 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 1439815520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the action to take when a coupled record is updated both in the source and in the local company.</source>
-          <target state="translated">Hiermee wordt de actie opgegeven die moet worden uitgevoerd wanneer een gekoppelde record wordt bijgewerkt in beide verbonden toepassingen.</target>
+          <target state="translated">Hiermee wordt de actie opgegeven die moet worden uitgevoerd wanneer een gekoppelde record zowel in het bronbedrijf als in het lokale bedrijf wordt bijgewerkt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Update-Conflict Resolution - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 1694497541 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the table caption.</source>
-          <target state="translated">Hiermee wordt de naam opgegeven van de bedrijfsgegevenstabel in Business Central die moet worden toegewezen aan de integratietabel.</target>
+          <target state="translated">Hiermee wordt het bijschrift van de tabel opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableCaptionValue - Property ToolTip</note>
         </trans-unit>
@@ -744,7 +744,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the table.</source>
-          <target state="translated">Hiermee wordt de naam opgegeven van de toewijzingspost van de integratietabel.</target>
+          <target state="translated">Hiermee wordt de naam van de tabel opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -756,19 +756,19 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 2987383563 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the action to take when a coupled record that is attempting to synchronize is deleted locally.</source>
-          <target state="translated">Hiermee wordt de actie opgegeven die moet worden uitgevoerd wanneer een gekoppelde record wordt verwijderd uit een van de verbonden toepassingen.</target>
+          <target state="translated">Hiermee wordt de actie opgegeven die moet worden uitgevoerd wanneer een gekoppelde record die probeert te synchroniseren, lokaal wordt verwijderd.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Deletion-Conflict Resolution - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3064002603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a configuration template to use when creating new records out of the table in the source company.</source>
-          <target state="translated">Hiermee wordt een configuratiesjabloon opgegeven om te gebruiken bij het maken van nieuwe records in de Dynamics 365-bedrijfstabel (opgegeven door het veld Tabel-id) tijdens synchronisatie.</target>
+          <target state="translated">Hiermee wordt een configuratiesjabloon opgegeven om te gebruiken wanneer nieuwe records uit de tabel in het bronbedrijf worden gemaakt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Table Config Template Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3207106980 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a filter on the table in the source company to control which records should be synchronized.</source>
-          <target state="translated">Hiermee wordt een filter opgegeven voor de integratietabel om te bepalen welke records kunnen worden gesynchroniseerd met de corresponderende records in de bedrijfsgegevenstabel die wordt opgegeven door het veld Tabel.</target>
+          <target state="translated">Hiermee wordt een filter opgegeven op de tabel in het bronbedrijf om te bepalen welke records moeten worden gesynchroniseerd.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property ToolTip</note>
         </trans-unit>
@@ -780,13 +780,13 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3252819777 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if synchronization jobs should synchronize only currently coupled records. To synchronize newly inserted records, uncheck this checkbox.</source>
-          <target state="translated">Hiermee wordt opgegeven hoe ontkoppelde records in Dynamics 365 Sales-entiteiten en Dynamics 365-tabellen moeten worden verwerkt wanneer synchronisatie wordt uitgevoerd door een integratiesynchronisatietaak.</target>
+          <target state="translated">Hiermee wordt opgegeven of synchronisatietaken alleen momenteel gekoppelde records moeten synchroniseren. Als u nieuw ingevoegde records wilt synchroniseren, schakelt u dit selectievakje uit.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Only Coupled Records - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3277867247 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the caption of the table.</source>
-          <target state="translated">Hiermee wordt de id opgegeven van de integratietabel die moet worden toegewezen aan de bedrijfstabel.</target>
+          <target state="translated">Hiermee wordt het bijschrift van de tabel opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableCaptionValue - Property ToolTip</note>
         </trans-unit>
@@ -798,7 +798,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3696389755 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a date/time that is used to determine which records to synchronize from the source company. Only records that have SystemModifiedAt value greater than this value, will be synchronized. This value keeps changing with every synchronization job.</source>
-          <target state="translated">Hiermee wordt een datum/tijd-filter opgegeven dat de datum waarop records zijn gewijzigd, gebruikt om te bepalen welke records moeten worden gesynchroniseerd vanuit het gekozen bronbedrijf. Het filter is gebaseerd op het veld Gewijzigd op in de records van de integratietabel.</target>
+          <target state="translated">Hiermee worden een datum en een tijd opgegeven die worden gebruikt om te bepalen welke records moeten worden gesynchroniseerd vanuit het bronbedrijf. Alleen records met een grotere SystemModifiedAt-waarde dan deze waarde worden gesynchroniseerd. Deze waarde verandert bij elke synchronisatietaak.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Modified On Filter - Property ToolTip</note>
         </trans-unit>
@@ -810,7 +810,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4005701527 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the filter on the table to control which records should be synchronized.</source>
-          <target state="translated">Hiermee wordt een filter opgegeven voor de bedrijfsgegevenstabel in Dynamics 365 om te bepalen welke records kunnen worden gesynchroniseerd met de corresponderende records in de integratietabel die wordt opgegeven door het veld Id integratietabel.</target>
+          <target state="translated">Hiermee wordt het filter op de tabel opgegeven dat bepaalt welke records moeten worden gesynchroniseerd.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableFilterValue - Property ToolTip</note>
         </trans-unit>
@@ -828,13 +828,13 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4108847349 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a date/time that is used to determine which records to synchronize to the source company. Only records that have SystemModifiedAt value greater than this value, will be synchronized. This value keeps changing with every synchronization job.</source>
-          <target state="translated">Hiermee wordt een datum/tijd-filter opgegeven dat de datum waarop records zijn gewijzigd, gebruikt om te bepalen welke records moeten worden gesynchroniseerd met het gekozen bronbedrijf. Het filter is gebaseerd op het veld SystemModifiedAt in de records van de Business Central-tabel.</target>
+          <target state="translated">Hiermee worden een datum en een tijd opgegeven die worden gebruikt om te bepalen welke records moeten worden gesynchroniseerd naar het bronbedrijf. Alleen records met een grotere SystemModifiedAt-waarde dan deze waarde worden gesynchroniseerd. Deze waarde verandert bij elke synchronisatietaak.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Synch. Int. Tbl. Mod. On Fltr. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if synchronization is enabled for this table.</source>
-          <target state="translated">Hiermee wordt opgegeven of deze toewijzing is geactiveerd.</target>
+          <target state="translated">Hiermee wordt opgegeven of synchronisatie is geactiveerd voor deze tabel.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control Status - Property ToolTip</note>
         </trans-unit>
@@ -894,13 +894,13 @@
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 4125410309 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of jobs for data going to the source table. </source>
-          <target state="translated">Hiermee wordt de status opgegeven van projecten voor gegevens die naar de integratietabel gaan. </target>
+          <target state="translated">Hiermee wordt de status opgegeven van projecten voor gegevens die naar de brontabel gaan. </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control To Int. Table Job Status - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 4260367546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of jobs for data coming from the source table. </source>
-          <target state="translated">Hiermee wordt de status opgegeven van projecten voor gegevens die uit de integratietabel komen. </target>
+          <target state="translated">Hiermee wordt de status opgegeven van projecten voor gegevens die uit de brontabel komen. </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control From Int. Table Job Status - Property ToolTip</note>
         </trans-unit>
@@ -912,7 +912,7 @@
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 1420580905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a rule for transforming the value that is being synchronized from the source company.</source>
-          <target state="translated">Hiermee wordt een regel opgegeven voor het transformeren van geïmporteerde tekst naar een ondersteunde waarde voordat deze kan worden toegewezen aan een opgegeven veld in Microsoft Dynamics 365.</target>
+          <target state="translated">Hiermee wordt een regel opgegeven voor het transformeren van de waarde die wordt gesynchroniseerd vanuit het bronbedrijf.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Transformation Rule - Property ToolTip</note>
         </trans-unit>
@@ -966,7 +966,7 @@
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 823559016 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the caption of the field.</source>
-          <target state="translated">Hiermee wordt het bijschrift opgegeven van het veld in Business Central.</target>
+          <target state="translated">Hiermee wordt het bijschrift van het veld opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Field Caption - Property ToolTip</note>
         </trans-unit>

@@ -903,12 +903,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ChatCompletionsFailedWithCodeErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2076688375 - NamedType 3171573684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Available now to Insider Builds. Partners will be able to deploy and run to Business Central Online once we light this up in a minor update.</source>
-          <target state="translated">Tilgængelig nu til Insider Builds. Partnere kan udrulle og køre til Business Central Online, når vi oplyser denne i en mindre opdatering.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ThirdPartyCapabilitySaaSErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 3198080941" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Selected model type is not supported.</source>
           <target state="translated">Den valgte modeltype understøttes ikke.</target>
@@ -950,6 +944,12 @@
           <target state="translated">Genereringen af integreringer mislykkedes.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType EmbeddingsFailedWithCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Metaprompt not found.</source>
+          <target state="translated">Metaprompt blev ikke fundet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType MetapromptLoadingErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2091346909 - NamedType 2186304282" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Test Email Message</source>
@@ -1001,7 +1001,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 215834149 - NamedType 2396470215" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Vil du fortsætte og slette?</target>
+          <target state="translated">Vil du slette?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Account Impl. - NamedType ConfirmDeleteQst</note>
         </trans-unit>
@@ -2523,6 +2523,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MessageIdDoesNotExistErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3830376076 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Metaprompt not found.</source>
+          <target state="translated">Metaprompt blev ikke fundet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MetapromptLoadingErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3830376076 - NamedType 94536125" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>History length must be greater than 0.</source>
           <target state="translated">Historiklængden skal være større end 0.</target>
@@ -2579,7 +2585,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3911480243 - NamedType 3938092484" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot change permissions sets of type Extension.</source>
-          <target state="translated">Du kan ikke ændre tilladelsessæt af typen Udvidelse.</target>
+          <target state="translated">Du kan ikke ændre rettighedssæt af typen Udvidelse.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Permission Set Relation Impl. - NamedType CannotChangeExtensionPermissionErr</note>
         </trans-unit>
@@ -2786,6 +2792,18 @@
           <target state="translated">Microsoft Entra-lejerdomænenavnet kunne ikke hentes.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType TenantDomainNameErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4205038922 - NamedType 2237935850" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant country letter code.</source>
+          <target state="translated">Kunne ikke hente bogstavkoden for Microsoft Entra-lejerens land/område.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType CountryLetterCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4205038922 - NamedType 3300183334" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant preferred language code.</source>
+          <target state="translated">Kunne ikke hente Microsoft Entra-lejerens foretrukne sprogkode.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType PreferredLanguageErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4215518646 - NamedType 1905859220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is not an application secret.</source>
@@ -3177,6 +3195,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Dynamics 2D QR-Code Encoder - Method EncodeImage - NamedType CannotCreateQrCodeErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 539680298 - Method 1842866781 - NamedType 644701202" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Acquire of token with Client Credentials failed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit HttpAuthOAuthClientCredentials - Method AcquireToken - NamedType AquireTokenFailedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 729626133 - Method 579378647 - NamedType 668814160" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Internal server error. Please contact your system administrator.</source>
           <target state="translated">Intern serverfejl. Kontakt systemadministratoren.</target>
@@ -3239,25 +3262,25 @@
         </trans-unit>
         <trans-unit id="Enum 1233198380 - EnumValue 1104904322 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>One-tenth of a millimeter (0.1 mm).</source>
-          <target state="translated">En tiendedel af en millimeter (0.1 mm).</target>
+          <target state="translated">One-tenth of a millimeter (0.1 mm).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Unit - EnumValue TenthsOfAMillimeter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1233198380 - EnumValue 1616776695 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>One-hundredth of a millimeter (0.01 mm).</source>
-          <target state="translated">En hundrededel af en millimeter (0.01 mm).</target>
+          <target state="translated">One-hundredth of a millimeter (0.01 mm).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Unit - EnumValue HundredthsOfAMillimeter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1233198380 - EnumValue 4163264573 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>One-thousandth of an inch (0.001 in.).</source>
-          <target state="translated">En tusindedel af en tomme (0.001 in.).</target>
+          <target state="translated">One-thousandth of an inch (0.001 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Unit - EnumValue ThousandthsOfAnInch - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1233198380 - EnumValue 592964086 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The default unit (0.01 in.)</source>
-          <target state="translated">Standardenheden (0.01 in.)</target>
+          <target state="translated">The default unit (0.01 in.)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Unit - EnumValue Display - Property Caption</note>
         </trans-unit>
@@ -3543,15 +3566,27 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Feature Status - EnumValue Updating - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2240422114 - EnumValue 1090351696 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active</source>
+          <target state="translated">Aktiv</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2240422114 - EnumValue 525852245 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <target state="translated">Inaktiv</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Inactive - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 1002125975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statement paper (5.5 in. by 8.5 in.).</source>
-          <target state="translated">Statement-papir (5.5 in. x 8.5 in.).</target>
+          <target state="translated">Statement paper (5.5 in. by 8.5 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Statement - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 1036356856 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>#10 envelope (4.125 in. by 9.5 in.).</source>
-          <target state="translated">#10 envelope (4.125 in. x 9.5 in.).</target>
+          <target state="translated">#10 envelope (4.125 in. by 9.5 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Number10Envelope - Property Caption</note>
         </trans-unit>
@@ -3569,7 +3604,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 1133706470 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Monarch envelope (3.875 in. by 7.5 in.).</source>
-          <target state="translated">Monarch-envelope (3.875 in. x 7.5 in.).</target>
+          <target state="translated">Monarch envelope (3.875 in. by 7.5 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue MonarchEnvelope - Property Caption</note>
         </trans-unit>
@@ -3671,7 +3706,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 1950509994 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>#12 envelope (4.75 in. by 11 in.).</source>
-          <target state="translated">#12 envelope (4.75 in. x 11 in.).</target>
+          <target state="translated">#12 envelope (4.75 in. by 11 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Number12Envelope - Property Caption</note>
         </trans-unit>
@@ -3737,7 +3772,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 2396307235 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>German legal fanfold (8.5 in. by 13 in.).</source>
-          <target state="translated">Tysk legal fanfold (8.5 in. x 13 in.).</target>
+          <target state="translated">German legal fanfold (8.5 in. by 13 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue GermanLegalFanfold - Property Caption</note>
         </trans-unit>
@@ -3773,13 +3808,13 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 2803003124 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Executive paper (7.25 in. by 10.5 in.).</source>
-          <target state="translated">Executive-papir (7.25 in. x 10.5 in.).</target>
+          <target state="translated">Executive paper (7.25 in. by 10.5 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Executive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 2898143332 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Note paper (8.5 in. by 11 in.).</source>
-          <target state="translated">Notepapir (8.5 in. x 11 in.).</target>
+          <target state="translated">Note paper (8.5 in. by 11 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Note - Property Caption</note>
         </trans-unit>
@@ -3791,7 +3826,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 3023036483 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>German standard fanfold (8.5 in. by 12 in.).</source>
-          <target state="translated">Tysk standard fanfold (8.5 in. x 12 in.).</target>
+          <target state="translated">German standard fanfold (8.5 in. by 12 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue GermanStandardFanfold - Property Caption</note>
         </trans-unit>
@@ -3845,7 +3880,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 3743832655 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>#11 envelope (4.5 in. by 10.375 in.).</source>
-          <target state="translated">#11 envelope (4.5 in. x 10.375 in.).</target>
+          <target state="translated">#11 envelope (4.5 in. by 10.375 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Number11Envelope - Property Caption</note>
         </trans-unit>
@@ -3869,7 +3904,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 3981077642 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>6 3/4 envelope (3.625 in. by 6.5 in.).</source>
-          <target state="translated">6 3/4 envelope (3.625 in. x 6.5 in.).</target>
+          <target state="translated">6 3/4 envelope (3.625 in. by 6.5 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue PersonalEnvelope - Property Caption</note>
         </trans-unit>
@@ -3881,7 +3916,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 4111634021 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Folio paper (8.5 in. by 13 in.).</source>
-          <target state="translated">Folio-papir (8.5 in. x 13 in.).</target>
+          <target state="translated">Folio paper (8.5 in. by 13 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Folio - Property Caption</note>
         </trans-unit>
@@ -3893,7 +3928,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 4207495877 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Legal paper (8.5 in. by 14 in.).</source>
-          <target state="translated">Legal-papir (8.5 in. x 14 in.).</target>
+          <target state="translated">Legal paper (8.5 in. by 14 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Legal - Property Caption</note>
         </trans-unit>
@@ -3917,19 +3952,19 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 728629095 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>US standard fanfold (14.875 in. by 11 in.).</source>
-          <target state="translated">US standard fanfold (14.875 in. x 11 in.).</target>
+          <target state="translated">US standard fanfold (14.875 in. by 11 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue USStandardFanfold - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 86285640 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>#9 envelope (3.875 in. by 8.875 in.).</source>
-          <target state="translated">#9 envelope (3.875 in. x 8.875 in.).</target>
+          <target state="translated">#9 envelope (3.875 in. by 8.875 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Number9Envelope - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 882514588 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>#14 envelope (5 in. by 11.5 in.).</source>
-          <target state="translated">#14 envelope (5 in. x 11.5 in.).</target>
+          <target state="translated">#14 envelope (5 in. by 11.5 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Number14Envelope - Property Caption</note>
         </trans-unit>
@@ -3941,7 +3976,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 978800674 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Letter paper (8.5 in. by 11 in.).</source>
-          <target state="translated">Letter-papir (8.5 in. x 11 in.).</target>
+          <target state="translated">Letter paper (8.5 in. by 11 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Letter - Property Caption</note>
         </trans-unit>
@@ -6330,7 +6365,7 @@
         </trans-unit>
         <trans-unit id="Page 3047977240 - Action 113888489 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disagree to the terms and conditions.</source>
-          <target state="translated">Accepterer ikke vilkårene og betingelserne.</target>
+          <target state="translated">Accepter ikke vilkårene og betingelserne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notice - Action Reject - Property ToolTip</note>
         </trans-unit>
@@ -6684,7 +6719,7 @@
         </trans-unit>
         <trans-unit id="Page 3406436467 - Action 113888489 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disagree to the terms and conditions.</source>
-          <target state="translated">Accepterer ikke vilkårene og betingelserne.</target>
+          <target state="translated">Accepter ikke vilkårene og betingelserne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Power Automate Privacy Notice - Action Reject - Property ToolTip</note>
         </trans-unit>
@@ -6744,7 +6779,7 @@
         </trans-unit>
         <trans-unit id="Page 3414198013 - Action 21227494 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add two or more permission sets.</source>
-          <target state="translated">Tilføj ét eller flere rettighedssæt.</target>
+          <target state="translated">Tilføj to eller flere rettighedssæt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Subform - Action SelectPermissionSets - Property ToolTip</note>
         </trans-unit>
@@ -8400,7 +8435,7 @@
         </trans-unit>
         <trans-unit id="Page 1215073847 - Control 3641927271 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ID of the printer.</source>
-          <target state="translated">Angiver id'et for printeren.</target>
+          <target state="translated">Angiver printerens id.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Printer Management - Control ID - Property ToolTip</note>
         </trans-unit>
@@ -9119,7 +9154,7 @@
         </trans-unit>
         <trans-unit id="Page 1849231761 - Control 2339353424 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user role that defines the user's default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.</source>
-          <target state="translated">Angiver den brugerrolle, der definerer brugerens standardrollecenter og rollespecifikke tilpasninger. Brugerne kan ændre deres rolle på siden Mine indstillinger, medmindre rettighederne er begrænset.</target>
+          <target state="translated">Angiver den brugerrolle, der definerer brugerens standardrollecenter og rollespecifikke tilpasninger. Brugerne kan ændre deres rolle på siden Mine indstillinger, medmindre det er begrænset af rettigheder.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Personalization - Control Role - Property ToolTip</note>
         </trans-unit>
@@ -10606,7 +10641,7 @@
         </trans-unit>
         <trans-unit id="Page 2547633168 - Control 1734147128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the App ID of the extension.</source>
-          <target state="translated">Angiver app-id'et på udvidelsen.</target>
+          <target state="translated">Angiver app-id'et for udvidelsen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Settings - Control AppId - Property ToolTip</note>
         </trans-unit>
@@ -10897,6 +10932,42 @@
           <target state="translated">Tilpassede rettigheder</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Control Customized - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1256520770 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the extension that provides the permission set.</source>
+          <target state="translated">Angiver navnet på den udvidelse, der leverer rettighedssættet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control App Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1256520770 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Extension Name</source>
+          <target state="translated">Udvidelsesnavn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control App Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a permission set that defines the role.</source>
+          <target state="translated">Angiver et rettighedssæt, der definerer rollen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Role ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1918310387 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Permission Set</source>
+          <target state="translated">Rettighedssæt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Role ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the permission set.</source>
+          <target state="translated">Angiver navnet på rettighedssættet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 593885934 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the permission set is specific to your tenant or generally available in the system.</source>
+          <target state="translated">Angiver, om rettighedssættet er specifikt for din lejer eller generelt tilgængelig i systemet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Scope - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2674634765 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a permission set that defines the role.</source>
@@ -11270,6 +11341,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control End Date - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 2677802402 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yearly Specific Day</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control YearlySpecificDay - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2817068111 - Control 2683361118 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Yearly</source>
           <target state="translated">Årlig</target>
@@ -11299,6 +11375,11 @@
           <target state="translated">Gentag om mandagen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control RecurOnMonday - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 3201366554 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly By Weekday</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control MonthlyByWeekday - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2817068111 - Control 32562763 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the time of day when the recurrence takes effect. This is also the time of day for each occurrence.</source>
@@ -11419,6 +11500,16 @@
           <target state="translated">Angiver den dato, hvor gentagelsen træder i kraft.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control Start Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 588979259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly Specific Day</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control MonthlySpecificDay - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 618477395 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yearly By Weekday</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control YearlyByWeekday - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2817068111 - Control 809128117 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the day of the month for the recurrence.</source>
@@ -12002,7 +12093,7 @@
         </trans-unit>
         <trans-unit id="Page 3170013184 - Control 2019212495 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the deployment schedule.</source>
-          <target state="translated">Angiver tidsskemaet for installationen.</target>
+          <target state="translated">Angiver tidsplanen for installationen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Deployment Status - Control Schedule - Property ToolTip</note>
         </trans-unit>
@@ -13241,8 +13332,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Disclaimer - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 1694176181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsft Business Central Disclaimer</source>
-          <target state="translated">Ansvarsfraskrivelse for Microsoft Business Central</target>
+          <source>Per-Tenant Extension (PTE) Disclaimer</source>
+          <target state="translated">Ansvarsfraskrivelse for pr. lejer-udvidelse (PTE)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Disclaimer - Property Caption</note>
         </trans-unit>
@@ -13289,8 +13380,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 346708723 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Accept the privacy policy and the disclaimer</source>
-          <target state="translated">Acceptér politikken for beskyttelse af personlige oplysninger og ansvarsfraskrivelsen</target>
+          <source>By deploying this extension you acknowledge that your data may be sent outside the compliance boundary of Business Central. Each per-tenant extension is subject to its own third party terms and conditions and privacy policies.</source>
+          <target state="translated">Ved at installere denne udvidelse anerkender du, at dine data kan blive sendt uden for overholdelsesgrænsen for Business Central. Hver udvidelse pr. lejer er underlagt sine egne tredjeparts vilkår og betingelser og privatlivspolitikker.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property Caption</note>
         </trans-unit>
@@ -13311,18 +13402,6 @@
           <target state="translated">Upload udvidelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Upload Extension - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - Control 607920654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the privacy and cookies.</source>
-          <target state="translated">Vis beskyttelse af personlige oplysninger og cookies.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control PrivacyAndCookies - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - Control 607920654 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy and Cookies</source>
-          <target state="translated">Beskyttelse af personlige oplysninger og cookies</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control PrivacyAndCookies - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the file path of the extension.</source>
@@ -16706,7 +16785,7 @@
         </trans-unit>
         <trans-unit id="Page 3338462467 - NamedType 2511177201" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to add the recorded permissions?</source>
-          <target state="translated">Vil du tilføje de optagede rettigheder?</target>
+          <target state="translated">Vil du tilføje de registrerede rettigheder?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set - NamedType AddPermissionsQst</note>
         </trans-unit>
@@ -16801,16 +16880,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType DialogTitleTxt</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - NamedType 3405983715" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsoft Business Central PTE Disclaimer</source>
-          <target state="translated">Fraskrivelse af Microsoft Business Central PTE</target>
+          <source>Per-Tenant Extension (PTE) Disclaimer</source>
+          <target state="translated">Ansvarsfraskrivelse for pr. lejer-udvidelse (PTE)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType DisclaimerLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - NamedType 4004070260" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy and Cookies</source>
-          <target state="translated">Beskyttelse af personlige oplysninger og cookies</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType PrivacyAndCookiesLbl</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - NamedType 54529786" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Are you sure that you want to skip the remaining steps of the checklist?</source>
@@ -17120,7 +17193,7 @@
         </trans-unit>
         <trans-unit id="Page 664053810 - NamedType 2367821945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Vil du fortsætte og slette?</target>
+          <target state="translated">Vil du slette?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Attach Setup - NamedType DeleteQst</note>
         </trans-unit>
@@ -17150,7 +17223,7 @@
         </trans-unit>
         <trans-unit id="Page 761349018 - NamedType 2367821945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Vil du fortsætte og slette?</target>
+          <target state="translated">Vil du slette?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - NamedType DeleteQst</note>
         </trans-unit>
@@ -17442,8 +17515,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1549657920 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin</source>
-          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Kunstig intelligens,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot-indstillinger,Copilot-opsætning,aktivér Copilot,Copilot-administrator</target>
+          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin,Copilot and</source>
+          <target state="translated">OpenAI,KI,Copilot,Co-pilot,Kunstig intelligens,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot-indstillinger,Copilot-opsætning,aktivér Copilot,Copilot-administrator,Copilot og</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -17758,6 +17831,12 @@
           <target state="translated">Licenskonfiguration</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Permission Set Lookup</source>
+          <target state="translated">Opslag i rettighedssæt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2674634765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Security Group Permission Sets</source>
@@ -18112,6 +18191,12 @@
           <target state="translated">Markedsplads for udvidelser</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3666029466 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>app,add-in,customize,plug-in,appsource</source>
+          <target state="translated">app,tilføjelsesprogram,tilpas,plug-in,appsource</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Upload And Deploy Extension</source>
@@ -18523,7 +18608,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2952555409 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Basic User (All Inclusive)</source>
-          <target state="translated">Basisbruger (alle inklusiv)</target>
+          <target state="translated">Basisbruger (alt inklusive)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet System Tables - Basic - Property Caption</note>
         </trans-unit>
