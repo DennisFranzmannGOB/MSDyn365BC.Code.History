@@ -77,7 +77,7 @@
         </trans-unit>
         <trans-unit id="Page 3990268390 - Control 1341274843 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the user group.</source>
-          <target state="translated">Angiver navnet på brugergruppen.</target>
+          <target state="translated">Angiver brugergruppens navn.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Custom User Groups In Plan - Control User Group Name - Property ToolTip</note>
         </trans-unit>

@@ -821,7 +821,7 @@
         </trans-unit>
         <trans-unit id="Page 3546478469 - Control 3592094765 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ending date of the reporting period.</source>
-          <target state="translated">Anger rapporteringsperiodens slutdatum.</target>
+          <target state="translated">Anger det sista datumet i rapporteringsperioden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Control EndingDate - Property ToolTip</note>
         </trans-unit>
