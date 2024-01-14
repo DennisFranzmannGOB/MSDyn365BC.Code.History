@@ -647,7 +647,7 @@
         </trans-unit>
         <trans-unit id="Page 1056736409 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Slett poster eldre enn 7 dager</target>
+          <target state="translated">Slett poster eldre enn sju dager</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Webcall Log - Action Delete7days - Property Caption</note>
         </trans-unit>
@@ -1471,7 +1471,7 @@
         </trans-unit>
         <trans-unit id="Page 3327916022 - Control 284764054 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the country/region of the address.</source>
-          <target state="translated">Angir landet/området i adressen.</target>
+          <target state="translated">Angir landet/området for adressen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Bank Name List - Control Country/Region Code - Property ToolTip</note>
         </trans-unit>
@@ -1913,7 +1913,7 @@
         </trans-unit>
         <trans-unit id="Table 3875559386 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Payment types</source>
-          <target state="translated">Betalingstyper for AMC Banking</target>
+          <target state="translated">Betalingstyper for AMC Banking Service</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AMC Bank Pmt. Type - Property Caption</note>
         </trans-unit>

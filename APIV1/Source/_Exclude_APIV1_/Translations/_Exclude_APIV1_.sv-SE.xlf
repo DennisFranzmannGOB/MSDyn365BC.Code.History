@@ -508,7 +508,7 @@
         </trans-unit>
         <trans-unit id="Page 1048301999 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both itemId and accountId are specified. Specify only one of them.</source>
-          <target state="translated">Både ItemId och accountId anges. Ange endast en av dem.</target>
+          <target state="translated">Både ItemId och accountId anges. Ange endast ett av dem.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - Purchase Invoice Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -700,7 +700,7 @@
         </trans-unit>
         <trans-unit id="Page 2572387921 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both itemId and accountId are specified. Specify only one of them.</source>
-          <target state="translated">Både ItemId och accountId anges. Ange endast en av dem.</target>
+          <target state="translated">Både ItemId och accountId anges. Ange endast ett av dem.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - Sales Credit Mem Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -898,7 +898,7 @@
         </trans-unit>
         <trans-unit id="Page 3908586298 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both itemId and accountId are specified. Specify only one of them.</source>
-          <target state="translated">Både ItemId och accountId anges. Ange endast en av dem.</target>
+          <target state="translated">Både ItemId och accountId anges. Ange endast ett av dem.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - Sales Invoice Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -1108,7 +1108,7 @@
         </trans-unit>
         <trans-unit id="Page 1254803123 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both itemId and accountId are specified. Specify only one of them.</source>
-          <target state="translated">Både ItemId och accountId anges. Ange endast en av dem.</target>
+          <target state="translated">Både ItemId och accountId anges. Ange endast ett av dem.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - Sales Order Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -1342,7 +1342,7 @@
         </trans-unit>
         <trans-unit id="Page 287431775 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both itemId and accountId are specified. Specify only one of them.</source>
-          <target state="translated">Både ItemId och accountId anges. Ange endast en av dem.</target>
+          <target state="translated">Både ItemId och accountId anges. Ange endast ett av dem.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - Sales Quote Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>

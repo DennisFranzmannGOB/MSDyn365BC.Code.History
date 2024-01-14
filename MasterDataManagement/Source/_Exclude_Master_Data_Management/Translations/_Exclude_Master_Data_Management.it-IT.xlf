@@ -77,7 +77,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 1401058103" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The integration record for entity %1 was not found.</source>
-          <target state="translated">Impossibile trovare il record di integrazione per l'entità %1.</target>
+          <target state="translated">Impossibile trovare il record integrazione per l'entità %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 - entity name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType IntegrationRecordNotFoundErr</note>
         </trans-unit>
@@ -149,7 +149,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 2411424718" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No %1 was found for table %2.</source>
-          <target state="translated">Impossibile trovare %1 per la tabella %2.</target>
+          <target state="translated">Non è stato trovato alcun %1 per la tabella %2.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Integration Table Mapping caption, %2 = Table caption for the table which is not mapped</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType IntegrationTableMappingNotFoundErr</note>
         </trans-unit>
@@ -954,7 +954,7 @@
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if field synchronization is enabled or disabled.</source>
-          <target state="translated">Specifica se la sincronizzazione dei campi è attivata o disattivata.</target>
+          <target state="translated">Specifica se la sincronizzazione campo è attivata o disattivata.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Status - Property ToolTip</note>
         </trans-unit>
@@ -1014,7 +1014,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 97595311" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This will synchronize all modified records in all integration table mappings. \\The synchronization will run in the background so you can continue with other tasks. \\Do you want to continue?</source>
-          <target state="translated">Questa operazione sincronizza tutti i record modificati in tutti i mapping della tabella di integrazione. \\La sincronizzazione viene eseguita in background per poter continuare altre attività. \\Continuare?</target>
+          <target state="translated">Verranno sincronizzati tutti i record modificati in tutti i mapping della tabella di integrazione. \\La sincronizzazione verrà eseguita in background per permettere di continuare altre attività. \\Continuare?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SynchronizeModifiedQst</note>
         </trans-unit>
@@ -1038,13 +1038,13 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 1624143781" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to uncouple the selected mappings, which means data for the records will no longer synchronize. \\Do you want to continue?</source>
-          <target state="translated">Si sta per annullare l'associazione delle mappature selezionate e pertanto i dati dei record non verranno più sincronizzati. \\Continuare?</target>
+          <target state="translated">Si sta per annullare l'associazione dei mapping selezionati e pertanto i dati dei record non verranno più sincronizzati. \\Continuare?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartUncouplingForegroundQst</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 2437364661" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronization is scheduled for Modified Records. \\Details are available on the %1 page.</source>
-          <target state="translated">La sincronizzazione è programmata per i record modificati. \\I dettagli sono disponibili alla pagina %1.</target>
+          <target state="translated">La sincronizzazione è programmata per i record modificati. \\I dettagli sono disponibili nella pagina %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 caption from page Integration Synch. Job List</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType SynchronizeModifiedScheduledMsg</note>
         </trans-unit>
@@ -1056,7 +1056,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 2564837436" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to uncouple the selected mappings, which means data for the records will no longer synchronize. \\The uncoupling will run in the background, so you can continue with other tasks.\\Do you want to continue?</source>
-          <target state="translated">Si sta per annullare l'associazione delle mappature selezionate e pertanto i dati dei record non verranno più sincronizzati. \\L'annullamento dell'associazione viene eseguito in background per permettere di continuare altre attività.\\Continuare?</target>
+          <target state="translated">Si sta per annullare l'associazione dei mapping selezionati e pertanto i dati dei record non verranno più sincronizzati. \\L'annullamento dell'associazione viene eseguito in background, per continuare altri task.\\Continuare?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartUncouplingQst</note>
         </trans-unit>
@@ -1074,7 +1074,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 2898210817" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to synchronize all data within the mapping. \\The synchronization will run in the background, so you can continue with other tasks.\\Do you want to continue?</source>
-          <target state="translated">Si stanno per sincronizzare tutti i dati all'interno della mappatura. \\La sincronizzazione viene eseguita in background per permettere di continuare altre attività.\\Continuare?</target>
+          <target state="translated">Verranno sincronizzati tutti i dati all'interno del mapping. \\La sincronizzazione verrà eseguita in background per permettere di continuare altre attività.\\Continuare?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartFullSynchronizationQst</note>
         </trans-unit>
@@ -1092,7 +1092,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 3742348752" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A synchronization job queue entry has been created. \\Do you want to view the job queue entry?</source>
-          <target state="translated">È stato creato un movimento coda processi di sincronizzazione. \\Visualizzare il movimento coda processi?</target>
+          <target state="translated">È stato creato un movimento della coda processi di sincronizzazione. \\Visualizzare il movimento della coda processi?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType JobQEntryCreatedQst</note>
         </trans-unit>
@@ -1122,7 +1122,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 719149627" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Full Synchronization is scheduled. \\Details are available on the %1 page.</source>
-          <target state="translated">La sincronizzazione completa è programmata. \\I dettagli sono disponibili alla pagina %1.</target>
+          <target state="translated">La sincronizzazione completa è programmata. \I dettagli sono disponibili nella pagina %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 caption from page Integration Synch. Job List</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType FullSynchronizationScheduledMsg</note>
         </trans-unit>
@@ -1134,7 +1134,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 974748676" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Uncoupling is scheduled for %2 mappings. %3 \\Details are available on the %1 page.</source>
-          <target state="translated">L'annullamento dell'associazione è programmato per %2 mappature. %3 \\I dettagli sono disponibili alla pagina %1.</target>
+          <target state="translated">L'annullamento dell'associazione è programmato per %2 mapping. %3 \\I dettagli sono disponibili nella pagina %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 - caption from page 5344, %2 - scheduled job count, %3 - additional foreground job message</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType RemoveCouplingsScheduledMsg</note>
         </trans-unit>
@@ -1416,7 +1416,7 @@
         </trans-unit>
         <trans-unit id="Table 1037947899 - NamedType 1401058103" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The integration record for entity %1 was not found.</source>
-          <target state="translated">Impossibile trovare il record di integrazione per l'entità %1.</target>
+          <target state="translated">Impossibile trovare il record integrazione per l'entità %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 - entity name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Master Data Mgt. Coupling - NamedType IntegrationRecordNotFoundErr</note>
         </trans-unit>
