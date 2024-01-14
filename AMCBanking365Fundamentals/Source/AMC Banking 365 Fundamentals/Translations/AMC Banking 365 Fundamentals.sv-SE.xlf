@@ -647,7 +647,7 @@
         </trans-unit>
         <trans-unit id="Page 1056736409 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Ta bort transaktioner som är äldre än 7 dagar</target>
+          <target state="translated">Ta bort transaktioner som är äldre än sju dagar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Webcall Log - Action Delete7days - Property Caption</note>
         </trans-unit>
@@ -1677,7 +1677,7 @@
         </trans-unit>
         <trans-unit id="Page 2285503463 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Payment Types</source>
-          <target state="translated">Betalningstyper för AMC Banking Service</target>
+          <target state="translated">Betalningstyper för AMC Banking</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Pmt. Types - Property Caption</note>
         </trans-unit>
