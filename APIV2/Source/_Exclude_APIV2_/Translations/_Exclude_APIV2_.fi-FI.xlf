@@ -7109,7 +7109,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 3210053793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The id cannot be changed.</source>
-          <target state="translated">Tunnusta ei voi muuttaa.</target>
+          <target state="translated">Id-arvoa ei voi muuttaa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType CannotChangeIDErr</note>
         </trans-unit>

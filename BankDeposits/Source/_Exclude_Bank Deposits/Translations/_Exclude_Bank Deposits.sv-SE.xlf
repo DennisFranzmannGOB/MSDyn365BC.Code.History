@@ -572,7 +572,7 @@
         </trans-unit>
         <trans-unit id="Page 641808831 - Action 669369698 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
-          <target state="translated">Förbered utskrift av dokumentet. Ett fönster för rapportbegäran för dokumentet öppnas där du kan ange vad du vill ha med på utskriften.</target>
+          <target state="translated">Förbered utskrift av dokumentet. Ett rapportfönster om dokumentet öppnas där det går att ange vad du vill inkludera på utskriften.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Bank Deposit List - Action BankDeposit - Property ToolTip</note>
         </trans-unit>
