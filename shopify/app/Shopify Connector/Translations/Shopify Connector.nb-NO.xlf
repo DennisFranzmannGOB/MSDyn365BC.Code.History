@@ -3078,7 +3078,7 @@
         </trans-unit>
         <trans-unit id="Page 1491468912 - Control 3643848063 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the country/region of the address.</source>
-          <target state="translated">Angir landet/området i adressen.</target>
+          <target state="translated">Angir landet/området for adressen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Adresses - Control CountryCode - Property ToolTip</note>
         </trans-unit>
@@ -6207,7 +6207,7 @@
         </trans-unit>
         <trans-unit id="Page 881753888 - NamedType 3906946713" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Error: %1, description: %2</source>
-          <target state="translated">Feil: %1, beskrivelse: %2</target>
+          <target state="translated">Feilkode: %1, beskrivelse: %2</target>
           <note from="Developer" annotates="general" priority="2">%1 = The authorization error message, %2 = The authorization error description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Authentication - NamedType AuthCodeErrorLbl</note>
         </trans-unit>

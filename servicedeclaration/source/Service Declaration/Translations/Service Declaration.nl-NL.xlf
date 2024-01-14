@@ -711,7 +711,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2661934884 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Hiermee wordt de code voor een servicetransactietype opgegeven.</target>
+          <target state="translated">Hiermee wordt de code opgegeven voor een servicetransactietype.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 997740791</note>

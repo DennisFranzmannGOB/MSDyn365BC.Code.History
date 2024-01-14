@@ -1415,7 +1415,7 @@
         </trans-unit>
         <trans-unit id="Table 3665447164 - Field 1217862704 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Format Code</source>
-          <target state="translated">Code format exportation fichier audit</target>
+          <target state="translated">Code format exportation fichier d’audit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Setup - Field Audit File Export Format - Property Caption</note>
         </trans-unit>
@@ -1697,7 +1697,7 @@
         </trans-unit>
         <trans-unit id="Table 1532649924 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Audit File Export Header</source>
-          <target state="translated">En-tête exportation fichier audit</target>
+          <target state="translated">En-tête exportation fichier d’audit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Audit File Export Header - Property Caption</note>
         </trans-unit>
