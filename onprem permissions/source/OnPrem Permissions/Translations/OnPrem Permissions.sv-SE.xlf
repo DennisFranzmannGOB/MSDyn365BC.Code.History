@@ -977,7 +977,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 1879401324 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Whse. Mgt. periodic activities</source>
-          <target state="translated">Per. akt. i dist.lagerhant.</target>
+          <target state="translated">Per. funk. i dist.lag.styr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet WM-PERIODIC - Property Caption</note>
         </trans-unit>
@@ -989,13 +989,13 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2141954922 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create receipt, put away, etc.</source>
-          <target state="translated">Skriva inlev., art.inf. o.s.v.</target>
+          <target state="translated">Skriva inlevns art.införsel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet WM-R/PA/A/P/S - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 187964102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post receipt, put away,etc.</source>
-          <target state="translated">Bokf. inlevns, art.inf. o.s.v.</target>
+          <target state="translated">Bokföra inlevns art.införsel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet WM-R/PA/A/P/S, POST - Property Caption</note>
         </trans-unit>
