@@ -17,6 +17,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1145004488 - NamedType 1689235809" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>In some countries authorities require to make sure that for every single general ledger register ther is a digital vouchers assigned.</source>
+          <target state="translated">In some countries authorities require to make sure that for every single general ledger register there is a digital voucher assigned.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Impl. - NamedType AssistedSetupDescriptionTxt</note>
         </trans-unit>
@@ -34,7 +35,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1786195738 - NamedType 1137334425" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Not possible to perform a check of this type</source>
-          <target state="translated">Not possible to perform a Cheque of this type</target>
+          <target state="translated">Not possible to perform a check of this type</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Voucher Unknown Check - NamedType NotPossibleToPerformErr</note>
         </trans-unit>
@@ -82,7 +83,7 @@
         </trans-unit>
         <trans-unit id="Enum 3198883256 - EnumValue 396968769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No Check</source>
-          <target state="translated">No Cheque</target>
+          <target state="translated">No Check</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Check Type - EnumValue No Check - Property Caption</note>
         </trans-unit>
@@ -217,6 +218,7 @@
         </trans-unit>
         <trans-unit id="Page 2319989076 - Control 2325998030 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>In some countries authorities require to make sure that for every single document there is a digital voucher assigned.</source>
+          <target state="translated">In some countries authorities require to make sure that for every single document there is a digital voucher assigned.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control FeatureDescription - Property InstructionalText</note>
         </trans-unit>
@@ -227,7 +229,7 @@
         </trans-unit>
         <trans-unit id="Page 2319989076 - Control 251468363 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>For each entry type you want to enforce digital voucher, add the setup and define the rules to check the voucher.</source>
-          <target state="translated">For each entry type you want to enforce digital voucher, add the setup and define the rules to Cheque the voucher.</target>
+          <target state="translated">For each entry type you want to enforce digital voucher, add the setup and define the rules to check the voucher.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control SetupGeneral - Property InstructionalText</note>
         </trans-unit>
@@ -274,19 +276,19 @@
         </trans-unit>
         <trans-unit id="Page 2508661115 - Control 1523163874 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Enter the check type</source>
-          <target state="translated">Enter the Cheque type</target>
+          <target state="translated">Enter the check type</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Check Type - Property AboutTitle</note>
         </trans-unit>
         <trans-unit id="Page 2508661115 - Control 1523163874 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the check type.</source>
-          <target state="translated">Specifies the Cheque type.</target>
+          <target state="translated">Specifies the check type.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Check Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2508661115 - Control 1523163874 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>In case of check type None you can post this type of entry without any digital voucher. In case of check type Attachment you need to have an attachment to your entry. In case of check type Attachment or Note you can either have an attachment or a note for your entry.</source>
-          <target state="translated">In case of Cheque type None you can post this type of entry without any digital voucher. In case of Cheque type Attachment you need to have an attachment to your entry. In case of Cheque type Attachment or Note you can either have an attachment or a note for your entry.</target>
+          <target state="translated">In case of check type None you can post this type of entry without any digital voucher. In case of check type Attachment you need to have an attachment to your entry. In case of check type Attachment or Note you can either have an attachment or a note for your entry.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Check Type - Property AboutText</note>
         </trans-unit>
@@ -352,7 +354,7 @@
         </trans-unit>
         <trans-unit id="Page 2508661115 - NamedType 4145191255" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies postings you are doing from the General Journal for all Account Types excluding those related to Customer and Vendor. By choosing one of those options, you will change control of the posting process. If you select the Customer as the Account Type, the system will check your setup related to the Sales Journal. If you select the Vendor as the Account Type, the system will check your setup related to the Purchase Journal.</source>
-          <target state="translated">Specifies postings you are doing from the General Journal for all Account Types excluding those related to Customer and Vendor. By choosing one of those options, you will change control of the posting process. If you select the Customer as the Account Type, the system will Cheque your setup related to the Sales Journal. If you select the Vendor as the Account Type, the system will Cheque your setup related to the Purchase Journal.</target>
+          <target state="translated">Specifies postings you are doing from the General Journal for all Account Types excluding those related to Customer and Vendor. By choosing one of those options, you will change control of the posting process. If you select the Customer as the Account Type, the system will check your setup related to the Sales Journal. If you select the Vendor as the Account Type, the system will check your setup related to the Purchase Journal.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - NamedType GeneralJournalEntryDescriptionTxt</note>
         </trans-unit>
@@ -376,7 +378,7 @@
         </trans-unit>
         <trans-unit id="Page 2508661115 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Here you can select the line with a certain entry type and setup the type of the digital voucher's check you want to perform.</source>
-          <target state="translated">Here you can select the line with a certain entry type and setup the type of the digital voucher's Cheque you want to perform.</target>
+          <target state="translated">Here you can select the line with a certain entry type and setup the type of the digital voucher's check you want to perform.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Property AboutText</note>
         </trans-unit>
@@ -412,7 +414,7 @@
         </trans-unit>
         <trans-unit id="Table 2508661115 - Field 1523163874 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check Type</source>
-          <target state="translated">Cheque Type</target>
+          <target state="translated">Check Type</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Entry Setup - Field Check Type - Property Caption</note>
         </trans-unit>
