@@ -5735,7 +5735,7 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Поставщик (получатель оплаты) не найден.</target>
+          <target state="translated">Выступающий получателем оплаты поставщик не найден.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>
@@ -5777,13 +5777,13 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Строка адреса 1 поставщика</target>
+          <target state="translated">Строка адреса 1 продавца</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Строка адреса 2 поставщика</target>
+          <target state="translated">Строка адреса 2 продавца</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -6395,13 +6395,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 259424556" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The buy-from vendor cannot be found.</source>
-          <target state="translated">Поставщик не найден.</target>
+          <target state="translated">Выступающий продавцом поставщик не найден.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CouldNotFindBuyFromVendorErr</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Поставщик (получатель оплаты) не найден.</target>
+          <target state="translated">Выступающий получателем оплаты поставщик не найден.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>
@@ -6455,13 +6455,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Строка адреса 1 поставщика</target>
+          <target state="translated">Строка адреса 1 продавца</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Строка адреса 2 поставщика</target>
+          <target state="translated">Строка адреса 2 продавца</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -6773,13 +6773,13 @@
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Строка адреса 1 поставщика</target>
+          <target state="translated">Строка адреса 1 продавца</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Строка адреса 2 поставщика</target>
+          <target state="translated">Строка адреса 2 продавца</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -7649,13 +7649,13 @@
         </trans-unit>
         <trans-unit id="Page 3006414751 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Строка адреса 1 клиента</target>
+          <target state="translated">Строка адреса 1 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3006414751 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Строка адреса 2 клиента</target>
+          <target state="translated">Строка адреса 2 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -7763,7 +7763,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - NamedType 3577643735" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The value for "sequence" cannot be modified. Delete and insert the line again.</source>
-          <target state="translated">Значение sequence не может быть изменено. Удалите строку и вставьте ее снова.</target>
+          <target state="translated">Значение порядкового номера не может быть изменено. Удалите строку и вставьте ее снова.</target>
           <note from="Developer" annotates="general" priority="2">sequence is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - NamedType CannotChangeLineNoErr</note>
         </trans-unit>
@@ -8333,13 +8333,13 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Строка адреса 1 клиента</target>
+          <target state="translated">Строка адреса 1 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Строка адреса 2 клиента</target>
+          <target state="translated">Строка адреса 2 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -9029,13 +9029,13 @@
         </trans-unit>
         <trans-unit id="Page 48856144 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Строка адреса 1 клиента</target>
+          <target state="translated">Строка адреса 1 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 48856144 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Строка адреса 2 клиента</target>
+          <target state="translated">Строка адреса 2 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -9671,13 +9671,13 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Строка адреса 1 клиента</target>
+          <target state="translated">Строка адреса 1 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Строка адреса 2 клиента</target>
+          <target state="translated">Строка адреса 2 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -10103,13 +10103,13 @@
         </trans-unit>
         <trans-unit id="Page 3546002718 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Строка адреса 1 клиента</target>
+          <target state="translated">Строка адреса 1 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3546002718 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Строка адреса 2 клиента</target>
+          <target state="translated">Строка адреса 2 покупателя</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
