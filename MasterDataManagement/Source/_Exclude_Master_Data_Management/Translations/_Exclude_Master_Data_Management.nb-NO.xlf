@@ -329,7 +329,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 402828404 - NamedType 2165035145" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>New customers were created during synch.</source>
-          <target state="translated">Nye kunder ble opprettet under synk.</target>
+          <target state="translated">Nye kunder ble opprettet under synkroniseringen.</target>
           <note from="Developer" annotates="general" priority="2">Max. length 50.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Mgt. Setup Default - NamedType CustomerConfigTemplateDescTxt</note>
         </trans-unit>
@@ -990,7 +990,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 3295349667" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronization of modified records is scheduled. \\You can view details on the %1 page.</source>
-          <target state="translated">Synkronisering av endrede poster er planlagt. \\Du kan se detaljer på siden %1.</target>
+          <target state="translated">Synkronisering er planlagt for endrede poster. \\Detaljer er tilgjengelige på siden %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 = The localized caption of page Integration Synch. Job List</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SyncNowScheduledMsg</note>
         </trans-unit>

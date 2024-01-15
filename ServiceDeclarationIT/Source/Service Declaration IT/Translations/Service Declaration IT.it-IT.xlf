@@ -89,7 +89,7 @@
         </trans-unit>
         <trans-unit id="Page 1938442008 - Control 4198939294 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the currency code of the source entry.</source>
-          <target state="translated">Specifica il codice VL del movimento di origine.</target>
+          <target state="translated">Specifica il codice valuta del movimento di origine.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Decl. Lines IT - Control Currency Code - Property ToolTip</note>
         </trans-unit>

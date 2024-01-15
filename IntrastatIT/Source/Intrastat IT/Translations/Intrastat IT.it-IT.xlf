@@ -46,7 +46,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 3557117963 - Control 995423621 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the periodicity for the Intrastat reporting.</source>
-          <target state="translated">Specifica la periodicità dei report Intrastat.</target>
+          <target state="translated">Specifica la periodicità per i report Intrastat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 879680616</note>
