@@ -497,7 +497,7 @@
         </trans-unit>
         <trans-unit id="Page 2697158489 - NamedType 646177817" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statement line descriptions or G/L Account names with reserved AI chat completion prompt words were detected. For security reasons, they were excluded from the auto-matching process. You must match these statement lines or G/L Accounts manually.</source>
-          <target state="translated">Des descriptions de ligne de relevé ou des noms de compte général avec des mots d’invite d’achèvement de conversation instantanée IA réservés ont été détectés. Pour des raisons de sécurité, ils ont été exclus du processus de rapprochement automatique. Vous devez faire correspondre manuellement ces lignes de relevé ou ces comptes généraux.</target>
+          <target state="translated">Des dscriptions de ligne de relevé ou des noms de compte général avec des mots d’invite d’achèvement de conversation instantanée IA réservés ont été détectés. Pour des raisons de sécurité, ils ont été exclus du processus de rapprochement automatique. Vous devez faire correspondre manuellement ces lignes de relevé ou ces comptes généraux.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - NamedType InputWithReservedWordsRemovedTxt</note>
         </trans-unit>
