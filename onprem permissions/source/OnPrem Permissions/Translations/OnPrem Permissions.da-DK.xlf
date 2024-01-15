@@ -17,7 +17,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 1711923174 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Basic User (All Inclusive)</source>
-          <target state="translated">Basisbruger (alle inklusiv)</target>
+          <target state="translated">Basisbruger (alt inklusive)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet BASIC - Property Caption</note>
         </trans-unit>
@@ -317,7 +317,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 846258726 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Read S&amp;R/P&amp;P/Inv. Analys. Rep.</source>
-          <target state="translated">Læs S&amp;R/P&amp;P/fakt.analyserap.</target>
+          <target state="translated">Læs S&amp;R/P&amp;P/Inv.-analys.rap.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet INVT-ANALYSIS - Property Caption</note>
         </trans-unit>
@@ -521,7 +521,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 753890315 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in Output Jnl.</source>
-          <target state="translated">Opret poster i outputkladde</target>
+          <target state="translated">Opret poster i outputkld.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet MFG-OUTP. JNL - Property Caption</note>
         </trans-unit>
@@ -539,7 +539,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 1076139896 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Make orders from Planning</source>
-          <target state="translated">Lav ordrer fra planlægning</target>
+          <target state="translated">Opret ordrer fra planlægning</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet MFG-PLANNING, CREATE - Property Caption</note>
         </trans-unit>
