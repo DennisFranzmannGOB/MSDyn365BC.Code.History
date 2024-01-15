@@ -167,7 +167,7 @@
         </trans-unit>
         <trans-unit id="Page 521072269 - Control 2951585809 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the context record.</source>
-          <target state="translated">Specifica il record di contesto.</target>
+          <target state="translated">Specifica il record del contesto.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Error Messages Card Part - Control Context - Property ToolTip</note>
         </trans-unit>
