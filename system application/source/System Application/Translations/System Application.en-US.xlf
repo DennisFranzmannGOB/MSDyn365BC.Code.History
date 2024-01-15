@@ -903,12 +903,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ChatCompletionsFailedWithCodeErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2076688375 - NamedType 3171573684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Available now to Insider Builds. Partners will be able to deploy and run to Business Central Online once we light this up in a minor update.</source>
-          <target state="translated">Available now to Insider Builds. Partners will be able to deploy and run to Business Central Online once we light this up in a minor update.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ThirdPartyCapabilitySaaSErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 3198080941" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Selected model type is not supported.</source>
           <target state="translated">Selected model type is not supported.</target>
@@ -950,6 +944,12 @@
           <target state="translated">The embeddings generation failed.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType EmbeddingsFailedWithCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Metaprompt not found.</source>
+          <target state="translated">Metaprompt not found.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType MetapromptLoadingErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2091346909 - NamedType 2186304282" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Test Email Message</source>
@@ -1827,6 +1827,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit User Settings Impl. - NamedType UserCreatedAppNameTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3119552365 - NamedType 278290564" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1.\\Response Code: %2 %3</source>
+          <target state="translated">%1.\\Response Code: %2 %3</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Default Error Message ; %2 = Status Code; %3 = Reason Phrase</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS Web Request Helper - NamedType HttpResponseInfoErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3119552365 - NamedType 683667025" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not read response.</source>
+          <target state="translated">Could not read response.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS Web Request Helper - NamedType ReadResponseFailedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3124728760 - NamedType 1729739810" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Duration (milliseconds)</source>
           <target state="translated">Duration (milliseconds)</target>
@@ -2523,6 +2535,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MessageIdDoesNotExistErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3830376076 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Metaprompt not found.</source>
+          <target state="translated">Metaprompt not found.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MetapromptLoadingErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3830376076 - NamedType 94536125" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>History length must be greater than 0.</source>
           <target state="translated">History length must be greater than 0.</target>
@@ -2787,6 +2805,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType TenantDomainNameErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4205038922 - NamedType 2237935850" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant country letter code.</source>
+          <target state="translated">Failed to retrieve the Microsoft Entra tenant country letter code.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType CountryLetterCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4205038922 - NamedType 3300183334" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant preferred language code.</source>
+          <target state="translated">Failed to retrieve the Microsoft Entra tenant preferred language code.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType PreferredLanguageErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4215518646 - NamedType 1905859220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is not an application secret.</source>
           <target state="translated">%1 is not an application secret.</target>
@@ -2942,6 +2972,126 @@
           <target state="translated">The XML definition is invalid.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Xml Validation Impl. - NamedType InvalidXmlErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 1265032946" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not %3 File %1 in file share %2.</source>
+          <target state="translated">Could not %3 File %1 in file share %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Name; %2 = File Share Name, %3 = Delete/Undelete</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType DeleteFileOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 2819296591" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>release</source>
+          <target state="translated">release</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType LeaseReleaseLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 2910773574" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not list handles of %1 in file share %2.</source>
+          <target state="translated">Could not list handles of %1 in file share %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Path; %2 = File Share Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType ListHandlesOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3039504856" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File</source>
+          <target state="translated">File</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType FileLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3154530328" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not get File %1 metadata.</source>
+          <target state="translated">Could not get File %1 metadata.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Path</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType GetFileMetadataOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3211245420" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not set File %1 metadata.</source>
+          <target state="translated">Could not set File %1 metadata.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Path</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType SetFileMetadataOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3216599414" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not copy File %1.</source>
+          <target state="translated">Could not copy File %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Path</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType CopyFileOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3231638957" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not create file %1 in %2.</source>
+          <target state="translated">Could not create file %1 in %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Name; %2 = File Share Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType CreateFileOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3362851988" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You need to specify %1 (%2)</source>
+          <target state="translated">You need to specify %1 (%2)</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Parameter Name, %2 = Header Identifer</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType ParameterMissingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3473948105" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not %1 lease for %2 %3.</source>
+          <target state="translated">Could not %1 lease for %2 %3.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Lease Action, %2 = Type (File or Share), %3 = Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType LeaseOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3525328728" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not create directory %1 in %2.</source>
+          <target state="translated">Could not create directory %1 in %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Directory Name; %2 = File Share Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType CreateDirectoryOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 37537338" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not put file %1 ranges in %2.</source>
+          <target state="translated">Could not put file %1 ranges in %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Name; %2 = File Share Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType PutFileOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3944413620" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not abort copy of File %1.</source>
+          <target state="translated">Could not abort copy of File %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Path</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType AbortCopyFileOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 3996256465" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not rename file %1 to %2 on file share %3.</source>
+          <target state="translated">Could not rename file %1 to %2 on file share %3.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Source Path; %2 = Destination Path; %3 = File Share Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType RenameFileOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 4091395211" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not get File %1.</source>
+          <target state="translated">Could not get File %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Path</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType GetFileOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 592510374" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>change</source>
+          <target state="translated">change</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType LeaseChangeLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 595728331" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not delete directory %1 in file share %2.</source>
+          <target state="translated">Could not delete directory %1 in file share %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = File Name; %2 = File Share Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType DeleteDirectoryOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 638986168" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>acquire</source>
+          <target state="translated">acquire</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType LeaseAcquireLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 686716038" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not list directory %1 in file share %2.</source>
+          <target state="translated">Could not list directory %1 in file share %2.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Directory Name; %2 = File Share Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType ListDirectoryOperationNotSuccessfulErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 672785039 - NamedType 866805029" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>break</source>
+          <target state="translated">break</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS File Client Impl. - NamedType LeaseBreakLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 690430798 - NamedType 127200329" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No filters were set on table %1, %2. Please contact your Microsoft Partner for assistance.</source>
@@ -3111,11 +3261,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Guided Experience Upgrade - Method UpdateTourDescriptions - NamedType OrderProcessorRoleCenterTourDescriptionTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1191049942 - Method 1209858497 - NamedType 2408702833" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The full name (%1) of the directory is too long (over %2 characters).</source>
+          <target state="translated">The full name (%1) of the directory is too long (over %2 characters).</target>
+          <note from="Developer" annotates="general" priority="2">%1 - full name, %2 - max length</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS Directory Content Helper - Method AddParentEntries - NamedType FullNameTooLongErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1603529812 - Method 1775191576 - NamedType 4083372884" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Secret (Access Key) must be provided</source>
           <target state="translated">Secret (Access Key) must be provided</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stor. Serv. Auth. Shared Key - Method GetSharedKeySignature - NamedType SecretCanNotBeEmptyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1964040048 - Method 1340944587 - NamedType 1004294331" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Share Name</source>
+          <target state="translated">File Share Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS URI Helper - Method TestConstructUrlParameter - NamedType FileShareLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1964040048 - Method 1340944587 - NamedType 1005436001" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Path</source>
+          <target state="translated">Path</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS URI Helper - Method TestConstructUrlParameter - NamedType PathLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1964040048 - Method 1340944587 - NamedType 4132244079" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 can not be empty</source>
+          <target state="translated">%1 can not be empty</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Variable Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS URI Helper - Method TestConstructUrlParameter - NamedType ValueCanNotBeEmptyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1964040048 - Method 1340944587 - NamedType 615382663" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Storage Account Name</source>
+          <target state="translated">Storage Account Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFS URI Helper - Method TestConstructUrlParameter - NamedType StorageAccountNameLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2127254391 - Method 3022268586 - NamedType 1467098217" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>"%1" %2 %3%4%5</source>
@@ -3177,11 +3357,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Dynamics 2D QR-Code Encoder - Method EncodeImage - NamedType CannotCreateQrCodeErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 539680298 - Method 1842866781 - NamedType 644701202" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Acquire of token with Client Credentials failed.</source>
+          <target state="translated">Acquire of token with Client Credentials failed.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit HttpAuthOAuthClientCredentials - Method AcquireToken - NamedType AquireTokenFailedErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 729626133 - Method 579378647 - NamedType 668814160" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Internal server error. Please contact your system administrator.</source>
           <target state="translated">Internal server error. Please contact your system administrator.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Record Link Impl. - Method RemoveLinks - NamedType NotARecordErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 873665241 - Method 1796094455 - NamedType 2657891440" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error reading Response as XML.</source>
+          <target state="translated">Error reading Response as XML.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit XML Utility Impl. - Method GetXmlDocumentFromResponse - NamedType ReadingAsXmlErr</note>
         </trans-unit>
         <trans-unit id="Enum 1678783276 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Guided Experience Type</source>
@@ -3542,6 +3734,18 @@
           <target state="translated">Updating Data</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Feature Status - EnumValue Updating - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2240422114 - EnumValue 1090351696 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active</source>
+          <target state="translated">Active</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2240422114 - EnumValue 525852245 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <target state="translated">Inactive</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Inactive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 1002125975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statement paper (5.5 in. by 8.5 in.).</source>
@@ -10898,6 +11102,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Control Customized - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1256520770 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the extension that provides the permission set.</source>
+          <target state="translated">Specifies the name of the extension that provides the permission set.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control App Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1256520770 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Extension Name</source>
+          <target state="translated">Extension Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control App Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a permission set that defines the role.</source>
+          <target state="translated">Specifies a permission set that defines the role.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Role ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1918310387 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Permission Set</source>
+          <target state="translated">Permission Set</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Role ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the permission set.</source>
+          <target state="translated">Specifies the name of the permission set.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 593885934 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the permission set is specific to your tenant or generally available in the system.</source>
+          <target state="translated">Specifies if the permission set is specific to your tenant or generally available in the system.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Scope - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2674634765 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a permission set that defines the role.</source>
           <target state="translated">Specifies a permission set that defines the role.</target>
@@ -11270,6 +11510,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control End Date - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 2677802402 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yearly Specific Day</source>
+          <target state="translated">Yearly Specific Day</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control YearlySpecificDay - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2817068111 - Control 2683361118 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Yearly</source>
           <target state="translated">Yearly</target>
@@ -11299,6 +11545,12 @@
           <target state="translated">Recur on Monday</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control RecurOnMonday - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 3201366554 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly By Weekday</source>
+          <target state="translated">Monthly By Weekday</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control MonthlyByWeekday - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2817068111 - Control 32562763 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the time of day when the recurrence takes effect. This is also the time of day for each occurrence.</source>
@@ -11419,6 +11671,18 @@
           <target state="translated">Specifies the date when the recurrence takes effect.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control Start Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 588979259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly Specific Day</source>
+          <target state="translated">Monthly Specific Day</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control MonthlySpecificDay - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 618477395 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yearly By Weekday</source>
+          <target state="translated">Yearly By Weekday</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control YearlyByWeekday - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2817068111 - Control 809128117 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the day of the month for the recurrence.</source>
@@ -13241,8 +13505,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Disclaimer - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 1694176181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsft Business Central Disclaimer</source>
-          <target state="translated">Microsft Business Central Disclaimer</target>
+          <source>Per-Tenant Extension (PTE) Disclaimer</source>
+          <target state="translated">Per-Tenant Extension (PTE) Disclaimer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Disclaimer - Property Caption</note>
         </trans-unit>
@@ -13289,8 +13553,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 346708723 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Accept the privacy policy and the disclaimer</source>
-          <target state="translated">Accept the privacy policy and the disclaimer</target>
+          <source>By deploying this extension you acknowledge that your data may be sent outside the compliance boundary of Business Central. Each per-tenant extension is subject to its own third party terms and conditions and privacy policies.</source>
+          <target state="translated">By deploying this extension you acknowledge that your data may be sent outside the compliance boundary of Business Central. Each per-tenant extension is subject to its own third party terms and conditions and privacy policies.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property Caption</note>
         </trans-unit>
@@ -13311,18 +13575,6 @@
           <target state="translated">Upload Extension</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Upload Extension - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - Control 607920654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the privacy and cookies.</source>
-          <target state="translated">View the privacy and cookies.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control PrivacyAndCookies - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - Control 607920654 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy and Cookies</source>
-          <target state="translated">Privacy and Cookies</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control PrivacyAndCookies - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the file path of the extension.</source>
@@ -16801,16 +17053,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType DialogTitleTxt</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - NamedType 3405983715" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsoft Business Central PTE Disclaimer</source>
-          <target state="translated">Microsoft Business Central PTE Disclaimer</target>
+          <source>Per-Tenant Extension (PTE) Disclaimer</source>
+          <target state="translated">Per-Tenant Extension (PTE) Disclaimer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType DisclaimerLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - NamedType 4004070260" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy and Cookies</source>
-          <target state="translated">Privacy and Cookies</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType PrivacyAndCookiesLbl</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - NamedType 54529786" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Are you sure that you want to skip the remaining steps of the checklist?</source>
@@ -17442,8 +17688,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1549657920 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin</source>
-          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin</target>
+          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin,Copilot and</source>
+          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin,Copilot and</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -17758,6 +18004,12 @@
           <target state="translated">License Configuration</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Permission Set Lookup</source>
+          <target state="translated">Permission Set Lookup</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2674634765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Security Group Permission Sets</source>
@@ -18112,6 +18364,12 @@
           <target state="translated">Extension Marketplace</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3666029466 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>app,add-in,customize,plug-in,appsource</source>
+          <target state="translated">app,add-in,customize,plug-in,appsource</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Upload And Deploy Extension</source>
@@ -22523,6 +22781,66 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Security Group Member Buffer - Field Security Group Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 746022090 - Field 1829104285 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SessionId</source>
+          <target state="translated">SessionId</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Session ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 2206733951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Path</source>
+          <target state="translated">Path</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Path - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 2261329066 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LastReconnectTime</source>
+          <target state="translated">LastReconnectTime</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Last Reconnect Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 2674482667 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ParentId</source>
+          <target state="translated">ParentId</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Parent ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 3377584293 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FileId</source>
+          <target state="translated">FileId</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field File ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 385124729 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HandleId</source>
+          <target state="translated">HandleId</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Handle ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 3951287211 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OpenTime</source>
+          <target state="translated">OpenTime</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Open Time - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 521849820 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ClientIp</source>
+          <target state="translated">ClientIp</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Client IP - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 622720839 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NextMarker</source>
+          <target state="translated">NextMarker</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Next Marker - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 746022090 - Field 883711285 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target state="translated">Entry No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Field Entry No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 750064457 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Primary Key</source>
           <target state="translated">Primary Key</target>
@@ -23429,6 +23747,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Security Group Member Buffer - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 746022090 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AFS Handle</source>
+          <target state="translated">AFS Handle</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Handle - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 750064457 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Temp Blob</source>
           <target state="translated">Temp Blob</target>
@@ -23458,6 +23782,12 @@
           <target state="translated">Email Error</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Email Error - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 885574928 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AFS Directory Content</source>
+          <target state="translated">AFS Directory Content</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Directory Content - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 920931714 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Word Template</source>

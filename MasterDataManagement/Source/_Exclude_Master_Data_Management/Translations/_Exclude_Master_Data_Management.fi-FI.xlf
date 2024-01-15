@@ -311,7 +311,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3457626429 - NamedType 214721300" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cannot determine the source origin: %1.</source>
-          <target state="translated">Lähteen alkuperää ei voi määrittää: %1.</target>
+          <target state="translated">Lähteen alkuperän määritys ei onnistunut: %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 the value of the source id</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Integration Master Data Synch. - NamedType CannotDetermineSourceOriginErr</note>
         </trans-unit>
@@ -438,7 +438,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use Default Synchronization Setup</source>
-          <target state="translated">Käytä oletusarvoista synkronointimääritystä</target>
+          <target state="translated">Käytä oletusarvoisia synkronointiasetuksia</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property Caption</note>
         </trans-unit>
@@ -588,7 +588,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 639242359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use Default Synchronization Setup</source>
-          <target state="translated">Käytä oletusarvoista synkronointimääritystä</target>
+          <target state="translated">Käytä oletusarvoisia synkronointiasetuksia</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action ResetConfiguration - Property Caption</note>
         </trans-unit>
