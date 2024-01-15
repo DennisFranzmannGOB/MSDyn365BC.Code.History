@@ -23,7 +23,7 @@
         </trans-unit>
         <trans-unit id="Table 2062634445 - NamedType 4279895527" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item attribute: '%1' = '%2'</source>
-          <target state="translated">Atributo de producto: '%1' = '%2'</target>
+          <target state="translated">Atributo de producto: "%1" = "%2"</target>
           <note from="Developer" annotates="general" priority="2">%1 is the item attribute name (ex 'Color'), %2 is the item attribute value (ex 'Blue')</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - NamedType DetailsTextForItemAttributeTxt</note>
         </trans-unit>
