@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="cs-CZ" original="E-Documents Connector with External Endpoints">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 1208857380 - NamedType 3949230830" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The request to send documents has been blocked. To resolve the problem, enable outgoing HTTP requests for the E-Document apps on the Extension Management page.</source>
+          <target state="translated">Žádost o odeslání emailu byla zablokována. Pokud chcete tento problém vyřešit, povolte odchozí požadavky HTTP pro aplikaci Email – Outlook REST API na stránce Správa rozšíření.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Connection - NamedType EnvironmentBlocksErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1208857380 - NamedType 4152095307" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There was an error sending the request. Response code: %1 and error message: %2</source>
+          <target state="translated">Při odesílání požadavku došlo k chybě. Kód odezvy: %1 a chybová zpráva: %2</target>
+          <note from="Developer" annotates="general" priority="2">%1 - http response status code, e.g. 400, %2- error message</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Connection - NamedType UnsuccessfulResponseErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2749164124 - NamedType 1230847611" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must set up authentication to the service integration in the E-Document service card.</source>
+          <target state="translated">Je nutné nastavit ověřování pro integraci služby na kartě služby elektronického dokumentu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Auth. - NamedType MissingAuthErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2749164124 - NamedType 2248862561" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Authorization successful.</source>
+          <target state="translated">Autorizace byla úspěšná.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Auth. - NamedType AuthorizationSuccessfulTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2749164124 - NamedType 3535051250" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Authentication failed, check your credentials in the E-Document service card.</source>
+          <target state="translated">Ověření se nezdařilo, zkontrolujte své přihlašovací údaje na kartě Služby elektronických dokumentů.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Auth. - NamedType AuthenticationFailedErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2903450976 - NamedType 4090211762" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must set up service integration in the E-Document service card.</source>
+          <target state="translated">Integraci služby musíte nastavit na kartě služby elektronického dokumentu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero API Requests - NamedType MissingSetupErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3162180671 - NamedType 1088184363" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot ask for cancel with the E-Document in this current status %1. You can request for cancel when E-document status is 'Cancel Error' or 'Sending Error'.</source>
+          <target state="translated">V tomto aktuálním stavu %1 nemůžete požádat o stornování elektronického dokumentu. O stornování můžete požádat, pokud je stav elektronického dokumentu 'Chyba storna' nebo 'Chyba odeslání'.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Status</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Processing - NamedType CancelCheckStatusErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3162180671 - NamedType 1855753092" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Could not retrieve document with id: %1 from the service</source>
+          <target state="translated">Nelze načíst doklad s id: %1 ze servisu</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Document ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Processing - NamedType CouldNotRetrieveDocumentErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3162180671 - NamedType 3694707117" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot send %1 response with the E-Socument in this current status %2. You can send response when E-document status is 'Imported Document Created'.</source>
+          <target state="translated">V tomto aktuálním stavu %2 nelze odeslat odpověď %1 pomocí elektronického dokumentu. Odpověď můžete odeslat, když je stav elektronického dokumentu 'Importovaný dokument vytvořen'.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Action response, %2 - Status</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Processing - NamedType SendApproveRejectCheckStatusErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3162180671 - NamedType 3695462186" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot ask for approval with the E-Document in this current status %1. You can request for approval when E-document status is Sent.</source>
+          <target state="translated">V tomto aktuálním stavu %1 nemůžete požádat o schválení elektronického dokumentu. O schválení můžete požádat, když je stav elektronického dokumentu Odeslán.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Status</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Processing - NamedType GetApprovalCheckStatusErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3162180671 - NamedType 983558944" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document ID not found in response</source>
+          <target state="translated">ID dokumentu nebylo nalezeno v odpovědi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Processing - NamedType DocumentIdNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Enum 2614690178 - EnumValue 1065337893 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production</source>
+          <target state="translated">Produkce</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum E-Doc. Ext. Send Mode - EnumValue Production - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2614690178 - EnumValue 2391601916 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Certification</source>
+          <target state="translated">Certifikace</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum E-Doc. Ext. Send Mode - EnumValue Certification - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2614690178 - EnumValue 3732224266 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test</source>
+          <target state="translated">Test</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum E-Doc. Ext. Send Mode - EnumValue Test - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Action 2823348192 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Opens the OAuth 2.0 setup for the current user.</source>
+          <target state="translated">Otevře nastavení OAuth 2.0 pro aktuálního uživatele.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Action OpenOAuthSetup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Action 2823348192 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open OAuth 2.0 setup</source>
+          <target state="translated">Otevření nastavení OAuth 2.0</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Action OpenOAuthSetup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 2206183795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the fileparts URL.</source>
+          <target state="translated">Určuje adresu URL částí souboru.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Fileparts URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 2325619241 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the send mode.</source>
+          <target state="translated">Určuje režim odesílání.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Send Mode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 3242117461 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the URL to connect to Pagero Online.</source>
+          <target state="translated">Určuje adresu URL pro připojení k Pagero Online.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Authentication URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 3856621992 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the client ID token.</source>
+          <target state="translated">Určuje token ID klienta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control ClientID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 3856621992 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client ID</source>
+          <target state="translated">ID klienta</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control ClientID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 4069789961 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the client secret token.</source>
+          <target state="translated">Určuje token tajného klíče klienta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control ClientSecret - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 4069789961 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <target state="translated">Tajný klíč klienta</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control ClientSecret - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 4243455615 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the file API URL.</source>
+          <target state="translated">Určuje adresu URL rozhraní API souboru.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control FileAPI URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 613381766 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the company ID.</source>
+          <target state="translated">Určuje ID společnosti.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Company Id - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 618784563 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the redirect URL.</source>
+          <target state="translated">Určuje adresu URL přesměrování.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control Redirect URL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Control 753283736 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document API URL.</source>
+          <target state="translated">Určuje adresu URL rozhraní API dokumentu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Control DocumentAPI Url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 771339827 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Document External Connection Setup</source>
+          <target state="translated">Nastavení externího připojení elektronických dokumentů</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page EDoc Ext Connection Setup Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3766969997 - Action 113888489 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reject related document.</source>
+          <target state="translated">Odmítnout související dokument.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4128474945</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3766969997 - Action 113888489 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reject</source>
+          <target state="translated">Odmítnout</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4128474945</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3766969997 - Action 803889193 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approve related document.</source>
+          <target state="translated">Schválit související dokument.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4128474945</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3766969997 - Action 803889193 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approve</source>
+          <target state="translated">Schválit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4128474945</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 1914619800 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DocumentAPI URL</source>
+          <target state="translated">DokumentAPI URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field DocumentAPI URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 2206183795 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fileparts URL</source>
+          <target state="translated">Adresa URL částí souboru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Fileparts URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 2325619241 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Mode</source>
+          <target state="translated">Režim odesílání</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Send Mode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 2529110793 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <target state="translated">Tajný klíč klienta</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Client Secret - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 3242117461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Authentication URL</source>
+          <target state="translated">Adresa URL ověřování</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Authentication URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 3490282128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OAuth 2.0 Code</source>
+          <target state="translated">Kód OAuth 2.0</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field OAuth Feature GUID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 4243455615 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FileAPI URL</source>
+          <target state="translated">SouborAPI URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field FileAPI URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 613381766 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company ID</source>
+          <target state="translated">ID společnosti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Company Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 618784563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Redirect URL</source>
+          <target state="translated">Adresa URL přesměrování</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Redirect URL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 652819368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client ID</source>
+          <target state="translated">ID klienta</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field Client ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Field 970416965 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PK</source>
+          <target state="translated">PK</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Field PK - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 331661604 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Doc. Ext. Connection Setup</source>
+          <target state="translated">Nastavení ext. připojení elektronických dokumentů</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Ext. Connection Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3766969997 - Field 151161733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File Id</source>
+          <target state="translated">ID souboru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4128474945</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3766969997 - Field 2326231102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Id</source>
+          <target state="translated">Id dokladu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4128474945</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3766969997 - Field 2560927856 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filepart Id</source>
+          <target state="translated">ID části souboru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4128474945</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
