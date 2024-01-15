@@ -113,7 +113,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1223916161 - NamedType 2640558072" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Preparing the source for mapping...</source>
-          <target state="translated">Klargjør kilden for tilordning...</target>
+          <target state="translated">Klargjør kilden for tildeling ...</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SAF-T Mapping Helper - NamedType PreparingSourceForMappingLbl</note>
         </trans-unit>
@@ -647,7 +647,7 @@
         </trans-unit>
         <trans-unit id="Page 2085307926 - Action 3517601603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy the G/L account mapping from another mapping code.</source>
-          <target state="translated">Kopier finanskontotilordningen fra en annen tilordningskode.</target>
+          <target state="translated">Kopier finanskontotildelingen fra en annen tildelingskode.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Mapping Setup Card - Action CopyMapping - Property ToolTip</note>
         </trans-unit>
@@ -665,7 +665,7 @@
         </trans-unit>
         <trans-unit id="Page 2085307926 - Action 972680765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Initialize Source for Mapping</source>
-          <target state="translated">Initialiser kilde for tilordning</target>
+          <target state="translated">Start kilde for tildeling</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page SAF-T Mapping Setup Card - Action InitMappingSource - Property Caption</note>
         </trans-unit>
@@ -2476,7 +2476,7 @@
         </trans-unit>
         <trans-unit id="Table 295034767 - NamedType 145639983" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>SAF-T source code %1 already has the Include No Source Code enabled.. You cannot set this option for multiple SAF-T source codes</source>
-          <target state="translated">SAF-T-kildekode %1 har allerede Inkluder ingen kildekode aktivert. Du kan ikke angi dette alternativet for flere SAF-T-kildekoder</target>
+          <target state="translated">SAF-T-kildekoden %1 har allerede Inkluder ingen kildekode aktivert. Du kan ikke angi dette alternativet for flere SAF-T-kildekoder</target>
           <note from="Developer" annotates="general" priority="2">%1 = SAF-T source code no, like GL,AR,AP and so on</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Source Code - NamedType IncludeNoSourceCodeAlreadyExistErr</note>
         </trans-unit>

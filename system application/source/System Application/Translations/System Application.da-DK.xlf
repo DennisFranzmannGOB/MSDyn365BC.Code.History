@@ -899,7 +899,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 215834149 - NamedType 2396470215" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Vil du fortsætte og slette?</target>
+          <target state="translated">Vil du slette?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Account Impl. - NamedType ConfirmDeleteQst</note>
         </trans-unit>
@@ -2405,7 +2405,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3911480243 - NamedType 3938092484" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot change permissions sets of type Extension.</source>
-          <target state="translated">Du kan ikke ændre tilladelsessæt af typen Udvidelse.</target>
+          <target state="translated">Du kan ikke ændre rettighedssæt af typen Udvidelse.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Permission Set Relation Impl. - NamedType CannotChangeExtensionPermissionErr</note>
         </trans-unit>
@@ -5759,7 +5759,7 @@
         </trans-unit>
         <trans-unit id="Page 3047977240 - Action 113888489 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disagree to the terms and conditions.</source>
-          <target state="translated">Accepterer ikke vilkårene og betingelserne.</target>
+          <target state="translated">Accepter ikke vilkårene og betingelserne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notice - Action Reject - Property ToolTip</note>
         </trans-unit>
@@ -6113,7 +6113,7 @@
         </trans-unit>
         <trans-unit id="Page 3406436467 - Action 113888489 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disagree to the terms and conditions.</source>
-          <target state="translated">Accepterer ikke vilkårene og betingelserne.</target>
+          <target state="translated">Accepter ikke vilkårene og betingelserne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Power Automate Privacy Notice - Action Reject - Property ToolTip</note>
         </trans-unit>
@@ -6173,7 +6173,7 @@
         </trans-unit>
         <trans-unit id="Page 3414198013 - Action 21227494 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add two or more permission sets.</source>
-          <target state="translated">Tilføj ét eller flere rettighedssæt.</target>
+          <target state="translated">Tilføj to eller flere rettighedssæt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Subform - Action SelectPermissionSets - Property ToolTip</note>
         </trans-unit>
@@ -7841,7 +7841,7 @@
         </trans-unit>
         <trans-unit id="Page 1215073847 - Control 3641927271 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ID of the printer.</source>
-          <target state="translated">Angiver id'et for printeren.</target>
+          <target state="translated">Angiver printerens id.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Printer Management - Control ID - Property ToolTip</note>
         </trans-unit>
@@ -8524,7 +8524,7 @@
         </trans-unit>
         <trans-unit id="Page 1849231761 - Control 2339353424 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user role that defines the user's default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.</source>
-          <target state="translated">Angiver den brugerrolle, der definerer brugerens standardrollecenter og rollespecifikke tilpasninger. Brugerne kan ændre deres rolle på siden Mine indstillinger, medmindre rettighederne er begrænset.</target>
+          <target state="translated">Angiver den brugerrolle, der definerer brugerens standardrollecenter og rollespecifikke tilpasninger. Brugerne kan ændre deres rolle på siden Mine indstillinger, medmindre det er begrænset af rettigheder.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Personalization - Control Role - Property ToolTip</note>
         </trans-unit>
@@ -10011,7 +10011,7 @@
         </trans-unit>
         <trans-unit id="Page 2547633168 - Control 1734147128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the App ID of the extension.</source>
-          <target state="translated">Angiver app-id'et på udvidelsen.</target>
+          <target state="translated">Angiver app-id'et for udvidelsen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Settings - Control AppId - Property ToolTip</note>
         </trans-unit>
@@ -11288,7 +11288,7 @@
         </trans-unit>
         <trans-unit id="Page 3170013184 - Control 2019212495 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the deployment schedule.</source>
-          <target state="translated">Angiver tidsskemaet for installationen.</target>
+          <target state="translated">Angiver tidsplanen for installationen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Deployment Status - Control Schedule - Property ToolTip</note>
         </trans-unit>
@@ -15836,7 +15836,7 @@
         </trans-unit>
         <trans-unit id="Page 3338462467 - NamedType 2511177201" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to add the recorded permissions?</source>
-          <target state="translated">Vil du tilføje de optagede rettigheder?</target>
+          <target state="translated">Vil du tilføje de registrerede rettigheder?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set - NamedType AddPermissionsQst</note>
         </trans-unit>
@@ -16238,7 +16238,7 @@
         </trans-unit>
         <trans-unit id="Page 664053810 - NamedType 2367821945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Vil du fortsætte og slette?</target>
+          <target state="translated">Vil du slette?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Attach Setup - NamedType DeleteQst</note>
         </trans-unit>
@@ -16250,7 +16250,7 @@
         </trans-unit>
         <trans-unit id="Page 761349018 - NamedType 2367821945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Vil du fortsætte og slette?</target>
+          <target state="translated">Vil du slette?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - NamedType DeleteQst</note>
         </trans-unit>
@@ -17563,7 +17563,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2952555409 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Basic User (All Inclusive)</source>
-          <target state="translated">Basisbruger (alle inklusiv)</target>
+          <target state="translated">Basisbruger (alt inklusive)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet System Tables - Basic - Property Caption</note>
         </trans-unit>

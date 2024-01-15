@@ -137,7 +137,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 386858719 - Control 3479259577 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default Permissions per License</source>
-          <target state="translated">Разрешения лицензии по умолчанию</target>
+          <target state="translated">Разрешения по умолчанию для лицензии</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1267036282</note>

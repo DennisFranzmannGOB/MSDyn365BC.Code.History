@@ -269,7 +269,7 @@
         </trans-unit>
         <trans-unit id="Page 3074962881 - Action 273330248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sign in with a different account</source>
-          <target state="translated">Войти с помощью другой учетной записи</target>
+          <target state="translated">Войти с другой учетной записью</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email - Outlook API Setup - Action SingInAgain - Property Caption</note>
         </trans-unit>

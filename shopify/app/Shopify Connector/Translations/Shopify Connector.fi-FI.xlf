@@ -2832,7 +2832,7 @@
         </trans-unit>
         <trans-unit id="Page 202493269 - Action 1994005900 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit detailed information about the customer.</source>
-          <target state="translated">Näytä asiakkaan yksityiskohtaiset tiedot tai muokkaa niitä.</target>
+          <target state="translated">Tarkastele tai muokkaa asiakkaan yksityiskohtaisia tietoja.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customers - Action CustomerCard - Property ToolTip</note>
         </trans-unit>
@@ -2868,7 +2868,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Action 1994005900 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit detailed information about the customer.</source>
-          <target state="translated">Näytä asiakkaan yksityiskohtaiset tiedot tai muokkaa niitä.</target>
+          <target state="translated">Tarkastele tai muokkaa asiakkaan yksityiskohtaisia tietoja.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Action CustomerCard - Property ToolTip</note>
         </trans-unit>
@@ -2892,7 +2892,7 @@
         </trans-unit>
         <trans-unit id="Page 2596605181 - Action 2746818404 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View related posted sales shipments.</source>
-          <target state="translated">Näytä asiaankuuluvat kirjatut myyntitoimitukset.</target>
+          <target state="translated">Näytä liittyvät kirjatut myyntitoimitukset.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Action Sales Shipment - Property ToolTip</note>
         </trans-unit>
@@ -5411,7 +5411,7 @@
         </trans-unit>
         <trans-unit id="Page 2953146964 - Control 3798681774 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the variant of the item on the line.</source>
-          <target state="translated">Määrittää rivillä olevan nimikkeen version.</target>
+          <target state="translated">Määrittää rivillä olevan nimikkeen variantin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Subform - Control VariantCode - Property ToolTip</note>
         </trans-unit>
@@ -5597,7 +5597,7 @@
         </trans-unit>
         <trans-unit id="Page 3259998644 - Control 3207102784 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ID of the user who posted the entry, to be used, for example, in the change log.</source>
-          <target state="translated">Määrittää sen käyttäjän tunnuksen, joka kirjasi tapahtuman käytettäväksi esimerkiksi muutoslokissa.</target>
+          <target state="translated">Määrittää sen käyttäjän tunnuksen, joka kirjasi tapahtuman. Tunnusta käytetään esimerkiksi muutoslokissa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entry Card - Control UserId - Property ToolTip</note>
         </trans-unit>
@@ -5999,7 +5999,7 @@
         </trans-unit>
         <trans-unit id="Page 3706164926 - Control 3207102784 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ID of the user who posted the entry, to be used, for example, in the change log.</source>
-          <target state="translated">Määrittää sen käyttäjän tunnuksen, joka kirjasi tapahtuman käytettäväksi esimerkiksi muutoslokissa.</target>
+          <target state="translated">Määrittää sen käyttäjän tunnuksen, joka kirjasi tapahtuman. Tunnusta käytetään esimerkiksi muutoslokissa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Control UserId - Property ToolTip</note>
         </trans-unit>
@@ -6621,7 +6621,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 1594611733 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date when the related document was created.</source>
-          <target state="translated">Määrittää asiaankuuluvan asiakirjan luontipäivämäärän.</target>
+          <target state="translated">Määrittää päivämäärän, jona liittyvä asiakirja luotiin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control DocumentDate - Property ToolTip</note>
         </trans-unit>
