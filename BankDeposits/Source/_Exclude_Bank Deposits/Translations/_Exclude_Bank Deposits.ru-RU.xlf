@@ -290,7 +290,7 @@
         </trans-unit>
         <trans-unit id="Page 2133839000 - Action 669369698 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a new bank deposit. </source>
-          <target state="translated">Создание нового внесения на счет. </target>
+          <target state="translated">Создание нового внесения на банковский счет. </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit List - Action BankDeposit - Property ToolTip</note>
         </trans-unit>
@@ -1489,7 +1489,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2552273875 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account Ledger Entries</source>
-          <target state="translated">Книга операций по банку/кассе</target>
+          <target state="translated">Операции банковской книги</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2591587468</note>

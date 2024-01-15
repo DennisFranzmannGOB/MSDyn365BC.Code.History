@@ -1677,7 +1677,7 @@
         </trans-unit>
         <trans-unit id="Page 2285503463 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Payment Types</source>
-          <target state="translated">Betalingstyper for AMC Banking Service</target>
+          <target state="translated">Betalingstyper for AMC Banking</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Pmt. Types - Property Caption</note>
         </trans-unit>
