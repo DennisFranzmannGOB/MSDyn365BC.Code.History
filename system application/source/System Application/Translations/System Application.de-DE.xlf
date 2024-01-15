@@ -2997,7 +2997,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 1002125975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statement paper (5.5 in. by 8.5 in.).</source>
-          <target state="translated">Statement Papier (5.5 Zoll x 8.5 Zoll).</target>
+          <target state="translated">Statement paper (5.5 in. by 8.5 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Statement - Property Caption</note>
         </trans-unit>
@@ -3333,7 +3333,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 4111634021 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Folio paper (8.5 in. by 13 in.).</source>
-          <target state="translated">Folio Papier (8.5 Zoll x 13 Zoll).</target>
+          <target state="translated">Folio paper (8.5 in. by 13 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Folio - Property Caption</note>
         </trans-unit>
@@ -3345,7 +3345,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 4207495877 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Legal paper (8.5 in. by 14 in.).</source>
-          <target state="translated">Legal Papier (8.5 Zoll x 14 Zoll).</target>
+          <target state="translated">Legal paper (8.5 in. by 14 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Legal - Property Caption</note>
         </trans-unit>
@@ -3393,7 +3393,7 @@
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 978800674 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Letter paper (8.5 in. by 11 in.).</source>
-          <target state="translated">Letter Papier (8.5 Zoll x 11 Zoll).</target>
+          <target state="translated">Letter paper (8.5 in. by 11 in.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Printer Paper Kind - EnumValue Letter - Property Caption</note>
         </trans-unit>
