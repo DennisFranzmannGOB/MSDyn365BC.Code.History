@@ -11,7 +11,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1225237571 - NamedType 1780748572" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reconciling %1 statement %2 for %3</source>
-          <target state="translated">Odsouhlasení %1 výpisu %2 pro %3</target>
+          <target state="translated">Odsouhlasení výpisu %1 %2 pro %3</target>
           <note from="Developer" annotates="general" priority="2">%1 - bank account code, %2 - statement number, %3 - statement date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Rec. AI Matching Impl. - NamedType ContentAreaCaptionTxt</note>
         </trans-unit>
@@ -641,7 +641,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 658008251 - NamedType 1780748572" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reconciling %1 statement %2 for %3</source>
-          <target state="translated">Odsouhlasení %1 výpisu %2 pro %3</target>
+          <target state="translated">Odsouhlasení výpisu %1 %2 pro %3</target>
           <note from="Developer" annotates="general" priority="2">%1 - bank account code, %2 - statement number, %3 - statement date</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">PageExtension 658008251</note>
