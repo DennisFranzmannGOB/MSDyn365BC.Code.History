@@ -903,12 +903,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ChatCompletionsFailedWithCodeErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2076688375 - NamedType 3171573684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Available now to Insider Builds. Partners will be able to deploy and run to Business Central Online once we light this up in a minor update.</source>
-          <target state="translated">Tillgängligt nu för Insider-versioner. Partner kommer att kunna distribuera och köra till Business Central Online när vi aktiverar detta i en mindre uppdatering.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType ThirdPartyCapabilitySaaSErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 3198080941" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Selected model type is not supported.</source>
           <target state="translated">Den valda modelltypen stöds inte.</target>
@@ -950,6 +944,12 @@
           <target state="translated">Inbäddningsgenereringen misslyckades.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType EmbeddingsFailedWithCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Metaprompt not found.</source>
+          <target state="translated">Metaprompt hittades inte.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType MetapromptLoadingErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2091346909 - NamedType 2186304282" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Test Email Message</source>
@@ -2523,6 +2523,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MessageIdDoesNotExistErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3830376076 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Metaprompt not found.</source>
+          <target state="translated">Metaprompt hittades inte.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Chat Messages Impl - NamedType MetapromptLoadingErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3830376076 - NamedType 94536125" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>History length must be greater than 0.</source>
           <target state="translated">Historiklängd måste vara större än noll.</target>
@@ -2786,6 +2792,18 @@
           <target state="translated">Det gick inte att hämta domännamnet för Microsoft Entra-klientorganisationen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType TenantDomainNameErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4205038922 - NamedType 2237935850" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant country letter code.</source>
+          <target state="translated">Det gick inte att hämta landskoden för Microsoft Entra-klientorganisationen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType CountryLetterCodeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4205038922 - NamedType 3300183334" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve the Microsoft Entra tenant preferred language code.</source>
+          <target state="translated">Det gick inte att hämta den önskade språkkoden för Microsoft Entra-klientorganisationen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Tenant Impl. - NamedType PreferredLanguageErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4215518646 - NamedType 1905859220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is not an application secret.</source>
@@ -3137,7 +3155,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2480824916 - Method 1340944587 - NamedType 4132244079" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 can not be empty</source>
-          <target state="translated">%1 får inte vara tomt.</target>
+          <target state="translated">%1 måste anges</target>
           <note from="Developer" annotates="general" priority="2">%1 = Variable Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS URI Helper - Method TestConstructUrlParameter - NamedType ValueCanNotBeEmptyErr</note>
         </trans-unit>
@@ -3542,6 +3560,18 @@
           <target state="translated">Uppdaterar data</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Feature Status - EnumValue Updating - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2240422114 - EnumValue 1090351696 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active</source>
+          <target state="translated">Aktiv</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2240422114 - EnumValue 525852245 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <target state="translated">Inaktiv</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Inactive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2435677820 - EnumValue 1002125975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statement paper (5.5 in. by 8.5 in.).</source>
@@ -9419,7 +9449,7 @@
         </trans-unit>
         <trans-unit id="Page 2005578726 - Control 3594686602 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a spacer for 'Brick' view mode.</source>
-          <target state="translated">Anger ett tomt utrymme för visningsläget Tegelsten.</target>
+          <target state="translated">Anger en distanskontroll för visningsläget Tegelsten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Control Control18 - Property ToolTip</note>
         </trans-unit>
@@ -10898,6 +10928,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Control Customized - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1256520770 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the extension that provides the permission set.</source>
+          <target state="translated">Anger namnet på tillägget som tillhandahåller behörighetsuppsättningen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control App Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1256520770 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Extension Name</source>
+          <target state="translated">Namn på tillägg</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control App Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a permission set that defines the role.</source>
+          <target state="translated">Anger en behörighetsuppsättning som definierar rollen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Role ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 1918310387 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Permission Set</source>
+          <target state="translated">Behörighetsuppsättning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Role ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the permission set.</source>
+          <target state="translated">Anger namnet på den nya behörighetsuppsättningen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Control 593885934 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the permission set is specific to your tenant or generally available in the system.</source>
+          <target state="translated">Anger om behörighetsuppsättningen är specifik för klientorganisationen eller är allmänt tillgänglig i systemet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Control Scope - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2674634765 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a permission set that defines the role.</source>
           <target state="translated">Anger en behörighetsuppsättning som definierar rollen.</target>
@@ -10912,7 +10978,7 @@
         </trans-unit>
         <trans-unit id="Page 2674634765 - Control 2507467933 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the permission set.</source>
-          <target state="translated">Anger namnet på den nya behörighetsuppsättningen.</target>
+          <target state="translated">Anger namnet på behörighetsuppsättningen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Security Group Permission Sets - Control Role Name - Property ToolTip</note>
         </trans-unit>
@@ -11270,6 +11336,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control End Date - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 2677802402 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yearly Specific Day</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control YearlySpecificDay - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2817068111 - Control 2683361118 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Yearly</source>
           <target state="translated">Varje år</target>
@@ -11299,6 +11370,11 @@
           <target state="translated">Återkommer på måndagar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control RecurOnMonday - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 3201366554 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly By Weekday</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control MonthlyByWeekday - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2817068111 - Control 32562763 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the time of day when the recurrence takes effect. This is also the time of day for each occurrence.</source>
@@ -11419,6 +11495,16 @@
           <target state="translated">Anger det datum då upprepningen träder i kraft.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control Start Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 588979259 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly Specific Day</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control MonthlySpecificDay - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2817068111 - Control 618477395 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Yearly By Weekday</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Recurrence Schedule Card - Control YearlyByWeekday - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2817068111 - Control 809128117 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the day of the month for the recurrence.</source>
@@ -12002,7 +12088,7 @@
         </trans-unit>
         <trans-unit id="Page 3170013184 - Control 2019212495 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the deployment schedule.</source>
-          <target state="translated">Anger distributionsschemat.</target>
+          <target state="translated">Anger distributionsschema.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Deployment Status - Control Schedule - Property ToolTip</note>
         </trans-unit>
@@ -13241,8 +13327,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Disclaimer - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 1694176181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsft Business Central Disclaimer</source>
-          <target state="translated">Ansvarsfriskrivning för Microsoft Business Central</target>
+          <source>Per-Tenant Extension (PTE) Disclaimer</source>
+          <target state="translated">Ansvarsfriskrivning för tillägg per klientorganisation (TPK)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Disclaimer - Property Caption</note>
         </trans-unit>
@@ -13289,8 +13375,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 346708723 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Accept the privacy policy and the disclaimer</source>
-          <target state="translated">Acceptera sekretesspolicyn och ansvarsfriskrivningen</target>
+          <source>By deploying this extension you acknowledge that your data may be sent outside the compliance boundary of Business Central. Each per-tenant extension is subject to its own third party terms and conditions and privacy policies.</source>
+          <target state="translated">Genom att distribuera det här tillägget godkänner du att dina data kan skickas utanför efterlevnadsgränsen för Business Central. Varje tillägg per klientorganisation omfattas av egna villkor och sekretesspolicyer från tredje part.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Accepted - Property Caption</note>
         </trans-unit>
@@ -13311,18 +13397,6 @@
           <target state="translated">Ladda upp tillägg</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control Upload Extension - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - Control 607920654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the privacy and cookies.</source>
-          <target state="translated">Visa sekretess och cookies.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control PrivacyAndCookies - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - Control 607920654 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy and Cookies</source>
-          <target state="translated">Sekretess och cookies</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - Control PrivacyAndCookies - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the file path of the extension.</source>
@@ -15332,7 +15406,7 @@
         </trans-unit>
         <trans-unit id="Page 4184586221 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the permission set.</source>
-          <target state="translated">Anger namnet på den nya behörighetsuppsättningen.</target>
+          <target state="translated">Anger namnet på behörighetsuppsättningen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lookup Permission Set - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -16712,7 +16786,7 @@
         </trans-unit>
         <trans-unit id="Page 3338462467 - NamedType 3333379853" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to start the recording now?</source>
-          <target state="translated">Vill du starta registreringen nu?</target>
+          <target state="translated">Vill du starta inspelningen nu?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set - NamedType StartRecordingQst</note>
         </trans-unit>
@@ -16801,16 +16875,10 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType DialogTitleTxt</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - NamedType 3405983715" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsoft Business Central PTE Disclaimer</source>
-          <target state="translated">Ansvarsfriskrivning för Microsoft Business Central-tillägg per klientorganisation</target>
+          <source>Per-Tenant Extension (PTE) Disclaimer</source>
+          <target state="translated">Ansvarsfriskrivning för tillägg per klientorganisation (TPK)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType DisclaimerLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 367479046 - NamedType 4004070260" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy and Cookies</source>
-          <target state="translated">Sekretess och cookies</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Upload And Deploy Extension - NamedType PrivacyAndCookiesLbl</note>
         </trans-unit>
         <trans-unit id="Page 3692338268 - NamedType 54529786" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Are you sure that you want to skip the remaining steps of the checklist?</source>
@@ -17120,7 +17188,7 @@
         </trans-unit>
         <trans-unit id="Page 664053810 - NamedType 2367821945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Vill du fortsätta och ta bort?</target>
+          <target state="translated">Vill du ta bort?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Attach Setup - NamedType DeleteQst</note>
         </trans-unit>
@@ -17442,8 +17510,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1549657920 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin</source>
-          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Artificiell intelligens,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot-inställningar,Copilot-konfiguration,aktivera Copilot,Copilot-administratör</target>
+          <source>OpenAI,AI,Copilot,Co-pilot,Artificial Intelligence,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot settings,Copilot setup,enable Copilot,Copilot admin,Copilot and</source>
+          <target state="translated">OpenAI,AI,Copilot,Co-pilot,Artificiell intelligens,GPT,GTP,Dynamics 365 Copilot,ChatGPT,Copilot-inställningar,Copilot-konfiguration,aktivera Copilot,Copilot-administratör,Copilot och</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -17758,6 +17826,12 @@
           <target state="translated">Licenskonfiguration</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2642016971 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Permission Set Lookup</source>
+          <target state="translated">Behörighetsuppsättningssökning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Lookup List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2674634765 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Security Group Permission Sets</source>
@@ -18112,6 +18186,12 @@
           <target state="translated">Marknadsplats för tillägg</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3666029466 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>app,add-in,customize,plug-in,appsource</source>
+          <target state="translated">app,tillägg,anpassa,plugin-program,appsource</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property AdditionalSearchTerms</note>
         </trans-unit>
         <trans-unit id="Page 367479046 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Upload And Deploy Extension</source>
@@ -18595,7 +18675,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 881233975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Backup or restore database</source>
-          <target state="translated">Säk.kop. eller återst. databas</target>
+          <target state="translated">Säkerhetskop./återst. databas</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet D365 BACKUP/RESTORE - Property Caption</note>
         </trans-unit>
