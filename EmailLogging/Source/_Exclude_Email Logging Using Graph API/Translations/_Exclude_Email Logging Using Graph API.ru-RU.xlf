@@ -515,7 +515,7 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - NamedType 3769904544" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interaction Template Setup needs to be configured.</source>
-          <target state="translated">Необходимо настроить конфигурацию шаблона взаимодействия.</target>
+          <target state="translated">Необходимо настроить шаблоны взаимодействия.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - NamedType InvalidInteractionTemplateSetupTxt</note>
         </trans-unit>
@@ -575,7 +575,7 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - NamedType 82472981" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interaction Template Setup is correctly configured.</source>
-          <target state="translated">Конфигурация шаблона взаимодействия настроена правильно.</target>
+          <target state="translated">Шаблоны взаимодействия настроены правильно.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - NamedType ValidInteractionTemplateSetupTxt</note>
         </trans-unit>
@@ -810,25 +810,25 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 2304772256 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Indicates that Interaction Template Setup needs to be configurred.</source>
-          <target state="translated">Указывает, что необходимо настроить конфигурацию шаблона взаимодействия.</target>
+          <target state="translated">Указывает, что необходимо настроить шаблоны взаимодействия.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control InvalidInteractionTemplateSetup - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 2304772256 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interaction Template Setup needs to be configurred.</source>
-          <target state="translated">Необходимо настроить конфигурацию шаблона взаимодействия.</target>
+          <target state="translated">Необходимо настроить шаблоны взаимодействия.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control InvalidInteractionTemplateSetup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 468223293 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Indicates that Interaction Template Setup is correctly configurred.</source>
-          <target state="translated">Указывает, что конфигурация шаблона взаимодействия настроена правильно.</target>
+          <target state="translated">Указывает, что шаблоны взаимодействия настроены правильно.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control ValidInteractionTemplateSetup - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 468223293 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interaction Template Setup is correctly configurred.</source>
-          <target state="translated">Конфигурация шаблона взаимодействия настроена правильно.</target>
+          <target state="translated">Шаблоны взаимодействия настроены правильно.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control ValidInteractionTemplateSetup - Property Caption</note>
         </trans-unit>
