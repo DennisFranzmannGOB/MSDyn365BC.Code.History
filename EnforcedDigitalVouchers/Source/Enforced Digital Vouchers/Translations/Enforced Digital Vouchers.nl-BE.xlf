@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="nl-BE" original="Enforced Digital Vouchers">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 1145004488 - NamedType 123280154" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot change incoming document with the enforced digital voucher functionality</source>
+          <target state="translated">Kan inkomend document niet wijzigen met de functionaliteit voor afgedwongen digitale bonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Impl. - NamedType CannotChangeIncomDocWithEnforcedDigitalVoucherErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1145004488 - NamedType 1420859235" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up a digital voucher feature</source>
+          <target state="translated">Een functie voor digitale bonnen instellen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Impl. - NamedType AssistedSetupTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1145004488 - NamedType 1689235809" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In some countries authorities require to make sure that for every single general ledger register ther is a digital vouchers assigned.</source>
+          <target state="translated">In sommige landen/regio's vereisen autoriteiten dat voor elk grootboekjournaal een digitale bon is toegewezen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Impl. - NamedType AssistedSetupDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1145004488 - NamedType 3553078962" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot remove the reference record from the incoming document because it is used for the enforced digital voucher functionality</source>
+          <target state="translated">Kan de referentierecord niet uit het inkomende document verwijderen omdat het wordt gebruikt voor de functionaliteit voor afgedwongen digitale bonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Impl. - NamedType CannotRemoveReferenceRecordFromIncDocErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1145004488 - NamedType 4160814520" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DigitalVoucher_%1_%2_%3.pdf</source>
+          <target state="translated">DigitalVoucher_%1_%2_%3.pdf</target>
+          <note from="Developer" annotates="general" priority="2">%1 = doc type; %2 = posting date; %3 = doc no.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Impl. - NamedType DigitalVoucherFileTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1786195738 - NamedType 1137334425" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not possible to perform a check of this type</source>
+          <target state="translated">Er kan geen controle van dit type worden uitgevoerd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Voucher Unknown Check - NamedType NotPossibleToPerformErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2160679865 - NamedType 2032039542" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not possible to post without attaching the digital voucher.</source>
+          <target state="translated">Er kan niet worden geboekt zonder dat de digitale bon wordt bijgevoegd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Voucher Attachment Check - NamedType NotPossibleToPostWithoutVoucherErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2461878644 - NamedType 180528833" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not possible to post without attaching the digital voucher or adding the note.</source>
+          <target state="translated">Er kan niet worden geboekt zonder dat de digitale bon wordt bijgevoegd of de notitie wordt toegevoegd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Voucher Attach Or Note Check - NamedType NotPossibleToPostWithoutVoucherOrNoteErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 536660794 - NamedType 376209035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Digital voucher feature is not enabled. Do you want to enable it by completing the guide?</source>
+          <target state="translated">De functie voor digitale bonnen is niet geactiveerd. Wilt u deze inschakelen door de guide te voltooien?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Feature - NamedType InstallFeatureNotificationMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 536660794 - NamedType 41941251" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">Inschakelen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Feature - NamedType EnableTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 536660794 - NamedType 85604995" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot perform this action because the Digital Voucher functionality is enforced in your application.</source>
+          <target state="translated">U kunt deze actie niet uitvoeren omdat de functionaliteit voor digitale bonnen wordt afgedwongen in uw toepassing.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Feature - NamedType CannotChangeEnforcedAppErr</note>
+        </trans-unit>
+        <trans-unit id="Enum 3198883256 - EnumValue 1159403147 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachment</source>
+          <target state="translated">Bijlage</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Check Type - EnumValue Attachment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3198883256 - EnumValue 3428836504 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attachment or Note</source>
+          <target state="translated">Bijlage of notitie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Check Type - EnumValue Attachment or Note - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3198883256 - EnumValue 396968769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Check</source>
+          <target state="translated">Geen controle</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Check Type - EnumValue No Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 494163890 - EnumValue 1033930297 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Document</source>
+          <target state="translated">Verkoopdocument</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Entry Type - EnumValue Sales Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 494163890 - EnumValue 1065773096 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Document</source>
+          <target state="translated">Inkoopdocument</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Entry Type - EnumValue Purchase Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 494163890 - EnumValue 1371923692 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Entry Type - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 494163890 - EnumValue 1727838235 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Journal</source>
+          <target state="translated">Verkoopdagboek</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Entry Type - EnumValue Sales Journal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 494163890 - EnumValue 2583272393 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General Journal</source>
+          <target state="translated">Dagboek</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Entry Type - EnumValue General Journal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 494163890 - EnumValue 3580867622 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Journal</source>
+          <target state="translated">Inkoopdagboek</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Digital Voucher Entry Type - EnumValue Purchase Journal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Action 2438272767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back</source>
+          <target state="translated">Vorige</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Action ActionBack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Action 3259912055 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finish</source>
+          <target state="translated">Voltooien</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Action ActionFinish - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Action 914282563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next</source>
+          <target state="translated">Volgende</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Action ActionNext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Verwerken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Action 726100597 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>About source codes</source>
+          <target state="translated">Over broncodes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Action SourceCodes - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Action 726100597 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the connected source codes.</source>
+          <target state="translated">Hiermee worden de verbonden broncodes opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Action SourceCodes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Action 726100597 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>If you post a journal line, the connected source code identifies the entry type - general journal, sales journal, purchase journal, etc.</source>
+          <target state="translated">Als u een dagboekregel boekt, geeft de verbonden broncode het boekingssoort aan: dagboek, verkoopdagboek, inkoopdagboek, enzovoort.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Action SourceCodes - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Action 726100597 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Codes</source>
+          <target state="translated">Broncodes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Action SourceCodes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3705841975 - Action 2095196509 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the digital voucher feature for each entry type.</source>
+          <target state="translated">Hiermee wordt de functie voor digitale bonnen opgegeven voor elk boekingssoort.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Setup - Action EntrySetup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3705841975 - Action 2095196509 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Setup</source>
+          <target state="translated">Instelling van boeking</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Setup - Action EntrySetup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3705841975 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="translated">Verwerken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Setup - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1583518169 - Control 2720485332 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the source code.</source>
+          <target state="translated">Hiermee wordt de broncode opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Voucher Entry Source Codes - Control Source Code - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 1121962313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control StandardBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 1182202415 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You have enforced the digital voucher functionality.</source>
+          <target state="translated">U hebt de functionaliteit voor digitale bonnen afgedwongen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control FinishDescription - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 1182202415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control FinishDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 2203603252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The digital voucher setup is completed!</source>
+          <target state="translated">De instelling van digitale bonnen is voltooid!</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control FinishedChild - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 2325998030 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In some countries authorities require to make sure that for every single document there is a digital voucher assigned.</source>
+          <target state="translated">In sommige landen/regio's vereisen autoriteiten dat voor elk document een digitale bon is toegewezen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control FeatureDescription - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 2325998030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control FeatureDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 251468363 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>For each entry type you want to enforce digital voucher, add the setup and define the rules to check the voucher.</source>
+          <target state="translated">Voor elk boekingssoort waarvoor u digitale bonnen wilt afdwingen, voegt u de instelling toe en definieert u de regels om de bon te controleren.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control SetupGeneral - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 251468363 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setup digital voucher by entry type</source>
+          <target state="translated">Digitale bon instellen per boekingssoort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control SetupGeneral - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 300852202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control FinishedBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 3800514526 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Welcome to the setup of digital vouchers</source>
+          <target state="translated">Welkom bij de instelling van digitale bonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control Welcome - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 4179247015 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of digital voucher setups by entry type.</source>
+          <target state="translated">Hiermee wordt het aantal instellingen van digitale bonnen per boekingssoort opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control VoucherEntrySetupInfo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Control 4179247015 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher Entry setups defined:</source>
+          <target state="translated">Gedefinieerde instellingen voor boeking van bonnen:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Control VoucherEntrySetupInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Control 1174528599 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description of the voucher entry type.</source>
+          <target state="translated">Hiermee wordt de omschrijving opgegeven van het boekingssoort van de bon.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control VoucherEntryTypeDescriptionControl - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Control 149522872 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry type.</source>
+          <target state="translated">Hiermee wordt het boekingssoort opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Entry Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Control 1523163874 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter the check type</source>
+          <target state="translated">Voer het soort controle in</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Check Type - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Control 1523163874 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the check type.</source>
+          <target state="translated">Hiermee wordt het soort controle opgegeven.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Check Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Control 1523163874 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In case of check type None you can post this type of entry without any digital voucher. In case of check type Attachment you need to have an attachment to your entry. In case of check type Attachment or Note you can either have an attachment or a note for your entry.</source>
+          <target state="translated">In het geval van controlesoort Geen kunt u dit soort boeking boeken zonder digitale bon. In het geval van controlesoort Bijlage moet u een bijlage bij uw boeking bijvoegen. In het geval van controlesoort Bijlage of Notitie kunt u een bijlage of een notitie bij uw boeking bijvoegen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Check Type - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Control 1529991342 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Type Description</source>
+          <target state="translated">Omschrijving van boekingssoort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control VoucherEntryTypeDescription - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Control 4133691299 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the automatically generated digital voucher do not to be added to the document even if the manual attachment has already been added.</source>
+          <target state="translated">Hiermee wordt opgegeven of de automatisch gegenereerde digitale bon niet aan het document moet worden toegevoegd, zelfs niet als de handmatige bijlage al is toegevoegd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Skip If Manually Added - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Control 922465626 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the digital voucher needs to be generated automatically.</source>
+          <target state="translated">Hiermee wordt opgegeven of de digitale bon automatisch moet worden gegenereerd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Control Generate Automatically - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3705841975 - Control 2891538263 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the feature is enabled.</source>
+          <target state="translated">Hiermee wordt opgegeven of de functie is geactiveerd.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Setup - Control Enabled - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - NamedType 4244256999" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open the setup page to define voucher setup by entry type.</source>
+          <target state="translated">De instellingspagina openen om de instelling van bonnen per boekingssoort te definiëren.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - NamedType OpenVoucherEntrySetupLbl</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - NamedType 984350027" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up of digital vouchers has not been completed. This feature will not be enabled.\\Are you sure that you want to exit?</source>
+          <target state="translated">De instelling van digitale bonnen is niet voltooid. Deze functie is niet geactiveerd.\\Weet u zeker dat u wilt afsluiten?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - NamedType SetupNotCompletedQst</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - NamedType 1314406740" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies posting you are doing from the Purchase Journal and the General Journal with the Vendor selected as the Account Type.</source>
+          <target state="translated">Hiermee wordt opgegeven dat u boekt vanuit het inkoopdagboek en het dagboek, met Leverancier geselecteerd als rekeningsoort.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - NamedType PurchaseJournalEntryDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - NamedType 156271386" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies postings you are doing from the purchase documents.</source>
+          <target state="translated">Hiermee worden boekingen opgegeven die u doet vanuit de inkoopdocumenten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - NamedType PurchaseDocumentEntryDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - NamedType 2152780551" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies postings you are doing from the sales documents.</source>
+          <target state="translated">Hiermee worden boekingen opgegeven die u doet vanuit de verkoopdocumenten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - NamedType SalesDocumentEntryDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - NamedType 3690999469" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies posting you are doing from the Sales Journal and the General Journal with the Customer selected as the Account Type.</source>
+          <target state="translated">Hiermee opgegeven dat u boekt vanuit het verkoopdagboek en het dagboek, met Klant geselecteerd als het rekeningsoort.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - NamedType SalesJournalEntryDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - NamedType 4145191255" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies postings you are doing from the General Journal for all Account Types excluding those related to Customer and Vendor. By choosing one of those options, you will change control of the posting process. If you select the Customer as the Account Type, the system will check your setup related to the Sales Journal. If you select the Vendor as the Account Type, the system will check your setup related to the Purchase Journal.</source>
+          <target state="translated">Hiermee wordt opgegeven dat u vanuit het dagboek boekt voor alle rekeningtypen, behalve voor boekingen die gerelateerd zijn aan Klant en Leverancier. Als u een van die opties kiest, wijzigt u de controle over het boekingsproces. Als u Klant als rekeningsoort selecteert, controleert het systeem uw instelling die gerelateerd is aan het verkoopdagboek. Als u Leverancier als rekeningsoort selecteert, controleert het systeem uw instelling die gerelateerd is aan het inkoopdagboek.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - NamedType GeneralJournalEntryDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 1583518169 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher Entry Source Codes</source>
+          <target state="translated">Broncodes van bonboeking</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Voucher Entry Source Codes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2319989076 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Digital Voucher Guide</source>
+          <target state="translated">Guide voor digitale bonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Guide - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>About setup of digital vouchers for each entry type</source>
+          <target state="translated">Over de instelling van digitale bonnen voor elk boekingssoort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Here you can select the line with a certain entry type and setup the type of the digital voucher's check you want to perform.</source>
+          <target state="translated">Hier kunt u de regel met een bepaald boekingssoort selecteren en het type controle van digitale bonnen instellen dat u wilt uitvoeren.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Page 2508661115 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Digital Voucher Entry Setup</source>
+          <target state="translated">Instelling van boeking van digitale bonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Entry Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3705841975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Digital Voucher Setup</source>
+          <target state="translated">Instelling van digitale bonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Digital Voucher Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 229688248 - Field 149522872 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Type</source>
+          <target state="translated">Boekingssoort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Voucher Entry Source Code - Field Entry Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 229688248 - Field 2720485332 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Code</source>
+          <target state="translated">Broncode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Voucher Entry Source Code - Field Source Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2508661115 - Field 149522872 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry Type</source>
+          <target state="translated">Boekingssoort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Entry Setup - Field Entry Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2508661115 - Field 1523163874 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Check Type</source>
+          <target state="translated">Controlesoort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Entry Setup - Field Check Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2508661115 - Field 4133691299 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Skip If Manually Added</source>
+          <target state="translated">Overslaan indien handmatig toegevoegd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Entry Setup - Field Skip If Manually Added - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2508661115 - Field 922465626 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generate Automatically</source>
+          <target state="translated">Automatisch genereren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Entry Setup - Field Generate Automatically - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3705841975 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <target state="translated">Primaire sleutel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3705841975 - Field 2891538263 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="translated">Geactiveerd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Setup - Field Enabled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 229688248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher Entry Source Code</source>
+          <target state="translated">Broncode van bonboeking</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Voucher Entry Source Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2508661115 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Digital Voucher Entry Setup</source>
+          <target state="translated">Instelling van boeking van digitale bonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Entry Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3705841975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Digital Voucher Setup</source>
+          <target state="translated">Instelling van digitale bonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Digital Voucher Setup - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
