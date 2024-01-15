@@ -119,6 +119,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3873511525 - NamedType 1594685643" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice charge on the e-document has no reason code.</source>
+          <target state="translated">Factuurbetaling voor het e-document bevat geen redencode.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. DED PEPPOL Pre-Mapping - NamedType InvoiceChargeHasNoReasonErr</note>
         </trans-unit>
@@ -448,11 +449,13 @@
         </trans-unit>
         <trans-unit id="Enum 397551968 - EnumValue 1459325709 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Data Exchange</source>
+          <target state="translated">Gegevensuitwisseling</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Format - EnumValue Data Exchange - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 397551968 - EnumValue 529166461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>PEPPOL BIS 3.0</source>
+          <target state="translated">PEPPOL BIS 3.0</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Format - EnumValue PEPPOL BIS 3.0 - Property Caption</note>
         </trans-unit>
@@ -555,11 +558,13 @@
         </trans-unit>
         <trans-unit id="Page 2429668632 - Action 2888971102 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create an electronic document by manually uploading a file.</source>
+          <target state="translated">Een elektronisch document maken door handmatig een bestand te uploaden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action ImportManually - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2429668632 - Action 2888971102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create From File</source>
+          <target state="translated">Maken van bestand</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action ImportManually - Property Caption</note>
         </trans-unit>
@@ -1772,13 +1777,6 @@
         <trans-unit id="PageExtension 256357247 - Action 1505326866 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Opens the electronic document card.</source>
           <target state="translated">Hiermee wordt de elektronische documentkaart geopend.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1331685701</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 256357247 - Action 1505326866 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>OpenEDocument</source>
-          <target state="translated">OpenEDocument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1331685701</note>

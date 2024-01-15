@@ -268,7 +268,7 @@
         </trans-unit>
         <trans-unit id="Page 423687670 - Control 3904902575 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the dimension code.</source>
-          <target state="translated">Specifica il codice della dimensione.</target>
+          <target state="translated">Specifica il codice dimensione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - Default Dimensions - Control dimensionCode - Property ToolTip</note>
         </trans-unit>
