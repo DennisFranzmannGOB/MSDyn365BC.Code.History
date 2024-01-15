@@ -12330,7 +12330,7 @@
         </trans-unit>
         <trans-unit id="Page 4001231554 - Control 1330212104 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>2. Choose ‘Get apps’, then search for and add ‘Microsoft Dynamics Office Add-in´.</source>
-          <target state="translated">2. Elija "Obtener aplicaciones" y, a continuación, busque y agregue "Complemento de Microsoft Dynamics Office".</target>
+          <target state="translated">2. Elija "Obtener aplicaciones" y, a continuación, busque y agregue "Microsoft Dynamics Office Add-in".</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Control ConfigureMicrosoft365Step2 - Property InstructionalText</note>
         </trans-unit>
@@ -13052,7 +13052,7 @@
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 1673237505 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>It can take up to 72 hours for a change in Microsoft 365 to become available to Business Central.</source>
-          <target state="translated">Los cambios en Microsoft 365 pueden tardar hasta 72 horas en estar disponibles en Business Central.</target>
+          <target state="translated">Se pueden tardar hasta 72 horas para que un cambio en Microsoft 365 esté disponible en Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control NoteGroup - Property InstructionalText</note>
         </trans-unit>
@@ -13196,7 +13196,7 @@
         </trans-unit>
         <trans-unit id="Page 523480673 - Control 792907206 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bring changes to user information from your Microsoft 365 organization to Business Central. Update license assignments, name changes, email addresses, preferred languages, and user access.</source>
-          <target state="translated">Aporte cambios a la información de usuario desde su organización de Microsoft 365 a Business Central. Actualice asignaciones de licencias, los cambios de nombre, las direcciones de correo electrónico, los idiomas preferidos y el acceso de usuario.</target>
+          <target state="translated">Aporte cambios a la información de usuario desde su organización de Microsoft 365 a Business Central. Actualice asignaciones de licencias, cambios de nombres, direcciones de correo electrónico, idiomas preferidos y acceso de usuario.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Azure AD User Update Wizard - Control HeaderText - Property InstructionalText</note>
         </trans-unit>
