@@ -1,4 +1,12 @@
 {
+  "settings": {
+    "allint.enabled": false,
+    "search.exclude": {
+      "**.xlf": true
+    },
+    "al.enableCodeActions": false,
+    "al.enableCodeAnalysis": false
+  },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
@@ -216,13 +224,5 @@
     {
       "path": "./LatePaymentPredictor/Test/Late Payment Prediction Tests"
     }
-  ],
-  "settings": {
-    "allint.enabled": false,
-    "search.exclude": {
-      "**.xlf": true
-    },
-    "al.enableCodeAnalysis": false,
-    "al.enableCodeActions": false
-  }
+  ]
 }
