@@ -2375,7 +2375,7 @@
         </trans-unit>
         <trans-unit id="Page 1278155290 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Liefermethode überein.</target>
+          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Lieferbedingung überein.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Customers - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -4613,7 +4613,7 @@
         </trans-unit>
         <trans-unit id="Page 2715273378 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Es wurden sowohl „itemId“ als auch „accountId“ angegeben. Geben Sie nur einen der Werte an.</target>
+          <target state="translated">Sowohl itemId als auch accountId werden angegeben. Geben Sie nur einen der Werte an.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoice Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -4763,7 +4763,7 @@
         </trans-unit>
         <trans-unit id="Page 2715273378 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Zeilenbetrag inkl. MwSt.</target>
+          <target state="translated">Nettobetrag inkl. Steuer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoice Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -4907,13 +4907,13 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Eink. von Adresszeile 1</target>
+          <target state="translated">Einkauf von Adresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Eink. von Adresszeile 2</target>
+          <target state="translated">Einkauf von Adresszeile 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5099,13 +5099,13 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 354324300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 1</source>
-          <target state="translated">Lief. an Adresszeile 1</target>
+          <target state="translated">Lieferadresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control shipToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 992020917 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 2</source>
-          <target state="translated">Lief. an Adresszeile 2</target>
+          <target state="translated">Lieferadresszeile 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control shipToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5231,7 +5231,7 @@
         </trans-unit>
         <trans-unit id="Page 1779564587 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Es wurden sowohl „itemId“ als auch „accountId“ angegeben. Geben Sie nur einen der Werte an.</target>
+          <target state="translated">Sowohl itemId als auch accountId werden angegeben. Geben Sie nur einen der Werte an.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Order Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -5399,7 +5399,7 @@
         </trans-unit>
         <trans-unit id="Page 1779564587 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Nettobetrag einschließlich Steuer</target>
+          <target state="translated">Nettobetrag inkl. Steuer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Order Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -5507,7 +5507,7 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 983217553" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The order cannot be found.</source>
-          <target state="translated">Die Bestellung kann nicht gefunden werden.</target>
+          <target state="translated">Der Auftrag kann nicht gefunden werden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CannotFindOrderErr</note>
         </trans-unit>
@@ -5561,7 +5561,7 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Liefermethode überein.</target>
+          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Lieferbedingung überein.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -5573,13 +5573,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Eink. von Adresszeile 1</target>
+          <target state="translated">Einkauf von Adresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Eink. von Adresszeile 2</target>
+          <target state="translated">Einkauf von Adresszeile 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5675,7 +5675,7 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 2839400550 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Address Line 1</source>
-          <target state="translated">Rech. an Adresszeile 1</target>
+          <target state="translated">Zahlung an Adresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control payToAddressLine1 - Property Caption</note>
         </trans-unit>
@@ -5765,13 +5765,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 354324300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 1</source>
-          <target state="translated">Lief. an Adresszeile 1</target>
+          <target state="translated">Lieferadresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control shipToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 992020917 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 2</source>
-          <target state="translated">Lief. an Adresszeile 2</target>
+          <target state="translated">Lieferadresszeile 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control shipToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5831,13 +5831,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 3762354732 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Amount Excluding Tax</source>
-          <target state="translated">Totalbetrag ohne MwSt.</target>
+          <target state="translated">Gesamtbetrag ohne MwSt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control totalAmountExcludingTax - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 1842111270 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Amount Including Tax</source>
-          <target state="translated">Totalbetrag inkl. MwSt.</target>
+          <target state="translated">Gesamtbetrag inkl. MwSt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control totalAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -5885,13 +5885,13 @@
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Eink. von Adresszeile 1</target>
+          <target state="translated">Einkauf von Adresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Eink. von Adresszeile 2</target>
+          <target state="translated">Einkauf von Adresszeile 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -6179,7 +6179,7 @@
         </trans-unit>
         <trans-unit id="Page 1420007888 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Es wurden sowohl „itemId“ als auch „accountId“ angegeben. Geben Sie nur einen der Werte an.</target>
+          <target state="translated">Sowohl itemId als auch accountId werden angegeben. Geben Sie nur einen der Werte an.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Mem Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -6323,7 +6323,7 @@
         </trans-unit>
         <trans-unit id="Page 1420007888 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Zeilenbetrag inkl. MwSt.</target>
+          <target state="translated">Nettobetrag inkl. Steuer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Mem Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -6533,7 +6533,7 @@
         </trans-unit>
         <trans-unit id="Page 3006414751 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Liefermethode überein.</target>
+          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Lieferbedingung überein.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -6851,7 +6851,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Es wurden sowohl „itemId“ als auch „accountId“ angegeben. Geben Sie nur einen der Werte an.</target>
+          <target state="translated">Sowohl itemId als auch accountId werden angegeben. Geben Sie nur einen der Werte an.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -6863,7 +6863,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - NamedType 3577643735" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The value for "sequence" cannot be modified. Delete and insert the line again.</source>
-          <target state="translated">Der Wert für „sequence“ kann nicht geändert werden. Löschen Sie die Zeile, und fügen Sie sie erneut ein.</target>
+          <target state="translated">Der Sequenzwert kann nicht geändert werden. Löschen Sie die Zeile, und fügen Sie sie erneut ein.</target>
           <note from="Developer" annotates="general" priority="2">sequence is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - NamedType CannotChangeLineNoErr</note>
         </trans-unit>
@@ -6995,7 +6995,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Zeilenbetrag inkl. MwSt.</target>
+          <target state="translated">Nettobetrag inkl. Steuer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -7109,7 +7109,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 3210053793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The id cannot be changed.</source>
-          <target state="translated">Die Kennung kann nicht geändert werden.</target>
+          <target state="translated">„id“ kann nicht geändert werden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType CannotChangeIDErr</note>
         </trans-unit>
@@ -7199,7 +7199,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Liefermethode überein.</target>
+          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Lieferbedingung überein.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -7463,13 +7463,13 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 354324300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 1</source>
-          <target state="translated">Lief. an Adresszeile 1</target>
+          <target state="translated">Lieferadresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control shipToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 992020917 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 2</source>
-          <target state="translated">Lief. an Adresszeile 2</target>
+          <target state="translated">Lieferadresszeile 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control shipToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -7571,7 +7571,7 @@
         </trans-unit>
         <trans-unit id="Page 957521806 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Es wurden sowohl „itemId“ als auch „accountId“ angegeben. Geben Sie nur einen der Werte an.</target>
+          <target state="translated">Sowohl itemId als auch accountId werden angegeben. Geben Sie nur einen der Werte an.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Order Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -7727,7 +7727,7 @@
         </trans-unit>
         <trans-unit id="Page 957521806 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Zeilenbetrag inkl. MwSt.</target>
+          <target state="translated">Nettobetrag inkl. Steuer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Order Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -7901,7 +7901,7 @@
         </trans-unit>
         <trans-unit id="Page 48856144 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Liefermethode überein.</target>
+          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Lieferbedingung überein.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -8147,13 +8147,13 @@
         </trans-unit>
         <trans-unit id="Page 48856144 - Control 354324300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 1</source>
-          <target state="translated">Lief. an Adresszeile 1</target>
+          <target state="translated">Lieferadresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - Control shipToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 48856144 - Control 992020917 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 2</source>
-          <target state="translated">Lief. an Adresszeile 2</target>
+          <target state="translated">Lieferadresszeile 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - Control shipToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -8255,7 +8255,7 @@
         </trans-unit>
         <trans-unit id="Page 505573178 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Es wurden sowohl „itemId“ als auch „accountId“ angegeben. Geben Sie nur einen der Werte an.</target>
+          <target state="translated">Sowohl itemId als auch accountId werden angegeben. Geben Sie nur einen der Werte an.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quote Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -8393,7 +8393,7 @@
         </trans-unit>
         <trans-unit id="Page 505573178 - Control 462527801 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Amount Including Tax</source>
-          <target state="translated">Zeilenbetrag inkl. MwSt.</target>
+          <target state="translated">Nettobetrag inkl. Steuer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quote Lines - Control netAmountIncludingTax - Property Caption</note>
         </trans-unit>
@@ -8543,7 +8543,7 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Liefermethode überein.</target>
+          <target state="translated">„shipmentMethodId“ stimmt nicht mit einer Lieferbedingung überein.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -8783,13 +8783,13 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 354324300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 1</source>
-          <target state="translated">Lief. an Adresszeile 1</target>
+          <target state="translated">Lieferadresszeile 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control shipToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 992020917 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address Line 2</source>
-          <target state="translated">Lief. an Adresszeile 2</target>
+          <target state="translated">Lieferadresszeile 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control shipToAddressLine2 - Property Caption</note>
         </trans-unit>

@@ -1583,6 +1583,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Registration Log CZL - Field Verified City - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1124383332 - Field 1006832064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Verified Country/Region Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Registration Log CZL - Field Verified Country/Region Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1124383332 - Field 1172983302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Verified Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10437,6 +10442,11 @@
           <source>Specifies the city of customer or vendor was verified.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Registration Log CZL - Control Verified City - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1124383332 - Control 1006832064 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country/region code of customer or vendor was verified.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Registration Log CZL - Control Verified Country/Region Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1124383332 - Control 1172983302 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date of verified.</source>
@@ -36042,6 +36052,11 @@
           <source>City</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Reg. Log Detail Field CZL - EnumValue City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3204171936 - EnumValue 284764054 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Reg. Log Detail Field CZL - EnumValue Country/Region Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3204171936 - EnumValue 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Name</source>

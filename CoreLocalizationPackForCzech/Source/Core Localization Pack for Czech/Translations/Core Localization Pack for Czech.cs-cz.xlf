@@ -2931,6 +2931,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum EET Cash Register Type CZL - EnumValue Default - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 3204171936 - EnumValue 284764054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region Code</source>
+          <target state="translated">Kód země/oblasti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Reg. Log Detail Field CZL - EnumValue Country/Region Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3204171936 - EnumValue 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Name</source>
           <target state="translated">Název</target>
@@ -6898,6 +6904,12 @@
           <target state="translated">Určuje popis dodací skupiny intrastat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Delivery Groups CZL - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1124383332 - Control 1006832064 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country/region code of customer or vendor was verified.</source>
+          <target state="translated">Určuje kód země/oblasti zákazníka nebo dodavatele, který byl ověřen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Registration Log CZL - Control Verified Country/Region Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1124383332 - Control 1172983302 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date of verified.</source>
@@ -32028,7 +32040,7 @@
         </trans-unit>
         <trans-unit id="Report 3309874008 - NamedType 2210064020" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There must not be any Intrastat Jnl. Lines if you choose Null Statement!</source>
-          <target state="translated">Vyberete-li výkaz Null, nesmí existovat žádné řádky deníku Intrastat!</target>
+          <target state="translated">Vyberete-li Typ hlášení Prázdné, nesmí existovat žádné řádky deníku Intrastat!</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Intrastat Declaration Exp. CZL - NamedType NullSatementWithLinesErr</note>
         </trans-unit>
@@ -36965,6 +36977,12 @@
           <target state="translated">Stav</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Registration Log Detail CZL - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1124383332 - Field 1006832064 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Verified Country/Region Code</source>
+          <target state="translated">Ověřený kód země/oblasti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Registration Log CZL - Field Verified Country/Region Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1124383332 - Field 1172983302 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Verified Date</source>
