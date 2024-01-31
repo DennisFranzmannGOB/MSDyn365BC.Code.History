@@ -515,7 +515,7 @@
         </trans-unit>
         <trans-unit id="Page 1566601818 - Control 970646220 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the month to report data for. Enter the period as a four-digit number, with no spaces or symbols. Enter the year first and then the month, for example, enter 1706 for June, 2017.</source>
-          <target state="translated">Indica il mese di dichiarazione dei dati. Immettere il periodo come numero di quattro cifre, senza spazi o simboli. Immettere prima l'anno e poi il mese, ad esempio specificare 1706 per giugno 2017.</target>
+          <target state="translated">Specifica il mese di dichiarazione dei dati. Immettere il periodo come numero di quattro cifre, senza spazi o simboli. Immettere prima l'anno e poi il mese, ad esempio immettere 1706 per giugno 2017.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Statistics Period - Property ToolTip</note>
         </trans-unit>
@@ -863,7 +863,7 @@
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 3192175264 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date the item entry was posted.</source>
-          <target state="translated">Specifica la data di registrazione del movimento articolo.</target>
+          <target state="translated">Specifica la data in cui è stato registrato il movimento articolo.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Date - Property ToolTip</note>
         </trans-unit>
@@ -917,7 +917,7 @@
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 486908828 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the document number on the entry.</source>
-          <target state="translated">Specifica il numero di documento del movimento.</target>
+          <target state="translated">Specifica il numero di documento sul movimento.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Document No. - Property ToolTip</note>
         </trans-unit>
@@ -1079,7 +1079,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 2903705327 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default private person VAT number.</source>
-          <target state="translated">Specifica il numero di partita IVA predefinito per persona.</target>
+          <target state="translated">Specifica il numero di partita IVA predefinito privato della persona.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Def. Private Person VAT No. - Property ToolTip</note>
         </trans-unit>
@@ -1222,7 +1222,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 1818799312 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a customer's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
-          <target state="translated">Specifica il modo in cui il numero di registrazione IVA del cliente Esporta nel file Intrastat. 0 è il valore del Nr. reg. IVA campo 1 aggiunge il codice paese UE come prefisso e 2 rimuove il codice paese UE.</target>
+          <target state="translated">Specifica il modo in cui la partita IVA del cliente esporta nel file Intrastat. 0 è il valore del campo Partita IVA, 1 aggiunge il codice paese UE come prefisso e 2 rimuove il codice paese UE.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Cust. VAT No. on File - Property ToolTip</note>
         </trans-unit>

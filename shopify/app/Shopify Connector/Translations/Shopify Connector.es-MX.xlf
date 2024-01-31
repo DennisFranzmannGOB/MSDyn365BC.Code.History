@@ -2892,7 +2892,7 @@
         </trans-unit>
         <trans-unit id="Page 2596605181 - Action 2746818404 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View related posted sales shipments.</source>
-          <target state="translated">Permite ver todas las remisiones de venta relacionadas.</target>
+          <target state="translated">Permite ver todas las remisiones de venta registradas.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Action Sales Shipment - Property ToolTip</note>
         </trans-unit>
@@ -3378,7 +3378,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Action 2281017256 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a new customer.</source>
-          <target state="translated">Permite crear un nuevo cliente.</target>
+          <target state="translated">Crea un nuevo cliente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Action CreateNewCustomer - Property ToolTip</note>
         </trans-unit>

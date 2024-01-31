@@ -5561,7 +5561,7 @@
         </trans-unit>
         <trans-unit id="Page 2622225351 - Action 2959107463 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add Read Permission to Related Tables</source>
-          <target state="translated">Ajouter l’autorisation d’accès en lecture aux tables associées</target>
+          <target state="translated">Ajouter autorisation d’accès en lecture aux tables associées</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Tenant Permission Subform - Action AddRelatedTablesAction - Property Caption</note>
         </trans-unit>
@@ -6173,7 +6173,7 @@
         </trans-unit>
         <trans-unit id="Page 3414198013 - Action 21227494 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add two or more permission sets.</source>
-          <target state="translated">Ajoutez plusieurs ensembles d’autorisations ou plus.</target>
+          <target state="translated">Ajoutez deux ensembles d’autorisations ou plus.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set Subform - Action SelectPermissionSets - Property ToolTip</note>
         </trans-unit>
@@ -6671,7 +6671,7 @@
         </trans-unit>
         <trans-unit id="Page 4021082514 - Action 1042419861 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Edit and send the email.</source>
-          <target state="translated">Modifiez et envoyez le courriel.</target>
+          <target state="translated">Modifiez et envoyez le courrier électronique.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Viewer - Action EditAndSend - Property ToolTip</note>
         </trans-unit>
@@ -7109,7 +7109,7 @@
         </trans-unit>
         <trans-unit id="Page 709229469 - Action 1042419861 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Edit and send the email.</source>
-          <target state="translated">Modifiez et envoyez le courriel.</target>
+          <target state="translated">Modifiez et envoyez le courrier électronique.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Action EditAndSend - Property ToolTip</note>
         </trans-unit>
@@ -8638,7 +8638,7 @@
         </trans-unit>
         <trans-unit id="Page 1919691214 - Control 2065755396 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the total number of records stored in the table.</source>
-          <target state="translated">Spécifie le nombre total d’enregistrements stockés dans la table.</target>
+          <target state="translated">Indique le nombre total d’enregistrements stockés dans la table.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Table Information - Control No. of Records - Property ToolTip</note>
         </trans-unit>
@@ -8788,7 +8788,7 @@
         </trans-unit>
         <trans-unit id="Page 2005578726 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the publisher of the extension.</source>
-          <target state="translated">Spécifie l’éditeur de l’extension.</target>
+          <target state="translated">Indique l’éditeur de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Control Publisher - Property ToolTip</note>
         </trans-unit>
@@ -8806,7 +8806,7 @@
         </trans-unit>
         <trans-unit id="Page 2005578726 - Control 237762718 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the version of the extension.</source>
-          <target state="translated">Spécifie la version de l'extension.</target>
+          <target state="translated">Indique la version de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Control Version - Property ToolTip</note>
         </trans-unit>
@@ -8818,13 +8818,13 @@
         </trans-unit>
         <trans-unit id="Page 2005578726 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the extension.</source>
-          <target state="translated">Spécifie le nom de l'extension.</target>
+          <target state="translated">Spécifie le nom de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Control Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2005578726 - Control 3594686602 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a spacer for 'Brick' view mode.</source>
-          <target state="translated">Spécifie un espace pour le mode d'affichage Brique.</target>
+          <target state="translated">Indique un espacement pour le mode d’affichage ’Brique’.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Control Control18 - Property ToolTip</note>
         </trans-unit>
@@ -9033,7 +9033,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the publisher of the extension.</source>
-          <target state="translated">Spécifie l'éditeur de l'extension.</target>
+          <target state="translated">Indique l’éditeur de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Publisher - Property ToolTip</note>
         </trans-unit>
@@ -9087,7 +9087,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 2384354589 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the extension.</source>
-          <target state="translated">Spécifie le nom de l'extension.</target>
+          <target state="translated">Spécifie le nom de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Un_Name - Property ToolTip</note>
         </trans-unit>
@@ -9135,7 +9135,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the extension.</source>
-          <target state="translated">Spécifie le nom de l'extension.</target>
+          <target state="translated">Spécifie le nom de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -9219,7 +9219,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 3960973787 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the version of the extension.</source>
-          <target state="translated">Spécifie la version de l'extension.</target>
+          <target state="translated">Indique la version de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control In_Ver - Property ToolTip</note>
         </trans-unit>
@@ -9243,7 +9243,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 4093990710 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the language of the extension.</source>
-          <target state="translated">Spécifie la langue de l'extension.</target>
+          <target state="translated">Indique la langue de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Language - Property ToolTip</note>
         </trans-unit>
@@ -9255,7 +9255,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 419369969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the extension.</source>
-          <target state="translated">Spécifie le nom de l'extension.</target>
+          <target state="translated">Spécifie le nom de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control In_Name - Property ToolTip</note>
         </trans-unit>
@@ -9291,7 +9291,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 679018345 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the publisher of the extension.</source>
-          <target state="translated">Spécifie l'éditeur de l'extension.</target>
+          <target state="translated">Indique l’éditeur de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control In_Pub - Property ToolTip</note>
         </trans-unit>
@@ -9303,7 +9303,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 696988127 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the version of the extension.</source>
-          <target state="translated">Spécifie la version de l'extension.</target>
+          <target state="translated">Indique la version de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Un_Ver - Property ToolTip</note>
         </trans-unit>
@@ -9339,7 +9339,7 @@
         </trans-unit>
         <trans-unit id="Page 2252665413 - Control 880487157 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the publisher of the extension.</source>
-          <target state="translated">Spécifie l'éditeur de l'extension.</target>
+          <target state="translated">Indique l’éditeur de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details - Control Un_Pub - Property ToolTip</note>
         </trans-unit>
@@ -9675,7 +9675,7 @@
         </trans-unit>
         <trans-unit id="Page 240224259 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the attachment</source>
-          <target state="translated">Spécifie le nom de la pièce jointe</target>
+          <target state="translated">Indique le nom de la pièce jointe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Related Attachments - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -9999,7 +9999,7 @@
         </trans-unit>
         <trans-unit id="Page 2547633168 - Control 1683930818 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the extension.</source>
-          <target state="translated">Spécifie le nom de l'extension.</target>
+          <target state="translated">Spécifie le nom de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Settings - Control AppName - Property ToolTip</note>
         </trans-unit>
@@ -10035,7 +10035,7 @@
         </trans-unit>
         <trans-unit id="Page 2547633168 - Control 4056116129 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the publisher of the extension.</source>
-          <target state="translated">Spécifie l'éditeur de l'extension.</target>
+          <target state="translated">Indique l’éditeur de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Settings - Control AppPublisher - Property ToolTip</note>
         </trans-unit>
@@ -10047,7 +10047,7 @@
         </trans-unit>
         <trans-unit id="Page 25890369 - Control 329424276 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the item.</source>
-          <target state="translated">Spécifie le nom de l’article.</target>
+          <target state="translated">Indique le nom de l’article.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item List - Control Title - Property ToolTip</note>
         </trans-unit>
@@ -10293,7 +10293,7 @@
         </trans-unit>
         <trans-unit id="Page 2674634765 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a permission set that defines the role.</source>
-          <target state="translated">Spécifie un ensemble d’autorisations qui définit le rôle.</target>
+          <target state="translated">Indique un ensemble d’autorisations qui définit le rôle.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Security Group Permission Sets - Control Role ID - Property ToolTip</note>
         </trans-unit>
@@ -11252,7 +11252,7 @@
         </trans-unit>
         <trans-unit id="Page 3163801880 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the attachment</source>
-          <target state="translated">Spécifie le nom de la pièce jointe</target>
+          <target state="translated">Indique le nom de la pièce jointe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Choose Scenario Attach - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -13801,7 +13801,7 @@
         </trans-unit>
         <trans-unit id="Page 398629195 - Control 2065755396 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the total number of records stored in the table.</source>
-          <target state="translated">Spécifie le nombre d’enregistrements stockés dans la table.</target>
+          <target state="translated">Indique le nombre total d’enregistrements stockés dans la table.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Table Information Cache Part - Control No. of Records - Property ToolTip</note>
         </trans-unit>
@@ -14294,7 +14294,7 @@
         </trans-unit>
         <trans-unit id="Page 4047916792 - Control 237762718 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the version of the extension.</source>
-          <target state="translated">Spécifie la version de l'extension.</target>
+          <target state="translated">Indique la version de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details Part - Control Version - Property ToolTip</note>
         </trans-unit>
@@ -14306,7 +14306,7 @@
         </trans-unit>
         <trans-unit id="Page 4047916792 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the extension.</source>
-          <target state="translated">Spécifie le nom de l'extension.</target>
+          <target state="translated">Spécifie le nom de l’extension.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Details Part - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -14558,7 +14558,7 @@
         </trans-unit>
         <trans-unit id="Page 4184586221 - Control 1918310387 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a permission set that defines the role.</source>
-          <target state="translated">Spécifie un ensemble d’autorisations qui définit le rôle.</target>
+          <target state="translated">Indique un ensemble d’autorisations qui définit le rôle.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Lookup Permission Set - Control Role ID - Property ToolTip</note>
         </trans-unit>
@@ -15116,7 +15116,7 @@
         </trans-unit>
         <trans-unit id="Page 664053810 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the attachment</source>
-          <target state="translated">Spécifie le nom de la pièce jointe</target>
+          <target state="translated">Indique le nom de la pièce jointe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Attach Setup - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -15152,7 +15152,7 @@
         </trans-unit>
         <trans-unit id="Page 709229469 - Control 3162830111 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time the email was sent.</source>
-          <target state="translated">Spécifie la date et l’heure d’envoi du courriel.</target>
+          <target state="translated">Indique la date et l’heure d’envoi du courrier électronique.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Control DateTimeSent - Property ToolTip</note>
         </trans-unit>
@@ -15164,7 +15164,7 @@
         </trans-unit>
         <trans-unit id="Page 709229469 - Control 3460611877 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Business Central user who sent this email.</source>
-          <target state="translated">Spécifie l’utilisateur Business Central qui a envoyé ce courriel.</target>
+          <target state="translated">Indique l’utilisateur Business Central qui a envoyé ce courrier électronique.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails - Control Sender - Property ToolTip</note>
         </trans-unit>
@@ -15218,7 +15218,7 @@
         </trans-unit>
         <trans-unit id="Page 761349018 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the attachment</source>
-          <target state="translated">Spécifie le nom de la pièce jointe</target>
+          <target state="translated">Indique le nom de la pièce jointe</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -15296,7 +15296,7 @@
         </trans-unit>
         <trans-unit id="Page 825875962 - Control 3162830111 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date and time the email was sent.</source>
-          <target state="translated">Spécifie la date et l’heure d’envoi du courrier électronique.</target>
+          <target state="translated">Indique la date et l’heure d’envoi du courrier électronique.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails List Part - Control DateTimeSent - Property ToolTip</note>
         </trans-unit>
@@ -15308,7 +15308,7 @@
         </trans-unit>
         <trans-unit id="Page 825875962 - Control 3460611877 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Business Central user who sent this email.</source>
-          <target state="translated">Spécifie l’utilisateur Business Central qui a envoyé ce courrier électronique.</target>
+          <target state="translated">Indique l’utilisateur Business Central qui a envoyé ce courrier électronique.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sent Emails List Part - Control Sender - Property ToolTip</note>
         </trans-unit>

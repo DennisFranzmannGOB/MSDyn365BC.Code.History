@@ -5087,13 +5087,13 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 259424556" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The buy-from vendor cannot be found.</source>
-          <target state="translated">Impossibile trovare Acquistare da - Fornitore.</target>
+          <target state="translated">Impossibile trovare fornitore di acquisto.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CouldNotFindBuyFromVendorErr</note>
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Impossibile trovare Pagare a - Fornitore.</target>
+          <target state="translated">Impossibile trovare fornitore di pagamento.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>
@@ -5735,7 +5735,7 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Impossibile trovare Pagare a - Fornitore.</target>
+          <target state="translated">Impossibile trovare fornitore di pagamento.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>
@@ -6395,13 +6395,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 259424556" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The buy-from vendor cannot be found.</source>
-          <target state="translated">Impossibile trovare Acquistare da - Fornitore.</target>
+          <target state="translated">Impossibile trovare fornitore di acquisto.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CouldNotFindBuyFromVendorErr</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Impossibile trovare Pagare a - Fornitore.</target>
+          <target state="translated">Impossibile trovare fornitore di pagamento.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>

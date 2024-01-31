@@ -6345,7 +6345,7 @@
         </trans-unit>
         <trans-unit id="Page 3918578631 - Control 3832370403 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View information about the privacy.</source>
-          <target state="translated">Zeigen Sie Informationen zum Datenschutz an.</target>
+          <target state="translated">Informationen zum Datenschutz anzeigen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Connector Guide - Control LearnMore - Property ToolTip</note>
         </trans-unit>
@@ -6429,7 +6429,7 @@
         </trans-unit>
         <trans-unit id="Page 3918578631 - Control 860944352 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review the terms and conditions.</source>
-          <target state="translated">Überprüfen Sie die Bestimmungen und Konditionen.</target>
+          <target state="translated">Allgemeine Geschäftsbedingungen lesen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Connector Guide - Control StepConsent - Property InstructionalText</note>
         </trans-unit>
@@ -7311,7 +7311,7 @@
         </trans-unit>
         <trans-unit id="Page 834364629 - Control 2152824939 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer template to use when creating unknown customers for this country. This template will only be used if the  field "Fix CustomerNo." is blank</source>
-          <target state="translated">Gibt an, welche Debitorenvorlage verwendet werden soll, wenn Sie unbekannte Debitoren für dieses Land erstellen. Diese Vorlage wird nur verwendet, wenn das Feld „Feste Kundennr.“ leer ist.</target>
+          <target state="translated">Gibt an, welche Debitorenvorlage verwendet werden soll, wenn Sie unbekannte Debitoren für dieses Land erstellen. Diese Vorlage wird nur verwendet, wenn das Feld „Feste Kundennr.“ leer ist</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Templates - Control CustomerTemplCode - Property ToolTip</note>
         </trans-unit>
@@ -7329,7 +7329,7 @@
         </trans-unit>
         <trans-unit id="Page 834364629 - Control 3787812635 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer template to use when creating unknown customers for this country. This template will only be used if the  field "Fix CustomerNo." is blank</source>
-          <target state="translated">Gibt an, welche Kundenvorlage verwendet werden soll, wenn Sie unbekannte Kunden für dieses Land erstellen. Diese Vorlage wird nur verwendet, wenn das Feld „Feste Kundennr.“ leer ist.</target>
+          <target state="translated">Gibt an, welche Debitorenvorlage verwendet werden soll, wenn Sie unbekannte Debitoren für dieses Land erstellen. Diese Vorlage wird nur verwendet, wenn das Feld „Feste Kundennr.“ leer ist</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Templates - Control CustomerTemlateCode - Property ToolTip</note>
         </trans-unit>
@@ -8097,7 +8097,7 @@
         </trans-unit>
         <trans-unit id="Page 881753888 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Waiting for a response - do not close this page</source>
-          <target state="translated">Warten auf eine Antwort-schließen Sie diese Seite nicht</target>
+          <target state="translated">Warten auf eine Antwort. Schließen Sie diese Seite nicht</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Authentication - Property Caption</note>
         </trans-unit>
