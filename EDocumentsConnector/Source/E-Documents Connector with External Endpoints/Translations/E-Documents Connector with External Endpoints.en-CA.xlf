@@ -29,7 +29,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2749164124 - NamedType 3535051250" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Authentication failed, check your credentials in the E-Document service card.</source>
-          <target state="translated">Authentication failed, Cheque your credentials in the E-Document service card.</target>
+          <target state="translated">Authentication failed, check your credentials in the E-Document service card.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Pagero Auth. - NamedType AuthenticationFailedErr</note>
         </trans-unit>
