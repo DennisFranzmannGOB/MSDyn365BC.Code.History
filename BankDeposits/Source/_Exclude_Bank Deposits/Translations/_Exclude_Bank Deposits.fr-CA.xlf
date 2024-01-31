@@ -152,7 +152,7 @@
         </trans-unit>
         <trans-unit id="Page 1816704201 - Action 1002420131 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
-          <target state="translated">Préparez-vous à imprimer le document. Une fenêtre de demande de rapport pour le document s’ouvre et vous permet d’indiquer les éléments à imprimer.</target>
+          <target state="translated">Préparez-vous à imprimer le document. Une fenêtre de sélection du rapport pour le document s’ouvre et vous permet d’indiquer les éléments à imprimer.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Bank Deposit - Action Print - Property ToolTip</note>
         </trans-unit>
@@ -254,7 +254,7 @@
         </trans-unit>
         <trans-unit id="Page 1890430176 - Action 3302314122 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Select one or more ledger entries that you want to apply this record to so that the related posted documents are closed as paid or refunded. </source>
-          <target state="translated">Sélectionnez une ou plusieurs écritures auxquelles vous souhaitez affecter cet enregistrement afin que les documents reportés associés soient fermés comme étant payés ou remboursés. </target>
+          <target state="translated">Sélectionnez une ou plusieurs écritures que vous voulez affecter avec cet enregistrement afin que les documents reportés concernés soient fermés comme étant payés ou remboursés. </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit Subform - Action ApplyEntries - Property ToolTip</note>
         </trans-unit>
@@ -290,7 +290,7 @@
         </trans-unit>
         <trans-unit id="Page 2133839000 - Action 669369698 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a new bank deposit. </source>
-          <target state="translated">Créez un dépôt en banque. </target>
+          <target state="translated">Créez un dépôt bancaire. </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit List - Action BankDeposit - Property ToolTip</note>
         </trans-unit>
@@ -572,7 +572,7 @@
         </trans-unit>
         <trans-unit id="Page 641808831 - Action 669369698 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
-          <target state="translated">Préparez-vous à imprimer le document. Une fenêtre de demande de rapport pour le document s’ouvre et vous permet d’indiquer les éléments à imprimer.</target>
+          <target state="translated">Préparez-vous à imprimer le document. Une fenêtre de sélection du rapport pour le document s’ouvre et vous permet d’indiquer les éléments à imprimer.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Bank Deposit List - Action BankDeposit - Property ToolTip</note>
         </trans-unit>
@@ -1489,7 +1489,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2552273875 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account Ledger Entries</source>
-          <target state="translated">Écritures compta. compte bancaire</target>
+          <target state="translated">Écritures de compte bancaire</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2591587468</note>
@@ -2491,7 +2491,7 @@
         </trans-unit>
         <trans-unit id="Table 26680403 - NamedType 3481077568" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot rename a %1.</source>
-          <target state="translated">Vous ne pouvez pas renommer un(e) %1.</target>
+          <target state="translated">Vous ne pouvez pas renommer %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 - bank deposit</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType CannotRenameErr</note>
         </trans-unit>

@@ -227,7 +227,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3522532737 - NamedType 3683577878" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify a starting date.</source>
-          <target state="translated">Debe indicar una fecha inicial.</target>
+          <target state="translated">Debe indicar una fecha de inicio.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit Mapping Helper - NamedType StartingDateNotFilledErr</note>
         </trans-unit>
@@ -455,7 +455,7 @@
         </trans-unit>
         <trans-unit id="Page 3668181135 - Action 3517601603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy the G/L account mapping from another mapping code.</source>
-          <target state="translated">Permite copiar la asignación de cuentas C/G de otro código de asignación.</target>
+          <target state="translated">Permite copiar la asignación de cuentas de otro código de asignación.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Action CopyMapping - Property ToolTip</note>
         </trans-unit>
