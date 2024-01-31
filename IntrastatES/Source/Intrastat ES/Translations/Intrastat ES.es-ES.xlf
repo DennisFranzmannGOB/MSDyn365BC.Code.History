@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="PageExtension 3211819956 - Control 1190561282 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the statistical system to apply to the merchandise.</source>
-          <target state="translated">Especifica el régimen estadístico que se aplicará a la mercancía.</target>
+          <target state="translated">Especifica el régimen estadístico, que se aplica a la mercancía.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1949250098</note>
