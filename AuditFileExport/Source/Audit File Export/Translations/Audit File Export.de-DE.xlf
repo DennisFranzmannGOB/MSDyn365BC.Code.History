@@ -869,7 +869,7 @@
         </trans-unit>
         <trans-unit id="Page 3668181135 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of the standard general ledger accounts.</source>
-          <target state="translated">Gibt den Typ der Standard-Hauptbuchkonten an</target>
+          <target state="translated">Gibt den Typ der Standard-Finanzbuchhaltungskonten an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping Card - Control StandardAccountType - Property ToolTip</note>
         </trans-unit>
@@ -1013,7 +1013,7 @@
         </trans-unit>
         <trans-unit id="Page 729295803 - Control 705636630 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of the standard general ledger accounts.</source>
-          <target state="translated">Gibt den Typ der Standard-Hauptbuchkonten an</target>
+          <target state="translated">Gibt den Typ der Standard-Finanzbuchhaltungskonten an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Account Mapping - Control StandardAccountType - Property ToolTip</note>
         </trans-unit>

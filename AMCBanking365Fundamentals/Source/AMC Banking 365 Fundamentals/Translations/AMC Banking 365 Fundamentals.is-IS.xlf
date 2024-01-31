@@ -941,7 +941,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Control 1924348262 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set URLs to Default</source>
-          <target state="translated">Nota vefslóð sem sjálfgefna</target>
+          <target state="translated">Stilla vefslóðir á sjálfgefnar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Control UpdURL - Property Caption</note>
         </trans-unit>
@@ -1146,7 +1146,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Control 2894771417 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set URLs to Default</source>
-          <target state="translated">Nota vefslóð sem sjálfgefna</target>
+          <target state="translated">Stilla vefslóðir á sjálfgefnar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Control UpdateURLS1.1 - Property Caption</note>
         </trans-unit>
