@@ -2219,7 +2219,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3187161238 - NamedType 4247888177" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>WIP Account, Finished Goods</source>
-          <target state="translated">Cuenta de trabajo en curso, Productos terminados</target>
+          <target state="translated">Cuenta WIP, prod. termin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg GL Account - NamedType WIPAccountFinishedGoodsLbl</note>
         </trans-unit>

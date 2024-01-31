@@ -126,7 +126,7 @@
         </trans-unit>
         <trans-unit id="Page 3454677590 - Action 63770366 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create/Restore Default Data Exchange Definition(-s)</source>
-          <target state="translated">Créer/restaurer la définition d’échange de données par défaut (-s)</target>
+          <target state="translated">Créer/restaurer une ou plusieurs définition(s) d’échange de données par défaut</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Declaration Setup - Action ImportDefaultDataExchangeDef - Property ToolTip</note>
         </trans-unit>
@@ -658,7 +658,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1063442196 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Spécifie le code d’un type de transaction de service.</target>
+          <target state="translated">Indique le code d’un type de transaction de service.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 754151050</note>
@@ -721,7 +721,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1492592113 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Spécifie le code d’un type de transaction de service.</target>
+          <target state="translated">Indique le code d’un type de transaction de service.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 997019036</note>
@@ -756,7 +756,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1888742921 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Spécifie le code d’un type de transaction de service.</target>
+          <target state="translated">Indique le code d’un type de transaction de service.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1187328241</note>
@@ -819,7 +819,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 2661934884 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Spécifie le code d’un type de transaction de service.</target>
+          <target state="translated">Indique le code d’un type de transaction de service.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 997740791</note>
@@ -1022,7 +1022,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 3931440427 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Spécifie le code d’un type de transaction de service.</target>
+          <target state="translated">Indique le code d’un type de transaction de service.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2649920062</note>
@@ -1071,7 +1071,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 841638472 - Control 3250917128 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for a service transaction type.</source>
-          <target state="translated">Spécifie le code d’un type de transaction de service.</target>
+          <target state="translated">Indique le code d’un type de transaction de service.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1751478268</note>
@@ -1418,7 +1418,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 118093026 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Applicable For Service Declaration</source>
-          <target state="translated">Applicable à la déclaration de service</target>
+          <target state="translated">S’applique à la déclaration de service</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1308990239</note>
@@ -1600,7 +1600,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3429814826 - Field 1771796126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Applicable For Service Declaration</source>
-          <target state="translated">Applicable à la déclaration de service</target>
+          <target state="translated">S’applique à la déclaration de service</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2850645989</note>

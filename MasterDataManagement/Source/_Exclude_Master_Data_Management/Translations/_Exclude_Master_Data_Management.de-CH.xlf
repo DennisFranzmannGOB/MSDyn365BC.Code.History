@@ -311,7 +311,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3457626429 - NamedType 214721300" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cannot determine the source origin: %1.</source>
-          <target state="translated">Herkunft der Quelle kann nicht bestimmt werden: %1</target>
+          <target state="translated">Ursprung der Quelle kann nicht bestimmt werden: %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 the value of the source id</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Integration Master Data Synch. - NamedType CannotDetermineSourceOriginErr</note>
         </trans-unit>
@@ -882,7 +882,7 @@
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 39585143 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the synchronization direction.</source>
-          <target state="translated">Gibt die Synchronisierungsrichtung an</target>
+          <target state="translated">Gibt die Richtung der Synchronisierung an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control Direction - Property ToolTip</note>
         </trans-unit>
@@ -960,7 +960,7 @@
         </trans-unit>
         <trans-unit id="Page 3185645072 - Control 802533008 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the direction of the transformation.</source>
-          <target state="translated">Gibt die Richtung der Transformation an</target>
+          <target state="translated">Gibt die Richtung der Transformation an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Fields - Control Transformation Direction - Property ToolTip</note>
         </trans-unit>
@@ -990,7 +990,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 3295349667" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronization of modified records is scheduled. \\You can view details on the %1 page.</source>
-          <target state="translated">Die Synchronisierung von geänderten Datensätzen ist geplant. \\Sie können Details auf der Seite %1 anzeigen.</target>
+          <target state="translated">Die Synchronisierung von geänderten Datensätzen ist geplant. \Sie können Details auf der Seite %1 anzeigen.</target>
           <note from="Developer" annotates="general" priority="2">%1 = The localized caption of page Integration Synch. Job List</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SyncNowScheduledMsg</note>
         </trans-unit>
@@ -1086,13 +1086,13 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 3528713254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 mappings are uncoupled.</source>
-          <target state="translated">%1 Zuordnungen sind abgekoppelt.</target>
+          <target state="translated">%1 Zuordnungen sind nicht gekoppelt.</target>
           <note from="Developer" annotates="general" priority="2">%1 - foreground uncoupling count</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType RemoveCouplingsForegroundMsg</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 3742348752" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A synchronization job queue entry has been created. \\Do you want to view the job queue entry?</source>
-          <target state="translated">Es wurde ein Synchronisierungs-Aufgabenwarteschlangenposten erstellt.\\Möchten Sie den Aufgabenwarteschlangenposten anzeigen?</target>
+          <target state="translated">Es wurde ein Synchronisierungsaufgabenwarteschlangenposten erstellt.\\Möchten Sie den Aufgabenwarteschlangenposten anzeigen?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType JobQEntryCreatedQst</note>
         </trans-unit>

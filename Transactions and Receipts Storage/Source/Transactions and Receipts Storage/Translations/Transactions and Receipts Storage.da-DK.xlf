@@ -111,6 +111,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Task Entry - Field Is First Attempt - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 907566166 - Field 158851985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scheduled Date/Time</source>
+          <target state="translated">Planlagt dato/klokkeslæt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Task Entry - Field Scheduled Date/Time - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 907566166 - Field 2625429122 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Starting Date/Time</source>
           <target state="translated">Startdato/tidspunkt</target>
@@ -182,6 +188,12 @@
           <target state="translated">Eksport af indgående dokument %1 med navn %2</target>
           <note from="Developer" annotates="general" priority="2">%1 - incoming document file name, %2 - blob name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType ExportOfIncomingDocTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3526708079 - NamedType 3342682853" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send blob block for table %1 with name %2 to Azure Function</source>
+          <target state="translated">Send blobblok for tabellen %1 med navnet %2 til Azure Function</target>
+          <note from="Developer" annotates="general" priority="2">%1 - table id, %2 - blob name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType SendBlobBlockForTableTok</note>
         </trans-unit>
         <trans-unit id="Codeunit 317939997 - NamedType 1415679075" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A time deadline of %1 hours for the export has been exceeded. The export has been stopped.</source>
