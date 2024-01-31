@@ -875,7 +875,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Control 1143591 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Bank Clearing Standards to be used on vendors bank accounts.</source>
-          <target state="translated">Setup von Bank-Clearing-Standards ein, die für Kreditorenbankkonten verwendet werden sollen.</target>
+          <target state="translated">Bank-Clearing-Standards einrichten, die für Kreditorenbankkonten verwendet werden sollen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Control UpdBankClearStd - Property ToolTip</note>
         </trans-unit>
@@ -1913,7 +1913,7 @@
         </trans-unit>
         <trans-unit id="Table 3875559386 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Payment types</source>
-          <target state="translated">AMC Banking - Zahlungsarten</target>
+          <target state="translated">AMC Banking-Zahlungsarten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AMC Bank Pmt. Type - Property Caption</note>
         </trans-unit>

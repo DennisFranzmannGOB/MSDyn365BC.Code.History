@@ -4817,13 +4817,13 @@
         </trans-unit>
         <trans-unit id="Page 500693685 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Se ha especificado tanto el id. de producto como y el id. de cuenta. Especifique solo uno de ellos.</target>
+          <target state="translated">Se han especificado tanto "itemId" como "accountId". Especifique solo uno de ellos.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purch. Cr. Memo Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
         <trans-unit id="Page 500693685 - NamedType 2697791227" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The value for "documentId" cannot be modified.</source>
-          <target state="translated">No se puede modificar el valor de "documentId".</target>
+          <target state="translated">El "documentId" no se puede modificar.</target>
           <note from="Developer" annotates="general" priority="2">documentId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purch. Cr. Memo Lines - NamedType CannotChangeDocumentIdNoErr</note>
         </trans-unit>
@@ -4835,7 +4835,7 @@
         </trans-unit>
         <trans-unit id="Page 500693685 - NamedType 91023212" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The value for "lineObjectNumber" cannot be modified.</source>
-          <target state="translated">No se puede modificar el valor de "lineObjectNumber".</target>
+          <target state="translated">El "lineObjectNumber" no se puede modificar.</target>
           <note from="Developer" annotates="general" priority="2">lineObjectNumber is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purch. Cr. Memo Lines - NamedType CannotChangeLineObjectNoErr</note>
         </trans-unit>
@@ -5075,7 +5075,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3210053793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "id" cannot be changed.</source>
-          <target state="translated">No se puede cambiar el "id.".</target>
+          <target state="translated">El "id." no se puede cambiar.</target>
           <note from="Developer" annotates="general" priority="2">id is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CannotChangeIDErr</note>
         </trans-unit>
@@ -5165,7 +5165,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 2619345254" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "shipmentMethodId" does not match to a Shipment Method.</source>
-          <target state="translated">El "shipmentMethodId" no coincide con una condición de envío.</target>
+          <target state="translated">El "shipmentMethodId" no coincide con un método de envío.</target>
           <note from="Developer" annotates="general" priority="2">shipmentMethodId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType ShipmentMethodIdDoesNotMatchAShipmentMethodErr</note>
         </trans-unit>
@@ -5477,7 +5477,7 @@
         </trans-unit>
         <trans-unit id="Page 2715273378 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Se ha especificado tanto el id. de producto como y el id. de cuenta. Especifique solo uno de ellos.</target>
+          <target state="translated">Se han especificado tanto "itemId" como "accountId". Especifique solo uno de ellos.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoice Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -6107,7 +6107,7 @@
         </trans-unit>
         <trans-unit id="Page 1779564587 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Se ha especificado tanto el id. de producto como y el id. de cuenta. Especifique solo uno de ellos.</target>
+          <target state="translated">Se han especificado tanto "itemId" como "accountId". Especifique solo uno de ellos.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Order Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -7067,7 +7067,7 @@
         </trans-unit>
         <trans-unit id="Page 1420007888 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Se ha especificado tanto el id. de producto como y el id. de cuenta. Especifique solo uno de ellos.</target>
+          <target state="translated">Se han especificado tanto "itemId" como "accountId". Especifique solo uno de ellos.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Mem Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -7751,7 +7751,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Se ha especificado tanto el id. de producto como y el id. de cuenta. Especifique solo uno de ellos.</target>
+          <target state="translated">Se han especificado tanto "itemId" como "accountId". Especifique solo uno de ellos.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -8483,7 +8483,7 @@
         </trans-unit>
         <trans-unit id="Page 957521806 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Se ha especificado tanto el id. de producto como y el id. de cuenta. Especifique solo uno de ellos.</target>
+          <target state="translated">Se han especificado tanto "itemId" como "accountId". Especifique solo uno de ellos.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Order Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -9179,7 +9179,7 @@
         </trans-unit>
         <trans-unit id="Page 505573178 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">Se ha especificado tanto el id. de producto como y el id. de cuenta. Especifique solo uno de ellos.</target>
+          <target state="translated">Se han especificado tanto "itemId" como "accountId". Especifique solo uno de ellos.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quote Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>

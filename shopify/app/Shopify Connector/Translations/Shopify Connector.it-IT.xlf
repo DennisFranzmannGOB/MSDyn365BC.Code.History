@@ -6621,7 +6621,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 1594611733 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date when the related document was created.</source>
-          <target state="translated">Specifica la data di creazione del documento correlato.</target>
+          <target state="translated">Specifica la data in cui è stato creato il documento correlato.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control DocumentDate - Property ToolTip</note>
         </trans-unit>
