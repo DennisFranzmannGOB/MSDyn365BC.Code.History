@@ -123,11 +123,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Imp. Launch Bank Statement CZB - NamedType WindowTitleTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 764005961 - NamedType 1765724753" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Issue,Issue and &amp;Export</source>
-          <target state="translated">&amp;Vydat,Vydat a &amp;exportovat</target>
+        <trans-unit id="Codeunit 764005961 - NamedType 1724721851" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to issue and print the Payment Order?</source>
+          <target state="translated">Chcete vydat a vytisknout příkaz k úhradě?</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Payment Order Print CZB - NamedType IssueQst</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Payment Order Print CZB - NamedType IssueAndPrintPaymentOrderQst</note>
         </trans-unit>
         <trans-unit id="Codeunit 764005961 - NamedType 3736919706" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Order was successfully issued.</source>

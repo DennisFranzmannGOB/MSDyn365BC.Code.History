@@ -1678,15 +1678,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Payment Order CZB - Method CheckUnreliablePayers - NamedType UncVATPayerStatusNotCheckedQst</note>
         </trans-unit>
+        <trans-unit id="Codeunit 764005961 - NamedType 1724721851" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to issue and print the Payment Order?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Payment Order Print CZB - NamedType IssueAndPrintPaymentOrderQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 764005961 - NamedType 3736919706" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Order was successfully issued.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Payment Order Print CZB - NamedType IssuedSuccesfullyMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 764005961 - NamedType 1765724753" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Issue,Issue and &amp;Export</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Issue Payment Order Print CZB - NamedType IssueQst</note>
         </trans-unit>
         <trans-unit id="Codeunit 875465636 - NamedType 1765724753" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Issue,Issue and &amp;Export</source>
