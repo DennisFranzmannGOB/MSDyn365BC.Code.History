@@ -1,13 +1,18 @@
 {
+  "settings": {
+    "allint.enabled": false,
+    "search.exclude": {
+      "**.xlf": true
+    },
+    "al.enableCodeActions": false,
+    "al.enableCodeAnalysis": false
+  },
   "folders": [
     {
       "path": "./vatgroupmanagement/test/VAT Group Management Tests"
     },
     {
       "path": "./EDocument/Test/E-Document Core Tests"
-    },
-    {
-      "path": "./EDocument/Test/E-Document Core Tests/src/TestImplementations"
     },
     {
       "path": "./EmailLogging/Test/_Exclude_Email Logging Using Graph API Tests"
@@ -261,13 +266,5 @@
     {
       "path": "./servicedeclaration/test/Service Declaration Tests"
     }
-  ],
-  "settings": {
-    "allint.enabled": false,
-    "search.exclude": {
-      "**.xlf": true
-    },
-    "al.enableCodeAnalysis": false,
-    "al.enableCodeActions": false
-  }
+  ]
 }

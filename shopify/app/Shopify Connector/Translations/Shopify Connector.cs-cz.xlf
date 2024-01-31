@@ -9,6 +9,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk Operation API - NamedType BulkOperationFailedErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 1463487768" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify Admin API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade your Business Central environment.</source>
+          <target state="translated">Rozhraní Shopify Admin API, které používá váš aktuální konektor Shopify, již není podporováno. Chcete-li i nadále používat konektor Shopify, upgradujte své prostředí Business Central.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 1482680907" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Notify user of Shopify connector going out of support.</source>
           <target state="translated">Upozorněte uživatele na ukončení podpory konektoru Shopify.</target>
@@ -32,6 +38,12 @@
           <target state="translated">Zobrazí oznámení informující uživatele, že konektor Shopify není podporován.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 3098940945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify Admin API used by your current Shopify connector will go out of support on %1. Please upgrade your Business Central environment.</source>
+          <target state="translated">Rozhraní Shopify Admin API, které používá váš aktuální konektor Shopify, přestane být podporováno %1. Upgradujete své prostředí Business Central.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - expiry date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType ExpirationNotificationMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 3936287348" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show a notification informing the user that Shopify connector has no items.</source>
@@ -248,6 +260,12 @@
           <target state="translated">Délka požadavku překročila limit rozhraní Shopify API.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType QueryParamTooLongErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3550761784 - NamedType 3191534689" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify Admin API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade the Shopify connector and your Business Central environment.</source>
+          <target state="translated">Rozhraní Shopify API používané vaším aktuálním konektorem Shopify již není podporováno. Chcete-li pokračovat v používání konektoru Shopify, upgradujte konektor Shopify a prostředí Business Central.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType ApiVersionOutOfSupportErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3550761784 - NamedType 3973276347" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request length exceeded Shopify API limit. This may be due to longer marketing text or embed images.</source>
@@ -4468,6 +4486,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control PriceSynchronization - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1413016019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which Business Central will no longer support Shopify Admin API version. To continue to use your integration, upgrade to the latest version of Business Central before this date.</source>
+          <target state="translated">Určuje datum, kdy Business Central již nebude podporovat verzi Shopify Admin. Chcete-li i nadále používat svou integraci, upgradujte na nejnovější verzi Business Central před tímto datem.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1413016019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update API Version Before</source>
+          <target state="translated">Dřívější verze aktualizace API</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1582664428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of a product in Shopify when an item is create in Shopify via the sync.</source>
           <target state="translated">Určuje stav produktu v Shopify, když je zboží vytvořeno v Shopify prostřednictvím synchronizace.</target>
@@ -4497,6 +4527,18 @@
           <target state="translated">Určuje, jak synchronizovat název 2 zákazníka.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Name2Source - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1796064905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of Shopify Admin API used by current version of the Shopify connector.</source>
+          <target state="translated">Určuje verzi rozhraní Shopify Správa API, kterou používá aktuální verze konektoru Shopify.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify Admin API Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1796064905 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Admin API Version</source>
+          <target state="translated">Verze rozhraní API Shopify Admin</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify Admin API Version - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1833000074 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user who will run the Sync Orders from Shopify job on the Job Queue Entries page. This is the user who turned on the Auto Import Orders from Shopify toggle.</source>
