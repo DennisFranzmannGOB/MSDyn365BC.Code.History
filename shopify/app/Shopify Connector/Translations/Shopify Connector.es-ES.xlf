@@ -2892,7 +2892,7 @@
         </trans-unit>
         <trans-unit id="Page 2596605181 - Action 2746818404 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View related posted sales shipments.</source>
-          <target state="translated">Permite ver todos los albaranes de venta relacionados.</target>
+          <target state="translated">Permite ver el histórico de albaranes de venta relacionados.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Action Sales Shipment - Property ToolTip</note>
         </trans-unit>
@@ -3378,7 +3378,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Action 2281017256 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a new customer.</source>
-          <target state="translated">Permite crear un nuevo cliente.</target>
+          <target state="translated">Crea un nuevo cliente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Action CreateNewCustomer - Property ToolTip</note>
         </trans-unit>
@@ -7329,7 +7329,7 @@
         </trans-unit>
         <trans-unit id="Page 834364629 - Control 3787812635 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer template to use when creating unknown customers for this country. This template will only be used if the  field "Fix CustomerNo." is blank</source>
-          <target state="translated">Especifica la plantilla de cliente que se va a usar al crear clientes desconocidos para este país. Esta plantilla solo se usará si el campo "Corregir n.º cliente" está en blanco.</target>
+          <target state="translated">Especifica la plantilla de cliente que se usará al crear clientes desconocidos para este país. Esta plantilla solo se usará si el campo "Corregir n.º cliente" está en blanco</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Templates - Control CustomerTemlateCode - Property ToolTip</note>
         </trans-unit>
