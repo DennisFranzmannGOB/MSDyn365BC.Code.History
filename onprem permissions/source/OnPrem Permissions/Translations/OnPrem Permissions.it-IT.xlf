@@ -863,7 +863,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 864345981 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Read G/L registers (S&amp;R)</source>
-          <target state="translated">Leggi registri C/G (V&amp;C)</target>
+          <target state="translated">Leggi registri C/G (V&amp;I)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet S&amp;R-REGISTER - Property Caption</note>
         </trans-unit>
