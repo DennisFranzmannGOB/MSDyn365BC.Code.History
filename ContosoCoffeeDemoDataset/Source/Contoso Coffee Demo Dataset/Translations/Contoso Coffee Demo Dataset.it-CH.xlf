@@ -503,7 +503,7 @@
         </trans-unit>
         <trans-unit id="Table 1613625135 - Field 4242196510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retail - Gen. Prod. Posting Group</source>
-          <target state="translated">Dettaglio - Categoria registrazione articolo/servizio</target>
+          <target state="translated">Vendita al dettaglio - Cat. registrazione articolo/servizio</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Whse Demo Data Setup - Field Retail Code - Property Caption</note>
         </trans-unit>
@@ -1487,7 +1487,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3220894869 - NamedType 1262072474" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Direct Cost Applied, Retail</source>
-          <target state="translated">Costi diretti collegati, dettaglio</target>
+          <target state="translated">Costi diretti, dettaglio</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common GL Account - NamedType DirectCostAppliedRetailLbl</note>
         </trans-unit>
@@ -3179,7 +3179,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2709668756 - NamedType 2338995389" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Templates for Service Contracts</source>
-          <target state="translated">Modelli per contratti assistenza</target>
+          <target state="translated">Contratto assistenza Template</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Svc No Series - NamedType SeriesContractTemplateLbl</note>
         </trans-unit>
