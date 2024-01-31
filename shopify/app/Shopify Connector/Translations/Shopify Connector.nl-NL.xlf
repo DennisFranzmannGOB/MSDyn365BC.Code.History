@@ -11,7 +11,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 1463487768" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Shopify Admin API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade your Business Central environment.</source>
-          <target state="translated">De Shopify-API die wordt gebruikt door uw huidige Shopify-connector, wordt niet meer ondersteund. Als u de Shopify-connector wilt blijven gebruiken, moet u een upgrade uitvoeren van de Shopify-connector en uw Business Central-omgeving.</target>
+          <target state="translated">De Shopify-beheer-API die wordt gebruikt door uw huidige Shopify-connector, wordt niet meer ondersteund. Als u de Shopify-connector wilt blijven gebruiken, moet u een upgrade uitvoeren van uw Business Central-omgeving.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationMsg</note>
         </trans-unit>
@@ -41,7 +41,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 3098940945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Shopify Admin API used by your current Shopify connector will go out of support on %1. Please upgrade your Business Central environment.</source>
-          <target state="translated">De ondersteuning van de Shopify-API die door uw huidige Shopify-connector wordt gebruikt, loopt af op %1. Voer een upgrade uit op de Shopify-connector en uw Business Central-omgeving.</target>
+          <target state="translated">De ondersteuning van de Shopify-beheer-API die door uw huidige Shopify-connector wordt gebruikt, loopt af op %1. Voer een upgrade uit van uw Business Central-omgeving.</target>
           <note from="Developer" annotates="general" priority="2">%1 - expiry date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType ExpirationNotificationMsg</note>
         </trans-unit>
@@ -263,7 +263,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3550761784 - NamedType 3191534689" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Shopify Admin API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade the Shopify connector and your Business Central environment.</source>
-          <target state="translated">De Shopify-API die wordt gebruikt door uw huidige Shopify-connector, wordt niet meer ondersteund. Als u de Shopify-connector wilt blijven gebruiken, moet u een upgrade uitvoeren van de Shopify-connector en uw Business Central-omgeving.</target>
+          <target state="translated">De Shopify-beheer-API die wordt gebruikt door uw huidige Shopify-connector, wordt niet meer ondersteund. Als u de Shopify-connector wilt blijven gebruiken, moet u een upgrade uitvoeren van de Shopify-connector en uw Business Central-omgeving.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType ApiVersionOutOfSupportErr</note>
         </trans-unit>
@@ -4488,13 +4488,13 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1413016019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date on which Business Central will no longer support Shopify Admin API version. To continue to use your integration, upgrade to the latest version of Business Central before this date.</source>
-          <target state="translated">Hiermee wordt de einddatum van de ondersteuning voor de huidige versie opgegeven. Na deze datum werkt de Shopify-connector niet meer.</target>
+          <target state="translated">Hiermee wordt de datum opgegeven waarop Business Central de versie van de Shopify Admin-API niet langer ondersteunt. Als u uw integratie wilt blijven gebruiken, moet u vóór deze datum upgraden naar de laatste versie van Business Central.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1413016019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update API Version Before</source>
-          <target state="translated">Einde van ondersteuning</target>
+          <target state="translated">API-versie bijwerken voor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property Caption</note>
         </trans-unit>
@@ -4530,11 +4530,13 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1796064905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the version of Shopify Admin API used by current version of the Shopify connector.</source>
+          <target state="translated">Hiermee geeft u de versie van de Shopify Admin-API op die wordt gebruikt door de huidige versie van de Shopify-connector.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify Admin API Version - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1796064905 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Admin API Version</source>
+          <target state="translated">Versie van Shopify Admin-API</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify Admin API Version - Property Caption</note>
         </trans-unit>
