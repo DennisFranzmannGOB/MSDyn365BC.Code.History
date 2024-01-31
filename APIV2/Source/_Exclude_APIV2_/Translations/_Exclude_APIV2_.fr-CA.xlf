@@ -2429,7 +2429,7 @@
         </trans-unit>
         <trans-unit id="Page 1278155290 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Customers - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -4817,7 +4817,7 @@
         </trans-unit>
         <trans-unit id="Page 500693685 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">« itemId » et « accountId » sont spécifiés. Spécifiez uniquement l’un des deux.</target>
+          <target state="translated">"itemId" et "accountId" sont spécifiés. Indiquez uniquement l’un des deux.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purch. Cr. Memo Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -5045,7 +5045,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3395634949" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A "vendorNumber" or a "vendorId" must be provided.</source>
-          <target state="translated">Vous devez spécifier un « vendorNumber » ou un « vendorID ».</target>
+          <target state="translated">Un « vendorNumber » ou un « vendorID » doit être fourni.</target>
           <note from="Developer" annotates="general" priority="2">vendorNumber and vendorId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType BuyFromVendorNotProvidedErr</note>
         </trans-unit>
@@ -5105,7 +5105,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -5183,13 +5183,13 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Adresse fournisseur (1re ligne)</target>
+          <target state="translated">Adresse de fournisseur (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3637029690 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Adresse fournisseur (2e ligne)</target>
+          <target state="translated">Adresse de fournisseur (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5303,13 +5303,13 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - Control 2839400550 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Address Line 1</source>
-          <target state="translated">Adresse à payer (1re ligne)</target>
+          <target state="translated">Paiement – Adresse (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - Control payToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3637029690 - Control 926310699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Address Line 2</source>
-          <target state="translated">Adresse à payer (2e ligne)</target>
+          <target state="translated">Paiement – Adresse (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - Control payToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5477,7 +5477,7 @@
         </trans-unit>
         <trans-unit id="Page 2715273378 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">« itemId » et « accountId » sont spécifiés. Spécifiez uniquement l’un des deux.</target>
+          <target state="translated">"itemId" et "accountId" sont spécifiés. Indiquez uniquement l’un des deux.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoice Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -5735,7 +5735,7 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Impossible de trouver le fournisseur de paiement.</target>
+          <target state="translated">Impossible de trouver le fournisseur créancier.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>
@@ -5747,7 +5747,7 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -5777,13 +5777,13 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Adresse fournisseur (1re ligne)</target>
+          <target state="translated">Adresse de fournisseur (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Adresse fournisseur (2e ligne)</target>
+          <target state="translated">Adresse de fournisseur (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -5891,13 +5891,13 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 2839400550 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay To Address Line 1</source>
-          <target state="translated">Paiement – Ligne adresse 1</target>
+          <target state="translated">Paiement – Adresse (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control payToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 926310699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay To Address Line 2</source>
-          <target state="translated">Paiement – Ligne adresse 2</target>
+          <target state="translated">Paiement – Adresse (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control payToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -6107,7 +6107,7 @@
         </trans-unit>
         <trans-unit id="Page 1779564587 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">« itemId » et « accountId » sont spécifiés. Spécifiez uniquement l’un des deux.</target>
+          <target state="translated">"itemId" et "accountId" sont spécifiés. Indiquez uniquement l’un des deux.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Order Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -6365,7 +6365,7 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 3395634949" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A "vendorNumber" or a "vendorId" must be provided.</source>
-          <target state="translated">Vous devez spécifier un « vendorNumber » ou un « vendorID ».</target>
+          <target state="translated">Un « vendorNumber » ou un « vendorID » doit être fourni.</target>
           <note from="Developer" annotates="general" priority="2">vendorNumber and vendorId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType BuyFromVendorNotProvidedErr</note>
         </trans-unit>
@@ -6401,7 +6401,7 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 2178917581" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The pay-to vendor cannot be found.</source>
-          <target state="translated">Impossible de trouver le fournisseur de paiement.</target>
+          <target state="translated">Impossible de trouver le fournisseur créancier.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CouldNotFindPayToVendorErr</note>
         </trans-unit>
@@ -6413,7 +6413,7 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -6455,13 +6455,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Adresse fournisseur (1re ligne)</target>
+          <target state="translated">Adresse de fournisseur (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Adresse fournisseur (2e ligne)</target>
+          <target state="translated">Adresse de fournisseur (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -6563,13 +6563,13 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 2839400550 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Address Line 1</source>
-          <target state="translated">Paiement – Ligne adresse 1</target>
+          <target state="translated">Paiement – Adresse (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control payToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 825103897 - Control 926310699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Address Line 2</source>
-          <target state="translated">Paiement – Ligne adresse 2</target>
+          <target state="translated">Paiement – Adresse (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - Control payToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -6773,13 +6773,13 @@
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 883773547 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 1</source>
-          <target state="translated">Adresse fournisseur (1re ligne)</target>
+          <target state="translated">Adresse de fournisseur (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control buyFromAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 2796863398 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Address Line 2</source>
-          <target state="translated">Adresse fournisseur (2e ligne)</target>
+          <target state="translated">Adresse de fournisseur (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control buyFromAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -6857,13 +6857,13 @@
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 2839400550 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay To Address Line 1</source>
-          <target state="translated">Paiement – Ligne adresse 1</target>
+          <target state="translated">Paiement – Adresse (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control payToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 926310699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay To Address Line 2</source>
-          <target state="translated">Paiement – Ligne adresse 2</target>
+          <target state="translated">Paiement – Adresse (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control payToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -7067,7 +7067,7 @@
         </trans-unit>
         <trans-unit id="Page 1420007888 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">« itemId » et « accountId » sont spécifiés. Spécifiez uniquement l’un des deux.</target>
+          <target state="translated">"itemId" et "accountId" sont spécifiés. Indiquez uniquement l’un des deux.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Mem Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -7361,7 +7361,7 @@
         </trans-unit>
         <trans-unit id="Page 3006414751 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -7439,13 +7439,13 @@
         </trans-unit>
         <trans-unit id="Page 3006414751 - Control 3948026507 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 1</source>
-          <target state="translated">Adresse facturation (1re ligne)</target>
+          <target state="translated">Adresse de facturation (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - Control billToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3006414751 - Control 1566149062 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 2</source>
-          <target state="translated">Adresse facturation (2e ligne)</target>
+          <target state="translated">Adresse de facturation (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - Control billToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -7751,7 +7751,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">« itemId » et « accountId » sont spécifiés. Spécifiez uniquement l’un des deux.</target>
+          <target state="translated">"itemId" et "accountId" sont spécifiés. Indiquez uniquement l’un des deux.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -8045,7 +8045,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -8117,13 +8117,13 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 3948026507 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 1</source>
-          <target state="translated">Adresse facturation (1re ligne)</target>
+          <target state="translated">Adresse de facturation (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control billToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 1566149062 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 2</source>
-          <target state="translated">Adresse facturation (2e ligne)</target>
+          <target state="translated">Adresse de facturation (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control billToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -8483,7 +8483,7 @@
         </trans-unit>
         <trans-unit id="Page 957521806 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">« itemId » et « accountId » sont spécifiés. Spécifiez uniquement l’un des deux.</target>
+          <target state="translated">"itemId" et "accountId" sont spécifiés. Indiquez uniquement l’un des deux.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Order Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -8783,7 +8783,7 @@
         </trans-unit>
         <trans-unit id="Page 48856144 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -8831,13 +8831,13 @@
         </trans-unit>
         <trans-unit id="Page 48856144 - Control 3948026507 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 1</source>
-          <target state="translated">Adresse facturation (1re ligne)</target>
+          <target state="translated">Adresse de facturation (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - Control billToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 48856144 - Control 1566149062 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 2</source>
-          <target state="translated">Adresse facturation (2e ligne)</target>
+          <target state="translated">Adresse de facturation (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - Control billToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -9179,7 +9179,7 @@
         </trans-unit>
         <trans-unit id="Page 505573178 - NamedType 3559327969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Both "itemId" and "accountId" are specified. Specify only one of them.</source>
-          <target state="translated">« itemId » et « accountId » sont spécifiés. Spécifiez uniquement l’un des deux.</target>
+          <target state="translated">"itemId" et "accountId" sont spécifiés. Indiquez uniquement l’un des deux.</target>
           <note from="Developer" annotates="general" priority="2">itemId and accountId are field names and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quote Lines - NamedType BothItemIdAndAccountIdAreSpecifiedErr</note>
         </trans-unit>
@@ -9437,7 +9437,7 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>
@@ -9491,13 +9491,13 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 3948026507 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 1</source>
-          <target state="translated">Adresse facturation (1re ligne)</target>
+          <target state="translated">Adresse de facturation (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control billToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 1566149062 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 2</source>
-          <target state="translated">Adresse facturation (2e ligne)</target>
+          <target state="translated">Adresse de facturation (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control billToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -9941,13 +9941,13 @@
         </trans-unit>
         <trans-unit id="Page 3546002718 - Control 3948026507 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 1</source>
-          <target state="translated">Adresse facturation (1re ligne)</target>
+          <target state="translated">Adresse de facturation (1re ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control billToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3546002718 - Control 1566149062 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Address Line 2</source>
-          <target state="translated">Adresse facturation (2e ligne)</target>
+          <target state="translated">Adresse de facturation (2e ligne)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control billToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -10889,7 +10889,7 @@
         </trans-unit>
         <trans-unit id="Page 2680707570 - NamedType 3939449910" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "currencyId" does not match to a Currency.</source>
-          <target state="translated">L’« currencyId » ne correspond à aucune devise.</target>
+          <target state="translated">Le « currencyId » ne correspond à aucune devise.</target>
           <note from="Developer" annotates="general" priority="2">currencyId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Vendors - NamedType CurrencyIdDoesNotMatchACurrencyErr</note>
         </trans-unit>

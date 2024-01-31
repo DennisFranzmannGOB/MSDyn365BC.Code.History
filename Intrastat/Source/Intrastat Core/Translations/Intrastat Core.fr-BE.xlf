@@ -485,7 +485,7 @@
         </trans-unit>
         <trans-unit id="Page 1566601818 - Control 215497968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code that identifies the currency of the Intrastat Report.</source>
-          <target state="translated">Spécifie un code qui identifie la devise de l’état de déclaration d’échanges de biens.</target>
+          <target state="translated">Indique un code qui identifie la devise de l’état de déclaration d’échanges de biens.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Currency Identifier - Property ToolTip</note>
         </trans-unit>
@@ -515,7 +515,7 @@
         </trans-unit>
         <trans-unit id="Page 1566601818 - Control 970646220 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the month to report data for. Enter the period as a four-digit number, with no spaces or symbols. Enter the year first and then the month, for example, enter 1706 for June, 2017.</source>
-          <target state="translated">Spécifie le mois pour lequel déclarer des données. Saisissez la période sous la forme d’un nombre à quatre chiffres, sans espaces ni symboles. Saisissez le mois en premier, puis l’année. Par exemple, saisissez 0617 pour juin 2017.</target>
+          <target state="translated">Indique le mois pour lequel déclarer des données. Saisissez la période sous la forme d’un nombre à quatre chiffres, sans espaces ni symboles. Saisissez d’abord le mois, puis l’année. Par exemple, saisissez 0617 pour juin 2017.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Statistics Period - Property ToolTip</note>
         </trans-unit>
@@ -545,7 +545,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 1624434300 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the counter party's VAT number.</source>
-          <target state="translated">Spécifie le numéro de TVA de contrepartie.</target>
+          <target state="translated">Indique le numéro de TVA de contrepartie.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Partner VAT ID - Property ToolTip</note>
         </trans-unit>
@@ -581,13 +581,13 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 2242438606 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies any indirect costs, as a percentage.</source>
-          <target state="translated">Spécifie tous les coûts indirects, en pourcentage.</target>
+          <target state="translated">Indique tous les coûts indirects, sous forme de pourcentage.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Cost Regulation % - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 2259420277 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the item's shipment method.</source>
-          <target state="translated">Spécifie les conditions de livraison de l’article.</target>
+          <target state="translated">Indique les conditions de livraison de l’article.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Shpt. Method Code - Property ToolTip</note>
         </trans-unit>
@@ -629,7 +629,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the item.</source>
-          <target state="translated">Spécifie le nom de l’article.</target>
+          <target state="translated">Indique le nom de l’article.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -653,7 +653,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 3192175264 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the date the item entry was posted.</source>
-          <target state="translated">Spécifie la date à laquelle l’écriture article a été validée.</target>
+          <target state="translated">Indique la date à laquelle l’écriture article a été validée.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Date - Property ToolTip</note>
         </trans-unit>
@@ -695,7 +695,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 3701472611 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the item's tariff number.</source>
-          <target state="translated">Spécifie le numéro de nomenclature produits de l’article.</target>
+          <target state="translated">Indique le numéro tarifaire de l’article.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Tariff No. - Property ToolTip</note>
         </trans-unit>
@@ -737,7 +737,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 636392376 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the total amount of the entry, excluding VAT.</source>
-          <target state="translated">Spécifie le montant total de l’écriture, hors TVA.</target>
+          <target state="translated">Indique le montant total de l’écriture, hors TVA.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Amount - Property ToolTip</note>
         </trans-unit>
@@ -761,7 +761,7 @@
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 1753214751 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the entry type.</source>
-          <target state="translated">Indique le type écriture.</target>
+          <target state="translated">Spécifie le type écriture.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Source Type - Property ToolTip</note>
         </trans-unit>
@@ -893,7 +893,7 @@
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 3701472611 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the item's tariff number.</source>
-          <target state="translated">Indique la nomenclature produits de l’article.</target>
+          <target state="translated">Indique le numéro tarifaire de l’article.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Tariff No. - Property ToolTip</note>
         </trans-unit>
@@ -917,13 +917,13 @@
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 486908828 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the document number on the entry.</source>
-          <target state="translated">Indique le numéro de document de l’écriture.</target>
+          <target state="translated">Spécifie le numéro de document de l’écriture.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Document No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 568743302 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the item.</source>
-          <target state="translated">Indique le numéro de l’article.</target>
+          <target state="translated">Spécifie le numéro de l’article.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Item No. - Property ToolTip</note>
         </trans-unit>
@@ -1103,7 +1103,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 3902642213 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default transaction type for sales returns and service returns, and purchase returns.</source>
-          <target state="translated">Spécifie le type de transaction par défaut pour les retours sur ventes, les retours de service et les retours sur achats.</target>
+          <target state="translated">Spécifie le type de transaction par défaut pour les retours vente, les retours de service et les retours achat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Default Trans. Type - Returns - Property ToolTip</note>
         </trans-unit>
@@ -1222,7 +1222,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 1818799312 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a customer's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
-          <target state="translated">Spécifie la manière dont le numéro d’enregistrement TVA d’un client est exporté vers le fichier Intrastat. 0 représente la valeur du champ Num. d’enreg. TVA, 1 ajoute le code pays de l’Union européenne en tant que préfixe et 2 supprime le code pays de l’Union européenne.</target>
+          <target state="translated">Indique la manière dont le numéro d’enregistrement TVA d’un client est exporté vers le fichier Intrastat. 0 représente la valeur du champ Num. d’enreg. TVA, 1 ajoute le code pays de l’Union européenne en tant que préfixe et 2 supprime le code pays de l’Union européenne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Cust. VAT No. on File - Property ToolTip</note>
         </trans-unit>
@@ -1258,13 +1258,13 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 2680197960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how a vendor's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
-          <target state="translated">Spécifie la manière dont le numéro d’enregistrement TVA d’un fournisseur est exporté vers le fichier Intrastat. 0 représente la valeur du champ Num. d’enreg. TVA, 1 ajoute le code pays de l’Union européenne en tant que préfixe et 2 supprime le code pays de l’Union européenne.</target>
+          <target state="translated">Spécifie la manière dont le numéro d’enregistrement TVA d’un fournisseur est exporté vers le fichier Intrastat. 0 représente la valeur du champ Num. d’enreg. TVA, 1 ajoute le code pays de l’Union européenne en tant que préfixe et 3 supprime le code pays de l’Union européenne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Vend. VAT No. on File - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 2681653000 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how the company's VAT registration number exports to the Intrastat file. 0 is the value of the VAT Reg. No. field, 1 adds the EU country code as a prefix, and 2 removes the EU country code.</source>
-          <target state="translated">Spécifie la manière dont le numéro d’enregistrement TVA de la société est exporté vers le fichier Intrastat. 0 représente la valeur du champ Num. d’enreg. TVA, 1 ajoute le code pays de l’Union européenne en tant que préfixe et 2 supprime le code pays de l’Union européenne.</target>
+          <target state="translated">Spécifie la manière dont le numéro d’enregistrement TVA de la société est exporté vers le fichier Intrastat. 0 représente la valeur du champ Num. d’enreg. TVA, 1 ajoute le code pays de l’Union européenne en tant que préfixe et 3 supprime le code pays de l’Union européenne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Company VAT No. on File - Property ToolTip</note>
         </trans-unit>
@@ -1329,7 +1329,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 3902642213 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the default transaction type for sales returns and service returns, and purchase returns.</source>
-          <target state="translated">Spécifie le type de transaction par défaut pour les retours sur ventes, les retours de service et les retours sur achats.</target>
+          <target state="translated">Spécifie le type de transaction par défaut pour les retours vente, les retours de service et les retours achat.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Default Trans. Type - Returns - Property ToolTip</note>
         </trans-unit>
@@ -1365,7 +1365,7 @@
         </trans-unit>
         <trans-unit id="Page 879680616 - Control 215497968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code that identifies the currency of the Intrastat report.</source>
-          <target state="translated">Spécifie un code qui identifie la devise de la D.E.B.</target>
+          <target state="translated">Indique un code qui identifie la devise de l’état de déclaration d’échanges de biens.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report - Control Currency Identifier - Property ToolTip</note>
         </trans-unit>
@@ -1419,7 +1419,7 @@
         </trans-unit>
         <trans-unit id="Page 879680616 - Control 970646220 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the month to report data for. Enter the period as a four-digit number, with no spaces or symbols. Enter the year first and then the month, for example, enter 1706 for June, 2017</source>
-          <target state="translated">Spécifie le mois pour lequel déclarer des données. Saisissez la période sous la forme d’un nombre à quatre chiffres, sans espaces ni symboles. Saisissez d’abord le mois, puis l’année. Par exemple, saisissez 0617 pour juin 2017.</target>
+          <target state="translated">Indique le mois pour lequel déclarer des données. Saisissez la période sous la forme d’un nombre à quatre chiffres, sans espaces ni symboles. Saisissez d’abord le mois, puis l’année. Par exemple, saisissez 0617 pour juin 2017</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report - Control Statistics Period - Property ToolTip</note>
         </trans-unit>

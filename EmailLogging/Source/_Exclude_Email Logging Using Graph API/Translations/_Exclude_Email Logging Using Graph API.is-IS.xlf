@@ -197,7 +197,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2120671752 - NamedType 1892638790" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set up email logging</source>
-          <target state="translated">Setja upp tölvupóstskráningu</target>
+          <target state="translated">Setja upp tölvupóstsskráningu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Logging Management - NamedType EmailLoggingSetupShortTitleTxt</note>
         </trans-unit>
@@ -485,7 +485,7 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set Up Email Logging</source>
-          <target state="translated">Setja upp tölvupóstskráningu</target>
+          <target state="translated">Setja upp tölvupóstsskráningu</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Property Caption</note>
         </trans-unit>
@@ -603,7 +603,7 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 1403432667 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Welcome to Email Logging Setup</source>
-          <target state="translated">Velkomin í uppsetningu tölvupóstskráningar</target>
+          <target state="translated">Velkomin(n) í uppsetningu tölvupóstsskráningar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control Welcome to Email Logging Setup - Property Caption</note>
         </trans-unit>
@@ -786,13 +786,13 @@
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 1611996399 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Email Logging Job Queue</source>
-          <target state="translated">Stofna verkröð tölvupóstskráningar</target>
+          <target state="translated">Stofna verkröð tölvupóstsskráningar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control CreateEmailLoggingJobQueue - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 580021373 - Control 1611996399 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Email Logging Job Queue</source>
-          <target state="translated">Stofna verkröð tölvupóstskráningar</target>
+          <target state="translated">Stofna verkröð tölvupóstsskráningar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Logging Setup Wizard - Control CreateEmailLoggingJobQueue - Property Caption</note>
         </trans-unit>
