@@ -161,7 +161,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 4165554626 - NamedType 3390914320" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Navigation menu only.</source>
-          <target state="translated">Vain siirtymisvalikko.</target>
+          <target state="translated">Vain navigointivalikkoon.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Data Search Defaults - NamedType AllProfileDescriptionFilterTxt</note>
         </trans-unit>

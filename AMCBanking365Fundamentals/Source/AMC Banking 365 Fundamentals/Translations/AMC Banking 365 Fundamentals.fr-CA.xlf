@@ -1000,7 +1000,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Control 2099105517 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Bank Clearing Standards to be used on vendors bank accounts</source>
-          <target state="translated">Configuration des standards compensation bancaire à utiliser sur les comptes bancaires des fournisseurs</target>
+          <target state="translated">Configurez des standards compensation bancaire à utiliser sur les comptes bancaires des fournisseurs</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Control UpdBankClearGrp - Property InstructionalText</note>
         </trans-unit>
@@ -1677,7 +1677,7 @@
         </trans-unit>
         <trans-unit id="Page 2285503463 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AMC Banking Payment Types</source>
-          <target state="translated">AMC Banking Service : Types de règlements</target>
+          <target state="translated">AMC Banking - Types de règlements</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Pmt. Types - Property Caption</note>
         </trans-unit>
