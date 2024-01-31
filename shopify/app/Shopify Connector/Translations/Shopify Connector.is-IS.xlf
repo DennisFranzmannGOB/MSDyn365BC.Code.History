@@ -9,6 +9,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Bulk Operation API - NamedType BulkOperationFailedErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 1463487768" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify Admin API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade your Business Central environment.</source>
+          <target state="translated">API Shopify-stjórnanda sem notað er af núverandi Shopify-tengi er ekki lengur stutt. Til að halda áfram að nota Shopify-tengið þarf að uppfæra Business Central-umhverfið.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 1482680907" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Notify user of Shopify connector going out of support.</source>
           <target state="translated">Tilkynna notanda að Shopify-tengi verði ekki lengur þjónustað.</target>
@@ -32,6 +38,12 @@
           <target state="translated">Sýna notandanum tilkynningu um að Shopify-tengið sé ekki stutt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType BlockedNotificationDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1659640596 - NamedType 3098940945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify Admin API used by your current Shopify connector will go out of support on %1. Please upgrade your Business Central environment.</source>
+          <target state="translated">API Shopify-stjórnanda sem notað er af núverandi Shopify-tengi notar verður ekki lengur stutt þann %1. Uppfæra þarf Business Central-umhverfið.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - expiry date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Shop Mgt. - NamedType ExpirationNotificationMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1659640596 - NamedType 3936287348" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show a notification informing the user that Shopify connector has no items.</source>
@@ -248,6 +260,12 @@
           <target state="translated">Farið var yfir lengdartakmörk Shopify API fyrir beiðnir.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType QueryParamTooLongErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3550761784 - NamedType 3191534689" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Shopify Admin API used by your current Shopify connector is no longer supported. To continue using the Shopify connector, please upgrade the Shopify connector and your Business Central environment.</source>
+          <target state="translated">API Shopify-stjórnanda sem notað er af núverandi Shopify-tengi er ekki lengur stutt. Til að halda áfram að nota Shopify-tengið þarf að uppfæra Shopify-tengið og Business Central-umhverfið.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Communication Mgt. - NamedType ApiVersionOutOfSupportErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3550761784 - NamedType 3973276347" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request length exceeded Shopify API limit. This may be due to longer marketing text or embed images.</source>
@@ -3744,7 +3762,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Action 2281017256 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a new customer.</source>
-          <target state="translated">Stofna nýjan viðskiptavin.</target>
+          <target state="translated">Stofna nýjan viðskiptamann.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Action CreateNewCustomer - Property ToolTip</note>
         </trans-unit>
@@ -4278,7 +4296,7 @@
         </trans-unit>
         <trans-unit id="Page 1491468912 - Control 714791889 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the city of the address.</source>
-          <target state="translated">Tilgreinir borg/bæ aðseturs.</target>
+          <target state="translated">Tilgreinir borg aðsetursins.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Adresses - Control City - Property ToolTip</note>
         </trans-unit>
@@ -4468,6 +4486,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control PriceSynchronization - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1413016019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which Business Central will no longer support Shopify Admin API version. To continue to use your integration, upgrade to the latest version of Business Central before this date.</source>
+          <target state="translated">Tilgreinir dagsetninguna sem Business Central mun ekki lengur styðja API-útgáfu Shopify-stjórnanda. Uppfæra þarf í nýjustu útgáfu Business Central fyrir þennan dag til að halda áfram að nota samþættinguna.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1413016019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update API Version Before</source>
+          <target state="translated">Uppfæra API-útgáfu fyrir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control API Version Expiry Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1582664428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of a product in Shopify when an item is create in Shopify via the sync.</source>
           <target state="translated">Tilgreinir stöðu vöru í Shopify þegar atriði er búið til í Shopify í gegnum samstillingu.</target>
@@ -4497,6 +4527,18 @@
           <target state="translated">Tilgreinir hvernig á að samstilla nafn 2 fyrir viðskiptamanninn.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Name2Source - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1796064905 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of Shopify Admin API used by current version of the Shopify connector.</source>
+          <target state="translated">Tilgreinir API-útgáfu Shopify-stjórnanda sem notuð er af núverandi útgáfu af Shopify-tengisins.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify Admin API Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - Control 1796064905 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shopify Admin API Version</source>
+          <target state="translated">API-útgáfa Shopify-stjórnanda</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Control Shopify Admin API Version - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Control 1833000074 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user who will run the Sync Orders from Shopify job on the Job Queue Entries page. This is the user who turned on the Auto Import Orders from Shopify toggle.</source>
@@ -5256,7 +5298,7 @@
         </trans-unit>
         <trans-unit id="Page 202493269 - Control 646935216 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's telephone number.</source>
-          <target state="translated">Tilgreinir símanúmer viðskiptamannsins.</target>
+          <target state="translated">Tilgreinir símanúmer viðskiptamanns.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customers - Control Phone - Property ToolTip</note>
         </trans-unit>
@@ -5309,7 +5351,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's name.</source>
-          <target state="translated">Tilgreinir nafn viðskiptamannsins.</target>
+          <target state="translated">Tilgreinir nafn viðskiptamanns.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -5363,7 +5405,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Control 646935216 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's telephone number.</source>
-          <target state="translated">Tilgreinir símanúmer viðskiptamannsins.</target>
+          <target state="translated">Tilgreinir símanúmer viðskiptamanns.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Control Phone - Property ToolTip</note>
         </trans-unit>
@@ -5573,7 +5615,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 2301961287 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the postal code of the billing address.</source>
-          <target state="translated">Tilgreinir póstnúmer greiðslupóstfangs.</target>
+          <target state="translated">Tilgreinir póstnúmer reikningsheimilisfangs.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control BillToPostCode - Property ToolTip</note>
         </trans-unit>
@@ -6497,7 +6539,7 @@
         </trans-unit>
         <trans-unit id="Page 3553230413 - Control 3450651614 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Variant Code field.</source>
-          <target state="translated">Tilgreinir gildið afbrigðiskóðareits.</target>
+          <target state="translated">Tilgreinir gildi afbrigðiskóðareits.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Return Lines - Control Variant Code - Property ToolTip</note>
         </trans-unit>
@@ -7053,7 +7095,7 @@
         </trans-unit>
         <trans-unit id="Page 3918578631 - Control 860944352 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review the terms and conditions.</source>
-          <target state="translated">Fara yfir ákvæði og skilmála.</target>
+          <target state="translated">Fara yfir skilmálana.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Connector Guide - Control StepConsent - Property InstructionalText</note>
         </trans-unit>
@@ -7095,7 +7137,7 @@
         </trans-unit>
         <trans-unit id="Page 4103967884 - Control 4281524059 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the URL of the Shopify shop.</source>
-          <target state="translated">Tilgreinir vefslóð Shopify-verslunar.</target>
+          <target state="translated">Tilgreinir vefslóð Shopify-verslunarinnar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Selection - Control Shopify URL - Property ToolTip</note>
         </trans-unit>
@@ -8049,7 +8091,7 @@
         </trans-unit>
         <trans-unit id="Page 873703241 - Control 3450651614 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Variant Code field.</source>
-          <target state="translated">Tilgreinir gildið afbrigðiskóðareits.</target>
+          <target state="translated">Tilgreinir gildi afbrigðiskóðareits.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Refund Lines - Control Variant Code - Property ToolTip</note>
         </trans-unit>

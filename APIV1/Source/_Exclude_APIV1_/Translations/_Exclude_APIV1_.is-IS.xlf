@@ -244,7 +244,7 @@
         </trans-unit>
         <trans-unit id="Page 348875001 - Control 3959524797 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies Journal Line Dimensions.</source>
-          <target state="translated">Tilgreinir víddir færslubókarlínu.</target>
+          <target state="translated">Tilgreinir bókarlínuvíddir.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - Customer Payments - Control dimensions - Property ToolTip</note>
         </trans-unit>
@@ -448,7 +448,7 @@
         </trans-unit>
         <trans-unit id="Page 2699795489 - NamedType 612025191" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You have specified conflicting identifiers: %1 and %2.</source>
-          <target state="translated">Tilgreind voru kennimerki sem skarast á: %1 og %2.</target>
+          <target state="translated">Tilgreind kenni skarast: %1 og %2.</target>
           <note from="Developer" annotates="general" priority="2">%1 - a GUID, %2 - a GUID</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - PDF Document - NamedType ConflictingIdsErr</note>
         </trans-unit>

@@ -5,6 +5,7 @@
       <group id="body">
         <trans-unit id="Codeunit 1138806890 - NamedType 1557378347" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 is not supported by PEPPOL BIS30 Format</source>
+          <target state="translated">%1 %2 stöds inte av PEPPOL BIS30-format</target>
           <note from="Developer" annotates="general" priority="2">%1 - Document Type caption, %2 - Document Type</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit EDoc PEPPOL BIS 3.0 - NamedType DocumentTypeNotSupportedErr</note>
         </trans-unit>
@@ -34,6 +35,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2348542397 - NamedType 3178693077" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-document is %1 and can not be sent in this state.</source>
+          <target state="translated">E-dokument är %1 och kan inte skickas i detta tillstånd.</target>
           <note from="Developer" annotates="general" priority="2">%1 - Status</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Integration Management - NamedType EDocumentSendErr</note>
         </trans-unit>
@@ -291,6 +293,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 66696616 - NamedType 4071190614" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cannot find vendor '%1' based on the vendor's name, address or VAT registration number on the electronic document. Make sure that a card for the vendor exists with the corresponding name, address or VAT Registration No.</source>
+          <target state="translated">Det går inte att hitta leverantören %1 utifrån leverantörens namn, adress eller momsregistreringsnummer på det elektroniska dokumentet. Kontrollera att det finns ett kort för leverantören med motsvarande namn, adress eller momsregistreringsnummer.</target>
           <note from="Developer" annotates="general" priority="2">%1 Vendor name (e.g. London Postmaster)</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Document Import Helper - NamedType VendorNotFoundErr</note>
         </trans-unit>
@@ -338,6 +341,7 @@
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 1140477700 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Batch Imported</source>
+          <target state="translated">Batchen har importerats</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Batch Imported - Property Caption</note>
         </trans-unit>
@@ -626,11 +630,13 @@
         </trans-unit>
         <trans-unit id="Page 4102148806 - Action 3301255903 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Supported Document Types</source>
+          <target state="translated">Konfigurera dokumenttyper som stöds</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Action SupportedDocTypes - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4102148806 - Action 3301255903 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Supported Document Types</source>
+          <target state="translated">Dokumenttyper som stöds</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Action SupportedDocTypes - Property Caption</note>
         </trans-unit>
@@ -996,6 +1002,7 @@
         </trans-unit>
         <trans-unit id="Page 2744253236 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the supported source document type.</source>
+          <target state="translated">Anger vilken källdokumenttyp som stöds.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc Service Supported Types - Control Document Type - Property ToolTip</note>
         </trans-unit>
@@ -1721,6 +1728,7 @@
         </trans-unit>
         <trans-unit id="Page 2744253236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Service Supported Source Document Types</source>
+          <target state="translated">Källdokumenttyper som stöds i e-dokumenttjänst</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc Service Supported Types - Property Caption</note>
         </trans-unit>
@@ -1762,6 +1770,7 @@
         </trans-unit>
         <trans-unit id="Page 4102148806 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Edoc service,Electronic Document</source>
+          <target state="translated">E-dokumenttjänst,Elektroniskt dokument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -1773,6 +1782,7 @@
         </trans-unit>
         <trans-unit id="Page 4128474945 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Edoc,Electronic Document</source>
+          <target state="translated">E-dokument,Elektroniskt dokument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -1833,7 +1843,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 256357247 - Action 1505326866 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open E-Document</source>
-          <target state="translated">OpenEDocument</target>
+          <target state="translated">Öppna e-dokument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1331685701</note>
@@ -2300,11 +2310,13 @@
         </trans-unit>
         <trans-unit id="Table 1890189815 - Field 3701310097 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Service Code</source>
+          <target state="translated">Kod för e-dokumenttjänst</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Supported Type - Field E-Document Service Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1890189815 - Field 587895070 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Source Document Type</source>
+          <target state="translated">Källdokumenttyp</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Supported Type - Field Source Document Type - Property Caption</note>
         </trans-unit>
@@ -2886,6 +2898,7 @@
         </trans-unit>
         <trans-unit id="Table 957206269 - NamedType 2664610491" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document log entry does not contain data to export.</source>
+          <target state="translated">Loggtransaktionen för e-dokumentet innehåller inte data som ska exporteras.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Log - NamedType EDocLogEntryNoExportMsg</note>
         </trans-unit>
@@ -2897,6 +2910,7 @@
         </trans-unit>
         <trans-unit id="Table 1890189815 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Doc. Service Supported Type</source>
+          <target state="translated">Typ som stöds i e-dokumenttjänst</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Supported Type - Property Caption</note>
         </trans-unit>
@@ -2964,6 +2978,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 688821345 - Field 4102148806 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Service</source>
+          <target state="translated">E-dokumenttjänst</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 4252311308</note>
