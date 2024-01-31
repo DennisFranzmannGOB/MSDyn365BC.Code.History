@@ -191,7 +191,7 @@
         </trans-unit>
         <trans-unit id="Page 2247589152 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of document that the G/L entries apply to.</source>
-          <target state="translated">Spécifie le type de document pour lequel les écritures comptables sont lettrées.</target>
+          <target state="translated">Indique le type de document auquel les écritures comptables font référence.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Review G/L Entries - Control Document Type - Property ToolTip</note>
         </trans-unit>
