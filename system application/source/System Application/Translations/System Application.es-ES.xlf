@@ -647,7 +647,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 215834149 - NamedType 2396470215" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">¿Quiere seguir adelante y eliminar?</target>
+          <target state="translated">¿Desea seguir adelante y eliminar?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Account Impl. - NamedType ConfirmDeleteQst</note>
         </trans-unit>
@@ -1343,7 +1343,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3179573641 - NamedType 683667025" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Could not read response.</source>
-          <target state="translated">No se pudo leer la respuesta.</target>
+          <target state="translated">No se ha podido leer la respuesta.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS Web Request Helper - NamedType ReadResponseFailedErr</note>
         </trans-unit>
@@ -6099,7 +6099,7 @@
         </trans-unit>
         <trans-unit id="Page 664053810 - Action 2477294019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete the selected row.</source>
-          <target state="translated">Permite eliminar la fila seleccionada.</target>
+          <target state="translated">Eliminar la fila seleccionada.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Attach Setup - Action Delete - Property ToolTip</note>
         </trans-unit>
@@ -7646,7 +7646,7 @@
         </trans-unit>
         <trans-unit id="Page 1967324515 - Control 3064866762 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user role that defines the user’s default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.</source>
-          <target state="translated">Especifica el rol de usuario que define el Área de trabajo predeterminada del usuario y las personalizaciones específicas del rol. A menos que lo restrinjan los permisos, los usuarios pueden cambiar su rol en la página Mi configuración.</target>
+          <target state="translated">Especifica el rol de usuario que define el Área de trabajo predeterminada del usuario y las personalizaciones específicas del rol. A menos que se restrinja con permisos, los usuarios pueden cambiar su rol en la página Mi configuración.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Settings FactBox - Control UserRoleCenter - Property ToolTip</note>
         </trans-unit>
@@ -8485,7 +8485,7 @@
         </trans-unit>
         <trans-unit id="Page 240224259 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the attachment</source>
-          <target state="translated">Especifica el nombre del archivo adjunto.</target>
+          <target state="translated">Especifica el nombre del archivo adjunto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Related Attachments - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -9493,7 +9493,7 @@
         </trans-unit>
         <trans-unit id="Page 281796026 - Control 2339353424 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user role that defines the user’s default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.</source>
-          <target state="translated">Especifica el rol de usuario que define el Área de trabajo predeterminada del usuario y las personalizaciones específicas del rol. A menos que lo restrinjan los permisos, los usuarios pueden cambiar su rol en la página Mi configuración.</target>
+          <target state="translated">Especifica el rol de usuario que define el Área de trabajo predeterminada del usuario y las personalizaciones específicas del rol. A menos que se restrinja con permisos, los usuarios pueden cambiar su rol en la página Mi configuración.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Settings List - Control Role - Property ToolTip</note>
         </trans-unit>
@@ -9738,7 +9738,7 @@
         </trans-unit>
         <trans-unit id="Page 3047977240 - Control 172474617 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are consenting on behalf of your organization.</source>
-          <target state="translated">Está dando su consentimiento en nombre de la organización.</target>
+          <target state="translated">Está dando su consentimiento en nombre de su organización.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notice - Control ApproveForOrganization - Property Caption</note>
         </trans-unit>
@@ -9858,7 +9858,7 @@
         </trans-unit>
         <trans-unit id="Page 3163801880 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the attachment</source>
-          <target state="translated">Especifica el nombre del anexo</target>
+          <target state="translated">Especifica el nombre del archivo adjunto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Choose Scenario Attach - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -13292,7 +13292,7 @@
         </trans-unit>
         <trans-unit id="Page 664053810 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the attachment</source>
-          <target state="translated">Especifica el nombre del anexo</target>
+          <target state="translated">Especifica el nombre del archivo adjunto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Scenario Attach Setup - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -13382,7 +13382,7 @@
         </trans-unit>
         <trans-unit id="Page 761349018 - Control 989751795 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the attachment</source>
-          <target state="translated">Especifica el nombre del archivo adjunto.</target>
+          <target state="translated">Especifica el nombre del archivo adjunto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - Control FileName - Property ToolTip</note>
         </trans-unit>
@@ -14162,7 +14162,7 @@
         </trans-unit>
         <trans-unit id="Page 761349018 - NamedType 2367821945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">¿Quiere seguir adelante y eliminar?</target>
+          <target state="translated">¿Desea seguir adelante y eliminar?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - NamedType DeleteQst</note>
         </trans-unit>
@@ -15367,7 +15367,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 881233975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Backup or restore database</source>
-          <target state="translated">Copia sgdad/restaur base datos</target>
+          <target state="translated">C. sgdad./restaurar base datos</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet D365 BACKUP/RESTORE - Property Caption</note>
         </trans-unit>
