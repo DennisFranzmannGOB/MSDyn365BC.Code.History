@@ -155,7 +155,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 839727883 - NamedType 2310760446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The journal lines were successfully registered.</source>
-          <target state="translated">Les lignes de la feuille ont été enregistrées correctement.</target>
+          <target state="translated">Les lignes de la feuille ont été enregistrées avec succès.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Post. Batch - NamedType JournalLinesWereSuccesfullyRegisteredMsg</note>
         </trans-unit>
@@ -1083,7 +1083,7 @@
         </trans-unit>
         <trans-unit id="Page 3774659090 - Control 3394896907 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies changes in the actual general ledger amount.</source>
-          <target state="translated">Spécifie les modifications du montant réel de comptabilité.</target>
+          <target state="translated">Indique les modifications du montant réel de comptabilité.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Stat. Account Balance Lines - Control NetChange - Property ToolTip</note>
         </trans-unit>

@@ -227,7 +227,7 @@
         </trans-unit>
         <trans-unit id="Page 3615731784 - Control 1920046521 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the unit of measure.</source>
-          <target state="translated">Spécifie l’unité de mesure.</target>
+          <target state="translated">Indique l’unité.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Headline Details - Control Unit of Measure - Property ToolTip</note>
         </trans-unit>
