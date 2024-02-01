@@ -311,7 +311,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3457626429 - NamedType 214721300" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cannot determine the source origin: %1.</source>
-          <target state="translated">Kan de bronherkomst niet bepalen: %1.</target>
+          <target state="translated">Onbekende bronherkomst: %1.</target>
           <note from="Developer" annotates="general" priority="2">%1 the value of the source id</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Integration Master Data Synch. - NamedType CannotDetermineSourceOriginErr</note>
         </trans-unit>
@@ -384,7 +384,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 264040975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synch. Job Queue Entries</source>
-          <target state="translated">Wachtrij-items van synchronisatietaak</target>
+          <target state="translated">Synchronisatietaakwachtrij-items</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action Synch. Job Queue Entries - Property Caption</note>
         </trans-unit>
@@ -438,7 +438,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - Action 639242359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use Default Synchronization Setup</source>
-          <target state="translated">Standaardsynchronisatie-instelling gebruiken</target>
+          <target state="translated">Standaardsynchronisatie-instellingen gebruiken</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - Action ResetConfiguration - Property Caption</note>
         </trans-unit>
@@ -588,7 +588,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - Action 639242359 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use Default Synchronization Setup</source>
-          <target state="translated">Standaardsynchronisatie-instelling gebruiken</target>
+          <target state="translated">Standaardsynchronisatie-instellingen gebruiken</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Action ResetConfiguration - Property Caption</note>
         </trans-unit>
@@ -882,7 +882,7 @@
         </trans-unit>
         <trans-unit id="Page 3108456880 - Control 39585143 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the synchronization direction.</source>
-          <target state="translated">Hiermee wordt de synchronisatierichting opgegeven.</target>
+          <target state="translated">Hiermee wordt de richting van de synchronisatie opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Full Synch. Review - Control Direction - Property ToolTip</note>
         </trans-unit>
@@ -1038,7 +1038,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 1624143781" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to uncouple the selected mappings, which means data for the records will no longer synchronize. \\Do you want to continue?</source>
-          <target state="translated">U staat op het punt de geselecteerde toewijzingen te ontkoppelen, wat betekent dat gegevens voor de records niet meer worden gesynchroniseerd. \\Wilt u doorgaan?</target>
+          <target state="translated">U staat op het punt de geselecteerde toewijzingen te ontkoppelen, wat betekent dat gegevens van de records niet meer worden gesynchroniseerd. \\Wilt u doorgaan?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartUncouplingForegroundQst</note>
         </trans-unit>

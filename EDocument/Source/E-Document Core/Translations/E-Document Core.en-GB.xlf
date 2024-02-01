@@ -35,7 +35,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2348542397 - NamedType 3178693077" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-document is %1 and can not be sent in this state.</source>
-          <target state="translated">E-document is %1 and can not be sent in this County.</target>
+          <target state="translated">E-document is %1 and cannot be sent in this state.</target>
           <note from="Developer" annotates="general" priority="2">%1 - Status</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Integration Management - NamedType EDocumentSendErr</note>
         </trans-unit>
