@@ -156,7 +156,7 @@
         </trans-unit>
         <trans-unit id="Page 1683400149 - Control 365542049 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the amount to apply</source>
-          <target state="translated">Indique le montant à lettrer</target>
+          <target state="translated">Indique le montant à appliquer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal Sub - Control Difference - Property ToolTip</note>
         </trans-unit>
