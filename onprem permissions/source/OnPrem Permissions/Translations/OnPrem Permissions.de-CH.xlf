@@ -107,7 +107,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2844503161 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in ins. jnls.</source>
-          <target state="translated">Posten im Vers. Buch.-Bl. erst</target>
+          <target state="translated">Posten im Vers. Buch.-Bl. erst.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet FA-INS JOURNAL - Property Caption</note>
         </trans-unit>
@@ -539,7 +539,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 1076139896 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Make orders from Planning</source>
-          <target state="translated">Auftr. v. Planung erst.</target>
+          <target state="translated">Auftr. v. Planung erstellen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet MFG-PLANNING, CREATE - Property Caption</note>
         </trans-unit>
@@ -689,7 +689,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2477744452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in res. jnls.</source>
-          <target state="translated">Posten in Ress. Buch.-Bl. erst</target>
+          <target state="translated">Posten in Ress. Buch.-Bl. erst.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet RES-JOURNAL - Property Caption</note>
         </trans-unit>
