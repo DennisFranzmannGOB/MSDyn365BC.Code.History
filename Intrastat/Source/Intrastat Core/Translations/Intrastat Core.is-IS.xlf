@@ -473,7 +473,7 @@
         </trans-unit>
         <trans-unit id="Page 879680616 - Action 4032263875 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Release the document to the next stage of processing. You must reopen the document before you can make changes to it.</source>
-          <target state="translated">Sendu fylgiskjalið á næsta vinnslustig. Nauðsynlegt er að opna skjalið aftur til að gera breytingar á því.</target>
+          <target state="translated">Losa skjalið í næsta stig vinnslu. Það verður að opna skjalið aftur áður en hægt er að gera breytingar á því.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report - Action Release - Property ToolTip</note>
         </trans-unit>
@@ -1365,7 +1365,7 @@
         </trans-unit>
         <trans-unit id="Page 879680616 - Control 215497968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code that identifies the currency of the Intrastat report.</source>
-          <target state="translated">Tilgreinir kóða sem er einkennandi fyrir gjaldmiðil Intrastat skýrslunnar.</target>
+          <target state="translated">Tilgreinir kóða sem er einkennandi fyrir gjaldmiðil Intrastat-skýrslunnar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report - Control Currency Identifier - Property ToolTip</note>
         </trans-unit>
@@ -1770,7 +1770,7 @@
         </trans-unit>
         <trans-unit id="Report 3076093313 - Control 4202100993 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show Item Charge Entries</source>
-          <target state="translated">Sýna færslur kostnaðarauka</target>
+          <target state="translated">Sýna kostnaðaraukafærslur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Intrastat Report Get Lines - Control ShowingItemCharges - Property Caption</note>
         </trans-unit>

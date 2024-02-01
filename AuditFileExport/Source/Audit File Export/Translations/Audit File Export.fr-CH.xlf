@@ -173,7 +173,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3522532737 - NamedType 1525031959" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify an ending date.</source>
-          <target state="translated">Vous devez Indiquer une date de fin.</target>
+          <target state="translated">Vous devez indiquer une date de fin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit Mapping Helper - NamedType EndingDateNotFilledErr</note>
         </trans-unit>
@@ -227,7 +227,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3522532737 - NamedType 3683577878" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify a starting date.</source>
-          <target state="translated">Vous devez Indiquer une date de début.</target>
+          <target state="translated">Vous devez spécifier une date de début.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Audit Mapping Helper - NamedType StartingDateNotFilledErr</note>
         </trans-unit>
@@ -431,7 +431,7 @@
         </trans-unit>
         <trans-unit id="Page 3546478469 - Action 3517601603 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy the G/L account mapping from another mapping code.</source>
-          <target state="translated">Copiez le lettrage de compte général à partir d’un autre code de lettrage.</target>
+          <target state="translated">Copiez le lettrage de compte général à partir d’un autre code de mappage.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page G/L Acc. Mapping Card - Action CopyMapping - Property ToolTip</note>
         </trans-unit>

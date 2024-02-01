@@ -107,7 +107,7 @@
         </trans-unit>
         <trans-unit id="Table 2670224048 - Field 4242196510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retail - Gen. Prod. Posting Group</source>
-          <target state="translated">Vte détail : groupe comptabilisation produit</target>
+          <target state="translated">Vte détail - Groupe compta produit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Manufacturing Demo Data Setup - Field Retail Code - Property Caption</note>
         </trans-unit>

@@ -126,7 +126,7 @@
         </trans-unit>
         <trans-unit id="Page 3454677590 - Action 63770366 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create/Restore Default Data Exchange Definition(-s)</source>
-          <target state="translated">Crear o restaurar definición de intercambio de datos predeterminado (-s)</target>
+          <target state="translated">Crear o restaurar definiciones de intercambio de datos predeterminadas</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Declaration Setup - Action ImportDefaultDataExchangeDef - Property ToolTip</note>
         </trans-unit>
