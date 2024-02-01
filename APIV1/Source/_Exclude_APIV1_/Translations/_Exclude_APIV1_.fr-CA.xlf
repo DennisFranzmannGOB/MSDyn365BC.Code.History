@@ -880,7 +880,7 @@
         </trans-unit>
         <trans-unit id="Page 1278005506 - Control 998393528 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the status of the Sales Credit Memo (cancelled, paid, on hold, created).</source>
-          <target state="translated">Spécifie l'état de la note de crédit vente (annulée, payée, suspendue, créée).</target>
+          <target state="translated">Spécifie l’état de la note de crédit vente (annulée, payée, suspendue, créée).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV1 - Sales Credit Memos - Control status - Property ToolTip</note>
         </trans-unit>

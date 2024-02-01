@@ -2832,7 +2832,7 @@
         </trans-unit>
         <trans-unit id="Page 202493269 - Action 1994005900 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit detailed information about the customer.</source>
-          <target state="translated">Visualizzare o modificare le informazioni dettagliate sul cliente.</target>
+          <target state="translated">Visualizzare o modificare informazioni dettagliate sul cliente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customers - Action CustomerCard - Property ToolTip</note>
         </trans-unit>
@@ -2868,7 +2868,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Action 1994005900 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View or edit detailed information about the customer.</source>
-          <target state="translated">Visualizzare o modificare le informazioni dettagliate sul cliente.</target>
+          <target state="translated">Visualizzare o modificare informazioni dettagliate sul cliente.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Action CustomerCard - Property ToolTip</note>
         </trans-unit>
@@ -3024,7 +3024,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Action 383844080 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sync Shipments To Shopify</source>
-          <target state="translated">Sincronizza spedizioni in Shopify</target>
+          <target state="translated">Sincronizzazione spedizioni a Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Action SyncShipments - Property Caption</note>
         </trans-unit>
@@ -3282,7 +3282,7 @@
         </trans-unit>
         <trans-unit id="Page 3706164926 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Elimina movimenti risalenti a più di 7 giorni precedenti</target>
+          <target state="translated">Elimina movimenti risalenti a più di 7 giorni prima</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Action Delete7days - Property Caption</note>
         </trans-unit>
@@ -5027,7 +5027,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 1846331655 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify</source>
-          <target state="translated">Specifica il numero di ordine da Shopify</target>
+          <target state="translated">Specifica il numero di ordine di Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control ShopifyOrderNo - Property ToolTip</note>
         </trans-unit>
@@ -6429,7 +6429,7 @@
         </trans-unit>
         <trans-unit id="Page 3918578631 - Control 860944352 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review the terms and conditions.</source>
-          <target state="translated">Esaminare i termini e le condizioni.</target>
+          <target state="translated">Esaminare le condizioni.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Connector Guide - Control StepConsent - Property InstructionalText</note>
         </trans-unit>
@@ -6681,7 +6681,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 1846331655 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify.</source>
-          <target state="translated">Specifica il numero di ordine da Shopify.</target>
+          <target state="translated">Specifica il numero di ordine di Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control ShopifyOrderNo - Property ToolTip</note>
         </trans-unit>
@@ -7329,7 +7329,7 @@
         </trans-unit>
         <trans-unit id="Page 834364629 - Control 3787812635 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer template to use when creating unknown customers for this country. This template will only be used if the  field "Fix CustomerNo." is blank</source>
-          <target state="translated">Specifica il modello di cliente da utilizzare per la creazione di clienti sconosciuti per il paese. Questo modello verrà utilizzato solo se il campo "Correggi nr. cliente" è vuoto</target>
+          <target state="translated">Specifica il modello di cliente da utilizzare per la creazione di clienti sconosciuti per il paese. Questo modello è utilizzato solo se il campo "Correggi nr. cliente" è vuoto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Templates - Control CustomerTemlateCode - Property ToolTip</note>
         </trans-unit>

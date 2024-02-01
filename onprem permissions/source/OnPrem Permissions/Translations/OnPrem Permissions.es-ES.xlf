@@ -995,7 +995,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 187964102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post receipt, put away,etc.</source>
-          <target state="translated">Alb. regis., almacenamiento,etc.</target>
+          <target state="translated">Alb. regis., almacenam., etc.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet WM-R/PA/A/P/S, POST - Property Caption</note>
         </trans-unit>
