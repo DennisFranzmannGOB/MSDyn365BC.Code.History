@@ -599,7 +599,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1236212366 - NamedType 3148546775" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup for %1 / %2</source>
-          <target state="translated">Uppsetning fyrir %1 / %2</target>
+          <target state="translated">Setja upp fyrir %1 / %2</target>
           <note from="Developer" annotates="general" priority="2">%1 is the VAT Bus. Posting Group Code, %2 is the VAT Prod. Posting Group Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Contoso Posting Setup - NamedType VATSetupDescTok</note>
         </trans-unit>
@@ -2219,7 +2219,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3187161238 - NamedType 4247888177" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>WIP Account, Finished Goods</source>
-          <target state="translated">VÍV-reikningur, fullunnar vörur</target>
+          <target state="translated">VÍV reikn., Fullunnar vörur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg GL Account - NamedType WIPAccountFinishedGoodsLbl</note>
         </trans-unit>

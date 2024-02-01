@@ -2332,8 +2332,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Marketplace - NamedType MarketPlaceSuccInstallTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3666029466 - NamedType 2491398484" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Selected extension could not be installed because a valid App Id or package ID is not passed. Application ID : %1.</source>
-          <target state="translated">Selected extension could not be installed because a valid App Id or package ID is not passed. Application ID : %1.</target>
+          <source>Selected extension could not be installed because a valid App Id is not passed. Application ID : %1.</source>
+          <target state="translated">Selected extension could not be installed because a valid App Id is not passed. Application ID : %1.</target>
           <note from="Developer" annotates="general" priority="2">Telemetry error message for trying to install an extension a valid id is not passed; %1 is the applicaiton id recieved from appsource.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Marketplace - NamedType TelemetryExtensionNotFoundErr</note>
         </trans-unit>
@@ -2362,8 +2362,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Marketplace - NamedType AlreadyInstalledMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3666029466 - NamedType 4219651073" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Selected extension could not be installed because a valid App Id or package ID is not passed.</source>
-          <target state="translated">Selected extension could not be installed because a valid App Id or package ID is not passed.</target>
+          <source>Selected extension could not be installed because a valid App Id is not passed.</source>
+          <target state="translated">Selected extension could not be installed because a valid App Id is not passed.</target>
           <note from="Developer" annotates="general" priority="2">Error message for trying to install an extension where a valid id is not passed;</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Marketplace - NamedType ExtensionNotFoundErr</note>
         </trans-unit>
@@ -4716,6 +4716,13 @@
         <trans-unit id="EnumExtension 4246872218 - EnumValue 1535088282 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Marketing text suggestions</source>
           <target state="translated">Marketing text suggestions</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 3058546390</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 4246872218 - EnumValue 3050346346 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Chat</source>
+          <target state="translated">Chat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Enum 3058546390</note>
@@ -15858,6 +15865,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control RefreshInfo - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 513864971 - Control 340684856 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are about to install a preview version of the extension.</source>
+          <target state="translated">You are about to install a preview version of the extension.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control PreviewInfo - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 513864971 - Control 3753104505 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose language</source>
           <target state="translated">Choose language</target>
@@ -17292,6 +17305,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - NamedType WarningLbl</note>
         </trans-unit>
+        <trans-unit id="Page 513864971 - NamedType 3653194578" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Note: A preview key was provided for the installation. A preview version of the extension is about to be installed. If a higher public version exists for your environment, it will be installed instead of the preview version.</source>
+          <target state="translated">Note: A preview key was provided for the installation. A preview version of the extension is about to be installed. If a higher public version exists for your environment, it will be installed instead of the preview version.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - NamedType PreviewInfoLbl</note>
+        </trans-unit>
         <trans-unit id="Page 513864971 - NamedType 3868090891" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>After installation, your session will refresh, and you can set up your extension.</source>
           <target state="translated">After installation, your session will refresh, and you can set up your extension.</target>
@@ -18367,7 +18386,7 @@
         </trans-unit>
         <trans-unit id="Page 3666029466 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>app,add-in,customize,plug-in,appsource</source>
-          <target state="translated">app,add-in,Customise,plug-in,appsource</target>
+          <target state="translated">app,add-in,customise,plug-in,appsource</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Marketplace - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -22505,6 +22524,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Profiling Node - Field Full Time - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 456225495 - Field 3520108068 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Response URL</source>
+          <target state="translated">Response URL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Extension Installation - Field ResponseUrl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 456225495 - Field 3641927271 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ID</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Extension Installation - Field ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 456225495 - Field 577350399 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Preview Key</source>
+          <target state="translated">Preview Key</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Extension Installation - Field PreviewKey - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 457327993 - Field 1054913556 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. of Modifies</source>
           <target state="translated">No. of Modifies</target>
@@ -23692,6 +23729,12 @@
           <target state="translated">Profiling Node</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Profiling Node - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 456225495 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Extension Installation</source>
+          <target state="translated">Extension Installation</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Extension Installation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 457327993 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email Message</source>
