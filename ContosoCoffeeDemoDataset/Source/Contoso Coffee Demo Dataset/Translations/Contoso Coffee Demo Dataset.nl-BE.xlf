@@ -359,7 +359,7 @@
         </trans-unit>
         <trans-unit id="Table 4250254492 - Field 350630476 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location Directed Pick and Put-away</source>
-          <target state="translated">Door vestiging gestuurde pick en opslag</target>
+          <target state="translated">Vestiginggerichte pick en opslag</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Warehouse Module Setup - Field Location Directed Pick - Property Caption</note>
         </trans-unit>
@@ -473,7 +473,7 @@
         </trans-unit>
         <trans-unit id="Table 1613625135 - Field 350630476 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location Directed Pick and Put-away</source>
-          <target state="translated">Locatiegerichte pick en opslag</target>
+          <target state="translated">Vestiginggerichte pick en opslag</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Whse Demo Data Setup - Field Location Directed Pick - Property Caption</note>
         </trans-unit>
@@ -599,7 +599,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1236212366 - NamedType 3148546775" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup for %1 / %2</source>
-          <target state="translated">Instelling voor %1 / %2</target>
+          <target state="translated">Instellen voor %1 / %2</target>
           <note from="Developer" annotates="general" priority="2">%1 is the VAT Bus. Posting Group Code, %2 is the VAT Prod. Posting Group Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Contoso Posting Setup - NamedType VATSetupDescTok</note>
         </trans-unit>
@@ -1487,7 +1487,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3220894869 - NamedType 1262072474" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Direct Cost Applied, Retail</source>
-          <target state="translated">Directe kosten toegepast, detailhandel</target>
+          <target state="translated">Dir. kosten toegep., detailh.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common GL Account - NamedType DirectCostAppliedRetailLbl</note>
         </trans-unit>
@@ -1697,7 +1697,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1485704842 - NamedType 2939465930" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Other customers and vendors (not EU)</source>
-          <target state="translated">Overige klanten en leveranciers (niet EU)</target>
+          <target state="translated">Klanten en leveranciers (niet EU)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Posting Group - NamedType ExportCustomerVendorLbl</note>
         </trans-unit>
@@ -2219,7 +2219,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3187161238 - NamedType 4247888177" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>WIP Account, Finished Goods</source>
-          <target state="translated">OHW-rekening, Gerede producten</target>
+          <target state="translated">OHW-rekening, Gereed product</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg GL Account - NamedType WIPAccountFinishedGoodsLbl</note>
         </trans-unit>
