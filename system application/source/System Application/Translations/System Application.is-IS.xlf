@@ -2650,7 +2650,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2480824916 - Method 1340944587 - NamedType 4132244079" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 can not be empty</source>
-          <target state="translated">%1 má ekki vera autt</target>
+          <target state="translated">%1 getur ekki verið tómt</target>
           <note from="Developer" annotates="general" priority="2">%1 = Variable Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS URI Helper - Method TestConstructUrlParameter - NamedType ValueCanNotBeEmptyErr</note>
         </trans-unit>
@@ -7646,7 +7646,7 @@
         </trans-unit>
         <trans-unit id="Page 1967324515 - Control 3064866762 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user role that defines the user’s default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.</source>
-          <target state="translated">Tilgreinir notandahlutverkið sem skilgreinir sjálfgefnar og sértækar stillingar notandans í Mínu hlutverki. Notendur geta breytt hlutverki sínu á stillingasíðunni nema heimildir séu takmarkaðar.</target>
+          <target state="translated">Tilgreinir notandahlutverkið sem skilgreinir sjálfgefnar og sértækar stillingar notandans í „Mitt hlutverk“. Notendur geta breytt hlutverki sínu á stillingasíðunni nema heimildir séu takmarkaðar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Settings FactBox - Control UserRoleCenter - Property ToolTip</note>
         </trans-unit>
@@ -7730,7 +7730,7 @@
         </trans-unit>
         <trans-unit id="Page 2005578726 - Control 3594686602 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a spacer for 'Brick' view mode.</source>
-          <target state="translated">Tilgreinir bil fyrir skoðunarstillinguna „Múrsteinn“.</target>
+          <target state="translated">Tilgreinir bil fyrir kubbayfirlit.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Control Control18 - Property ToolTip</note>
         </trans-unit>
@@ -9493,7 +9493,7 @@
         </trans-unit>
         <trans-unit id="Page 281796026 - Control 2339353424 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the user role that defines the user’s default Role Center and role-specific customizations. Unless restricted by permissions, users can change their role on the My Settings page.</source>
-          <target state="translated">Tilgreinir notandahlutverkið sem skilgreinir sjálfgefnar og sértækar stillingar notandans í Mínu hlutverki. Notendur geta breytt hlutverki sínu á stillingasíðunni nema heimildir séu takmarkaðar.</target>
+          <target state="translated">Tilgreinir notandahlutverkið sem skilgreinir sjálfgefnar og sértækar stillingar notandans í „Mitt hlutverk“. Notendur geta breytt hlutverki sínu á stillingasíðunni nema heimildir séu takmarkaðar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Settings List - Control Role - Property ToolTip</note>
         </trans-unit>
@@ -9738,13 +9738,13 @@
         </trans-unit>
         <trans-unit id="Page 3047977240 - Control 172474617 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are consenting on behalf of your organization.</source>
-          <target state="translated">Þú ert að samþykkja fyrir hönd fyrirtækisins.</target>
+          <target state="translated">Notandi er að veita samþykki fyrir hönd stofnunarinnar/fyrirtækisins.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notice - Control ApproveForOrganization - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3047977240 - Control 3832370403 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View information about the privacy.</source>
-          <target state="translated">Skoðaðu upplýsingar um persónuvernd.</target>
+          <target state="translated">Skoðið upplýsingar um persónuvernd.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notice - Control LearnMore - Property ToolTip</note>
         </trans-unit>
@@ -9894,7 +9894,7 @@
         </trans-unit>
         <trans-unit id="Page 3170013184 - Control 2019212495 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the deployment schedule.</source>
-          <target state="translated">Tilgreinir tímasetningu uppsetningar.</target>
+          <target state="translated">Tilgreinir áætlun uppsetningarinnar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Deployment Status - Control Schedule - Property ToolTip</note>
         </trans-unit>
@@ -10728,7 +10728,7 @@
         </trans-unit>
         <trans-unit id="Page 3406436467 - Control 172474617 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are consenting on behalf of your organization.</source>
-          <target state="translated">Þú ert að veita samþykki fyrir hönd stofnunarinnar/fyrirtækisins.</target>
+          <target state="translated">Notandi er að veita samþykki fyrir hönd stofnunarinnar/fyrirtækisins.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Power Automate Privacy Notice - Control ApproveForOrganization - Property Caption</note>
         </trans-unit>
@@ -10780,7 +10780,7 @@
         </trans-unit>
         <trans-unit id="Page 3406436467 - Control 607920654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View information about the privacy.</source>
-          <target state="translated">Skoðaðu upplýsingar um persónuvernd.</target>
+          <target state="translated">Skoðið upplýsingar um persónuvernd.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Power Automate Privacy Notice - Control PrivacyAndCookies - Property ToolTip</note>
         </trans-unit>
@@ -12734,7 +12734,7 @@
         </trans-unit>
         <trans-unit id="Page 4061016505 - Control 2889527988 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the id of the scheduled task.</source>
-          <target state="translated">Tilgreinir auðkenni áætlaðs verks.</target>
+          <target state="translated">Tilgreinir kenni áætlaðs verks.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Control Task Id - Property ToolTip</note>
         </trans-unit>
@@ -13886,7 +13886,7 @@
         </trans-unit>
         <trans-unit id="Page 3338462467 - NamedType 3333379853" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to start the recording now?</source>
-          <target state="translated">Á að byrja að skráningu núna?</target>
+          <target state="translated">Á að byrja á skráningu núna?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Permission Set - NamedType StartRecordingQst</note>
         </trans-unit>
@@ -14743,7 +14743,7 @@
         </trans-unit>
         <trans-unit id="Page 3047977240 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Please review terms and conditions</source>
-          <target state="translated">Farðu yfir skilmálana</target>
+          <target state="translated">Farið yfir skilmálana</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notice - Property Caption</note>
         </trans-unit>
@@ -15367,7 +15367,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 881233975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Backup or restore database</source>
-          <target state="translated">Afrita eða endurh. gagnagrunn</target>
+          <target state="translated">Afrita/endurheimta gagnagrunn</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet D365 BACKUP/RESTORE - Property Caption</note>
         </trans-unit>
