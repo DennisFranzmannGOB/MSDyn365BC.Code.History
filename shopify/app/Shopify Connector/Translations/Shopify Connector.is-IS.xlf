@@ -3378,7 +3378,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Action 2281017256 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create a new customer.</source>
-          <target state="translated">Stofna nýjan viðskiptavin.</target>
+          <target state="translated">Stofna nýjan viðskiptamann.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Action CreateNewCustomer - Property ToolTip</note>
         </trans-unit>
@@ -3810,7 +3810,7 @@
         </trans-unit>
         <trans-unit id="Page 1491468912 - Control 714791889 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the city of the address.</source>
-          <target state="translated">Tilgreinir borg/bæ aðseturs.</target>
+          <target state="translated">Tilgreinir borg aðsetursins.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Adresses - Control City - Property ToolTip</note>
         </trans-unit>
@@ -4776,7 +4776,7 @@
         </trans-unit>
         <trans-unit id="Page 202493269 - Control 646935216 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's telephone number.</source>
-          <target state="translated">Tilgreinir símanúmer viðskiptamannsins.</target>
+          <target state="translated">Tilgreinir símanúmer viðskiptamanns.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customers - Control Phone - Property ToolTip</note>
         </trans-unit>
@@ -4829,7 +4829,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's name.</source>
-          <target state="translated">Tilgreinir nafn viðskiptamannsins.</target>
+          <target state="translated">Tilgreinir nafn viðskiptamanns.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Control Name - Property ToolTip</note>
         </trans-unit>
@@ -4883,7 +4883,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Control 646935216 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer's telephone number.</source>
-          <target state="translated">Tilgreinir símanúmer viðskiptamannsins.</target>
+          <target state="translated">Tilgreinir símanúmer viðskiptamanns.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Control Phone - Property ToolTip</note>
         </trans-unit>
@@ -5045,7 +5045,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 2301961287 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the postal code of the billing address.</source>
-          <target state="translated">Tilgreinir póstnúmer greiðslupóstfangs.</target>
+          <target state="translated">Tilgreinir póstnúmer reikningsheimilisfangs.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control BillToPostCode - Property ToolTip</note>
         </trans-unit>
@@ -5939,7 +5939,7 @@
         </trans-unit>
         <trans-unit id="Page 3553230413 - Control 3450651614 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Variant Code field.</source>
-          <target state="translated">Tilgreinir gildið afbrigðiskóðareits.</target>
+          <target state="translated">Tilgreinir gildi afbrigðiskóðareits.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Return Lines - Control Variant Code - Property ToolTip</note>
         </trans-unit>
@@ -6429,7 +6429,7 @@
         </trans-unit>
         <trans-unit id="Page 3918578631 - Control 860944352 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Review the terms and conditions.</source>
-          <target state="translated">Fara yfir ákvæði og skilmála.</target>
+          <target state="translated">Fara yfir skilmálana.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Connector Guide - Control StepConsent - Property InstructionalText</note>
         </trans-unit>
@@ -6471,7 +6471,7 @@
         </trans-unit>
         <trans-unit id="Page 4103967884 - Control 4281524059 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the URL of the Shopify shop.</source>
-          <target state="translated">Tilgreinir vefslóð Shopify-verslunar.</target>
+          <target state="translated">Tilgreinir vefslóð Shopify-verslunarinnar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Selection - Control Shopify URL - Property ToolTip</note>
         </trans-unit>
@@ -7383,7 +7383,7 @@
         </trans-unit>
         <trans-unit id="Page 873703241 - Control 3450651614 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Variant Code field.</source>
-          <target state="translated">Tilgreinir gildið afbrigðiskóðareits.</target>
+          <target state="translated">Tilgreinir gildi afbrigðiskóðareits.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Refund Lines - Control Variant Code - Property ToolTip</note>
         </trans-unit>
