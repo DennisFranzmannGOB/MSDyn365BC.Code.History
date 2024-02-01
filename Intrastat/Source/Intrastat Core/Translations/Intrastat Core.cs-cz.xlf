@@ -2012,7 +2012,7 @@
         </trans-unit>
         <trans-unit id="Table 2113709934 - Field 3458298667 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region of Payment Code</source>
-          <target state="translated">Kód země/oblasti původu</target>
+          <target state="translated">Kód země/oblasti platby</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Intrastat Report Line - Field Country/Region of Payment Code - Property Caption</note>
         </trans-unit>

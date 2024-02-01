@@ -17,7 +17,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1633887332 - NamedType 1428720056" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The bank statement that you are importing contains transactions in currencies other than the %1 %2 of bank account %3.</source>
-          <target state="translated">Il rendiconto bancario che si sta importando contiene le transazioni in valute diverse da %1 %2 del conto bancario %3.</target>
+          <target state="translated">Il rendiconto bancario che si sta importando contiene le transazioni in valute diverse da %1 %2 del conto corrente bancario %3.</target>
           <note from="Developer" annotates="general" priority="2">%1 %2 = Currency Code EUR; %3 = Bank Account No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AMC Bank PrePost Proc - NamedType BankAccCurrErr</note>
         </trans-unit>
@@ -875,7 +875,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Control 1143591 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Bank Clearing Standards to be used on vendors bank accounts.</source>
-          <target state="translated">Setup Clearing Bancario Standard da utilizzare nei C/C bancari fornitori.</target>
+          <target state="translated">Impostare Clearing Bancario Standard da utilizzare nei C/C bancari fornitori.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Control UpdBankClearStd - Property ToolTip</note>
         </trans-unit>
@@ -1000,7 +1000,7 @@
         </trans-unit>
         <trans-unit id="Page 1294546084 - Control 2099105517 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup Bank Clearing Standards to be used on vendors bank accounts</source>
-          <target state="translated">Setup Clearing Bancario Standard da utilizzare nei C/C bancari fornitori</target>
+          <target state="translated">Impostare Clearing Bancario Standard da utilizzare nei C/C bancari fornitori</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assisted Setup - Control UpdBankClearGrp - Property InstructionalText</note>
         </trans-unit>
