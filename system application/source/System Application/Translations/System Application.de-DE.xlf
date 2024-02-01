@@ -899,7 +899,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 215834149 - NamedType 2396470215" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Löschen?</target>
+          <target state="translated">Fortfahren und löschen?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Account Impl. - NamedType ConfirmDeleteQst</note>
         </trans-unit>
@@ -5993,7 +5993,7 @@
         </trans-unit>
         <trans-unit id="Page 3389183890 - Action 1567206476 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Add an email account.</source>
-          <target state="translated">Fügen Sie ein E-Mail-Konto hinzu.</target>
+          <target state="translated">E-Mail-Konto hinzufügen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Accounts - Action AddAccount - Property ToolTip</note>
         </trans-unit>
@@ -6125,7 +6125,7 @@
         </trans-unit>
         <trans-unit id="Page 3406436467 - Action 1235620153 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go to the next page.</source>
-          <target state="translated">Wechselt zur nächsten Seite.</target>
+          <target state="translated">Zur nächsten Seite wechseln.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Power Automate Privacy Notice - Action Next - Property ToolTip</note>
         </trans-unit>
@@ -11084,7 +11084,7 @@
         </trans-unit>
         <trans-unit id="Page 3047977240 - Control 3832370403 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View information about the privacy.</source>
-          <target state="translated">Zeigen Sie Informationen zum Datenschutz an.</target>
+          <target state="translated">Informationen zum Datenschutz anzeigen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Privacy Notice - Control LearnMore - Property ToolTip</note>
         </trans-unit>
@@ -12192,7 +12192,7 @@
         </trans-unit>
         <trans-unit id="Page 3406436467 - Control 607920654 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View information about the privacy.</source>
-          <target state="translated">Zeigen Sie Informationen zum Datenschutz an.</target>
+          <target state="translated">Informationen zum Datenschutz anzeigen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Power Automate Privacy Notice - Control PrivacyAndCookies - Property ToolTip</note>
         </trans-unit>
@@ -14234,7 +14234,7 @@
         </trans-unit>
         <trans-unit id="Page 4035890834 - Control 3804014811 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the subtype of the object.</source>
-          <target state="translated">Gibt die Objektunterart an</target>
+          <target state="translated">Gibt den Untertyp des Objekts an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Objects - Control Object Subtype - Property ToolTip</note>
         </trans-unit>
@@ -16250,7 +16250,7 @@
         </trans-unit>
         <trans-unit id="Page 761349018 - NamedType 2367821945" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go ahead and delete?</source>
-          <target state="translated">Löschen?</target>
+          <target state="translated">Fortfahren und löschen?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - NamedType DeleteQst</note>
         </trans-unit>
@@ -17497,7 +17497,7 @@
         </trans-unit>
         <trans-unit id="Page 906691248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Waiting for a response. Do not close this page.</source>
-          <target state="translated">Warten auf eine Antwort. Schließen Sie diese Seite nicht.</target>
+          <target state="translated">Warten auf eine Antwort. Schließen Sie diese Seite nicht</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page OAuth2ControlAddIn - Property Caption</note>
         </trans-unit>
@@ -17635,7 +17635,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 757517586 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assign permissions to users</source>
-          <target state="translated">Benutzern Berechtigungen zuweisen</target>
+          <target state="translated">Benutzern Berechtig. zuweisen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SECURITY - Property Caption</note>
         </trans-unit>

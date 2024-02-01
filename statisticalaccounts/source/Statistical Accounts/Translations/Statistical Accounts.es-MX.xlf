@@ -1161,7 +1161,7 @@
         </trans-unit>
         <trans-unit id="Page 3787656683 - Control 3710982960 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the posting date for the entry.</source>
-          <target state="translated">Especifica la fecha de registro para el movimiento.</target>
+          <target state="translated">Especifica la fecha de registro del movimiento.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Stat. Acc. Reverse Entries - Control Posting Date - Property ToolTip</note>
         </trans-unit>

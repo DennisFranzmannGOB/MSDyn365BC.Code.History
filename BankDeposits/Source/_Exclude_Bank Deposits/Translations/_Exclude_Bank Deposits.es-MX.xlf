@@ -254,7 +254,7 @@
         </trans-unit>
         <trans-unit id="Page 1890430176 - Action 3302314122 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Select one or more ledger entries that you want to apply this record to so that the related posted documents are closed as paid or refunded. </source>
-          <target state="translated">Permite seleccionar uno o varios movimientos contables a los que desea aplicar este registro para que los documentos registrados relacionados se cierren como pagados o reembolsados.</target>
+          <target state="translated">Permite seleccionar uno o varios movimientos contables que desea liquidar en este registro para que los documentos registrados relacionados se cierren como pagados o reembolsados.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit Subform - Action ApplyEntries - Property ToolTip</note>
         </trans-unit>
@@ -332,7 +332,7 @@
         </trans-unit>
         <trans-unit id="Page 2880731335 - Action 913412068 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View a test report so that you can find and correct any errors before you perform the actual posting of the journal or document.</source>
-          <target state="translated">Permite ver un informe de prueba para que pueda buscar y corregir errores antes de realizar el registro real del diario o documento.</target>
+          <target state="translated">Permite ver un informe de prueba para poder encontrar y corregir cualquier error antes de realizar el registro en sí del diario o del documento.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposits - Action TestReport - Property ToolTip</note>
         </trans-unit>
@@ -398,7 +398,7 @@
         </trans-unit>
         <trans-unit id="Page 3073362426 - Action 3150094508 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View a test report so that you can find and correct any errors before you perform the actual posting of the journal or document.</source>
-          <target state="translated">Permite ver un informe de prueba para que pueda buscar y corregir errores antes de realizar el registro real del diario o documento.</target>
+          <target state="translated">Permite ver un informe de prueba para poder encontrar y corregir cualquier error antes de realizar el registro en sí del diario o del documento.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit - Action Test Report - Property ToolTip</note>
         </trans-unit>
