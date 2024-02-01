@@ -461,7 +461,7 @@
         </trans-unit>
         <trans-unit id="Page 879680616 - Action 3628747446 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create the Intrastat reporting file.</source>
-          <target state="translated">Intrastat-Berichtsdatei erstellen</target>
+          <target state="translated">Intrastat-Berichtsdatei erstellen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report - Action CreateFile - Property ToolTip</note>
         </trans-unit>
@@ -485,7 +485,7 @@
         </trans-unit>
         <trans-unit id="Page 1566601818 - Control 215497968 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a code that identifies the currency of the Intrastat Report.</source>
-          <target state="translated">Gibt einen Code für die Währung des Intrastat-Berichts an</target>
+          <target state="translated">Gibt einen Code für die Währung des Intrastatberichts an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report List - Control Currency Identifier - Property ToolTip</note>
         </trans-unit>
@@ -665,7 +665,7 @@
         </trans-unit>
         <trans-unit id="Page 1949250098 - Control 3532935625 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the area of the customer or vendor, for the purpose of reporting to INTRASTAT.</source>
-          <target state="translated">Gibt das Gebiet der Debitor- oder Kreditoradresse für INTRASTAT-Berichte an.</target>
+          <target state="translated">Gibt die Region der Debitor- oder Kreditoradresse für INTRASTAT-Berichte an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Subform - Control Area - Property ToolTip</note>
         </trans-unit>
@@ -875,7 +875,7 @@
         </trans-unit>
         <trans-unit id="Page 2323374715 - Control 3532935625 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the area of the customer or vendor, for the purpose of reporting to INTRASTAT.</source>
-          <target state="translated">Gibt das Gebiet der Debitor- oder Kreditoradresse für INTRASTAT-Berichte an.</target>
+          <target state="translated">Gibt die Region der Debitor- oder Kreditoradresse für INTRASTAT-Berichte an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Lines - Control Area - Property ToolTip</note>
         </trans-unit>
@@ -971,7 +971,7 @@
         </trans-unit>
         <trans-unit id="Page 3132071445 - Control 1001138814 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Intrastat contact type.</source>
-          <target state="translated">Gibt die Intrastat-Kontaktart an</target>
+          <target state="translated">Gibt die Intrastat-Kontaktart an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup - Control Intrastat Contact Type - Property ToolTip</note>
         </trans-unit>
@@ -1145,7 +1145,7 @@
         </trans-unit>
         <trans-unit id="Page 3458657684 - Control 1001138814 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Intrastat contact type.</source>
-          <target state="translated">Gibt die Intrastat-Kontaktart an</target>
+          <target state="translated">Gibt die Intrastat-Kontaktart an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Intrastat Report Setup Wizard - Control Intrastat Contact Type - Property ToolTip</note>
         </trans-unit>

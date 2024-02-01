@@ -287,7 +287,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3329328528 - Method 2251725966 - NamedType 1232297936" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The state parameter value does not match.</source>
-          <target state="translated">De waarde van de parameter Staat komt niet overeen.</target>
+          <target state="translated">De waarde van de parameter Status komt niet overeen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Shpfy Authentication Mgt. - Method InstallShopifyApp - NamedType NotMatchingStateErr</note>
         </trans-unit>
@@ -2502,7 +2502,7 @@
         </trans-unit>
         <trans-unit id="Page 1563807450 - Action 1030013428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the data retrieved from Shopify.</source>
-          <target state="translated">De gegevens bekijken die zijn opgehaald uit Shopify.</target>
+          <target state="translated">Bekijk de gegevens die zijn opgehaald vanuit Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Return - Action RetrievedShopifyData - Property ToolTip</note>
         </trans-unit>
@@ -2634,7 +2634,7 @@
         </trans-unit>
         <trans-unit id="Page 1970429680 - Action 2746460238 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronize orders from Shopify.</source>
-          <target state="translated">Orders vanuit Shopify synchroniseren.</target>
+          <target state="translated">Synchroniseer orders vanuit Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Action SyncOrders - Property ToolTip</note>
         </trans-unit>
@@ -3024,7 +3024,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Action 383844080 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sync Shipments To Shopify</source>
-          <target state="translated">Verzendingen naar Shopify synchroniseren</target>
+          <target state="translated">Verzendingen synchroniseren met Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Action SyncShipments - Property Caption</note>
         </trans-unit>
@@ -3252,7 +3252,7 @@
         </trans-unit>
         <trans-unit id="Page 3553230413 - Action 1030013428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the data retrieved from Shopify.</source>
-          <target state="translated">De gegevens bekijken die zijn opgehaald uit Shopify.</target>
+          <target state="translated">Bekijk de gegevens die zijn opgehaald vanuit Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Return Lines - Action RetrievedShopifyData - Property ToolTip</note>
         </trans-unit>
@@ -3282,13 +3282,13 @@
         </trans-unit>
         <trans-unit id="Page 3706164926 - Action 377844979 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete Entries Older Than 7 Days</source>
-          <target state="translated">Posten ouder dan 7 dagen verwijderen</target>
+          <target state="translated">Items ouder dan 7 dagen verwijderen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Log Entries - Action Delete7days - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3869916459 - Action 1030013428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the data retrieved from Shopify.</source>
-          <target state="translated">De gegevens bekijken die zijn opgehaald vanuit Shopify.</target>
+          <target state="translated">Bekijk de gegevens die zijn opgehaald vanuit Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Shipping Charges - Action RetrievedShopifyData - Property ToolTip</note>
         </trans-unit>
@@ -3480,7 +3480,7 @@
         </trans-unit>
         <trans-unit id="Page 447646366 - Action 1030013428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the data retrieved from Shopify.</source>
-          <target state="translated">De gegevens bekijken die zijn opgehaald uit Shopify.</target>
+          <target state="translated">Bekijk de gegevens die zijn opgehaald vanuit Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Refund - Action RetrievedShopifyData - Property ToolTip</note>
         </trans-unit>
@@ -3528,7 +3528,7 @@
         </trans-unit>
         <trans-unit id="Page 873703241 - Action 1030013428 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View the data retrieved from Shopify.</source>
-          <target state="translated">De gegevens bekijken die zijn opgehaald uit Shopify.</target>
+          <target state="translated">Bekijk de gegevens die zijn opgehaald vanuit Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Refund Lines - Action RetrievedShopifyData - Property ToolTip</note>
         </trans-unit>
@@ -3660,7 +3660,7 @@
         </trans-unit>
         <trans-unit id="Page 1167635784 - Control 1002454459 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Order Id field.</source>
-          <target state="translated">Hiermee wordt de waarde opgegeven van het veld Id van Shopify-order.</target>
+          <target state="translated">Hiermee wordt de waarde opgegeven van het veld Shopify-order-id.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Card - Control Shopify Order Id - Property ToolTip</note>
         </trans-unit>
@@ -4608,7 +4608,7 @@
         </trans-unit>
         <trans-unit id="Page 2016272457 - Control 2506717839 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the risk level from the Shopify order.</source>
-          <target state="translated">Hiermee wordt het risiconiveau vanuit de Shopify-order opgegeven.</target>
+          <target state="translated">Hiermee wordt het risiconiveau van de Shopify-order opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders to Import - Control RiskLevel - Property ToolTip</note>
         </trans-unit>
@@ -4668,7 +4668,7 @@
         </trans-unit>
         <trans-unit id="Page 2016272457 - Control 415504711 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the id for the order in Shopify.</source>
-          <target state="translated">Hiermee wordt de id voor de order in Shopify opgegeven.</target>
+          <target state="translated">Hiermee wordt de id opgegeven voor de order in Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders to Import - Control Id - Property ToolTip</note>
         </trans-unit>
@@ -4985,7 +4985,7 @@
         </trans-unit>
         <trans-unit id="Page 2596605181 - Control 775939211 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the id for the order in Shopify.</source>
-          <target state="translated">Hiermee wordt de id voor de order in Shopify opgegeven.</target>
+          <target state="translated">Hiermee wordt de id opgegeven voor de order in Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Control ShopifyOrderId - Property ToolTip</note>
         </trans-unit>
@@ -5027,7 +5027,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 1846331655 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify</source>
-          <target state="translated">Hiermee wordt het ordernummer in Shopify opgegeven</target>
+          <target state="translated">Hiermee wordt het ordernummer vanuit Shopify opgegeven</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control ShopifyOrderNo - Property ToolTip</note>
         </trans-unit>
@@ -6477,7 +6477,7 @@
         </trans-unit>
         <trans-unit id="Page 4292255143 - Control 1002454459 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Order Id field.</source>
-          <target state="translated">Hiermee wordt de waarde opgegeven van het veld Id van Shopify-order.</target>
+          <target state="translated">Hiermee wordt de waarde opgegeven van het veld Shopify-order-id.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Order Lines - Control Shopify Order Id - Property ToolTip</note>
         </trans-unit>
@@ -6681,7 +6681,7 @@
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 1846331655 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the order number from Shopify.</source>
-          <target state="translated">Hiermee wordt het ordernummer in Shopify opgegeven.</target>
+          <target state="translated">Hiermee wordt het ordernummer vanuit Shopify opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control ShopifyOrderNo - Property ToolTip</note>
         </trans-unit>
@@ -7191,7 +7191,7 @@
         </trans-unit>
         <trans-unit id="Page 685841857 - Control 1471027466 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the url to the product on the webshop.</source>
-          <target state="translated">Hiermee wordt de URL opgegeven van het product in de webwinkel.</target>
+          <target state="translated">Hiermee wordt de URL opgegeven voor het product in de webwinkel.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Products Overview - Control URLVar - Property ToolTip</note>
         </trans-unit>
@@ -7311,7 +7311,7 @@
         </trans-unit>
         <trans-unit id="Page 834364629 - Control 2152824939 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer template to use when creating unknown customers for this country. This template will only be used if the  field "Fix CustomerNo." is blank</source>
-          <target state="translated">Hiermee wordt opgegeven welke klantensjabloon moet worden gebruikt bij het maken van onbekende klanten voor dit land/deze regio. Deze sjabloon wordt alleen gebruikt als het veld 'Klantnr. corrigeren' leeg is</target>
+          <target state="translated">Hiermee wordt opgegeven welke klantensjabloon moet worden gebruikt bij het maken van onbekende klanten voor dit land of deze regio. Deze sjabloon wordt alleen gebruikt als het veld 'Klantnr. corrigeren' leeg is</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Templates - Control CustomerTemplCode - Property ToolTip</note>
         </trans-unit>
@@ -7335,7 +7335,7 @@
         </trans-unit>
         <trans-unit id="Page 864923901 - Control 1002454459 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Shopify Order Id field.</source>
-          <target state="translated">Hiermee wordt de waarde opgegeven van het veld Id van Shopify-order.</target>
+          <target state="translated">Hiermee wordt de waarde opgegeven van het veld Shopify-order-id.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Fulfillment Orders - Control Shopify Order Id - Property ToolTip</note>
         </trans-unit>
@@ -8592,7 +8592,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1235092726 - Control 1687780781 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the risk level from the Shopify order.</source>
-          <target state="translated">Hiermee wordt het risiconiveau vanuit de Shopify-order opgegeven.</target>
+          <target state="translated">Hiermee wordt het risiconiveau van de Shopify-order opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1673401186</note>
@@ -8634,7 +8634,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 23575476 - Control 3425375547 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the risk level from the Shopify order.</source>
-          <target state="translated">Hiermee wordt het risiconiveau vanuit de Shopify-order opgegeven.</target>
+          <target state="translated">Hiermee wordt het risiconiveau van de Shopify-order opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3332899200</note>
@@ -13354,7 +13354,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2790667653 - Field 2517695627 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Order Line Id</source>
-          <target state="translated">Shopify - Orderregel-id</target>
+          <target state="translated">Shopify-orderregel-id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2079186865</note>
@@ -13445,7 +13445,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 958712886 - Field 2517695627 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shopify Order Line Id</source>
-          <target state="translated">Shopify - Orderregel-id</target>
+          <target state="translated">Shopify-orderregel-id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2574427010</note>
