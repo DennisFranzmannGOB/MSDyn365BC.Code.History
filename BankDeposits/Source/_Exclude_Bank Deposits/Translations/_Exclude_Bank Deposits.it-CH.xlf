@@ -1771,7 +1771,7 @@
         </trans-unit>
         <trans-unit id="Report 2614277098 - NamedType 3315736793" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 is not a valid %2.</source>
-          <target state="translated">%1 non è un %2 valido.</target>
+          <target state="translated">%1 non è un elemento %2 valido.</target>
           <note from="Developer" annotates="general" priority="2">%1 - Account code, %2 - Account field caption, can be Bank Account, GL Account etc.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Bank Deposit Test Report - NamedType AccountNotValidErr</note>
         </trans-unit>
@@ -1849,7 +1849,7 @@
         </trans-unit>
         <trans-unit id="Report 2614277098 - NamedType 401985742" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 must not be a closing date.</source>
-          <target state="translated">%1 non deve essere una data di chiusura.</target>
+          <target state="translated">%1 non può essere una data di chiusura.</target>
           <note from="Developer" annotates="general" priority="2">%1 - field caption, either Posting Date or Document Date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Bank Deposit Test Report - NamedType MustBeClosingDateErr</note>
         </trans-unit>
