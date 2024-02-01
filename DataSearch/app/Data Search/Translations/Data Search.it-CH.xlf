@@ -545,7 +545,7 @@
         </trans-unit>
         <trans-unit id="Page 1032144280 - Control 3669144757 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which role the search setup is valid for.</source>
-          <target state="translated">Specifica il ruolo per cui è valido il setup di ricerca.</target>
+          <target state="translated">Specifica il ruolo per cui è valida l'impostazione di ricerca.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Search Setup (Table</note>
         </trans-unit>

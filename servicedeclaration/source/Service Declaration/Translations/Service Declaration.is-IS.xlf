@@ -126,7 +126,7 @@
         </trans-unit>
         <trans-unit id="Page 3454677590 - Action 63770366 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create/Restore Default Data Exchange Definition(-s)</source>
-          <target state="translated">Búa til/endurheimta sjálfgefna skilgreiningar gagnaskipta</target>
+          <target state="translated">Búa til/endurheimta sjálfgefna skilgreiningu/skilgreiningar gagnaskipta</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Declaration Setup - Action ImportDefaultDataExchangeDef - Property ToolTip</note>
         </trans-unit>
@@ -192,7 +192,7 @@
         </trans-unit>
         <trans-unit id="Page 4184400519 - Action 4032263875 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Release the document to the next stage of processing. You must reopen the document before you can make changes to it.</source>
-          <target state="translated">Sendu fylgiskjalið á næsta vinnslustig. Nauðsynlegt er að opna skjalið aftur til að gera breytingar á því.</target>
+          <target state="translated">Losa skjalið í næsta stig vinnslu. Það verður að opna skjalið aftur áður en hægt er að gera breytingar á því.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Declaration - Action Release - Property ToolTip</note>
         </trans-unit>

@@ -1721,7 +1721,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3179573641 - NamedType 683667025" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Could not read response.</source>
-          <target state="translated">Kan het antwoord niet lezen.</target>
+          <target state="translated">Kan de reactie niet lezen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS Web Request Helper - NamedType ReadResponseFailedErr</note>
         </trans-unit>
@@ -7049,7 +7049,7 @@
         </trans-unit>
         <trans-unit id="Page 572257666 - Action 467812692 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Agree to the terms and conditions.</source>
-          <target state="translated">Akkoord gaan met de voorwaarden.</target>
+          <target state="translated">De voorwaarden accepteren.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Information - Action Accept - Property ToolTip</note>
         </trans-unit>
@@ -10269,7 +10269,7 @@
         </trans-unit>
         <trans-unit id="Page 2638830259 - Control 2387530096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the license.</source>
-          <target state="translated">Hiermee wordt de naam van de licentie opgegeven.</target>
+          <target state="translated">Hiermee wordt de naam opgegeven van de licentie.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Plan Configuration List - Control Plan Name - Property ToolTip</note>
         </trans-unit>
@@ -11264,7 +11264,7 @@
         </trans-unit>
         <trans-unit id="Page 3170013184 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the app Publisher.</source>
-          <target state="translated">Hiermee wordt de naam van de appuitgever opgegeven.</target>
+          <target state="translated">Hiermee wordt de naam van de uitgever van de app opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Deployment Status - Control Publisher - Property ToolTip</note>
         </trans-unit>
@@ -17275,7 +17275,7 @@
         </trans-unit>
         <trans-unit id="Page 4001231554 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Excel Add-in Centralized Deployment</source>
-          <target state="translated">Gecentraliseerde implementatie van Excel-invoegtoepassing</target>
+          <target state="translated">Gecentr. implementatie van Excel-invoegtoep.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Centralized Depl. Wizard - Property Caption</note>
         </trans-unit>
