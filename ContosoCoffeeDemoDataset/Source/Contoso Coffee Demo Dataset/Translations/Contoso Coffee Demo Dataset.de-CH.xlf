@@ -1487,7 +1487,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3220894869 - NamedType 1262072474" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Direct Cost Applied, Retail</source>
-          <target state="translated">Direkte Kosten verrech., Handel</target>
+          <target state="translated">Direkte Kosten verrechnen, Handel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common GL Account - NamedType DirectCostAppliedRetailLbl</note>
         </trans-unit>
@@ -1673,7 +1673,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1485704842 - NamedType 1420948384" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Domestic customers and vendors</source>
-          <target state="translated">Inländische Debitoren und Kreditoren</target>
+          <target state="translated">Inländ. Debitoren und Kreditoren</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Posting Group - NamedType DomesticCustomerVendorLbl</note>
         </trans-unit>
@@ -2219,7 +2219,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3187161238 - NamedType 4247888177" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>WIP Account, Finished Goods</source>
-          <target state="translated">RIF-Konto, fertige Erzeugnisse</target>
+          <target state="translated">Unf. Arbeiten Fertigung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg GL Account - NamedType WIPAccountFinishedGoodsLbl</note>
         </trans-unit>
