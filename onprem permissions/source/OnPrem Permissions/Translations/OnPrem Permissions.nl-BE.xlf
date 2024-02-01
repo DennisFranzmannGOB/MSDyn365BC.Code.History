@@ -167,7 +167,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 3226489941 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recommended for UI Removal</source>
-          <target state="translated">Aanbevolen voor UI-verwijd.</target>
+          <target state="translated">Aanbev. voor UI-verwijdering</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet FOUNDATION - Property Caption</note>
         </trans-unit>
