@@ -161,7 +161,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 839727883 - NamedType 2867144877" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>There is nothing to register.</source>
-          <target state="translated">Er valt niets te registreren.</target>
+          <target state="translated">Niets te registreren.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Stat. Acc. Post. Batch - NamedType NotingToPostErr</note>
         </trans-unit>
@@ -909,7 +909,7 @@
         </trans-unit>
         <trans-unit id="Page 2694828564 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description of the entry.</source>
-          <target state="translated">Hiermee wordt een beschrijving van de post opgegeven.</target>
+          <target state="translated">Hiermee wordt een omschrijving van de post opgegeven.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Accounts Journal - Control Description - Property ToolTip</note>
         </trans-unit>
