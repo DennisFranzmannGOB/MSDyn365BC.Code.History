@@ -269,7 +269,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1926784871 - NamedType 3790335743" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>NOTE: This Is a test invoice. Therefore, no actual money transfer will be made.</source>
-          <target state="translated">REMARQUE : Ceci est une facture de test. En conséquence, aucun transfert d'ragent réel n'aura lieu.</target>
+          <target state="translated">REMARQUE : ceci est une facture de test. En conséquence, aucun transfert d’argent réel n’aura lieu.</target>
           <note from="Developer" annotates="general" priority="2">Will be shown next to Pay with PayPal link</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType DemoLinkCaptionTxt</note>
         </trans-unit>

@@ -2352,7 +2352,7 @@
         </trans-unit>
         <trans-unit id="Page 2596605181 - Action 2746818404 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View related posted sales shipments.</source>
-          <target state="translated">Afficher les livraisons vente reportées associées.</target>
+          <target state="translated">Affichez les livraisons vente reportées associées.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Fulfillments - Action Sales Shipment - Property ToolTip</note>
         </trans-unit>
@@ -2382,7 +2382,7 @@
         </trans-unit>
         <trans-unit id="Page 2760837339 - Action 1323389546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Synchronize orders from Shopify.</source>
-          <target state="translated">Synchroniser les commandes à partir de Shopify.</target>
+          <target state="translated">Synchronisez les commandes à partir de Shopify.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Action SyncOrdersFromShopify - Property ToolTip</note>
         </trans-unit>
@@ -3798,7 +3798,7 @@
         </trans-unit>
         <trans-unit id="Page 2057228960 - Control 1713889359 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies an additional part of the name.</source>
-          <target state="translated">Spécifie une partie supplémentaire du nom.</target>
+          <target state="translated">Indique une partie supplémentaire pour le nom.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Card - Control Name2 - Property ToolTip</note>
         </trans-unit>
@@ -4379,7 +4379,7 @@
         </trans-unit>
         <trans-unit id="Page 2953146964 - Control 726660686 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies how each unit of the item is measured.</source>
-          <target state="translated">Spécifie la manière dont chaque unité de l’article est mesurée.</target>
+          <target state="translated">Indique la manière dont chaque unité de l’article est mesurée.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order Subform - Control UnitOfMeasureCode - Property ToolTip</note>
         </trans-unit>
@@ -5997,7 +5997,7 @@
         </trans-unit>
         <trans-unit id="Page 834364629 - Control 3787812635 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies which customer template to use when creating unknown customers for this country. This template will only be used if the  field "Fix CustomerNo." is blank</source>
-          <target state="translated">Spécifie le modèle client à utiliser lors de la création de clients inconnus pour ce pays. Ce modèle sera utilisé uniquement si le champ « Fix CustomerNo » est vide</target>
+          <target state="translated">Indique le modèle client à utiliser lors de la création de clients inconnus pour ce pays. Ce modèle sera utilisé uniquement si le champ "Corriger n° client" est vide</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Customer Templates - Control CustomerTemlateCode - Property ToolTip</note>
         </trans-unit>
@@ -6609,7 +6609,7 @@
         </trans-unit>
         <trans-unit id="Page 881753888 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Waiting for a response - do not close this page</source>
-          <target state="translated">En attente d'une réponse - ne pas fermer cette page</target>
+          <target state="translated">En attente d’une réponse. Ne fermez pas cette page</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Authentication - Property Caption</note>
         </trans-unit>

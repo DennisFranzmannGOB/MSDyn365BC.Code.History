@@ -302,7 +302,7 @@
         </trans-unit>
         <trans-unit id="Page 2880731335 - Action 1333595352 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
-          <target state="translated">Schließen Sie den Beleg oder das Buch.-Blatt ab, und bereiten Sie das Drucken vor. Die Werte und Mengen werden auf die entsprechenden Konten gebucht. Ein Berichtanforderungsfenster wird geöffnet, in dem Sie angeben können, was auf dem Ausdruck enthalten sein soll.</target>
+          <target state="translated">Schließt den Beleg oder das Buch.-Blatt ab und bereitet das Drucken vor. Die Werte und Mengen werden auf die entsprechenden Konten gebucht. Ein Berichtanforderungsfenster wird geöffnet, in dem Sie angeben können, was auf dem Ausdruck enthalten sein soll.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposits - Action Post and &amp;Print - Property ToolTip</note>
         </trans-unit>
@@ -320,7 +320,7 @@
         </trans-unit>
         <trans-unit id="Page 2880731335 - Action 4236135242 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize the document or journal by posting the amounts and quantities to the related accounts in your company books.</source>
-          <target state="translated">Schließen Sie den Beleg oder das Buch.-Blatt durch Buchen der Beträge und Mengen auf die entsprechenden Konten in den Firmenbüchern ab.</target>
+          <target state="translated">Schließt den Beleg oder das Buch.-Blatt durch Buchen der Beträge und Mengen auf die entsprechenden Konten in den Firmenbüchern ab.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposits - Action P&amp;ost - Property ToolTip</note>
         </trans-unit>
@@ -386,7 +386,7 @@
         </trans-unit>
         <trans-unit id="Page 3073362426 - Action 2282416948 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize the document or journal by posting the amounts and quantities to the related accounts in your company books.</source>
-          <target state="translated">Schließen Sie den Beleg oder das Buch.-Blatt durch Buchen der Beträge und Mengen auf die entsprechenden Konten in den Firmenbüchern ab.</target>
+          <target state="translated">Schließt den Beleg oder das Buch.-Blatt durch Buchen der Beträge und Mengen auf die entsprechenden Konten in den Firmenbüchern ab.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit - Action Post - Property ToolTip</note>
         </trans-unit>
@@ -422,7 +422,7 @@
         </trans-unit>
         <trans-unit id="Page 3073362426 - Action 513012614 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
-          <target state="translated">Schließen Sie den Beleg oder das Buch.-Blatt ab, und bereiten Sie das Drucken vor. Die Werte und Mengen werden auf die entsprechenden Konten gebucht. Ein Berichtanforderungsfenster wird geöffnet, in dem Sie angeben können, was auf dem Ausdruck enthalten sein soll.</target>
+          <target state="translated">Schließt den Beleg oder das Buch.-Blatt ab und bereitet das Drucken vor. Die Werte und Mengen werden auf die entsprechenden Konten gebucht. Ein Berichtanforderungsfenster wird geöffnet, in dem Sie angeben können, was auf dem Ausdruck enthalten sein soll.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit - Action PostAndPrint - Property ToolTip</note>
         </trans-unit>
@@ -2491,7 +2491,7 @@
         </trans-unit>
         <trans-unit id="Table 26680403 - NamedType 3481077568" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot rename a %1.</source>
-          <target state="translated">%1 kann nicht umbenannt werden.</target>
+          <target state="translated">%1: Umbenennen nicht möglich.</target>
           <note from="Developer" annotates="general" priority="2">%1 - bank deposit</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType CannotRenameErr</note>
         </trans-unit>
