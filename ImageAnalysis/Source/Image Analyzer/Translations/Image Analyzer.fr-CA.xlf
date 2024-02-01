@@ -443,13 +443,13 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 188344288" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Computer Vision API documentation</source>
-          <target state="translated">Documentation API Vision par ordinateur</target>
+          <target state="translated">Documentation de l’API Vision par ordinateur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType LearnMoreStatementLinkTxt</note>
         </trans-unit>
         <trans-unit id="Page 872216054 - NamedType 3413784201" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Online Services Terms (OST)</source>
-          <target state="translated">Conditions des services en ligne (OST)</target>
+          <target state="translated">Conditions des Services en Ligne (OST)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - NamedType OnlineServicesTermLinkTxt</note>
         </trans-unit>
