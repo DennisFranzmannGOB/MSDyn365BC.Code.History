@@ -1014,7 +1014,7 @@
         </trans-unit>
         <trans-unit id="Page 1217273708 - NamedType 97595311" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This will synchronize all modified records in all integration table mappings. \\The synchronization will run in the background so you can continue with other tasks. \\Do you want to continue?</source>
-          <target state="translated">Cette opération va synchroniser tous les enregistrements modifiés dans tous les mappages de table d’intégration. \\La synchronisation dera exécutée en arrière-plan pour que vous puissiez continuer avec d’autres tâches. \\Souhaitez-vous vous continuer ?</target>
+          <target state="translated">Cette opération synchronisera tous les enregistrements modifiés dans tous les mappages de table d’intégration. \\La synchronisation sera exécutée en arrière-plan pour que vous puissiez poursuivre d’autres tâches. \\Voulez-vous continuer ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Management Setup - NamedType SynchronizeModifiedQst</note>
         </trans-unit>
@@ -1038,7 +1038,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 1624143781" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to uncouple the selected mappings, which means data for the records will no longer synchronize. \\Do you want to continue?</source>
-          <target state="translated">Vous êtes sur le point de découpler les mappages sélectionnés, ce qui signifie que les données des enregistrements ne seront plus synchronisées. \\Souhaitez-vous continuer ?</target>
+          <target state="translated">Vous êtes sur le point de découpler les mappages sélectionnés, ce qui signifie que les données des enregistrements ne seront plus synchronisées.\\Voulez-vous continuer ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartUncouplingForegroundQst</note>
         </trans-unit>
@@ -1056,7 +1056,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 2564837436" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to uncouple the selected mappings, which means data for the records will no longer synchronize. \\The uncoupling will run in the background, so you can continue with other tasks.\\Do you want to continue?</source>
-          <target state="translated">Vous êtes sur le point de découpler les mappages sélectionnés, ce qui signifie que les données des enregistrements ne seront plus synchronisées.\\Le découplage va s’exécuter en arrière-plan afin que vous puissiez poursuivre d’autres tâches.\\Souhaitez-vous continuer ?</target>
+          <target state="translated">Vous êtes sur le point de découpler les mappages sélectionnés, ce qui signifie que les données des enregistrements ne seront plus synchronisées.\\Le découplage va s’exécuter en arrière-plan afin que vous puissiez poursuivre d’autres tâches.\\Voulez-vous continuer ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartUncouplingQst</note>
         </trans-unit>
@@ -1074,7 +1074,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 2898210817" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to synchronize all data within the mapping. \\The synchronization will run in the background, so you can continue with other tasks.\\Do you want to continue?</source>
-          <target state="translated">Vous êtes sur le point de synchroniser toutes les données dans le mappage.\\La synchronisation s’exécutera en arrière-plan afin que vous puissiez poursuivre d’autres tâches.\\Souhaitez-vous continuer ?</target>
+          <target state="translated">Vous êtes sur le point de synchroniser toutes les données dans le mappage.\\La synchronisation s’exécutera en arrière-plan afin que vous puissiez poursuivre d’autres tâches.\\Voulez-vous continuer ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType StartFullSynchronizationQst</note>
         </trans-unit>
@@ -1092,7 +1092,7 @@
         </trans-unit>
         <trans-unit id="Page 2401688108 - NamedType 3742348752" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A synchronization job queue entry has been created. \\Do you want to view the job queue entry?</source>
-          <target state="translated">Une écriture file d’attente des projets de synchronisation a été créée.\\Souhaitez-vous afficher l’écriture file d’attente des projets?</target>
+          <target state="translated">Une écriture file d’attente des travaux de synchronisation a été créée.\\Voulez-vous afficher l’écriture file d’attente des travaux?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - NamedType JobQEntryCreatedQst</note>
         </trans-unit>

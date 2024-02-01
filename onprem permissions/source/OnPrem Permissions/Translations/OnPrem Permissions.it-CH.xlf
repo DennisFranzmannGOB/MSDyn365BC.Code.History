@@ -185,7 +185,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 3891191268 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Read G/L accounts and entries</source>
-          <target state="translated">Leggi conti e movimenti G/L</target>
+          <target state="translated">Leggi conti C/G e movimenti</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet G/L-ACCOUNT - Property Caption</note>
         </trans-unit>
@@ -221,7 +221,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 3672813476 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in G/L journals</source>
-          <target state="translated">Crea mov. in registrazioni G/L</target>
+          <target state="translated">Crea movimenti in reg C/G</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet G/L-JOURNAL - Property Caption</note>
         </trans-unit>
@@ -563,7 +563,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 449963620 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Manage MS Dataverse Int.</source>
-          <target state="translated">GESTIONE INTEGR. MS DATAVERSE</target>
+          <target state="translated">Gest. integraz. MS Dataverse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet MS DATAVERSE MANAGE - Property Caption</note>
         </trans-unit>
@@ -605,7 +605,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 1101186750 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in jnls. (P&amp;P)</source>
-          <target state="translated">Crea mov. in reg. (A&amp;P)</target>
+          <target state="translated">Crea movimenti in reg (A&amp;D)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet P&amp;P-JOURNAL - Property Caption</note>
         </trans-unit>
@@ -635,7 +635,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 1311962126 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Read G/L registers (P&amp;P)</source>
-          <target state="translated">Leggi registri G/L (A&amp;P)</target>
+          <target state="translated">Leggi registri C/G (A&amp;D)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet P&amp;P-REGISTER - Property Caption</note>
         </trans-unit>
@@ -863,7 +863,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 864345981 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Read G/L registers (S&amp;R)</source>
-          <target state="translated">Leggi registri G/L (V&amp;I)</target>
+          <target state="translated">Leggi registri C/G (V&amp;I)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet S&amp;R-REGISTER - Property Caption</note>
         </trans-unit>
@@ -917,7 +917,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 1900107136 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post service orders etc.</source>
-          <target state="translated">Registra ordini assistenza ecc</target>
+          <target state="translated">Reg ordini assistenza, ecc.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet SM-Q/O/I/C,POST - Property Caption</note>
         </trans-unit>
