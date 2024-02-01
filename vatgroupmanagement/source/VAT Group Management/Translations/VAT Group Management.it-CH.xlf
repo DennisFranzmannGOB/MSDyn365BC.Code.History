@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Codeunit 1491000021 - NamedType 1420859235" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set up VAT Group Management</source>
-          <target state="translated">Impostare Gestione gruppo IVA</target>
+          <target state="translated">Impostazione gestione gruppo IVA</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Group Helper Functions - NamedType AssistedSetupTxt</note>
         </trans-unit>
@@ -257,7 +257,7 @@
         </trans-unit>
         <trans-unit id="Page 27651019 - Action 2438272767 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go to previous page</source>
-          <target state="translated">Andare a pagina precedente</target>
+          <target state="translated">Pagina precedente</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Group Setup Guide - Action ActionBack - Property ToolTip</note>
         </trans-unit>
@@ -293,7 +293,7 @@
         </trans-unit>
         <trans-unit id="Page 27651019 - Action 914282563 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Go to next page</source>
-          <target state="translated">Andare a pagina successiva</target>
+          <target state="translated">Pagina successiva</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Group Setup Guide - Action ActionNext - Property ToolTip</note>
         </trans-unit>
