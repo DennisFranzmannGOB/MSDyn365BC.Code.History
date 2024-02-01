@@ -310,7 +310,7 @@
         </trans-unit>
         <trans-unit id="Page 2855939321 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description of the report layout.</source>
-          <target state="translated">Spécifie une description de la disposition de l’état.</target>
+          <target state="translated">Indique une description de la disposition de l’état.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Report Layouts - Control Description - Property ToolTip</note>
         </trans-unit>
