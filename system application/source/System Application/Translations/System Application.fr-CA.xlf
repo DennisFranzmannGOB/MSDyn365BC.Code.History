@@ -2333,7 +2333,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3666029466 - NamedType 2491398484" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Selected extension could not be installed because a valid App Id is not passed. Application ID : %1.</source>
-          <target state="translated">Impossible d’installer l’extension sélectionnée, car aucun ID application ou ID package valide n’est transmis. ID application : %1.</target>
+          <target state="translated">Impossible d’installer l’extension sélectionnée, car aucun code affectation valide n’est transmis. Code affectation : %1.</target>
           <note from="Developer" annotates="general" priority="2">Telemetry error message for trying to install an extension a valid id is not passed; %1 is the applicaiton id recieved from appsource.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Marketplace - NamedType TelemetryExtensionNotFoundErr</note>
         </trans-unit>
@@ -17307,7 +17307,7 @@
         </trans-unit>
         <trans-unit id="Page 513864971 - NamedType 3653194578" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Note: A preview key was provided for the installation. A preview version of the extension is about to be installed. If a higher public version exists for your environment, it will be installed instead of the preview version.</source>
-          <target state="translated">Remarque : une clé de prévisualisation a été fournie pour l’installation. Une version préliminaire de l’extension est sur le point d’être installée. S’il existe une version publique supérieure pour votre environnement, elle est installée à la place de la version préliminaire.</target>
+          <target state="translated">Remarque : une clé de version préliminaire a été fournie pour l’installation. Une version préliminaire de l’extension est sur le point d’être installée. S’il existe une version publique supérieure pour votre environnement, elle sera installée à la place de la version préliminaire.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - NamedType PreviewInfoLbl</note>
         </trans-unit>
