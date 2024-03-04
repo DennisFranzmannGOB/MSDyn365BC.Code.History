@@ -1417,7 +1417,7 @@
         </trans-unit>
         <trans-unit id="Page 2582853259 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
-          <target state="translated">Gibt die Nummer des beteiligten Postens oder Datensatz entsprechend der festgelegten Nummernserie an.</target>
+          <target state="translated">Gibt die Nummer des beteiligten Postens oder Datensatzes entsprechend der festgelegten Nummernserie an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AMC Bank Assist Bank Account - Control No. - Property ToolTip</note>
         </trans-unit>
