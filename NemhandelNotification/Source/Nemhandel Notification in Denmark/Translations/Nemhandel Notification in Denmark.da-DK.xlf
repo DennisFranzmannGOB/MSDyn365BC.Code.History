@@ -57,7 +57,7 @@
           <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1088899281</note>
         </trans-unit>
         <trans-unit id="PageExtension 1088899281 - Change 3430636682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the company's CVR number. Once the CVR number that is registered in Nemhandelsregisteret is set, it cannot changed.</source>
+          <source>Specifies the company's CVR number. Once the CVR number that is registered in Nemhandelsregisteret is set, it cannot be changed.</source>
           <target state="translated">Angiver virksomhedens CVR-nummer. Når CVR-nummeret, der er registreret i Nemhandelsregisteret, er angivet, kan det ikke ændres.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
