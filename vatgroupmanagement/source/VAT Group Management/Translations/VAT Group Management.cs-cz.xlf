@@ -1482,7 +1482,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 130569615 - NamedType 3282014969" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 of %2 submitted</source>
-          <target state="translated">%1 ze %2</target>
+          <target state="translated">%1 ze %2 odesláno</target>
           <note from="Developer" annotates="general" priority="2">%1 = number, %2 = number ex. 2 of 4 submitted</note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">PageExtension 130569615</note>

@@ -171,6 +171,12 @@
           <note from="Developer" annotates="general" priority="2">%1 = Field name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Header - NamedType ClearHeaderQst</note>
         </trans-unit>
+        <trans-unit id="Table 1317703130 - NamedType 1395259878" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date must be less than or equal to Ending Date.</source>
+          <target state="translated">Startdatoen skal være mindre end eller lig med slutdatoen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Header - NamedType DateValidationErr</note>
+        </trans-unit>
         <trans-unit id="Table 1317703130 - Field 2658469128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Aggregation Type</source>
           <target state="translated">Summeringstype</target>
@@ -376,7 +382,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - NamedType LinesWillBeDeletedQst</note>
         </trans-unit>
         <trans-unit id="Page 3524294527 - NamedType 1154850288" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The payment practice generator found no entries were found corresponding to header type, starting and ending date.</source>
+          <source>The payment practice generator found no entries corresponding to the header type, starting and ending date.</source>
           <target state="translated">Betalingspraksisgeneratoren fandt ingen poster, der svarede til overskriftstype, start- og slutdato.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - NamedType NoEntriesFoundMsg</note>
