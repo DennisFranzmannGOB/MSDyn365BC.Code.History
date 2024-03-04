@@ -2460,7 +2460,7 @@
         </trans-unit>
         <trans-unit id="Table 2546100294 - Field 1308424011 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Data Exchange Def. Code</source>
-          <target state="translated">Kód importu definice výměny dat</target>
+          <target state="translated">Kód vých. imp. def. výměny dat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Impt. Data Exchange Def. Code - Property Caption</note>
         </trans-unit>
@@ -2478,7 +2478,7 @@
         </trans-unit>
         <trans-unit id="Table 2546100294 - Field 3186336997 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Data Exchange Def. Name</source>
-          <target state="translated">Název importu definice výměny dat</target>
+          <target state="translated">Název vých. imp. def. výměny dat</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Service Data Exch. Def. - Field Impt. Data Exchange Def. Name - Property Caption</note>
         </trans-unit>
@@ -2895,6 +2895,12 @@
           <target state="translated">Jsou povoleny pouze šablony finančního deníku typu %1, %2, %3, %4, nebo %5.</target>
           <note from="Developer" annotates="general" priority="2">%1 - General, %2 - Purchases, %3 - Payments, %4 - Sales, %5 - Cash, %6 - Receipts</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Service - NamedType TemplateTypeErr</note>
+        </trans-unit>
+        <trans-unit id="Table 4102148806 - NamedType 2498714511" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By choosing this option, you consent to use third party systems. These systems may have their own terms of use, license, pricing and privacy, and they may not meet the same compliance and security standards as Microsoft Dynamics 365 Business Central. Your privacy is important to us.</source>
+          <target state="translated">Výběrem této možnosti souhlasíte s používáním systémů třetích stran. Tyto systémy mohou mít své vlastní podmínky použití, licence, ceny a ochranu osobních údajů a nemusí splňovat stejné standardy dodržování předpisů a zabezpečení jako Microsoft Dynamics 365 Business Central. Vaše soukromí je pro nás důležité.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Service - NamedType ChooseIntegrationConsentTxt</note>
         </trans-unit>
         <trans-unit id="Table 957206269 - NamedType 2664610491" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document log entry does not contain data to export.</source>
