@@ -2333,7 +2333,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3666029466 - NamedType 2491398484" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Selected extension could not be installed because a valid App Id is not passed. Application ID : %1.</source>
-          <target state="translated">Impossibile installare l'estensione selezionata perché non è stato passato un ID app valido. ID richiesta: %1.</target>
+          <target state="translated">Impossibile installare l'estensione selezionata perché non è stato passato un ID app valido. ID applicazione: %1.</target>
           <note from="Developer" annotates="general" priority="2">Telemetry error message for trying to install an extension a valid id is not passed; %1 is the applicaiton id recieved from appsource.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Marketplace - NamedType TelemetryExtensionNotFoundErr</note>
         </trans-unit>

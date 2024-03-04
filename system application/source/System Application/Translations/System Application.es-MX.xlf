@@ -17307,7 +17307,7 @@
         </trans-unit>
         <trans-unit id="Page 513864971 - NamedType 3653194578" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Note: A preview key was provided for the installation. A preview version of the extension is about to be installed. If a higher public version exists for your environment, it will be installed instead of the preview version.</source>
-          <target state="translated">Nota: Se ha proporcionado una clave de versión preliminar para la instalación. Está a punto de instalarse una versión preliminar de la extensión. Si existe una versión pública superior para su entorno, se instalará en lugar de la versión preliminar.</target>
+          <target state="translated">Nota: Se ha proporcionado una clave de vista previa para la instalación. Está a punto de instalarse una versión preliminar de la extensión. Si existe una versión pública superior para su entorno, se instalará en lugar de la versión preliminar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - NamedType PreviewInfoLbl</note>
         </trans-unit>
@@ -22538,7 +22538,7 @@
         </trans-unit>
         <trans-unit id="Table 456225495 - Field 577350399 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Preview Key</source>
-          <target state="translated">Clave de versión preliminar</target>
+          <target state="translated">Clave de vista previa</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Extension Installation - Field PreviewKey - Property Caption</note>
         </trans-unit>
