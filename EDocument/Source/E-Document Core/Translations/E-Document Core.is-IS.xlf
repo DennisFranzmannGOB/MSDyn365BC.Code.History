@@ -1584,7 +1584,7 @@
         </trans-unit>
         <trans-unit id="Page 4128474945 - Control 4085727052 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the due date of the electronic document.</source>
-          <target state="translated">Tilgreinir lokadagsetningu rafræna skjalsins.</target>
+          <target state="translated">Tilgreinir eindaga rafræna skjalsins.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Control Due Date - Property ToolTip</note>
         </trans-unit>
@@ -2772,7 +2772,7 @@
         </trans-unit>
         <trans-unit id="Table 4128474945 - Field 4085727052 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document - Field Due Date - Property Caption</note>
         </trans-unit>
@@ -2895,6 +2895,12 @@
           <target state="translated">Aðeins almenn færslubókarsniðmát af gerðinni %1, %2, %3, %4 eða %5 eru leyfð.</target>
           <note from="Developer" annotates="general" priority="2">%1 - General, %2 - Purchases, %3 - Payments, %4 - Sales, %5 - Cash, %6 - Receipts</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Service - NamedType TemplateTypeErr</note>
+        </trans-unit>
+        <trans-unit id="Table 4102148806 - NamedType 2498714511" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By choosing this option, you consent to use third party systems. These systems may have their own terms of use, license, pricing and privacy, and they may not meet the same compliance and security standards as Microsoft Dynamics 365 Business Central. Your privacy is important to us.</source>
+          <target state="translated">Með því að velja þennan valkost samþykkir þú að nota kerfi þriðju aðila. Þessi kerfi kunna að hafa sína eigin notkunarskilmála, leyfi, verð og persónuvernd og uppfylla mögulega ekki sömu reglufylgni og öryggisstaðla og Microsoft Dynamics 365 Business Central. Persónuvernd þín er okkur mikilvæg.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Service - NamedType ChooseIntegrationConsentTxt</note>
         </trans-unit>
         <trans-unit id="Table 957206269 - NamedType 2664610491" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document log entry does not contain data to export.</source>
