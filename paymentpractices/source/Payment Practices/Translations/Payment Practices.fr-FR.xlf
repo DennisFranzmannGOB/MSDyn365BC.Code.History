@@ -171,6 +171,12 @@
           <note from="Developer" annotates="general" priority="2">%1 = Field name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Header - NamedType ClearHeaderQst</note>
         </trans-unit>
+        <trans-unit id="Table 1317703130 - NamedType 1395259878" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date must be less than or equal to Ending Date.</source>
+          <target state="translated">Date de début doit être inférieure ou égale à Date de fin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Header - NamedType DateValidationErr</note>
+        </trans-unit>
         <trans-unit id="Table 1317703130 - Field 2658469128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Aggregation Type</source>
           <target state="translated">Type agrégation</target>
@@ -376,8 +382,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - NamedType LinesWillBeDeletedQst</note>
         </trans-unit>
         <trans-unit id="Page 3524294527 - NamedType 1154850288" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The payment practice generator found no entries were found corresponding to header type, starting and ending date.</source>
-          <target state="translated">Le générateur de pratique de paiement n’a trouvé aucune entrée correspondant au type d’en-tête, à la date de début et à la date de fin.</target>
+          <source>The payment practice generator found no entries corresponding to the header type, starting and ending date.</source>
+          <target state="translated">Le générateur de pratique de paiement n’a trouvé aucune écriture correspondant au type d’en-tête, à la date de début et à la date de fin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - NamedType NoEntriesFoundMsg</note>
         </trans-unit>
