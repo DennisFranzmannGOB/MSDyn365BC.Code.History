@@ -53,7 +53,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 536660794 - NamedType 376209035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Digital voucher feature is not enabled. Do you want to enable it by completing the guide?</source>
-          <target state="translated">Die Funktion für digitale Gutscheine ist nicht aktiviert. Möchten Sie sie aktivieren, indem Sie die Anleitung abschließen?</target>
+          <target state="translated">Die Funktion für digitale Gutscheine ist nicht aktiviert. Möchten Sie sie aktivieren, indem Sie die Anleitung abschliessen?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Digital Voucher Feature - NamedType InstallFeatureNotificationMsg</note>
         </trans-unit>

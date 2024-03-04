@@ -179,7 +179,7 @@
         </trans-unit>
         <trans-unit id="Table 1189492157 - Field 4085727052 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table LP ML Input Data - Field Due Date - Property Caption</note>
         </trans-unit>
