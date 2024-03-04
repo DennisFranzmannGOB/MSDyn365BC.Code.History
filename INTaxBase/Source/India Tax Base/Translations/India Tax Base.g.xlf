@@ -7693,6 +7693,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Total Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1397320324 - Control 887203532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>Specifies the amount, including Tax amount. On the Invoicing fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Partial Inv. Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1397320324 - Control 887203532 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Partial Inv. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1397320324 - Control 2210462597 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>Specifies the amount, including Tax amount. On the Shipping fast tab, this is the amount posted to the vendor account for all the lines in the purchase order if you post the purchase order as Shipped.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Partial Ship. Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1397320324 - Control 2210462597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purch. Ord. Statistics - Control Partial Ship. Amount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3179004455 - Field 269761521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
           <source>State</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7947,6 +7967,26 @@
           <source>Net Total</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2708057622 - Control 887203532 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>Specifies the amount, including Tax amount. On the Invoicing fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Partial Inv. Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2708057622 - Control 887203532 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Partial Inv. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2708057622 - Control 2210462597 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>Specifies the amount, including Tax amount. On the General fast tab, this is the amount posted to the customer account for all the lines in the sales order if you post the sales order as Shipped.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Partial Ship. Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2708057622 - Control 2210462597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>Net Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension sales Ord. Statistics - Control Partial Ship. Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1673401186 - Control 728537285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Tax Information</source>

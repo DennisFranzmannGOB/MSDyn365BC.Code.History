@@ -5888,6 +5888,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Tax Transaction Value - Field Value Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1640753910 - Field 8874023 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version No. Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Tax Transaction Value - Field Version No. Filter - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1640753910 - Field 151953270 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Visible on Interface</source>
           <note from="Developer" annotates="general" priority="2"></note>

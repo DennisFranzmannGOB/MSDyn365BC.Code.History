@@ -3933,6 +3933,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Statistics - Control TCS Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3845140901 - Control 3908494720 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>Specifies the total TCS amount that has been calculated for all the lines in the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Statistics - Control TCS Amt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3845140901 - Control 3908494720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>TCS Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Statistics - Control TCS Amt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3845140901 - Control 2475283914 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>Specifies the total TCS amount that has been calculated for all the lines in the sales document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Statistics - Control TCS Ship Amt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3845140901 - Control 2475283914 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
+          <source>TCS Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Sales Order Statistics - Control TCS Ship Amt - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 404318199 - Control 690911766 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2026081320">
           <source>Specifies the TCS Nature of collection on which the TCS will be calculated for the Sales Order.</source>
           <note from="Developer" annotates="general" priority="2"></note>

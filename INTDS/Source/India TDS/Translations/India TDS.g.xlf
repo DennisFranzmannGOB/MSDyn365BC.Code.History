@@ -5473,6 +5473,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Order Statistics - Control TDS Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1614820132 - Control 328374421 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>Specifies the amount of TDS that is included in the total amount.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Order Statistics - Control TDS Amt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1614820132 - Control 328374421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>TDS Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Order Statistics - Control TDS Amt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1614820132 - Control 1918547833 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>Specifies the amount of TDS that is included in the total amount.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Order Statistics - Control TDS Purch Amt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1614820132 - Control 1918547833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1614820132">
+          <source>TDS Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Purchase Order Statistics - Control TDS Purch Amt - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 737824084 - Control 3205163301 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 896930563">
           <source>Specify the tax rates prescribed under the IT Act or DATA on the TDS entry.</source>
           <note from="Developer" annotates="general" priority="2"></note>
