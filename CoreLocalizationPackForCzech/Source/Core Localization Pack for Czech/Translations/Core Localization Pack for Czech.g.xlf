@@ -7813,6 +7813,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Reg. No. Service Config CZL - Field Entry No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3856835045 - Field 3895587775 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code without Space</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Reg. No. Service Config CZL - Field Post Code without Space - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3856835045 - Field 2403867026 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Endpoint</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8042,6 +8047,11 @@
           <source>Specifies if the service is enabled.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Reg. No. Service Config CZL - Control Enabled - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3856835045 - Control 3895587775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the postcode provided by ARES shouldn't be converted into format with a space, i.e. XXX XX.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Reg. No. Service Config CZL - Control Post Code without Space - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3856835045 - Control 819051569 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a hyperlink to operating conditions of service</source>
