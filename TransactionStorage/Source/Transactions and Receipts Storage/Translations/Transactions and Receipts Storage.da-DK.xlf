@@ -171,30 +171,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = number; %2 = table name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transact. Storage Export Data - NamedType NoOfCollectedRecordsTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3526708079 - NamedType 2165877082" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export of incoming documents completed. Collected %1 documents, exported %2 documents</source>
-          <target state="translated">Eksport af indgående dokument er afsluttet. Indsamlede %1 dokumenter, eksporterede %2 dokumenter</target>
-          <note from="Developer" annotates="general" priority="2">%1 - collected documents count, %2 - exported documents count</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType ExportedDocCountTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3526708079 - NamedType 2835321973" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export of tables completed. Collected %1 tables, exported %2 tables</source>
-          <target state="translated">Eksport af tabeller afsluttet. Indsamlede %1 tabeller, eksporterede %2 tabeller</target>
-          <note from="Developer" annotates="general" priority="2">%1 - collected tables count, %2 - exported tables count</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType ExportedTablesCountTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3526708079 - NamedType 1962391205" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export of incoming document %1 with name %2</source>
-          <target state="translated">Eksport af indgående dokument %1 med navn %2</target>
-          <note from="Developer" annotates="general" priority="2">%1 - incoming document file name, %2 - blob name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType ExportOfIncomingDocTok</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3526708079 - NamedType 3342682853" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Send blob block for table %1 with name %2 to Azure Function</source>
-          <target state="translated">Send blobblok for tabellen %1 med navnet %2 til Azure Function</target>
-          <note from="Developer" annotates="general" priority="2">%1 - table id, %2 - blob name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transaction Storage ABS - NamedType SendBlobBlockForTableTok</note>
-        </trans-unit>
         <trans-unit id="Codeunit 317939997 - NamedType 1415679075" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>A time deadline of %1 hours for the export has been exceeded. The export has been stopped.</source>
           <target state="translated">En frist på %1 timer for udlæsningen er overskredet. Udlæsningen er stoppet.</target>
