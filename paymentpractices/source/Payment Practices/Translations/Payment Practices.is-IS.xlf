@@ -89,7 +89,7 @@
         </trans-unit>
         <trans-unit id="Table 1892886827 - Field 4085727052 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Data - Field Due Date - Property Caption</note>
         </trans-unit>
@@ -170,6 +170,12 @@
           <target state="translated">Ef þú breytir %1 verður núverandi línum eytt. Á að halda áfram?</target>
           <note from="Developer" annotates="general" priority="2">%1 = Field name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Header - NamedType ClearHeaderQst</note>
+        </trans-unit>
+        <trans-unit id="Table 1317703130 - NamedType 1395259878" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date must be less than or equal to Ending Date.</source>
+          <target state="translated">Upphafsdagur verður að vera á undan eða jafn lokadegi.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Payment Practice Header - NamedType DateValidationErr</note>
         </trans-unit>
         <trans-unit id="Table 1317703130 - Field 2658469128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Aggregation Type</source>
@@ -376,7 +382,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - NamedType LinesWillBeDeletedQst</note>
         </trans-unit>
         <trans-unit id="Page 3524294527 - NamedType 1154850288" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The payment practice generator found no entries were found corresponding to header type, starting and ending date.</source>
+          <source>The payment practice generator found no entries corresponding to the header type, starting and ending date.</source>
           <target state="translated">Greiðsluháttur fann engar færslur sem samsvöruðu gerð hauss, upphafsdegi og lokadegi.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Card - NamedType NoEntriesFoundMsg</note>
@@ -509,7 +515,7 @@
         </trans-unit>
         <trans-unit id="Page 1141634581 - Control 4085727052 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the due date of the invoice entry that is the source for this entry.</source>
-          <target state="translated">Tilgreinir gjalddaga reikningsfærslunnar sem er uppruni þessarar færslu.</target>
+          <target state="translated">Tilgreinir eindaga reikningsfærslunnar sem er uppruni þessarar færslu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Practice Data List - Control Due Date - Property ToolTip</note>
         </trans-unit>
