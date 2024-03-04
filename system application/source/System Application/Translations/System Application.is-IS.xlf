@@ -2363,7 +2363,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3666029466 - NamedType 4219651073" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Selected extension could not be installed because a valid App Id is not passed.</source>
-          <target state="translated">Ekki tókst að setja upp valda viðbót því að gilt forritskenni er ekki flutt yfir.</target>
+          <target state="translated">Ekki tókst að setja upp valda viðbót því að gilt forritskenni er ekki fært yfir.</target>
           <note from="Developer" annotates="general" priority="2">Error message for trying to install an extension where a valid id is not passed;</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Extension Marketplace - NamedType ExtensionNotFoundErr</note>
         </trans-unit>
@@ -17307,7 +17307,7 @@
         </trans-unit>
         <trans-unit id="Page 513864971 - NamedType 3653194578" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Note: A preview key was provided for the installation. A preview version of the extension is about to be installed. If a higher public version exists for your environment, it will be installed instead of the preview version.</source>
-          <target state="translated">Athugasemd: Forútgáfulykill var gefinn upp fyrir uppsetninguna. Forútgáfa af viðbótinni verður sett upp. Ef nýrri opinber útgáfa er til fyrir umhverfi notanda verður hún sett upp í stað forútgáfunnar.</target>
+          <target state="translated">Athugið: Forútgáfulykill var gefinn upp fyrir uppsetninguna. Forútgáfa af viðbótinni verður sett upp. Ef nýrri opinber útgáfa er til fyrir umhverfi notanda verður hún sett upp í stað forútgáfunnar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - NamedType PreviewInfoLbl</note>
         </trans-unit>
@@ -22526,7 +22526,7 @@
         </trans-unit>
         <trans-unit id="Table 456225495 - Field 3520108068 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Response URL</source>
-          <target state="translated">Vefslóð svars</target>
+          <target state="translated">Svarvefslóð</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Extension Installation - Field ResponseUrl - Property Caption</note>
         </trans-unit>

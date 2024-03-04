@@ -159,6 +159,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Decl. Setup - Field Submit VAT Return Endpoint - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1923262567 - Field 2488830601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use Azure Key Vault</source>
+          <target state="translated">Brug Azure Key Vault</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Decl. Setup - Field Use Azure Key Vault - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2972291166 - NamedType 1383752035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot get certificate from Azure Key Vault. Key name: %1</source>
+          <target state="translated">Kan ikke hente certifikat fra Azure Key Vault. Nøglenavn: %1</target>
+          <note from="Developer" annotates="general" priority="2">%1: Name of key that was searched for in Azure Key Vault</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Az. Key Vault - NamedType CannotGetCertFromKeyVaultErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2972291166 - NamedType 2835593249" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot get secret from Azure Key Vault. Key name: %1</source>
+          <target state="translated">Kan ikke hente hemmelighed fra Azure Key Vault. Nøglenavn: %1</target>
+          <note from="Developer" annotates="general" priority="2">%1: Name of key that was searched for in Azure Key Vault</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Az. Key Vault - NamedType CannotGetSecretFromKeyVaultErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2132353356 - NamedType 1995204114" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The response for your submission is not ready yet.</source>
           <target state="translated">Svaret på din indsendelse er endnu ikke klar.</target>
@@ -261,11 +279,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Http Comm. - NamedType ValidationErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3277704362 - NamedType 816500046" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Return draft submitted successfully. You need confirm the draft as final on skat.dk website.\Do you want to open the submitted draft in your browser?</source>
-          <target state="translated">Momsangivelseskladden er indsendt. Du skal bekræfte kladden som færdig på webstedet skat.dk.\Vil du åbne den indsendte kladde i din browser?</target>
+        <trans-unit id="Codeunit 3277704362 - NamedType 2286431015" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Return draft submitted successfully. You need confirm the draft as final on skat.dk website.</source>
+          <target state="translated">Momsangivelseskladden er indsendt. Du skal bekræfte kladden som færdig på webstedet skat.dk.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Submit - NamedType SubmissionSuccessfulQst</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Elec. VAT Decl. Submit - NamedType SubmissionSuccessfulMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3207893793 - NamedType 2538843330" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Report Header No. %1 does not exist</source>
@@ -410,6 +428,12 @@
           <target state="translated">Angiver URL-adressen på slutpunktet for servicen "Send momsangivelse".</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Elec. VAT Decl. Setup - Control Submit VAT Return Endpoint - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1923262567 - Control 2488830601 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether to use Azure Key Vault to store the certificates and endpoints.</source>
+          <target state="translated">Angiver, om Azure Key Vault skal bruges til at gemme certifikater og slutpunkter.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Elec. VAT Decl. Setup - Control Use Azure Key Vault - Property ToolTip</note>
         </trans-unit>
       </group>
     </body>
