@@ -17307,7 +17307,7 @@
         </trans-unit>
         <trans-unit id="Page 513864971 - NamedType 3653194578" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Note: A preview key was provided for the installation. A preview version of the extension is about to be installed. If a higher public version exists for your environment, it will be installed instead of the preview version.</source>
-          <target state="translated">Bemærk: Der blev leveret en forhåndsversionsnøgle til installationen. En prøveversion af udvidelsen er ved at blive installeret. Hvis der findes en højere offentlig version for dit miljø, installeres den i stedet for forhåndsversionen.</target>
+          <target state="translated">Bemærk: Der blev leveret en forhåndsversionsnøgle til installationen. En forhåndsversion af udvidelsen er ved at blive installeret. Hvis der findes en højere offentlig version for dit miljø, installeres den i stedet for forhåndsversionen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - NamedType PreviewInfoLbl</note>
         </trans-unit>
@@ -22526,7 +22526,7 @@
         </trans-unit>
         <trans-unit id="Table 456225495 - Field 3520108068 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Response URL</source>
-          <target state="translated">URL-adresse til svar</target>
+          <target state="translated">URL-adresse for svar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Extension Installation - Field ResponseUrl - Property Caption</note>
         </trans-unit>

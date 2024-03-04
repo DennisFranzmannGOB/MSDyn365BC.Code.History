@@ -2896,6 +2896,12 @@
           <note from="Developer" annotates="general" priority="2">%1 - General, %2 - Purchases, %3 - Payments, %4 - Sales, %5 - Cash, %6 - Receipts</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Service - NamedType TemplateTypeErr</note>
         </trans-unit>
+        <trans-unit id="Table 4102148806 - NamedType 2498714511" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By choosing this option, you consent to use third party systems. These systems may have their own terms of use, license, pricing and privacy, and they may not meet the same compliance and security standards as Microsoft Dynamics 365 Business Central. Your privacy is important to us.</source>
+          <target state="translated">Genom att välja det här alternativet samtycker du till att använda system från tredje part. Dessa system kan ha egna användningsvillkor, licenser, priser och sekretess, och de kanske inte uppfyller samma efterlevnads- och säkerhetsstandarder som Microsoft Dynamics 365 Business Central. Din integritet är viktig för oss.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Service - NamedType ChooseIntegrationConsentTxt</note>
+        </trans-unit>
         <trans-unit id="Table 957206269 - NamedType 2664610491" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document log entry does not contain data to export.</source>
           <target state="translated">Loggtransaktionen för e-dokumentet innehåller inte data som ska exporteras.</target>
