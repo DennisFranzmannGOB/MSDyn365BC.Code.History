@@ -15229,7 +15229,7 @@
         </trans-unit>
         <trans-unit id="Page 906691248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Waiting for a response. Do not close this page.</source>
-          <target state="translated">Warten auf eine Antwort. Schließen Sie diese Seite nicht</target>
+          <target state="translated">Warten auf eine Antwort. Schliessen Sie diese Seite nicht</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page OAuth2ControlAddIn - Property Caption</note>
         </trans-unit>
