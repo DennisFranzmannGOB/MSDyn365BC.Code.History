@@ -4517,7 +4517,7 @@
         </trans-unit>
         <trans-unit id="Page 251039050 - Control 3652386003 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date Calculation</source>
-          <target state="translated">Gjalddagaútreikningur</target>
+          <target state="translated">Eindagaútreikningur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Payment Terms - Control dueDateCalculation - Property Caption</note>
         </trans-unit>
@@ -5261,7 +5261,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - Control 2763176388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - Control dueDate - Property Caption</note>
         </trans-unit>
@@ -5849,7 +5849,7 @@
         </trans-unit>
         <trans-unit id="Page 4099491740 - Control 2763176388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Invoices - Control dueDate - Property Caption</note>
         </trans-unit>
@@ -6821,7 +6821,7 @@
         </trans-unit>
         <trans-unit id="Page 3772100527 - Control 2763176388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Receipts - Control dueDate - Property Caption</note>
         </trans-unit>
@@ -7559,7 +7559,7 @@
         </trans-unit>
         <trans-unit id="Page 3006414751 - Control 2763176388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - Control dueDate - Property Caption</note>
         </trans-unit>
@@ -8231,7 +8231,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 2763176388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control dueDate - Property Caption</note>
         </trans-unit>
@@ -9599,7 +9599,7 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 2763176388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control dueDate - Property Caption</note>
         </trans-unit>
@@ -10019,7 +10019,7 @@
         </trans-unit>
         <trans-unit id="Page 3546002718 - Control 2763176388 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
-          <target state="translated">Gjalddagi</target>
+          <target state="translated">Eindagi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control dueDate - Property Caption</note>
         </trans-unit>
