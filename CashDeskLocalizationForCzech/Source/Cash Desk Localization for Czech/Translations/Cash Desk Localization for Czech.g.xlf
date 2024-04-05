@@ -983,6 +983,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Maintenance Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2453418483 - Field 1553698291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Non-Deductible VAT % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2453418483 - Field 3177738668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Non-Deductible VAT Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2453418483 - Field 3745136645 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Amount ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Non-Deductible VAT Amount ACY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2453418483 - Field 38625154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Amount LCY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Non-Deductible VAT Amount LCY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2453418483 - Field 1170477715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Non-Deductible VAT Base - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2453418483 - Field 1412700718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Base ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Non-Deductible VAT Base ACY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2453418483 - Field 658660441 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Base LCY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Non-Deductible VAT Base LCY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2453418483 - Field 3709193625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Difference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Line CZP - Field Non-Deductible VAT Diff. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2453418483 - Field 1915851633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1442,6 +1482,46 @@
           <source>Maintenance Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Maintenance Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4056922900 - Field 1553698291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Non-Deductible VAT % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4056922900 - Field 3177738668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Non-Deductible VAT Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4056922900 - Field 3745136645 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Amount ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Non-Deductible VAT Amount ACY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4056922900 - Field 38625154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Amount LCY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Non-Deductible VAT Amount LCY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4056922900 - Field 1170477715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Non-Deductible VAT Base - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4056922900 - Field 1412700718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Base ACY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Non-Deductible VAT Base ACY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4056922900 - Field 658660441 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Base LCY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Non-Deductible VAT Base LCY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4056922900 - Field 3709193625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Difference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Cash Document Line CZP - Field Non-Deductible VAT Diff. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4056922900 - Field 1915851633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Group</source>
@@ -6403,6 +6483,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Posted Rcpt. Cash Document CZP - ReportLabel PostedLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3454630479 - ReportLabel 1027969698" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Rcpt. Cash Document CZP - ReportLabel PostingDateLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3454630479 - ReportLabel 1894740313" size-unit="char" translate="yes" xml:space="preserve">
           <source>Receipt Serial No.:</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6538,6 +6623,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Posted Wdrl. Cash Document CZP - ReportLabel PostedLbl</note>
         </trans-unit>
+        <trans-unit id="Report 1923483119 - ReportLabel 1027969698" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Posted Wdrl. Cash Document CZP - ReportLabel PostingDateLbl</note>
+        </trans-unit>
         <trans-unit id="Report 1923483119 - ReportLabel 1894740313" size-unit="char" translate="yes" xml:space="preserve">
           <source>Receipt Serial No.:</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6633,6 +6723,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel CreatedLbl</note>
         </trans-unit>
+        <trans-unit id="Report 744157261 - ReportLabel 1155328579" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel DocumentDateLbl</note>
+        </trans-unit>
         <trans-unit id="Report 744157261 - ReportLabel 4058751071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reciept Cash Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6672,6 +6767,11 @@
           <source>VAT Base</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel VATBaseLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 744157261 - ReportLabel 1015431591" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Receipt Cash Document CZP - ReportLabel VATDateLbl</note>
         </trans-unit>
         <trans-unit id="Report 744157261 - ReportLabel 621813197" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Recapitulation</source>
@@ -6728,6 +6828,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel CreatedLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3309826356 - ReportLabel 1155328579" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel DocumentDateLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3309826356 - ReportLabel 4058751071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Withdrawal Cash Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6767,6 +6872,11 @@
           <source>VAT Base</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel VATBaseLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3309826356 - ReportLabel 1015431591" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Withdrawal Cash Document CZP - ReportLabel VATDateLbl</note>
         </trans-unit>
         <trans-unit id="Report 3309826356 - ReportLabel 621813197" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Recapitulation</source>
@@ -7397,11 +7507,6 @@
           <source>Cash Desk</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Manual Setup Category CZP - EnumValue Cash Desk CZP - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="EnumExtension 495109585 - EnumValue 1587433127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1170745677">
-          <source>Prepayment</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension EET Applied Document Type CZP - EnumValue Prepayment - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 1011356315 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>CZ Cash Desk - Edit</source>

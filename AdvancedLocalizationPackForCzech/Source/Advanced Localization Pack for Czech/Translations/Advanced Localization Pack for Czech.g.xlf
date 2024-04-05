@@ -1188,6 +1188,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Open G/L Entries To Date CZA - Control SkipEntriesDetailField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1581848143 - ReportLayout 3202580530 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Open G/L Entries To Date (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Open G/L Entries To Date CZA - ReportLayout OpenGLEntriesToDate.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 1581848143 - ReportLayout 3202580530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open G/L Entries To Date (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Open G/L Entries To Date CZA - ReportLayout OpenGLEntriesToDate.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1581848143 - ReportLayout 3547475021 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Open G/L Entries To Date (Excel) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Open G/L Entries To Date CZA - ReportLayout OpenGLEntriesToDate.xlsx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 1581848143 - ReportLayout 3547475021 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open G/L Entries To Date (Excel)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Open G/L Entries To Date CZA - ReportLayout OpenGLEntriesToDate.xlsx - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2147647392 - Method 4217993601 - NamedType 2033887935" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot reverse %1 No %2 because the entry was either applied to another entry or has been changed by a batch job.</source>
           <note from="Developer" annotates="general" priority="2">%1 = TableCaption G/L Entry, %2 = Entry No.</note>

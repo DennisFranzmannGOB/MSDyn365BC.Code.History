@@ -1,11 +1,11 @@
 {
   "settings": {
-    "al.enableCodeAnalysis": false,
     "al.enableCodeActions": false,
-    "allint.enabled": false,
     "search.exclude": {
       "**.xlf": true
-    }
+    },
+    "allint.enabled": false,
+    "al.enableCodeAnalysis": false
   },
   "folders": [
     {
@@ -84,6 +84,9 @@
       "path": "./BankingDocumentsLocalizationForCzech/Test/Banking Documents Localization for Czech Tests"
     },
     {
+      "path": "./sustainability/test/Sustainability Tests"
+    },
+    {
       "path": "./ExternalEvents/test/_Exclude_Business_Events_Test"
     },
     {
@@ -114,22 +117,31 @@
       "path": "./EssentialBusinessHeadlines/Test/Essential Business Headlines Test"
     },
     {
+      "path": "./BusinessFoundation/Test/Business Foundation Test Libraries"
+    },
+    {
+      "path": "./BusinessFoundation/Test/Business Foundation Tests"
+    },
+    {
       "path": "./CashDeskLocalizationForCzech/Test/Cash Desk Localization for Czech Tests"
     },
     {
       "path": "./system application/source/System Application/Email/src/Test Email"
     },
     {
-      "path": "./system application/test/System Application Test"
+      "path": "./system application/test/System Application Test Library"
     },
     {
-      "path": "./system application/test/System Application Test Library"
+      "path": "./system application/test/System Application Test/DisabledTests"
     },
     {
       "path": "./system application/test/System Application Test/Extension Management/testArtifacts"
     },
     {
       "path": "./BankDeposits/Test/_Exclude_Bank Deposits Tests"
+    },
+    {
+      "path": "./saleslinessuggestions/test/Sales Lines Suggestions Tests"
     },
     {
       "path": "./paypalpaymentsstandard/test/PayPal Payments Standard Tests"

@@ -1608,6 +1608,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Install Application CZB - Method InitExpLauncherSEPA - NamedType SEPACZNameTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2880706997 - NamedType 2622748739" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show notification on the created journal after a bank statement has been issue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Instruction Mgt. CZB - NamedType ConfirmAfterCreatedJournalDescritpionTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2880706997 - NamedType 1730675729" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirm after creating a journal from the issued bank statement.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Instruction Mgt. CZB - NamedType ConfirmAfterCreatedJournalTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2880706997 - NamedType 1668973188" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show warning when you issue a document where you can choose to view the issued document.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1813,6 +1823,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - NamedType OpenIssuedBankStmtQst</note>
         </trans-unit>
+        <trans-unit id="Page 1866448740 - Method 3280050147 - NamedType 4200295313" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The bank statement has been issued and moved to the Issued Bank Statements window.\\Do you want to open the created journal and check it now?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Method ShowIssuedAndCreatedJnlConfirmationMessage - NamedType OpenCreatedJnlIssuedBankStmtQst</note>
+        </trans-unit>
         <trans-unit id="Page 1866448740 - Control 2621708576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debit/Credit</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1942,6 +1957,16 @@
           <source>Issue</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action Issue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1866448740 - Action 2737782697 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue the bank statement and create a journal. The bank statement will be moved to issued bank statements.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action IssueAndCreateJournal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1866448740 - Action 2737782697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue and Create Journal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statement CZB - Action IssueAndCreateJournal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1866448740 - Action 92802797 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issue and print the bank statement. Bank statement will be moved to issued bank statement.</source>
@@ -2218,6 +2243,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - NamedType OpenIssuedBankStmtQst</note>
         </trans-unit>
+        <trans-unit id="Page 1252050781 - Method 3280050147 - NamedType 4200295313" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The bank statement has been issued and moved to the Issued Bank Statements window.\\Do you want to open the created journal and check it now?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Method ShowIssuedAndCreatedJnlConfirmationMessage - NamedType OpenCreatedJnlIssuedBankStmtQst</note>
+        </trans-unit>
         <trans-unit id="Page 1252050781 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the total amount for bank statement lines. The program calculates this amount from the sum of line amount fields on bank statement lines.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2297,6 +2327,16 @@
           <source>Issue</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action Issue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1252050781 - Action 2737782697 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue the bank statement and create a journal. The bank statement will be moved to issued bank statements.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action IssueAndCreateJournal - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1252050781 - Action 2737782697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue and Create Journal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Statements CZB - Action IssueAndCreateJournal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1252050781 - Action 92802797 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issue and print the bank statement. Bank statement will be moved to issued bank statement.</source>
@@ -2572,6 +2612,11 @@
           <source>Create Journal</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement CZB - Action CreateJournal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1627540393 - Action 2393384927 - Method 1377591017 - NamedType 1452095358" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The journal was successfully created.\\Do you want to open the created journal and check it now?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statement CZB - Action CreateJournal - Method OnAction - NamedType OpenCreatedJnlQst</note>
         </trans-unit>
         <trans-unit id="Page 1627540393 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print</source>
@@ -2887,6 +2932,11 @@
           <source>Create Journal</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Action CreateJournal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1667797560 - Action 2393384927 - Method 1377591017 - NamedType 1452095358" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The journal was successfully created.\\Do you want to open the created journal and check it now?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Iss. Bank Statements CZB - Action CreateJournal - Method OnAction - NamedType OpenCreatedJnlQst</note>
         </trans-unit>
         <trans-unit id="Page 1667797560 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Print</source>
@@ -3683,6 +3733,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action Issue - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 1141158978 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue the payment order and export a file. The payment order will be moved to issued payment orders.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action IssueAndExport - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3668461697 - Action 1141158978 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue and Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Order CZB - Action IssueAndExport - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3668461697 - Action 92802797 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issue and prepare to print the payment order. Payment order will be moved to issued payment order.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4282,6 +4342,16 @@
           <source>Issue</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action Issue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 1141158978 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue the payment order and export a file. The payment order will be moved to issued payment orders.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action IssueAndExport - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2313358256 - Action 1141158978 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue and Export</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Payment Orders CZB - Action IssueAndExport - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2313358256 - Action 92802797 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issue and prepare to print the payment order. Payment order will be moved to issued payment order.</source>
@@ -4918,6 +4988,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create General Journal CZB - NamedType SuccessCreatedMsg</note>
         </trans-unit>
+        <trans-unit id="Report 2646294260 - ReportDataItem 2521448660 - Method 3245603402 - NamedType 1940634003" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 already exist. Existing journal lines will be deleted and new ones will be created based on the bank statement lines. Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2">%1 = TableCaption, %2 = No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create General Journal CZB - ReportDataItem Iss. Bank Statement Header CZB - Method OnAfterGetRecord - NamedType ExistJournallinesQst</note>
+        </trans-unit>
         <trans-unit id="Report 2646294260 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4967,6 +5042,16 @@
           <source>Payment reconciliation journal lines were successfully created.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create Payment Recon. Jnl. CZB - NamedType SuccessCreatedMsg</note>
+        </trans-unit>
+        <trans-unit id="Report 4093048844 - ReportDataItem 2521448660 - Method 3245603402 - NamedType 246020786" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 already exist.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = TableCaption, %2 = No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Payment Recon. Jnl. CZB - ReportDataItem Iss. Bank Statement Header CZB - Method OnAfterGetRecord - NamedType ExistErr</note>
+        </trans-unit>
+        <trans-unit id="Report 4093048844 - ReportDataItem 2521448660 - Method 3245603402 - NamedType 1940634003" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 already exist. Existing journal lines will be deleted and new ones will be created based on the bank statement lines. Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2">%1 = TableCaption, %2 = No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Create Payment Recon. Jnl. CZB - ReportDataItem Iss. Bank Statement Header CZB - Method OnAfterGetRecord - NamedType ExistJournallinesQst</note>
         </trans-unit>
         <trans-unit id="Report 4093048844 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>

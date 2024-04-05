@@ -3233,6 +3233,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZF - Action FixedAssetAnalysDepBookCZF - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1596838543 - Action 2417373214 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Print or preview Fixed Asset - Book Value 1 report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZF - Action FixedAssetBookValue1CZF - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1596838543 - Action 2417373214 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Fixed Asset Book Value 01</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZF - Action FixedAssetBookValue1CZF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1596838543 - Action 4108976479 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Print or preview Fixed Asset Card report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZF - Action FixedAssetCardCZF - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1596838543 - Action 4108976479 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Fixed Asset Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZF - Action FixedAssetCardCZF - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1612362103 - Action 667011734 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3133908286">
           <source>Open fixed asset history entries.</source>
           <note from="Developer" annotates="general" priority="2"></note>

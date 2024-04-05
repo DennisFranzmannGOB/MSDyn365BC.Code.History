@@ -33,6 +33,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Application CZZ - Field Amount to Use - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3056476423 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Application CZZ - Field Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3056476423 - Field 2324056710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Factor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Letter Application CZZ - Field Currency Factor - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3056476423 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -182,6 +192,101 @@
           <source>VAT Prod. Posting Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Buffer CZZ - Field VAT Prod. Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance Posting Parameters</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - NamedType 2509719297" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dates cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - NamedType EmptyDatesErr</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - NamedType 4021638451" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No. cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - NamedType EmptyDocNoErr</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - NamedType 1997559381" size-unit="char" translate="yes" xml:space="preserve">
+          <source>External Document No. cannot be empty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - NamedType EmptyExternalDocumentNoErr</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - NamedType 2574873861" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Document VAT Date (%1) must be less or equal to VAT Date (%2).</source>
+          <note from="Developer" annotates="general" priority="2">%1 = OriginalDocVATDate, %2 = VATDate</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - NamedType OriginalDocVATDateErr</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 1361883745 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount to Link</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Amount to Link - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 2324056710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Factor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Currency Factor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 580412389 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Document Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 1527563463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>External Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field External Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 1165839923 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Document VAT Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Original Document VAT Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 3710982960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Posting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 3268709882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Posting Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 2720485332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Source Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 2200099119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Temporary Entries Only</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field Temporary Entries Only - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 363425125 - Field 3163386377 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Advance Posting Parameters CZZ - Field VAT Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 987872330 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Adv. Letter Entry</source>
@@ -988,10 +1093,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Method CheckCurrencyExchangeRate - NamedType CurrEchRateNotFoundErr</note>
         </trans-unit>
+        <trans-unit id="Table 2442512937 - Method 1370547591 - NamedType 2217045089" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account has empty IBAN, QR payment will not be printed on Sales document.\\Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Method ConfirmCheckPaymentQRCodePrintIBAN - NamedType EmptyIBANQst</note>
+        </trans-unit>
         <trans-unit id="Table 2442512937 - Method 812337555 - NamedType 3649054914" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to update the exchange rate?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Method ConfirmCurrencyFactorUpdate - NamedType UpdateExchangeRateQst</note>
+        </trans-unit>
+        <trans-unit id="Table 2442512937 - Method 1128522161 - NamedType 3804706331" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Adv. Letter Header CZZ - Method CreateSalesAdvInvoicePaymentQRCodeString - NamedType InvoiceTxt</note>
         </trans-unit>
         <trans-unit id="Table 2442512937 - Method 322025361 - NamedType 4157724588" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advance Letter</source>
@@ -1503,6 +1618,51 @@
           <note from="Developer" annotates="general" priority="2">%1 = Purch. Advance Letter No. CZZ FieldCaption; %2 = Purch. Advance Letter No. CZZ; %3 = RecordId</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Payment Order Mgt. Handler CZZ - Method IsPurchAdvanceAppliedOnBeforeCheckPaymentOrderLineApplyToOtherEntries - NamedType PurchAdvanceAlreadyAppliedErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 696753126" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount has been exceeded.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType ExceededAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 1027452339" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The amount cannot be higher than to pay on advance letter.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType ExceededAmountToPayErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 716277722" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The amount cannot be higher than remaining amount on ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType ExceededRemainingAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 272352229" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nothing to Post.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType NothingToPostErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 2469366235" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reverse amount %1 is not posible on entry %2.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Reverse Amount, %2 = Purchase Advance Entry No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType ReverseAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 2753626253" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The record of "Purch. Adv. Letter Entry CZZ" must be temporary.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType TemporaryRecordErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 2123776260" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unapply is not possible.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType UnapplyIsNotPossibleErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 914886958" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First you must unapply invoces that were applied to advance last time.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType UnapplyLastInvoicesErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4266017257 - NamedType 3810014144" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unlink is not possible, because %1 entry exists.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Entry type</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Purch. Adv. Letter-Post CZZ - NamedType UnlinkIsNotPossibleErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 519972416" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date and VAT Date cannot be empty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1512,6 +1672,11 @@
           <source>Document No. and Dates cannot be empty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType DocumentNoOrDatesEmptyErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3588268779 - NamedType 2915986337" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post VAT Document higher than usage is not possible.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType ExceededUsageAmountErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 3042517085" size-unit="char" translate="yes" xml:space="preserve">
           <source>External Document No. cannot be empty.</source>
@@ -1527,11 +1692,6 @@
           <source>Nothing to Post.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType NothingToPostErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - NamedType 72781804" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Original Document VAT Date (%1) must be less or equal to VAT Date (%2).</source>
-          <note from="Developer" annotates="general" priority="2">%1 = OriginalDocVATDate, %2 = VATDate</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - NamedType OriginalDocVATDateMustBeLessOrVATDateErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3588268779 - NamedType 4041393448" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date cannot be empty.</source>
@@ -1563,50 +1723,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method CheckAdvancePayment - NamedType UsageQst</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 1483443012 - NamedType 933461970" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The amount cannot be higher than remaining amount on ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method PostAdvancePayment - NamedType RemainingAmountExceededErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 1483443012 - NamedType 2500462971" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The amount cannot be higher than to pay on advance letter.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method PostAdvancePayment - NamedType ToPayAmountExceededErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3588268779 - Method 39679101 - NamedType 1348792238" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Document already exists.\Continue?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method PostAdvancePaymentVAT - NamedType VATDocumentExistsQst</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 39679101 - NamedType 696753126" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Amount has been exceeded.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method PostAdvancePaymentVAT - NamedType ExceededAmountErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 2643373796 - NamedType 2033887935" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reverse amount %1 is not posible on entry %2.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Reverse Amount, %2 = Purchase Advance Entry No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method ReverseAdvancePayment - NamedType ReverseErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 2097838877 - NamedType 1732758821" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Post VAT Document higher than usage is not possible.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method ReverseAdvancePaymentVAT - NamedType UsedMoreAmountErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 1933249157 - NamedType 2123776260" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unapply is not possible.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method UnapplyAdvanceLetter - NamedType UnapplyIsNotPossibleErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3588268779 - Method 1933249157 - NamedType 190211984" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unapply advance letter: %1\Continue?</source>
           <note from="Developer" annotates="general" priority="2">%1 = Advance Letters</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method UnapplyAdvanceLetter - NamedType UnapplyAdvLetterQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3588268779 - Method 4190316796 - NamedType 914886958" size-unit="char" translate="yes" xml:space="preserve">
-          <source>First you must unapply invoces that were applied to advance last time.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PurchAdvLetterManagement CZZ - Method UnapplyVendLedgEntry - NamedType UnapplyLastInvoicesErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3588268779 - Method 3165709197 - NamedType 3810014144" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unlink is not possible, because %1 entry exists.</source>
@@ -1668,6 +1793,51 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Selection Handler CZZ - Method AddAdvanceReportsOnAfterGetFullDocumentTypeText - NamedType PurchaseAdvanceVATDocumentLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 696753126" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount has been exceeded.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType ExceededAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 1027452339" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The amount cannot be higher than to pay on advance letter.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType ExceededAmountToPayErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 716277722" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The amount cannot be higher than remaining amount on ledger entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType ExceededRemainingAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 272352229" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nothing to Post.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType NothingToPostErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 2469366235" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reverse amount %1 is not posible on entry %2.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Reverse Amount, %2 = Sales Advance Entry No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType ReverseAmountErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 2753626253" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The record of "Sales Adv. Letter Entry CZZ" must be temporary.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType TemporaryRecordErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 2123776260" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unapply is not possible.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType UnapplyIsNotPossibleErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 914886958" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First you must unapply invoces that were applied to advance last time.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType UnapplyLastInvoicesErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 902366887 - NamedType 3810014144" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unlink is not possible, because %1 entry exists.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Entry type</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sales Adv. Letter-Post CZZ - NamedType UnlinkIsNotPossibleErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2748602711 - NamedType 519972416" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date and VAT Date cannot be empty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1682,11 +1852,6 @@
           <source>The linked advance letter %1 is paid after %2. If you continue, the advance letter won't be deducted.\\Do you want to continue?</source>
           <note from="Developer" annotates="general" priority="2">%1 = advance letter no., %2 = posting date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType LaterPostingDateQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - NamedType 272352229" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Nothing to Post.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - NamedType NothingToPostErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2748602711 - NamedType 4041393448" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date cannot be empty.</source>
@@ -1723,50 +1888,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method CorrectDocumentAfterPaymentUsage - NamedType CorrectLineDescriptionTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - Method 1471886018 - NamedType 3831051030" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Credit memo cannot be created because some VAT usage exists.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvanceCreditMemoVAT - NamedType CreateCrMemoErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - Method 1483443012 - NamedType 933461970" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The amount cannot be higher than remaining amount on ledger entry.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvancePayment - NamedType RemainingAmountExceededErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - Method 1483443012 - NamedType 2500462971" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The amount cannot be higher than to pay on advance letter.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvancePayment - NamedType ToPayAmountExceededErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - Method 39679101 - NamedType 1877232053" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 cannot be empty in table %2, for %3, %4. You have to fill field and post VAT document again.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Field Caption, %2 = Table Caption, %3 = VAT Bus. Posting Group, %4 = "VAT Prod. Posting Group"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvancePaymentVAT - NamedType SettingErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - Method 39679101 - NamedType 696753126" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Amount has been exceeded.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method PostAdvancePaymentVAT - NamedType ExceededAmountErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - Method 2643373796 - NamedType 2033887935" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reverse amount %1 is not posible on entry %2.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Reverse Amount, %2 = Sales Advance Entry No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method ReverseAdvancePayment - NamedType ReverseErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - Method 1933249157 - NamedType 2123776260" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unapply is not possible.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method UnapplyAdvanceLetter - NamedType UnapplyIsNotPossibleErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2748602711 - Method 1933249157 - NamedType 190211984" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unapply advance letter: %1\Continue?</source>
           <note from="Developer" annotates="general" priority="2">%1 = Advance Letters</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method UnapplyAdvanceLetter - NamedType UnapplyAdvLetterQst</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2748602711 - Method 2891956100 - NamedType 914886958" size-unit="char" translate="yes" xml:space="preserve">
-          <source>First you must unapply invoces that were applied to advance last time.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesAdvLetterManagement CZZ - Method UnapplyCustLedgEntry - NamedType UnapplyLastInvoicesErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2748602711 - Method 3165709197 - NamedType 3810014144" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unlink is not possible, because %1 entry exists.</source>
@@ -5778,6 +5903,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Adv. Letters Recap. CZZ - Control ToDateField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 387165142 - ReportLayout 3862100781 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Purchase Advance Letters Recapitulation (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Adv. Letters Recap. CZZ - ReportLayout PurchAdvLettersRecap.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 387165142 - ReportLayout 3862100781 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Advance Letters Recapitulation (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Adv. Letters Recap. CZZ - ReportLayout PurchAdvLettersRecap.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 387165142 - ReportLayout 513919226 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Purchase Advance Letters Recapitulation (Excel) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Adv. Letters Recap. CZZ - ReportLayout PurchAdvLettersRecap.xlsx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 387165142 - ReportLayout 513919226 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Advance Letters Recapitulation (Excel)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Adv. Letters Recap. CZZ - ReportLayout PurchAdvLettersRecap.xlsx - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2936817786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Advance Letters</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5867,6 +6012,26 @@
           <source>To Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Advance Letters CZZ - Control ToDateField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2936817786 - ReportLayout 448278337 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Purchase Advance Letters (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Advance Letters CZZ - ReportLayout PurchAdvanceLetters.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2936817786 - ReportLayout 448278337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Advance Letters (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Advance Letters CZZ - ReportLayout PurchAdvanceLetters.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2936817786 - ReportLayout 3257671414 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Purchase Advance Letters (Excel) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Advance Letters CZZ - ReportLayout PurchAdvanceLetters.xlsx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2936817786 - ReportLayout 3257671414 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Advance Letters (Excel)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purch. Advance Letters CZZ - ReportLayout PurchAdvanceLetters.xlsx - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 329971639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Advance Letters VAT</source>
@@ -6483,6 +6648,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance Letter CZZ - NamedType PaymentTermsLbl</note>
         </trans-unit>
+        <trans-unit id="Report 234735014 - NamedType 4261058509" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QR Payment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance Letter CZZ - NamedType QRPaymentLbl</note>
+        </trans-unit>
         <trans-unit id="Report 234735014 - NamedType 1075159697" size-unit="char" translate="yes" xml:space="preserve">
           <source>Salesperson</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6723,6 +6893,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Invoice with Adv. CZZ - NamedType PrepayedLbl</note>
         </trans-unit>
+        <trans-unit id="Report 485202580 - NamedType 4261058509" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QR Payment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Invoice with Adv. CZZ - NamedType QRPaymentLbl</note>
+        </trans-unit>
         <trans-unit id="Report 485202580 - NamedType 1075159697" size-unit="char" translate="yes" xml:space="preserve">
           <source>Salesperson</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6928,6 +7103,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Adv. Letters Recap. CZZ - Control ToDateField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 595115396 - ReportLayout 1875207801 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Advance Letters Recapitulation (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Adv. Letters Recap. CZZ - ReportLayout SalesAdvLettersRecap.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 595115396 - ReportLayout 1875207801 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance Letters Recapitulation (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Adv. Letters Recap. CZZ - ReportLayout SalesAdvLettersRecap.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 595115396 - ReportLayout 3108287790 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Advance Letters Recapitulation (Excel) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Adv. Letters Recap. CZZ - ReportLayout SalesAdvLettersRecap.xlsx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 595115396 - ReportLayout 3108287790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance Letters Recapitulation (Excel)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Adv. Letters Recap. CZZ - ReportLayout SalesAdvLettersRecap.xlsx - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2081690216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Advance Letters</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7017,6 +7212,26 @@
           <source>To Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Advance Letters CZZ - Control ToDateField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2081690216 - ReportLayout 562927029 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Advance Letters (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Advance Letters CZZ - ReportLayout SalesAdvanceLetters.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2081690216 - ReportLayout 562927029 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Standard Sales Advance Letters (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Advance Letters CZZ - ReportLayout SalesAdvanceLetters.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2081690216 - ReportLayout 1641974850 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Advance Letters (Excel) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Advance Letters CZZ - ReportLayout SalesAdvanceLetters.xlsx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2081690216 - ReportLayout 1641974850 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Standard Sales Advance Letters (Excel)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Advance Letters CZZ - ReportLayout SalesAdvanceLetters.xlsx - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 290321289 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Advance Letters VAT</source>
@@ -8348,15 +8563,65 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Suggest Worksheet Lines CZZ - Control IsSalesAdvanceLettersConsidered - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1612709404 - Method 3166424899 - NamedType 4196406974" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Advance Payments feature is not enabled.\Please enable it using Feature Management before use.</source>
+        <trans-unit id="PageExtension 3341019371 - Action 387165142 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Run the Purch. Adv. Letters Recap. report.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Advance Payments Mgt. CZZ - Method TestIsEnabled - NamedType AdvancePaymentsFeatureNotEnabledErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Purch. Adv. Letters Recap. CZZ - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 960125044 - EnumValue 4269074616 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 1079378746">
-          <source>Advance Payments Localization for Czech</source>
+        <trans-unit id="PageExtension 3341019371 - Action 387165142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Purch. Advance Letters Recapitulation</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Feature To Update - CZZ - EnumValue AdvancePaymentsLocalizationForCzech - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Purch. Adv. Letters Recap. CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 2936817786 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Run the Purch. Advance Letters report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Purch. Advance Letters CZZ - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 2936817786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Purchase Advance Letters</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Purch. Advance Letters CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 329971639 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Run the Purch. Advance Letters VAT report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Purch. Advance Letters VAT CZZ - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 329971639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Purchase Advance Letters VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Purch. Advance Letters VAT CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 595115396 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Run the Sales Adv. Letters Recap. report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Sales Adv. Letters Recap. CZZ - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 595115396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Sales Advance Letters Recapitulation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Sales Adv. Letters Recap. CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 2081690216 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Run the Sales Advance Letters report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Sales Advance Letters CZZ - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 2081690216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Sales Advance Letters</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Sales Advance Letters CZZ - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 290321289 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Run the Sales Advance Letters VAT report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Sales Advance Letters VAT CZZ - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3341019371 - Action 290321289 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4105562392">
+          <source>Sales Advance Letters VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Finance Manager RC CZZ - Action Sales Advance Letters VAT CZZ - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 1001558548 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>CZ Advance Payments - Edit</source>
