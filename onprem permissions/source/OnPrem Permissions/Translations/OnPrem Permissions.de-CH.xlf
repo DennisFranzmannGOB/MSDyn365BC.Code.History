@@ -107,7 +107,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2844503161 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in ins. jnls.</source>
-          <target state="translated">Posten im Vers. Buch.-Bl. erst.</target>
+          <target state="translated">Posten im Vers. Erf.jrn. erst.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet FA-INS JOURNAL - Property Caption</note>
         </trans-unit>
@@ -641,7 +641,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 551833350 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries on req. wksh.</source>
-          <target state="translated">Posten in wdk. Buch.-Bl. erst.</target>
+          <target state="translated">Posten in wdk. Erf.-Jrn. erst.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet P&amp;P-REQ WKSH - Property Caption</note>
         </trans-unit>
@@ -689,7 +689,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2477744452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create entries in res. jnls.</source>
-          <target state="translated">Posten in Ress. Buch.-Bl. erst.</target>
+          <target state="translated">Posten in Ress. Erf.-Jrn. erst</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet RES-JOURNAL - Property Caption</note>
         </trans-unit>
@@ -959,7 +959,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 2032439741 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete VAT Rate Change Log</source>
-          <target state="translated">Protok. MwSt.-Satzänd. löschen</target>
+          <target state="translated">Prot. f. MWST-Satzänd. lösch.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet VAT-RC-LOG, DELETE - Property Caption</note>
         </trans-unit>
