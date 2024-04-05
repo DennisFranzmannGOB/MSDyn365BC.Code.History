@@ -153,11 +153,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table CD Number Header - NamedType ChangeLinesQst</note>
         </trans-unit>
-        <trans-unit id="Table 623083301 - NamedType 2555421232" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must enable Package Tracking in Feature management to create Customs Declarations.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table CD Number Header - NamedType PackageNoIsNotEnabledErr</note>
-        </trans-unit>
         <trans-unit id="Table 623083301 - Field 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comment</source>
           <note from="Developer" annotates="general" priority="2"></note>
