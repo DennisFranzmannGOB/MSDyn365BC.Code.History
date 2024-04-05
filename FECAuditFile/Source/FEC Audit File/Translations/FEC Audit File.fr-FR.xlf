@@ -27,30 +27,9 @@
           <note from="Developer" annotates="general" priority="2">#1 - percent of processed G/L Entries</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File FEC - NamedType ProcessTransactionsTxt</note>
         </trans-unit>
-        <trans-unit id="EnumExtension 3494750856 - EnumValue 1199454900 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>FEC</source>
-          <target state="translated">FEC</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Enum 1217862704</note>
-        </trans-unit>
         <trans-unit id="PageExtension 3520827309 - Control 1076344333 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the source code to be used if there is no code specified in the G/L entry.</source>
           <target state="translated">Spécifie le code journal à utiliser si aucun code n’est spécifié dans l’écriture comptable.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3520827309 - Control 1266733634 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the transaction number is used as the progressive number in the audit file. If you select the option, the transaction number is used as the progressive number. If you do not select the option, the general ledger register number is used as the progressive number.</source>
-          <target state="translated">Indique si le numéro de transaction est utilisé comme numéro progressif dans le fichier d’audit. Si vous sélectionnez cette option, le numéro de transaction est utilisé comme numéro progressif. Si vous ne sélectionnez pas cette option, le numéro du registre comptable est utilisé comme numéro progressif.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3520827309 - Control 1616889255 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if you want to include opening balances in the audit report file. The balances are calculated as of the date before the first date of the period covered by the report.</source>
-          <target state="translated">Spécifie si vous souhaitez inclure des soldes d’ouverture dans le fichier de rapport d’audit. Les soldes sont calculés à la date précédant la première date de la période couverte par l’état.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
@@ -62,19 +41,33 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3767080988 - Field 1524235287 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Include Opening Balances</source>
-          <target state="translated">Inclure soldes d’ouverture</target>
+        <trans-unit id="PageExtension 3520827309 - Control 1616889255 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to include opening balances in the audit report file. The balances are calculated as of the date before the first date of the period covered by the report.</source>
+          <target state="translated">Spécifie si vous souhaitez inclure des soldes d’ouverture dans le fichier de rapport d’audit. Les soldes sont calculés à la date précédant la première date de la période couverte par l’état.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3767080988 - Field 2663815879 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>G/L Account View String</source>
-          <target state="translated">Chaîne affichage compte général</target>
+        <trans-unit id="PageExtension 3520827309 - Control 1266733634 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the transaction number is used as the progressive number in the audit file. If you select the option, the transaction number is used as the progressive number. If you do not select the option, the general ledger register number is used as the progressive number.</source>
+          <target state="translated">Indique si le numéro de transaction est utilisé comme numéro progressif dans le fichier d’audit. Si vous sélectionnez cette option, le numéro de transaction est utilisé comme numéro progressif. Si vous ne sélectionnez pas cette option, le numéro du registre comptable est utilisé comme numéro progressif.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2635072399</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3767080988 - NamedType 2712298054" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Audit File Export Format Setup does not exist for the Fichier des écritures comptables (FEC) export format. Reinstall FEC Audit File extension or add a new line with the FEC format to Audit File Export Format setup.</source>
+          <target state="translated">La configuration du format d’exportation de fichier d’audit n’existe pas pour le format d’exportation Fichier des écritures comptables (FEC). Réinstallez l’extension du fichier d’audit FEC ou ajoutez une nouvelle ligne avec le format FEC à la configuration du format d’exportation de fichier d’audit.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3767080988</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3767080988 - NamedType 556315339" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You have selected too many filters for G/L accounts. Open the filter page again and set fewer filters.</source>
+          <target state="translated">Vous avez sélectionné trop de filtres pour les comptes généraux. Ouvrez à nouveau la page Filtre et définissez moins de filtres.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3767080988</note>
         </trans-unit>
         <trans-unit id="TableExtension 3767080988 - Field 3267728709 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default Source Code</source>
@@ -90,6 +83,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3767080988 - Field 2663815879 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Account View String</source>
+          <target state="translated">Chaîne affichage compte général</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3767080988 - Field 1524235287 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Include Opening Balances</source>
+          <target state="translated">Inclure soldes d’ouverture</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3767080988 - Field 449312564 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Use Transaction No.</source>
           <target state="translated">N° transaction d’utilisation</target>
@@ -97,19 +104,12 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1532649924</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3767080988 - NamedType 2712298054" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Audit File Export Format Setup does not exist for the Fichier des écritures comptables (FEC) export format. Reinstall FEC Audit File extension or add a new line with the FEC format to Audit File Export Format setup.</source>
-          <target state="translated">La configuration du format d’exportation de fichier d’audit n’existe pas pour le format d’exportation Fichier des écritures comptables (FEC). Réinstallez l’extension du fichier d’audit FEC ou ajoutez une nouvelle ligne avec le format FEC à la configuration du format d’exportation de fichier d’audit.</target>
+        <trans-unit id="EnumExtension 3494750856 - EnumValue 1199454900 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FEC</source>
+          <target state="translated">FEC</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3767080988</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3767080988 - NamedType 556315339" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You have selected too many filters for G/L accounts. Open the filter page again and set fewer filters.</source>
-          <target state="translated">Vous avez sélectionné trop de filtres pour les comptes généraux. Ouvrez à nouveau la page Filtre et définissez moins de filtres.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3767080988</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 1217862704</note>
         </trans-unit>
       </group>
     </body>
