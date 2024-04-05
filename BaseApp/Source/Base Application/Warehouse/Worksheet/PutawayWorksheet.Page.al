@@ -509,15 +509,6 @@ page 7352 "Put-away Worksheet"
                 actionref("Item &Tracking Lines_Promoted"; "Item &Tracking Lines")
                 {
                 }
-#if not CLEAN21
-                actionref("Bin Contents_Promoted"; "Bin Contents")
-                {
-                    Visible = false;
-                    ObsoleteState = Pending;
-                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
-                    ObsoleteTag = '21.0';
-                }
-#endif
             }
             group(Category_Category6)
             {
@@ -549,11 +540,6 @@ page 7352 "Put-away Worksheet"
     trigger OnAfterGetCurrRecord()
     begin
         Rec.GetItem(Rec."Item No.", ItemDescription);
-        WhseDocumentType := Rec."Whse. Document Type";
-    end;
-
-    trigger OnAfterGetRecord()
-    begin
         WhseDocumentType := Rec."Whse. Document Type";
     end;
 

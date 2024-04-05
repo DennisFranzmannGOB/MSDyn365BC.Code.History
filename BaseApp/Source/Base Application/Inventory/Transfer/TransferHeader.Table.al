@@ -24,6 +24,7 @@ table 5740 "Transfer Header"
     Caption = 'Transfer Header';
     DataCaptionFields = "No.";
     LookupPageID = "Transfer Orders";
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -32,10 +33,12 @@ table 5740 "Transfer Header"
             Caption = 'No.';
 
             trigger OnValidate()
+            var
+                NoSeries: Codeunit "No. Series";
             begin
                 if "No." <> xRec."No." then begin
                     GetInventorySetup();
-                    NoSeriesMgt.TestManual(GetNoSeriesCode());
+                    NoSeries.TestManual(GetNoSeriesCode());
                     "No. Series" := '';
                 end;
             end;
@@ -718,11 +721,9 @@ table 5740 "Transfer Header"
         InvtSetup: Record "Inventory Setup";
         WhseRequest: Record "Warehouse Request";
         DimMgt: Codeunit DimensionManagement;
-        NoSeriesMgt: Codeunit NoSeriesManagement;
         ErrorMessageMgt: Codeunit "Error Message Management";
         HasInventorySetup: Boolean;
         CalledFromWhse: Boolean;
-
         Text000: Label 'You cannot rename a %1.';
         Text001: Label '%1 and %2 cannot be the same in %3 %4.';
         Text002: Label 'Do you want to change %1?';
@@ -773,16 +774,16 @@ table 5740 "Transfer Header"
     end;
 
     procedure AssistEdit(OldTransHeader: Record "Transfer Header"): Boolean
+    var
+        NoSeries: Codeunit "No. Series";
     begin
-        with TransHeader do begin
-            TransHeader := Rec;
-            GetInventorySetup();
-            TestNoSeries();
-            if NoSeriesMgt.SelectSeries(GetNoSeriesCode(), OldTransHeader."No. Series", "No. Series") then begin
-                NoSeriesMgt.SetSeries("No.");
-                Rec := TransHeader;
-                exit(true);
-            end;
+        TransHeader := Rec;
+        GetInventorySetup();
+        TestNoSeries();
+        if NoSeries.LookupRelatedNoSeries(GetNoSeriesCode(), OldTransHeader."No. Series", TransHeader."No. Series") then begin
+            TransHeader."No." := NoSeries.GetNextNo(TransHeader."No. Series");
+            Rec := TransHeader;
+            exit(true);
         end;
     end;
 
@@ -1358,6 +1359,8 @@ table 5740 "Transfer Header"
         ItemTrackingDocMgt: Codeunit "Item Tracking Doc. Management";
         ItemTrackingMgt: Codeunit "Item Tracking Management";
     begin
+        OnBeforeAddTransferLineFromReceiptLine(TransferLine, PurchRcptLine, Rec);
+
         TransferLine."Document No." := "No.";
         TransferLine."Line No." := LineNo;
         TransferLine.Validate("Item No.", PurchRcptLine."No.");
@@ -1430,6 +1433,12 @@ table 5740 "Transfer Header"
 
     local procedure InitInsert()
     var
+        TransferHeader: Record "Transfer Header";
+        NoSeries: Codeunit "No. Series";
+#if not CLEAN24
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+        DefaultNoSeriesCode: Code[20];
+#endif
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -1437,7 +1446,32 @@ table 5740 "Transfer Header"
         if not IsHandled then
             if "No." = '' then begin
                 TestNoSeries();
-                NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", "Posting Date", "No.", "No. Series");
+#if not CLEAN24
+                DefaultNoSeriesCode := GetNoSeriesCode();
+                NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(DefaultNoSeriesCode, xRec."No. Series", "Posting Date", "No.", "No. Series", IsHandled);
+                if not IsHandled then begin
+                    if NoSeries.AreRelated(DefaultNoSeriesCode, xRec."No. Series") then
+                        "No. Series" := xRec."No. Series"
+                    else
+                        "No. Series" := DefaultNoSeriesCode;
+                    "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
+                    TransferHeader.ReadIsolation(IsolationLevel::ReadUncommitted);
+                    TransferHeader.SetLoadFields("No.");
+                    while TransferHeader.Get("No.") do
+                        "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
+                    NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", DefaultNoSeriesCode, "Posting Date", "No.");
+                end;
+#else
+                if NoSeries.AreRelated(GetNoSeriesCode(), xRec."No. Series") then
+                    "No. Series" := xRec."No. Series"
+                else
+                    "No. Series" := GetNoSeriesCode();
+                "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
+                TransferHeader.ReadIsolation(IsolationLevel::ReadUncommitted);
+                TransferHeader.SetLoadFields("No.");
+                while TransferHeader.Get("No.") do
+                    "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
+#endif
             end;
 
         OnInitInsertOnBeforeInitRecord(xRec);
@@ -1761,6 +1795,11 @@ table 5740 "Transfer Header"
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeValidateShippingAgentCode(var TransferHeader: Record "Transfer Header"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeAddTransferLineFromReceiptLine(var TransferLine: Record "Transfer Line"; PurchRcptLine: Record "Purch. Rcpt. Line"; var TransferHeader: Record "Transfer Header")
     begin
     end;
 }

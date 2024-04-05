@@ -51,12 +51,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Universal Printer Settings - Field Name - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2804880794 - Field 982017318 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Output Bin</source>
-          <target state="translated">Uitvoeropslaglocatie</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Universal Printer Settings - Field outputBin - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 2804880794 - Field 4189842715 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Printer Paper Height</source>
           <target state="translated">Papierhoogte van printer</target>

@@ -438,8 +438,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Action Attach - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3767244041 - Action 745909125 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attach</source>
-          <target state="translated">Joindre</target>
+          <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Action Attach - Property Caption</note>
         </trans-unit>
@@ -450,7 +449,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Action Cancel - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3767244041 - Action 788258546 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard</source>
+          <source>Discard it</source>
           <target state="translated">Ignorer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Action Cancel - Property Caption</note>
@@ -534,8 +533,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal Sub - Control Transaction Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copilot G/L Account Transfer Proposals</source>
-          <target state="translated">Propositions de transfert de compte du grand livre Copilot</target>
+          <source>Copilot Proposals for Posting Differences to G/L Accounts</source>
+          <target state="translated">Propositions Copilot pour le report des différences dans les comptes du grand livre</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Property Caption</note>
         </trans-unit>
@@ -711,13 +710,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control Statement No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Action 788258546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard transfers to G/L Accounts proposed by Copilot.</source>
-          <target state="translated">Annuler les transferts vers les comptes du grand livre proposés par Copilot.</target>
+          <source>Discard the Copilot proposals for posting difference amounts to G/L Accounts.</source>
+          <target state="translated">Annulez les propositions Copilot pour le report des montants de différences dans les comptes du grand livre.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Action Cancel - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Action 788258546 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard</source>
+          <source>Discard it</source>
           <target state="translated">Ignorer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Action Cancel - Property Caption</note>
@@ -735,8 +734,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Action Generate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Action 2079045816 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Save transfers to G/L Accounts proposed by Copilot.</source>
-          <target state="translated">Enregistrer les transferts vers les comptes du grand livre proposés par Copilot.</target>
+          <source>Post the difference amounts to G/L Accounts as proposed by Copilot.</source>
+          <target state="translated">Reportez les montants de différence dans les comptes du grand livre, comme proposé par Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Action OK - Property ToolTip</note>
         </trans-unit>
@@ -760,16 +759,23 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">PageExtension 658008251</note>
         </trans-unit>
+        <trans-unit id="PageExtension 658008251 - NamedType 691098144" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must specify the transaction date on all the selected statement lines.</source>
+          <target state="translated">Vous devez indiquer la date de transaction sur toutes les lignes relevé sélectionnées.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 658008251</note>
+        </trans-unit>
         <trans-unit id="PageExtension 658008251 - Action 2702344231 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Find suitable G/L Accounts for selected statement lines, post new payments and reconcile statement lines with the new payments</source>
-          <target state="translated">Rechercher des comptes du grand livre appropriés pour les lignes de relevé sélectionnées, reporter de nouveaux paiements et rapprocher les lignes de relevé avec les nouveaux paiements</target>
+          <source>Find suitable G/L Accounts for selected statement lines, post their differences as new payments and reconcile statement lines with the new payments</source>
+          <target state="translated">Rechercher des comptes du grand livre appropriés pour les lignes de relevé sélectionnées, reporter leurs différences en tant que nouveaux paiements et rapprocher les lignes de relevé avec les nouveaux paiements</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3012722930</note>
         </trans-unit>
         <trans-unit id="PageExtension 658008251 - Action 2702344231 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Transfer to G/L Account</source>
-          <target state="translated">Transférer vers un compte du grand livre</target>
+          <source>Post Difference to G/L Account</source>
+          <target state="translated">Reporter la différence dans le compte du grand livre</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3012722930</note>

@@ -137,6 +137,7 @@ codeunit 1001 "Job Post-Line"
     procedure PostInvoiceContractLine(SalesHeader: Record "Sales Header"; SalesLine: Record "Sales Line")
     var
         Job: Record Job;
+        JobTask: Record "Job Task";
         JobPlanningLine: Record "Job Planning Line";
         JobPlanningLineInvoice: Record "Job Planning Line Invoice";
         DummyJobLedgEntryNo: Integer;
@@ -159,7 +160,12 @@ codeunit 1001 "Job Post-Line"
         IsHandled := false;
         OnPostInvoiceContractLineOnBeforeCheckBillToCustomer(SalesHeader, SalesLine, JobPlanningLine, IsHandled);
         if not IsHandled then
-            SalesHeader.TestField("Bill-to Customer No.", Job."Bill-to Customer No.");
+            if Job."Task Billing Method" = Job."Task Billing Method"::"One customer" then
+                SalesHeader.TestField("Bill-to Customer No.", Job."Bill-to Customer No.")
+            else begin
+                JobTask.Get(JobPlanningLine."Job No.", JobPlanningLine."Job Task No.");
+                SalesHeader.TestField("Bill-to Customer No.", JobTask."Bill-to Customer No.");
+            end;
 
         OnPostInvoiceContractLineBeforeCheckJobLine(SalesHeader, SalesLine, JobPlanningLine, JobLineChecked);
         if not JobLineChecked then begin
@@ -601,6 +607,8 @@ codeunit 1001 "Job Post-Line"
 
     local procedure CheckCurrency(Job: Record Job; SalesHeader: Record "Sales Header"; JobPlanningLine: Record "Job Planning Line")
     var
+        JobTask: Record "Job Task";
+        JobInvCurr: Code[10];
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -608,7 +616,14 @@ codeunit 1001 "Job Post-Line"
         if IsHandled then
             exit;
 
-        if Job."Invoice Currency Code" = '' then begin
+        if Job."Task Billing Method" = Job."Task Billing Method"::"One customer" then
+            JobInvCurr := Job."Invoice Currency Code"
+        else begin
+            JobTask.Get(JobPlanningLine."Job No.", JobPlanningLine."Job Task No.");
+            JobInvCurr := JobTask."Invoice Currency Code";
+        end;
+
+        if JobInvCurr = '' then begin
             Job.TestField("Currency Code", SalesHeader."Currency Code");
             Job.TestField("Currency Code", JobPlanningLine."Currency Code");
             SalesHeader.TestField("Currency Code", JobPlanningLine."Currency Code");

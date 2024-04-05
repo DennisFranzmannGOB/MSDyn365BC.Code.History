@@ -958,7 +958,7 @@ codeunit 137831 "SCM - Warehouse UT"
         MockWMSLocation(LocationCode, BinCode);
 
         // [GIVEN] Empty bin content "BC" for bin "B" at the location.
-        CreateBinContent(BinContent, LocationCode, BinCode, LibraryInventory.CreateItemNo);
+        CreateBinContent(BinContent, LocationCode, BinCode, LibraryInventory.CreateItemNo());
 
         with WarehouseActivityLine do begin
             // [GIVEN] Put-away line with "Bin Code" = "B".
@@ -988,7 +988,7 @@ codeunit 137831 "SCM - Warehouse UT"
 
         MockWMSLocation(LocationCode, BinCode);
 
-        CreateBinContent(BinContent, LocationCode, BinCode, LibraryInventory.CreateItemNo);
+        CreateBinContent(BinContent, LocationCode, BinCode, LibraryInventory.CreateItemNo());
         BinContent."Min. Qty." := LibraryRandom.RandInt(10);
         BinContent.Modify();
 
@@ -1016,7 +1016,7 @@ codeunit 137831 "SCM - Warehouse UT"
 
         MockWMSLocation(LocationCode, BinCode);
 
-        CreateBinContent(BinContent, LocationCode, BinCode, LibraryInventory.CreateItemNo);
+        CreateBinContent(BinContent, LocationCode, BinCode, LibraryInventory.CreateItemNo());
         BinContent."Max. Qty." := LibraryRandom.RandInt(10);
         BinContent.Modify();
 
@@ -1148,8 +1148,8 @@ codeunit 137831 "SCM - Warehouse UT"
         MockTransferLine(TransferLine, Item."No.", LibraryRandom.RandIntInRange(51, 100));
         MockItemJournalLine(
           ItemJournalLine,
-          ItemJournalLine."Entry Type"::Transfer, LibraryUtility.GenerateGUID, LibraryUtility.GenerateGUID,
-          LibraryUtility.GenerateGUID, TransferLine.Quantity);
+          ItemJournalLine."Entry Type"::Transfer, LibraryUtility.GenerateGUID(), LibraryUtility.GenerateGUID(),
+          LibraryUtility.GenerateGUID(), TransferLine.Quantity);
         MockReservationEntry(
           ReservationEntry,
           DATABASE::"Transfer Line", TransferLine."Document No.", TransferLine."Item No.", TransferLine."Variant Code",
@@ -1195,8 +1195,8 @@ codeunit 137831 "SCM - Warehouse UT"
           TransferLine."Transfer-from Code", TransferLine.Quantity);
         MockReservationEntry(
           ReservationEntry,
-          DATABASE::"Transfer Line", TransferLine."Document No.", LibraryUtility.GenerateGUID, LibraryUtility.GenerateGUID,
-          LibraryUtility.GenerateGUID, -Qty);
+          DATABASE::"Transfer Line", TransferLine."Document No.", LibraryUtility.GenerateGUID(), LibraryUtility.GenerateGUID(),
+          LibraryUtility.GenerateGUID(), -Qty);
         MockWarehouseShipment(
           WarehouseShipmentHeader,
           DATABASE::"Transfer Line", TransferLine."Document No.", TransferLine."Item No.", TransferLine."Variant Code",
@@ -1327,25 +1327,25 @@ codeunit 137831 "SCM - Warehouse UT"
         // [GIVEN] Location "L1" with bin "B1".
         LibraryWarehouse.CreateLocationWMS(Location[1], true, false, false, false, false);
         CreateBin(Bin[1], Location[1].Code);
-        CreateBinContent(BinContent, Location[1].Code, Bin[1].Code, LibraryInventory.CreateItemNo);
+        CreateBinContent(BinContent, Location[1].Code, Bin[1].Code, LibraryInventory.CreateItemNo());
 
         // [GIVEN] Location "L2" with bin "B2".
         // [GIVEN] A user has been set as a warehouse employee only on location "L2".
         LibraryWarehouse.CreateLocationWMS(Location[2], true, false, false, false, false);
         CreateBin(Bin[2], Location[2].Code);
-        CreateBinContent(BinContent, Location[2].Code, Bin[2].Code, LibraryInventory.CreateItemNo);
+        CreateBinContent(BinContent, Location[2].Code, Bin[2].Code, LibraryInventory.CreateItemNo());
         LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location[2].Code, false);
 
         // [WHEN] Open Bin Contents page.
-        BinContents.OpenView;
+        BinContents.OpenView();
 
         // [THEN] Bin "B1" is not found on the page.
         BinContents.FILTER.SetFilter("Bin Code", Bin[1].Code);
-        Assert.IsFalse(BinContents.First, '');
+        Assert.IsFalse(BinContents.First(), '');
 
         // [THEN] Bin "B2" is shown on the page.
         BinContents.FILTER.SetFilter("Bin Code", Bin[2].Code);
-        Assert.IsTrue(BinContents.First, '');
+        Assert.IsTrue(BinContents.First(), '');
 
         BinContents.Close();
     end;
@@ -1359,19 +1359,16 @@ codeunit 137831 "SCM - Warehouse UT"
     begin
         // [FEATURE] [Item Variant]
         // [SCENARIO 307728] No error on validate "Serial No." in Warehouse Activity Line when other similar line with other Variant Code presents
-
         // [GIVEN] Warehouse Activity Line 1 had Variant Code = "V1" and Serial No = "S1"
-        with WarehouseActivityLine1 do begin
-            Init();
-            "Activity Type" := "Activity Type"::Pick;
-            "No." := LibraryUtility.GenerateGUID();
-            "Line No." := LibraryUtility.GetNewRecNo(WarehouseActivityLine1, FieldNo("Line No."));
-            "Item No." := CreateItemWithSNWhseTracking;
-            "Serial No." := LibraryUtility.GenerateGUID();
-            "Variant Code" := LibraryUtility.GenerateGUID();
-            "Qty. (Base)" := 1;
-            Insert();
-        end;
+        WarehouseActivityLine1.Init();
+        WarehouseActivityLine1."Activity Type" := WarehouseActivityLine1."Activity Type"::Pick;
+        WarehouseActivityLine1."No." := LibraryUtility.GenerateGUID();
+        WarehouseActivityLine1."Line No." := LibraryUtility.GetNewRecNo(WarehouseActivityLine1, WarehouseActivityLine1.FieldNo("Line No."));
+        WarehouseActivityLine1."Item No." := CreateItemWithSNWhseTracking();
+        WarehouseActivityLine1."Serial No." := LibraryUtility.GenerateGUID();
+        WarehouseActivityLine1."Variant Code" := LibraryUtility.GenerateGUID();
+        WarehouseActivityLine1."Qty. (Base)" := 1;
+        WarehouseActivityLine1.Insert();
 
         // [GIVEN] Warehouse Activity Line 2 copied from Line 1 had Variant Code = "V2"
         WarehouseActivityLine2 := WarehouseActivityLine1;
@@ -1638,60 +1635,6 @@ codeunit 137831 "SCM - Warehouse UT"
         Assert.IsTrue(WarehousePick.WhseActivityLines."Bin Code".Editable(), '');
     end;
 
-    [Test]
-    [Scope('OnPrem')]
-    procedure BinContentsPage_CanSwitchLocationFilterWithoutRenamingRecord()
-    var
-        Location: array[2] of Record Location;
-        Bin: Record Bin;
-        BinContent: Record "Bin Content";
-        WarehouseEmployee: Record "Warehouse Employee";
-        BinContents: TestPage "Bin Contents";
-    begin
-        // [FEATURE] [Bin Contents] [Warehouse Employee] [UI]
-        // [SCENARIO 500943] Location Filter can be switched in Bin Contents page without accidental rename.
-        WarehouseEmployee.DeleteAll();
-
-        // [GIVEN] Location "L1" with bin "B1" and Bin Content for item "I1".
-        LibraryWarehouse.CreateLocationWMS(Location[1], true, false, false, false, false);
-        CreateBin(Bin, Location[1].Code);
-        CreateBinContent(BinContent, Location[1].Code, Bin.Code, LibraryInventory.CreateItemNo());
-
-        // [GIVEN] A user has been set as a warehouse employee only on location "L1".
-        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location[1].Code, true);
-
-        // [GIVEN] Location "L2".
-        LibraryWarehouse.CreateLocationWMS(Location[2], true, false, false, false, false);
-
-        // [GIVEN] A user has been set as a warehouse employee only on location "L2".        
-        LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location[2].Code, false);
-
-        // [GIVEN] Open Bin Contents page.
-        BinContents.OpenView();
-
-        // [WHEN] Filter by Location "L2" that does not have any Bin Content.
-        BinContents.LocationCode.SetValue(Location[2].Code);
-
-        // [THEN] There are no Bin Contents on the page.
-        Assert.IsFalse(BinContents.First(), '');
-
-        // [GIVEN] Filter by Bin "B1" that does have Bin Content on "L2".
-        BinContents.Filter.SetFilter("Bin Code", Bin.Code);
-
-        // [WHEN] Filter by Location "L1" that does have Bin Content.
-        BinContents.LocationCode.SetValue(Location[1].Code);
-
-        // [THEN] Bin "B1" is shown on the page.
-        Assert.IsTrue(BinContents.First(), '');
-
-        // [THEN] Item No. has value (not lost due to rename).
-        Assert.IsTrue(BinContents."Item No.".Value() = BinContent."Item No.", 'Item No. is empty.');
-
-        BinContents.Close();
-
-        WarehouseEmployee.DeleteAll();
-    end;
-
     local procedure CreateItemWithSNWhseTracking(): Code[20]
     var
         Item: Record Item;
@@ -1946,7 +1889,7 @@ codeunit 137831 "SCM - Warehouse UT"
             ReservationEntry.Quantity += QtyToReserve;
             ReservationEntry."Qty. to Handle (Base)" += QtyToReserve;
             if Abs(ReservationEntry."Quantity (Base)") <= 0 then
-                ReservationEntry.Delete
+                ReservationEntry.Delete()
             else
                 ReservationEntry.Modify();
         end;

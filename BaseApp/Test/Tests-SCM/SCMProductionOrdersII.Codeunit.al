@@ -67,7 +67,6 @@ codeunit 137072 "SCM Production Orders II"
         TimeShiftedOnParentLineMsg: Label 'The production starting date-time of the end item has been moved forward because a subassembly is taking longer than planned.';
         DateConflictInReservErr: Label 'The change leads to a date conflict with existing reservations.';
         QuantityErr: Label '%1 must be %2 in %3', Comment = '%1: Quantity, %2: Consumption Quantity Value, %3: Item Ledger Entry';
-        ILENoOfRecordsMustNotBeZeroErr: Label 'Item Ledger Entry No. of Records must not be zero.';
 
     [Test]
     [Scope('OnPrem')]
@@ -2312,8 +2311,7 @@ codeunit 137072 "SCM Production Orders II"
         // [GIVEN] Release Prod. Order
         ProductionOrder.Get(
           ProductionOrder.Status::Released,
-          LibraryManufacturing.ChangeStatusFirmPlanToReleased(
-            ProductionOrder."No.", ProductionOrder.Status::"Firm Planned", ProductionOrder.Status::Released));
+          LibraryManufacturing.ChangeStatusFirmPlanToReleased(ProductionOrder."No."));
 
         // [WHEN] Create Whse. Pick from Released Prod. Order
         LibraryWarehouse.CreateWhsePickFromProduction(ProductionOrder);
@@ -3150,7 +3148,7 @@ codeunit 137072 "SCM Production Orders II"
         // [WHEN] Change Production Order status from "Released" to "Finished"
         LibraryVariableStorage.Enqueue(ConfirmStatusFinishTxt);
         FinishedProdOrderNo :=
-          LibraryManufacturing.ChangeStatusFirmPlanToReleased(
+          LibraryManufacturing.ChangeProuctionOrderStatus(
             ProductionOrder."No.", ProductionOrder.Status::Released, ProductionOrder.Status::Finished);
 
         // [THEN] Capacity Ledger Entries for operations "10", "20", "30" have total "Output Quantity" = 7 each
@@ -3211,7 +3209,7 @@ codeunit 137072 "SCM Production Orders II"
 
         // [WHEN] Change Production Order status from "Released" to "Finished"
         FinishedProdOrderNo :=
-          LibraryManufacturing.ChangeStatusFirmPlanToReleased(
+          LibraryManufacturing.ChangeProuctionOrderStatus(
             ProductionOrder."No.", ProductionOrder.Status::Released, ProductionOrder.Status::Finished);
 
         // [THEN] Capacity Ledger Entries for operations "10", "20", "30" have total "Output Quantity" = 10 each
@@ -4314,59 +4312,6 @@ codeunit 137072 "SCM Production Orders II"
                 ItemLedgerEntry.TableCaption()));
     end;
 
-    [Test]
-    [Scope('OnPrem')]
-    [HandlerFunctions('ProductionJournalPageHandler,GLPostingPreviewPageHandler')]
-    procedure PreviewPostingOfProductionJournalPostsCorrectConsumptionILE()
-    var
-        Item, Item2 : Record Item;
-        ProductionOrder, ProductionOrder2 : Record "Production Order";
-        ItemJournalLine: Record "Item Journal Line";
-        ReleasedProdOrder: TestPage "Released Production Order";
-    begin
-        // [SCENARIO 501883] When Preview Post or Post Production Journal From a Released Production Order, it creates correct Item Ledger Entries even if there is a Consumption Journal Line of completely different Production Order No. in Consumption Journal.
-        Initialize();
-
-        // [GIVEN] Create Item.
-        LibraryInventory.CreateItem(Item);
-
-        // [GIVEN] Create and Refresh Production Order.
-        CreateAndRefreshProductionOrder(
-            ProductionOrder,
-            ProductionOrder.Status::Released,
-            Item."No.",
-            LibraryRandom.RandIntInRange(10, 10),
-            '',
-            '');
-
-        // [GIVEN] Create Item 2.
-        LibraryInventory.CreateItem(Item2);
-
-        // [GIVEN] Create and Refresh Production Order 2.
-        CreateAndRefreshProductionOrder(
-            ProductionOrder2,
-            ProductionOrder2.Status::Released,
-            Item2."No.",
-            LibraryRandom.RandIntInRange(10, 10),
-            '',
-            '');
-
-        // [GIVEN] Create Consumption Journal Line for Production Order 2.
-        CreateConsumptionJournalLine(
-            ItemJournalLine,
-            ProductionOrder2."No.",
-            Item2."No.",
-            LibraryRandom.RandIntInRange(10, 10));
-
-        // [WHEN] Open Released Production Order page and run Production Journal action.
-        ReleasedProdOrder.OpenEdit();
-        ReleasedProdOrder.GoToRecord(ProductionOrder);
-        ReleasedProdOrder.ProdOrderLines.ProductionJournal.Invoke();
-
-        // [VERIFY] Item Ledger Entry No. of Records in Posting Preview is not zero.
-        Assert.AreNotEqual(0, LibraryVariableStorage.DequeueInteger(), ILENoOfRecordsMustNotBeZeroErr);
-    end;
-
     local procedure Initialize()
     var
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
@@ -4961,14 +4906,12 @@ codeunit 137072 "SCM Production Orders II"
     local procedure CalculateInventoryValue(var Item: Record Item)
     var
         ItemJournalLine: Record "Item Journal Line";
-        CalculatePer: Option "Item Ledger Entry",Item;
-        CalcBase: Option " ","Last Direct Unit Cost","Standard Cost - Assembly List","Standard Cost - Manufacturing";
     begin
         SelectItemJournalLine(ItemJournalLine, RevaluationItemJournalTemplate.Name, RevaluationItemJournalBatch.Name);
         Item.SetRange("No.", Item."No.");
         LibraryCosting.CalculateInventoryValue(
           ItemJournalLine, Item, WorkDate(), ItemJournalLine."Journal Batch Name" + Format(ItemJournalLine."Line No."),
-          CalculatePer::"Item Ledger Entry", false, false, false, CalcBase::" ", false);
+          "Inventory Value Calc. Per"::"Item Ledger Entry", false, false, false, "Inventory Value Calc. Base"::" ", false);
     end;
 
     local procedure CreateAndRegisterPickWithProductionOrderSetup(var ProductionOrder: Record "Production Order"; Location: Record Location; ItemNo: Code[20]; Quantity: Decimal)
@@ -5094,8 +5037,7 @@ codeunit 137072 "SCM Production Orders II"
 
         // Change Production Order Status from Firm Planned to Released.
         ProductionOrderNo :=
-          LibraryManufacturing.ChangeStatusFirmPlanToReleased(
-            ProductionOrder."No.", ProductionOrder.Status::"Firm Planned", ProductionOrder.Status::Released);
+          LibraryManufacturing.ChangeStatusFirmPlanToReleased(ProductionOrder."No.");
     end;
 
     local procedure CreatePickFromReleasedProductionOrder(ProductionOrderNo: Code[20])
@@ -6109,43 +6051,6 @@ codeunit 137072 "SCM Production Orders II"
         LibraryManufacturing.UpdateRoutingStatus(RoutingHeader, RoutingHeader.Status::Certified);
     end;
 
-    local procedure CreateConsumptionJournalLine(
-        var ItemJournalLine: Record "Item Journal Line";
-        ProdOrderNo: Code[20];
-        ItemNo: Code[20];
-        Qty: Decimal)
-    var
-        ItemJnlTemplate: Record "Item Journal Template";
-        ItemJnlBatch: Record "Item Journal Batch";
-    begin
-        InitItemJournalBatch(ItemJnlBatch, ItemJnlBatch."Template Type"::Consumption);
-        ItemJournalLine.Init();
-        ItemJournalLine."Entry Type" := ItemJournalLine."Entry Type"::Consumption;
-
-        ItemJnlTemplate.Get(ItemJnlBatch."Journal Template Name");
-        LibraryInventory.CreateItemJnlLineWithNoItem(
-            ItemJournalLine,
-            ItemJnlBatch,
-            ItemJnlTemplate.Name,
-            ItemJnlBatch.Name,
-            ItemJournalLine."Entry Type"::Consumption);
-
-        ItemJournalLine.Validate("Order Type", ItemJournalLine."Order Type"::Production);
-        ItemJournalLine.Validate("Order No.", ProdOrderNo);
-        ItemJournalLine.Validate("Item No.", ItemNo);
-        ItemJournalLine.Validate(Quantity, Qty);
-        ItemJournalLine.Modify(true);
-    end;
-
-    local procedure InitItemJournalBatch(var ItemJnlBatch: Record "Item Journal Batch"; TemplateType: Enum "Item Journal Template Type")
-    var
-        ItemJnlTemplate: Record "Item Journal Template";
-    begin
-        LibraryInventory.SelectItemJournalTemplateName(ItemJnlTemplate, TemplateType);
-        LibraryInventory.SelectItemJournalBatchName(ItemJnlBatch, TemplateType, ItemJnlTemplate.Name);
-        LibraryInventory.ClearItemJournal(ItemJnlTemplate, ItemJnlBatch);
-    end;
-
     [ModalPageHandler]
     procedure ProductionJournalModalPageHandler(var ProductionJournal: TestPage "Production Journal")
     begin
@@ -6242,21 +6147,6 @@ codeunit 137072 "SCM Production Orders II"
         Assert.IsTrue(ProductionJournal.FindFirstField(ProductionJournal."Entry Type", EntryType::Output), '');
         ProductionJournal."Output Quantity".SetValue(LibraryVariableStorage.DequeueInteger());
         ProductionJournal.Post.Invoke();
-    end;
-
-    [ModalPageHandler]
-    [Scope('OnPrem')]
-    procedure ProductionJournalPageHandler(var ProductionJournal: TestPage "Production Journal")
-    begin
-        ProductionJournal.PreviewPosting.Invoke();
-    end;
-
-    [PageHandler]
-    [Scope('OnPrem')]
-    procedure GLPostingPreviewPageHandler(var ShowAllEntries: TestPage "G/L Posting Preview")
-    begin
-        ShowAllEntries.Filter.SetFilter("Table Name", 'Item Ledger Entry');
-        LibraryVariableStorage.Enqueue(ShowAllEntries."No. of Records".AsInteger());
     end;
 
     [MessageHandler]

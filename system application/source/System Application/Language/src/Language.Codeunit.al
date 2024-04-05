@@ -267,6 +267,48 @@ codeunit 43 Language
     end;
 
     /// <summary>
+    /// Retrieves the two-letter ISO language name for the specified language ID.
+    /// </summary>
+    /// <param name="LanguageID">The language ID.</param>
+    /// <returns>The two-letter ISO language name. For example, "en" or "es"</returns>
+    procedure GetTwoLetterISOLanguageName(LanguageID: Integer): Text[2]
+    var
+        LanguageImpl: Codeunit "Language Impl.";
+    begin
+        exit(LanguageImpl.GetTwoLetterISOLanguageName(LanguageID));
+    end;
+
+    /// <summary>
+    /// Retrieves the language ID for the specified culture name.
+    /// </summary>
+    /// <param name="CultureName">The Culture name.</param>
+    /// <returns>The language ID. See https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/a29e5c28-9fb9-4c49-8e43-4b9b8e733a05.</returns>
+    /// <example>
+    /// <code>
+    /// Language.GetLanguageIdFromLanguageName('en-US');
+    /// Language.GetLanguageIdFromLanguageName('en');
+    /// </code>
+    /// </example>
+    procedure GetLanguageIdFromCultureName(CultureName: Text): Integer
+    var
+        LanguageImpl: Codeunit "Language Impl.";
+    begin
+        exit(LanguageImpl.GetLanguageIdFromCultureName(CultureName));
+    end;
+
+    /// <summary>
+    /// Retrieves the culture name for the specified language ID.
+    /// </summary>
+    /// <param name="LanguageID">The language ID. See https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/a29e5c28-9fb9-4c49-8e43-4b9b8e733a05.</param>
+    /// <returns>The culture name. For example, 'en-US'.</returns>
+    procedure GetCultureName(LanguageID: Integer): Text
+    var
+        LanguageImpl: Codeunit "Language Impl.";
+    begin
+        exit(LanguageImpl.GetCultureName(LanguageID));
+    end;
+
+    /// <summary>
     /// Integration event, emitted from <see cref="GetUserLanguageCode"/>.
     /// Subscribe to this event to change the default behavior by changing the provided parameter(s).
     /// </summary>
@@ -278,3 +320,4 @@ codeunit 43 Language
     begin
     end;
 }
+

@@ -74,13 +74,11 @@ page 306 "Report Selection - Sales"
                 field(ReportLayoutName; Rec."Report Layout Name")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the Name of the report layout that is used.';
                     Visible = false;
                 }
                 field(EmailLayoutCaption; Rec."Email Body Layout Caption")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the Name of the report layout that is used.';
 
                     trigger OnDrillDown()
                     begin
@@ -91,7 +89,6 @@ page 306 "Report Selection - Sales"
                 field(ReportLayoutCaption; Rec."Report Layout Caption")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the Name of the report layout that is used.';
 
                     trigger OnDrillDown()
                     begin
@@ -102,7 +99,6 @@ page 306 "Report Selection - Sales"
                 field(ReportLayoutPublisher; Rec."Report Layout Publisher")
                 {
                     ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the publisher of the email Attachment layout that is used.';
                     Visible = false;
                 }
                 field("Email Body Layout Code"; Rec."Email Body Layout Code")
@@ -115,7 +111,7 @@ page 306 "Report Selection - Sales"
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies a description of the custom email body layout that is used.';
-                    Visible = not PlatformSelectionEnabled;
+                    Visible = false;
 
                     trigger OnDrillDown()
                     var
@@ -155,12 +151,10 @@ page 306 "Report Selection - Sales"
     begin
         InitUsageFilter();
         SetUsageFilter(false);
-        PlatformSelectionEnabled := Rec.UsePlatformLayoutSelection()
     end;
 
     var
         ReportUsage2: Enum "Report Selection Usage Sales";
-        PlatformSelectionEnabled: Boolean;
 
     local procedure SetUsageFilter(ModifyRec: Boolean)
     begin

@@ -152,7 +152,7 @@ page 398 "Sales Credit Memo Statistics"
                     Caption = 'Cost Adjmt. Amount (LCY)';
                     ToolTip = 'Specifies the difference between the original cost and the total adjusted cost of the items in the posted sales credit memo.';
 
-                    trigger OnDrillDown()
+                    trigger OnLookup(var Text: Text): Boolean
                     begin
                         Rec.LookupAdjmtValueEntries();
                     end;
@@ -166,14 +166,18 @@ page 398 "Sales Credit Memo Statistics"
             group(Customer)
             {
                 Caption = 'Customer';
+#pragma warning disable AA0100
                 field("Cust.""Balance (LCY)"""; Cust."Balance (LCY)")
+#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
                     Caption = 'Balance (LCY)';
                     ToolTip = 'Specifies the balance in LCY on the customer''s account.';
                 }
+#pragma warning disable AA0100
                 field("Cust.""Credit Limit (LCY)"""; Cust."Credit Limit (LCY)")
+#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;

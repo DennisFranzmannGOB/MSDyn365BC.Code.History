@@ -69,6 +69,12 @@
           <note from="Developer" annotates="general" priority="2">%1 - bank deposit</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType CannotRenameErr</note>
         </trans-unit>
+        <trans-unit id="Table 26680403 - NamedType 3476475007" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The bank deposit lines have different Document Types. When posting as lump sum all the document types must be the same, please update them before posting.</source>
+          <target state="translated">Les lignes dépôt bancaire ont différents types de documents. Lors du report en tant que somme forfaitaire, tous les types de documents doivent être identiques, veuillez les mettre à jour avant le report.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType InconsistentDocTypesMsg</note>
+        </trans-unit>
         <trans-unit id="Table 26680403 - NamedType 1000037039" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Only one %1 is allowed for each %2. Choose Change Batch action if you want to create a new bank deposit.</source>
           <target state="translated">Un seul %1 est autorisé par %2. Sélectionnez l’action Modifier lot si vous souhaitez créer un dépôt en banque.</target>
@@ -86,6 +92,12 @@
           <target state="translated">Souhaitez-vous ajouter les dimensions de dépôt bancaire à toutes les lignes de dépôt bancaire?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType UpdateDimensionsOnExistingLinesQst</note>
+        </trans-unit>
+        <trans-unit id="Table 26680403 - NamedType 4078863216" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>When posting as lump sum all the lines must have the same Document No. as the bank deposit. Do you want to update the Document No. on all lines?</source>
+          <target state="translated">Lors du report en tant que somme forfaitaire, toutes les lignes doivent avoir le même n° de document comme dépôt bancaire. Voulez-vous mettre à jour le N° document sur toutes les lignes?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType UpdateDocumentNosTxt</note>
         </trans-unit>
         <trans-unit id="Table 26680403 - Field 2850626594 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Acc. Posting Group</source>
@@ -471,17 +483,23 @@
           <note from="Developer" annotates="general" priority="2">#2- a number (progress indicator)</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType BankDepositLineTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3915934517 - NamedType 4190105612" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The deposit must have lines.</source>
+          <target state="translated">Le dépôt doit comporter des lignes.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType EmptyDepositErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3915934517 - NamedType 390372311" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The lines of the deposit must belong to the same transaction when posting as lump sum. Please verify that %1, %2 and %3 are the same for every line or modify the template used to allow unbalanced documents.</source>
+          <target state="translated">Les lignes du dépôt doivent appartenir à la même transaction lors du report en tant que somme forfaitaire. Vérifiez que %1, %2 et %3 sont identiques pour chaque ligne ou modifiez le modèle utilisé pour autoriser des documents déséquilibrés.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - posting date field caption, %2 - document type field caption, %3 - document number field caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType LinesInSameTransactionForLumpSumErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3915934517 - NamedType 1620158295" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Moving Bank Deposit to History</source>
           <target state="translated">Déplacement du dépôt en banque vers l’historique</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType MovingToHistoryTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3915934517 - NamedType 633933862" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Posting Bank Account Ledger Entry</source>
-          <target state="translated">Report des écritures de compte bancaire</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType PostingBankEntryTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3915934517 - NamedType 2001638188" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Bank Deposit No. %1...\\</source>
@@ -494,12 +512,6 @@
           <target state="translated">Report des lignes dans les grands livres</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType PostingLinesToLedgersTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3915934517 - NamedType 957299935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Removing Bank Deposit</source>
-          <target state="translated">Suppression d’un dépôt en banque</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType RemovingBankDepositTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3915934517 - NamedType 2444345320" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status        #4###################\</source>
@@ -694,8 +706,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit - Control No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3073362426 - Control 298083911 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the bank deposit should be posted as a single bank account ledger entry with the total amount.</source>
-          <target state="translated">Spécifie si le dépôt bancaire doit être reporté en tant qu’écriture de compte bancaire unique avec le montant total.</target>
+          <source>Specifies if the bank deposit should be posted as a single bank account ledger entry with the total amount. When posting as lump sum, all entries wil be posted in the same transaction with the document number of the bank deposit.</source>
+          <target state="translated">Indique si le dépôt bancaire doit être reporté en tant qu’écriture compte bancaire unique avec le montant total. Lors du report sous forme de montant forfaitaire, toutes les écritures seront reportées dans la même transaction avec le numéro de document du dépôt bancaire.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit - Control Post as Lump Sum - Property ToolTip</note>
         </trans-unit>

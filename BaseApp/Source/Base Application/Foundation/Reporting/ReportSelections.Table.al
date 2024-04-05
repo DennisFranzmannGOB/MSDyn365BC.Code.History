@@ -8,9 +8,6 @@ using Microsoft.CRM.Contact;
 using Microsoft.CRM.Outlook;
 using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.Foundation.Attachment;
-#if not CLEAN21
-using Microsoft.Integration.Graph;
-#endif
 using Microsoft.Purchases.Document;
 using Microsoft.Purchases.History;
 using Microsoft.Purchases.Vendor;
@@ -18,10 +15,11 @@ using Microsoft.Sales.Customer;
 using Microsoft.Sales.Document;
 using Microsoft.Sales.History;
 using Microsoft.Sales.Reminder;
+using Microsoft.Service.Contract;
+using Microsoft.Service.Document;
 using Microsoft.Service.History;
 using Microsoft.Utilities;
 using System.Email;
-using System.Environment.Configuration;
 using System.IO;
 using System.Reflection;
 #if not CLEAN22
@@ -33,6 +31,7 @@ using System.Utilities;
 table 77 "Report Selections"
 {
     Caption = 'Report Selections';
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -112,7 +111,7 @@ table 77 "Report Selections"
         }
         field(22; "Email Body Layout Description"; Text[250])
         {
-            CalcFormula = Lookup("Custom Report Layout".Description where(Code = field("Email Body Layout Code")));
+            CalcFormula = lookup("Custom Report Layout".Description where(Code = field("Email Body Layout Code")));
             Caption = 'Email Body Custom Layout Description';
             Editable = false;
             FieldClass = Flowfield;
@@ -153,7 +152,7 @@ table 77 "Report Selections"
             var
                 ReportLayoutList: Record "Report Layout List";
             begin
-                if "Email Body Layout Name" <> '' then Begin
+                if "Email Body Layout Name" <> '' then begin
                     "Use for Email Body" := true;
                     "Email Body Layout Code" := '';
                     "Email Body Layout Description" := '';
@@ -205,6 +204,7 @@ table 77 "Report Selections"
         field(30; "Report Layout Name"; Text[250])
         {
             Caption = 'Report Layout name';
+            ToolTip = 'Specifies the name of the report layout that is used.';
             TableRelation = "Report Layout List".Name where("Report ID" = field("Report ID"));
 
             trigger OnLookup()
@@ -248,6 +248,7 @@ table 77 "Report Selections"
         field(32; "Report Layout Caption"; Text[250])
         {
             Caption = 'Report Layout';
+            ToolTip = 'Specifies the Name of the report layout that is used.';
             FieldClass = FlowField;
             CalcFormula = lookup("Report Layout List".Caption where("Report ID" = field("Report ID"), Name = field("Report Layout Name")));
 
@@ -270,6 +271,7 @@ table 77 "Report Selections"
         field(33; "Report Layout Publisher"; Text[250])
         {
             Caption = 'Report Layout Publisher';
+            ToolTip = 'Specifies the publisher of the email Attachment layout that is used.';
             FieldClass = FlowField;
             CalcFormula = lookup("Report Layout List"."Layout Publisher" where("Report ID" = field("Report ID"), "Application ID" = field("Report Layout AppID")));
             Editable = false;
@@ -313,7 +315,6 @@ table 77 "Report Selections"
         RecordDoesNotMatchErr: Label 'The record that will be sent does not match the original record. The original record was changed or deleted. Please verify that the record exists, or try to re-send the remittance advice from the vendor ledger entries.';
         JobQueueParameterStringTok: Label '%1|%2|%3|%4|%5|%6', Locked = true;
         ReportSelectionsMustBeTemporaryErr: Label 'The Report Selections parameter must be temporary.';
-        PlatformSelectionEnabledLbl: Label 'EnablePlatformBasedReportSelection', Locked = true;
 #if not CLEAN22
         JobQueueNewParameterStringTok: Label '%1|%2|%3|%4|%5|%6|%7', Locked = true;
 #endif
@@ -591,7 +592,7 @@ table 77 "Report Selections"
         OnAfterPrintDocumentsWithCheckGUIYesNoCommon(ReportUsage.AsInteger(), RecVarToPrint);
     end;
 
-    local procedure GetFilteredRecordRef(var RecRefToPrint: RecordRef; RecRefSource: RecordRef; AccountNoFieldNo: Integer; AccountNoFilter: Text)
+    procedure GetFilteredRecordRef(var RecRefToPrint: RecordRef; RecRefSource: RecordRef; AccountNoFieldNo: Integer; AccountNoFilter: Text)
     var
         AccountNofieldRef: FieldRef;
     begin
@@ -838,7 +839,7 @@ table 77 "Report Selections"
         RecordRef.GetTable(RecordVariant);
         if not RecordRef.IsEmpty() then
             if DataTypeManagement.FindfieldByName(RecordRef, FieldRef, 'No.') then begin
-                DocumentNo := FieldRef.Value;
+                DocumentNo := FieldRef.Value();
                 EmailAddress := GetEmailAddressForDoc(DocumentNo, ReportUsage);
                 if EmailAddress <> '' then
                     exit(EmailAddress);
@@ -854,7 +855,7 @@ table 77 "Report Selections"
         if not RecordRef.IsEmpty() then
             if IsSalesDocument(RecordRef) then
                 if DataTypeManagement.FindfieldByName(RecordRef, FieldRef, 'Sell-to E-Mail') then begin
-                    EmailAddress := FieldRef.Value;
+                    EmailAddress := FieldRef.Value();
                     if EmailAddress <> '' then
                         exit(EmailAddress);
                 end;
@@ -1063,15 +1064,14 @@ table 77 "Report Selections"
 
         FindPrintUsageInternal(
             "Report Selection Usage".FromInteger(ReportUsage), AccountNo, TempAttachReportSelections, GetAccountTableId(RecRef.Number()));
-        with TempAttachReportSelections do
-            repeat
-                OnSaveAsDocumentAttachmentOnBeforeCanSaveReportAsPDF(TempAttachReportSelections, RecRef, DocumentNo, AccountNo, NumberOfReportsAttached);
-                if CanSaveReportAsPDF(TempAttachReportSelections."Report ID") then begin
-                    Clear(TempBlob);
-                    SaveReportAsPDFInTempBlob(TempBlob, "Report ID", RecordVariant, "Custom Report Layout Code", "Report Selection Usage".FromInteger(ReportUsage));
-                    SaveDocumentAttachmentFromRecRef(RecRef, TempAttachReportSelections, DocumentNo, AccountNo, TempBlob, NumberOfReportsAttached);
-                end;
-            until Next() = 0;
+        repeat
+            OnSaveAsDocumentAttachmentOnBeforeCanSaveReportAsPDF(TempAttachReportSelections, RecRef, DocumentNo, AccountNo, NumberOfReportsAttached);
+            if CanSaveReportAsPDF(TempAttachReportSelections."Report ID") then begin
+                Clear(TempBlob);
+                TempAttachReportSelections.SaveReportAsPDFInTempBlob(TempBlob, TempAttachReportSelections."Report ID", RecordVariant, TempAttachReportSelections."Custom Report Layout Code", "Report Selection Usage".FromInteger(ReportUsage));
+                SaveDocumentAttachmentFromRecRef(RecRef, TempAttachReportSelections, DocumentNo, AccountNo, TempBlob, NumberOfReportsAttached);
+            end;
+        until TempAttachReportSelections.Next() = 0;
 
         IsHandled := false;
         OnSaveAsDocumentAttachmentOnBeforeShowNotification(RecordVariant, NumberOfReportsAttached, ShowNotificationAction, IsHandled);
@@ -1092,9 +1092,10 @@ table 77 "Report Selections"
         OnBeforeSaveDocumentAttachmentFromRecRef(RecRef, TempAttachReportSelections, DocumentNo, AccountNo, TempBlob, IsHandled, NumberOfReportsAttached);
         if IsHandled then
             exit;
-        DocumentAttachment.InitfieldsFromRecRef(RecRef);
+        DocumentAttachment.InitFieldsFromRecRef(RecRef);
         DocumentAttachment."Document Flow Sales" := RecRef.Number() = Database::"Sales Header";
         DocumentAttachment."Document Flow Purchase" := RecRef.Number() = Database::"Purchase Header";
+        DocumentAttachment."Document Flow Service" := RecRef.Number() in [Database::"Service Header", Database::"Service Contract Header"];
         DocumentLanguageCode := ReportDistributionMgt.GetDocumentLanguageCode(RecRef);
         ReportCaption := ReportDistributionMgt.GetReportCaption(TempAttachReportSelections."Report ID", DocumentLanguageCode);
         FileName :=
@@ -1137,16 +1138,9 @@ table 77 "Report Selections"
     procedure SendEmailToCust(ReportUsage: Integer; RecordVariant: Variant; DocNo: Code[20]; DocName: Text[150]; ShowDialog: Boolean; CustNo: Code[20]; DocNoFieldNo: Integer)
     var
         DummyJobQueueEntry: Record "Job Queue Entry";
-#if not CLEAN21
-        O365DocumentSentHistory: Record "O365 Document Sent History";
-        GraphMail: Codeunit "Graph Mail";
-#endif
         SelectionFilterManagement: Codeunit SelectionFilterManagement;
         RecRef: RecordRef;
         ReportUsageEnum: Enum "Report Selection Usage";
-#if not CLEAN21
-        UpdateDocumentSentHistory: Boolean;
-#endif
         Handled: Boolean;
         ParameterString: Text;
         RecFilter: Text;
@@ -1154,6 +1148,8 @@ table 77 "Report Selections"
         MaxAvailableLength: Integer;
         LastComma: Integer;
         CurrentFilter: Text;
+        SendEmailToCustomerDirectly: Boolean;
+        SendEmailToCustomerDirectlyHandled: Boolean;
     begin
         OnBeforeSendEmailToCust(ReportUsage, RecordVariant, DocNo, DocName, ShowDialog, CustNo, Handled);
         if Handled then
@@ -1161,22 +1157,13 @@ table 77 "Report Selections"
 
         RecRef.GetTable(RecordVariant);
         ReportUsageEnum := "Report Selection Usage".FromInteger(ReportUsage);
-#if not CLEAN21
-        if GraphMail.IsEnabled() then
-            if GraphMail.HasConfiguration() then begin
-                if O365DocumentSentHistory.NewInProgressFromRecRef(RecRef) then begin
-                    O365DocumentSentHistory.SetStatusAsFailed();
-                    UpdateDocumentSentHistory := true;
-                end;
 
-                if SendEmailToCustDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, ShowDialog, CustNo) and UpdateDocumentSentHistory then
-                    O365DocumentSentHistory.SetStatusAsSuccessfullyFinished();
+        OnGetSendToCustomerDirectly(ReportUsageEnum, RecordVariant, CustNo, ShowDialog, SendEmailToCustomerDirectly, SendEmailToCustomerDirectlyHandled);
+        if not SendEmailToCustomerDirectlyHandled then
+            SendEmailToCustomerDirectly := ShouldSendToCustDirectly(ReportUsageEnum, RecordVariant, CustNo);
 
-                exit;
-            end;
-#endif
-        if ShowDialog or ShouldSendToCustDirectly(ReportUsageEnum, RecordVariant, CustNo) then begin
-            SendEmailToCustDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, true, CustNo);
+        if ShowDialog or SendEmailToCustomerDirectly then begin
+            SendEmailToCustDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, ShowDialog, CustNo);
             exit;
         end;
 
@@ -1220,17 +1207,12 @@ table 77 "Report Selections"
 
     procedure SendEmailToCust(ReportUsage: Integer; RecordVariant: Variant; DocNo: Code[20]; DocName: Text[150]; ShowDialog: Boolean; CustNo: Code[20])
     var
-#if not CLEAN21
-        O365DocumentSentHistory: Record "O365 Document Sent History";
-        GraphMail: Codeunit "Graph Mail";
-#endif
         RecRef: RecordRef;
         ReportUsageEnum: Enum "Report Selection Usage";
-#if not CLEAN21
-        UpdateDocumentSentHistory: Boolean;
-#endif
         Handled: Boolean;
         ParameterString: Text;
+        SendEmailToCustomerDirectly: Boolean;
+        SendEmailToCustomerDirectlyHandled: Boolean;
     begin
         OnBeforeSendEmailToCust(ReportUsage, RecordVariant, DocNo, DocName, ShowDialog, CustNo, Handled);
         if Handled then
@@ -1239,23 +1221,12 @@ table 77 "Report Selections"
         RecRef.GetTable(RecordVariant);
         ReportUsageEnum := "Report Selection Usage".FromInteger(ReportUsage);
 
-#if not CLEAN21
-        if GraphMail.IsEnabled() then
-            if GraphMail.HasConfiguration() then begin
-                if O365DocumentSentHistory.NewInProgressFromRecRef(RecRef) then begin
-                    O365DocumentSentHistory.SetStatusAsFailed();
-                    UpdateDocumentSentHistory := true;
-                end;
+        OnGetSendToCustomerDirectly(ReportUsageEnum, RecordVariant, CustNo, ShowDialog, SendEmailToCustomerDirectly, SendEmailToCustomerDirectlyHandled);
+        if not SendEmailToCustomerDirectlyHandled then
+            SendEmailToCustomerDirectly := ShouldSendToCustDirectly(ReportUsageEnum, RecordVariant, CustNo);
 
-                if SendEmailToCustDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, ShowDialog, CustNo) and UpdateDocumentSentHistory then
-                    O365DocumentSentHistory.SetStatusAsSuccessfullyFinished();
-
-                exit;
-            end;
-#endif
-
-        if ShowDialog or ShouldSendToCustDirectly(ReportUsageEnum, RecordVariant, CustNo) then begin
-            SendEmailToCustDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, true, CustNo);
+        if ShowDialog or SendEmailToCustomerDirectly then begin
+            SendEmailToCustDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, ShowDialog, CustNo);
             exit;
         end;
 
@@ -1312,16 +1283,9 @@ table 77 "Report Selections"
     procedure SendEmailToVendor(ReportUsage: Integer; RecordVariant: Variant; DocNo: Code[20]; DocName: Text[150]; ShowDialog: Boolean; VendorNo: Code[20]; VendorNoFieldNo: Integer)
     var
         DummyJobQueueEntry: Record "Job Queue Entry";
-#if not CLEAN21
-        O365DocumentSentHistory: Record "O365 Document Sent History";
-        GraphMail: Codeunit "Graph Mail";
-#endif
         SelectionFilterManagement: Codeunit SelectionFilterManagement;
         RecRef: RecordRef;
         ReportUsageEnum: Enum "Report Selection Usage";
-#if not CLEAN21
-        UpdateDocumentSentHistory: Boolean;
-#endif
         Handled: Boolean;
         ParameterString: Text;
         ParameterStringLen: Integer;
@@ -1336,21 +1300,6 @@ table 77 "Report Selections"
 
         RecRef.GetTable(RecordVariant);
         ReportUsageEnum := "Report Selection Usage".FromInteger(ReportUsage);
-
-#if not CLEAN21
-        if GraphMail.IsEnabled() then
-            if GraphMail.HasConfiguration() then begin
-                if O365DocumentSentHistory.NewInProgressFromRecRef(RecRef) then begin
-                    O365DocumentSentHistory.SetStatusAsFailed();
-                    UpdateDocumentSentHistory := true;
-                end;
-
-                if SendEmailToVendorDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, ShowDialog, VendorNo) and UpdateDocumentSentHistory then
-                    O365DocumentSentHistory.SetStatusAsSuccessfullyFinished();
-
-                exit;
-            end;
-#endif
 
         if ShowDialog or ShouldSendToVendorDirectly(ReportUsageEnum, RecordVariant, VendorNo) then begin
             SendEmailToVendorDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, true, VendorNo);
@@ -1411,15 +1360,8 @@ table 77 "Report Selections"
 
     procedure SendEmailToVendor(ReportUsage: Integer; RecordVariant: Variant; DocNo: Code[20]; DocName: Text[150]; ShowDialog: Boolean; VendorNo: Code[20])
     var
-#if not CLEAN21
-        O365DocumentSentHistory: Record "O365 Document Sent History";
-        GraphMail: Codeunit "Graph Mail";
-#endif
         RecRef: RecordRef;
         ReportUsageEnum: Enum "Report Selection Usage";
-#if not CLEAN21
-        UpdateDocumentSentHistory: Boolean;
-#endif
         Handled: Boolean;
         ParameterString: Text;
     begin
@@ -1429,21 +1371,6 @@ table 77 "Report Selections"
 
         RecRef.GetTable(RecordVariant);
         ReportUsageEnum := "Report Selection Usage".FromInteger(ReportUsage);
-
-#if not CLEAN21
-        if GraphMail.IsEnabled() then
-            if GraphMail.HasConfiguration() then begin
-                if O365DocumentSentHistory.NewInProgressFromRecRef(RecRef) then begin
-                    O365DocumentSentHistory.SetStatusAsFailed();
-                    UpdateDocumentSentHistory := true;
-                end;
-
-                if SendEmailToVendorDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, ShowDialog, VendorNo) and UpdateDocumentSentHistory then
-                    O365DocumentSentHistory.SetStatusAsSuccessfullyFinished();
-
-                exit;
-            end;
-#endif
 
         if ShowDialog or ShouldSendToVendorDirectly(ReportUsageEnum, RecordVariant, VendorNo) then begin
             SendEmailToVendorDirectly(ReportUsageEnum, RecordVariant, DocNo, DocName, true, VendorNo);
@@ -1626,32 +1553,30 @@ table 77 "Report Selections"
 
             OnSendEmailDirectlyOnBeforeSendFiles(
               ReportUsage.AsInteger(), RecordVariant, DefaultEmailAddress, TempAttachReportSelections, CustomReportSelection);
-            with TempAttachReportSelections do begin
-                OfficeAttachmentManager.IncrementCount(Count - 1);
-                repeat
+            OfficeAttachmentManager.IncrementCount(TempAttachReportSelections.Count - 1);
+            repeat
+                IsHandled := false;
+                OnSendEmailDirectlyOnBeforeSendFileLoop(ReportUsage, RecordVariant, DocNo, DocName, DefaultEmailAddress, ShowDialog, TempAttachReportSelections, CustomReportSelection, IsHandled, ServerEmailBodyFilePath);
+                if not IsHandled then begin
+                    EmailAddress := CopyStr(
+                        GetNextEmailAddressFromCustomReportSelection(CustomReportSelection, DefaultEmailAddress, TempAttachReportSelections.Usage, TempAttachReportSelections.Sequence),
+                        1, MaxStrLen(EmailAddress));
+                    Clear(TempBlob);
                     IsHandled := false;
-                    OnSendEmailDirectlyOnBeforeSendFileLoop(ReportUsage, RecordVariant, DocNo, DocName, DefaultEmailAddress, ShowDialog, TempAttachReportSelections, CustomReportSelection, IsHandled, ServerEmailBodyFilePath);
-                    if not IsHandled then begin
-                        EmailAddress := CopyStr(
-                            GetNextEmailAddressFromCustomReportSelection(CustomReportSelection, DefaultEmailAddress, Usage, Sequence),
-                            1, MaxStrLen(EmailAddress));
-                        Clear(TempBlob);
-                        IsHandled := false;
-                        OnSendEmailDirectlyOnBeforeSaveReportAsPDFInTempBlob(TempAttachReportSelections, DocumentRecord, ReportUsage, TempBlob, IsHandled);
-                        if not IsHandled then
-                            SaveReportAsPDFInTempBlob(TempBlob, "Report ID", DocumentRecord, "Custom Report Layout Code", ReportUsage);
-                        TempBlob.CreateInStream(AttachmentStream);
+                    OnSendEmailDirectlyOnBeforeSaveReportAsPDFInTempBlob(TempAttachReportSelections, DocumentRecord, ReportUsage, TempBlob, IsHandled);
+                    if not IsHandled then
+                        TempAttachReportSelections.SaveReportAsPDFInTempBlob(TempBlob, TempAttachReportSelections."Report ID", DocumentRecord, TempAttachReportSelections."Custom Report Layout Code", ReportUsage);
+                    TempBlob.CreateInStream(AttachmentStream);
 
-                        OnSendEmailDirectlyOnBeforeEmailWithAttachment(RecordVariant, TempAttachReportSelections, TempBlob, DocumentMailing);
-                        AllEmailsWereSuccessful :=
-                            AllEmailsWereSuccessful and
-                            DocumentMailing.EmailFile(
-                                AttachmentStream, '', ServerEmailBodyFilePath,
-                                DocNo, EmailAddress, DocName, not ShowDialog, ReportUsage.AsInteger(),
-                                SourceTableIDs, SourceIDs, SourceRelationTypes);
-                    end;
-                until Next() = 0;
-            end;
+                    OnSendEmailDirectlyOnBeforeEmailWithAttachment(RecordVariant, TempAttachReportSelections, TempBlob, DocumentMailing);
+                    AllEmailsWereSuccessful :=
+                        AllEmailsWereSuccessful and
+                        DocumentMailing.EmailFile(
+                            AttachmentStream, '', ServerEmailBodyFilePath,
+                            DocNo, EmailAddress, DocName, not ShowDialog, ReportUsage.AsInteger(),
+                            SourceTableIDs, SourceIDs, SourceRelationTypes);
+                end;
+            until TempAttachReportSelections.Next() = 0;
         end;
 
         OnAfterSendEmailDirectly(ReportUsage.AsInteger(), RecordVariant, AllEmailsWereSuccessful);
@@ -1677,15 +1602,14 @@ table 77 "Report Selections"
         OnSendToDiskForCustOnBeforeFindReportUsage(Rec, ReportUsage, RecordVariant, CustNo, TempReportSelections, IsHandled);
         if not IsHandled then
             FindReportUsageForCust(ReportUsage, CustNo, TempReportSelections);
-        with TempReportSelections do
-            repeat
-                OnSendToDiskForCustOnBeforeSendFileLoop(TempReportSelections, RecordVariant);
-                Clear(TempBlob);
-                SaveReportAsPDFInTempBlob(TempBlob, "Report ID", RecordVariant, "Custom Report Layout Code", ReportUsage);
-                TempBlob.CreateInStream(AttachmentInStream);
-                ClientAttachmentFileName := ElectronicDocumentFormat.GetAttachmentFileName(RecordVariant, DocNo, DocName, 'pdf');
-                DownloadAttachmentFromStream(TempReportSelections, RecordVariant, AttachmentInStream, ClientAttachmentFileName);
-            until Next() = 0;
+        repeat
+            OnSendToDiskForCustOnBeforeSendFileLoop(TempReportSelections, RecordVariant);
+            Clear(TempBlob);
+            TempReportSelections.SaveReportAsPDFInTempBlob(TempBlob, TempReportSelections."Report ID", RecordVariant, TempReportSelections."Custom Report Layout Code", ReportUsage);
+            TempBlob.CreateInStream(AttachmentInStream);
+            ClientAttachmentFileName := ElectronicDocumentFormat.GetAttachmentFileName(RecordVariant, DocNo, DocName, 'pdf');
+            DownloadAttachmentFromStream(TempReportSelections, RecordVariant, AttachmentInStream, ClientAttachmentFileName);
+        until TempReportSelections.Next() = 0;
     end;
 
     [Scope('OnPrem')]
@@ -1702,15 +1626,14 @@ table 77 "Report Selections"
     begin
         OnBeforeSetReportLayout(RecordVariant, ReportUsage.AsInteger());
         FindReportUsageForVend(ReportUsage, VendorNo, TempReportSelections);
-        with TempReportSelections do
-            repeat
-                OnSendToDiskForVendOnBeforeSendFileLoop(TempReportSelections, RecordVariant);
-                Clear(TempBlob);
-                SaveReportAsPDFInTempBlob(TempBlob, "Report ID", RecordVariant, "Custom Report Layout Code", ReportUsage);
-                TempBlob.CreateInStream(AttachmentInStream);
-                ClientAttachmentFileName := ElectronicDocumentFormat.GetAttachmentFileName(RecordVariant, DocNo, DocName, 'pdf');
-                DownloadAttachmentFromStream(TempReportSelections, RecordVariant, AttachmentInStream, ClientAttachmentFileName);
-            until Next() = 0;
+        repeat
+            OnSendToDiskForVendOnBeforeSendFileLoop(TempReportSelections, RecordVariant);
+            Clear(TempBlob);
+            TempReportSelections.SaveReportAsPDFInTempBlob(TempBlob, TempReportSelections."Report ID", RecordVariant, TempReportSelections."Custom Report Layout Code", ReportUsage);
+            TempBlob.CreateInStream(AttachmentInStream);
+            ClientAttachmentFileName := ElectronicDocumentFormat.GetAttachmentFileName(RecordVariant, DocNo, DocName, 'pdf');
+            DownloadAttachmentFromStream(TempReportSelections, RecordVariant, AttachmentInStream, ClientAttachmentFileName);
+        until TempReportSelections.Next() = 0;
     end;
 
     local procedure DownloadAttachmentFromStream(var TempReportSelections: Record "Report Selections" temporary; RecordVariant: Variant; var AttachmentInStream: InStream; ClientAttachmentFileName: Text)
@@ -1740,16 +1663,15 @@ table 77 "Report Selections"
         OnSendToZipForCustOnBeforeFindReportUsageForCust(Rec, ReportUsage, RecordVariant, CustNo, TempReportSelections, IsHandled);
         if not IsHandled then
             FindReportUsageForCust(ReportUsage, CustNo, TempReportSelections);
-        with TempReportSelections do
-            repeat
-                OnSendToZipForCustOnBeforeSendFileLoop(TempReportSelections, RecordVariant);
-                Clear(AttachmentTempBlob);
-                SaveReportAsPDFInTempBlob(
-                    AttachmentTempBlob, "Report ID", RecordVariant, "Custom Report Layout Code", ReportUsage);
-                AttachmentTempBlob.CreateInStream(AttachmentInStream);
-                DataCompression.AddEntry(
-                    AttachmentInStream, ElectronicDocumentFormat.GetAttachmentFileName(RecordVariant, DocNo, Format(Usage), 'pdf'));
-            until Next() = 0;
+        repeat
+            OnSendToZipForCustOnBeforeSendFileLoop(TempReportSelections, RecordVariant);
+            Clear(AttachmentTempBlob);
+            TempReportSelections.SaveReportAsPDFInTempBlob(
+                AttachmentTempBlob, TempReportSelections."Report ID", RecordVariant, TempReportSelections."Custom Report Layout Code", ReportUsage);
+            AttachmentTempBlob.CreateInStream(AttachmentInStream);
+            DataCompression.AddEntry(
+                AttachmentInStream, ElectronicDocumentFormat.GetAttachmentFileName(RecordVariant, DocNo, Format(TempReportSelections.Usage), 'pdf'));
+        until TempReportSelections.Next() = 0;
 
         OnAfterSendToZipForCust(ReportUsage, RecordVariant, DataCompression);
     end;
@@ -1764,16 +1686,15 @@ table 77 "Report Selections"
     begin
         OnBeforeSetReportLayout(RecordVariant, ReportUsage.AsInteger());
         FindReportUsageForVend(ReportUsage, VendorNo, TempReportSelections);
-        with TempReportSelections do
-            repeat
-                OnSendToZipForVendOnBeforeSendFileLoop(TempReportSelections, RecordVariant);
-                Clear(AttachmentTempBlob);
-                SaveReportAsPDFInTempBlob(
-                    AttachmentTempBlob, "Report ID", RecordVariant, "Custom Report Layout Code", ReportUsage);
-                AttachmentTempBlob.CreateInStream(AttachmentInStream);
-                DataCompression.AddEntry(
-                    AttachmentInStream, ElectronicDocumentFormat.GetAttachmentFileName(RecordVariant, DocNo, Format(Usage), 'pdf'));
-            until Next() = 0;
+        repeat
+            OnSendToZipForVendOnBeforeSendFileLoop(TempReportSelections, RecordVariant);
+            Clear(AttachmentTempBlob);
+            TempReportSelections.SaveReportAsPDFInTempBlob(
+                AttachmentTempBlob, TempReportSelections."Report ID", RecordVariant, TempReportSelections."Custom Report Layout Code", ReportUsage);
+            AttachmentTempBlob.CreateInStream(AttachmentInStream);
+            DataCompression.AddEntry(
+                AttachmentInStream, ElectronicDocumentFormat.GetAttachmentFileName(RecordVariant, DocNo, Format(TempReportSelections.Usage), 'pdf'));
+        until TempReportSelections.Next() = 0;
 
         OnAfterSendToZipForVend(ReportUsage, RecordVariant, DataCompression);
     end;
@@ -1928,9 +1849,9 @@ table 77 "Report Selections"
             RecRef.GetTable(RecVariant);
     end;
 
-    local procedure SaveReportAsHTML(ReportID: Integer; RecordVariant: Variant; LayoutName: Text[250]; AppID: Guid; ReportUsage: Enum "Report Selection Usage") FilePath: Text[250]
+    local procedure SaveReportAsHTML(ReportID: Integer; RecordVariant: Variant; LayoutName: Text[250]; AppdID: Guid; ReportUsage: Enum "Report Selection Usage") FilePath: Text[250]
     begin
-        FilePath := SaveReportAsHTMLImpl(ReportID, RecordVariant, '', LayoutName, AppID, ReportUsage);
+        FilePath := SaveReportAsHTMLImpl(ReportID, RecordVariant, '', LayoutName, AppdID, ReportUsage);
     end;
 
     local procedure SaveReportAsHTML(ReportID: Integer; RecordVariant: Variant; LayoutCode: Code[20]; ReportUsage: Enum "Report Selection Usage") FilePath: Text[250]
@@ -1940,7 +1861,7 @@ table 77 "Report Selections"
         FilePath := SaveReportAsHTMLImpl(ReportID, RecordVariant, LayoutCode, '', NullGuid, ReportUsage);
     end;
 
-    local procedure SaveReportAsHTMLImpl(ReportID: Integer; RecordVariant: Variant; LayoutCode: Code[20]; LayoutName: Text[250]; AppID: Guid; ReportUsage: Enum "Report Selection Usage") FilePath: Text[250]
+    local procedure SaveReportAsHTMLImpl(ReportID: Integer; RecordVariant: Variant; LayoutCode: Code[20]; LayoutName: Text[250]; AppdID: Guid; ReportUsage: Enum "Report Selection Usage") FilePath: Text[250]
     var
         ReportLayoutSelectionLocal: Record "Report Layout Selection";
         FileMgt: Codeunit "File Management";
@@ -1950,7 +1871,7 @@ table 77 "Report Selections"
         if LayoutCode <> '' then
             ReportLayoutSelectionLocal.SetTempLayoutSelected(LayoutCode)
         else
-            ReportLayoutSelectionLocal.SetTempLayoutSelectedName(LayoutName, AppID);
+            ReportLayoutSelectionLocal.SetTempLayoutSelectedName(LayoutName, AppdID);
         FilePath := CopyStr(FileMgt.ServerTempFileName('html'), 1, 250);
         DoSaveReportAsHTML(ReportID, FilePath, RecordVariant);
         ReportLayoutSelectionLocal.ClearTempLayoutSelected();
@@ -1967,9 +1888,10 @@ table 77 "Report Selections"
             exit;
 
         REPORT.SaveAsHtml(ReportID, FilePath, RecordVariant);
+        OnReplaceHTMLText(ReportID, FilePath, RecordVariant, IsHandled);
     end;
 
-    local procedure FindReportSelections(var TempReportSelections: Record "Report Selections" temporary; AccountNo: Code[20]; TableNo: Integer): Boolean
+    procedure FindReportSelections(var TempReportSelections: Record "Report Selections" temporary; AccountNo: Code[20]; TableNo: Integer): Boolean
     var
         Handled: Boolean;
     begin
@@ -2095,8 +2017,8 @@ table 77 "Report Selections"
             if RecRef.FindSet() then
                 repeat
                     TempNameValueBuffer.ID += 1;
-                    TempNameValueBuffer.Name := AccountNofieldRef.Value;
-                    TempCustomer."No." := AccountNofieldRef.Value; // to avoid duplicate No. insertion into Name/Value buffer
+                    TempNameValueBuffer.Name := AccountNofieldRef.Value();
+                    TempCustomer."No." := AccountNofieldRef.Value(); // to avoid duplicate No. insertion into Name/Value buffer
                     if TempCustomer.Insert() then
                         TempNameValueBuffer.Insert();
                 until RecRef.Next() = 0;
@@ -2252,15 +2174,6 @@ table 77 "Report Selections"
     begin
         CustomReportLayout.SetRange("Built-In", false);
         exit(not CustomReportLayout.IsEmpty());
-    end;
-
-    internal procedure UsePlatformLayoutSelection(): Boolean
-    var
-        FeatureManagementFacade: Codeunit "Feature Management Facade";
-    begin
-        if FeatureManagementFacade.IsEnabled(PlatformSelectionEnabledLbl) then
-            exit(true);
-        exit(not Rec.DoesAnyCustomLayotExist());
     end;
 
     [IntegrationEvent(false, false)]
@@ -2625,6 +2538,16 @@ table 77 "Report Selections"
 
     [IntegrationEvent(false, false)]
     local procedure OnSendEmailToCustDirectlyOnBeforeFindEmailAttachmentUsageForCust(var ReportSelectionsOrg: Record "Report Selections"; ReportUsage: Enum "Report Selection Usage"; RecordVariant: Variant; CustNo: Code[20]; var ReportSelectionsPart: Record "Report Selections"; var FoundAttachment: Boolean; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnGetSendToCustomerDirectly(ReportUsageEnum: Enum "Report Selection Usage"; RecordVariant: Variant; CustNo: Code[20]; var ShowDialog: Boolean; var SendToCustomerDirectly: Boolean; var Handled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnReplaceHTMLText(ReportID: Integer; var FilePath: Text[250]; var RecordVariant: Variant; var IsHandled: Boolean)
     begin
     end;
 }

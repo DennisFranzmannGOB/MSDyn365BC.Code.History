@@ -3,7 +3,6 @@ namespace Microsoft.Purchases.Setup;
 using Microsoft.CRM.BusinessRelation;
 using Microsoft.Foundation.Reporting;
 using Microsoft.Purchases.Vendor;
-using System.Environment.Configuration;
 using System.Reflection;
 
 page 9658 "Vendor Report Selections"
@@ -62,7 +61,7 @@ page 9658 "Vendor Report Selections"
                     DrillDown = true;
                     Lookup = true;
                     ToolTip = 'Specifies a description of the custom report layout.';
-                    Visible = not PlatformSelectionEnabled;
+                    Visible = false;
 
                     trigger OnDrillDown()
                     begin
@@ -258,17 +257,9 @@ page 9658 "Vendor Report Selections"
         MapTableUsageValueToPageValue();
     end;
 
-    trigger OnOpenPage()
-    begin
-        PlatformSelectionEnabled := FeatureManagement.IsEnabled(PlatformSelectionEnabledLbl);
-    end;
-
     var
-        FeatureManagement: Codeunit "Feature Management Facade";
         ReportSelectionsImpl: Codeunit "Report Selections Impl";
-        PlatformSelectionEnabledLbl: Label 'EnablePlatformBasedReportSelection', Locked = true;
         CouldNotFindCustomReportLayoutErr: Label 'There is no custom report layout with %1 in the description.', Comment = '%1 Description of custom report layout';
-        PlatformSelectionEnabled: Boolean;
 
     protected var
         Usage2: Enum "Report Selection Usage Vendor";

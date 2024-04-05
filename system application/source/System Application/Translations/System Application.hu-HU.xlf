@@ -353,11 +353,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Logo Part - Control Logo - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 2005578726 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New,Process,Report,Details,Manage</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Property PromotedActionCategories</note>
-        </trans-unit>
         <trans-unit id="Page 2005578726 - NamedType 860257111" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The extension %1 cannot be unpublished because it is installed.</source>
           <note from="Developer" annotates="general" priority="2">%1 = name of extension</note>
@@ -412,16 +407,6 @@
           <source>Process</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action ActionGroup13 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2005578726 - Action 2575491252 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Configure the extension.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Configure - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2005578726 - Action 2575491252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Configure</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Configure - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2005578726 - Action 737724599 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Check status for upload process for extensions.</source>

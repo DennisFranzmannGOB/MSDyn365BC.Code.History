@@ -3,6 +3,13 @@
   <file datatype="xml" source-language="en-US" target-language="is-IS" original="IS Core">
     <body>
       <group id="body">
+        <trans-unit id="EnumExtension 1174245375 - EnumValue 675681164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IS Docs Retention Period</source>
+          <target state="translated">IS Varðveislutímabil skjala</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 2404582090</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2587203839 - Control 4167005385 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Internal Revenue Service (IRS) tax numbers for the account.</source>
           <target state="translated">Tilgreinir skattanúmer skattstofunnar fyrir reikninginn.</target>
@@ -625,6 +632,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit IS Core - NamedType ReminderMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 675681164 - NamedType 2231244182" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The posted document cannot be deleted. Deleting is only permitted for documents whose Posting Date is before %1.</source>
+          <target state="translated">Ekki er hægt að eyða bókuðu skjali. Einungis er heimilt að eyða fyrir skjöl þar sem bókunardagsetning er á undan %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Posting Date.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IS Docs Retention Period - NamedType PostingDateWithinLegalPeriodErr</note>
+        </trans-unit>
         <trans-unit id="Page 3661913264 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Iceland - Core App Setup</source>
           <target state="translated">Ísland - Uppsetning Core App</target>
@@ -965,20 +978,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4145206282</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3235415970 - NamedType 3455016050" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot delete purchase documents that are posted</source>
-          <target state="translated">Ekki er hægt að eyða bókuðum innkaupaskjölum</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3235415970</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 416134891 - NamedType 3455016050" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot delete purchase documents that are posted</source>
-          <target state="translated">Ekki er hægt að eyða bókuðum innkaupaskjölum</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 416134891</note>
         </trans-unit>
         <trans-unit id="PageExtension 1996550869 - Action 3507405277 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View a VAT reconciliation report for sales and purchases for a specified period. The report lists entries by general ledger account and posting group.</source>
