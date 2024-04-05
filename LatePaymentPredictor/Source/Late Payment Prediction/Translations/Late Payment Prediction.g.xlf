@@ -758,6 +758,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension LPP Sales Header - NamedType PredictionDisabledErr</note>
         </trans-unit>
+        <trans-unit id="Page 997257863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Overdue invoices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LP - Invoices at Risk - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 997257863 - Control 1171137197 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the customer.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LP - Invoices at Risk - Control Customer Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 997257863 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the document number of the open invoice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LP - Invoices at Risk - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 997257863 - Control 4085727052 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the due date of the invoice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LP - Invoices at Risk - Control Due Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 997257863 - Control 4203233321 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether this invoice will be paid on time. Configure in the Late Payment Prediction Setup page how this field is computed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LP - Invoices at Risk - Control Payment Prediction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 997257863 - Control 1124786408 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the confidence level of the payment prediction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LP - Invoices at Risk - Control Prediction Confidence % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 997257863 - Control 2700662257 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the remaining amount to be paid for this invoice.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page LP - Invoices at Risk - Control Remaining Amount (LCY) - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PermissionSet 574733425 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>LatePaymentPredictor - Edit</source>
           <note from="Developer" annotates="general" priority="2"></note>
