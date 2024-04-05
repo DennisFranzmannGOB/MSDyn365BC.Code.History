@@ -1,11 +1,11 @@
 {
   "settings": {
-    "al.enableCodeAnalysis": false,
     "al.enableCodeActions": false,
-    "allint.enabled": false,
     "search.exclude": {
       "**.xlf": true
-    }
+    },
+    "allint.enabled": false,
+    "al.enableCodeAnalysis": false
   },
   "folders": [
     {
@@ -66,6 +66,9 @@
       "path": "./recommendedapps/test/Recommended Apps Tests"
     },
     {
+      "path": "./sustainability/test/Sustainability Tests"
+    },
+    {
       "path": "./ExternalEvents/test/_Exclude_Business_Events_Test"
     },
     {
@@ -93,19 +96,28 @@
       "path": "./EssentialBusinessHeadlines/Test/Essential Business Headlines Test"
     },
     {
+      "path": "./BusinessFoundation/Test/Business Foundation Test Libraries"
+    },
+    {
+      "path": "./BusinessFoundation/Test/Business Foundation Tests"
+    },
+    {
       "path": "./system application/source/System Application/Email/src/Test Email"
     },
     {
-      "path": "./system application/test/System Application Test"
+      "path": "./system application/test/System Application Test Library"
     },
     {
-      "path": "./system application/test/System Application Test Library"
+      "path": "./system application/test/System Application Test/DisabledTests"
     },
     {
       "path": "./system application/test/System Application Test/Extension Management/testArtifacts"
     },
     {
       "path": "./BankDeposits/Test/_Exclude_Bank Deposits Tests"
+    },
+    {
+      "path": "./saleslinessuggestions/test/Sales Lines Suggestions Tests"
     },
     {
       "path": "./paypalpaymentsstandard/test/PayPal Payments Standard Tests"
@@ -133,6 +145,12 @@
     },
     {
       "path": "./MX_DIOT/Test/Tests for MX DIOT Extension"
+    },
+    {
+      "path": "./ContosoCoffeeDemoDataset/Test/Contoso Coffee Demo Dataset Tests"
+    },
+    {
+      "path": "./ContosoCoffeeDemoDataset/Test/Contoso Coffee Demo Dataset Tests/src/TestImplementations"
     },
     {
       "path": "./Email - Current User Connector/Test/Email - Current User Connector Tests"
