@@ -4333,11 +4333,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit TDS Adjustment Post - NamedType JnlLinePostMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3577076256 - NamedType 3354029665" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A maximum of %1 posting number series can be used in each journal.</source>
-          <note from="Developer" annotates="general" priority="2">%1 Posting Number Series.,</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit TDS Adjustment Post - NamedType PostingNoSeriesErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3577076256 - NamedType 3257235632" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting lines         #2###### @3@@@@@@@@@@@@@\</source>
           <note from="Developer" annotates="general" priority="2">#2=Post Line</note>

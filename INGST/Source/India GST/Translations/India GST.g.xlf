@@ -13183,11 +13183,6 @@
           <note from="Developer" annotates="general" priority="2">%1 = Lot/Serial No, %2 = Document No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Journal Post - NamedType LotNoErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1201625163 - NamedType 574683721" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A maximum of %1 posting number series can be used in each journal.</source>
-          <note from="Developer" annotates="general" priority="2">%1 =Integer</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Journal Post - NamedType NoSeriesErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 1201625163 - NamedType 3294494881" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to post the journal lines?</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -31383,6 +31378,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {97437c0c-3e99-4d15-9378-34ac4b8fd002}Lbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 353386062 - Method 3738100424 - NamedType 957986198" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GST Use Cases</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit GST Use Case Labels - Method GetConfig - NamedType {9CF523A9-24DB-4928-A3CB-8DC5FCA4AF69}Lbl</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1482189541 - Control 3994976796 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3133908286">
           <source>Specifies if the GST calculation is marked as exempted.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -39237,6 +39237,11 @@
           <source>Specifies the supply finish date. For example, Before rate change/After rate change.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Service Credit Memo - Control Supply Finish Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2141351310 - Control 993414011 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2832910486">
+          <source>Specifies a code for an alternate shipment address if you want to ship to another address than the one that has been defined automatically. This field is also used in case of drop shipment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Service Credit Memo - Control Ship-to Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1212492600 - Action 1481724448 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1224914752">
           <source>Specifies the function through which reference number can be updated in the document.</source>
