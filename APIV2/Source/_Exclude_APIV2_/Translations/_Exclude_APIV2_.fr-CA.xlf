@@ -5543,7 +5543,7 @@
         </trans-unit>
         <trans-unit id="Page 825103897 - NamedType 2002735526" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "paymentTermsId" does not match to a Payment Terms.</source>
-          <target state="translated">L’« paymentTermsId » ne correspond à aucune condition de paiement.</target>
+          <target state="translated">Le « paymentTermsId » ne correspond pas à des modalités de paiement.</target>
           <note from="Developer" annotates="general" priority="2">paymentTermsId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Orders - NamedType PaymentTermsIdDoesNotMatchAPaymentTermsErr</note>
         </trans-unit>
@@ -6509,7 +6509,7 @@
         </trans-unit>
         <trans-unit id="Page 3006414751 - NamedType 30303159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The action can be applied to a posted credit memo only.</source>
-          <target state="translated">L’action ne peut être appliquée qu’à une note de crédit reportée.</target>
+          <target state="translated">L’action ne peut être affectée qu’à une note de crédit reportée.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - NamedType PostedCreditMemoActionErr</note>
         </trans-unit>
@@ -6749,13 +6749,13 @@
         </trans-unit>
         <trans-unit id="Page 3006414751 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Adresse donneur d’ordre (1re ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 1)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3006414751 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Adresse donneur d’ordre (2e ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 2)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Memos - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -7421,13 +7421,13 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Adresse donneur d’ordre (1re ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 1)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Adresse donneur d’ordre (2e ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 2)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -8105,13 +8105,13 @@
         </trans-unit>
         <trans-unit id="Page 48856144 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Adresse donneur d’ordre (1re ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 1)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 48856144 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Adresse donneur d’ordre (2e ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 2)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Orders - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -8735,13 +8735,13 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Adresse donneur d’ordre (1re ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 1)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 617149860 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Adresse donneur d’ordre (2e ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 2)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
@@ -9161,13 +9161,13 @@
         </trans-unit>
         <trans-unit id="Page 3546002718 - Control 1534408368 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 1</source>
-          <target state="translated">Adresse donneur d’ordre (1re ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 1)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control sellToAddressLine1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3546002718 - Control 2172104985 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Address Line 2</source>
-          <target state="translated">Adresse donneur d’ordre (2e ligne)</target>
+          <target state="translated">Adresse débiteur (ligne 2)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control sellToAddressLine2 - Property Caption</note>
         </trans-unit>
