@@ -161,7 +161,7 @@
         </trans-unit>
         <trans-unit id="Page 3814451366 - Control 1411740825 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the G/L number for the entry that was created in the general ledger for this fixed asset transaction.</source>
-          <target state="translated">Gibt die laufende Nummer des Sachpostens an, der in der Finanzbuchhaltung für die Transaktion dieser Anlage erzeugt wurde.</target>
+          <target state="translated">Gibt die laufende Nummer des Fibupostens an, der im Fibuposten für die Transaktion dieser Anlage erzeugt wurde.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FA Ledger Entries Issues - Control G/L Entry No. - Property ToolTip</note>
         </trans-unit>
