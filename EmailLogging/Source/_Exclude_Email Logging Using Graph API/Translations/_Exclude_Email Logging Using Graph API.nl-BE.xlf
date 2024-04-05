@@ -191,7 +191,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2120671752 - NamedType 1228041154" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Track email exchanges between your sales team and your customers and prospects, and then turn the emails into actionable opportunities.</source>
-          <target state="translated">E-mailuitwisselingen tussen uw verkoopteam en uw klanten en prospects traceren, en de e-mails vervolgens omzetten in praktische verkoopkansen.</target>
+          <target state="translated">E-mailuitwisselingen tussen uw verkoopteam en uw klanten en prospects traceren, en de e-mails vervolgens omzetten in praktische opportuniteiten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Logging Management - NamedType EmailLoggingSetupDescriptionTxt</note>
         </trans-unit>
