@@ -8483,7 +8483,7 @@
         </trans-unit>
         <trans-unit id="Page 617149860 - NamedType 3179925413" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The quote cannot be found.</source>
-          <target state="translated">Das Offerte kann nicht gefunden werden.</target>
+          <target state="translated">Die Offerte kann nicht gefunden werden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Quotes - NamedType CannotFindQuoteErr</note>
         </trans-unit>
