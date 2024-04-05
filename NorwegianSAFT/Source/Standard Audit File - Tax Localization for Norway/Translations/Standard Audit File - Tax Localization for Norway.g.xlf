@@ -598,6 +598,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate SAF-T File - NamedType GeneratingHeaderTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1071012676 - NamedType 956150553" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NA</source>
+          <note from="Developer" annotates="general" priority="2">Stands for Not Applicable</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate SAF-T File - NamedType NATxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1613560309 - NamedType 4100968325" size-unit="char" translate="yes" xml:space="preserve">
           <source>A field value missed</source>
           <note from="Developer" annotates="general" priority="2"></note>
