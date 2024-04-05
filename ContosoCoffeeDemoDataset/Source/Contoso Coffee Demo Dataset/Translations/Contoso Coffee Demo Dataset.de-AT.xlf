@@ -1487,7 +1487,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3220894869 - NamedType 1262072474" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Direct Cost Applied, Retail</source>
-          <target state="translated">Direkte Kosten verrechnen, Handel</target>
+          <target state="translated">Direkte Kosten verr., Handel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common GL Account - NamedType DirectCostAppliedRetailLbl</note>
         </trans-unit>
