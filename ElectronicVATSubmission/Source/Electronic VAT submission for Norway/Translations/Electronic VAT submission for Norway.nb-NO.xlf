@@ -45,6 +45,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Setup - Field Exchange ID-Porten Token Url - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1483331023 - Field 3937112100 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Login URL</source>
+          <target state="translated">Nettadresse for pålogging</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Elec. VAT Setup - Field Login URL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1483331023 - Field 3490282128 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>OAuth 2.0 Code</source>
           <target state="translated">OAuth 2,0-kode</target>
@@ -844,6 +850,12 @@
           <target state="translated">Angir URL-adressen som skal utveksles tilgangstoken med Altinn-tokenet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Electronic VAT Setup Card - Control Exchange ID-Porten Token Url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1354521070 - Control 3937112100 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the URL to login to ID-Porten.</source>
+          <target state="translated">Angir nettadressen for pålogging til ID-porten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Electronic VAT Setup Card - Control Login URL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1354521070 - Control 618784563 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the redirect URL.</source>

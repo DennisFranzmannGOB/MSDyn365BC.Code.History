@@ -108,11 +108,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field Parallel Processing - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2386421154 - Field 382888509 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>SAF-T File</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Export Header - Field SAF-T File - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 2386421154 - Field 2678142823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Split By Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -507,11 +502,6 @@
           <source>Dimension No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Setup - Field Dimension No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3247374822 - Field 3132723251 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dimension No. Series Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table SAF-T Setup - Field Dimension No. Series Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3247374822 - Field 3397053526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Tax Code</source>
