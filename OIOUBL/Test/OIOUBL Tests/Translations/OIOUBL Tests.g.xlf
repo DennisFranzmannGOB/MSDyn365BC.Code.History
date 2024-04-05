@@ -43,6 +43,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-Check Sales and Service - NamedType TestFieldNotFoundErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2585361865 - NamedType 3566421187" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The total amount for the invoice must be 0 or greater.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit OIOUBL-Check Sales and Service - NamedType TotalInvoiceAmountNegativeErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1358558472 - NamedType 707189943" size-unit="char" translate="yes" xml:space="preserve">
           <source>cbc:AccountingCostCode</source>
           <note from="Developer" annotates="general" priority="2"></note>

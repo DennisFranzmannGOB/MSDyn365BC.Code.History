@@ -1,0 +1,1845 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="de-CH" original="Dynamics BC Excel Reports">
+    <body>
+      <group id="body">
+        <trans-unit id="PageExtension 573200894 - Action 447239859 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Receivable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Debitor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 447239859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable (Preview)</source>
+          <target state="translated">Debitorenbuchhaltung (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3827900984 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Payable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Kreditor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3827900984 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable (Preview)</source>
+          <target state="translated">Kreditor-Saldenrückblick (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3179496975 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top customers.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Debitoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3179496975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Debitoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3943235107 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Budget data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Budgetdaten angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3943235107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Budget (Preview)</source>
+          <target state="translated">Bilanz/Budget (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3465360632 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance Excel data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Excel-Daten für die Bilanz angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3465360632 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (Preview)</source>
+          <target state="translated">Bilanz (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3276863733 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance by Period data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Daten zur Bilanz nach Periode angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 3276863733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period (Preview)</source>
+          <target state="translated">Bilanz nach Periode (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 1318786165 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Previous Year data</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Vorjahresvergleichsdaten angezeigt werden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 1318786165 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Previous Year (Preview)</source>
+          <target state="translated">Bilanz/Vorjahresvergleich (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 2026640950 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top vendors.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Kreditoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 573200894 - Action 2026640950 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Kreditoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3470244815</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 447239859 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Receivable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Debitor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 447239859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable (Preview)</source>
+          <target state="translated">Debitorenbuchhaltung (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3827900984 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Payable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Kreditor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3827900984 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable (Preview)</source>
+          <target state="translated">Kreditor-Saldenrückblick (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3179496975 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top customers.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Debitoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3179496975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Debitoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3943235107 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Budget data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Budgetdaten angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3943235107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Budget (Preview)</source>
+          <target state="translated">Bilanz/Budget (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3465360632 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance Excel data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Excel-Daten für die Bilanz angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3465360632 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (Preview)</source>
+          <target state="translated">Bilanz (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3276863733 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance by Period data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Daten zur Bilanz nach Periode angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 3276863733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period (Preview)</source>
+          <target state="translated">Bilanz nach Periode (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 1318786165 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Previous Year data</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Vorjahresvergleichsdaten angezeigt werden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 1318786165 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Previous Year (Preview)</source>
+          <target state="translated">Bilanz/Vorjahresvergleich (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 2026640950 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top vendors.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Kreditoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3811239465 - Action 2026640950 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Kreditoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2458191494</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 447239859 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Receivable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Debitor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 447239859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable (Preview)</source>
+          <target state="translated">Debitorenbuchhaltung (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3827900984 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Payable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Kreditor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3827900984 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable (Preview)</source>
+          <target state="translated">Kreditor-Saldenrückblick (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3179496975 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top customers.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Debitoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3179496975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Debitoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3943235107 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Budget data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Budgetdaten angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3943235107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Budget (Preview)</source>
+          <target state="translated">Bilanz/Budget (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3465360632 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance Excel data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Excel-Daten für die Bilanz angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3465360632 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (Preview)</source>
+          <target state="translated">Bilanz (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3276863733 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance by Period data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Daten zur Bilanz nach Periode angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 3276863733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period (Preview)</source>
+          <target state="translated">Bilanz nach Periode (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 1318786165 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Previous Year data</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Vorjahresvergleichsdaten angezeigt werden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 1318786165 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Previous Year (Preview)</source>
+          <target state="translated">Bilanz/Vorjahresvergleich (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 2026640950 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top vendors.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Kreditoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2637905681 - Action 2026640950 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Kreditoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 167543418</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aging Report Buffer</source>
+          <target state="translated">Puffer für Rückblickbericht</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 4198939294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <target state="translated">Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 2538533960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension 1 Code</source>
+          <target state="translated">Dimensionscode 1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Dimension 1 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 1964727017 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension 2 Code</source>
+          <target state="translated">Dimensionscode 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Dimension 2 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 580412389 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <target state="translated">Belegdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Document Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 486908828 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <target state="translated">Belegnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 4085727052 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date</source>
+          <target state="translated">Fälligkeitsdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Due Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 883711285 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target state="translated">Postennr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 1077555671 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Amount</source>
+          <target state="translated">Ursprungsbetrag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Original Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 3656603054 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Amount (LCY)</source>
+          <target state="translated">Ursprungsbetrag (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Original Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 2615791210 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period End Date</source>
+          <target state="translated">Periodenenddatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Period End Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 2082466019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Start Date</source>
+          <target state="translated">Periodenstartdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Period Start Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 3710982960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <target state="translated">Buchungsdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Posting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 2975378708 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remaining Amount</source>
+          <target state="translated">Restbetrag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Remaining Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 2700662257 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remaining Amount (LCY)</source>
+          <target state="translated">Restbetrag (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Remaining Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 1343707150 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Name</source>
+          <target state="translated">Herkunftsname</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Source Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 3592051506 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source No.</source>
+          <target state="translated">Herkunftsnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Vendor Source No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance Buffer</source>
+          <target state="translated">Zwischenbilanzpuffer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1363434164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>% of Bal. Variance</source>
+          <target state="translated">% der Saldoabweichung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field % of Bal. Variance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3844486926 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>% of Bal. Variance</source>
+          <target state="translated">% der Saldoabweichung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field % of Bal. Variance (ACY</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 287216652 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>% of Budget Bal.</source>
+          <target state="translated">% des Budgetsaldos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field % of Budget Bal. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3696364906 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>% of Budget Net</source>
+          <target state="translated">% des Budgetnettos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field % of Budget Net - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1025153626 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>% of Net Variance</source>
+          <target state="translated">% der Nettoabweichung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field % of Net Variance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1884651424 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>% of Net Variance</source>
+          <target state="translated">% der Nettoabweichung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field % of Net Variance (ACY</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3699788827 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account Type</source>
+          <target state="translated">Kontoart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Account Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 2145161669 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All Zero</source>
+          <target state="translated">Alles null</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field All Zero - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 197159104 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bal. Variance</source>
+          <target state="translated">Saldoabweichung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Bal. Variance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 653257466 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bal. Variance</source>
+          <target state="translated">Saldoabweichung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Bal. Variance (ACY</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 25700210 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="translated">Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1720718216 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="translated">Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Balance (ACY</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3775366134 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (Credit)</source>
+          <target state="translated">Saldo (Haben)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Balance (Credit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1727055692 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (Credit)</source>
+          <target state="translated">Saldo (Haben)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Balance (Credit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3522309667 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (Debit)</source>
+          <target state="translated">Saldo (Soll)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Balance (Debit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3801535853 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (Debit)</source>
+          <target state="translated">Saldo (Soll)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Balance (Debit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 460562040 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Budget (Bal. at Date)</source>
+          <target state="translated">Budget (Saldo bis Datum)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Budget (Bal. at Date</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 2343451725 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Budget</source>
+          <target state="translated">Budget</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Budget (Net</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 2538533960 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension 1 Code</source>
+          <target state="translated">Dimensionscode 1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Dimension 1 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1964727017 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension 2 Code</source>
+          <target state="translated">Dimensionscode 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Dimension 2 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3852983238 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Account No.</source>
+          <target state="translated">Fibukontonr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field G/L Account No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3022458146 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Bal.</source>
+          <target state="translated">Letzte Periode Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Bal. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 2874100248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Bal.</source>
+          <target state="translated">Letzte Periode Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Bal. (ACY</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 242864413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Bal. (Credit)</source>
+          <target state="translated">Letzte Periode Saldo (Haben)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Bal. (Cred.</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3626897382 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Bal. (Credit)</source>
+          <target state="translated">Letzte Periode Saldo (Haben)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Bal. (Credit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1846019507 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Bal. (Debit)</source>
+          <target state="translated">Letzte Periode Saldo (Soll)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Bal. (Debit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 155726429 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Bal. (Debit)</source>
+          <target state="translated">Letzte Periode Saldo (Soll)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Bal. (Debit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3728422692 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Net</source>
+          <target state="translated">Letzte Periode Netto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Net - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1124118622 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Net</source>
+          <target state="translated">Letzte Periode Netto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Net (ACY</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3088741328 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Net (Credit)</source>
+          <target state="translated">Letzte Periode Netto (Haben)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Net (Credit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1088012586 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Net (Credit)</source>
+          <target state="translated">Letzte Periode Netto (Haben)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Net (Credit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1574783601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Net (Debit)</source>
+          <target state="translated">Letzte Periode Netto (Soll)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Net (Debit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 2228393111 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Period Net (Debit)</source>
+          <target state="translated">Letzte Periode Netto (Soll)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Last Period Net (Debit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 2304016699 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Change</source>
+          <target state="translated">Bewegung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Net Change - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 2037889365 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Change</source>
+          <target state="translated">Bewegung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Net Change (ACY</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 3473707935 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Change (Credit)</source>
+          <target state="translated">Nettoveränderung (Haben)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Net Change (Credit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 537657769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Change (Credit)</source>
+          <target state="translated">Nettoveränderung (Haben)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Net Change (Credit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 1989104698 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Change (Debit)</source>
+          <target state="translated">Nettoveränderung (Soll)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Net Change (Debit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 541333312 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Change (Debit)</source>
+          <target state="translated">Nettoveränderung (Soll)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Net Change (Debit</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 2968814510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Variance</source>
+          <target state="translated">Nettoabweichung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Net Variance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 276623508 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Variance</source>
+          <target state="translated">Nettoabweichung</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Net Variance (ACY</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 459019446 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period End</source>
+          <target state="translated">Periodenende</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Period End - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 687396741 - Field 864109087 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Start</source>
+          <target state="translated">Periodenanfang</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Trial Balance Buffer - Field Period Start - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable Excel (Preview)</source>
+          <target state="translated">Kreditor – Saldenrückblick – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 3326187151" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable by Period (FCY)</source>
+          <target state="translated">Kreditor – Saldenrückblick nach Periode (FW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel AgedAccountsPayableByPeriodFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 2429467673" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable by Period (LCY)</source>
+          <target state="translated">Kreditorenkonten nach Periode (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel AgedAccountsPayableByPeriodLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 1939197917" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable due by Currency (FCY)</source>
+          <target state="translated">Kreditor – Saldenrückblickfälligkeit nach Währung (FW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel AgedAccountsPayableDueByCurrencyFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 1036792014" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (FCY)</source>
+          <target state="translated">Saldo (FCY)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel BalanceFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 1647293748" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (LCY)</source>
+          <target state="translated">Saldo (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel BalanceLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 1634114734" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By Period (FCY)</source>
+          <target state="translated">Nach Periode (FCY)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel ByPeriodFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 2615781780" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By period (LCY)</source>
+          <target state="translated">Nach Zeitraum (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel ByPeriodLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 2149328028" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <target state="translated">Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel CurrencyCodeDisplay</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 2439395454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data retrieved:</source>
+          <target state="translated">Abgerufene Daten:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DataRetrieved</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 713467898" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due by Currencies</source>
+          <target state="translated">Fällig nach Währungen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DueByCurrencies</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 2550180772" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date (Month)</source>
+          <target state="translated">Fälligkeitsdatum (Monat)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DueDateMonth</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 1586488504" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date (Quarter)</source>
+          <target state="translated">Fälligkeitsdatum (Quartal)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DueDateQuarter</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 2221194497" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date (Year)</source>
+          <target state="translated">Fälligkeitsdatum (Jahr)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DueDateYear</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 1120813220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open amounts in FCY</source>
+          <target state="translated">Offene Beträge in FW</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel OpenAmountsInFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 2255447294" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open amounts in LCY</source>
+          <target state="translated">Offene Beträge in LW</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel OpenAmountsInLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 397835909" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open by (FCY)</source>
+          <target state="translated">Geöffnet von (FW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel OpenByFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 3725486504" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date (Month)</source>
+          <target state="translated">Buchungsdatum (Monat)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel PostingDateMonth</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 1739547844" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date (Quarter)</source>
+          <target state="translated">Buchungsdatum (Quartal)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel PostingDateQuarter</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 3208705405" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date (Year)</source>
+          <target state="translated">Buchungsdatum (Jahr)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel PostingDateYear</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Optionen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 2132927361 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that you want the aging calculated for.</source>
+          <target state="translated">Gibt das Datum an, für das der Rückblick berechnet werden soll.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control AgedAsOfOption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 2132927361 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged As Of</source>
+          <target state="translated">Rückblick per</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control AgedAsOfOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 3519751658 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the aging will be calculated from the due date, the posting date, or the document date.</source>
+          <target state="translated">Gibt an, ob der Rückblick ab dem Fälligkeitsdatum, dem Buchungsdatum oder dem Belegdatum berechnet wird.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control AgingbyOption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 3519751658 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aging by</source>
+          <target state="translated">Rückblick nach</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control AgingbyOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 3519751658 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date,Posting Date,Document Date</source>
+          <target state="translated">Fälligkeitsdatum,Buchungsdatum,Belegdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control AgingbyOption - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 464547863 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of periods for which data is sent to the report.</source>
+          <target state="translated">Gibt die Anzahl der Perioden an, für die Daten an den Bericht gesendet werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control PeriodCountOption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 464547863 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Count</source>
+          <target state="translated">Anzahl der Perioden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control PeriodCountOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 1923596710 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the period for which data is sent to the report. For example, enter "-1M" for one month, "-30D" for thirty days, "-3Q" for three quarters, or "-5Y" for five years.</source>
+          <target state="translated">Gibt die Periode an, für die Daten an den Bericht gesendet werden. Geben Sie z. B. „-1M“ für einen Monat, „-30D“ für 30 Tage, „-3Q“ für drei Quartale oder „-5Y“ für fünf Jahre ein.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control PeriodLengthOption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 1923596710 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Length</source>
+          <target state="translated">Periodenlänge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control PeriodLengthOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 2926644038 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to skip Vendors with a zero balance in the report.</source>
+          <target state="translated">Gibt an, ob Kreditoren mit Nullsaldo im Bericht überspringen werden sollen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control Skip Zero Balance Vendors - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - Control 2926644038 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Skip Vendors with Zero Balance</source>
+          <target state="translated">Kreditoren mit Nullsaldo überspringen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control Skip Zero Balance Vendors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable Excel (Preview)</source>
+          <target state="translated">Debitor - Debitor - Saldenrückblick – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 997984061" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable by Period (FCY)</source>
+          <target state="translated">Debitoren nach Periode (FCY)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel AgedAccountsReceivableByPeriodFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 2265868851" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable by Period (LCY)</source>
+          <target state="translated">Debitoren aus alter Periode (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel AgedAccountsReceivableByPeriodLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 1944067855" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable due by Currency (FCY)</source>
+          <target state="translated">Fällige Forderungen aus fälliger Lieferungen und Leistungen nach Währung (FCY)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel AgedAccountsReceivableDueByCurrencyFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 1036792014" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (FCY)</source>
+          <target state="translated">Saldo (FCY)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel BalanceFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 1647293748" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (LCY)</source>
+          <target state="translated">Saldo (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel BalanceLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 1634114734" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By Period (FCY)</source>
+          <target state="translated">Nach Periode (FCY)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel ByPeriodFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 2615781780" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>By period (LCY)</source>
+          <target state="translated">Nach Zeitraum (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel ByPeriodLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 2149328028" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <target state="translated">Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel CurrencyCodeDisplay</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 2439395454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data retrieved:</source>
+          <target state="translated">Abgerufene Daten:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DataRetrieved</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 713467898" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due by Currencies</source>
+          <target state="translated">Fällig nach Währungen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DueByCurrencies</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 2550180772" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date (Month)</source>
+          <target state="translated">Fälligkeitsdatum (Monat)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DueDateMonth</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 1586488504" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date (Quarter)</source>
+          <target state="translated">Fälligkeitsdatum (Quartal)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DueDateQuarter</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 2221194497" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date (Year)</source>
+          <target state="translated">Fälligkeitsdatum (Jahr)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DueDateYear</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 1120813220" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open amounts in FCY</source>
+          <target state="translated">Offene Beträge in FW</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel OpenAmountsInFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 2255447294" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open amounts in LCY</source>
+          <target state="translated">Offene Beträge in LW</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel OpenAmountsInLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 397835909" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open by (FCY)</source>
+          <target state="translated">Geöffnet von (FW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel OpenByFCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 3725486504" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date (Month)</source>
+          <target state="translated">Buchungsdatum (Monat)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel PostingDateMonth</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 1739547844" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date (Quarter)</source>
+          <target state="translated">Buchungsdatum (Quartal)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel PostingDateQuarter</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 3208705405" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date (Year)</source>
+          <target state="translated">Buchungsdatum (Jahr)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel PostingDateYear</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Optionen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 2132927361 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date that you want the aging calculated for.</source>
+          <target state="translated">Gibt das Datum an, für das der Rückblick berechnet werden soll.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control AgedAsOfOption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 2132927361 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged As Of</source>
+          <target state="translated">Rückblick per</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control AgedAsOfOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 3519751658 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the aging will be calculated from the due date, the posting date, or the document date.</source>
+          <target state="translated">Gibt an, ob der Rückblick ab dem Fälligkeitsdatum, dem Buchungsdatum oder dem Belegdatum berechnet wird.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control AgingbyOption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 3519751658 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aging by</source>
+          <target state="translated">Rückblick nach</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control AgingbyOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 3519751658 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date,Posting Date,Document Date</source>
+          <target state="translated">Fälligkeitsdatum,Buchungsdatum,Belegdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control AgingbyOption - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 464547863 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of periods for which data is sent to the report.</source>
+          <target state="translated">Gibt die Anzahl der Perioden an, für die Daten an den Bericht gesendet werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control PeriodCountOption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 464547863 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Count</source>
+          <target state="translated">Anzahl der Perioden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control PeriodCountOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 1923596710 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the period for which data is sent to the report. For example, enter "-1M" for one month, "-30D" for thirty days, "-3Q" for three quarters, or "-5Y" for five years.</source>
+          <target state="translated">Gibt die Periode an, für die Daten an den Bericht gesendet werden. Geben Sie z. B. „-1M“ für einen Monat, „-30D“ für 30 Tage, „-3Q“ für drei Quartale oder „-5Y“ für fünf Jahre ein.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control PeriodLengthOption - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 1923596710 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Length</source>
+          <target state="translated">Periodenlänge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control PeriodLengthOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 3494431854 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to skip customers with a zero balance in the report.</source>
+          <target state="translated">Gibt an, ob Debitoren mit Nullsaldo im Bericht überspringen werden sollen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control Skip Zero Balance Customers - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - Control 3494431854 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Skip Customers with Zero Balance</source>
+          <target state="translated">Debitoren mit Nullsaldo überspringen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control Skip Zero Balance Customers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period Excel (Preview)</source>
+          <target state="translated">Bilanz nach Periode –  Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - ReportLabel 2439395454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data retrieved:</source>
+          <target state="translated">Abgerufene Daten:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - ReportLabel DataRetrieved</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - ReportLabel 1192732646" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period</source>
+          <target state="translated">Bilanz nach Periode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - ReportLabel TrialBalanceByPeriod</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - ReportLabel 744120574" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Year</source>
+          <target state="translated">Jahr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - ReportLabel YearPeriodStart</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Optionen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - Control 3847679221 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the period for which data is shown in the report. For example, enter "1M" for one month, "30D" for thirty days, "3Q" for three quarters, or "5Y" for five years.</source>
+          <target state="translated">Gibt die Periode an, für die Daten im Bericht angezeigt werden. Geben Sie z. B. „1M“ für einen Monat, „30D“ für 30 Tage, „3Q“ für drei Quartale oder „5Y“ für fünf Jahre ein.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - Control PeriodLengthField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - Control 3847679221 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Length</source>
+          <target state="translated">Periodenlänge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - Control PeriodLengthField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Previous Year Excel (Preview)</source>
+          <target state="translated">Bilanz/Vorjahresvergleich – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - ReportLabel 2439395454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data retrieved:</source>
+          <target state="translated">Abgerufene Daten:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - ReportLabel DataRetrieved</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - ReportLabel 4088801025" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (ACY)</source>
+          <target state="translated">Probebilanz (BW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - ReportLabel TrialBalanceACY</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - ReportLabel 261656262" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (LCY)</source>
+          <target state="translated">Bilanz (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - ReportLabel TrialBalanceLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - ReportLabel 3760530634" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance vs. Last Period</source>
+          <target state="translated">Bilanz nach Periode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - ReportLabel TrialBalancevsLastPeriod</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - ReportLabel 2045693719" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance vs. Last Period (Additional Reporting Currency)</source>
+          <target state="translated">Bilanz nach Periode (Berichtswährung)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - ReportLabel TrialBalancevsLastPeriodACY</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance Excel (Preview)</source>
+          <target state="translated">Bilanz – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>year closing,close accounting period,close fiscal year</source>
+          <target state="translated">Jahresabschluss,Abschluss der Buchhaltungsperiode,Geschäftsjahresabschluss</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - Property AdditionalSearchTerms</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - ReportLabel 2439395454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data retrieved:</source>
+          <target state="translated">Abgerufene Daten:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - ReportLabel DataRetrieved</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - ReportLabel 4088801025" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (Additional Reporting Currency)</source>
+          <target state="translated">Bilanz (zusätzliche Berichtswährung)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - ReportLabel TrialBalanceACY</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - ReportLabel 3227817724" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (ACY)</source>
+          <target state="translated">Probebilanz (BW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - ReportLabel TrialBalanceACYSheet</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - ReportLabel 261656262" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (LCY)</source>
+          <target state="translated">Bilanz (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - ReportLabel TrialBalanceLCY</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Budget Excel (Preview)</source>
+          <target state="translated">Bilanz/Budget – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - ReportLabel 9061663" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Budget Balance</source>
+          <target state="translated">Budgetsaldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - ReportLabel BalanceBudgetLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - ReportLabel 2439395454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data retrieved:</source>
+          <target state="translated">Abgerufene Daten:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - ReportLabel DataRetrieved</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - ReportLabel 2070126104" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Budget</source>
+          <target state="translated">Nettobudget</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - ReportLabel NetBudgetLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - ReportLabel 1599047128" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance vs. Budget</source>
+          <target state="translated">Bilanz vs. Budget</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - ReportLabel TrialBalancevsBudget</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Vendor Data</source>
+          <target state="translated">Daten zu den wichtigsten Kreditoren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - NamedType 3992936788" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount 2 (LCY)</source>
+          <target state="translated">Betrag 2 (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - NamedType Amount2LCYTok</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - NamedType 3682313422" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (LCY)</source>
+          <target state="translated">Betrag (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - NamedType AmountLCYTok</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 592951229 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (LCY)</source>
+          <target state="translated">Betrag (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 1797368459 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount 2 (LCY)</source>
+          <target state="translated">Betrag 2 (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Amount 2 (LCY</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 4198939294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <target state="translated">Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 995090288 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Filter</source>
+          <target state="translated">Datumsfilter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 1861213814 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Global Dimension 1 Filter</source>
+          <target state="translated">Globaler Dimensionsfilter 1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Global Dimension 1 Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 588326355 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Global Dimension 2 Filter</source>
+          <target state="translated">Globaler Dimensionsfilter 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Global Dimension 2 Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 2082466019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Start Date</source>
+          <target state="translated">Periodenstartdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Period Start Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 3103037058 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ranking Based On</source>
+          <target state="translated">Rangfolge basierend auf</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Ranking Based On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 3103037058 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchases (LCY), Balance (LCY)</source>
+          <target state="translated">Einkauf (LW), Saldo (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Ranking Based On - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 3119688693 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Vendor Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 1527594213 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <target state="translated">Kreditorennr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Vendor No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2567779906 - Field 3194161445 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Posting Group</source>
+          <target state="translated">Kreditorenbuchungsgruppe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Vendor Report Buffer - Field Vendor Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 697524692 - NamedType 2458886980" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (LCY)</source>
+          <target state="translated">Saldo (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit EXT Top Vendor Caption Handler - NamedType BalanceLCYTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 697524692 - NamedType 1821082690" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchases (LCY)</source>
+          <target state="translated">Einkauf (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit EXT Top Vendor Caption Handler - NamedType PurchasesLCYTok</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor - Top List Excel (Preview)</source>
+          <target state="translated">Liste der wichtigsten Kreditoren – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - ReportDataItem 330238633 - Property 1806354803" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top vendor filters</source>
+          <target state="translated">Filter für wichtigste Kreditoren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - ReportDataItem TopVendorData - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - ReportLabel 2439395454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data retrieved:</source>
+          <target state="translated">Abgerufene Daten:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - ReportLabel DataRetrieved</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - ReportLabel 4046468063" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rank according to:</source>
+          <target state="translated">Rangfolge nach:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - ReportLabel RankAccordingTo</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - ReportLabel 1007196181" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Vendor List</source>
+          <target state="translated">Liste der wichtigsten Kreditoren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - ReportLabel TopVendorListLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor - Top Trends</source>
+          <target state="translated">Wichtigste Kreditorentrends</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report shows purchase information for vendors over the selected period of time, summarized by the supplied period length, limited by how many vendors you would like included.</source>
+          <target state="translated">Dieser Bericht zeigt Einkaufsinformationen für Kreditoren über den ausgewählten Zeitraum, zusammengefasst nach der angegebenen Periodenlänge, begrenzt durch die Anzahl der Kreditoren, die Sie einbeziehen möchten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Optionen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - Control 2704404533 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of vendors that will be included in the report.</source>
+          <target state="translated">Gibt die Anzahl von Kreditoren an, die im Bericht berücksichtigt werden sollen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - Control 2704404533 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target state="translated">Menge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - Control Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - Control 366713437 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how the report will sort the vendors: Purchases, to sort by purchase volume; or balance. In either case, the vendors with the largest amounts will be shown first.</source>
+          <target state="translated">Gibt an, wie die Kreditoren im Bericht sortiert werden sollen: „Einkauf“, um nach Kaufvolumen zu sortieren, oder „Saldo“. In beiden Fällen werden die Kreditoren mit den größten Beträgen als Erstes angezeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - Control Show - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - Control 366713437 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show</source>
+          <target state="translated">Anzeigen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - Control Show - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - Control 366713437 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchases (LCY),Balance (LCY)</source>
+          <target state="translated">Einkauf (LW),Saldo (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - Control Show - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 4199566814 - ReportLayout 2771570707 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor - Top Trends Excel (Preview)</source>
+          <target state="translated">Wichtigste Kreditorentrends – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - ReportLayout VendorTopTrendExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 1958081322 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Vendor Balance</source>
+          <target state="translated">Wichtigste Kreditoren – Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query EXR Top Vendor Balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 724726725 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Vendor Purchase</source>
+          <target state="translated">Wichtigste Kreditoren – Einkauf</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query EXR Top Vendor Purchase - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Customer Data</source>
+          <target state="translated">Daten zu den wichtigsten Debitoren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - NamedType 3992936788" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount 2 (LCY)</source>
+          <target state="translated">Betrag 2 (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - NamedType Amount2LCYTok</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - NamedType 3682313422" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (LCY)</source>
+          <target state="translated">Betrag (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - NamedType AmountLCYTok</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 592951229 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (LCY)</source>
+          <target state="translated">Betrag (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 1797368459 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount 2 (LCY)</source>
+          <target state="translated">Betrag 2 (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Amount 2 (LCY</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 4198939294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <target state="translated">Währungscode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 1171137197 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Name</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Customer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 4190130733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target state="translated">Debitorennr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 410940989 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Posting Group</source>
+          <target state="translated">Debitorenbuchungsgruppe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Customer Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 995090288 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Filter</source>
+          <target state="translated">Datumsfilter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 1861213814 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Global Dimension 1 Filter</source>
+          <target state="translated">Globaler Dimensionsfilter 1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Global Dimension 1 Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 588326355 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Global Dimension 2 Filter</source>
+          <target state="translated">Globaler Dimensionsfilter 2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Global Dimension 2 Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 2082466019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Start Date</source>
+          <target state="translated">Periodenstartdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Period Start Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 3103037058 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ranking Based On</source>
+          <target state="translated">Rangfolge basierend auf</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Ranking Based On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 540820010 - Field 3103037058 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales (LCY), Balance (LCY)</source>
+          <target state="translated">Verkauf (LW), Saldo (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Top Customer Report Buffer - Field Ranking Based On - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4120860349 - NamedType 2458886980" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance (LCY)</source>
+          <target state="translated">Saldo (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit EXT Top Cust. Caption Handler - NamedType BalanceLCYTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4120860349 - NamedType 4080346370" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales (LCY)</source>
+          <target state="translated">Verkauf (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit EXT Top Cust. Caption Handler - NamedType SalesLCYTok</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer - Top List Excel (Preview)</source>
+          <target state="translated">Liste der wichtigsten Debitoren – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - ReportDataItem 1504116817 - Property 1806354803" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Customer filters</source>
+          <target state="translated">Filter für wichtigste Debitoren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - ReportDataItem TopCustomerData - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - ReportLabel 2439395454" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Data retrieved:</source>
+          <target state="translated">Abgerufene Daten:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - ReportLabel DataRetrieved</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - ReportLabel 4046468063" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rank according to:</source>
+          <target state="translated">Rangfolge nach:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - ReportLabel RankAccordingTo</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - ReportLabel 4120808061" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Customer List</source>
+          <target state="translated">Liste der wichtigsten Debitoren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - ReportLabel TopCustomerListLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer - Top Trends</source>
+          <target state="translated">Wichtigste Debitorentrends</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report shows sale information for Customers over the selected period of time, summarized by the supplied period length, limited by how many Customers you would like included.</source>
+          <target state="translated">Dieser Bericht zeigt Verkaufsinformationen für Debitoren über den ausgewählten Zeitraum, zusammengefasst nach der angegebenen Periodenlänge, begrenzt durch die Anzahl der Debitoren, die Sie einbeziehen möchten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Optionen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - Control 2704404533 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of Customers that will be included in the report.</source>
+          <target state="translated">Gibt die Anzahl von Debitoren an, die im Bericht berücksichtigt werden sollen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - Control 2704404533 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target state="translated">Menge</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - Control Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - Control 366713437 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies how the report will sort the Customers: Sales, to sort by sale volume; or balance. In either case, the Customers with the largest amounts will be shown first.</source>
+          <target state="translated">Gibt an, wie die Debitoren im Bericht sortiert werden sollen: Vertrieb, um nach Vertriebsvolumen zu sortieren, oder Saldo. In beiden Fällen werden die Debitoren mit den höchsten Beträgen zuerst angezeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - Control Show - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - Control 366713437 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show</source>
+          <target state="translated">Anzeigen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - Control Show - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - Control 366713437 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales (LCY),Balance (LCY)</source>
+          <target state="translated">Verkauf (LW),Saldo (LW)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - Control Show - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 2081705526 - ReportLayout 1529034891 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer - Top Trends Excel (Preview)</source>
+          <target state="translated">Wichtigste Debitorentrends – Excel (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - ReportLayout CustomerTopTrendExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 3316903586 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Customer Balance</source>
+          <target state="translated">Wichtigste Debitoren – Saldo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query EXR Top Customer Balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 374200740 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Top Customer Sale</source>
+          <target state="translated">Wichtigste Debitoren – Vertrieb</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query EXR Top Customer Sales - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 1191026958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Excel Reports</source>
+          <target state="translated">Excel-Berichte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 447239859 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Receivable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Debitor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 447239859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable (Preview)</source>
+          <target state="translated">Debitorenbuchhaltung (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 3179496975 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top customers.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Debitoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 3179496975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Debitoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 3943235107 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Budget data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Budgetdaten angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 3943235107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Budget (Preview)</source>
+          <target state="translated">Bilanz/Budget (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 3465360632 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance Excel data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Excel-Daten für die Bilanz angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 3465360632 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (Preview)</source>
+          <target state="translated">Bilanz (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 3276863733 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance by Period data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Daten zur Bilanz nach Periode angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 3276863733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period (Preview)</source>
+          <target state="translated">Bilanz nach Periode (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 1318786165 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Previous Year data</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Vorjahresvergleichsdaten angezeigt werden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1364487181 - Action 1318786165 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Previous Year (Preview)</source>
+          <target state="translated">Bilanz/Vorjahresvergleich (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1430368898</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 1191026958 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Excel Reports</source>
+          <target state="translated">Excel-Berichte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 447239859 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Receivable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Debitor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 447239859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable (Preview)</source>
+          <target state="translated">Debitorenbuchhaltung (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3827900984 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows the Aged Accounts Payable data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der die Daten für Kreditor-Saldenrückblicke angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3827900984 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable (Preview)</source>
+          <target state="translated">Kreditor-Saldenrückblick (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3179496975 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top customers.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Debitoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3179496975 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Debitoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3943235107 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Budget data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Budgetdaten angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3943235107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Budget (Preview)</source>
+          <target state="translated">Bilanz/Budget (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3465360632 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance Excel data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Excel-Daten für die Bilanz angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3465360632 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance (Preview)</source>
+          <target state="translated">Bilanz (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3276863733 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance by Period data.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Daten zur Bilanz nach Periode angezeigt werden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 3276863733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period (Preview)</source>
+          <target state="translated">Bilanz nach Periode (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 1318786165 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows Trial Balance/Previous Year data</source>
+          <target state="translated">Öffnen Sie eine Tabelle, in der Bilanz-/Vorjahresvergleichsdaten angezeigt werden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 1318786165 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Previous Year (Preview)</source>
+          <target state="translated">Bilanz/Vorjahresvergleich (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 2026640950 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open a spreadsheet that shows a list of top vendors.</source>
+          <target state="translated">Öffnen Sie eine Tabelle, die eine Liste der wichtigsten Kreditoren anzeigt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3178332075 - Action 2026640950 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor - Top List (Preview)</source>
+          <target state="translated">Liste der wichtigsten Kreditoren (Vorschauversion)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1344,7 +1344,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3274756772 - Field 2301941973 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1192395785</note>
@@ -1393,7 +1393,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2435267110 - Field 2301941973 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1948788855</note>
@@ -1456,7 +1456,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 634830819 - Field 2301941973 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 809936682</note>
@@ -1687,7 +1687,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2766054287 - Field 3095583229 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3952648489</note>
@@ -1750,7 +1750,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 152500644 - Field 3095583229 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 2675224487</note>
@@ -2030,7 +2030,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 479262143 - Field 2301941973 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 552782286</note>
@@ -2191,7 +2191,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2137679277 - Field 3095583229 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1929467888</note>
@@ -2261,7 +2261,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3541931442 - Field 3095583229 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 1837124963</note>
@@ -2695,7 +2695,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2522012900 - Field 3095583229 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3471029625</note>
@@ -2751,7 +2751,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1014637951 - Field 3095583229 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3610197182</note>
@@ -2786,7 +2786,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3544167776 - Field 3095583229 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> ,,,Purchase Responsible,,,Accountant,,,Budget Responsible,,,Requisitioner</source>
-          <target state="translated"> ,,,Indkøbsansvarlig,,,Bogholder,,,Budgetansvarlig,,,Indkøber</target>
+          <target state="translated"> ,,,Indkøbsansvarlig,,,Revisor,,,Budgetansvarlig,,,Indkøber</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 3117283677</note>

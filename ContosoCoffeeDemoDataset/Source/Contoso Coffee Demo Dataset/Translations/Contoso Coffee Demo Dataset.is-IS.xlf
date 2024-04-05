@@ -117,6 +117,102 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Contoso Module Dependency - Field Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 121299782 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FA Module Setup</source>
+          <target state="translated">Uppsetning eignaeiningar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FA Module Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 121299782 - Field 417849789 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Depreciation Book</source>
+          <target state="translated">Sjálfgefin afskriftabók</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FA Module Setup - Field Default Depreciation Book - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 121299782 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <target state="translated">Aðallykill</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table FA Module Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3400882805 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Human Resources Module Setup</source>
+          <target state="translated">Uppsetning starfsmannahaldseiningar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Human Resources Module Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3400882805 - Field 2743298303 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Posting Group</source>
+          <target state="translated">Bókunarflokkur starfsmanns</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Human Resources Module Setup - Field Employee Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3400882805 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <target state="translated">Aðallykill</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Human Resources Module Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Jobs Module Setup</source>
+          <target state="translated">Uppsetning verkeiningar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 4190130733 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target state="translated">Nr. viðskiptavinar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 4269068227 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Consumable No.</source>
+          <target state="translated">Rekstrarnr. vöru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Item Consumable No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 4272178225 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Machine No.</source>
+          <target state="translated">Vélarnr. vöru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Item Machine No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 544039185 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Service No.</source>
+          <target state="translated">Þjónustunr. vöru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Item Service No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 3209483651 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Supply No.</source>
+          <target state="translated">Framboðsnr. vöru</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Item Supply No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 3275237822 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Location</source>
+          <target state="translated">Staðsetning verks</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Job Location - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 4185613972 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Job Posting Group</source>
+          <target state="translated">Bókunarflokkur verka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Job Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <target state="translated">Aðallykill</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 61515859 - Field 1968840581 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resource No.</source>
+          <target state="translated">Forðanr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Jobs Module Setup - Field Resource Installer No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 811197606 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Manufacturing Demo Account</source>
           <target state="translated">Sýnireikningur framleiðslu</target>
@@ -602,6 +698,78 @@
           <target state="translated">Setja upp fyrir %1 / %2</target>
           <note from="Developer" annotates="general" priority="2">%1 is the VAT Bus. Posting Group Code, %2 is the VAT Prod. Posting Group Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Contoso Posting Setup - NamedType VATSetupDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1110043666 - NamedType 2325641667" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attending a Course</source>
+          <target state="translated">Á námskeiði</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Cause Of Inactivity - NamedType AttendingCourseLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1110043666 - NamedType 69071453" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>COURSE</source>
+          <target state="translated">NÁMSKEIÐ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Cause Of Inactivity - NamedType AttendingCourseTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1110043666 - NamedType 886651121" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Maternity Leave</source>
+          <target state="translated">Barnsburðarleyfi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Cause Of Inactivity - NamedType MaternityLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1110043666 - NamedType 3119570535" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MATERNITY</source>
+          <target state="translated">BARNSBURÐ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Cause Of Inactivity - NamedType MaternityTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1110043666 - NamedType 2161958756" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>On Leave</source>
+          <target state="translated">Í leyfi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Cause Of Inactivity - NamedType OnLeaveLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1110043666 - NamedType 1942629342" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LEAVE</source>
+          <target state="translated">LEYFI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Cause Of Inactivity - NamedType OnLeaveTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1991142150 - NamedType 827821411" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Day Off</source>
+          <target state="translated">Frídagur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Causes of Absence - NamedType DayOffLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1991142150 - NamedType 2123887869" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DAYOFF</source>
+          <target state="translated">FRÍDAGUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Causes of Absence - NamedType DayOffTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1991142150 - NamedType 793623520" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Holiday</source>
+          <target state="translated">Frí</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Causes of Absence - NamedType HolidayLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1991142150 - NamedType 4268304538" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HOLIDAY</source>
+          <target state="translated">FRÍ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Causes of Absence - NamedType HolidayTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1991142150 - NamedType 4152422892" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sick</source>
+          <target state="translated">Veik(ur)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Causes of Absence - NamedType SickLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1991142150 - NamedType 2576886534" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SICK</source>
+          <target state="translated">VEIKINDI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Causes of Absence - NamedType SickTok</note>
         </trans-unit>
         <trans-unit id="Codeunit 1162009136 - NamedType 3643448814" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
           <source>Albania</source>
@@ -1647,6 +1815,54 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType ItemTok</note>
         </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 3848983083" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Purchase Invoice</source>
+          <target state="translated">Bókaður innkaupareikningur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PostedPurchaseInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 3046511973" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PP-INV</source>
+          <target state="translated">BÓKAÐUR-INNKAUPREIKN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PostedPurchaseInvoiceTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 3715128153" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Receipt</source>
+          <target state="translated">Bókuð móttaka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PostedReceiptLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 3849509999" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>P-RPT</source>
+          <target state="translated">BÓKUÐ-MÓTTAKA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PostedReceiptTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 2432465454" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Sales Invoice</source>
+          <target state="translated">Bókaður sölureikn.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PostedSalesInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 2596009092" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PS-INV</source>
+          <target state="translated">BÓKAÐUR-SÖLUREIKN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PostedSalesInvoiceTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 4201550636" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Invoice</source>
+          <target state="translated">Innkaupareikningur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PurchaseInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 1883683654" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>P-INV</source>
+          <target state="translated">INNKAUP-REIKNINGUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PurchaseInvoiceTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 120532373 - NamedType 1486506809" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Order</source>
           <target state="translated">Innkaupapöntun</target>
@@ -1659,6 +1875,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType PurchaseOrderTok</note>
         </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 1989518965" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Invoice</source>
+          <target state="translated">Sölureikningur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType SalesInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 570004651" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>S-INV</source>
+          <target state="translated">SÖLU-REIKNINGUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType SalesInvoiceTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 120532373 - NamedType 1606529520" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Order</source>
           <target state="translated">Sölupöntun</target>
@@ -1670,6 +1898,18 @@
           <target state="translated">S-ORD</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType SalesOrderTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 1485212386" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor</source>
+          <target state="translated">Lánardrottinn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType VendorLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120532373 - NamedType 3788178264" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VEND</source>
+          <target state="translated">LÁNARDROTTINN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common No Series - NamedType VendorTok</note>
         </trans-unit>
         <trans-unit id="Codeunit 1485704842 - NamedType 1420948384" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Domestic customers and vendors</source>
@@ -1899,6 +2139,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Unit Of Measure - NamedType KMLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4250401586 - NamedType 591971034" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>KW Hour</source>
+          <target state="translated">KW klukk.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Unit Of Measure - NamedType KWHLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4250401586 - NamedType 2969964688" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>KWH</source>
+          <target state="translated">KWH</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Unit Of Measure - NamedType KWHTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4250401586 - NamedType 346069402" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
           <source>Liter</source>
           <target state="translated">Lítri</target>
@@ -1970,6 +2222,1266 @@
           <target state="translated">VELJA</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Unit Of Measure - NamedType SetTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4250401586 - NamedType 3993514192" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tonne</source>
+          <target state="translated">Tonn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Unit Of Measure - NamedType TonneLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4250401586 - NamedType 622007592" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>T</source>
+          <target state="translated">T</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Common Unit Of Measure - NamedType TTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1497336026 - NamedType 3650382324" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Premiums Paid</source>
+          <target state="translated">Greidd tryggingaiðgjöld</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Confidential - NamedType InsuranceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1497336026 - NamedType 2041394894" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INSURANCE</source>
+          <target state="translated">VÁTRYGGING</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Confidential - NamedType InsuranceTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1497336026 - NamedType 112724929" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Pension Plan</source>
+          <target state="translated">Eftirlaun fyrirtækis</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Confidential - NamedType RetireLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1497336026 - NamedType 1773208855" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RETIRE</source>
+          <target state="translated">EFTIRL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Confidential - NamedType RetireTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1497336026 - NamedType 2214073522" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly Salary</source>
+          <target state="translated">Mánaðarlaun</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Confidential - NamedType SalaryLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1497336026 - NamedType 3137968072" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SALARY</source>
+          <target state="translated">Laun</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Confidential - NamedType SalaryTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1497336026 - NamedType 3461262446" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Stock Options</source>
+          <target state="translated">Hlutabréf starfsmanns</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Confidential - NamedType StockLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1497336026 - NamedType 2924052164" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>STOCK</source>
+          <target state="translated">HLUTABRÉF</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Confidential - NamedType StockTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 1374284595" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bettencourt</source>
+          <target state="translated">Magnússon</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType BettencourtLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 3187328444" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>66B James Road</source>
+          <target state="translated">Grettisgötu 108</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType BJamesRoadLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2953816657" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Designer</source>
+          <target state="translated">Hönnuður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType DesignerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2416115910" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dodds</source>
+          <target state="translated">Gunnarsson</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType DoddsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 3942528816" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>327 Elmwood Street</source>
+          <target state="translated">Hellisstíg 14</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType ElmwoodStreetLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 848335025" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ester</source>
+          <target state="translated">Helga</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType EsterLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 1661914202" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Falls</source>
+          <target state="translated">Jónsson</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType FallsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 1656264827" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>49 Grahams Road</source>
+          <target state="translated">Grimmsgötu 13</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType GrahamsRoadLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 3753950340" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Henderson</source>
+          <target state="translated">Gunnarsdóttir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType HendersonLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2595955431" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>10 High Street</source>
+          <target state="translated">Safamýri 84</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType HighStreetLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 3831639988" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Horst</source>
+          <target state="translated">Stefánsson</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType HorstLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2025558341" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inventory Manager</source>
+          <target state="translated">Birgðastjóri</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType InventoryManagerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 1675202320" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Jim</source>
+          <target state="translated">Jóhannes</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType JimLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2276582020" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lina</source>
+          <target state="translated">Ingibjörg</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType LinaLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2986121115" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>7 Maddiston Road</source>
+          <target state="translated">Lautarsmára 166</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType MaddistonRoadLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 3028285364" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>47 Main Street</source>
+          <target state="translated">Fannborg 13</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType MainStreetLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 4194242890" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Managing Director</source>
+          <target state="translated">Framkvæmdastjóri</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType ManagingDirectorLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 624643035" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Marty</source>
+          <target state="translated">Stefán</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType MartyLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 1611273277" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Olive</source>
+          <target state="translated">Jóhannsson</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType OliveLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 4211125149" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Otis</source>
+          <target state="translated">Arnar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType OtisLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 661262415" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production Assistant</source>
+          <target state="translated">Aðstoð við framl.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType ProductionAssistantLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 4093169502" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production Manager</source>
+          <target state="translated">Framleiðslustjórnandi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType ProductionManagerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 139570558" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Robin</source>
+          <target state="translated">Þröstur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType RobinLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2867184319" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>5 Russel Street</source>
+          <target state="translated">Markarlandi 20</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType RusselStreetLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2638249163" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Manager</source>
+          <target state="translated">Sölustjóri</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType SalesManagerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 1692136706" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Secretary</source>
+          <target state="translated">Ritari</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType SecretaryLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 970769814" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terry</source>
+          <target state="translated">Sigríður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType TerryLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2335402770 - NamedType 2102019456" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Townsend</source>
+          <target state="translated">Ólafsdóttir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee - NamedType TownsendLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1007527440 - NamedType 3875190416" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee</source>
+          <target state="translated">Starfsmaður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee No Series - NamedType EmployeeNoSeriesDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1007527440 - NamedType 3686345524" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EMP</source>
+          <target state="translated">STARFSM</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee No Series - NamedType EmployeeNoSeriesTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2376443691 - NamedType 3291007211" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EMPLEXP</source>
+          <target state="translated">EMPLEXP</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Posting Group - NamedType EmployeeExpensesTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 923633 - NamedType 615392254" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cronus International Ltd.</source>
+          <target state="translated">Cronus Ísland hf.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Qualification - NamedType CronusInternationalLtdLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 923633 - NamedType 2170000003" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>International Trade Group</source>
+          <target state="translated">Alþjóðaviðskipti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Qualification - NamedType InternationalTradeGroupLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 923633 - NamedType 373463655" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>World Famous Designers</source>
+          <target state="translated">Heimsfrægir hönnuðir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Qualification - NamedType WorldFamousDesignersLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 2995622294" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Arthur</source>
+          <target state="translated">Arthur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType ArthurLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 3097956556" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Charles</source>
+          <target state="translated">Charles</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType CharlesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 924458043" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diana</source>
+          <target state="translated">Díana</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType DianaLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 1020528213" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Elisabeth</source>
+          <target state="translated">Elísabet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType ElisabethLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 1785461207" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Franco</source>
+          <target state="translated">Frans</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType FrancoLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 1948711702" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>James</source>
+          <target state="translated">JAKOB</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType JamesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 3105884587" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Julia</source>
+          <target state="translated">Júlía</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType JuliaLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 1214487149" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Liam</source>
+          <target state="translated">Lárus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType LiamLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 3577031167" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mary</source>
+          <target state="translated">BRYNJA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType MaryLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1087698846 - NamedType 3950971504" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sofie</source>
+          <target state="translated">Soffía</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Relative - NamedType SofieLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 581104191 - NamedType 970405518" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>14DAYS</source>
+          <target state="translated">14DAGAR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Stat. Group - NamedType Days14Tok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 581104191 - NamedType 117371879" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HOUR</source>
+          <target state="translated">KLST</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Stat. Group - NamedType HourlyTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 581104191 - NamedType 3176683012" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hourly Wages</source>
+          <target state="translated">Tímakaup</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Stat. Group - NamedType HourlyWagesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 581104191 - NamedType 1725907190" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salaried (Monthly)</source>
+          <target state="translated">Laun (mánaðarleg)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Stat. Group - NamedType SalariedMonthlyLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 581104191 - NamedType 3993089228" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MONTH</source>
+          <target state="translated">MÁNUÐUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Stat. Group - NamedType SalariedMonthlyTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 581104191 - NamedType 1881658506" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salaried (Twice Monthly)</source>
+          <target state="translated">Laun greidd (tvisvar á mánuði)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Stat. Group - NamedType SalariedTwiceMonthlyLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1130208898 - NamedType 3730710990" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Administration staff</source>
+          <target state="translated">Stjórnendur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Template - NamedType AdministrationStaffLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1130208898 - NamedType 3179785482" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ADMINISTRATION</source>
+          <target state="translated">STJÓRNUN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Template - NamedType AdministrationTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1130208898 - NamedType 54726235" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IT staff</source>
+          <target state="translated">Tæknisvið</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Template - NamedType ITStaffLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1130208898 - NamedType 111237871" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IT</source>
+          <target state="translated">IT</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employee Template - NamedType ITTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 964742602 - NamedType 2062468955" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Administrators</source>
+          <target state="translated">Stjórnendur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employment Contract - NamedType AdministratorLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 964742602 - NamedType 3938147765" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ADM</source>
+          <target state="translated">STJ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employment Contract - NamedType AdministratorTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 964742602 - NamedType 3606352336" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Developers</source>
+          <target state="translated">Forritarar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employment Contract - NamedType DeveloperLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 964742602 - NamedType 4165137386" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DEV</source>
+          <target state="translated">FORR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employment Contract - NamedType DeveloperTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 964742602 - NamedType 2410739155" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production Staff</source>
+          <target state="translated">Framlstarfsfólk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employment Contract - NamedType ProductionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 964742602 - NamedType 4247866061" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PROD</source>
+          <target state="translated">FRAML</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Employment Contract - NamedType ProductionTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 2302863972" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Equipment</source>
+          <target state="translated">Búnaður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType EquipmentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 2083534558" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EQUIPMENT</source>
+          <target state="translated">BÚNAÐUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType EquipmentTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 4107115597" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Financial</source>
+          <target state="translated">Fjárhagur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType FinancialLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 3638378947" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FINANCIAL</source>
+          <target state="translated">FJÁRHAGUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType FinancialTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 1319478921" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Goodwill</source>
+          <target state="translated">Viðskiptavild</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType GoodwillLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 3760845375" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GOODWILL</source>
+          <target state="translated">VIÐSVILD</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType GoodwillTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 3871813989" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>InTangible</source>
+          <target state="translated">Óáþreifanlegt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType InTangibleLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 3322948731" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INTANGIBLE</source>
+          <target state="translated">ÓÁÞREIFANL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType InTangibleTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 1980292559" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Plants/Buildings</source>
+          <target state="translated">Versmiðjur/byggingar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType PlantLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 2474131977" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PLANT</source>
+          <target state="translated">VERKSMIÐJA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType PlantTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 4223179111" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Property/Land</source>
+          <target state="translated">Eign/land</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType PropertyLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 2035843809" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PROPERTY</source>
+          <target state="translated">EIGN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType PropertyTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 3647954408" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tangible</source>
+          <target state="translated">Áþreifanlegt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType TangibleLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 4281767234" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TANGIBLE</source>
+          <target state="translated">ÁÞRLEGT</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType TangibleTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 480391139" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicles</source>
+          <target state="translated">Ökutæki</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType VehiclesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3201778719 - NamedType 1776457597" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VEHICLES</source>
+          <target state="translated">ÖKUTÆKI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType VehiclesTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2683132053 - NamedType 62419544" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Book</source>
+          <target state="translated">Fyrirtækjabók</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Depreciation Book - NamedType CompanyBookLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2683132053 - NamedType 1383920759" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>COMPANY</source>
+          <target state="translated">FYRIRTÆKI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Depreciation Book - NamedType CompanyLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3273030787 - NamedType 2350571889" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accum. Depreciation, Buildings</source>
+          <target state="translated">Uppsafnaðar afskr., húsnæði</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA GL Account - NamedType AccumDepreciationBuildingsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3273030787 - NamedType 1193319378" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Decreases during the Year</source>
+          <target state="translated">Minnkun á árinu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA GL Account - NamedType DecreasesDuringTheYearLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3273030787 - NamedType 490857811" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Depreciation, Equipment</source>
+          <target state="translated">Afskrift, tæki</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA GL Account - NamedType DepreciationEquipmentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3273030787 - NamedType 519143306" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gains and Losses</source>
+          <target state="translated">Gróði og tap</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA GL Account - NamedType GainsAndLossesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3273030787 - NamedType 559919724" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Increases during the Year</source>
+          <target state="translated">Aukning á árinu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA GL Account - NamedType IncreasesDuringTheYearLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3273030787 - NamedType 3957840668" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Miscellaneous</source>
+          <target state="translated">Ýmislegt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA GL Account - NamedType MiscellaneousLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120807883 - NamedType 1033992696" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Journal Batch</source>
+          <target state="translated">Sjálfgefin bókarkeyrsla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Ins Jnl. Template - NamedType DefaultJournalBatchLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120807883 - NamedType 2659178837" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DEFAULT</source>
+          <target state="translated">SJÁLFGEFIÐ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Ins Jnl. Template - NamedType DefaultTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120807883 - NamedType 1186642379" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Journal</source>
+          <target state="translated">Vátryggingabók</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Ins Jnl. Template - NamedType InsuranceJournalLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 120807883 - NamedType 2041394894" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INSURANCE</source>
+          <target state="translated">VÁTRYGGING</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Ins Jnl. Template - NamedType InsuranceTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2015997459 - NamedType 4066875785" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INS000010</source>
+          <target state="translated">INS000010</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance - NamedType Ins000010Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2015997459 - NamedType 4049181088" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INS000020</source>
+          <target state="translated">INS000020</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance - NamedType Ins000020Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2015997459 - NamedType 3434725047" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INS000030</source>
+          <target state="translated">INS000030</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance - NamedType Ins000030Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2015997459 - NamedType 2199195094" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INS000040</source>
+          <target state="translated">INS000040</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance - NamedType Ins000040Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2015997459 - NamedType 3955793514" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Machinery Insurance</source>
+          <target state="translated">Vátrygging tækja</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance - NamedType MachineryInsuranceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3595984699 - NamedType 3826138316" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FIRE</source>
+          <target state="translated">ELDUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance Type - NamedType FireTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3595984699 - NamedType 3873437022" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Machinery/Other Equipment</source>
+          <target state="translated">Tæki/Annar búnaður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance Type - NamedType MachineryOtherEquipmentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3595984699 - NamedType 3190229130" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MACHINERY</source>
+          <target state="translated">TÆKI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance Type - NamedType MachineryTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3595984699 - NamedType 279794901" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>THEFT</source>
+          <target state="translated">ÞJÓFNAÐUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance Type - NamedType TheftTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3595984699 - NamedType 92990336" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicle</source>
+          <target state="translated">Ökutæki</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance Type - NamedType VehicleDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3595984699 - NamedType 1318641988" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VEHICLE</source>
+          <target state="translated">ÖKUTÆKI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Insurance Type - NamedType VehicleTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4036564327 - NamedType 8268133" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ASSETS</source>
+          <target state="translated">EIGNIR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Jnl. Template - NamedType AssetsTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4036564327 - NamedType 1033992696" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Journal Batch</source>
+          <target state="translated">Sjálfgefin bókarkeyrsla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Jnl. Template - NamedType DefaultJournalBatchLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4036564327 - NamedType 2659178837" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DEFAULT</source>
+          <target state="translated">SJÁLFGEFIÐ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Jnl. Template - NamedType DefaultTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4036564327 - NamedType 1173145258" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset G/L Journal</source>
+          <target state="translated">Eignafjárhagsbók</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Jnl. Template - NamedType FixedAssetGLJournalLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4036564327 - NamedType 256861081" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recurring Fixed Asset G/L Jnl</source>
+          <target state="translated">Ítrekunarfjárhagsbók eigna</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Jnl. Template - NamedType RecurringFixedAssetGLJournalLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4036564327 - NamedType 1806296363" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RECURRING</source>
+          <target state="translated">ENDURTEKIÐ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Jnl. Template - NamedType RecurringTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1602198562 - NamedType 1878669808" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Administration, Building_1</source>
+          <target state="translated">Stjórnun, bygging_1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Location - NamedType AdministrationLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1602198562 - NamedType 3179785482" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ADM</source>
+          <target state="translated">STJD</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Location - NamedType AdministrationTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1602198562 - NamedType 2916822810" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production, Building_2</source>
+          <target state="translated">Framleiðsla, bygging_2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Location - NamedType ProductionNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1602198562 - NamedType 4247866061" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PROD</source>
+          <target state="translated">FRAML</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Location - NamedType ProductionTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1602198562 - NamedType 3096777198" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales, Building_1</source>
+          <target state="translated">Sala, bygging_1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Location - NamedType SalesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1602198562 - NamedType 2559566916" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SALES</source>
+          <target state="translated">SALA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Location - NamedType SalesTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1602198562 - NamedType 3462042561" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WareHouse</source>
+          <target state="translated">Vöruhús</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Location - NamedType WareHouseLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1602198562 - NamedType 827559191" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WAREHOUSE</source>
+          <target state="translated">VÖRUHÚS</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Location - NamedType WareHouseTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 601589125 - NamedType 579443639" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>100 hours service</source>
+          <target state="translated">Þjónusta eftir 100 vinnustundir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maint. Registration - NamedType Comment100hourServiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 601589125 - NamedType 1051550219" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mileage 3000 service</source>
+          <target state="translated">Þjónusta eftir 3000 mílur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maint. Registration - NamedType CommentMileage3000ServiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 601589125 - NamedType 1332756321" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gregory J. Erickson</source>
+          <target state="translated">Gregory J. Erickson</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maint. Registration - NamedType ServiceAgent1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 601589125 - NamedType 3063661376" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Larry Zhang</source>
+          <target state="translated">Larry Zhang</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maint. Registration - NamedType ServiceAgent2Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 601589125 - NamedType 357699423" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Josh Barnhill</source>
+          <target state="translated">Josh Barnhill</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maint. Registration - NamedType ServiceAgent3Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 601589125 - NamedType 2334257094" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Kelly Focht</source>
+          <target state="translated">Kelly Focht</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maint. Registration - NamedType ServiceAgent4Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 601589125 - NamedType 2465753509" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Taylor Maxwell</source>
+          <target state="translated">Taylor Maxwell</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maint. Registration - NamedType ServiceAgent5Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 601589125 - NamedType 3475501316" maxwidth="30" size-unit="char" translate="yes" xml:space="preserve">
+          <source>John Campbell III</source>
+          <target state="translated">John Campbell III</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maint. Registration - NamedType ServiceAgent6Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 42807458 - NamedType 1869981609" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SERVICE</source>
+          <target state="translated">ÞJÓNUSTA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maintenance - NamedType ServiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 42807458 - NamedType 3009062708" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service</source>
+          <target state="translated">Þjónusta</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maintenance - NamedType ServiceNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 42807458 - NamedType 3206979917" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SPAREPARTS</source>
+          <target state="translated">VARAHLUTIR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maintenance - NamedType SparePartsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 42807458 - NamedType 1962567888" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Spare Parts</source>
+          <target state="translated">Varahlutir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Maintenance - NamedType SparePartsNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 1173145258" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset G/L Journal</source>
+          <target state="translated">Eignafjárhagsbók</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType FixedAssetGLJournalLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 3504461376" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FAJNL-GL</source>
+          <target state="translated">EIGNB-FJ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType FixedAssetGLJournalTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 871555048" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Asset</source>
+          <target state="translated">Eign</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType FixedAssetLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 1505367874" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FA</source>
+          <target state="translated">Eign</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType FixedAssetTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 1186642379" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance Journal</source>
+          <target state="translated">Vátryggingabók</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType InsuranceJournalLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 1084925189" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FA-INSJNLG</source>
+          <target state="translated">EIGN-VÁTRB</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType InsuranceJournalTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 3650382324" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insurance</source>
+          <target state="translated">Vátrygging</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType InsuranceLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 2041394894" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FA-INS</source>
+          <target state="translated">EIGN-VÁTR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType InsuranceTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 256861081" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recurring Fixed Asset G/L Jnl</source>
+          <target state="translated">Ítrekunarfjárhagsbók eigna</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType RecurringFixedAssetGLJournalLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2491359091 - NamedType 3943879599" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FAJNL-GLR</source>
+          <target state="translated">EIGNB-ÍFJ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA No Series - NamedType RecurringFixedAssetGLJournalTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2147937320 - NamedType 2083534558" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EQUIPMENT</source>
+          <target state="translated">BÚNAÐUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Posting Group - NamedType EquipmentTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2147937320 - NamedType 3760845375" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GOODWILL</source>
+          <target state="translated">VIÐSKVILD</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Posting Group - NamedType GoodwillTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2147937320 - NamedType 2474131977" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PLANT</source>
+          <target state="translated">VERKSMIÐJA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Posting Group - NamedType PlantTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2147937320 - NamedType 2035843809" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PROPERTY</source>
+          <target state="translated">EIGN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Posting Group - NamedType PropertyTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2147937320 - NamedType 1776457597" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VEHICLES</source>
+          <target state="translated">ÖKUTÆKI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Posting Group - NamedType VehiclesTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 2393163724" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Conveyor Belt</source>
+          <target state="translated">Færiband</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType ConveyorBeltLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 703613492" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Conveyor Computer</source>
+          <target state="translated">Flutningstölva</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType ConveyorComputerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 1461532212" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Conveyor Lift</source>
+          <target state="translated">Flutningslyfta</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType ConveyorLiftLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 439405296" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Conveyor, Main Asset</source>
+          <target state="translated">Flutningstæki, aðaleign</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType ConveyorMainAssetLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 323781530" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lift for Furniture</source>
+          <target state="translated">Lyfta fyrir húsgögn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType LiftForFurnitureLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 3423510401" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mercedes 300</source>
+          <target state="translated">Mercedes 300</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType Mercedes300Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 511216126" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Switchboard</source>
+          <target state="translated">Skiptiborð</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType SwitchboardLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 10668656" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Toyota Supra 3.0</source>
+          <target state="translated">Toyota Supra 3.0</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType ToyotaSupra30Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1743679590 - NamedType 133346545" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VW Transporter</source>
+          <target state="translated">VW Transporter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Fixed Asset - NamedType VWTransporterLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2243422007 - NamedType 1851322971" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee is dismissed</source>
+          <target state="translated">Starfsmanni er sagt upp</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Grounds for Termination - NamedType DismissedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2243422007 - NamedType 3727001781" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DISMISSED</source>
+          <target state="translated">SAGT UPP</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Grounds for Termination - NamedType DismissedTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2243422007 - NamedType 319072641" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee has resigned</source>
+          <target state="translated">Starfsmaður sagði upp</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Grounds for Termination - NamedType ResignedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2243422007 - NamedType 2721887191" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RESIGNED</source>
+          <target state="translated">SAGÐI UPP</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Grounds for Termination - NamedType ResignedTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2243422007 - NamedType 810799653" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee is retired</source>
+          <target state="translated">Starfsmaður er kominn á eftirlaun</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Grounds for Termination - NamedType RetiredLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2243422007 - NamedType 3856147771" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RETIRED</source>
+          <target state="translated">EFTIRL.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Grounds for Termination - NamedType RetiredTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2263396040 - NamedType 2243074779" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employees Payable</source>
+          <target state="translated">Starfsmenn sem eiga inni greiðslur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create HR GL Account - NamedType EmployeesPayableLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 2734395574" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Check-list:</source>
+          <target state="translated">Gátlisti:</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobChecklistDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 3955775593" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configuration</source>
+          <target state="translated">Grunnstilling</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobConfigurationTaskTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 2585799785" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery</source>
+          <target state="translated">Afhending</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobDeliveryTaskDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 1751301073" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>* Electrical requirements</source>
+          <target state="translated">* Rafmagnskröfur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobElectricalRequirementDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 669731851" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Installation</source>
+          <target state="translated">Uppsetning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobInstallationTaskLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 3969619369" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Installation of S-100 Semi-Automatic</source>
+          <target state="translated">Uppsetning á hálfsjálfvirkum S-100</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 2791107428" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phase 1 - Planning and specs</source>
+          <target state="translated">Áfangi 1 – Áætlanagerð og tæknilýsingar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobPhase1DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 4268120974" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phase 1 - Total</source>
+          <target state="translated">Áfangi 1 – Samtals</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobPhase1TotalDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 4029104445" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phase 2 - Installation</source>
+          <target state="translated">Áfangi 2 – Uppsetning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobPhase2DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 1422192475" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phase 2 - Total</source>
+          <target state="translated">Áfangi 2 – Samtals</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobPhase2TotalDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 160373719" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>* Space constraints</source>
+          <target state="translated">* Takmarkanir á rými</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobSpaceRequirementDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 1722838352" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>* Water quality, inlet, drain out</source>
+          <target state="translated">* Vatnsgæði, inntak, frárennsli</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType FixRateJobWaterRequirementDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 1818944614" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pre-installation requirements</source>
+          <target state="translated">Kröfur foruppsetningar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType PreInstallationTaskDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 1883278501" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supplies and maintenance of S-100 Semi-Automatic</source>
+          <target state="translated">Birgðir og viðhald á hálfsjálfvirkum S-100</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType RecurringJobNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 2755510208" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pre-installation requirements</source>
+          <target state="translated">Kröfur foruppsetningar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType RecurringTaskAnnuallyDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 1459351567" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phase 1 - Planning and specs</source>
+          <target state="translated">Áfangi 1 – Áætlanagerð og tæknilýsingar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType RecurringTaskMonthlyDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2631434597 - NamedType 2499604408" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Software update</source>
+          <target state="translated">Hugbúnaðaruppfærsla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job - NamedType WIPJobNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2047428147 - NamedType 1081196382" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Cost Applied</source>
+          <target state="translated">Kostnaður verks notaður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job GL Account - NamedType JobCostsAppliedTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2047428147 - NamedType 2309214870" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Sales Applied</source>
+          <target state="translated">Sala verks notuð</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job GL Account - NamedType JobSalesAppliedTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2047428147 - NamedType 2874711068" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Costs</source>
+          <target state="translated">Kostnaður verks</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job GL Account - NamedType RecognizedCostsTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2047428147 - NamedType 3076234004" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Sales</source>
+          <target state="translated">Verksala</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job GL Account - NamedType RecognizedSalesTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2047428147 - NamedType 1149140317" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoiced Project Sales</source>
+          <target state="translated">Reikningsfærð sala á verki</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job GL Account - NamedType WIPInvoicedSalesTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2047428147 - NamedType 1591385339" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WIP Project Costs</source>
+          <target state="translated">Kostnaður vegna VÍV</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job GL Account - NamedType WIPJobCostsTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2236829434 - NamedType 2954329030" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remote pump</source>
+          <target state="translated">Fjartengd dæla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item - NamedType ConsumableDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2236829434 - NamedType 3120515037" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>F-100</source>
+          <target state="translated">F-100</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item - NamedType ConsumableTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2236829434 - NamedType 3338850504" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>S-210 Semi-Automatic</source>
+          <target state="translated">S-210 hálfsjálfvirkt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item - NamedType MachineDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2236829434 - NamedType 1213714271" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>S-210</source>
+          <target state="translated">S-210</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item - NamedType MachineTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2236829434 - NamedType 3019012786" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Fee</source>
+          <target state="translated">Verkþóknun</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item - NamedType ServiceDescLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2236829434 - NamedType 1141485060" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SER203</source>
+          <target state="translated">ÞJÓ203</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item - NamedType ServiceItemTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2236829434 - NamedType 3894470934" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Paper Coffee Cups</source>
+          <target state="translated">Kaffibollar úr pappa</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item - NamedType SupplyDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2236829434 - NamedType 695398541" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>F-101</source>
+          <target state="translated">F-101</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item - NamedType SupplyTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1364379361 - NamedType 3507266890" maxwidth="80" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Journal</source>
+          <target state="translated">Birgðabók</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item Journal - NamedType ItemJournalLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1364379361 - NamedType 4058039807" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ITEM</source>
+          <target state="translated">VARA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item Journal - NamedType ItemTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1364379361 - NamedType 408473381" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Projects</source>
+          <target state="translated">Byrja verk</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item Journal - NamedType StartJobDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1364379361 - NamedType 831119049" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>START-PROJ</source>
+          <target state="translated">BYRJA-VERK</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Item Journal - NamedType StartJobTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2598811919 - NamedType 3085580386" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CONTOSO</source>
+          <target state="translated">CONTOSO</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Journal Setup - NamedType ContosoJobBatchTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2598811919 - NamedType 3580378673" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Batch</source>
+          <target state="translated">Verkruna</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Journal Setup - NamedType JobBatchDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2598811919 - NamedType 2397589086" maxwidth="80" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Journal</source>
+          <target state="translated">Verkefnisbók</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Journal Setup - NamedType JobJournalTemplateDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2598811919 - NamedType 1667289129" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PROJECT</source>
+          <target state="translated">VERKEFNI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Journal Setup - NamedType JobTemplateTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4145879875 - NamedType 3856032736" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Projects</source>
+          <target state="translated">Verkefni</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job No Series - NamedType JobNosDescTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4145879875 - NamedType 2433365986" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PROJECTS</source>
+          <target state="translated">VERKEFNI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job No Series - NamedType JobsNosTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 790092376 - NamedType 2922029809" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setting up</source>
+          <target state="translated">Uppsetning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Posting Group - NamedType SettingUpDescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 790092376 - NamedType 3204969693" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setting up</source>
+          <target state="translated">Uppsetning</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Posting Group - NamedType SettingUpTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2696370755 - NamedType 3180688443" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RESOURCE3</source>
+          <target state="translated">FORÐI3</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Resource - NamedType Resource3Tok</note>
         </trans-unit>
         <trans-unit id="Codeunit 1083179759 - NamedType 2651806164" maxwidth="50" size-unit="char" translate="yes" xml:space="preserve">
           <source>Days</source>
@@ -2883,6 +4395,258 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Mfg Vendor - NamedType SubcontractorLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2378179110 - NamedType 3600209759" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Car</source>
+          <target state="translated">Fyrirtækisbíll</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Misc. Article - NamedType CompanyCarLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2378179110 - NamedType 3511412025" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CAR</source>
+          <target state="translated">BÍLL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Misc. Article - NamedType CompanyCarTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2378179110 - NamedType 2186993846" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Key to Company</source>
+          <target state="translated">Lykill að fyrirtæki</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Misc. Article - NamedType CompanyKeyLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2378179110 - NamedType 3711845260" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>KEY</source>
+          <target state="translated">LYKILL</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Misc. Article - NamedType CompanyKeyTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2378179110 - NamedType 4225365847" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Computer</source>
+          <target state="translated">Tölva</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Misc. Article - NamedType ComputerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2378179110 - NamedType 462789873" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>COMPUTER</source>
+          <target state="translated">TÖLVA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Misc. Article - NamedType ComputerTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2378179110 - NamedType 1973510949" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Card</source>
+          <target state="translated">Kreditkort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Misc. Article - NamedType CreditCardLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2378179110 - NamedType 723891771" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CREDITCARD</source>
+          <target state="translated">KREDITKORT</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Misc. Article - NamedType CreditCardTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 871755740" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accountant</source>
+          <target state="translated">Endurskoðandi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType AccountantLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 2843755222" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ACCOUNTANT</source>
+          <target state="translated">ENDURSKOÐ.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType AccountantTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 2953816657" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Designer</source>
+          <target state="translated">Hönnuður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType DesignerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 891768775" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DESIGN</source>
+          <target state="translated">HÖNNUN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType DesignerTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 2661053595" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fluent in French</source>
+          <target state="translated">Mjög góð(ur) í frönsku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType FluentInFrenchLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 241765109" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FRENCH</source>
+          <target state="translated">FRANSKA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType FluentInFrenchTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 2124201177" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fluent in German</source>
+          <target state="translated">Mjög góð(ur) í þýsku</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType FluentInGermanLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 2258583023" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GERMAN</source>
+          <target state="translated">ÞÝSKA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType FluentInGermanTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 1390171265" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interior Designer</source>
+          <target state="translated">Innanhússhönnuður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType InteriorDesignerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 3792985815" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INTDESIGN</source>
+          <target state="translated">INNHÖNN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType InteriorDesignerTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 3084243076" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>International Sales</source>
+          <target state="translated">Alþjóðleg sala</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType InternationalSalesLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 3607244286" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>INTSALES</source>
+          <target state="translated">ALÞJSALA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType InternationalSalesTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 4093169502" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production Manager</source>
+          <target state="translated">Framleiðslustjórnandi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType ProductionManagerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 4261813972" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PROD</source>
+          <target state="translated">FRAML</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType ProductionManagerTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 2469311984" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Project Manager</source>
+          <target state="translated">Verkefnastjóri</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType ProjectManagerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 3770427658" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PROJECT</source>
+          <target state="translated">VERKEFNI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType ProjectManagerTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 3707326408" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quality Manager</source>
+          <target state="translated">Gæðastjóri</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType QualityManagerLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2801916671 - NamedType 746925858" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QUALITY</source>
+          <target state="translated">GÆÐI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Qualification - NamedType QualityManagerTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 2726482963" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First Child</source>
+          <target state="translated">Frumburður</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType Child1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 268642573" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CHILD1</source>
+          <target state="translated">BARN1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType Child1Tok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 2848886198" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Second Child</source>
+          <target state="translated">Annað barn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType Child2Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 78770316" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CHILD2</source>
+          <target state="translated">BARN2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType Child2Tok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 1585238741" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Third Child</source>
+          <target state="translated">Þriðja barn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType Child3Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 124147723" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CHILD3</source>
+          <target state="translated">BARN3</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType Child3Tok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 1144554586" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Father</source>
+          <target state="translated">Faðir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType FatherLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 3522548240" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FATHER</source>
+          <target state="translated">FAÐIR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType FatherTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 721708039" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Husband</source>
+          <target state="translated">EIGINMAÐUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType HusbandLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 3571670657" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HUSBAND</source>
+          <target state="translated">EIGINMAÐUR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType HusbandTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 2914764837" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mother</source>
+          <target state="translated">Móðir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType MotherLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 1665145659" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MOTHER</source>
+          <target state="translated">MÓÐIR</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType MotherTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 568743284" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next of Kin</source>
+          <target state="translated">Ættingi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType NextOfKinLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 3254723150" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NEXT</source>
+          <target state="translated">ÁFRAM</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType NextOfKinTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 3044212713" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Wife</source>
+          <target state="translated">EIGINKONA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType WifeLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3928549853 - NamedType 448281247" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WIFE</source>
+          <target state="translated">EIGINKONA</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Relatives - NamedType WifeTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2400463276 - NamedType 2038539400" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Non-Prepaid Contract - Monthly</source>
           <target state="translated">Samningar án fyrirframgreiðslu - Mánaðarlega</target>
@@ -3459,6 +5223,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Svc Status - NamedType StatusWAITTok</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2524465361 - NamedType 3908783830" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Administrators' Union</source>
+          <target state="translated">Stjórnendafélagið</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Union - NamedType AdministratorUnionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2524465361 - NamedType 1138667948" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UADMI</source>
+          <target state="translated">STSTJORN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Union - NamedType AdministratorUnionTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2524465361 - NamedType 2009644837" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Development Engineers' Union</source>
+          <target state="translated">Stéttarfélag hönnuða</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Union - NamedType DevelopmentEngineerUnionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2524465361 - NamedType 760025659" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UDEVE</source>
+          <target state="translated">STHÖNN</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Union - NamedType DevelopmentEngineerUnionTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2524465361 - NamedType 3328335320" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production Workers' Union</source>
+          <target state="translated">Stéttarf. framlstarfsm.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Union - NamedType ProductionWorkerUnionLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2524465361 - NamedType 362833938" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UPROD</source>
+          <target state="translated">STFRAML</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Union - NamedType ProductionWorkerUnionTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1755822452 - NamedType 3005490637" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Whole Roasted Beans, Colombia</source>
           <target state="translated">Heilar, ristaðar baunir, Kólumbía</target>
@@ -3957,6 +5757,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Whse No Series - NamedType WarehouseShipmentTok</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3196539198 - NamedType 762629525" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Bins only</source>
+          <target state="translated">Einungis föst hólf</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Whse Put Away Template - NamedType SAMEDescTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3196539198 - NamedType 3804448518" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Standard Template</source>
           <target state="translated">Staðlað sniðmát</target>
@@ -4094,6 +5900,90 @@
           <target state="translated">Stofna</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Contoso Demo Tool - Action GeneratePromoted - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 121299782 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed Assets Module Setup</source>
+          <target state="translated">Uppsetning eignaeiningar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FA Module Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 121299782 - Control 807953793 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the default depreciation book to use for the scenarios.</source>
+          <target state="translated">Tilgreinir sjálfgefna afskriftabók sem á að nota fyrir þessar sviðsmyndir.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FA Module Setup - Control Default Depr. Book - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3400882805 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Human Resources Module Setup</source>
+          <target state="translated">Uppsetning starfsmannahaldseiningar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Human Resources Module Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3400882805 - Control 2743298303 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the default Posting Group of Employee</source>
+          <target state="translated">Tilgreinir sjálfgefinn bókunarflokk starfsmanns</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Human Resources Module Setup - Control Employee Posting Group - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contoso Coffee Project Demo Data</source>
+          <target state="translated">Sýnigögn fyrir verk Contoso Coffee</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 406328956 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the location code to use for the scenarios.</source>
+          <target state="translated">Tilgreinir staðsetningarkóðann sem á að nota fyrir sviðsmyndir.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Service Location - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 4190130733 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer number to use for the scenarios.</source>
+          <target state="translated">Tilgreinir númer viðskiptavinar sem á að nota fyrir sviðsmyndir.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Customer No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 2204127981 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the main number to use for the scenarios.</source>
+          <target state="translated">Tilgreinir aðalnúmerið sem á að nota fyrir sviðsmyndir.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Item 1 No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 1513630372 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies extra item number to use for the scenarios.</source>
+          <target state="translated">Tilgreinir viðbótarvörunúmer til að nota fyrir sviðsmyndir.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Item 2 No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 2704025915 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies service item number to use for the scenarios.</source>
+          <target state="translated">Tilgreinir þjónustuvörunúmer til að nota fyrir sviðsmyndir.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Item 3 No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 4144638834 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies s item number to use for the scenarios.</source>
+          <target state="translated">Tilgreinir vörunúmer til að nota fyrir sviðsmyndir.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Item 4 No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 2788926676 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the local resource number to use for the small unit scenarios.</source>
+          <target state="translated">Tilgreinir númer staðbundins forða sem á að nota fyrir sviðsmyndir lítillar einingar.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Resource L1 No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 4067159089 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Setup</source>
+          <target state="translated">Bókunargrunnur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Posting Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 61515859 - Control 4185613972 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the job posting group code used on jobs.</source>
+          <target state="translated">Tilgreinir gildi á kóða fyrir bókunarflokk verks sem notað er í verkum.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Jobs Module Setup - Control Job Posting Group - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2804514879 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Manufacturing Module Setup</source>

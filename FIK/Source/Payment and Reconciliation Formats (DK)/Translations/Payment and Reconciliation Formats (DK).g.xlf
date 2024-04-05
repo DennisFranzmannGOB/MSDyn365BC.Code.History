@@ -33,21 +33,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit FIK Demodata - NamedType FIKImportFormatTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2941720393 - NamedType 900708658" size-unit="char" translate="yes" xml:space="preserve">
-          <source>BANK</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FIK Demodata - NamedType XBANKTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2941720393 - NamedType 3568990475" size-unit="char" translate="yes" xml:space="preserve">
-          <source>CASH</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FIK Demodata - NamedType XCASHTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2941720393 - NamedType 3977333010" size-unit="char" translate="yes" xml:space="preserve">
-          <source>CHECK</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit FIK Demodata - NamedType XCHECKTxt</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2941720393 - NamedType 463652529" size-unit="char" translate="yes" xml:space="preserve">
           <source>Domestic Bank Transfer</source>
           <note from="Developer" annotates="general" priority="2"></note>
