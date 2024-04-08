@@ -503,7 +503,7 @@
         </trans-unit>
         <trans-unit id="Page 3456414591 - Control 236064653 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT specification of the involved item or resource to link transactions made for this record with the appropriate general ledger account according to the VAT posting setup.</source>
-          <target state="translated">Indica la especificación de IVA del elemento o el recurso relacionado para vincular las transacciones realizadas para este registro con la cuenta de contabilidad general correspondiente de acuerdo con la configuración de registro de IVA.</target>
+          <target state="translated">Indica la especificación de IVA del producto o recurso en cuestión para vincular las transacciones realizadas para este registro con la cuenta de contabilidad general adecuada según la configuración de registro de IVA.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page DIOT Concept Links - Control VAT Prod. Posting Group - Property ToolTip</note>
         </trans-unit>
