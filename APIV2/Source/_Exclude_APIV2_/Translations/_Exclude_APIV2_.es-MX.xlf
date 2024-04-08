@@ -5057,13 +5057,13 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3911703272" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceling the credit memo failed because of the following error: \\%1\\An invoice is posted.</source>
-          <target state="translated">No se ha podido cancelar la nota de crédito debido al siguiente error: \\%1\\Se ha registrado una factura.</target>
+          <target state="translated">No se pudo cancelar la nota de crédito debido al siguiente error: \\%1\\Se ha registrado una factura.</target>
           <note from="Developer" annotates="general" priority="2">%1 - arbitrary text (an error message)</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CancelingCreditMemoFailedInvoiceCreatedAndPostedErr</note>
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3551748667" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceling the credit memo failed because of the following error: \\%1\\An invoice is created but not posted.</source>
-          <target state="translated">No se ha podido cancelar la nota de crédito debido al siguiente error: \\%1\\Se ha creado una factura pero no se ha registrado.</target>
+          <target state="translated">No se pudo cancelar la nota de crédito debido al siguiente error: \\%1\\Se ha creado una factura, pero no se la ha registrado.</target>
           <note from="Developer" annotates="general" priority="2">%1 - arbitrary text (an error message)</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType CancelingCreditMemoFailedInvoiceCreatedButNotPostedErr</note>
         </trans-unit>
@@ -5117,7 +5117,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 3517791419" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The action can be applied to a draft credit memo only.</source>
-          <target state="translated">La acción solo se puede aplicar a un borrador de nota de crédito.</target>
+          <target state="translated">La acción se puede aplicar solo a un borrador de nota de crédito.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType DraftCreditMemoActionErr</note>
         </trans-unit>
@@ -5153,7 +5153,7 @@
         </trans-unit>
         <trans-unit id="Page 3637029690 - NamedType 30303159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The action can be applied to a posted credit memo only.</source>
-          <target state="translated">La acción solo se puede aplicar a una nota crédito regis.</target>
+          <target state="translated">La acción se puede aplicar solo a una nota de crédito registrada.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Purchase Credit Memos - NamedType PostedCreditMemoActionErr</note>
         </trans-unit>
