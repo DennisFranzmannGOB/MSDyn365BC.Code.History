@@ -1,11 +1,11 @@
 {
   "settings": {
-    "al.enableCodeAnalysis": false,
-    "al.enableCodeActions": false,
-    "allint.enabled": false,
     "search.exclude": {
       "**.xlf": true
-    }
+    },
+    "allint.enabled": false,
+    "al.enableCodeAnalysis": false,
+    "al.enableCodeActions": false
   },
   "folders": [
     {
@@ -142,6 +142,12 @@
     },
     {
       "path": "./PlanConfiguration/Test/_Exclude_PlanConfiguration_ Tests"
+    },
+    {
+      "path": "./IRSForms/Test Library/IRS Forms Test Library"
+    },
+    {
+      "path": "./IRSForms/Test/IRS Forms Tests"
     },
     {
       "path": "./MX_DIOT/Test/Tests for MX DIOT Extension"
