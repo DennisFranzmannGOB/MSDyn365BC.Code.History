@@ -26,8 +26,6 @@ codeunit 134159 "Test Price Calculation - V16"
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryWarehouse: Codeunit "Library - Warehouse";
-        CopyFromToPriceListLine: Codeunit CopyFromToPriceListLine;
-        ResType: Option Resource,"Group(Resource)",All;
         IsInitialized: Boolean;
         AllowLineDiscErr: Label 'Allow Line Disc. must have a value in Sales Line';
         PickedWrongMinQtyErr: Label 'The quantity in the line is below the minimum quantity of the picked price list line.';
@@ -37,6 +35,7 @@ codeunit 134159 "Test Price Calculation - V16"
         GetPriceFieldMismatchErr: Label 'The %1 in the selected price line must be %2.',
             Comment = '%1 - a field caption, %2 - a value of the field';
         ValueMustBeEqualErr: Label '%1 must be equal to %2 in %3', Comment = '%1 = Field Caption , %2 = Expected Value , %3 = Table Caption';
+        TestFieldErr: Label '%1 must have a value', Comment = '%1 = Field Caption';
 
     [Test]
     procedure T001_SalesLineAddsActivatedCampaignOnHeaderAsSource()
@@ -880,7 +879,6 @@ codeunit 134159 "Test Price Calculation - V16"
     procedure T035_ResJournalLinePriceCopyToBufferWithPostingDate()
     var
         PriceCalculationBuffer: Record "Price Calculation Buffer";
-        Job: Record Job;
         ResJournalLine: Record "Res. Journal Line";
         ResJournalLinePrice: Codeunit "Res. Journal Line - Price";
         PriceCalculationBufferMgt: Codeunit "Price Calculation Buffer Mgt.";
@@ -940,7 +938,6 @@ codeunit 134159 "Test Price Calculation - V16"
     procedure T037_ResJournalLinePriceCopyToBufferWithTimeSheetDate()
     var
         PriceCalculationBuffer: Record "Price Calculation Buffer";
-        Job: Record Job;
         ResJournalLine: Record "Res. Journal Line";
         ResJournalLinePrice: Codeunit "Res. Journal Line - Price";
         PriceCalculationBufferMgt: Codeunit "Price Calculation Buffer Mgt.";
@@ -1163,8 +1160,10 @@ codeunit 134159 "Test Price Calculation - V16"
         VerifyJobSources(Job, PurchaseLinePrice, 0, 0, 0);
     end;
 
-#if not CLEAN21
+#if not CLEAN23
+#pragma warning disable AS0072
     [Test]
+    [Obsolete('Not Used.', '23.0')]
     procedure T050_ApplyDiscountSalesLineCalculateDiscIfAllowLineDiscFalseV15()
     var
         Customer: Record Customer;
@@ -1219,6 +1218,7 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesLine.TestField("Allow Line Disc.", false);
         SalesLine.TestField("Line Discount %", ExpectedDiscount);
     end;
+#pragma warning restore AS0072
 #endif
 
     [Test]
@@ -1280,11 +1280,9 @@ codeunit 134159 "Test Price Calculation - V16"
     [Test]
     procedure T060_CalcBestAmountPicksBestPriceOfTwoBestFirst()
     var
-        PriceCalculationBuffer: Record "Price Calculation Buffer";
         TempPriceListLine: Record "Price List Line" temporary;
         PriceCalculationBufferMgt: Codeunit "Price Calculation Buffer Mgt.";
         PriceCalculationV16: Codeunit "Price Calculation - V16";
-        PriceSourceList: codeunit "Price Source List";
     begin
         // [FEATURE] [UT]
         // [GIVEN] Buffer where Quantity = 1, "Currency Code" = <blank>
@@ -1308,11 +1306,9 @@ codeunit 134159 "Test Price Calculation - V16"
     [Test]
     procedure T061_CalcBestAmountPicksBestPriceOfTwoBestSecond()
     var
-        PriceCalculationBuffer: Record "Price Calculation Buffer";
         TempPriceListLine: Record "Price List Line" temporary;
         PriceCalculationBufferMgt: Codeunit "Price Calculation Buffer Mgt.";
         PriceCalculationV16: Codeunit "Price Calculation - V16";
-        PriceSourceList: codeunit "Price Source List";
     begin
         // [FEATURE] [UT]
         // [GIVEN] Buffer where Quantity = 1, "Currency Code" = <blank>
@@ -1559,7 +1555,7 @@ codeunit 134159 "Test Price Calculation - V16"
         PriceListLine[2].Modify();
         // [GIVEN] Job Planning Line, wheer Job 'J', Customer 'C'
         JobPlanningLine.Validate("Job No.", Job."No.");
-        JobPlanningLine.validate(Type, JobPlanningLine.Type::Item);
+        JobPlanningLine.Validate(Type, JobPlanningLine.Type::Item);
         // [WHEN] Enter Item 'I' in the Job Planning Line
         JobPlanningLine.Validate("No.", Item."No.");
         // [THEN] "Unit Price" is 'X', "Line Discount" is 0
@@ -1603,7 +1599,7 @@ codeunit 134159 "Test Price Calculation - V16"
         PriceListLine[2].Modify();
         // [GIVEN] Job Planning Line, wheer Job 'J', Customer 'C'
         JobPlanningLine.Validate("Job No.", Job."No.");
-        JobPlanningLine.validate(Type, JobPlanningLine.Type::Item);
+        JobPlanningLine.Validate(Type, JobPlanningLine.Type::Item);
         // [WHEN] Enter Item 'I' in the Job Planning Line
         JobPlanningLine.Validate("No.", Item."No.");
         // [THEN] "Unit Price" is 0.00, "Line Discount" is 1%
@@ -1779,8 +1775,6 @@ codeunit 134159 "Test Price Calculation - V16"
         PriceListLine: Record "Price List Line";
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
-        VATBusinessPostingGroup: Record "VAT Business Posting Group";
-        VATProductPostingGroup: Record "VAT Product Posting Group";
         VATPostingSetup: Record "VAT Posting Setup";
         ExpectedPriceInclVAT: Decimal;
     begin
@@ -1826,8 +1820,6 @@ codeunit 134159 "Test Price Calculation - V16"
         PriceListLine: Record "Price List Line";
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
-        VATBusinessPostingGroup: Record "VAT Business Posting Group";
-        VATProductPostingGroup: Record "VAT Product Posting Group";
         VATPostingSetup: Record "VAT Posting Setup";
         ExpectedPriceExclVAT: Decimal;
     begin
@@ -1955,8 +1947,6 @@ codeunit 134159 "Test Price Calculation - V16"
         PriceListLine: Record "Price List Line";
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
-        VATBusinessPostingGroup: Record "VAT Business Posting Group";
-        VATProductPostingGroup: Record "VAT Product Posting Group";
         VATPostingSetup: Record "VAT Posting Setup";
         RevChVATPostingSetup: Record "VAT Posting Setup";
         ExpectedPriceExclVAT: Decimal;
@@ -2006,7 +1996,6 @@ codeunit 134159 "Test Price Calculation - V16"
         PriceCalculationMgt: Codeunit "Price Calculation Mgt.";
         PriceCalculation: interface "Price Calculation";
         ExpectedDiscount: Decimal;
-        Header: Variant;
         Line: Variant;
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2201,7 +2190,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2237,7 +2225,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2274,7 +2261,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
         PriceListLineDisc: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2311,7 +2297,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
         PriceListLineDisc: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2348,7 +2333,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
         PriceListLineDisc: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2386,7 +2370,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
         PriceListLineDisc: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2424,7 +2407,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2463,7 +2445,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Price]
@@ -2502,7 +2483,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
         PriceListLineDisc: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Price]
@@ -2540,7 +2520,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Discount]
@@ -2581,7 +2560,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesLine: Record "Sales Line";
         PriceListHeader: array[3] of Record "Price List Header";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
         ExpectedUnitPrice: array[2] of Decimal;
         ExpectedDiscount: Decimal;
@@ -2654,7 +2632,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Price] [Minimum Quantity]
@@ -2695,7 +2672,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Price]
@@ -2735,7 +2711,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         UnitofMeasure: array[2] of Record "Unit of Measure";
         OldHandler: enum "Price Calculation Handler";
     begin
@@ -2784,7 +2759,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Sales] [Price]
@@ -2829,7 +2803,6 @@ codeunit 134159 "Test Price Calculation - V16"
         PurchaseHeader: Record "Purchase Header";
         PurchaseLine: Record "Purchase Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Purchase] [Price]
@@ -2868,7 +2841,6 @@ codeunit 134159 "Test Price Calculation - V16"
         PurchaseHeader: Record "Purchase Header";
         PurchaseLine: Record "Purchase Line";
         PriceListLine: Record "Price List Line";
-        PriceCalculationSetup: Array[5] of Record "Price Calculation Setup";
         OldHandler: enum "Price Calculation Handler";
     begin
         // [FEATURE] [Purchase] [Discount] [UI]
@@ -2885,7 +2857,7 @@ codeunit 134159 "Test Price Calculation - V16"
         item.Modify();
 
         // [GIVEN] Price List Line, where "Amount Type" is 'Price', "Source No." is 'C, "Minimum Quantity" is 0
-        CreateDiscountLine(PriceListLine, Vendor, Item, false);
+        CreateDiscountLine(PriceListLine, Vendor, Item);
         // [GIVEN] Purchase Invoice for Vendor 'V' selling Item 'I', where Quantity is 1
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, Vendor."No.");
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, Item."No.", 1);
@@ -2902,7 +2874,6 @@ codeunit 134159 "Test Price Calculation - V16"
     [HandlerFunctions('MessageHandler')]
     procedure T190_ActivateCampaignIfPriceExists()
     var
-        Customer: Record Customer;
         Campaign: Record Campaign;
         CampaignTargetGr: Record "Campaign Target Group";
         SegmentHeader: Record "Segment Header";
@@ -2947,7 +2918,6 @@ codeunit 134159 "Test Price Calculation - V16"
     [HandlerFunctions('ConfirmNoHandler')]
     procedure T191_ActivateCampaignIfPriceDoesNotExist()
     var
-        Customer: Record Customer;
         Campaign: Record Campaign;
         SegmentHeader: Record "Segment Header";
         SegmentLine: Record "Segment Line";
@@ -2955,7 +2925,6 @@ codeunit 134159 "Test Price Calculation - V16"
         CampaignTargetGr: Record "Campaign Target Group";
         CampaignTargetGroupMgt: Codeunit "Campaign Target Group Mgt";
         OldHandler: enum "Price Calculation Handler";
-        Msg: Text;
     begin
         // [FEATURE] [Sales] [Campaign]
         // [SCENARIO] Activate campaign is stopped if price list lines for the campaign do not exist.
@@ -2997,9 +2966,7 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesLine: Record "Sales Line";
         CampaignTargetGroupMgt: Codeunit "Campaign Target Group Mgt";
         LibraryPriceCalculation: Codeunit "Library - Price Calculation";
-        OldHandler: enum "Price Calculation Handler";
         UnitPrice: array[2] of Decimal;
-        i: Integer;
     begin
         // [FEATURE] [Sales] [Campaign]        
         // [SCENARIO 465382] When changing the Campaign No. in the header, the Unit Price must be updated on the previously added line
@@ -3013,7 +2980,7 @@ codeunit 134159 "Test Price Calculation - V16"
         LibraryInventory.CreateItem(Item);
 
         // [GIVEN] Create and activate segment campaigns 'C1' with lower price and 'C2' with higher price for Contact  
-        CreateSegmentCampaignsForContact(Campaign, Contact, Item);
+        CreateSegmentCampaignsForContact(Campaign, Contact);
         // Activate campaign 'C1'
         LibraryPriceCalculation.CreateSalesPriceLine(
             PriceListLine[1], '', "Price Source Type"::Campaign, Campaign[1]."No.",
@@ -3074,7 +3041,6 @@ codeunit 134159 "Test Price Calculation - V16"
         SalesHeaderArchive: Record "Sales Header Archive";
         SalesLineArchive: Record "Sales Line Archive";
         OldHandler: enum "Price Calculation Handler";
-        SalesDocType: Option Quote,"Blanket Order","Order",Invoice,"Return Order","Credit Memo","Posted Shipment","Posted Invoice","Posted Return Receipt","Posted Credit Memo","Arch. Quote","Arch. Order","Arch. Blanket Order","Arch. Return Order";
         InvoiceDocNo: Code[20];
         OrderNo: Code[20];
         LineNo: Integer;
@@ -3277,7 +3243,7 @@ codeunit 134159 "Test Price Calculation - V16"
         // [GIVEN] Create Service Credit Memo - Service Header, one Service Line with Type as Resource, "Price Calculation Method" is 'Lowest Price'
         Initialize();
         CreateServiceDocumentWithResource(
-            ServiceHeader, ServiceLine, ServiceHeader."Document Type"::"Credit Memo", LibrarySales.CreateCustomerNo);
+            ServiceHeader, ServiceLine, ServiceHeader."Document Type"::"Credit Memo", LibrarySales.CreateCustomerNo());
         ServiceLine.TestField("Price Calculation Method", ServiceLine."Price Calculation Method"::"Lowest Price");
 
         // [WHEN] Post Service Credit Memo
@@ -3311,7 +3277,7 @@ codeunit 134159 "Test Price Calculation - V16"
         OldHandler := LibraryPriceCalculation.SetupDefaultHandler("Price Calculation Handler"::"Business Central (Version 16.0)");
         // [GIVEN] Create Service Order - Service Header, one Service Line with Type as Resource, "Price Calculation Method" is 'Lowest Price'
         Initialize();
-        CreateServiceOrderWithResource(ServiceHeader, ServiceLine, LibrarySales.CreateCustomerNo);
+        CreateServiceOrderWithResource(ServiceHeader, ServiceLine, LibrarySales.CreateCustomerNo());
         ServiceLine.TestField("Price Calculation Method", ServiceLine."Price Calculation Method"::"Lowest Price");
 
         // [WHEN] Post Service Order
@@ -3555,7 +3521,6 @@ codeunit 134159 "Test Price Calculation - V16"
         Customer: Record Customer;
         PriceListHeader: array[2] of Record "Price List Header";
         PriceListLine: array[2] of Record "Price List Line";
-        Resource: Record Resource;
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
     begin
@@ -3626,7 +3591,6 @@ codeunit 134159 "Test Price Calculation - V16"
         Job: Record Job;
         PriceListHeader: array[2] of Record "Price List Header";
         PriceListLine: array[2] of Record "Price List Line";
-        Resource: Record Resource;
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
     begin
@@ -3669,7 +3633,6 @@ codeunit 134159 "Test Price Calculation - V16"
         Job: Record Job;
         PriceListHeader: array[2] of Record "Price List Header";
         PriceListLine: array[2] of Record "Price List Line";
-        Resource: Record Resource;
         SalesHeader: Record "Sales Header";
         SalesLine: Record "Sales Line";
     begin
@@ -3756,7 +3719,6 @@ codeunit 134159 "Test Price Calculation - V16"
         Customer: Record Customer;
         PriceListHeader: array[2] of Record "Price List Header";
         PriceListLine: array[2] of Record "Price List Line";
-        Resource: Record Resource;
         ServiceHeader: Record "Service Header";
         ServiceLine: Record "Service Line";
     begin
@@ -3827,7 +3789,6 @@ codeunit 134159 "Test Price Calculation - V16"
         Job: Record Job;
         PriceListHeader: array[2] of Record "Price List Header";
         PriceListLine: array[2] of Record "Price List Line";
-        Resource: Record Resource;
         ServiceHeader: Record "Service Header";
         ServiceLine: Record "Service Line";
     begin
@@ -3873,7 +3834,6 @@ codeunit 134159 "Test Price Calculation - V16"
         Job: Record Job;
         PriceListHeader: array[2] of Record "Price List Header";
         PriceListLine: array[2] of Record "Price List Line";
-        Resource: Record Resource;
         ServiceHeader: Record "Service Header";
         ServiceLine: Record "Service Line";
     begin
@@ -4783,7 +4743,7 @@ codeunit 134159 "Test Price Calculation - V16"
         ActualUnitPrice :=
           Round(
             CurrencyExchangeRate.ExchangeAmtLCYToFCY(
-              WorkDate, Currency.Code, Resource."Unit Price",
+              WorkDate(), Currency.Code, Resource."Unit Price",
               CurrencyExchangeRate.ExchangeRate(WorkDate(), Currency.Code)),
             Currency."Unit-Amount Rounding Precision");
 
@@ -4791,9 +4751,9 @@ codeunit 134159 "Test Price Calculation - V16"
         RunResPriceListReport(Resource."No.", Currency.Code);
 
         // [THEN] Verify values on "Res. Price List" Report with Currency.
-        LibraryReportDataset.LoadDataSetFile;
+        LibraryReportDataset.LoadDataSetFile();
         LibraryReportDataset.SetRange('No_Resource', Resource."No.");
-        Assert.IsTrue(LibraryReportDataset.GetNextRow, 'find element with the resource no');
+        Assert.IsTrue(LibraryReportDataset.GetNextRow(), 'find element with the resource no');
 
         LibraryReportDataset.FindCurrentRowValue('UnitPrice_Resource', ValueVar);
         Assert.AreNearlyEqual(
@@ -4836,15 +4796,12 @@ codeunit 134159 "Test Price Calculation - V16"
     var
         InvtDocumentHeader: Record "Invt. Document Header";
         InvtDocumentLine: Record "Invt. Document Line";
-        SalespersonPurchaser: Record "Salesperson/Purchaser";
         Location: Record Location;
         BaseUOM: Record "Unit of Measure";
         UOM: Record "Unit of Measure";
         Item: Record Item;
         ItemUnitofMeasure: Record "Item Unit of Measure";
-        DimensionValue: Record "Dimension Value";
         PriceListLine: array[3] of Record "Price List Line";
-        VendNo: code[20];
     begin
         Initialize();
         LibraryPriceCalculation.SetMethodInPurchSetup();
@@ -4909,15 +4866,12 @@ codeunit 134159 "Test Price Calculation - V16"
     var
         InvtDocumentHeader: Record "Invt. Document Header";
         InvtDocumentLine: Record "Invt. Document Line";
-        SalespersonPurchaser: Record "Salesperson/Purchaser";
         Location: Record Location;
         BaseUOM: Record "Unit of Measure";
         UOM: Record "Unit of Measure";
         Item: Record Item;
         ItemUnitofMeasure: Record "Item Unit of Measure";
-        DimensionValue: Record "Dimension Value";
         PriceListLine: Record "Price List Line";
-        VendNo: code[20];
     begin
         Initialize();
         LibraryPriceCalculation.SetMethodInPurchSetup();
@@ -5353,6 +5307,29 @@ codeunit 134159 "Test Price Calculation - V16"
         LibraryPriceCalculation.SetupDefaultHandler(OldHandler);
     end;
 
+    [Test]
+    procedure T292_PriceListLineForAllItemsNotAllowed()
+    var
+        Customer: Record Customer;
+        Item: Record Item;
+        PriceListLine: Record "Price List Line";
+        OldHandler: Enum "Price Calculation Handler";
+    begin
+        // [SCENARIO 506148] It is not possible to create price list with Product Type = Item without specifying item number.
+        Initialize();
+        OldHandler := LibraryPriceCalculation.SetupDefaultHandler("Price Calculation Handler"::"Business Central (Version 16.0)");
+
+        LibrarySales.CreateCustomer(Customer);
+        Item."No." := '';
+        Commit();
+
+        asserterror CreatePriceLine(PriceListLine, Customer, Item, true);
+        Assert.ExpectedErrorCode('TestField');
+        Assert.ExpectedError(StrSubstNo(TestFieldErr, PriceListLine.FieldCaption("Asset No.")));
+
+        LibraryPriceCalculation.SetupDefaultHandler(OldHandler);
+    end;
+
     local procedure Initialize()
     var
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
@@ -5367,7 +5344,7 @@ codeunit 134159 "Test Price Calculation - V16"
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"Test Price Calculation - V16");
         LibraryERMCountryData.CreateVATData();
         isInitialized := true;
-        Commit;
+        Commit();
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"Test Price Calculation - V16");
     end;
 
@@ -5510,12 +5487,12 @@ codeunit 134159 "Test Price Calculation - V16"
         PriceListLine.Modify(true);
     end;
 
-#if not CLEAN21
+#if not CLEAN23
     local procedure CreateCustomerItemDiscount(var SalesLineDiscount: Record "Sales Line Discount"; CustomerCode: Code[20]; Item: Record Item; Discount: Decimal)
     begin
         LibraryERM.CreateLineDiscForCustomer(
             SalesLineDiscount, SalesLineDiscount.Type::Item, Item."No.", SalesLineDiscount."Sales Type"::Customer, CustomerCode,
-            WorkDate, '', '', Item."Base Unit of Measure", 0);
+            WorkDate(), '', '', Item."Base Unit of Measure", 0);
         SalesLineDiscount.Validate("Line Discount %", Discount);
         SalesLineDiscount.Modify(true);
     end;
@@ -5524,7 +5501,7 @@ codeunit 134159 "Test Price Calculation - V16"
     begin
         LibraryERM.CreateLineDiscForCustomer(
             SalesLineDiscount, SalesLineDiscount.Type::Item, Item."No.", SalesLineDiscount."Sales Type"::"All Customers", '',
-            WorkDate, '', '', Item."Base Unit of Measure", 0);
+            WorkDate(), '', '', Item."Base Unit of Measure", 0);
         SalesLineDiscount.Validate("Line Discount %", Discount);
         SalesLineDiscount.Modify(true);
     end;
@@ -5604,7 +5581,7 @@ codeunit 134159 "Test Price Calculation - V16"
         PriceListLine.Modify();
     end;
 
-    local procedure CreateDiscountLine(var PriceListLine: Record "Price List Line"; Vendor: Record Vendor; Item: Record Item; AllowLineDisc: Boolean)
+    local procedure CreateDiscountLine(var PriceListLine: Record "Price List Line"; Vendor: Record Vendor; Item: Record Item)
     begin
         LibraryPriceCalculation.CreatePurchDiscountLine(
             PriceListLine, PriceListLine."Price List Code",
@@ -5630,7 +5607,6 @@ codeunit 134159 "Test Price Calculation - V16"
 
     local procedure CreateResource(VATBusPostingGroup: Code[20]; VATProdPostingGroup: Code[20]): Code[20]
     var
-        VATPostingSetup: Record "VAT Posting Setup";
         Resource: Record Resource;
     begin
         LibraryResource.CreateResource(Resource, VATBusPostingGroup);
@@ -5664,8 +5640,6 @@ codeunit 134159 "Test Price Calculation - V16"
     end;
 
     local procedure CreateResourcePurchPriceLine(var PriceListLine: Record "Price List Line"; AssetType: Enum "Price Asset Type"; AssetNo: Code[20]; WorkTypeCode: Code[10])
-    var
-        myInt: Integer;
     begin
         LibraryPriceCalculation.CreatePurchPriceLine(PriceListLine, '', "Price Source Type"::"All Vendors", '', AssetType, AssetNo);
         PriceListLine."Work Type Code" := WorkTypeCode;
@@ -5967,15 +5941,15 @@ codeunit 134159 "Test Price Calculation - V16"
 
     local procedure VerifyResPriceList(PriceListLine: Record "Price List Line"; ResourceUnitPrice: Decimal)
     begin
-        LibraryReportDataset.LoadDataSetFile;
+        LibraryReportDataset.LoadDataSetFile();
         LibraryReportDataset.SetRange('No_Resource', PriceListLine."Asset No.");
-        Assert.IsTrue(LibraryReportDataset.GetNextRow, 'find element with the work type code');
+        Assert.IsTrue(LibraryReportDataset.GetNextRow(), 'find element with the work type code');
         LibraryReportDataset.AssertCurrentRowValueEquals('UnitPrice_Resource', ResourceUnitPrice);
 
         LibraryReportDataset.Reset();
         LibraryReportDataset.SetRange('No_Resource', PriceListLine."Asset No.");
         LibraryReportDataset.SetRange('WorkTypeCode_ResPrice', PriceListLine."Work Type Code");
-        Assert.IsTrue(LibraryReportDataset.GetNextRow, 'find element with the work type code');
+        Assert.IsTrue(LibraryReportDataset.GetNextRow(), 'find element with the work type code');
         LibraryReportDataset.AssertCurrentRowValueEquals('UnitPrice_ResPrice', PriceListLine."Unit Price");
     end;
 
@@ -5996,10 +5970,10 @@ codeunit 134159 "Test Price Calculation - V16"
         StandardCostWorksheetPage: TestPage "Standard Cost Worksheet";
     begin
         StandardCostWorksheet.DeleteAll();
-        StandardCostWorksheetPage.OpenEdit;
+        StandardCostWorksheetPage.OpenEdit();
         CreateStandardCostWorksheet(StandardCostWorksheetPage, Resource."No.", StandardCost, NewStandardCost);
         Commit();  // Commit Required due to Run Modal.
-        StandardCostWorksheetPage."&Implement Standard Cost Changes".Invoke;
+        StandardCostWorksheetPage."&Implement Standard Cost Changes".Invoke();
     end;
 
     local procedure VerifyJobSources(var Job: Record Job; var SalesLinePrice: Codeunit "Sales Line - Price"; AllJobsCounter: Integer; JobCounter: Integer; JobTaskCounter: Integer)
@@ -6050,7 +6024,7 @@ codeunit 134159 "Test Price Calculation - V16"
         Assert.RecordCount(TempPriceSource, JobTaskCounter);
     end;
 
-    local procedure CreateSegmentCampaignsForContact(var Campaign: array[2] of Record Campaign; Contact: Record Contact; Item: Record Item)
+    local procedure CreateSegmentCampaignsForContact(var Campaign: array[2] of Record Campaign; Contact: Record Contact)
     var
         SegmentHeader: array[2] of Record "Segment Header";
         SegmentLine: array[2] of Record "Segment Line";
@@ -6077,7 +6051,7 @@ codeunit 134159 "Test Price Calculation - V16"
         LibraryInventory.SelectItemJournalBatchName(ItemJournalBatch, ItemJournalTemplate.Type, ItemJournalTemplate.Name);
         ImplementStandardCostChange.ItemJournalTemplate.SetValue(ItemJournalTemplate.Name);
         ImplementStandardCostChange.ItemJournalBatchName.SetValue(ItemJournalBatch.Name);
-        ImplementStandardCostChange.OK.Invoke;
+        ImplementStandardCostChange.OK().Invoke();
     end;
 
     [ModalPageHandler]
@@ -6091,7 +6065,7 @@ codeunit 134159 "Test Price Calculation - V16"
         Assert.AreEqual(true, GetPriceLine."Allow Line Disc.".Visible(), 'Allow Line Disc.Visible');
         Assert.AreEqual(true, GetPriceLine."Allow Invoice Disc.".Visible(), 'Allow Invoice Disc.Visible');
         GetPriceLine.First();
-        GetPriceLine.OK.Invoke();
+        GetPriceLine.OK().Invoke();
     end;
 
     [ModalPageHandler]
@@ -6108,7 +6082,7 @@ codeunit 134159 "Test Price Calculation - V16"
         Assert.AreEqual(true, GetPriceLine."Asset Type".Visible(), 'Asset Type.Visible');
         Assert.AreEqual(true, GetPriceLine."Asset No.".Visible(), 'Asset No.Visible');
         GetPriceLine.First();
-        GetPriceLine.OK.Invoke();
+        GetPriceLine.OK().Invoke();
     end;
 
     [ModalPageHandler]
@@ -6125,7 +6099,7 @@ codeunit 134159 "Test Price Calculation - V16"
         Assert.AreEqual(true, GetPriceLine."Asset Type".Visible(), 'Asset Type.Visible');
         Assert.AreEqual(true, GetPriceLine."Asset No.".Visible(), 'Asset No.Visible');
         GetPriceLine.First();
-        GetPriceLine.OK.Invoke();
+        GetPriceLine.OK().Invoke();
     end;
 
     [ModalPageHandler]
@@ -6139,7 +6113,7 @@ codeunit 134159 "Test Price Calculation - V16"
         Assert.AreEqual(false, GetPriceLine."Allow Line Disc.".Visible(), 'Allow Line Disc.Visible');
         Assert.AreEqual(false, GetPriceLine."Allow Invoice Disc.".Visible(), 'Allow Invoice Disc.Visible');
         GetPriceLine.First();
-        GetPriceLine.OK.Invoke();
+        GetPriceLine.OK().Invoke();
     end;
 
     [ModalPageHandler]
@@ -6152,7 +6126,7 @@ codeunit 134159 "Test Price Calculation - V16"
         GetPriceLine.First();
         GetPriceLine."Allow Line Disc.".AssertEquals(Format(true));
         Assert.AreNotEqual(0, GetPriceLine."Line Discount %".AsDecimal(), 'Line Discount % in GetPriceLine');
-        GetPriceLine.OK.Invoke();
+        GetPriceLine.OK().Invoke();
     end;
 
     [ConfirmHandler]
@@ -6178,6 +6152,6 @@ codeunit 134159 "Test Price Calculation - V16"
     procedure ResPriceListReportHandler(var ResPriceList: TestRequestPage "Res. Price List")
     begin
         ResPriceList.Handler.SetValue("Price Calculation Handler"::"Business Central (Version 16.0)");
-        ResPriceList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
+        ResPriceList.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
     end;
 }

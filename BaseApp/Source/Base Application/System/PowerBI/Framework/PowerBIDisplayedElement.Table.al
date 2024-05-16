@@ -8,6 +8,7 @@ table 6312 "Power BI Displayed Element"
     Caption = 'Power BI Displayed Element';
     ReplicateData = false;
     Extensible = false;
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -174,12 +175,16 @@ table 6312 "Power BI Displayed Element"
 
     internal procedure GetTelemetryDimensions() CustomDimensions: Dictionary of [Text, Text]
     var
+        CurrentGlobalLanguage: Integer;
         ReportId: Guid;
         ReportPageName: Text[200];
         ReportVisualId: Text[200];
         DashboardId: Guid;
         DashboardTileId: Guid;
     begin
+        CurrentGlobalLanguage := GlobalLanguage();
+        GlobalLanguage(1033);
+
         CustomDimensions.Add(Rec.FieldName(Context), Rec.Context);
         CustomDimensions.Add(Rec.FieldName(ElementType), Format(Rec.ElementType));
 
@@ -208,6 +213,8 @@ table 6312 "Power BI Displayed Element"
                     CustomDimensions.Add('DashboardTileId', DashboardTileId);
                 end;
         end;
+
+        GlobalLanguage(CurrentGlobalLanguage);
     end;
 
 #if not CLEAN23

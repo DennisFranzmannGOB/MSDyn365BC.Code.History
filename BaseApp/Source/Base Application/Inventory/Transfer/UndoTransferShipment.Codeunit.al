@@ -132,6 +132,8 @@ codeunit 9030 "Undo Transfer Shipment"
             TempWhseJnlLine.SetRange("Source Line No.", TransShptLine."Line No.");
             WhseUndoQty.PostTempWhseJnlLineCache(TempWhseJnlLine, WhseJnlRegisterLine);
 
+            OnCodeOnAfterPostTempWhseJnlLineCache(TransShptLine, ItemJnlPostLine, WhseJnlRegisterLine);
+
             UpdateOrderLine(TransShptLine);
             if PostedWhseShptLineFound then
                 WhseUndoQty.UpdateShptSourceDocLines(PostedWhseShptLine);
@@ -206,6 +208,7 @@ codeunit 9030 "Undo Transfer Shipment"
         ItemJnlLine."Posting Date" := TransShptHeader."Posting Date";
         ItemJnlLine."Document No." := TransShptLine."Document No.";
         ItemJnlLine."Document Line No." := DocLineNo;
+        ItemJnlLine."Document Type" := ItemJnlLine."Document Type"::"Transfer Shipment";
         ItemJnlLine."Gen. Prod. Posting Group" := TransShptLine."Gen. Prod. Posting Group";
         ItemJnlLine."Inventory Posting Group" := TransShptLine."Inventory Posting Group";
         ItemJnlLine."Location Code" := TransShptLine."Transfer-from Code";
@@ -332,13 +335,18 @@ codeunit 9030 "Undo Transfer Shipment"
             until TempItemEntryRelation.Next() = 0;
     end;
 
-    local procedure GetShptEntries(TransShptLine: Record "Transfer Shipment Line"; var ItemLedgEntry: Record "Item Ledger Entry"): Boolean
+    local procedure GetShptEntries(TransShptLine: Record "Transfer Shipment Line"; var ItemLedgEntry: Record "Item Ledger Entry") Found: Boolean
     begin
         ItemLedgEntry.SetCurrentKey("Document No.", "Document Type", "Document Line No.");
         ItemLedgEntry.SetRange("Document Type", ItemLedgEntry."Document Type"::"Transfer Shipment");
         ItemLedgEntry.SetRange("Document No.", TransShptLine."Document No.");
         ItemLedgEntry.SetRange("Document Line No.", TransShptLine."Line No.");
-        exit(ItemLedgEntry.FindSet());
+        Found := ItemLedgEntry.FindSet();
+
+        if Found then
+            repeat
+                ItemJnlPostLine.MarkAppliedInboundItemEntriesForAdjustment(ItemLedgEntry."Entry No.");
+            until ItemLedgEntry.Next() = 0;
     end;
 
     local procedure MakeInventoryAdjustment()
@@ -415,6 +423,11 @@ codeunit 9030 "Undo Transfer Shipment"
 
     [IntegrationEvent(false, false)]
     local procedure OnPostCorrectiveItemLedgEntriesOnBeforeRun(var ItemJournalLine: Record "Item Journal Line"; var ItemLedgerEntry: Record "Item Ledger Entry")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnCodeOnAfterPostTempWhseJnlLineCache(var TransferShipmentLine: Record "Transfer Shipment Line"; var ItemJnlPostLine: Codeunit "Item Jnl.-Post Line"; var WhseJnlRegisterLine: Codeunit "Whse. Jnl.-Register Line")
     begin
     end;
 }

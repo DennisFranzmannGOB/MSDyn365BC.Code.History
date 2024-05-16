@@ -331,6 +331,7 @@ xmlport 1611 "Sales Cr.Memo - PEPPOL BIS 3.0"
 
                         trigger OnBeforePassVariable()
                         begin
+                            PEPPOLMgt.GetAccountingSupplierPartyIdentificationID(SalesHeader, PartyIdentificationID);
                             if PartyIdentificationID = '' then
                                 currXMLport.Skip();
                         end;
@@ -1013,6 +1014,26 @@ xmlport 1611 "Sales Cr.Memo - PEPPOL BIS 3.0"
                         }
                     }
                 }
+                textelement(DeliveryParty)
+                {
+                    NamespacePrefix = 'cac';
+                    XMLName = 'DeliveryParty';
+                    textelement(DeliveryPartyName)
+                    {
+                        NamespacePrefix = 'cac';
+                        XmlName = 'PartyName';
+                        textelement(DeliveryPartyNameValue)
+                        {
+                            NamespacePrefix = 'cbc';
+                            XmlName = 'Name';
+                        }
+                    }
+                    trigger OnBeforePassVariable()
+                    begin
+                        if DeliveryPartyNameValue = '' then
+                            currXMLport.Skip();
+                    end;
+                }
 
                 trigger OnBeforePassVariable()
                 begin
@@ -1031,6 +1052,8 @@ xmlport 1611 "Sales Cr.Memo - PEPPOL BIS 3.0"
                       DeliveryCountrySubentity,
                       DeliveryCountryIdCode,
                       DummyVar);
+
+                    PEPPOLMgt.GetDeliveryPartyName(SalesHeader, DeliveryPartyNameValue);
                 end;
             }
             textelement(PaymentMeans)
@@ -1110,8 +1133,9 @@ xmlport 1611 "Sales Cr.Memo - PEPPOL BIS 3.0"
                       NetworkID);
 
                     PEPPOLMgt.GetPaymentMeansPayeeFinancialAccBIS(
-                      PayeeFinancialAccountID,
-                      FinancialInstitutionBranchID);
+                        SalesHeader,
+                        PayeeFinancialAccountID,
+                        FinancialInstitutionBranchID);
                 end;
             }
             tableelement(pmttermsloop; Integer)
@@ -2053,7 +2077,9 @@ xmlport 1611 "Sales Cr.Memo - PEPPOL BIS 3.0"
                 group(Control2)
                 {
                     ShowCaption = false;
+#pragma warning disable AA0100
                     field("SalesCrMemoHeader.""No."""; SalesCrMemoHeader."No.")
+#pragma warning restore AA0100
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Sales Credit Memo No.';
@@ -2096,25 +2122,25 @@ xmlport 1611 "Sales Cr.Memo - PEPPOL BIS 3.0"
     begin
         case ProcessedDocType of
             ProcessedDocType::Sale:
-                with SalesCrMemoLine do begin
-                    SetRange("Document No.", SalesCrMemoHeader."No.");
-                    if FindSet() then
+                begin
+                    SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHeader."No.");
+                    if SalesCrMemoLine.FindSet() then
                         repeat
                             SalesLine.TransferFields(SalesCrMemoLine);
                             PEPPOLMgt.GetTotals(SalesLine, TempVATAmtLine);
                             PEPPOLMgt.GetTaxCategories(SalesLine, TempVATProductPostingGroup);
-                        until Next() = 0;
+                        until SalesCrMemoLine.Next() = 0;
                 end;
             ProcessedDocType::Service:
-                with ServiceCrMemoLine do begin
-                    SetRange("Document No.", ServiceCrMemoHeader."No.");
-                    if FindSet() then
+                begin
+                    ServiceCrMemoLine.SetRange("Document No.", ServiceCrMemoHeader."No.");
+                    if ServiceCrMemoLine.FindSet() then
                         repeat
                             PEPPOLMgt.TransferLineToSalesLine(ServiceCrMemoLine, SalesLine);
-                            SalesLine.Type := PEPPOLMgt.MapServiceLineTypeToSalesLineTypeEnum(Type);
+                            SalesLine.Type := PEPPOLMgt.MapServiceLineTypeToSalesLineTypeEnum(ServiceCrMemoLine.Type);
                             PEPPOLMgt.GetTotals(SalesLine, TempVATAmtLine);
                             PEPPOLMgt.GetTaxCategories(SalesLine, TempVATProductPostingGroup);
-                        until Next() = 0;
+                        until ServiceCrMemoLine.Next() = 0;
                 end;
         end;
     end;

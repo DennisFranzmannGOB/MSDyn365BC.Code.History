@@ -17,6 +17,7 @@ table 370 "Excel Buffer"
 {
     Caption = 'Excel Buffer';
     ReplicateData = false;
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -205,6 +206,21 @@ table 370 "Excel Buffer"
         VmlDrawingXmlTxt: Label '<xml xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><o:shapelayout v:ext="edit"><o:idmap v:ext="edit" data="1"/></o:shapelayout><v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202"  path="m,l,21600r21600,l21600,xe"><v:stroke joinstyle="miter"/><v:path gradientshapeok="t" o:connecttype="rect"/></v:shapetype>', Locked = true;
         EndXmlTokenTxt: Label '</xml>', Locked = true;
         CellNotFoundErr: Label 'Cell %1 not found.', Comment = '%1 - cell name';
+
+        // Shared instances of the cell decorators that are reused to ensure the have the same object reference
+        // allowing the platform to avoid extra allocations.
+        BoldItalicDoubleUnderlinedCellDecorator: DotNet CellDecorator;
+        BoldItalicUnderlinedCellDecorator: DotNet CellDecorator;
+        BoldItalicCellDecorator: DotNet CellDecorator;
+        BoldDoubleUnderlinedCellDecorator: DotNet CellDecorator;
+        BoldUnderlinedCellDecorator: DotNet CellDecorator;
+        BoldCellDecorator: DotNet CellDecorator;
+        ItalicDoubleUnderlinedCellDecorator: DotNet CellDecorator;
+        ItalicUnderlinedCellDecorator: DotNet CellDecorator;
+        ItalicCellDecorator: DotNet CellDecorator;
+        DoubleUnderlinedCellDecorator: DotNet CellDecorator;
+        UnderlinedCellDecorator: DotNet CellDecorator;
+        CellDecorator: DotNet CellDecorator;
 
     procedure SetReadDateTimeInUtcDate(NewValue: Boolean)
     begin
@@ -558,35 +574,33 @@ table 370 "Excel Buffer"
         RecInStream: Instream;
         CellTextValue: Text;
     begin
-        with ExcelBuffer do begin
-            GetCellDecorator(Bold, Italic, Underline, "Double Underline", Decorator);
+        GetCellDecorator(ExcelBuffer.Bold, ExcelBuffer.Italic, ExcelBuffer.Underline, ExcelBuffer."Double Underline", Decorator);
 
-            CellTextValue := "Cell Value as Text";
+        CellTextValue := ExcelBuffer."Cell Value as Text";
 
-            if "Cell Value as Blob".HasValue() then begin
-                CalcFields("Cell Value as Blob");
-                "Cell Value as Blob".CreateInStream(RecInStream, TextEncoding::Windows);
-                RecInStream.ReadText(CellTextValue);
-            end;
+        if ExcelBuffer."Cell Value as Blob".HasValue() then begin
+            ExcelBuffer.CalcFields("Cell Value as Blob");
+            ExcelBuffer."Cell Value as Blob".CreateInStream(RecInStream, TextEncoding::Windows);
+            RecInStream.ReadText(CellTextValue);
+        end;
 
-            OnWriteCellValueOnBeforeSetCellValue(Rec, CellTextValue);
-            case "Cell Type" of
-                "Cell Type"::Number:
-                    XlWrkShtWriter.SetCellValueNumber("Row No.", xlColID, CellTextValue, NumberFormat, Decorator);
-                "Cell Type"::Text:
-                    XlWrkShtWriter.SetCellValueText("Row No.", xlColID, CellTextValue, Decorator);
-                "Cell Type"::Date:
-                    XlWrkShtWriter.SetCellValueDate("Row No.", xlColID, CellTextValue, NumberFormat, Decorator);
-                "Cell Type"::Time:
-                    XlWrkShtWriter.SetCellValueTime("Row No.", xlColID, CellTextValue, NumberFormat, Decorator);
-                else
-                    Error(Text039)
-            end;
+        OnWriteCellValueOnBeforeSetCellValue(Rec, CellTextValue);
+        case ExcelBuffer."Cell Type" of
+            ExcelBuffer."Cell Type"::Number:
+                XlWrkShtWriter.SetCellValueNumber(ExcelBuffer."Row No.", ExcelBuffer.xlColID, CellTextValue, ExcelBuffer.NumberFormat, Decorator);
+            ExcelBuffer."Cell Type"::Text:
+                XlWrkShtWriter.SetCellValueText(ExcelBuffer."Row No.", ExcelBuffer.xlColID, CellTextValue, Decorator);
+            ExcelBuffer."Cell Type"::Date:
+                XlWrkShtWriter.SetCellValueDate(ExcelBuffer."Row No.", ExcelBuffer.xlColID, CellTextValue, ExcelBuffer.NumberFormat, Decorator);
+            ExcelBuffer."Cell Type"::Time:
+                XlWrkShtWriter.SetCellValueTime(ExcelBuffer."Row No.", ExcelBuffer.xlColID, CellTextValue, ExcelBuffer.NumberFormat, Decorator);
+            else
+                Error(Text039)
+        end;
 
-            if Comment <> '' then begin
-                OpenXMLManagement.SetCellComment(XlWrkShtWriter, StrSubstNo('%1%2', xlColID, "Row No."), Comment);
-                StringBld.Append(OpenXMLManagement.CreateCommentVmlShapeXml("Column No.", "Row No."));
-            end;
+        if ExcelBuffer.Comment <> '' then begin
+            OpenXMLManagement.SetCellComment(XlWrkShtWriter, StrSubstNo('%1%2', ExcelBuffer.xlColID, ExcelBuffer."Row No."), ExcelBuffer.Comment);
+            StringBld.Append(OpenXMLManagement.CreateCommentVmlShapeXml(ExcelBuffer."Column No.", ExcelBuffer."Row No."));
         end;
     end;
 
@@ -600,70 +614,89 @@ table 370 "Excel Buffer"
         if IsHandled then
             exit;
 
-        with ExcelBuffer do begin
-            GetCellDecorator(Bold, Italic, Underline, "Double Underline", Decorator);
+        GetCellDecorator(ExcelBuffer.Bold, ExcelBuffer.Italic, ExcelBuffer.Underline, ExcelBuffer."Double Underline", Decorator);
 
-            XlWrkShtWriter.SetCellFormula("Row No.", xlColID, GetFormula(), NumberFormat, Decorator);
-        end;
+        XlWrkShtWriter.SetCellFormula(ExcelBuffer."Row No.", ExcelBuffer.xlColID, ExcelBuffer.GetFormula(), ExcelBuffer.NumberFormat, Decorator);
     end;
 
     local procedure GetCellDecorator(IsBold: Boolean; IsItalic: Boolean; IsUnderlined: Boolean; IsDoubleUnderlined: Boolean; var Decorator: DotNet CellDecorator)
     begin
         if IsBold and IsItalic then begin
             if IsDoubleUnderlined then begin
-                Decorator := XlWrkShtWriter.DefaultBoldItalicDoubleUnderlinedCellDecorator;
+                if (System.IsNull(BoldItalicDoubleUnderlinedCellDecorator)) then
+                    BoldItalicDoubleUnderlinedCellDecorator := XlWrkShtWriter.DefaultBoldItalicDoubleUnderlinedCellDecorator;
+                Decorator := BoldItalicDoubleUnderlinedCellDecorator;
                 exit;
             end;
             if IsUnderlined then begin
-                Decorator := XlWrkShtWriter.DefaultBoldItalicUnderlinedCellDecorator;
+                if (System.IsNull(BoldItalicUnderlinedCellDecorator)) then
+                    BoldItalicUnderlinedCellDecorator := XlWrkShtWriter.DefaultBoldItalicUnderlinedCellDecorator;
+                Decorator := BoldItalicUnderlinedCellDecorator;
                 exit;
             end;
-        end;
 
-        if IsBold and IsItalic then begin
-            Decorator := XlWrkShtWriter.DefaultBoldItalicCellDecorator;
-            exit;
+            if (System.IsNull(BoldItalicCellDecorator)) then
+                BoldItalicCellDecorator := XlWrkShtWriter.DefaultBoldItalicCellDecorator;
+            Decorator := BoldItalicCellDecorator;
+            exit
         end;
 
         if IsBold then begin
             if IsDoubleUnderlined then begin
-                Decorator := XlWrkShtWriter.DefaultBoldDoubleUnderlinedCellDecorator;
+                if (System.IsNull(BoldDoubleUnderlinedCellDecorator)) then
+                    BoldDoubleUnderlinedCellDecorator := XlWrkShtWriter.DefaultBoldDoubleUnderlinedCellDecorator;
+                Decorator := BoldDoubleUnderlinedCellDecorator;
                 exit;
             end;
             if IsUnderlined then begin
-                Decorator := XlWrkShtWriter.DefaultBoldUnderlinedCellDecorator;
+                if (System.IsNull(BoldUnderlinedCellDecorator)) then
+                    BoldUnderlinedCellDecorator := XlWrkShtWriter.DefaultBoldUnderlinedCellDecorator;
+                Decorator := BoldUnderlinedCellDecorator;
                 exit;
             end;
-        end;
 
-        if IsBold then begin
-            Decorator := XlWrkShtWriter.DefaultBoldCellDecorator;
+            if (System.IsNull(BoldCellDecorator)) then
+                BoldCellDecorator := XlWrkShtWriter.DefaultBoldCellDecorator;
+            Decorator := BoldCellDecorator;
             exit;
         end;
 
         if IsItalic then begin
             if IsDoubleUnderlined then begin
-                Decorator := XlWrkShtWriter.DefaultItalicDoubleUnderlinedCellDecorator;
+                if (System.IsNull(ItalicDoubleUnderlinedCellDecorator)) then
+                    ItalicDoubleUnderlinedCellDecorator := XlWrkShtWriter.DefaultItalicDoubleUnderlinedCellDecorator;
+                Decorator := ItalicDoubleUnderlinedCellDecorator;
                 exit;
             end;
             if IsUnderlined then begin
-                Decorator := XlWrkShtWriter.DefaultItalicUnderlinedCellDecorator;
+                if (System.IsNull(ItalicUnderlinedCellDecorator)) then
+                    ItalicUnderlinedCellDecorator := XlWrkShtWriter.DefaultItalicUnderlinedCellDecorator;
+                Decorator := ItalicUnderlinedCellDecorator;
                 exit;
             end;
-        end;
 
-        if IsItalic then begin
-            Decorator := XlWrkShtWriter.DefaultItalicCellDecorator;
+            if (System.IsNull(ItalicCellDecorator)) then
+                ItalicCellDecorator := XlWrkShtWriter.DefaultItalicCellDecorator;
+            Decorator := ItalicCellDecorator;
             exit;
         end;
 
-        if IsDoubleUnderlined then
-            Decorator := XlWrkShtWriter.DefaultDoubleUnderlinedCellDecorator
+        if IsDoubleUnderlined then begin
+            if (System.IsNull(DoubleUnderlinedCellDecorator)) then
+                DoubleUnderlinedCellDecorator := XlWrkShtWriter.DefaultDoubleUnderlinedCellDecorator;
+            Decorator := DoubleUnderlinedCellDecorator
+        end
         else
-            if IsUnderlined then
-                Decorator := XlWrkShtWriter.DefaultUnderlinedCellDecorator
-            else
-                Decorator := XlWrkShtWriter.DefaultCellDecorator;
+            if IsUnderlined then begin
+                if (System.IsNull(UnderlinedCellDecorator)) then
+                    UnderlinedCellDecorator := XlWrkShtWriter.DefaultUnderlinedCellDecorator;
+                Decorator := UnderlinedCellDecorator;
+            end
+            else begin
+                if (System.IsNull(CellDecorator)) then
+                    CellDecorator := XlWrkShtWriter.DefaultCellDecorator;
+                Decorator := CellDecorator;
+            end;
     end;
 
     procedure SetColumnWidth(ColName: Text[10]; NewColWidth: Decimal)
@@ -872,7 +905,10 @@ table 370 "Excel Buffer"
             // DO NOT TRANSLATE: Budget is used to define an Excel worksheet name. You must refer to Excel rules to change this term.
             11:
                 exit(Text022);
-        // DO NOT TRANSLATE: CostAcc is used to define an Excel range name. You must refer to Excel rules to change this term.
+            // DO NOT TRANSLATE: CostAcc is used to define an Excel range name. You must refer to Excel rules to change this term.
+            12:
+                exit('!');
+            // ! is the Excel code for reference to sheet.
         end;
     end;
 
@@ -894,59 +930,58 @@ table 370 "Excel Buffer"
             until ExcelBuf.Next() = 0;
         ExcelBuf.Reset();
 
-        with TempExcelBufFormula do
-            if FindFirst() then
-                repeat
-                    ThisCellHasFormulaError := false;
-                    ExcelBuf.SetRange("Column No.", 1);
-                    ExcelBuf.SetFilter("Row No.", '<>%1', "Row No.");
-                    ExcelBuf.SetFilter("Cell Value as Text", Formula);
-                    TempExcelBufFormula2 := TempExcelBufFormula;
-                    if ExcelBuf.FindSet() then
-                        repeat
-                            if not Get(ExcelBuf."Row No.", "Column No.") then
-                                ExcelBuf.Mark(true);
-                        until ExcelBuf.Next() = 0;
-                    TempExcelBufFormula := TempExcelBufFormula2;
-                    ClearFormula();
-                    ExcelBuf.SetRange("Cell Value as Text");
-                    ExcelBuf.SetRange("Row No.");
-                    if ExcelBuf.FindSet() then
-                        repeat
-                            if ExcelBuf.Mark() then begin
-                                LastRow := ExcelBuf."Row No.";
-                                if FirstRow = 0 then
-                                    FirstRow := LastRow;
-                            end else
-                                if FirstRow <> 0 then begin
-                                    if FirstRow = LastRow then
-                                        ThisCellHasFormulaError := AddToFormula(xlColID + Format(FirstRow))
-                                    else
-                                        ThisCellHasFormulaError :=
-                                          AddToFormula('SUM(' + xlColID + Format(FirstRow) + ':' + xlColID + Format(LastRow) + ')');
-                                    FirstRow := 0;
-                                    if ThisCellHasFormulaError then
-                                        SetFormula(ExcelBuf.GetExcelReference(7));
-                                end;
-                        until ThisCellHasFormulaError or (ExcelBuf.Next() = 0);
+        if TempExcelBufFormula.FindFirst() then
+            repeat
+                ThisCellHasFormulaError := false;
+                ExcelBuf.SetRange("Column No.", 1);
+                ExcelBuf.SetFilter("Row No.", '<>%1', TempExcelBufFormula."Row No.");
+                ExcelBuf.SetFilter("Cell Value as Text", TempExcelBufFormula.Formula);
+                TempExcelBufFormula2 := TempExcelBufFormula;
+                if ExcelBuf.FindSet() then
+                    repeat
+                        if not TempExcelBufFormula.Get(ExcelBuf."Row No.", TempExcelBufFormula."Column No.") then
+                            ExcelBuf.Mark(true);
+                    until ExcelBuf.Next() = 0;
+                TempExcelBufFormula := TempExcelBufFormula2;
+                TempExcelBufFormula.ClearFormula();
+                ExcelBuf.SetRange("Cell Value as Text");
+                ExcelBuf.SetRange("Row No.");
+                if ExcelBuf.FindSet() then
+                    repeat
+                        if ExcelBuf.Mark() then begin
+                            LastRow := ExcelBuf."Row No.";
+                            if FirstRow = 0 then
+                                FirstRow := LastRow;
+                        end else
+                            if FirstRow <> 0 then begin
+                                if FirstRow = LastRow then
+                                    ThisCellHasFormulaError := TempExcelBufFormula.AddToFormula(TempExcelBufFormula.xlColID + Format(FirstRow))
+                                else
+                                    ThisCellHasFormulaError :=
+                                      TempExcelBufFormula.AddToFormula('SUM(' + TempExcelBufFormula.xlColID + Format(FirstRow) + ':' + TempExcelBufFormula.xlColID + Format(LastRow) + ')');
+                                FirstRow := 0;
+                                if ThisCellHasFormulaError then
+                                    TempExcelBufFormula.SetFormula(ExcelBuf.GetExcelReference(7));
+                            end;
+                    until ThisCellHasFormulaError or (ExcelBuf.Next() = 0);
 
-                    if not ThisCellHasFormulaError and (FirstRow <> 0) then begin
-                        if FirstRow = LastRow then
-                            ThisCellHasFormulaError := AddToFormula(xlColID + Format(FirstRow))
-                        else
-                            ThisCellHasFormulaError :=
-                              AddToFormula('SUM(' + xlColID + Format(FirstRow) + ':' + xlColID + Format(LastRow) + ')');
-                        FirstRow := 0;
-                        if ThisCellHasFormulaError then
-                            SetFormula(ExcelBuf.GetExcelReference(7));
-                    end;
+                if not ThisCellHasFormulaError and (FirstRow <> 0) then begin
+                    if FirstRow = LastRow then
+                        ThisCellHasFormulaError := TempExcelBufFormula.AddToFormula(TempExcelBufFormula.xlColID + Format(FirstRow))
+                    else
+                        ThisCellHasFormulaError :=
+                          TempExcelBufFormula.AddToFormula('SUM(' + TempExcelBufFormula.xlColID + Format(FirstRow) + ':' + TempExcelBufFormula.xlColID + Format(LastRow) + ')');
+                    FirstRow := 0;
+                    if ThisCellHasFormulaError then
+                        TempExcelBufFormula.SetFormula(ExcelBuf.GetExcelReference(7));
+                end;
 
-                    ExcelBuf.Reset();
-                    ExcelBuf.Get("Row No.", "Column No.");
-                    ExcelBuf.SetFormula(GetFormula());
-                    ExcelBuf.Modify();
-                    HasFormulaError := HasFormulaError or ThisCellHasFormulaError;
-                until Next() = 0;
+                ExcelBuf.Reset();
+                ExcelBuf.Get(TempExcelBufFormula."Row No.", TempExcelBufFormula."Column No.");
+                ExcelBuf.SetFormula(TempExcelBufFormula.GetFormula());
+                ExcelBuf.Modify();
+                HasFormulaError := HasFormulaError or ThisCellHasFormulaError;
+            until TempExcelBufFormula.Next() = 0;
 
         exit(HasFormulaError);
     end;
@@ -1144,6 +1179,16 @@ table 370 "Excel Buffer"
           GetExcelReference(4) + RangeStartXlCol + GetExcelReference(4) + RangeStartXlRow +
           ':' +
           GetExcelReference(4) + RangeEndXlCol + GetExcelReference(4) + RangeEndXlRow);
+    end;
+
+    procedure CreateValidationRule(Range: Code[20]; SheetName: Text[250])
+    begin
+        XlWrkShtWriter.AddRangeDataValidation(
+            Range,
+            SheetName + GetExcelReference(12) +
+            GetExcelReference(4) + RangeStartXlCol + GetExcelReference(4) + RangeStartXlRow +
+            ':' +
+            GetExcelReference(4) + RangeEndXlCol + GetExcelReference(4) + RangeEndXlRow);
     end;
 
     procedure QuitExcel()

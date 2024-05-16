@@ -1,6 +1,8 @@
 namespace Microsoft.Warehouse.Activity;
 
+#pragma warning disable AL0659
 enum 5768 "Warehouse Activity Source Document"
+#pragma warning restore AL0659
 {
     Extensible = true;
     AssignmentCompatibility = true;
@@ -17,5 +19,5 @@ enum 5768 "Warehouse Activity Source Document"
     value(18; "Service Order") { Caption = 'Service Order'; }
     value(20; "Assembly Consumption") { Caption = 'Assembly Consumption'; }
     value(21; "Assembly Order") { Caption = 'Assembly Order'; }
-    value(22; "Job Usage") { Caption = 'Job Usage'; }
+    value(22; "Job Usage") { Caption = 'Project Usage'; }
 }

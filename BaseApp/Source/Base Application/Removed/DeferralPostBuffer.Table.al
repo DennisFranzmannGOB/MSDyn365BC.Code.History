@@ -13,6 +13,7 @@ table 1703 "Deferral Post. Buffer"
     ObsoleteState = Removed;
     ReplicateData = false;
     ObsoleteTag = '15.0';
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -71,7 +72,7 @@ table 1703 "Deferral Post. Buffer"
         }
         field(11; "Job No."; Code[20])
         {
-            Caption = 'Job No.';
+            Caption = 'Project No.';
             DataClassification = SystemMetadata;
         }
         field(12; "Posting Date"; Date)

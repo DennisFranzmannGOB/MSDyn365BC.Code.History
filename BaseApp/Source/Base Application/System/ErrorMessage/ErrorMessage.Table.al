@@ -9,6 +9,7 @@ table 700 "Error Message"
     Caption = 'Error Message';
     DrillDownPageID = "Error Messages Part";
     LookupPageID = "Error Messages Part";
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -84,7 +85,7 @@ table 700 "Error Message"
         }
         field(11; "Field Name"; Text[80])
         {
-            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table Number"),
+            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table Number"),
                                                               "No." = field("Field Number")));
             Caption = 'Field Name';
             Editable = false;
@@ -92,7 +93,7 @@ table 700 "Error Message"
         }
         field(12; "Table Name"; Text[80])
         {
-            CalcFormula = Lookup("Table Metadata".Caption where(ID = field("Table Number")));
+            CalcFormula = lookup("Table Metadata".Caption where(ID = field("Table Number")));
             Caption = 'Table Name';
             Editable = false;
             FieldClass = FlowField;
@@ -115,7 +116,7 @@ table 700 "Error Message"
         }
         field(15; "Context Field Name"; Text[80])
         {
-            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Context Table Number"),
+            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Context Table Number"),
                                                               "No." = field("Context Field Number")));
             Caption = 'Context Field Name';
             Editable = false;
@@ -820,19 +821,22 @@ table 700 "Error Message"
     var
         TempID: Integer;
     begin
-        if not FindSet() then
+        if not Rec.IsTemporary() then
+            Rec.ReadIsolation := ReadIsolation::ReadCommitted;
+        if not Rec.FindSet() then
             exit;
 
         TempID := TempErrorMessage.FindLastID();
         repeat
-            if TempErrorMessage.FindRecord("Record ID", "Field Number", "Message Type", "Message") = 0 then begin
+            if TempErrorMessage.FindRecord(Rec."Record ID", Rec."Field Number", Rec."Message Type", Rec."Message") = 0 then begin
                 TempID += 1;
                 TempErrorMessage := Rec;
                 TempErrorMessage.ID := TempID;
                 TempErrorMessage."Reg. Err. Msg. System ID" := Rec.SystemId;
+                TempErrorMessage.SetErrorCallStack(Rec.GetErrorCallStack());
                 TempErrorMessage.Insert();
             end;
-        until Next() = 0;
+        until Rec.Next() = 0;
         TempErrorMessage.Reset();
     end;
 
@@ -846,6 +850,7 @@ table 700 "Error Message"
         repeat
             ErrorMessage := TempErrorMessage;
             ErrorMessage.ID := 0;
+            ErrorMessage.SetErrorCallStack(TempErrorMessage.GetErrorCallStack());
             ErrorMessage.Insert(true);
         until TempErrorMessage.Next() = 0;
     end;

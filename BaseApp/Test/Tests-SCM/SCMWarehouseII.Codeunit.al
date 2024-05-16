@@ -70,7 +70,7 @@ codeunit 137048 "SCM Warehouse II"
         BinCode := CreateItemAddInventory(Item, LocationOrange.Code, 1);  // Value required for Bin Index.
         CreateAndRealeaseTransferOrder(
           TransferHeader, TransferLine, Item."No.", LocationOrange.Code, LocationOrange2.Code, LocationIntransit.Code);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
 
         // Exercise: Create Warehouse Shipment from Transfer Order.
         LibraryWarehouse.CreateWhseShipmentFromTO(TransferHeader);
@@ -98,7 +98,7 @@ codeunit 137048 "SCM Warehouse II"
         BinCode := CreateItemAddInventory(Item, LocationOrange.Code, 1);  // Value required for Bin Index.
         CreateAndRealeaseTransferOrder(
           TransferHeader, TransferLine, Item."No.", LocationOrange.Code, LocationOrange2.Code, LocationIntransit.Code);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromTOWithNewBinCode(BinCode2, TransferHeader, WarehouseShipmentNo, LocationOrange.Code);
 
         // Exercise: Create Pick.
@@ -133,7 +133,7 @@ codeunit 137048 "SCM Warehouse II"
         CreateItemAddInventory(Item, LocationOrange.Code, 1);  // Value required for Bin Index.
         CreateAndRealeaseTransferOrder(
           TransferHeader, TransferLine, Item."No.", LocationOrange.Code, LocationOrange2.Code, LocationIntransit.Code);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromTOWithNewBinCode(BinCode2, TransferHeader, WarehouseShipmentNo, LocationOrange.Code);
         CreatePick(WarehouseShipmentHeader, WarehouseShipmentNo);
         RegisterWarehouseActivity(TransferHeader."No.", WarehouseActivityHeader.Type::Pick);
@@ -172,7 +172,7 @@ codeunit 137048 "SCM Warehouse II"
         CreateItemAddInventory(Item, LocationOrange.Code, 1);  // Value required for Bin Index.
         CreateAndRealeaseTransferOrder(
           TransferHeader, TransferLine, Item."No.", LocationOrange.Code, LocationOrange2.Code, LocationIntransit.Code);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromTOWithNewBinCode(BinCode2, TransferHeader, WarehouseShipmentNo, LocationOrange.Code);
         CreatePick(WarehouseShipmentHeader, WarehouseShipmentNo);
         RegisterWarehouseActivity(TransferHeader."No.", WarehouseActivityHeader.Type::Pick);
@@ -216,7 +216,7 @@ codeunit 137048 "SCM Warehouse II"
         CreateItemAddInventory(Item, LocationOrange.Code, 1);  // Value required for Bin Index.
         CreateAndRealeaseTransferOrder(
           TransferHeader, TransferLine, Item."No.", LocationOrange.Code, LocationOrange2.Code, LocationIntransit.Code);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromTOWithNewBinCode(BinCode2, TransferHeader, WarehouseShipmentNo, LocationOrange.Code);
         CreatePick(WarehouseShipmentHeader, WarehouseShipmentNo);
         RegisterWarehouseActivity(TransferHeader."No.", WarehouseActivityHeader.Type::Pick);
@@ -270,7 +270,7 @@ codeunit 137048 "SCM Warehouse II"
         BinCode := CreateItemAddInventory(Item, LocationOrange.Code, 1);  // Value required for Bin Index.
         CreateSalesOrder(SalesHeader, SalesLine, LocationOrange.Code, Item."No.", LibraryRandom.RandDec(10, 2), WorkDate());
         LibrarySales.ReleaseSalesDocument(SalesHeader);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
 
         // Exercise.
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
@@ -298,7 +298,7 @@ codeunit 137048 "SCM Warehouse II"
         BinCode := CreateItemAddInventory(Item, LocationOrange.Code, 1);  // Value required for Bin Index.
         CreateSalesOrder(SalesHeader, SalesLine, LocationOrange.Code, Item."No.", LibraryRandom.RandDec(10, 2), WorkDate());
         LibrarySales.ReleaseSalesDocument(SalesHeader);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromSOWithNewBinCode(BinCode2, SalesHeader, WarehouseShipmentNo, LocationOrange.Code);
 
         // Exercise.
@@ -333,7 +333,7 @@ codeunit 137048 "SCM Warehouse II"
         BinCode := CreateItemAddInventory(Item, LocationOrange.Code, 1);  // Value required for Bin Index.
         CreateSalesOrder(SalesHeader, SalesLine, LocationOrange.Code, Item."No.", LibraryRandom.RandDec(10, 2), WorkDate());
         LibrarySales.ReleaseSalesDocument(SalesHeader);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromSOWithNewBinCode(BinCode2, SalesHeader, WarehouseShipmentNo, LocationOrange.Code);
         CreatePick(WarehouseShipmentHeader, WarehouseShipmentNo);
         RegisterWarehouseActivity(SalesHeader."No.", WarehouseActivityHeader.Type::Pick);
@@ -600,7 +600,7 @@ codeunit 137048 "SCM Warehouse II"
         UpdateItemInventory(Item."No.", LocationOrange.Code, Bin.Code, Quantity);
 
         CreateAndReleaseSalesOrder(SalesHeader, salesLine, LocationOrange.Code, Item."No.", Quantity, WorkDate());
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromSOWithNewBinCode(BinCode, SalesHeader, WarehouseShipmentNo, LocationOrange.Code);
         ReleaseWarehouseShipment(WarehouseShipmentHeader, WarehouseShipmentNo);
         LocationCode2 := LocationOrange.Code;  // Assign value to global variable for use in handler.
@@ -650,7 +650,7 @@ codeunit 137048 "SCM Warehouse II"
 
         CreateAndReleaseSalesOrder(
           SalesHeader, SalesLine, LocationOrange.Code, Item."No.", Quantity + LibraryRandom.RandDec(100, 2), WorkDate());
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromSOWithNewBinCode(BinCode, SalesHeader, WarehouseShipmentNo, LocationOrange.Code);
         ReleaseWarehouseShipment(WarehouseShipmentHeader, WarehouseShipmentNo);
         LocationCode2 := LocationOrange.Code;  // Assign value to global variable for use in handler.
@@ -692,7 +692,7 @@ codeunit 137048 "SCM Warehouse II"
         UpdateItemInventory(Item."No.", LocationOrange.Code, Bin.Code, Quantity);
 
         CreateAndReleaseSalesOrder(SalesHeader, SalesLine, LocationOrange.Code, Item."No.", Quantity, WorkDate());
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromSOWithNewBinCode(BinCode, SalesHeader, WarehouseShipmentNo, LocationOrange.Code);
         ReleaseWarehouseShipment(WarehouseShipmentHeader, WarehouseShipmentNo);
 
@@ -728,7 +728,7 @@ codeunit 137048 "SCM Warehouse II"
         LibraryWarehouse.FindBin(Bin, LocationOrange.Code, '', 1);
         UpdateItemInventory(Item."No.", LocationOrange.Code, Bin.Code, Quantity);
         CreateAndReleaseSalesOrder(SalesHeader, SalesLine, LocationOrange.Code, Item."No.", Quantity, WorkDate());
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromSOWithNewBinCode(BinCode, SalesHeader, WarehouseShipmentNo, LocationOrange.Code);
         ReleaseWarehouseShipment(WarehouseShipmentHeader, WarehouseShipmentNo);
         CreatePick(WarehouseShipmentHeader, WarehouseShipmentNo);
@@ -1003,7 +1003,7 @@ codeunit 137048 "SCM Warehouse II"
         LibraryWarehouse.CreateTransferHeader(TransferHeader, LocationOrange.Code, LocationBlue.Code, LocationIntransit.Code);
         LibraryWarehouse.CreateTransferLine(TransferHeader, TransferLine, Item."No.", LibraryRandom.RandDec(100, 2));
         LibraryWarehouse.ReleaseTransferOrder(TransferHeader);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         WhseShipFromTOWithNewBinCode(BinCode2, TransferHeader, WarehouseShipmentNo, LocationOrange.Code);
         CreatePick(WarehouseShipmentHeader, WarehouseShipmentNo);
         FindWhseActivityLine(
@@ -1051,7 +1051,7 @@ codeunit 137048 "SCM Warehouse II"
         UpdateItemInventory(Item."No.", LocationGreen2.Code, '', Quantity);
         CreateSalesOrder(SalesHeader, SalesLine, LocationGreen2.Code, Item."No.", Quantity, WorkDate());
         LibrarySales.ReleaseSalesDocument(SalesHeader);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         FindWarehouseShipmentLine(WarehouseShipmentLine, WarehouseShipmentNo);
 
@@ -1080,7 +1080,7 @@ codeunit 137048 "SCM Warehouse II"
         UpdateItemInventory(Item."No.", LocationGreen.Code, '', Quantity);
         CreateSalesOrder(SalesHeader, SalesLine, LocationGreen.Code, Item."No.", Quantity, WorkDate());
         LibrarySales.ReleaseSalesDocument(SalesHeader);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         FindWarehouseShipmentLine(WarehouseShipmentLine, WarehouseShipmentNo);
 
@@ -1127,7 +1127,7 @@ codeunit 137048 "SCM Warehouse II"
         UpdateItemInventory(Item."No.", LocationGreen.Code, '', Quantity);
         CreateSalesOrder(SalesHeader, SalesLine, LocationGreen.Code, Item."No.", Quantity, WorkDate());
         LibrarySales.ReleaseSalesDocument(SalesHeader);
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         CreatePick(WarehouseShipmentHeader, WarehouseShipmentNo);
         FindWhseActivityLine(
@@ -1328,7 +1328,7 @@ codeunit 137048 "SCM Warehouse II"
         LibraryWarehouse.CreatePick(WarehouseShipmentHeader);
         RegisterWarehouseActivity(SalesHeader."No.", WarehouseActivityLine."Activity Type"::Pick);
         UpdateQuantityOnWarehouseShipmentLine(WarehouseShipmentLine, WarehouseShipmentHeader."No.", QtyToShip);
-        PostedWhseShipmentNo := FindPostedWhseShipmentNo;
+        PostedWhseShipmentNo := FindPostedWhseShipmentNo();
 
         // Exercise : Post Warehouse Shipment.
         LibraryWarehouse.PostWhseShipment(WarehouseShipmentHeader, false);
@@ -1366,7 +1366,7 @@ codeunit 137048 "SCM Warehouse II"
         Quantity := LibraryRandom.RandDec(10, 2);
         UpdateInventoryUsingWhseJournal(LocationWhite, Item, Quantity);
         CreateAndReleaseSalesOrder(SalesHeader, SalesLine, LocationWhite.Code, Item."No.", Quantity, WorkDate());
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
 
         LocationCode2 := LocationWhite.Code;  // Assignvalue to global variable for use in handler.
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
@@ -1470,7 +1470,7 @@ codeunit 137048 "SCM Warehouse II"
         Quantity := LibraryRandom.RandDec(100, 2);
         UpdateItemInventory(Item."No.", LocationGreen.Code, '', Quantity);
         CreateAndReleaseSalesOrder(SalesHeader, SalesLine, LocationGreen.Code, Item."No.", Quantity, WorkDate());
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         ReleaseWarehouseShipment(WarehouseShipmentHeader, WarehouseShipmentNo);
 
@@ -1515,7 +1515,7 @@ codeunit 137048 "SCM Warehouse II"
 
         // Assign value to global variable. Create Pick Worksheet Template, get source Document and select the Pick Line from Pick Selection page.
         LocationCode2 := LocationGreen.Code;
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         ReleaseWarehouseShipment(WarehouseShipmentHeader, WarehouseShipmentNo);
         CreateWhseWorksheetName(WhseWorksheetName, LocationGreen.Code);
@@ -1567,7 +1567,7 @@ codeunit 137048 "SCM Warehouse II"
         CreateAndReleaseSalesOrder(SalesHeader, SalesLine, LocationOrange.Code, Item."No.", Quantity, WorkDate());
 
         LocationCode2 := LocationOrange.Code;  // Assign value to global variable for use in handler.
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         ReleaseWarehouseShipment(WarehouseShipmentHeader, WarehouseShipmentNo);
         CreatePick(WarehouseShipmentHeader, WarehouseShipmentNo);
@@ -1733,7 +1733,7 @@ codeunit 137048 "SCM Warehouse II"
           WarehouseActivityLine."Action Type"::Take);
         RegisterWarehouseActivity(PurchaseHeader."No.", WarehouseActivityLine."Activity Type"::"Put-away");
         CreateAndReleaseSalesOrder(SalesHeader, SalesLine, LocationWhite.Code, Item."No.", Quantity, WorkDate());
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         WarehouseShipmentHeader.Get(WarehouseShipmentNo);
         FindWarehouseShipmentLine(WarehouseShipmentLine, WarehouseShipmentHeader."No.");
@@ -1891,7 +1891,6 @@ codeunit 137048 "SCM Warehouse II"
         WarehouseReceiptLine: Record "Warehouse Receipt Line";
         Item: Record Item;
         PostedWhseReceiptLine: Record "Posted Whse. Receipt Line";
-        ItemUnitOfMeasure: Record "Item Unit of Measure";
         Quantity: Decimal;
         QtyRndingPrecision: Decimal;
     begin
@@ -1988,7 +1987,6 @@ codeunit 137048 "SCM Warehouse II"
         NonBaseUOM: Record "Unit of Measure";
         BaseUOM: Record "Unit of Measure";
         Bin: Record Bin;
-        WarehouseShipmentHeader: Record "Warehouse Shipment Header";
         WhsePostShipment: Codeunit "Whse.-Post Shipment";
         NonBaseQtyPerUOM: Decimal;
         BaseQtyPerUOM: Decimal;
@@ -2066,7 +2064,7 @@ codeunit 137048 "SCM Warehouse II"
 
         // [GIVEN] Create and release Purchase Order and Create Warehouse Receipt.
         CreatePurchaseDocument(
-          PurchaseHeader, PurchaseLine, PurchaseLine."Document Type"::Order, CreateVendor, Item."No.",
+          PurchaseHeader, PurchaseLine, PurchaseLine."Document Type"::Order, CreateVendor(), Item."No.",
           10);
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
         LibraryWarehouse.CreateWhseReceiptFromPO(PurchaseHeader);
@@ -2110,7 +2108,7 @@ codeunit 137048 "SCM Warehouse II"
         Quantity := LibraryRandom.RandDec(100, 2);
         UpdateItemInventory(Item."No.", LocationGreen.Code, '', Quantity);
         CreateAndReleaseSalesOrder(SalesHeader, SalesLine, LocationGreen.Code, Item."No.", Quantity, WorkDate());
-        WarehouseShipmentNo := FindWarehouseShipmentNo;
+        WarehouseShipmentNo := FindWarehouseShipmentNo();
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         ReleaseWarehouseShipment(WarehouseShipmentHeader, WarehouseShipmentNo);
 
@@ -2318,7 +2316,7 @@ codeunit 137048 "SCM Warehouse II"
         CreateWhseReceiptFromPurchOrder(WarehouseReceiptHeader, PurchaseHeader);
 
         // [GIVEN] Create sales order for item "I"
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", PurchaseLine.Quantity);
         SalesLine.Validate("Location Code", Location.Code);
         SalesLine.Modify(true);
@@ -2456,7 +2454,7 @@ codeunit 137048 "SCM Warehouse II"
 
         // [THEN] Open Purchase Invoice Page and Post the Invoice 
         PostedPurchaseInvoice.Trap();
-        PurchaseInvoice.OpenView;
+        PurchaseInvoice.OpenView();
         PurchaseInvoice.Filter.SetFilter("No.", PurchaseHeader2."No.");
         LibrarySales.EnableWarningOnCloseUnpostedDoc();
         LibrarySales.EnableConfirmOnPostingDoc();
@@ -2497,13 +2495,64 @@ codeunit 137048 "SCM Warehouse II"
 
         // [THEN] Open Purchase Invoices List Page and Post the Invoice 
         PostedPurchaseInvoice.Trap();
-        PurchaseInvoices.OpenView;
+        PurchaseInvoices.OpenView();
         PurchaseInvoices.Filter.SetFilter("No.", PurchaseHeader2."No.");
         LibrarySales.EnableWarningOnCloseUnpostedDoc();
         LibrarySales.EnableConfirmOnPostingDoc();
         PurchaseInvoices.PostSelected.Invoke(); //.Post.Invoke();
 
         // [VERIFY] Verify: The posted document opened in the Posted Purchase Invoice page
+        PostedPurchaseInvoice.Close();
+    end;
+
+    [Test]
+    [HandlerFunctions('ConfirmHandler')]
+    [Scope('OnPrem')]
+    procedure VerifyConfirmationDialogToOpenPostedPurchaseInvoiceWhenPurchaseInvoiceCreatedWithReceiptNo()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+        Item: Record Item;
+        PurchaseHeader2: Record "Purchase Header";
+        PurchRcptLine: Record "Purch. Rcpt. Line";
+        PurchaseInvoice: TestPage "Purchase Invoice";
+        PostedPurchaseInvoice: TestPage "Posted Purchase Invoice";
+    begin
+        // [SCENARIO 501930] Confirmation dialogue open Posted Purchase Invoice when Purchase Invoices with Get Receipt Lines
+        Initialize();
+
+        // [GIVEN] Create Item
+        CreateItem(Item);
+
+        // [GIVEN] Update Purchase "Purchases & Payables Setup" with same "Invoice Nos." and "Posted Invoice Nos." series
+        UpdatePurchaseSetupWithSamePreAndPostedNoSeries();
+
+        // [GIVEN] Create Purchase Order
+        //CreateAndReleasePurchaseOrder(PurchaseHeader, PurchaseLine, LocationRed.Code, Item."No.");
+        CreatePurchaseOrder(PurchaseHeader, PurchaseLine);
+
+        // [GIVEN] Create adn post Warehouse Receipt
+        LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, false);
+
+        // [GIVEN] Find Purchase Receipt Line
+        FindPurchaseReceiptLine(PurchRcptLine, PurchaseHeader."No.");
+
+        // [THEN] Create Purchase Invoice with Receipt No.
+        CreatePurchaseInvoiceWithReceipt(PurchaseHeader2, PurchaseHeader);
+
+        // [THEN] Open Purchase Invoice Page and Post the Invoice 
+        PostedPurchaseInvoice.Trap();
+        PurchaseInvoice.OpenView();
+        PurchaseInvoice.Filter.SetFilter("No.", PurchaseHeader2."No.");
+
+        // [THEN]  Disable warnings
+        LibrarySales.EnableWarningOnCloseUnpostedDoc();
+        LibrarySales.EnableConfirmOnPostingDoc();
+
+        // [THEN] Post the Purchase Invoice
+        PurchaseInvoice.Post.Invoke();
+
+        // [VERIFY] The posted document opened in the Posted Purchase Invoice page
         PostedPurchaseInvoice.Close();
     end;
 
@@ -2526,8 +2575,8 @@ codeunit 137048 "SCM Warehouse II"
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         LibraryERMCountryData.UpdatePurchasesPayablesSetup();
         NoSeriesSetup();
-        CreateLocationSetup;
-        ItemJournalSetup;
+        CreateLocationSetup();
+        ItemJournalSetup();
         WarehouseSetup.Get();
         WarehouseSetup.Validate("Receipt Posting Policy", WarehouseSetup."Receipt Posting Policy"::"Posting errors are not processed");
         WarehouseSetup.Validate("Shipment Posting Policy", WarehouseSetup."Shipment Posting Policy"::"Posting errors are not processed");
@@ -2542,8 +2591,8 @@ codeunit 137048 "SCM Warehouse II"
         WarehouseSetup: Record "Warehouse Setup";
     begin
         LibraryWarehouse.NoSeriesSetup(WarehouseSetup);
-        LibrarySales.SetOrderNoSeriesInSetup;
-        LibraryPurchase.SetOrderNoSeriesInSetup;
+        LibrarySales.SetOrderNoSeriesInSetup();
+        LibraryPurchase.SetOrderNoSeriesInSetup();
     end;
 
     local procedure ItemJournalSetup()
@@ -2552,7 +2601,7 @@ codeunit 137048 "SCM Warehouse II"
     begin
         LibraryInventory.SelectItemJournalTemplateName(ItemJournalTemplate, ItemJournalTemplate.Type::Item);
         LibraryInventory.SelectItemJournalBatchName(ItemJournalBatch, ItemJournalTemplate.Type::Item, ItemJournalTemplate.Name);
-        ItemJournalBatch.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode);
+        ItemJournalBatch.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode());
         ItemJournalBatch.Modify(true);
     end;
 
@@ -2627,7 +2676,7 @@ codeunit 137048 "SCM Warehouse II"
           Item, Item."Costing Method"::Standard, LibraryRandom.RandDec(100, 2), Item."Reordering Policy"::Order,
           Item."Flushing Method", '', '');
         Item.Validate("Reorder Quantity", LibraryRandom.RandDec(100, 2));  // Value Required.
-        Item.Validate("Vendor No.", LibraryPurchase.CreateVendorNo);
+        Item.Validate("Vendor No.", LibraryPurchase.CreateVendorNo());
         Item.Modify(true);
     end;
 
@@ -2874,7 +2923,7 @@ codeunit 137048 "SCM Warehouse II"
     begin
         LibraryPurchase.CreatePurchaseLine(
           PurchaseLine, PurchaseHeader, PurchaseLine.Type::"Charge (Item)",
-          LibraryInventory.CreateItemChargeNo, LibraryRandom.RandDec(100, 2));
+          LibraryInventory.CreateItemChargeNo(), LibraryRandom.RandDec(100, 2));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandDec(100, 2));
         PurchaseLine.Modify(true);
         LibraryInventory.CreateItemChargeAssignPurchase(
@@ -2888,7 +2937,7 @@ codeunit 137048 "SCM Warehouse II"
     begin
         LibrarySales.CreateSalesLine(
           SalesLine, SalesHeader, SalesLine.Type::"Charge (Item)",
-          LibraryInventory.CreateItemChargeNo, LibraryRandom.RandDec(100, 2));
+          LibraryInventory.CreateItemChargeNo(), LibraryRandom.RandDec(100, 2));
         SalesLine.Validate("Unit Price", LibraryRandom.RandDec(100, 2));
         SalesLine.Modify(true);
         LibraryInventory.CreateItemChargeAssignment(
@@ -3131,10 +3180,10 @@ codeunit 137048 "SCM Warehouse II"
     local procedure FindWarehouseShipmentNo(): Code[20]
     var
         WarehouseSetup: Record "Warehouse Setup";
-        NoSeriesManagement: Codeunit NoSeriesManagement;
+        NoSeries: Codeunit "No. Series";
     begin
         WarehouseSetup.Get();
-        exit(NoSeriesManagement.GetNextNo(WarehouseSetup."Whse. Ship Nos.", WorkDate(), false));
+        exit(NoSeries.PeekNextNo(WarehouseSetup."Whse. Ship Nos."));
     end;
 
     local procedure FindWhseActivityLine(var WarehouseActivityLine: Record "Warehouse Activity Line"; ActivityType: Enum "Warehouse Activity Type"; LocationCode: Code[10]; SourceNo: Code[20]; ActionType: Enum "Warehouse Action Type")
@@ -3172,10 +3221,10 @@ codeunit 137048 "SCM Warehouse II"
     local procedure FindPostedWhseShipmentNo(): Code[20]
     var
         WarehouseSetup: Record "Warehouse Setup";
-        NoSeriesManagement: Codeunit NoSeriesManagement;
+        NoSeries: Codeunit "No. Series";
     begin
         WarehouseSetup.Get();
-        exit(NoSeriesManagement.GetNextNo(WarehouseSetup."Posted Whse. Shipment Nos.", WorkDate(), false));
+        exit(NoSeries.PeekNextNo(WarehouseSetup."Posted Whse. Shipment Nos."));
     end;
 
     local procedure FindSalesShipmentLine(var SalesShipmentLine: Record "Sales Shipment Line"; SalesHeaderNo: Code[20])
@@ -3487,7 +3536,7 @@ codeunit 137048 "SCM Warehouse II"
 
         Assert.AreEqual(
           ExpectedCaption,
-          BinContent.GetCaption,
+          BinContent.GetCaption(),
           StrSubstNo(BinContentGetCaptionErr, BinContent.GetFilters));
     end;
 
@@ -3765,6 +3814,66 @@ codeunit 137048 "SCM Warehouse II"
         PurchaseLine.TestField("Quantity Received", 0);
     end;
 
+    local procedure CreatePurchaseOrder(var PurchaseHeader: Record "Purchase Header"; var PurchaseLine: Record "Purchase Line")
+    var
+        Item: Record Item;
+    begin
+        LibraryInventory.CreateItem(Item);
+        Item."Unit Cost" := LibraryRandom.RandDec(1000, 2);
+        Item.Modify();
+
+        LibraryPurchase.CreatePurchaseDocumentWithItem(
+         PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, '', Item."No.", LibraryRandom.RandDec(100, 2), '', WorkDate());
+    end;
+
+    local procedure CreateAndModifyVendor(VATBusPostingGroup: Code[20]): Code[20]
+    var
+        Vendor: Record Vendor;
+    begin
+        LibraryPurchase.CreateVendor(Vendor);
+        Vendor.Validate("VAT Bus. Posting Group", VATBusPostingGroup);
+        Vendor.Modify(true);
+        exit(Vendor."No.");
+    end;
+
+    local procedure CreateItem(AllowInvDisc: Boolean; VATProdPostingGroup: Code[20]): Code[20]
+    var
+        Item: Record Item;
+    begin
+        LibraryInventory.CreateItem(Item);
+        Item.Validate("Allow Invoice Disc.", AllowInvDisc);
+        Item.Validate("VAT Prod. Posting Group", VATProdPostingGroup);
+        Item.Validate("Unit Price", 10 + LibraryRandom.RandInt(100));
+        Item.Validate("Last Direct Cost", Item."Unit Price");
+        Item.Modify(true);
+        exit(Item."No.");
+    end;
+
+    local procedure CreatePurchaseInvoiceWithReceipt(var PurchaseHeader: Record "Purchase Header"; var PurchaseHeader2: Record "Purchase Header")
+    var
+        PurchRcptHeader: Record "Purch. Rcpt. Header";
+        PurchRcptLine: Record "Purch. Rcpt. Line";
+        PurchGetReceipt: Codeunit "Purch.-Get Receipt";
+    begin
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, PurchaseHeader2."Buy-from Vendor No.");
+        PurchaseHeader.Validate("Buy-from Vendor No.", PurchaseHeader2."Buy-from Vendor No.");
+        PurchaseHeader.Modify(true);
+
+        FindPurchaseReceipt(PurchRcptHeader, PurchaseHeader2."No.");
+        PurchRcptLine.SetRange("Document No.", PurchRcptHeader."No.");
+        PurchGetReceipt.SetPurchHeader(PurchaseHeader);
+        PurchGetReceipt.CreateInvLines(PurchRcptLine);
+    end;
+
+    local procedure UpdatePurchaseSetupWithSamePreAndPostedNoSeries()
+    var
+        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
+    begin
+        PurchasesPayablesSetup.Get();
+        PurchasesPayablesSetup.Validate("Invoice Nos.", PurchasesPayablesSetup."Posted Invoice Nos.");
+        PurchasesPayablesSetup.Modify(true);
+    end;
+
     [ConfirmHandler]
     [Scope('OnPrem')]
     procedure ConfirmHandler(Question: Text[1024]; var Reply: Boolean)
@@ -3776,7 +3885,7 @@ codeunit 137048 "SCM Warehouse II"
     [Scope('OnPrem')]
     procedure WhseSourceCreateDocumentReportHandler(var WhseSourceCreateDocument: TestRequestPage "Whse.-Source - Create Document")
     begin
-        WhseSourceCreateDocument.OK.Invoke;
+        WhseSourceCreateDocument.OK().Invoke();
     end;
 
     [RequestPageHandler]
@@ -3784,7 +3893,7 @@ codeunit 137048 "SCM Warehouse II"
     procedure ChangeUOMRequestPageHandler(var WhseChangeUnitOfMeasure: TestRequestPage "Whse. Change Unit of Measure")
     begin
         WhseChangeUnitOfMeasure.UnitOfMeasureCode.SetValue(NewUnitOfMeasure);
-        WhseChangeUnitOfMeasure.OK.Invoke;
+        WhseChangeUnitOfMeasure.OK().Invoke();
     end;
 
     [ModalPageHandler]
@@ -3794,9 +3903,9 @@ codeunit 137048 "SCM Warehouse II"
         WarehouseRequest: Record "Warehouse Request";
     begin
         WarehouseRequest.SetRange("Location Code", LocationCode2);
-        WarehouseRequest.SetRange("Source Type", LibraryVariableStorage.DequeueInteger);
-        WarehouseRequest.SetRange("Source Subtype", LibraryVariableStorage.DequeueInteger);
-        WarehouseRequest.SetRange("Source No.", LibraryVariableStorage.DequeueText);
+        WarehouseRequest.SetRange("Source Type", LibraryVariableStorage.DequeueInteger());
+        WarehouseRequest.SetRange("Source Subtype", LibraryVariableStorage.DequeueInteger());
+        WarehouseRequest.SetRange("Source No.", LibraryVariableStorage.DequeueText());
         WarehouseRequest.FindFirst();
         SourceDocuments.SetRecord(WarehouseRequest);
         Response := ACTION::LookupOK;
@@ -3831,7 +3940,7 @@ codeunit 137048 "SCM Warehouse II"
     [Scope('OnPrem')]
     procedure WhseShipmentCreatePick(var WhseShipmentCreatePick: TestRequestPage "Whse.-Shipment - Create Pick")
     begin
-        WhseShipmentCreatePick.OK.Invoke;
+        WhseShipmentCreatePick.OK().Invoke();
     end;
 
     [RequestPageHandler]

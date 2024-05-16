@@ -30,6 +30,7 @@ table 21 "Cust. Ledger Entry"
     DrillDownPageID = "Customer Ledger Entries";
     LookupPageID = "Customer Ledger Entries";
     Permissions = tabledata "Reminder/Fin. Charge Entry" = R;
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -666,6 +667,28 @@ table 21 "Cust. Ledger Entry"
             Caption = 'Direct Debit Mandate ID';
             TableRelation = "SEPA Direct Debit Mandate" where("Customer No." = field("Customer No."));
         }
+        field(1340; "Dispute Status"; Code[10])
+        {
+            Caption = 'Dispute Status';
+            TableRelation = "Dispute Status";
+            DataClassification = CustomerContent;
+            trigger OnValidate()
+            var
+                DisputeStatus: Record "Dispute Status";
+                MarkedAsOnHoldLbl: label 'X', Locked = true;
+            begin
+                if Rec."Dispute Status" = '' then
+                    exit;
+                if DisputeStatus.get(Rec."Dispute Status") then
+                    if DisputeStatus."Overwrite on hold" then
+                        "On Hold" := MarkedAsOnHoldLbl;
+            end;
+        }
+        field(1341; "Promised Pay Date"; Date)
+        {
+            Caption = 'Promised Pay Date';
+            DataClassification = CustomerContent;
+        }
         field(10900; "Credit Memo Document"; Code[20])
         {
             Caption = 'Credit Memo Document';
@@ -820,16 +843,26 @@ table 21 "Cust. Ledger Entry"
 
     procedure ShowPostedDocAttachment()
     var
-        SalesInvoiceHdr: Record "Sales Invoice Header";
-        SalesCrMemoHdr: Record "Sales Cr.Memo Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        ServiceInvoiceHeader: Record "Service Invoice Header";
+        ServiceCrMemoHeader: Record "Service Cr.Memo Header";
     begin
         case "Document Type" of
             "Document Type"::Invoice:
-                if SalesInvoiceHdr.Get("Document No.") then
-                    OpenDocumentAttachmentDetails(SalesInvoiceHdr);
+                begin
+                    if SalesInvoiceHeader.Get("Document No.") then
+                        OpenDocumentAttachmentDetails(SalesInvoiceHeader);
+                    if ServiceInvoiceHeader.Get("Document No.") then
+                        OpenDocumentAttachmentDetails(ServiceInvoiceHeader);
+                end;
             "Document Type"::"Credit Memo":
-                if SalesCrMemoHdr.Get("Document No.") then
-                    OpenDocumentAttachmentDetails(SalesCrMemoHdr);
+                begin
+                    if SalesCrMemoHeader.Get("Document No.") then
+                        OpenDocumentAttachmentDetails(SalesCrMemoHeader);
+                    if ServiceCrMemoHeader.Get("Document No.") then
+                        OpenDocumentAttachmentDetails(ServiceCrMemoHeader);
+                end;
         end;
 
         OnAfterShowPostedDocAttachment(Rec);
@@ -848,19 +881,31 @@ table 21 "Cust. Ledger Entry"
     procedure HasPostedDocAttachment(): Boolean
     var
         [SecurityFiltering(SecurityFilter::Filtered)]
-        SalesInvoiceHdr: Record "Sales Invoice Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
         [SecurityFiltering(SecurityFilter::Filtered)]
-        SalesCrMemoHdr: Record "Sales Cr.Memo Header";
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        [SecurityFiltering(SecurityFilter::Filtered)]
+        ServiceInvoiceHeader: Record "Service Invoice Header";
+        [SecurityFiltering(SecurityFilter::Filtered)]
+        ServiceCrMemoHeader: Record "Service Cr.Memo Header";
         DocumentAttachment: Record "Document Attachment";
         HasPostedDocumentAttachment: Boolean;
     begin
         case "Document Type" of
             "Document Type"::Invoice:
-                if SalesInvoiceHdr.Get("Document No.") then
-                    exit(DocumentAttachment.HasPostedDocumentAttachment(SalesInvoiceHdr));
+                begin
+                    if SalesInvoiceHeader.Get("Document No.") then
+                        exit(DocumentAttachment.HasPostedDocumentAttachment(SalesInvoiceHeader));
+                    if ServiceInvoiceHeader.Get("Document No.") then
+                        exit(DocumentAttachment.HasPostedDocumentAttachment(ServiceInvoiceHeader));
+                end;
             "Document Type"::"Credit Memo":
-                if SalesCrMemoHdr.Get("Document No.") then
-                    exit(DocumentAttachment.HasPostedDocumentAttachment(SalesCrMemoHdr));
+                begin
+                    if SalesCrMemoHeader.Get("Document No.") then
+                        exit(DocumentAttachment.HasPostedDocumentAttachment(SalesCrMemoHeader));
+                    if ServiceCrMemoHeader.Get("Document No.") then
+                        exit(DocumentAttachment.HasPostedDocumentAttachment(ServiceCrMemoHeader));
+                end;
         end;
 
         OnAfterHasPostedDocAttachment(Rec, HasPostedDocumentAttachment);
@@ -934,7 +979,7 @@ table 21 "Cust. Ledger Entry"
         IsHandled: Boolean;
     begin
         OnBeforeSetStyle(Style, IsHandled);
-        if IsHandled Then
+        if IsHandled then
             exit(Style);
 
         if Open then begin
@@ -1052,59 +1097,67 @@ table 21 "Cust. Ledger Entry"
     procedure RecalculateAmounts(FromCurrencyCode: Code[10]; ToCurrencyCode: Code[10]; PostingDate: Date)
     var
         CurrExchRate: Record "Currency Exchange Rate";
+        IsHandled: Boolean;
     begin
-        if ToCurrencyCode = FromCurrencyCode then
-            exit;
+        IsHandled := false;
+        OnBeforeRecalculateAmounts(Rec, FromCurrencyCode, ToCurrencyCode, PostingDate, IsHandled);
+        if not IsHandled then begin
+            if ToCurrencyCode = FromCurrencyCode then
+                exit;
 
-        "Remaining Amount" :=
-          CurrExchRate.ExchangeAmount("Remaining Amount", FromCurrencyCode, ToCurrencyCode, PostingDate);
-        "Remaining Pmt. Disc. Possible" :=
-          CurrExchRate.ExchangeAmount("Remaining Pmt. Disc. Possible", FromCurrencyCode, ToCurrencyCode, PostingDate);
-        "Accepted Payment Tolerance" :=
-          CurrExchRate.ExchangeAmount("Accepted Payment Tolerance", FromCurrencyCode, ToCurrencyCode, PostingDate);
-        "Amount to Apply" :=
-          CurrExchRate.ExchangeAmount("Amount to Apply", FromCurrencyCode, ToCurrencyCode, PostingDate);
-
+            "Remaining Amount" :=
+              CurrExchRate.ExchangeAmount("Remaining Amount", FromCurrencyCode, ToCurrencyCode, PostingDate);
+            "Remaining Pmt. Disc. Possible" :=
+              CurrExchRate.ExchangeAmount("Remaining Pmt. Disc. Possible", FromCurrencyCode, ToCurrencyCode, PostingDate);
+            "Accepted Payment Tolerance" :=
+              CurrExchRate.ExchangeAmount("Accepted Payment Tolerance", FromCurrencyCode, ToCurrencyCode, PostingDate);
+            "Amount to Apply" :=
+              CurrExchRate.ExchangeAmount("Amount to Apply", FromCurrencyCode, ToCurrencyCode, PostingDate);
+        end;
         OnAfterRecalculateAmounts(Rec, FromCurrencyCode, ToCurrencyCode, PostingDate);
     end;
 
     procedure UpdateAmountsForApplication(ApplnDate: Date; ApplnCurrencyCode: Code[10]; RoundAmounts: Boolean; UpdateMaxPaymentTolerance: Boolean)
     var
         CurrencyExchangeRate: Record "Currency Exchange Rate";
+        IsHandled: Boolean;
     begin
-        //new
-        if "Currency Code" = ApplnCurrencyCode then
-            exit;
-        if RoundAmounts then begin
-            "Remaining Amount" :=
-                CurrencyExchangeRate.ExchangeAmount(
-                    "Remaining Amount", "Currency Code", ApplnCurrencyCode, ApplnDate);
-            "Remaining Pmt. Disc. Possible" :=
-                CurrencyExchangeRate.ExchangeAmount(
-                    "Remaining Pmt. Disc. Possible", "Currency Code", ApplnCurrencyCode, ApplnDate);
-            if UpdateMaxPaymentTolerance then
-                "Max. Payment Tolerance" :=
+        IsHandled := false;
+        OnBeforeUpdateAmountsForApplication(Rec, ApplnDate, ApplnCurrencyCode, RoundAmounts, UpdateMaxPaymentTolerance, IsHandled);
+        if not IsHandled then begin
+            //new
+            if "Currency Code" = ApplnCurrencyCode then
+                exit;
+            if RoundAmounts then begin
+                "Remaining Amount" :=
                     CurrencyExchangeRate.ExchangeAmount(
-                        "Max. Payment Tolerance", "Currency Code", ApplnCurrencyCode, ApplnDate);
-            "Amount to Apply" :=
-                CurrencyExchangeRate.ExchangeAmount(
-                    "Amount to Apply", "Currency Code", ApplnCurrencyCode, ApplnDate);
-        end else begin
-            "Remaining Amount" :=
-                CurrencyExchangeRate.ExchangeAmtFCYToFCY(
-                    ApplnDate, "Currency Code", ApplnCurrencyCode, "Remaining Amount");
-            "Remaining Pmt. Disc. Possible" :=
-                CurrencyExchangeRate.ExchangeAmtFCYToFCY(
-                    ApplnDate, "Currency Code", ApplnCurrencyCode, "Remaining Pmt. Disc. Possible");
-            if UpdateMaxPaymentTolerance then // If it is not a problem that "Max. Payment Tolerance" is updated in procedure CalcApplnAmount() on the page "Apply Customer Entries", then maybe the argument UpdateMaxPaymentTolerance can be removed.
-                "Max. Payment Tolerance" :=
+                        "Remaining Amount", "Currency Code", ApplnCurrencyCode, ApplnDate);
+                "Remaining Pmt. Disc. Possible" :=
+                    CurrencyExchangeRate.ExchangeAmount(
+                        "Remaining Pmt. Disc. Possible", "Currency Code", ApplnCurrencyCode, ApplnDate);
+                if UpdateMaxPaymentTolerance then
+                    "Max. Payment Tolerance" :=
+                        CurrencyExchangeRate.ExchangeAmount(
+                            "Max. Payment Tolerance", "Currency Code", ApplnCurrencyCode, ApplnDate);
+                "Amount to Apply" :=
+                    CurrencyExchangeRate.ExchangeAmount(
+                        "Amount to Apply", "Currency Code", ApplnCurrencyCode, ApplnDate);
+            end else begin
+                "Remaining Amount" :=
                     CurrencyExchangeRate.ExchangeAmtFCYToFCY(
-                        ApplnDate, "Currency Code", ApplnCurrencyCode, "Max. Payment Tolerance");
-            "Amount to Apply" :=
-                CurrencyExchangeRate.ExchangeAmtFCYToFCY(
-                    ApplnDate, "Currency Code", ApplnCurrencyCode, "Amount to Apply");
+                        ApplnDate, "Currency Code", ApplnCurrencyCode, "Remaining Amount");
+                "Remaining Pmt. Disc. Possible" :=
+                    CurrencyExchangeRate.ExchangeAmtFCYToFCY(
+                        ApplnDate, "Currency Code", ApplnCurrencyCode, "Remaining Pmt. Disc. Possible");
+                if UpdateMaxPaymentTolerance then // If it is not a problem that "Max. Payment Tolerance" is updated in procedure CalcApplnAmount() on the page "Apply Customer Entries", then maybe the argument UpdateMaxPaymentTolerance can be removed.
+                    "Max. Payment Tolerance" :=
+                        CurrencyExchangeRate.ExchangeAmtFCYToFCY(
+                            ApplnDate, "Currency Code", ApplnCurrencyCode, "Max. Payment Tolerance");
+                "Amount to Apply" :=
+                    CurrencyExchangeRate.ExchangeAmtFCYToFCY(
+                        ApplnDate, "Currency Code", ApplnCurrencyCode, "Amount to Apply");
+            end;
         end;
-
         OnAfterUpdateAmountsForApplication(Rec, ApplnDate, ApplnCurrencyCode, RoundAmounts, UpdateMaxPaymentTolerance);
     end;
 
@@ -1197,6 +1250,16 @@ table 21 "Cust. Ledger Entry"
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeDrillDownOnOverdueEntriesBeforeCode(var DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeRecalculateAmounts(var CustLedgerEntry: Record "Cust. Ledger Entry"; FromCurrencyCode: Code[10]; ToCurrencyCode: Code[10]; PostingDate: Date; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeUpdateAmountsForApplication(var CustLedgerEntry: Record "Cust. Ledger Entry"; ApplnDate: Date; ApplnCurrencyCode: Code[10]; RoundAmounts: Boolean; UpdateMaxPaymentTolerance: Boolean; var IsHandled: Boolean)
     begin
     end;
 }

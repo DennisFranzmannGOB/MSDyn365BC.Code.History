@@ -76,13 +76,7 @@ codeunit 139777 "Bank Rec. With AI Tests"
     var
         BankAccReconciliation: Record "Bank Acc. Reconciliation";
         BankAccountLedgerEntry: Record "Bank Account Ledger Entry";
-#if not CLEAN21
-#pragma warning disable AL0432
-#endif
         TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary;
-#if not CLEAN21
-#pragma warning restore AL0432
-#endif
         BankRecAIMatchingImpl: Codeunit "Bank Rec. AI Matching Impl.";
         PostingDate: Date;
         BankAccountNo: Code[20];
@@ -92,6 +86,7 @@ codeunit 139777 "Bank Rec. With AI Tests"
         Amount: Decimal;
         EntryNos: List of [Integer];
         BankRecLedgerEntriesTxt: Text;
+        CandidateLedgerEntryNos: List of [Integer];
     begin
         Initialize();
 
@@ -113,7 +108,7 @@ codeunit 139777 "Bank Rec. With AI Tests"
             InsertFromBankAccLedgerEntry(TempLedgerEntryMatchingBuffer, BankAccountLedgerEntry)
         until BankAccountLedgerEntry.Next() = 0;
         TempLedgerEntryMatchingBuffer.FindSet();
-        BankRecAIMatchingImpl.BuildBankRecLedgerEntries(BankRecLedgerEntriesTxt, TempLedgerEntryMatchingBuffer);
+        BankRecAIMatchingImpl.BuildBankRecLedgerEntries(BankRecLedgerEntriesTxt, TempLedgerEntryMatchingBuffer, CandidateLedgerEntryNos);
 
         // Assert
         BankAccountLedgerEntry.FindSet();
@@ -123,6 +118,7 @@ codeunit 139777 "Bank Rec. With AI Tests"
             Assert.IsTrue(StrPos(BankRecLedgerEntriesTxt, 'Amount: ' + Format(BankAccountLedgerEntry."Remaining Amount", 0, 9)) > 0, 'Expected ledger entry amount not being sent to Copilot');
             Assert.IsTrue(StrPos(BankRecLedgerEntriesTxt, 'Date: ' + Format(BankAccountLedgerEntry."Posting Date", 0, 9)) > 0, 'Expected ledger entry date not being sent to Copilot');
         until BankAccountLedgerEntry.Next() = 0;
+        Assert.AreEqual(CandidateLedgerEntryNos.Count(), BankAccountLedgerEntry.Count(), '');
     end;
 
     [Test]
@@ -130,13 +126,7 @@ codeunit 139777 "Bank Rec. With AI Tests"
     var
         BankAccReconciliation: Record "Bank Acc. Reconciliation";
         BankAccountLedgerEntry: Record "Bank Account Ledger Entry";
-#if not CLEAN21
-#pragma warning disable AL0432
-#endif
         TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary;
-#if not CLEAN21
-#pragma warning restore AL0432
-#endif
         TempBankAccRecAIProposal: Record "Bank Acc. Rec. AI Proposal" temporary;
         BankRecAIMatchingImpl: Codeunit "Bank Rec. AI Matching Impl.";
         PostingDate: Date;
@@ -207,13 +197,7 @@ codeunit 139777 "Bank Rec. With AI Tests"
         BankAccReconciliation: Record "Bank Acc. Reconciliation";
         BankAccountLedgerEntry: Record "Bank Account Ledger Entry";
         TempBankAccRecAIProposal: Record "Bank Acc. Rec. AI Proposal" temporary;
-#if not CLEAN21
-#pragma warning disable AL0432
-#endif
         TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary;
-#if not CLEAN21
-#pragma warning restore AL0432
-#endif
         GLAccount: Record "G/L Account";
         BankRecTransToAcc: Codeunit "Bank Acc. Rec. Trans. to Acc.";
         PostingDate: Date;
@@ -306,14 +290,8 @@ codeunit 139777 "Bank Rec. With AI Tests"
     var
         BankAccReconciliation: Record "Bank Acc. Reconciliation";
         BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line";
-#if not CLEAN21
-#pragma warning disable AL0432
-#endif
         TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary;
         TempBankAccLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary;
-#if not CLEAN21
-#pragma warning restore AL0432
-#endif
         BankRecAIMatchingImpl: Codeunit "Bank Rec. AI Matching Impl.";
         PostingDate: Date;
         BankAccountNo: Code[20];
@@ -356,14 +334,8 @@ codeunit 139777 "Bank Rec. With AI Tests"
         BankAccReconciliation: Record "Bank Acc. Reconciliation";
         BankAccReconciliationLine: Record "Bank Acc. Reconciliation Line";
         BankAccountLedgerEntry: Record "Bank Account Ledger Entry";
-#if not CLEAN21
-#pragma warning disable AL0432
-#endif
         TempBankStatementMatchingBuffer: Record "Bank Statement Matching Buffer" temporary;
         TempBankAccLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary;
-#if not CLEAN21
-#pragma warning restore AL0432
-#endif
         BankRecAIMatchingImpl: Codeunit "Bank Rec. AI Matching Impl.";
         PostingDate: Date;
         BankAccountNo: Code[20];
@@ -437,13 +409,7 @@ codeunit 139777 "Bank Rec. With AI Tests"
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"Bank Rec. With AI Tests");
     end;
 
-#if not CLEAN21
-#pragma warning disable AL0432
-#endif
     local procedure InsertFromBankAccLedgerEntry(var TempLedgerEntryMatchingBuffer: Record "Ledger Entry Matching Buffer" temporary; BankAccountLedgerEntry: Record "Bank Account Ledger Entry")
-#if not CLEAN21
-#pragma warning restore AL0432
-#endif
     begin
         TempLedgerEntryMatchingBuffer."Entry No." := BankAccountLedgerEntry."Entry No.";
         TempLedgerEntryMatchingBuffer."Account Type" := TempLedgerEntryMatchingBuffer."Account Type"::"Bank Account";

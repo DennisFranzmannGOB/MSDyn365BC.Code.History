@@ -2,9 +2,6 @@
 
 using Microsoft.CRM.Outlook;
 using Microsoft.Foundation.Reporting;
-#if not CLEAN21
-using Microsoft.Integration.Graph;
-#endif
 using System;
 using System.Environment;
 using System.IO;
@@ -26,9 +23,6 @@ codeunit 9520 "Mail Management"
     var
         TempEmailModuleAccount: Record "Email Account" temporary;
         TempEmailItem: Record "Email Item" temporary;
-#if not CLEAN21
-        GraphMail: Codeunit "Graph Mail";
-#endif
         ClientTypeManagement: Codeunit "Client Type Management";
         InvalidEmailAddressErr: Label 'The email address "%1" is not valid.', Comment = '%1 - Recipient email address';
         HideMailDialog: Boolean;
@@ -108,6 +102,7 @@ codeunit 9520 "Mail Management"
 
         ClearLastError();
         Cancelled := false;
+        OnSendViaEmailModuleOnBeforeOpenInEditorModally(CurrentEmailScenario, TempEmailModuleAccount, Message, HideMailDialog);
         if not HideMailDialog then begin
             Commit();
             MailSent := Email.OpenInEditorModallyWithScenario(Message, TempEmailModuleAccount, CurrentEmailScenario) = Enum::"Email Action"::Sent;
@@ -146,14 +141,6 @@ codeunit 9520 "Mail Management"
         Seperators := '; ,';
         Recipients := DelimitedRecipients.Split(Seperators.Split());
     end;
-
-#if not CLEAN21
-    [Obsolete('Microsoft Invoicing has been discontinued.', '21.0')]
-    procedure GetLastGraphError(): Text
-    begin
-        exit(GraphMail.GetGraphError());
-    end;
-#endif
 
     procedure InitializeFrom(NewHideMailDialog: Boolean; NewHideEmailSendingError: Boolean)
     begin
@@ -231,17 +218,6 @@ codeunit 9520 "Mail Management"
         CheckValidEmailAddress(EmailAddress);
     end;
 
-#if not CLEAN21
-    [Scope('OnPrem')]
-    [Obsolete('Microsoft Invoicing has been discontinued.', '21.0')]
-    procedure IsGraphEnabled(): Boolean
-    begin
-        if GraphMail.IsEnabled() then
-            exit(GraphMail.HasConfiguration());
-        exit(false);
-    end;
-#endif
-
     procedure IsEnabled() Result: Boolean
     var
         EmailAccount: Codeunit "Email Account";
@@ -289,12 +265,6 @@ codeunit 9520 "Mail Management"
         MailSent := false;
         EnqueueMail := Enqueue;
         exit(DoSend());
-    end;
-
-    [Obsolete('Replaced with the overload containing Email Scenario', '17.0')]
-    procedure Send(ParmEmailItem: Record "Email Item"): Boolean
-    begin
-        exit(Send(ParmEmailItem, Enum::"Email Scenario"::Default));
     end;
 
     local procedure DoSend(): Boolean
@@ -355,13 +325,6 @@ codeunit 9520 "Mail Management"
         DownloadPdfAttachment(TempEmailItem);
 
         OnAfterSendMailOrDownload(TempEmailItem, MailSent);
-    end;
-
-    [Obsolete('Replaced with the overload containing Email Scenario', '17.0')]
-    [Scope('OnPrem')]
-    procedure SendMailOrDownload(TempEmailItem: Record "Email Item" temporary; HideMailDialog: Boolean)
-    begin
-        SendMailOrDownload(TempEmailItem, HideMailDialog, Enum::"Email Scenario"::Default);
     end;
 
     procedure DownloadPdfAttachment(var TempEmailItem: Record "Email Item" temporary)
@@ -634,6 +597,11 @@ codeunit 9520 "Mail Management"
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterDownloadPDFAttachment()
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnSendViaEmailModuleOnBeforeOpenInEditorModally(EmailScenario: Enum "Email Scenario"; var TempEmailAccount: Record "Email Account" temporary; var Message: Codeunit "Email Message"; var HideMailDialog: Boolean)
     begin
     end;
 }

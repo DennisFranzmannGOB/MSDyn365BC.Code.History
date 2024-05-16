@@ -372,13 +372,13 @@ codeunit 7017 "Price List Management"
     end;
 
     procedure DefineDefaultPriceList(PriceType: Enum "Price Type"; SourceGroup: Enum "Price Source Group") DefaultPriceListCode: Code[20];
-#if not CLEAN21
+#if not CLEAN23
     var
         FeatureTelemetry: Codeunit "Feature Telemetry";
         PriceCalculationMgt: Codeunit "Price Calculation Mgt.";
 #endif
     begin
-#if not CLEAN21
+#if not CLEAN23
         FeatureTelemetry.LogUptake('0000LLR', PriceCalculationMgt.GetFeatureTelemetryName(), Enum::"Feature Uptake Status"::"Set up");
 #endif
         case SourceGroup of
@@ -506,6 +506,14 @@ codeunit 7017 "Price List Management"
         VerifyLinesNotification.Send();
     end;
 
+    local procedure RecallVerifyLinesNotification()
+    var
+        VerifyLinesNotification: Notification;
+    begin
+        VerifyLinesNotification.Id := GetVerifyLinesNotificationId();
+        VerifyLinesNotification.Recall();
+    end;
+
     local procedure GetImplementedPriceNotificationId() Id: Guid;
     begin
         Evaluate(Id, ImplementedPriceNotificationIdTxt);
@@ -520,7 +528,7 @@ codeunit 7017 "Price List Management"
     begin
         ActivateDraftLines(VerifyLinesNotification, false)
     end;
-    
+
     procedure ActivateDraftLines(VerifyLinesNotification: Notification; SkipMessage: Boolean)
     var
         PriceListHeader: Record "Price List Header";
@@ -539,6 +547,7 @@ codeunit 7017 "Price List Management"
     var
         PriceListLine: Record "Price List Line";
     begin
+        RecallVerifyLinesNotification();
         if not PriceListHeader.HasDraftLines(PriceListLine) then
             exit;
 
@@ -571,10 +580,16 @@ codeunit 7017 "Price List Management"
             until PriceListLine.Next() = 0;
     end;
 
-    procedure ResolveDuplicatePrices(PriceListHeader: Record "Price List Header"): Boolean
+    procedure ResolveDuplicatePrices(PriceListHeader: Record "Price List Header") Resolved: Boolean
     var
         DuplicatePriceLine: Record "Duplicate Price Line";
+        IsHandled: Boolean;
     begin
+        IsHandled := false;
+        OnBeforeResolveDuplicatePrices(PriceListHeader, Resolved, IsHandled);
+        if IsHandled then
+            exit(Resolved);
+
         if PriceListHeader.Status <> PriceListHeader.Status::Active then
             exit(false);
 
@@ -595,7 +610,7 @@ codeunit 7017 "Price List Management"
     begin
         if PriceListLine.FindSet() then
             repeat
-                If PriceListHeader.Code <> PriceListLine."Price List Code" then begin
+                if PriceListHeader.Code <> PriceListLine."Price List Code" then begin
                     if not PriceListHeader.Get(PriceListLine."Price List Code") then
                         PriceListHeader.Code := PriceListLine."Price List Code";
                     if ResolveDuplicatePrices(PriceListHeader) then begin
@@ -822,7 +837,7 @@ codeunit 7017 "Price List Management"
         exit(SourceNo);
     end;
 
-    local procedure SetHeadersFilters(PriceListLine: Record "Price List Line"; var DuplicatePriceListLine: Record "Price List Line")
+    procedure SetHeadersFilters(PriceListLine: Record "Price List Line"; var DuplicatePriceListLine: Record "Price List Line")
     begin
         DuplicatePriceListLine.SetRange("Price Type", PriceListLine."Price Type");
         DuplicatePriceListLine.SetRange("Source Type", PriceListLine."Source Type");
@@ -830,9 +845,10 @@ codeunit 7017 "Price List Management"
         DuplicatePriceListLine.SetRange("Source No.", PriceListLine."Source No.");
         DuplicatePriceListLine.SetRange("Currency Code", PriceListLine."Currency Code");
         DuplicatePriceListLine.SetRange("Starting Date", PriceListLine."Starting Date");
+        OnAfterSetHeadersFilters(PriceListLine, DuplicatePriceListLine);
     end;
 
-    local procedure SetAssetFilters(PriceListLine: Record "Price List Line"; var DuplicatePriceListLine: Record "Price List Line")
+    procedure SetAssetFilters(PriceListLine: Record "Price List Line"; var DuplicatePriceListLine: Record "Price List Line")
     begin
         if PriceListLine."Amount Type" in ["Price Amount Type"::Price, "Price Amount Type"::Discount] then
             DuplicatePriceListLine.SetFilter("Amount Type", '%1|%2', PriceListLine."Amount Type", "Price Amount Type"::Any);
@@ -846,6 +862,7 @@ codeunit 7017 "Price List Management"
             "Price Asset Type"::Resource, "Price Asset Type"::"Resource Group":
                 DuplicatePriceListLine.SetRange("Work Type Code", PriceListLine."Work Type Code");
         end;
+        OnAfterSetAssetFilters(PriceListLine, DuplicatePriceListLine);
     end;
 
     procedure ResolveDuplicatePrices(PriceListHeader: Record "Price List Header"; var DuplicatePriceLine: Record "Duplicate Price Line") Resolved: Boolean;
@@ -900,27 +917,31 @@ codeunit 7017 "Price List Management"
     end;
 
     local procedure ImplementNewPrice(var PriceWorksheetLine: Record "Price Worksheet Line"; var PriceListLine: Record "Price List Line"; var InsertedUpdatedLeft: array[3] of Integer) Implemented: Boolean;
+    var
+        IsHandled: Boolean;
     begin
-        OnBeforeImplementNewPrice(PriceWorksheetLine);
-
-        Implemented := false;
-        PriceListLine.TransferFields(PriceWorksheetLine);
-        if PriceWorksheetLine."Existing Line" then begin
-            PriceListLine.Status := PriceListLine.Status::Draft;
-            if PriceListLine.Modify(true) then begin
-                InsertedUpdatedLeft[2] += 1;
-                Implemented := true;
+        IsHandled := false;
+        OnBeforeImplementNewPrice(PriceWorksheetLine, Implemented, IsHandled);
+        if not IsHandled then begin
+            Implemented := false;
+            PriceListLine.TransferFields(PriceWorksheetLine);
+            if PriceWorksheetLine."Existing Line" then begin
+                PriceListLine.Status := PriceListLine.Status::Draft;
+                if PriceListLine.Modify(true) then begin
+                    InsertedUpdatedLeft[2] += 1;
+                    Implemented := true;
+                end;
+            end else begin
+                PriceListLine.SetNextLineNo();
+                if PriceListLine.Insert(true) then begin
+                    InsertedUpdatedLeft[1] += 1;
+                    Implemented := true;
+                end;
             end;
-        end else begin
-            PriceListLine.SetNextLineNo();
-            if PriceListLine.Insert(true) then begin
-                InsertedUpdatedLeft[1] += 1;
-                Implemented := true;
+            if Implemented then begin
+                PriceWorksheetLine.Delete();
+                PriceListLine.Mark(true);
             end;
-        end;
-        if Implemented then begin
-            PriceWorksheetLine.Delete();
-            PriceListLine.Mark(true);
         end;
         OnAfterImplementNewPrice(PriceWorksheetLine, PriceListLine, Implemented);
     end;
@@ -1064,7 +1085,7 @@ codeunit 7017 "Price List Management"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeImplementNewPrice(var PriceWorksheetLine: Record "Price Worksheet Line")
+    local procedure OnBeforeImplementNewPrice(var PriceWorksheetLine: Record "Price Worksheet Line"; var Implemented: Boolean; var IsHandled: Boolean)
     begin
     end;
 
@@ -1075,6 +1096,21 @@ codeunit 7017 "Price List Management"
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeImplementNewPrices(var PriceWorksheetLine: Record "Price Worksheet Line")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterSetHeadersFilters(PriceListLine: Record "Price List Line"; var DuplicatePriceListLine: Record "Price List Line")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterSetAssetFilters(PriceListLine: Record "Price List Line"; var DuplicatePriceListLine: Record "Price List Line")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeResolveDuplicatePrices(PriceListHeader: Record "Price List Header"; var Resolved: Boolean; var IsHandled: Boolean)
     begin
     end;
 }

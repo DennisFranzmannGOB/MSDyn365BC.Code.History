@@ -44,11 +44,13 @@ codeunit 85 "Sales Post Batch via Job Queue"
             repeat
                 TotalDocumentsCount += 1;
                 SetJobQueueStatus(SalesHeader, SalesHeader."Job Queue Status"::Posting);
+                OnPostSalesBatchOnBeforeRunSalesPost(SalesHeader);
                 if not Codeunit.Run(Codeunit::"Sales-Post", SalesHeader) then begin
                     SetJobQueueStatus(SalesHeader, SalesHeader."Job Queue Status"::Error);
                     ErrorMessageManagement.LogLastError();
                     ErrorPostDocumentsCount += 1;
                 end else begin
+                    OnPostSalesBatchOnAfterRunSalesPost(SalesHeader);
                     SetJobQueueStatus(SalesHeader, SalesHeader."Job Queue Status"::" ");
                     if SalesReceivablesSetup."Post & Print with Job Queue" then
                         if SalesHeader."Print Posted Documents" then
@@ -82,7 +84,7 @@ codeunit 85 "Sales Post Batch via Job Queue"
         Codeunit.Run(Codeunit::"Job Queue - Enqueue", JobQueueEntry);
     end;
 
-    local procedure SetJobQueueStatus(var SalesHeader: Record "Sales Header"; NewStatus: Option)
+    local procedure SetJobQueueStatus(var SalesHeader: Record "Sales Header"; NewStatus: Enum "Document Job Queue Status")
     begin
         SalesHeader.LockTable();
         if SalesHeader.Get(SalesHeader."Document Type", SalesHeader."No.") then begin
@@ -250,6 +252,16 @@ codeunit 85 "Sales Post Batch via Job Queue"
 
     [IntegrationEvent(false, false)]
     local procedure OnPrintToPDFOnBeforeReportRun(ReportId: Integer; RecRef: RecordRef; var OStream: OutStream; var IsSuccess: Boolean; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnPostSalesBatchOnBeforeRunSalesPost(var SalesHeader: Record "Sales Header")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnPostSalesBatchOnAfterRunSalesPost(var SalesHeader: Record "Sales Header")
     begin
     end;
 }

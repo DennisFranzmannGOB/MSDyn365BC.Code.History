@@ -72,78 +72,76 @@ report 5882 "Copy Phys. Invt. Order"
 
     trigger OnPreReport()
     begin
-        with PhysInvtOrderHeader do begin
-            TestField(Status, Status::Open);
-            if DocNo = '' then
-                Error(EnterDocumentNoErr);
+        PhysInvtOrderHeader.TestField(Status, PhysInvtOrderHeader.Status::Open);
+        if DocNo = '' then
+            Error(EnterDocumentNoErr);
 
-            Find();
-            LockTable();
-            PhysInvtOrderLine.LockTable();
-            PhysInvtOrderLine.Reset();
-            PhysInvtOrderLine.SetRange("Document No.", "No.");
-            if PhysInvtOrderLine.FindLast() then
-                NextLineNo := PhysInvtOrderLine."Line No." + 10000
-            else
-                NextLineNo := 10000;
+        PhysInvtOrderHeader.Find();
+        PhysInvtOrderHeader.LockTable();
+        PhysInvtOrderLine.LockTable();
+        PhysInvtOrderLine.Reset();
+        PhysInvtOrderLine.SetRange("Document No.", PhysInvtOrderHeader."No.");
+        if PhysInvtOrderLine.FindLast() then
+            NextLineNo := PhysInvtOrderLine."Line No." + 10000
+        else
+            NextLineNo := 10000;
 
-            NoOfInsertedLines := 0;
-            NoOfNoInsertedLines := 0;
-            case DocType of
-                DocType::"Phys. Invt. Order":
-                    begin
-                        FromPhysInvtOrderHeader.Get(DocNo);
-                        if FromPhysInvtOrderHeader."No." = "No." then
-                            Error(CannotCopyToItSelfErr, "No.");
+        NoOfInsertedLines := 0;
+        NoOfNoInsertedLines := 0;
+        case DocType of
+            DocType::"Phys. Invt. Order":
+                begin
+                    FromPhysInvtOrderHeader.Get(DocNo);
+                    if FromPhysInvtOrderHeader."No." = PhysInvtOrderHeader."No." then
+                        Error(CannotCopyToItSelfErr, PhysInvtOrderHeader."No.");
 
-                        FromPhysInvtOrderLine.Reset();
-                        FromPhysInvtOrderLine.SetRange("Document No.", FromPhysInvtOrderHeader."No.");
-                        FromPhysInvtOrderLine.ClearMarks();
-                        if FromPhysInvtOrderLine.Find('-') then
-                            repeat
-                                if FromPhysInvtOrderLine."Item No." <> '' then begin
-                                    NoOfOrderLines := GetSamePhysInvtOrderLine(FromPhysInvtOrderLine, ErrorText, PhysInvtOrderLine2);
-                                    OnAfterGetNoOfOrderLinesFromPhysInvtOrder(NoOfOrderLines, FromPhysInvtOrderLine, PhysInvtOrderHeader);
-                                    if NoOfOrderLines = 0 then begin
-                                        InsertNewLine(
-                                          FromPhysInvtOrderLine."Item No.", FromPhysInvtOrderLine."Variant Code",
-                                          FromPhysInvtOrderLine."Location Code", FromPhysInvtOrderLine."Bin Code");
-                                        NoOfInsertedLines := NoOfInsertedLines + 1;
-                                    end else begin
-                                        FromPhysInvtOrderLine.Mark(true);
-                                        NoOfNoInsertedLines := NoOfNoInsertedLines + 1;
-                                    end;
+                    FromPhysInvtOrderLine.Reset();
+                    FromPhysInvtOrderLine.SetRange("Document No.", FromPhysInvtOrderHeader."No.");
+                    FromPhysInvtOrderLine.ClearMarks();
+                    if FromPhysInvtOrderLine.Find('-') then
+                        repeat
+                            if FromPhysInvtOrderLine."Item No." <> '' then begin
+                                NoOfOrderLines := PhysInvtOrderHeader.GetSamePhysInvtOrderLine(FromPhysInvtOrderLine, ErrorText, PhysInvtOrderLine2);
+                                OnAfterGetNoOfOrderLinesFromPhysInvtOrder(NoOfOrderLines, FromPhysInvtOrderLine, PhysInvtOrderHeader);
+                                if NoOfOrderLines = 0 then begin
+                                    InsertNewLine(
+                                      FromPhysInvtOrderLine."Item No.", FromPhysInvtOrderLine."Variant Code",
+                                      FromPhysInvtOrderLine."Location Code", FromPhysInvtOrderLine."Bin Code");
+                                    NoOfInsertedLines := NoOfInsertedLines + 1;
+                                end else begin
+                                    FromPhysInvtOrderLine.Mark(true);
+                                    NoOfNoInsertedLines := NoOfNoInsertedLines + 1;
                                 end;
-                            until FromPhysInvtOrderLine.Next() = 0;
-                    end;
-                DocType::"Posted Phys. Invt. Order":
-                    begin
-                        FromPstdPhysInvtOrderHdr.Get(DocNo);
-                        FromPstdPhysInvtOrderLine.Reset();
-                        FromPstdPhysInvtOrderLine.SetRange("Document No.", FromPstdPhysInvtOrderHdr."No.");
-                        FromPstdPhysInvtOrderLine.ClearMarks();
-                        if FromPstdPhysInvtOrderLine.Find('-') then
-                            repeat
-                                if FromPstdPhysInvtOrderLine."Item No." <> '' then begin
-                                    NoOfOrderLines :=
-                                      GetSamePhysInvtOrderLine(
-                                        FromPstdPhysInvtOrderLine."Item No.", FromPstdPhysInvtOrderLine."Variant Code",
-                                        FromPstdPhysInvtOrderLine."Location Code", FromPstdPhysInvtOrderLine."Bin Code",
-                                        ErrorText, PhysInvtOrderLine2);
-                                    OnAfterGetNoOfOrderLinesFromPostedPhysInvtOrder(NoOfOrderLines, FromPstdPhysInvtOrderLine, PhysInvtOrderHeader);
-                                    if NoOfOrderLines = 0 then begin
-                                        InsertNewLine(
-                                          FromPstdPhysInvtOrderLine."Item No.", FromPstdPhysInvtOrderLine."Variant Code",
-                                          FromPstdPhysInvtOrderLine."Location Code", FromPstdPhysInvtOrderLine."Bin Code");
-                                        NoOfInsertedLines := NoOfInsertedLines + 1;
-                                    end else begin
-                                        FromPstdPhysInvtOrderLine.Mark(true);
-                                        NoOfNoInsertedLines := NoOfNoInsertedLines + 1;
-                                    end;
+                            end;
+                        until FromPhysInvtOrderLine.Next() = 0;
+                end;
+            DocType::"Posted Phys. Invt. Order":
+                begin
+                    FromPstdPhysInvtOrderHdr.Get(DocNo);
+                    FromPstdPhysInvtOrderLine.Reset();
+                    FromPstdPhysInvtOrderLine.SetRange("Document No.", FromPstdPhysInvtOrderHdr."No.");
+                    FromPstdPhysInvtOrderLine.ClearMarks();
+                    if FromPstdPhysInvtOrderLine.Find('-') then
+                        repeat
+                            if FromPstdPhysInvtOrderLine."Item No." <> '' then begin
+                                NoOfOrderLines :=
+                                  PhysInvtOrderHeader.GetSamePhysInvtOrderLine(
+                                    FromPstdPhysInvtOrderLine."Item No.", FromPstdPhysInvtOrderLine."Variant Code",
+                                    FromPstdPhysInvtOrderLine."Location Code", FromPstdPhysInvtOrderLine."Bin Code",
+                                    ErrorText, PhysInvtOrderLine2);
+                                OnAfterGetNoOfOrderLinesFromPostedPhysInvtOrder(NoOfOrderLines, FromPstdPhysInvtOrderLine, PhysInvtOrderHeader);
+                                if NoOfOrderLines = 0 then begin
+                                    InsertNewLine(
+                                      FromPstdPhysInvtOrderLine."Item No.", FromPstdPhysInvtOrderLine."Variant Code",
+                                      FromPstdPhysInvtOrderLine."Location Code", FromPstdPhysInvtOrderLine."Bin Code");
+                                    NoOfInsertedLines := NoOfInsertedLines + 1;
+                                end else begin
+                                    FromPstdPhysInvtOrderLine.Mark(true);
+                                    NoOfNoInsertedLines := NoOfNoInsertedLines + 1;
                                 end;
-                            until FromPstdPhysInvtOrderLine.Next() = 0;
-                    end;
-            end;
+                            end;
+                        until FromPstdPhysInvtOrderLine.Next() = 0;
+                end;
         end;
 
         Commit();
@@ -151,7 +149,7 @@ report 5882 "Copy Phys. Invt. Order"
         if NoOfNoInsertedLines = 0 then
             Message(
               StrSubstNo(
-                LinesInsertedMsg, NoOfInsertedLines, PhysInvtOrderHeader."No."))
+                LinesInsertedToOrderMsg, NoOfInsertedLines, PhysInvtOrderHeader."No."))
         else
             Message(
               StrSubstNo(LinesInsertedMsg, NoOfInsertedLines, NoOfNoInsertedLines, PhysInvtOrderHeader."No."));
@@ -176,6 +174,7 @@ report 5882 "Copy Phys. Invt. Order"
         EnterDocumentNoErr: Label 'Please enter a Document No.';
         CannotCopyToItSelfErr: Label 'Order %1 cannot be copied onto itself.', Comment = '%1 = Order No.';
         LinesInsertedMsg: Label '%1 lines inserted and %2 lines not inserted into the order %3.', Comment = '%1,%2 = counters, %3 = Order No.';
+        LinesInsertedToOrderMsg: Label '%1 lines inserted into the order %2.', Comment = '%1 = counters, %2 = Order No.';
 
     protected var
         PhysInvtOrderHeader: Record "Phys. Invt. Order Header";

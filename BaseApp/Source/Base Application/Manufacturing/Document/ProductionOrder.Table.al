@@ -32,6 +32,7 @@ table 5405 "Production Order"
     DrillDownPageID = "Production Order List";
     LookupPageID = "Production Order List";
     Permissions = TableData "Prod. Order Capacity Need" = r;
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -46,10 +47,12 @@ table 5405 "Production Order"
             ValidateTableRelation = false;
 
             trigger OnValidate()
+            var
+                NoSeries: Codeunit "No. Series";
             begin
                 if "No." <> xRec."No." then begin
                     MfgSetup.Get();
-                    NoSeriesMgt.TestManual(GetNoSeriesCode());
+                    NoSeries.TestManual(GetNoSeriesCode());
                     "No. Series" := '';
                 end;
             end;
@@ -380,10 +383,8 @@ table 5405 "Production Order"
                 WhseIntegrationMgt: Codeunit "Whse. Integration Management";
             begin
                 if "Bin Code" <> '' then
-                    WhseIntegrationMgt.CheckBinTypeCode(DATABASE::"Production Order",
-                      FieldCaption("Bin Code"),
-                      "Location Code",
-                      "Bin Code", 0);
+                    WhseIntegrationMgt.CheckBinTypeAndCode(
+                        DATABASE::"Production Order", FieldCaption("Bin Code"), "Location Code", "Bin Code", 0);
             end;
         }
         field(34; "Replan Ref. No."; Code[20])
@@ -633,6 +634,8 @@ table 5405 "Production Order"
         fieldgroup(DropDown; "No.", Description, "Source No.", "Source Type")
         {
         }
+        fieldgroup(Brick; "No.", Description, "Source No.", Status, "Due Date")
+        { }
     }
 
     trigger OnDelete()
@@ -643,6 +646,8 @@ table 5405 "Production Order"
         RefreshRecord: Boolean;
     begin
         if Status = Status::Released then begin
+            ConfirmDeletion();
+
             ItemLedgEntry.SetRange("Order Type", ItemLedgEntry."Order Type"::Production);
             ItemLedgEntry.SetRange("Order No.", "No.");
             if not ItemLedgEntry.IsEmpty() then
@@ -682,6 +687,11 @@ table 5405 "Production Order"
     trigger OnInsert()
     var
         InvtAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)";
+        NoSeries: Codeunit "No. Series";
+#if not CLEAN24
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+        DefaultNoSeriesCode: Code[20];
+#endif
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -692,7 +702,24 @@ table 5405 "Production Order"
         MfgSetup.Get();
         if "No." = '' then begin
             TestNoSeries();
-            NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", "Due Date", "No.", "No. Series");
+#if not CLEAN24
+            DefaultNoSeriesCode := GetNoSeriesCode();
+            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(DefaultNoSeriesCode, xRec."No. Series", "Due Date", "No.", "No. Series", IsHandled);
+            if not IsHandled then begin
+                if NoSeries.AreRelated(DefaultNoSeriesCode, xRec."No. Series") then
+                    "No. Series" := xRec."No. Series"
+                else
+                    "No. Series" := DefaultNoSeriesCode;
+                "No." := NoSeries.GetNextNo("No. Series", "Due Date");
+                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", DefaultNoSeriesCode, "Due Date", "No.");
+            end;
+#else
+            if NoSeries.AreRelated(GetNoSeriesCode(), xRec."No. Series") then
+                "No. Series" := xRec."No. Series"
+            else
+                "No. Series" := GetNoSeriesCode();
+            "No." := NoSeries.GetNextNo("No. Series", "Due Date");
+#endif
         end;
 
         IsHandled := false;
@@ -741,7 +768,6 @@ table 5405 "Production Order"
         ProdOrder: Record "Production Order";
         ProdOrderLine: Record "Prod. Order Line";
         Location: Record Location;
-        NoSeriesMgt: Codeunit NoSeriesManagement;
         CalcProdOrder: Codeunit "Calculate Prod. Order";
         LeadTimeMgt: Codeunit "Lead-Time Management";
         DimMgt: Codeunit DimensionManagement;
@@ -752,6 +778,7 @@ table 5405 "Production Order"
         UpdateEndDate: Boolean;
         Text010: Label 'You may have changed a dimension.\\Do you want to update the lines?';
         Text011: Label 'You cannot change Finished Production Order dimensions.';
+        ConfirmDeleteQst: Label 'The items have been picked. If you delete the Production Order, then the items will remain in the operation area until you put them away.\Related item tracking information that is defined during the pick will be deleted.\Are you sure that you want to delete the Production Order?';
 
     protected var
         HideValidationDialog: Boolean;
@@ -798,16 +825,16 @@ table 5405 "Production Order"
     end;
 
     procedure AssistEdit(OldProdOrder: Record "Production Order"): Boolean
+    var
+        NoSeries: Codeunit "No. Series";
     begin
-        with ProdOrder do begin
-            ProdOrder := Rec;
-            MfgSetup.Get();
-            TestNoSeries();
-            if NoSeriesMgt.SelectSeries(GetNoSeriesCode(), OldProdOrder."No. Series", "No. Series") then begin
-                NoSeriesMgt.SetSeries("No.");
-                Rec := ProdOrder;
-                exit(true);
-            end;
+        ProdOrder := Rec;
+        MfgSetup.Get();
+        ProdOrder.TestNoSeries();
+        if NoSeries.LookupRelatedNoSeries(ProdOrder.GetNoSeriesCode(), OldProdOrder."No. Series", ProdOrder."No. Series") then begin
+            ProdOrder."No." := NoSeries.GetNextNo(ProdOrder."No. Series");
+            Rec := ProdOrder;
+            exit(true);
         end;
     end;
 
@@ -880,7 +907,7 @@ table 5405 "Production Order"
         ProdOrderComment.SetRange("Prod. Order No.", "No.");
         ProdOrderComment.DeleteAll();
 
-        ReservMgt.DeleteDocumentReservation(Database::"Prod. Order Line", Status, "No.", HideValidationDialog);
+        ReservMgt.DeleteDocumentReservation(Database::"Prod. Order Line", Status.AsInteger(), "No.", HideValidationDialog);
 
         DeleteProdOrderLines();
 
@@ -900,6 +927,7 @@ table 5405 "Production Order"
         ProdOrderLine.LockTable();
         ProdOrderLine.SetRange(Status, Status);
         ProdOrderLine.SetRange("Prod. Order No.", "No.");
+        ProdOrderLine.SuspendDeletionCheck(true);
         ProdOrderLine.DeleteAll(true);
     end;
 
@@ -1349,7 +1377,8 @@ table 5405 "Production Order"
 
         if NewParentDimSetID = OldParentDimSetID then
             exit;
-        if not Confirm(Text010) then
+
+        if not ConfirmUpdateAllLineDim(NewParentDimSetID, OldParentDimSetID) then
             exit;
 
         ProdOrderLine.Reset();
@@ -1370,14 +1399,14 @@ table 5405 "Production Order"
             until ProdOrderLine.Next() = 0;
     end;
 
-    [Scope('OnPrem')]
-    [Obsolete('Starting and Ending Date-Time field should be used instead.', '17.0')]
-    procedure GetStartingEndingDateAndTime(var StartingTime: Time; var StartingDate: Date; var EndingTime: Time; var EndingDate: Date)
+    local procedure ConfirmUpdateAllLineDim(NewParentDimSetID: Integer; OldParentDimSetID: Integer) Confirmed: Boolean;
+    var
+        IsHandled: Boolean;
     begin
-        StartingTime := DT2Time("Starting Date-Time");
-        StartingDate := DT2Date("Starting Date-Time");
-        EndingTime := DT2Time("Ending Date-Time");
-        EndingDate := DT2Date("Ending Date-Time");
+        IsHandled := false;
+        OnBeforeConfirmUpdateAllLineDim(Rec, xRec, NewParentDimSetID, OldParentDimSetID, Confirmed, IsHandled);
+        if not IsHandled then
+            Confirmed := Confirm(Text010);
     end;
 
     procedure IsStatusLessThanReleased(): Boolean
@@ -1444,6 +1473,22 @@ table 5405 "Production Order"
             else
                 exit(Result::Partial);
         end;
+    end;
+
+    local procedure ConfirmDeletion()
+    var
+        ProdOrderComponent: Record "Prod. Order Component";
+        Confirmed: Boolean;
+    begin
+        ProdOrderComponent.SetRange("Prod. Order No.", "No.");
+        if ProdOrderComponent.FindSet() then
+            repeat
+                if (ProdOrderComponent."Expected Quantity" - ProdOrderComponent."Remaining Quantity") < ProdOrderComponent."Qty. Picked" then begin
+                    if not Confirm(ConfirmDeleteQst) then
+                        Error('');
+                    Confirmed := true;
+                end;
+            until (ProdOrderComponent.Next() = 0) or Confirmed;
     end;
 
     [IntegrationEvent(false, false)]
@@ -1608,6 +1653,11 @@ table 5405 "Production Order"
 
     [IntegrationEvent(false, false)]
     local procedure OnInsertOnBeforeStatusCheck(var ProductionOrder: Record "Production Order"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeConfirmUpdateAllLineDim(var ProductionOrder: Record "Production Order"; var xProductionOrder: Record "Production Order"; NewParentDimSetID: Integer; OldParentDimSetID: Integer; var Confirmed: Boolean; var IsHandled: Boolean)
     begin
     end;
 }

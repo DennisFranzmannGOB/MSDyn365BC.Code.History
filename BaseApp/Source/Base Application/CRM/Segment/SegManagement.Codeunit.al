@@ -133,7 +133,6 @@ codeunit 5051 SegManagement
                     TempDeliverySorter."Language Code" := SegmentLine."Language Code";
                     TempDeliverySorter."Word Template Code" := InteractionLogEntry."Word Template Code";
                     TempDeliverySorter."Wizard Action" := InteractionTemplate."Wizard Action";
-                    TempDeliverySorter."Force Hide Email Dialog" := true;
                     OnBeforeDeliverySorterInsert(TempDeliverySorter, SegmentLine);
                     TempDeliverySorter.Insert();
                 end;
@@ -491,7 +490,13 @@ codeunit 5051 SegManagement
         Campaign: Record Campaign;
         InteractionTemplate: Record "Interaction Template";
         ContactAltAddress: Record "Contact Alt. Address";
+        IsHandled: Boolean;
     begin
+        IsHandled := false;
+        OnBeforeCheckSegmentLine(SegmentLine, Deliver, IsHandled);
+        if IsHandled then
+            exit;
+
         SegmentLine.TestField(Date);
         SegmentLine.TestField("Contact No.");
         Contact.Get(SegmentLine."Contact No.");
@@ -686,21 +691,27 @@ codeunit 5051 SegManagement
             CampaignTargetGroup."Campaign No.", SalesInvoiceHeader."Posting Description", '');
     end;
 
-#if not CLEAN21
-    [Obsolete('Replaced by enum "Interaction Log Entry Document Type"::"Sales Ord. Cnfrmn."', '22.0')]
-    procedure SalesOrderConfirmInterDocType(): Integer
+    procedure InterLogEntryCommentLineInsert(var TempInterLogEntryCommentLine: Record "Inter. Log Entry Comment Line"; InteractionLogEntryNo: Integer)
+    var
+        InterLogEntryCommentLine: Record "Inter. Log Entry Comment Line";
     begin
-        exit(3);
+        DeleteInteractionLogEntryComments(InteractionLogEntryNo);
+        if TempInterLogEntryCommentLine.FindSet() then
+            repeat
+                InterLogEntryCommentLine.Init();
+                InterLogEntryCommentLine := TempInterLogEntryCommentLine;
+                InterLogEntryCommentLine."Entry No." := InteractionLogEntryNo;
+                InterLogEntryCommentLine.Insert();
+            until TempInterLogEntryCommentLine.Next() = 0;
     end;
-#endif
 
-#if not CLEAN21
-    [Obsolete('Replaced by enum "Interaction Log Entry Document Type"::"Sales Inv."', '22.0')]
-    procedure SalesInvoiceInterDocType(): Integer
+    local procedure DeleteInteractionLogEntryComments(InteractionLogEntryNo: Integer)
+    var
+        InterLogEntryCommentLine: Record "Inter. Log Entry Comment Line";
     begin
-        exit(4);
+        InterLogEntryCommentLine.SetRange("Entry No.", InteractionLogEntryNo);
+        InterLogEntryCommentLine.DeleteAll();
     end;
-#endif
 
     local procedure GetNextLoggedSegmentEntryNo(): Integer
     var
@@ -923,6 +934,11 @@ codeunit 5051 SegManagement
 
     [IntegrationEvent(false, false)]
     local procedure OnLogSegmentOnBeforeInitLoggedSegment(SegmentHeader: Record "Segment Header"; Deliver: Boolean; Followup: Boolean; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeCheckSegmentLine(var SegmentLine: Record "Segment Line"; Deliver: Boolean; var IsHandled: Boolean)
     begin
     end;
 }

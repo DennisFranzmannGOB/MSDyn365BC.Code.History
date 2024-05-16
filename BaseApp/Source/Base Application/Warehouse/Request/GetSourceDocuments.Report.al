@@ -744,12 +744,10 @@ report 5753 "Get Source Documents"
     local procedure UpdateReceiptHeaderStatus()
     begin
         OnBeforeUpdateReceiptHeaderStatus(WhseReceiptHeader);
-        with WhseReceiptHeader do begin
-            if "No." = '' then
-                exit;
-            Validate("Document Status", GetHeaderStatus(0));
-            Modify(true);
-        end;
+        if WhseReceiptHeader."No." = '' then
+            exit;
+        WhseReceiptHeader.Validate("Document Status", WhseReceiptHeader.GetHeaderStatus(0));
+        WhseReceiptHeader.Modify(true);
     end;
 
     procedure SetSkipBlocked(Skip: Boolean)
@@ -762,7 +760,7 @@ report 5753 "Get Source Documents"
         SkipBlockedItem := Skip;
     end;
 
-    local procedure SkipWarehouseRequest(SalesLine: Record "Sales Line"; WarehouseRequest: Record "Warehouse Request") SkipLine: Boolean;
+    procedure SkipWarehouseRequest(SalesLine: Record "Sales Line"; WarehouseRequest: Record "Warehouse Request") SkipLine: Boolean;
     begin
         SkipLine := SalesLine."Location Code" <> WarehouseRequest."Location Code";
         OnAfterSkipWarehouseRequest(SalesLine, WarehouseRequest, SkipLine);
@@ -962,7 +960,7 @@ report 5753 "Get Source Documents"
         Message(StrSubstNo(Text004Msg, ActivitiesCreated) + SpecialHandlingMessage);
     end;
 
-    [IntegrationEvent(false, false)]
+    [IntegrationEvent(true, false)]
     local procedure OnAfterCreateRcptHeader(var WarehouseReceiptHeader: Record "Warehouse Receipt Header"; WarehouseRequest: Record "Warehouse Request"; PurchaseLine: Record "Purchase Line")
     begin
     end;

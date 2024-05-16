@@ -88,7 +88,6 @@ codeunit 2750 "Universal Printer Setup"
     end;
 
     local procedure IsLandscape(Orientation: Enum "Universal Printer Orientation"): Boolean
-    var
     begin
         exit(Orientation = Orientation::landscape);
     end;
@@ -151,7 +150,7 @@ codeunit 2750 "Universal Printer Setup"
 
         // exit if printer setting already exist
         UniversalPrinterSettings.SetRange("Print Share ID", PrintShareIDValue);
-        If UniversalPrinterSettings.FindFirst() then
+        if UniversalPrinterSettings.FindFirst() then
             exit(false);
 
         if not UniversalPrintGraphHelper.GetJsonKeyValue(PrintShareJsonObject, 'displayName', PrintShareNameValue) then
@@ -267,7 +266,7 @@ codeunit 2750 "Universal Printer Setup"
         if UniversalPrintGraphHelper.GetJsonKeyValue(PrintShareJsonObject, 'id', PrintSharePropValue) then
             TempUniversalPrintShareBuffer.Validate(ID, PrintSharePropValue);
 
-        If TempUniversalPrintShareBuffer.Insert(true) then;
+        if TempUniversalPrintShareBuffer.Insert(true) then;
     end;
 
     local procedure GetOrientation(textValue: Text): Enum "Universal Printer Orientation"
@@ -316,7 +315,6 @@ codeunit 2750 "Universal Printer Setup"
     end;
 
     internal procedure IsPaperSizeCustom("Paper Size": Enum "Printer Paper Kind"): Boolean
-    var
     begin
         exit("Paper Size" = "Paper Size"::Custom);
     end;
@@ -354,7 +352,7 @@ codeunit 2750 "Universal Printer Setup"
             exit;
 
         PrinterSelection.SetRange("Printer Name", Name);
-        if NOT PrinterSelection.IsEmpty() then
+        if not PrinterSelection.IsEmpty() then
             Error(UsedInPrinterSelectionErr, Name);
     end;
 

@@ -39,7 +39,7 @@ report 846 "Cash Flow Date List"
             }
             dataitem(EditionPeriod; "Integer")
             {
-                DataItemTableView = sorting(Number) order(Ascending);
+                DataItemTableView = sorting(Number) order(ascending);
                 column(NewCFSumTotal; NewCFSumTotal)
                 {
                 }
@@ -266,7 +266,7 @@ report 846 "Cash Flow Date List"
         SaleFixedAssets_Control51CaptionLbl: Label 'Fixed Assets Disposal';
         before_CaptionLbl: Label 'Before:';
         after_CaptionLbl: Label 'After:';
-        JobsLbl: Label 'Jobs';
+        JobsLbl: Label 'Projects';
         TaxesLbl: Label 'Taxes';
 
     procedure InitializeRequest(FromDate: Date; NumberOfIntervals: Integer; IntervalLength: DateFormula)

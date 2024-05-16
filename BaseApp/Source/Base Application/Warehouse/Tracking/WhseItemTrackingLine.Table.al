@@ -17,6 +17,7 @@ using Microsoft.Warehouse.Worksheet;
 table 6550 "Whse. Item Tracking Line"
 {
     Caption = 'Whse. Item Tracking Line';
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -189,7 +190,7 @@ table 6550 "Whse. Item Tracking Line"
         {
             Caption = 'Source Type Filter';
             FieldClass = FlowFilter;
-            OptionCaption = ' ,Receipt,Shipment,Internal Put-away,Internal Pick,Production,Movement Worksheet,Assembly,Job';
+            OptionCaption = ' ,Receipt,Shipment,Internal Put-away,Internal Pick,Production,Movement Worksheet,Assembly,Project';
             OptionMembers = " ",Receipt,Shipment,"Internal Put-away","Internal Pick",Production,"Movement Worksheet",Assembly,Job;
         }
         field(91; "Qty. Registered (Base)"; Decimal)
@@ -299,6 +300,8 @@ table 6550 "Whse. Item Tracking Line"
 
     fieldgroups
     {
+        fieldgroup(Brick; "Lot No.", "Serial No.", "Quantity (Base)", "Package No.", "Expiration Date")
+        { }
     }
 
     trigger OnDelete()

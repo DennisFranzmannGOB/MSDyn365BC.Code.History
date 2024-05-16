@@ -411,6 +411,19 @@ page 254 "Purchase Journal"
                     ToolTip = 'Specifies the code of the VAT product posting group that will be used when you post the entry on the journal line.';
                     Visible = false;
                 }
+                field("Deferral Code"; Rec."Deferral Code")
+                {
+                    ApplicationArea = Suite;
+                    ToolTip = 'Specifies the deferral template that governs how expenses or revenue are deferred to the different accounting periods when the expenses or revenue were incurred.';
+                    Visible = not IsSimplePage;
+
+                    trigger OnAssistEdit()
+                    begin
+                        CurrPage.SaveRecord();
+                        Commit();
+                        Rec.ShowDeferralSchedule();
+                    end;
+                }
                 field("Allocation Account No."; Rec."Selected Alloc. Account No.")
                 {
                     ApplicationArea = All;
@@ -851,6 +864,18 @@ page 254 "Purchase Journal"
                     RunObject = Codeunit "Adjust Gen. Journal Balance";
                     ToolTip = 'Insert a rounding correction line in the journal. This rounding correction line will balance in LCY when amounts in the foreign currency also balance. You can then post the journal.';
                 }
+                action(DeferralSchedule)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Deferral Schedule';
+                    Image = PaymentPeriod;
+                    ToolTip = 'View or edit the deferral schedule that governs how expenses or revenue are deferred to different accounting periods when the journal line is posted.';
+
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDeferralSchedule();
+                    end;
+                }
                 group(IncomingDocument)
                 {
                     Caption = 'Incoming Document';
@@ -890,7 +915,7 @@ page 254 "Purchase Journal"
                         ApplicationArea = Basic, Suite;
                         Caption = 'Create Incoming Document from File';
                         Ellipsis = true;
-                        Enabled = NOT HasIncomingDocument;
+                        Enabled = not HasIncomingDocument;
                         Image = Attach;
                         ToolTip = 'Create an incoming document record by selecting a file to attach, and then link the incoming document record to the entry or document.';
 
@@ -1049,12 +1074,15 @@ page 254 "Purchase Journal"
 
                     trigger OnAction()
                     var
+                        BackupRec: Record "Gen. Journal Line";
                         GenJournalAllocAccMgt: Codeunit "Gen. Journal Alloc. Acc. Mgt.";
                     begin
                         if (Rec."Account Type" <> Rec."Account Type"::"Allocation Account") and (Rec."Bal. Account Type" <> Rec."Bal. Account Type"::"Allocation Account") and (Rec."Selected Alloc. Account No." = '') then
                             Error(ActionOnlyAllowedForAllocationAccountsErr);
 
-                        GenJournalAllocAccMgt.CreateLines(Rec);
+                        BackupRec.Copy(Rec);
+                        BackupRec.SetRecFilter();
+                        GenJournalAllocAccMgt.CreateLines(BackupRec);
                         Rec.Delete();
                         CurrPage.Update(false);
                     end;
@@ -1315,15 +1343,6 @@ page 254 "Purchase Journal"
                     Caption = 'Post/Print', Comment = 'Generated from the PromotedActionCategories property index 4.';
                     ShowAs = SplitButton;
 
-#if not CLEAN21
-                    actionref("Remove From Job Queue_Promoted"; "Remove From Job Queue")
-                    {
-                        Visible = false;
-                        ObsoleteState = Pending;
-                        ObsoleteReason = 'Action is being demoted based on overall low usage.';
-                        ObsoleteTag = '21.0';
-                    }
-#endif
                     actionref(Post_Promoted; Post)
                     {
                     }
@@ -1403,24 +1422,6 @@ page 254 "Purchase Journal"
             {
                 Caption = 'Account', Comment = 'Generated from the PromotedActionCategories property index 6.';
 
-#if not CLEAN21
-                actionref(Card_Promoted; Card)
-                {
-                    Visible = false;
-                    ObsoleteState = Pending;
-                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
-                    ObsoleteTag = '21.0';
-                }
-#endif
-#if not CLEAN21
-                actionref("Ledger E&ntries_Promoted"; "Ledger E&ntries")
-                {
-                    Visible = false;
-                    ObsoleteState = Pending;
-                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
-                    ObsoleteTag = '21.0';
-                }
-#endif
             }
             group("Category_Incoming Document")
             {
@@ -1570,7 +1571,6 @@ page 254 "Purchase Journal"
         BackgroundErrorHandlingMgt: Codeunit "Background Error Handling Mgt.";
         ApprovalMgmt: Codeunit "Approvals Mgmt.";
         ChangeExchangeRate: Page "Change Exchange Rate";
-        CurrentJnlBatchName: Code[10];
         AccName: Text[100];
         BalAccName: Text[100];
         GenJnlBatchApprovalStatus: Text[20];
@@ -1588,7 +1588,6 @@ page 254 "Purchase Journal"
         AmountVisible: Boolean;
         DebitCreditVisible: Boolean;
         IsSaaSExcelAddinEnabled: Boolean;
-        DocumentAmount: Decimal;
         NegativeDocAmountErr: Label 'You must specify a positive amount as the document amount. If the journal line is for a document type that has a negative amount, the amount will be tracked correctly.';
         ActionOnlyAllowedForAllocationAccountsErr: Label 'This action is only available for lines that have Allocation Account set as Account Type or Balancing Account Type.';
         UseAllocationAccountNumber: Boolean;
@@ -1626,6 +1625,8 @@ page 254 "Purchase Journal"
         DimVisible7: Boolean;
         DimVisible8: Boolean;
         IsSimplePage: Boolean;
+        CurrentJnlBatchName: Code[10];
+        DocumentAmount: Decimal;
 
     local procedure UpdateBalance()
     begin

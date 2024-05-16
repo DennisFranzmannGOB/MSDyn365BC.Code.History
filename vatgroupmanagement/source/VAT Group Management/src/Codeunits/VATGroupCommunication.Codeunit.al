@@ -15,7 +15,7 @@ codeunit 4700 "VAT Group Communication"
     var
         VATReportSetup: Record "VAT Report Setup";
         NoVATSetupErr: Label 'The VAT Report Setup could not be found.';
-        BearerTokenFromCacheErr: Label 'The Bearer token could not be retrieved from cache. Please refresh the VAT Group bearer token by logging in the %1 page', Comment = '%1 the caption of a page.';
+        BearerTokenFromCacheErr: Label 'The OAuth2 token could not be retrieved from cache. Choose the action Renew OAuth2 Token on the page %1 and log in to get a new token.', Comment = '%1 the caption of a page.';
         OAuthFailedNoErr: label 'Authorization has failed with an unexpected error.';
         OAuthFailedErr: Label 'Authorization has failed with the error %1', Comment = '%1 is the error description.';
         URLAppendixCompanyLbl: Label '/api/microsoft/vatgroup/v1.0/companies(name=''%1'')', Locked = true;
@@ -154,7 +154,7 @@ codeunit 4700 "VAT Group Communication"
     end;
 
     [NonDebuggable]
-    local procedure GetBearerTokenFromCache(): Text
+    local procedure GetBearerTokenFromCache(): SecretText
     var
         OAuth2: Codeunit OAuth2;
         EnvironmentInformation: Codeunit "Environment Information";
@@ -178,8 +178,8 @@ codeunit 4700 "VAT Group Communication"
                 BearerToken)
         end else begin
             CreateScopesFromResourceURL(VATReportSetup."Resource URL", Scopes);
-            OAuth2.AcquireAuthorizationCodeTokenFromCache(VATReportSetup.GetSecret(VATReportSetup."Client ID Key"),
-                VATReportSetup.GetSecret(VATReportSetup."Client Secret Key"),
+            OAuth2.AcquireAuthorizationCodeTokenFromCache(VATReportSetup.GetSecretAsSecretText(VATReportSetup."Client ID Key").Unwrap(),
+                VATReportSetup.GetSecretAsSecretText(VATReportSetup."Client Secret Key").Unwrap(),
                 VATReportSetup."Redirect URL",
                 VATReportSetup."Authority URL",
                 Scopes,
@@ -197,19 +197,19 @@ codeunit 4700 "VAT Group Communication"
     var
         Base64Convert: Codeunit "Base64 Convert";
         HttpRequestHeaders: HttpHeaders;
-        Base64AuthHeader: Text;
+        Base64AuthHeader: SecretText;
     begin
         HttpRequestMessage.GetHeaders(HttpRequestHeaders);
 
         HttpRequestHeaders.Add('Accept', 'application/json');
 
         if VATReportSetup."VAT Group Authentication Type" = VATReportSetup."VAT Group Authentication Type"::WebServiceAccessKey then begin
-            Base64AuthHeader := Base64Convert.ToBase64(VATReportSetup.GetSecret(VATReportSetup."User Name Key") + ':' + VATReportSetup.GetSecret(VATReportSetup."Web Service Access Key Key"));
-            HttpRequestHeaders.Add('Authorization', 'Basic ' + Base64AuthHeader);
+            Base64AuthHeader := Base64Convert.ToBase64(VATReportSetup.GetSecretAsSecretText(VATReportSetup."User Name Key").Unwrap() + ':' + VATReportSetup.GetSecretAsSecretText(VATReportSetup."Web Service Access Key Key").Unwrap());
+            HttpRequestHeaders.Add('Authorization', SecretStrSubstNo('Basic %1', GetBearerTokenFromCache()));
         end;
 
         if VATReportSetup."VAT Group Authentication Type" = VATReportSetup."VAT Group Authentication Type"::OAuth2 then
-            HttpRequestHeaders.Add('Authorization', 'Bearer ' + GetBearerTokenFromCache());
+            HttpRequestHeaders.Add('Authorization', SecretStrSubstNo('Bearer %1', GetBearerTokenFromCache()));
 
         if IsBatch then
             HttpRequestHeaders.Add('Prefer', 'odata.continue-on-error');

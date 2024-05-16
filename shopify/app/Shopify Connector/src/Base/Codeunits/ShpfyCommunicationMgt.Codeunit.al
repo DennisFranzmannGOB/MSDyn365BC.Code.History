@@ -17,7 +17,7 @@ codeunit 30103 "Shpfy Communication Mgt."
         CommunicationEvents: Codeunit "Shpfy Communication Events";
         GraphQLQueries: Codeunit "Shpfy GraphQL Queries";
         NextExecutionTime: DateTime;
-        VersionTok: Label '2023-10', Locked = true;
+        VersionTok: Label '2024-01', Locked = true;
         OutgoingRequestsNotEnabledConfirmLbl: Label 'Importing data to your Shopify shop is not enabled, do you want to go to shop card to enable?';
         OutgoingRequestsNotEnabledErr: Label 'Importing data to your Shopify shop is not enabled, navigate to shop card to enable.';
         IsTestInProgress: Boolean;
@@ -391,14 +391,17 @@ codeunit 30103 "Shpfy Communication Mgt."
         HttpContent: HttpContent;
         ContentHttpHeaders: HttpHeaders;
         HttpHeaders: HttpHeaders;
-        AccessToken: Text;
+        ClearAccessToken: Text;
+        AccessToken: SecretText;
     begin
         HttpRequestMsg.SetRequestUri(url);
         HttpRequestMsg.GetHeaders(HttpHeaders);
 
 
-        if IsTestInProgress then
-            CommunicationEvents.OnGetAccessToken(AccessToken)
+        if IsTestInProgress then begin
+            CommunicationEvents.OnGetAccessToken(ClearAccessToken);
+            AccessToken := ClearAccessToken;
+        end
         else
             AccessToken := Shop.GetAccessToken();
 
@@ -463,8 +466,8 @@ codeunit 30103 "Shpfy Communication Mgt."
 
     local procedure ResponseHasUserError(Response: Text): Boolean;
     begin
-        if Response.Contains('"userErrors":') then
-            if not Response.Contains('"userErrors":[]') then
+        if Response.Contains('"userErrors":') or Response.Contains('"orderCancelUserErrors":') then
+            if not Response.Contains('"userErrors":[]') and not Response.Contains('"orderCancelUserErrors":[]') then
                 exit(true);
     end;
 
@@ -568,19 +571,16 @@ codeunit 30103 "Shpfy Communication Mgt."
     /// SetTestInProgress.
     /// </summary>
     /// <param name="TestInProgress">Boolean.</param>
-    [NonDebuggable]
     internal procedure SetTestInProgress(TestInProgress: Boolean)
     begin
         IsTestInProgress := TestInProgress;
     end;
 
-    [NonDebuggable]
     internal procedure GetTestInProgress(): Boolean
     begin
         exit(IsTestInProgress);
     end;
 
-    [NonDebuggable]
     internal procedure GetShopRecord() ShopifyShop: Record "Shpfy Shop";
     begin
         if not ShopifyShop.Get(Shop.Code) then
@@ -745,6 +745,14 @@ codeunit 30103 "Shpfy Communication Mgt."
 
         PropertyValue := JToken.AsValue().AsText();
         exit(true);
+    end;
+
+    internal procedure ConvertBooleanToText(Value: Boolean): Text
+    begin
+        if Value then
+            exit('true')
+        else
+            exit('false');
     end;
 }
 

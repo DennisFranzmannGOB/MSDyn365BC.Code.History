@@ -5,12 +5,12 @@
 namespace Microsoft.Foundation.Reporting;
 
 using Microsoft.EServices.EDocument;
-using Microsoft.Utilities;
 using System.Integration;
 using System.IO;
 using System.Reflection;
 using System.Security.User;
 using System.Utilities;
+using System.Environment.Configuration;
 
 page 9650 "Custom Report Layouts"
 {
@@ -265,6 +265,22 @@ page 9650 "Custom Report Layouts"
                             Message(UpdateNotRequiredMsg, Format(Rec.Type));
                 end;
             }
+            action(MigrateToSystemLayouts)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Migrate to System Layouts';
+                ToolTip = 'Migrate the selected custom report layouts to system layouts.';
+
+                trigger OnAction()
+                var
+                    CustomReportLayout: Record "Custom Report Layout";
+                    FeatureReportSelection: Codeunit "Feature - Report Selection";
+                begin
+                    CustomReportLayout.Copy(Rec);
+                    CurrPage.SetSelectionFilter(CustomReportLayout);
+                    FeatureReportSelection.MigrateCustomReportLayouts(CustomReportLayout);
+                end;
+            }
         }
         area(reporting)
         {
@@ -335,6 +351,9 @@ page 9650 "Custom Report Layouts"
             group(Category_Report)
             {
                 Caption = 'Report', Comment = 'Generated from the PromotedActionCategories property index 2.';
+                actionref(MigrateToSystem_promoted; MigrateToSystemLayouts)
+                {
+                }
             }
         }
     }
@@ -365,22 +384,18 @@ page 9650 "Custom Report Layouts"
     begin
         PageName := CurrPage.Caption;
         CurrPage.Caption := GetPageCaption();
-
-        // show notification if bank account is not setup
-        SendSetUpBankAccountNotification();
+        Rec.SetRange("Built-In", false);
     end;
 
     var
-        UpdateSuccesMsg: Label 'The %1 layout has been updated to use the current report design.';
-        UpdateNotRequiredMsg: Label 'The %1 layout is up-to-date. No further updates are required.';
+        UpdateSuccesMsg: Label 'The %1 layout has been updated to use the current report design.', Comment = '%1 will be replaced by the layout name.';
+        UpdateNotRequiredMsg: Label 'The %1 layout is up-to-date. No further updates are required.', Comment = '%1 will be replaced by the layout name.';
         PageName: Text;
         CaptionTxt: Label '%1 - %2 %3', Locked = true;
         IsNotBuiltIn: Boolean;
         IsMultiSelect: Boolean;
         ShareOptionsVisible: Boolean;
         ShareOptionsEnabled: Boolean;
-        SetUpBankAccountMsg: Label 'Business documents often require bank information. To specify the information to include on documents, use the Payments FastTab on the Company Information page.';
-        BankAccountNotificationActionMsg: Label 'Specify bank information';
         DocxFileExtensionLbl: Label '.docx';
 
     local procedure GetPageCaption(): Text
@@ -398,15 +413,6 @@ page 9650 "Custom Report Layouts"
             if AllObjWithCaption.Get(AllObjWithCaption."Object Type"::Report, ReportID) then
                 exit(StrSubstNo(CaptionTxt, PageName, ReportID, AllObjWithCaption."Object Caption"));
         exit(PageName);
-    end;
-
-    local procedure SendSetUpBankAccountNotification()
-    var
-        BankNotification: Notification;
-    begin
-        BankNotification.Message := SetUpBankAccountMsg;
-        BankNotification.AddAction(BankAccountNotificationActionMsg, Codeunit::"Company Setup Notification", 'OpenCompanyInformationPage');
-        BankNotification.Send();
     end;
 }
 

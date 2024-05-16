@@ -261,6 +261,12 @@ codeunit 1605 "PEPPOL Management"
         OnAfterGetAccountingSupplierPartyContact(SalesHeader, ContactID, ContactName, Telephone, Telefax, ElectronicMail);
     end;
 
+    procedure GetAccountingSupplierPartyIdentificationID(SalesHeader: Record "Sales Header"; var PartyIdentificationID: Text)
+    begin
+        PartyIdentificationID := '';
+        OnAfterGetAccountingSupplierPartyIdentificationID(SalesHeader, PartyIdentificationID);
+    end;
+
     procedure GetAccountingCustomerPartyInfo(SalesHeader: Record "Sales Header"; var CustomerEndpointID: Text; var CustomerSchemeID: Text; var CustomerPartyIdentificationID: Text; var CustomerPartyIDSchemeID: Text; var CustomerName: Text)
     begin
         GetAccountingCustomerPartyInfoByFormat(
@@ -477,7 +483,7 @@ codeunit 1605 "PEPPOL Management"
         OnAfterGetPaymentMeansPayeeFinancialAcc(CompanyInfo, PayeeFinancialAccountID, PaymentMeansSchemeID);
     end;
 
-    procedure GetPaymentMeansPayeeFinancialAccBIS(var PayeeFinancialAccountID: Text; var FinancialInstitutionBranchID: Text)
+    procedure GetPaymentMeansPayeeFinancialAccBIS(SalesHeader: Record "Sales Header"; var PayeeFinancialAccountID: Text; var FinancialInstitutionBranchID: Text)
     var
         CompanyInfo: Record "Company Information";
     begin
@@ -489,8 +495,27 @@ codeunit 1605 "PEPPOL Management"
                 PayeeFinancialAccountID := CompanyInfo."Bank Account No.";
         FinancialInstitutionBranchID := CompanyInfo."Bank Branch No.";
 
-        OnAfterGetPaymentMeansPayeeFinancialAccBIS(PayeeFinancialAccountID, FinancialInstitutionBranchID);
+        OnAfterGetPaymentMeansPayeeFinancialAccBIS(SalesHeader, PayeeFinancialAccountID, FinancialInstitutionBranchID);
     end;
+
+#if not CLEAN25
+    [Obsolete('Replaced by GetPaymentMeansPayeeFinancialAccBIS with SalesHeader parameter.', '25.0')]
+    procedure GetPaymentMeansPayeeFinancialAccBIS(var PayeeFinancialAccountID: Text; var FinancialInstitutionBranchID: Text)
+    var
+        CompanyInfo: Record "Company Information";
+        SalesHeader: Record "Sales Header";
+    begin
+        CompanyInfo.Get();
+        if CompanyInfo.IBAN <> '' then
+            PayeeFinancialAccountID := DelChr(CompanyInfo.IBAN, '=', ' ')
+        else
+            if CompanyInfo."Bank Account No." <> '' then
+                PayeeFinancialAccountID := CompanyInfo."Bank Account No.";
+        FinancialInstitutionBranchID := CompanyInfo."Bank Branch No.";
+
+        OnAfterGetPaymentMeansPayeeFinancialAccBIS(SalesHeader, PayeeFinancialAccountID, FinancialInstitutionBranchID);
+    end;
+#endif
 
     procedure GetPaymentMeansFinancialInstitutionAddr(var FinancialInstitutionStreetName: Text; var AdditionalStreetName: Text; var FinancialInstitutionCityName: Text; var FinancialInstitutionPostalZone: Text; var FinancialInstCountrySubentity: Text; var FinancialInstCountryIdCode: Text; var FinancialInstCountryListID: Text)
     begin
@@ -732,19 +757,18 @@ codeunit 1605 "PEPPOL Management"
             exit;
         end;
 
-        with SalesLine do
-            case Type of
-                Type::Item, Type::Resource:
-                    if UOM.Get("Unit of Measure Code") then
-                        unitCode := UOM."International Standard Code"
-                    else
-                        Error(NoUnitOfMeasureErr, "Document Type", "Document No.", FieldCaption("Unit of Measure Code"));
-                Type::"G/L Account", Type::"Fixed Asset", Type::"Charge (Item)":
-                    if UOM.Get("Unit of Measure Code") then
-                        unitCode := UOM."International Standard Code"
-                    else
-                        unitCode := UoMforPieceINUNECERec20ListIDTxt;
-            end;
+        case SalesLine.Type of
+            SalesLine.Type::Item, SalesLine.Type::Resource:
+                if UOM.Get(SalesLine."Unit of Measure Code") then
+                    unitCode := UOM."International Standard Code"
+                else
+                    Error(NoUnitOfMeasureErr, SalesLine."Document Type", SalesLine."Document No.", SalesLine.FieldCaption("Unit of Measure Code"));
+            SalesLine.Type::"G/L Account", SalesLine.Type::"Fixed Asset", SalesLine.Type::"Charge (Item)":
+                if UOM.Get(SalesLine."Unit of Measure Code") then
+                    unitCode := UOM."International Standard Code"
+                else
+                    unitCode := UoMforPieceINUNECERec20ListIDTxt;
+        end;
     end;
 
     procedure GetLineInvoicePeriodInfo(var InvLineInvoicePeriodStartDate: Text; var InvLineInvoicePeriodEndDate: Text)
@@ -773,6 +797,12 @@ codeunit 1605 "PEPPOL Management"
         InvLnDeliveryCountrySubentity := '';
         InvLnDeliveryCountryIdCode := '';
         InvLineDeliveryCountryListID := GetISO3166_1Alpha2();
+    end;
+
+    procedure GetDeliveryPartyName(SalesHeader: Record "Sales Header"; var DeliveryPartyName: Text)
+    begin
+        DeliveryPartyName := '';
+        OnAfterGetDeliveryPartyName(SalesHeader, DeliveryPartyName);
     end;
 
     procedure GetLineAllowanceChargeInfo(SalesLine: Record "Sales Line"; SalesHeader: Record "Sales Header"; var InvLnAllowanceChargeIndicator: Text; var InvLnAllowanceChargeReason: Text; var InvLnAllowanceChargeAmount: Text; var InvLnAllowanceChargeAmtCurrID: Text)
@@ -948,27 +978,25 @@ codeunit 1605 "PEPPOL Management"
     begin
         if not VATPostingSetup.Get(SalesLine."VAT Bus. Posting Group", SalesLine."VAT Prod. Posting Group") then
             VATPostingSetup.Init();
-        with VATAmtLine do begin
-            Init();
-            "VAT Identifier" := FORMAT(SalesLine."VAT %");
-            "VAT Calculation Type" := SalesLine."VAT Calculation Type";
-            "Tax Group Code" := SalesLine."Tax Group Code";
-            "Tax Category" := VATPostingSetup."Tax Category";
-            "VAT %" := SalesLine."VAT %";
-            "VAT Base" := SalesLine.Amount;
-            "Amount Including VAT" := SalesLine."Amount Including VAT";
-            if SalesLine."Allow Invoice Disc." then
-                "Inv. Disc. Base Amount" := SalesLine."Line Amount";
-            "Invoice Discount Amount" := SalesLine."Inv. Discount Amount";
+        VATAmtLine.Init();
+        VATAmtLine."VAT Identifier" := FORMAT(SalesLine."VAT %");
+        VATAmtLine."VAT Calculation Type" := SalesLine."VAT Calculation Type";
+        VATAmtLine."Tax Group Code" := SalesLine."Tax Group Code";
+        VATAmtLine."Tax Category" := VATPostingSetup."Tax Category";
+        VATAmtLine."VAT %" := SalesLine."VAT %";
+        VATAmtLine."VAT Base" := SalesLine.Amount;
+        VATAmtLine."Amount Including VAT" := SalesLine."Amount Including VAT";
+        if SalesLine."Allow Invoice Disc." then
+            VATAmtLine."Inv. Disc. Base Amount" := SalesLine."Line Amount";
+        VATAmtLine."Invoice Discount Amount" := SalesLine."Inv. Discount Amount";
 
-            IsHandled := false;
-            OnGetTotalsOnBeforeInsertVATAmtLine(SalesLine, VATAmtLine, VATPostingSetup, IsHandled);
-            if not IsHandled then
-                if InsertLine() then begin
-                    "Line Amount" += SalesLine."Line Amount";
-                    Modify();
-                end;
-        end;
+        IsHandled := false;
+        OnGetTotalsOnBeforeInsertVATAmtLine(SalesLine, VATAmtLine, VATPostingSetup, IsHandled);
+        if not IsHandled then
+            if VATAmtLine.InsertLine() then begin
+                VATAmtLine."Line Amount" += SalesLine."Line Amount";
+                VATAmtLine.Modify();
+            end;
     end;
 
     procedure GetTaxCategories(SalesLine: Record "Sales Line"; var VATProductPostingGroupCategory: Record "VAT Product Posting Group")
@@ -1072,7 +1100,7 @@ codeunit 1605 "PEPPOL Management"
         exit(GetVATScheme(CountryRegionCode));
     end;
 
-    local procedure GetVATScheme(CountryRegionCode: Code[10]): Text
+    procedure GetVATScheme(CountryRegionCode: Code[10]): Text
     var
         CountryRegion: Record "Country/Region";
         CompanyInfo: Record "Company Information";
@@ -1145,7 +1173,7 @@ codeunit 1605 "PEPPOL Management"
             OutFile.Open(XmlServerPath);
     end;
 
-    local procedure IsRoundingLine(SalesLine: Record "Sales Line"; CustomerNo: Code[20]): Boolean;
+    procedure IsRoundingLine(SalesLine: Record "Sales Line"; CustomerNo: Code[20]): Boolean;
     var
         Customer: Record Customer;
         CustomerPostingGroup: Record "Customer Posting Group";
@@ -1249,7 +1277,7 @@ codeunit 1605 "PEPPOL Management"
         if FromFieldRef.Length > ToFieldRef.Length then
             exit;
 
-        ToFieldRef.Value := FromFieldRef.Value;
+        ToFieldRef.Value := FromFieldRef.Value();
     end;
 
     procedure FindNextInvoiceRec(var SalesInvoiceHeader: Record "Sales Invoice Header"; var ServiceInvoiceHeader: Record "Service Invoice Header"; var SalesHeader: Record "Sales Header"; ProcessedDocType: Option Sale,Service; Position: Integer) Found: Boolean
@@ -1426,6 +1454,11 @@ codeunit 1605 "PEPPOL Management"
     begin
     end;
 
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterGetDeliveryPartyName(SalesHeader: Record "Sales Header"; var DeliveryPartyNameValue: Text)
+    begin
+    end;
+
 #if not CLEAN23
     [Obsolete('Replaced by event OnAfterGetLegalMonetaryInfoWithInvRounding()', '23.0')]
     [IntegrationEvent(false, false)]
@@ -1465,7 +1498,7 @@ codeunit 1605 "PEPPOL Management"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterGetPaymentMeansPayeeFinancialAccBIS(var PayeeFinancialAccountID: Text; var FinancialInstitutionBranchID: Text)
+    local procedure OnAfterGetPaymentMeansPayeeFinancialAccBIS(SalesHeader: Record "Sales Header";var PayeeFinancialAccountID: Text; var FinancialInstitutionBranchID: Text)
     begin
     end;
 
@@ -1516,6 +1549,11 @@ codeunit 1605 "PEPPOL Management"
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterGetAccountingSupplierPartyInfoByFormat(var SupplierEndpointID: Text; var SupplierSchemeID: Text; var SupplierName: Text; IsBISBilling: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterGetAccountingSupplierPartyIdentificationID(SalesHeader: Record "Sales Header"; var PartyIdentificationID: Text)
     begin
     end;
 }

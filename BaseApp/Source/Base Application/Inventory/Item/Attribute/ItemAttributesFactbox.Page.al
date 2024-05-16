@@ -40,14 +40,14 @@ page 9110 "Item Attributes Factbox"
                     ApplicationArea = Basic, Suite;
                     Caption = 'Attribute';
                     ToolTip = 'Specifies the name of the item attribute.';
-                    Visible = NOT TranslatedValuesVisible;
+                    Visible = not TranslatedValuesVisible;
                 }
                 field(RawValue; Rec.Value)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Value';
                     ToolTip = 'Specifies the value of the item attribute.';
-                    Visible = NOT TranslatedValuesVisible;
+                    Visible = not TranslatedValuesVisible;
                 }
             }
         }
@@ -100,14 +100,14 @@ page 9110 "Item Attributes Factbox"
 
     var
         ClientTypeManagement: Codeunit "Client Type Management";
+
+    protected var
         ContextType: Option "None",Item,Category;
         ContextValue: Code[20];
         IsItem: Boolean;
         IsVisible: Boolean;
         ItemAttCode: Code[20];
         CategoryAttCode: Code[20];
-
-    protected var
         TranslatedValuesVisible: Boolean;
 
     procedure LoadItemAttributesData(KeyValue: Code[20])

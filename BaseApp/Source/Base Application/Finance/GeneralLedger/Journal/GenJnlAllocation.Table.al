@@ -12,6 +12,7 @@ table 221 "Gen. Jnl. Allocation"
 {
     Caption = 'Gen. Jnl. Allocation';
     Permissions = tabledata "Gen. Jnl. Allocation" = R;
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -41,7 +42,14 @@ table 221 "Gen. Jnl. Allocation"
             TableRelation = "G/L Account";
 
             trigger OnValidate()
+            var
+                IsHandled: Boolean;
             begin
+                IsHandled := false;
+                OnBeforeValidateAccountNo(Rec, xRec, IsHandled);
+                if IsHandled then
+                    exit;
+
                 if "Account No." = '' then begin
                     GLAcc.Init();
                     CreateDimFromDefaultDim();
@@ -194,7 +202,7 @@ table 221 "Gen. Jnl. Allocation"
         }
         field(17; "Account Name"; Text[100])
         {
-            CalcFormula = Lookup("G/L Account".Name where("No." = field("Account No.")));
+            CalcFormula = lookup("G/L Account".Name where("No." = field("Account No.")));
             Caption = 'Account Name';
             Editable = false;
             FieldClass = FlowField;
@@ -318,7 +326,7 @@ table 221 "Gen. Jnl. Allocation"
 
         Text000: Label '%1 cannot be used in allocations when they are completed on the general journal line.';
 
-    local procedure CopyVATSetupToJnlLines(): Boolean
+    protected procedure CopyVATSetupToJnlLines(): Boolean
     var
         GenJournalBatch: Record "Gen. Journal Batch";
     begin
@@ -666,6 +674,11 @@ table 221 "Gen. Jnl. Allocation"
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterUpdateVAT(var GenJournalLine: Record "Gen. Journal Line"; GenJournalLine2: Record "Gen. Journal Line"; var GenJnlAllocation: Record "Gen. Jnl. Allocation")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeValidateAccountNo(var GenJnlAllocation: Record "Gen. Jnl. Allocation"; xGenJnlAllocation: Record "Gen. Jnl. Allocation"; var IsHandled: Boolean)
     begin
     end;
 }

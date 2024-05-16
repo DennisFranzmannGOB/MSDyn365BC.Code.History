@@ -4,7 +4,9 @@
 // ------------------------------------------------------------------------------------------------
 namespace Microsoft.Integration.Graph;
 
+#pragma warning disable AL0659
 enum 135 "Attachment Entity Buffer Document Type"
+#pragma warning restore AL0659
 {
     Extensible = false;
 
@@ -17,7 +19,7 @@ enum 135 "Attachment Entity Buffer Document Type"
     value(6; "Purchase Invoice") { Caption = 'Purchase Invoice'; }
     value(7; "Purchase Order") { Caption = 'Purchase Order'; }
     value(9; "Employee") { Caption = 'Employee'; }
-    value(10; "Job") { Caption = 'Job'; }
+    value(10; "Job") { Caption = 'Project'; }
     value(11; "Item") { Caption = 'Item'; }
     value(12; "Customer") { Caption = 'Customer'; }
     value(13; "Vendor") { Caption = 'Vendor'; }

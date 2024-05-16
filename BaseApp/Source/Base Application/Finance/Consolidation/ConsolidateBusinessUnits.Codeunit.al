@@ -2,6 +2,7 @@ namespace Microsoft.Finance.Consolidation;
 
 using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.Finance.GeneralLedger.Setup;
+using System.Threading;
 using Microsoft.Foundation.Period;
 using System.Utilities;
 
@@ -20,14 +21,16 @@ codeunit 110 "Consolidate Business Units"
         SelectOneBusinessUnitErr: Label 'Select at least one business unit to consolidate.';
         MaxNumberOfDaysInConsolidationErr: Label 'Maximum number of days in consolidation is %1.', Comment = '%1 - The maximum number of days in consolidation';
         FollowingCompaniesHaveNoAccessErr: Label 'The business units %1 have not been granted access. Select them and use the action "Grant Access" to authenticate into these companies.', Comment = '%1 comma separated names of the business units'' codes';
+        LogRequestsOnlyForTroubleshootingMsg: Label 'A business unit to consolidate has "Log requests" enabled. This is recommended only for troubleshooting purposes and should be disabled to avoid data corruption. Do you want to continue?';
+        ConsolidationJQECodeTok: Label 'CONSOLID', Locked = true;
 
-    internal procedure StartConsolidation(var ConsolidationProcess: Record "Consolidation Process" temporary; var BusinessUnit: Record "Business Unit" temporary)
+    internal procedure ValidateAndRunConsolidation(var ConsolidationProcess: Record "Consolidation Process" temporary; var BusinessUnit: Record "Business Unit" temporary): Boolean
     var
         ConsolidationSetup: Record "Consolidation Setup";
     begin
         ConsolidationSetup.GetOrCreateWithDefaults();
         ValidateConsolidationParameters(ConsolidationProcess, BusinessUnit, false);
-        ScheduleConsolidation(ConsolidationProcess, BusinessUnit);
+        exit(RunConsolidation(ConsolidationProcess, BusinessUnit));
     end;
 
     internal procedure ValidateDatesForConsolidation(StartingDate: Date; EndingDate: Date; AskConfirmation: Boolean)
@@ -51,14 +54,50 @@ codeunit 110 "Consolidate Business Units"
         GeneralLedgerSetup.Get();
         ValidateDatesForConsolidation(ConsolidationProcess."Starting Date", ConsolidationProcess."Ending Date", AskConfirmation);
         ValidateJournalForConsolidation(GeneralLedgerSetup."Journal Templ. Name Mandatory", ConsolidationProcess."Journal Template Name", ConsolidationProcess."Journal Batch Name", ConsolidationProcess."Document No.");
-        ValidateBusinessUnitsToConsolidate(BusinessUnit);
+        ValidateBusinessUnitsToConsolidate(BusinessUnit, AskConfirmation);
         ValidateDatesForBusinessUnits(BusinessUnit, ConsolidationProcess."Starting Date", ConsolidationProcess."Ending Date", AskConfirmation);
     end;
 
-    local procedure ValidateBusinessUnitsToConsolidate(var BusinessUnit: Record "Business Unit" temporary)
+    internal procedure GetLastConsolidationEndingDate(BusinessUnit: Record "Business Unit"): Date
+    var
+        BusUnitInConsProcess: Record "Bus. Unit In Cons. Process";
+    begin
+        BusUnitInConsProcess.SetRange(Status, BusUnitInConsProcess.Status::Finished);
+        BusUnitInConsProcess.SetRange("Business Unit Code", BusinessUnit.Code);
+        BusUnitInConsProcess.SetCurrentKey(SystemCreatedAt);
+        BusUnitInConsProcess.SetAscending(SystemCreatedAt, false);
+        BusUnitInConsProcess.SetAutoCalcFields("Ending Date");
+        if not BusUnitInConsProcess.FindFirst() then
+            exit(0D);
+        exit(BusUnitInConsProcess."Ending Date");
+    end;
+
+    internal procedure BusinessUnitConsolidationProcessesInDateRange(BusinessUnit: Record "Business Unit"; StartingDate: Date; EndingDate: Date): Boolean
+    var
+        BusUnitConsProcess: Record "Bus. Unit In Cons. Process";
+    begin
+        BusUnitConsProcess.SetAutoCalcFields("Starting Date", "Ending Date");
+        BusUnitConsProcess.SetRange("Business Unit Code", BusinessUnit.Code);
+        BusUnitConsProcess.SetRange(Status, BusUnitConsProcess.Status::Finished);
+        BusUnitConsProcess.SetRange("Ending Date", StartingDate, EndingDate);
+        if not BusUnitConsProcess.IsEmpty() then
+            exit(true);
+        BusUnitConsProcess.SetRange("Ending Date");
+        BusUnitConsProcess.SetRange("Starting Date", StartingDate, EndingDate);
+        if not BusUnitConsProcess.IsEmpty() then
+            exit(true);
+        BusUnitConsProcess.SetRange("Starting Date", 0D, StartingDate);
+        BusUnitConsProcess.SetFilter("Ending Date", '>%1', EndingDate);
+        if not BusUnitConsProcess.IsEmpty() then
+            exit(true);
+        exit(false);
+    end;
+
+    internal procedure ValidateBusinessUnitsToConsolidate(var BusinessUnit: Record "Business Unit" temporary; AskConfirmation: Boolean)
     var
         ImportConsolidationFromAPI: Codeunit "Import Consolidation from API";
         CompaniesWithNoAccess: Text;
+        LogRequestsEnabled: Boolean;
     begin
         BusinessUnit.SetRange(Consolidate, true);
         if not BusinessUnit.FindSet() then
@@ -70,16 +109,21 @@ codeunit 110 "Consolidate Business Units"
                         CompaniesWithNoAccess += ', ';
                     CompaniesWithNoAccess += BusinessUnit.Code;
                 end;
+            LogRequestsEnabled := LogRequestsEnabled or BusinessUnit."Log Requests";
         until BusinessUnit.Next() = 0;
         if CompaniesWithNoAccess <> '' then
             Error(FollowingCompaniesHaveNoAccessErr, CompaniesWithNoAccess);
+        if LogRequestsEnabled and AskConfirmation then
+            if not Confirm(LogRequestsOnlyForTroubleshootingMsg) then
+                Error('');
     end;
 
-    local procedure ScheduleConsolidation(var TempConsolidationProcess: Record "Consolidation Process" temporary; var BusinessUnit: Record "Business Unit" temporary)
+    local procedure RunConsolidation(var TempConsolidationProcess: Record "Consolidation Process" temporary; var BusinessUnit: Record "Business Unit" temporary): Boolean
     var
         ConsolidationProcess: Record "Consolidation Process";
         BusUnitInConsProcess: Record "Bus. Unit In Cons. Process";
-        ImportAndConsolidate: Codeunit "Import and Consolidate";
+        JobQueueEntry: Record "Job Queue Entry";
+        Success: Boolean;
     begin
         BusinessUnit.SetRange(Consolidate, true);
         if not BusinessUnit.FindSet() then
@@ -90,9 +134,46 @@ codeunit 110 "Consolidate Business Units"
         repeat
             BusUnitInConsProcess."Consolidation Process Id" := ConsolidationProcess.Id;
             BusUnitInConsProcess."Business Unit Code" := BusinessUnit.Code;
+            BusUnitInConsProcess."Average Exchange Rate" := BusinessUnit."Income Currency Factor";
+            BusUnitInConsProcess."Closing Exchange Rate" := BusinessUnit."Balance Currency Factor";
+            BusUnitInConsProcess."Last Closing Exchange Rate" := BusinessUnit."Last Balance Currency Factor";
+            BusUnitInConsProcess."Currency Exchange Rate Table" := BusinessUnit."Currency Exchange Rate Table";
+            BusUnitInConsProcess."Currency Code" := BusinessUnit."Currency Code";
             BusUnitInConsProcess.Insert();
         until BusinessUnit.Next() = 0;
-        ImportAndConsolidate.ImportAndConsolidate(ConsolidationProcess);
+        JobQueueEntry.ID := CreateGuid();
+        JobQueueEntry."Object Type to Run" := JobQueueEntry."Object Type to Run"::Codeunit;
+        JobQueueEntry."Object ID to Run" := Codeunit::"Import and Consolidate";
+        JobQueueEntry."Maximum No. of Attempts to Run" := 1;
+        JobQueueEntry."Recurring Job" := false;
+        JobQueueEntry."Job Queue Category Code" := ConsolidationJQECodeTok;
+        JobQueueEntry."Record ID to Process" := ConsolidationProcess.RecordId;
+        JobQueueEntry.Status := JobQueueEntry.Status::Ready;
+        JobQueueEntry.Insert();
+        Commit();
+
+        Success := Codeunit.Run(Codeunit::"Job Queue Dispatcher", JobQueueEntry);
+        if not Success then begin
+            ConsolidationProcess.SetRecFilter();
+            ConsolidationProcess.FindFirst();
+            ConsolidationProcess.Error := CopyStr(GetLastErrorText(), 1, MaxStrLen(ConsolidationProcess.Error));
+            ConsolidationProcess.Status := ConsolidationProcess.Status::Failed;
+            ConsolidationProcess.Modify();
+            BusUnitInConsProcess.Reset();
+            BusUnitInConsProcess.SetRange("Consolidation Process Id", ConsolidationProcess.Id);
+            if BusUnitInConsProcess.FindSet() then
+                repeat
+                    if BusUnitInConsProcess.Status = BusUnitInConsProcess.Status::ImportingData then begin
+                        BusUnitInConsProcess.Status := BusUnitInConsProcess.Status::Error;
+                        BusUnitInConsProcess.Modify();
+                    end;
+                until BusUnitInConsProcess.Next() = 0;
+        end;
+        JobQueueEntry.SetRecFilter();
+        if JobQueueEntry.FindFirst() then
+            JobQueueEntry.Delete();
+        Commit();
+        exit(Success);
     end;
 
     local procedure ValidateDatesForBusinessUnits(var BusinessUnit: Record "Business Unit" temporary; StartingDate: Date; EndingDate: Date; AskConfirmation: Boolean)

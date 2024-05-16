@@ -12,12 +12,15 @@ codeunit 139624 "E-Doc E2E Test"
         LibraryEDoc: Codeunit "Library - E-Document";
         LibraryWorkflow: codeunit "Library - Workflow";
         LibraryJobQueue: Codeunit "Library - Job Queue";
+        LibraryPurchase: Codeunit "Library - Purchase";
         EDocImplState: Codeunit "E-Doc. Impl. State";
         IsInitialized: Boolean;
         IncorrectValueErr: Label 'Incorrect value found';
         DocumentSendingProfileWithWorkflowErr: Label 'Workflow %1 defined for %2 in Document Sending Profile %3 is not found.', Comment = '%1 - The workflow code, %2 - Enum value set in Electronic Document, %3 - Document Sending Profile Code';
         EDocEmptyErr: Label 'The E-Document table is empty.';
         FailedToGetBlobErr: Label 'Failed to get exported blob from EDocument %1', Comment = '%1 - E-Document No.';
+        SendingErrStateErr: Label 'E-document is Pending response and can not be sent in this state.';
+        DeleteNotAllowedErr: Label 'Deletion of Purchase Header linked to E-Document is not allowed.';
 
     [Test]
     procedure CreateEDocumentBeforeAfterEventsSuccessful()
@@ -825,7 +828,7 @@ codeunit 139624 "E-Doc E2E Test"
         JobQueueEntry: Record "Job Queue Entry";
     begin
         // [FEATURE] [E-Document] [Processing] 
-        // [SCENARIO] Runtime failure in Send when send is async and check that Get Response does nothing
+        // [SCENARIO] Runtime failure in Send when send is async and check that Get Response is not invoked
 
         // [GIVEN] That we throw runtime error inside code that implements interface
         Initialize();
@@ -848,18 +851,8 @@ codeunit 139624 "E-Doc E2E Test"
         Assert.AreEqual(EDocumentServiceStatus.Status::"Sending Error", EDocumentServiceStatus.Status, IncorrectValueErr);
         Assert.AreEqual(EDocument.Status::Error, EDocument.Status, IncorrectValueErr);
 
-        // [WHEN] Get Response job queue is run
-        Assert.IsTrue(JobQueueEntry.FindJobQueueEntry(JobQueueEntry."Object Type to Run"::Codeunit, Codeunit::"E-Document Get Response"), IncorrectValueErr);
-        LibraryJobQueue.RunJobQueueDispatcher(JobQueueEntry);
-
-        // [THEN] Logs will not change as we exit early as document is not "pending response"
-        EDocumentServiceStatus.FindLast();
-        EDocumentService.FindLast();
-        EDocument.Get(EDocument."Entry No"); // Get after job queue run
-        Assert.AreEqual(EDocument."Entry No", EDocumentServiceStatus."E-Document Entry No", IncorrectValueErr);
-        Assert.AreEqual(EDocumentService.Code, EDocumentServiceStatus."E-Document Service Code", IncorrectValueErr);
-        Assert.AreEqual(EDocumentServiceStatus.Status::"Sending Error", EDocumentServiceStatus.Status, IncorrectValueErr);
-        Assert.AreEqual(EDocument.Status::Error, EDocument.Status, IncorrectValueErr);
+        // [WHEN] Get Response job queue is not run
+        Assert.IsFalse(JobQueueEntry.FindJobQueueEntry(JobQueueEntry."Object Type to Run"::Codeunit, Codeunit::"E-Document Get Response"), IncorrectValueErr);
 
         UnbindSubscription(EDocImplState);
     end;
@@ -873,7 +866,7 @@ codeunit 139624 "E-Doc E2E Test"
         JobQueueEntry: Record "Job Queue Entry";
     begin
         // [FEATURE] [E-Document] [Processing] 
-        // [SCENARIO] Logged error in Send when send is async and check that Get Response does nothing
+        // [SCENARIO] Logged error in Send when send is async and check that Get Response is not invoked
 
         // [GIVEN] That we log error inside code that implements interface
         Initialize();
@@ -890,12 +883,8 @@ codeunit 139624 "E-Doc E2E Test"
         // [THEN] Verify that document is in error state
         VerifyStatusOnDocumentAndService(EDocument, Enum::"E-Document Status"::"Error", EDocumentService, EDocumentServiceStatus, Enum::"E-Document Service Status"::"Sending Error");
 
-        // [WHEN] Get Response job queue is run
-        Assert.IsTrue(JobQueueEntry.FindJobQueueEntry(JobQueueEntry."Object Type to Run"::Codeunit, Codeunit::"E-Document Get Response"), IncorrectValueErr);
-        LibraryJobQueue.RunJobQueueDispatcher(JobQueueEntry);
-
-        // [THEN] Logs will not change as we exit early as document is not "pending response"
-        VerifyStatusOnDocumentAndService(EDocument, Enum::"E-Document Status"::"Error", EDocumentService, EDocumentServiceStatus, Enum::"E-Document Service Status"::"Sending Error");
+        // [WHEN] Get Response job queue is not run
+        Assert.IsFalse(JobQueueEntry.FindJobQueueEntry(JobQueueEntry."Object Type to Run"::Codeunit, Codeunit::"E-Document Get Response"), IncorrectValueErr);
 
         UnbindSubscription(EDocImplState);
     end;
@@ -1315,7 +1304,6 @@ codeunit 139624 "E-Doc E2E Test"
         EDocument: Record "E-Document";
         EDocumentService: Record "E-Document Service";
         EDocumentServiceStatus: Record "E-Document Service Status";
-        //JobQueueEntry: Record "Job Queue Entry";
         EDocumentPage: TestPage "E-Document";
     begin
         // [FEATURE] [E-Document] [Processing] 
@@ -1341,7 +1329,7 @@ codeunit 139624 "E-Doc E2E Test"
         EDocumentPage.OpenView();
         EDocumentPage.GoToRecord(EDocument);
         asserterror EDocumentPage.Send.Invoke();
-        Assert.ExpectedError('E-document is Pending Response and can not be sent in this state.');
+        Assert.ExpectedError(SendingErrStateErr);
 
         UnbindSubscription(EDocImplState);
     end;
@@ -1371,6 +1359,34 @@ codeunit 139624 "E-Doc E2E Test"
         // [THEN] No e-Document is created
         asserterror LibraryEDoc.CreateEDocumentFromSales(EDocument);
         Assert.AreEqual(EDocEmptyErr, GetLastErrorText(), IncorrectValueErr);
+    end;
+
+    [Test]
+    procedure DeleteLinkedPurchaseHeaderNoAllowedSuccess()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        NullGuid: Guid;
+    begin
+        // [FEATURE] [E-Document] [Processing] 
+        // [SCENARIO] 
+        Initialize();
+
+        // [GIVEN] PO with link
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, LibraryPurchase.CreateVendorNo());
+        PurchaseHeader."E-Document Link" := CreateGuid();
+        PurchaseHeader.Modify();
+        Commit();
+
+        // [THEN] Fails to delete
+        asserterror PurchaseHeader.Delete(true);
+        Assert.ExpectedError(DeleteNotAllowedErr);
+
+        // [GIVEN] Reset link 
+        PurchaseHeader."E-Document Link" := NullGuid;
+        PurchaseHeader.Modify();
+
+        // [THEN] Delete ok
+        PurchaseHeader.Delete();
     end;
 
     [ModalPageHandler]

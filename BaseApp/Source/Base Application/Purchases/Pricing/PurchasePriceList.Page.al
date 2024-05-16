@@ -1,6 +1,6 @@
 namespace Microsoft.Purchases.Pricing;
 
-#if not CLEAN21
+#if not CLEAN23
 using Microsoft.Pricing.Calculation;
 #endif
 using Microsoft.Pricing.PriceList;
@@ -230,6 +230,7 @@ page 7018 "Purchase Price List"
                             trigger OnValidate()
                             begin
                                 CurrPage.Lines.Page.SetHeader(Rec);
+                                CurrPage.Update(true);
                             end;
                         }
                         field(AllowInvoiceDisc; Rec."Allow Invoice Disc.")
@@ -361,7 +362,7 @@ page 7018 "Purchase Price List"
         }
     }
 
-#if not CLEAN21
+#if not CLEAN23
     trigger OnInit()
     var
         FeaturePriceCalculation: Codeunit "Feature - Price Calculation";

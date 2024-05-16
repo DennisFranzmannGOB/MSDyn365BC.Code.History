@@ -21,6 +21,7 @@ table 5870 "BOM Buffer"
     DataCaptionFields = "No.", Description;
     Permissions =;
     ReplicateData = false;
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -871,6 +872,20 @@ table 5870 "BOM Buffer"
         OnAfterGetItemCosts(Rec, Item);
     end;
 
+    procedure GetItemUnitCost()
+    var
+        Item: Record Item;
+    begin
+        TestField(Type, Type::Item);
+        Item.Get("No.");
+
+        "Unit Cost" := Item."Unit Cost";
+        "Single-Level Material Cost" :=
+          RoundUnitAmt(Item."Unit Cost", UOMMgt.GetQtyPerUnitOfMeasure(Item, "Unit of Measure Code") * "Qty. per Top Item");
+        "Rolled-up Material Cost" :=
+          RoundUnitAmt(Item."Unit Cost", UOMMgt.GetQtyPerUnitOfMeasure(Item, "Unit of Measure Code") * "Qty. per Top Item");
+    end;
+
     procedure GetResCosts()
     var
         Res: Record Resource;
@@ -1116,7 +1131,7 @@ table 5870 "BOM Buffer"
     begin
         IsHandled := false;
         OnBeforeIsQtyPerOk(Rec, BOMWarningLog, LogWarning, Result, IsHandled);
-        If IsHandled then
+        if IsHandled then
             exit(Result);
 
         if "Qty. per Parent" <> 0 then
@@ -1184,7 +1199,7 @@ table 5870 "BOM Buffer"
     begin
         IsHandled := false;
         OnBeforeIsReplenishmentOk(Rec, BOMWarningLog, LogWarning, Result, IsHandled);
-        If IsHandled then
+        if IsHandled then
             exit(Result);
 
         if Type <> Type::Item then

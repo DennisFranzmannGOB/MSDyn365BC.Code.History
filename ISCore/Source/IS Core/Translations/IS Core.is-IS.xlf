@@ -3,107 +3,91 @@
   <file datatype="xml" source-language="en-US" target-language="is-IS" original="IS Core">
     <body>
       <group id="body">
-        <trans-unit id="Codeunit 144130867 - NamedType 1486116185" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reminder to read legal restrictions on form and print/send statement</source>
-          <target state="translated">Ábending um að lesa um lagalegar takmarkanir á eyðublaði og prenta/senda uppgjör.</target>
+        <trans-unit id="EnumExtension 1174245375 - EnumValue 675681164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IS Docs Retention Period</source>
+          <target state="translated">IS Varðveislutímabil skjala</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IS Core - NamedType ReminderMsg</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 2404582090</note>
         </trans-unit>
-        <trans-unit id="Enum 108607468 - EnumValue 1338529068 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>November-December</source>
-          <target state="translated">Nóvember—desember</target>
+        <trans-unit id="PageExtension 2587203839 - Control 4167005385 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Internal Revenue Service (IRS) tax numbers for the account.</source>
+          <target state="translated">Tilgreinir skattanúmer skattstofunnar fyrir reikninginn.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue November-December - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 3105459369</note>
         </trans-unit>
-        <trans-unit id="Enum 108607468 - EnumValue 2495734018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>July-August</source>
-          <target state="translated">Júlí—ágúst</target>
+        <trans-unit id="Table 2249724314 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Groups</source>
+          <target state="translated">Skattstofuflokkar</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue July-August - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Groups - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 108607468 - EnumValue 2962429565 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>January-February</source>
-          <target state="translated">Janúar—febrúar</target>
+        <trans-unit id="Table 2249724314 - Field 3454070650 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Class</source>
+          <target state="translated">Flokkur</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue January-February - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Groups - Field Class - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 108607468 - EnumValue 3033350290 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>March-April</source>
-          <target state="translated">Mars—apríl</target>
+        <trans-unit id="Table 2249724314 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Nr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue March-April - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Groups - Field No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 108607468 - EnumValue 3431463797 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Custom</source>
-          <target state="translated">Sérsnið</target>
+        <trans-unit id="Table 1552904438 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Numbers</source>
+          <target state="translated">Skattstofunúmer</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue Custom - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 108607468 - EnumValue 3618202708 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>September-October</source>
-          <target state="translated">September—október</target>
+        <trans-unit id="Table 1552904438 - Field 2105032629 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Number</source>
+          <target state="translated">Skattstofunúmer</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue September-October - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Field IRS Number - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 108607468 - EnumValue 3904003448 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>May-June</source>
-          <target state="translated">Maí—júní</target>
+        <trans-unit id="Table 1552904438 - Field 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Heiti</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue May-June - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Field Name - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3757821429 - EnumValue 1778072510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Closed</source>
-          <target state="translated">Lokað</target>
+        <trans-unit id="Table 1552904438 - Field 989078300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reverse Prefix</source>
+          <target state="translated">Víxla formerki</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Entries Filter - EnumValue Closed - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Field Reverse Prefix - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3757821429 - EnumValue 3703598467 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>All</source>
-          <target state="translated">Allt</target>
+        <trans-unit id="Table 1552904438 - Field 2534656220 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Identifier</source>
+          <target state="translated">Kennimerki VSK</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Entries Filter - EnumValue All - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Field VAT Identifier - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3757821429 - EnumValue 4259830144 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Open</source>
-          <target state="translated">Opið</target>
+        <trans-unit id="Table 2267337867 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Types</source>
+          <target state="translated">Skattstofutegundir</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Entries Filter - EnumValue Open - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Types - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3661913264 - Action 2438272767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Back</source>
-          <target state="translated">Til baka</target>
+        <trans-unit id="Table 2267337867 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">Nr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Action ActionBack - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Types - Field No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3661913264 - Action 3259912055 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Finish</source>
-          <target state="translated">Ljúka</target>
+        <trans-unit id="Table 2267337867 - Field 1878130204 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <target state="translated">Gerð</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Action ActionFinish - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Types - Field Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3661913264 - Action 914282563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Next</source>
-          <target state="translated">Áfram</target>
+        <trans-unit id="Page 2249724314 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Group</source>
+          <target state="translated">Skattstofuflokkur</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Action ActionNext - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1552904438 - Control 2105032629 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies an Internal Revenue Service (IRS) tax number as defined by the Icelandic tax authorities.</source>
-          <target state="translated">Tilgreinir skattanúmer skattstofu, tilgreint af íslenskum skattyfirvöldum.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Numbers - Control IRS Number - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1552904438 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a name for the Internal Revenue Service (IRS) tax number.</source>
-          <target state="translated">Tilgreinir heiti fyrir skattanúmer skattstofu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Numbers - Control Name - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1552904438 - Control 989078300 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the balance of the general ledger accounts with this IRS tax number must reverse the negative operator in IRS reports.</source>
-          <target state="translated">Tilgreinir hvort staða fjárhagsreikninga með þessu skattanúmeri skattstofunnar eigi að víxla neikvæða virkjanum í skattaskýrslum.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Numbers - Control Reverse Prefix - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Groups - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2249724314 - Control 3454070650 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a class of Internal Revenue Service (IRS) tax numbers.</source>
@@ -123,105 +107,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Groups - Control No. - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 2267337867 - Control 1878130204 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a type of Internal Revenue Service (IRS) tax numbers.</source>
-          <target state="translated">Tilgreinir tegund skattanúmera skattstofu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Types - Control Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2267337867 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number for this type of Internal Revenue Service (IRS) tax numbers.</source>
-          <target state="translated">Tilgreinir númerið fyrir þessa tegund skattanúmera skattstofu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Types - Control No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 1121962313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control StandardBanner - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 2464092280 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>After you enable this feature for all users, you cannot turn it off again. This is because the feature may include changes to your data and may initiate an upgrade of some database tables as soon as you enable it. We strongly recommend that you first enable and test this feature on a sandbox environment that has a copy of production data before doing this on a production environment. For detailed information about the impact of enabling this feature, you should choose No and use the Learn more link. Are you sure you want to enable this feature?</source>
-          <target state="translated">Þegar búið er að gera þennan eiginleika virkan fyrir alla notendur er ekki hægt að slökkva á honum aftur. Þetta er vegna þess að aðgerðin kann að fela í sér breytingar á gögnunum og ef til vill hefja uppfærslu á sumum gagnagrunnstöflum um leið og hún er gerð virk. Eindregið er mælt með því að þessi eiginleiki sé fyrst virkjaður og prófaður í sandkassaumhverfi með afriti af framleiðslugögnum áður en þetta er gert í framleiðsluumhverfi. Til að fá ítarlegar upplýsingar um áhrif þessa eiginleika skal velja „Nei“ og nota tengilinn fyrir frekari upplýsingar. Á örugglega að gera þennan eiginleika virkan?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Welcome to Iceland Core App Setup - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 2464092280 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Welcome to the Iceland-Core App Setup</source>
-          <target state="translated">Velkomin í uppsetningu Iceland-Core-forritsins</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Welcome to Iceland Core App Setup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 2758287844 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the user does understand the update procedure and agree to proceed.</source>
-          <target state="translated">Tilgreinir hvort notandinn skilji uppfærsluferlið og samþykki að halda áfram.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Agreed - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 2758287844 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>I accept the data update</source>
-          <target state="translated">Ég samþykki gagnauppfærsluna</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Agreed - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 300852202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control FinishedBanner - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Review affected data.</source>
-          <target state="translated">Fara yfir viðkomandi gögn.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 3647570164 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Choose Next to see which data will be updated.</source>
-          <target state="translated">Veljið „Áfram“ til að sjá hvaða gögn verða uppfærð.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Let's go! - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 3647570164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Let's go!</source>
-          <target state="translated">Hefjumst handa!</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Let's go! - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - Control 376187383 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>What is updated</source>
-          <target state="translated">Hvað er uppfært</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control WhatIsUpdated - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - NamedType 1154975446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Records from several Base Application tables will be copied to the new Iceland-Core App tables. Please review affected data as the data update can take longer in case of large amount of records. </source>
-          <target state="translated">Færslur úr nokkrum grunnforritstöflum verða afritaðar í nýju Iceland-Core forritatöflurnar. Farið yfir viðkomandi gögn þar sem gagnauppfærslan getur tekið lengri tíma ef færslurnar eru mjög margar. </target>
-          <note from="Developer" annotates="general" priority="2">%1, %2, %3, %4 - table captions</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - NamedType ReviewDataTok</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - NamedType 1483910758" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Review Affected Data</source>
-          <target state="translated">Fara yfir viðkomandi gögn</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - NamedType ReviewDataLinkTok</note>
-        </trans-unit>
-        <trans-unit id="Page 3661913264 - NamedType 984350027" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The setup is not complete.\\Are you sure you want to exit?</source>
-          <target state="translated">Uppsetningu er ekki lokið.\\Viltu örugglega hætta?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - NamedType SetupNotCompletedQst</note>
-        </trans-unit>
         <trans-unit id="Page 1552904438 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>IRS Number</source>
           <target state="translated">Skattstofunúmer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Numbers - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2249724314 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Group</source>
-          <target state="translated">Skattstofuflokkur</target>
+        <trans-unit id="Page 1552904438 - Control 2105032629 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies an Internal Revenue Service (IRS) tax number as defined by the Icelandic tax authorities.</source>
+          <target state="translated">Tilgreinir skattanúmer skattstofu, tilgreint af íslenskum skattyfirvöldum.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Groups - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Numbers - Control IRS Number - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1552904438 - Control 2961552353 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a name for the Internal Revenue Service (IRS) tax number.</source>
+          <target state="translated">Tilgreinir heiti fyrir skattanúmer skattstofu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Numbers - Control Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1552904438 - Control 989078300 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the balance of the general ledger accounts with this IRS tax number must reverse the negative operator in IRS reports.</source>
+          <target state="translated">Tilgreinir hvort staða fjárhagsreikninga með þessu skattanúmeri skattstofunnar eigi að víxla neikvæða virkjanum í skattaskýrslum.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Numbers - Control Reverse Prefix - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2267337867 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>IRS Type</source>
@@ -229,81 +137,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Types - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3661913264 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Iceland - Core App Setup</source>
-          <target state="translated">Ísland - Uppsetning Core App</target>
+        <trans-unit id="Page 2267337867 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number for this type of Internal Revenue Service (IRS) tax numbers.</source>
+          <target state="translated">Tilgreinir númerið fyrir þessa tegund skattanúmera skattstofu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Types - Control No. - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1996550869 - Action 1842981056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get an overview of VAT for sales and purchases and payments due for a specified period.</source>
-          <target state="translated">Fá yfirlit yfir VSK fyrir sölu og innkaup og greiðslur á gjalddaga fyrir tiltekið tímabil.</target>
+        <trans-unit id="Page 2267337867 - Control 1878130204 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a type of Internal Revenue Service (IRS) tax numbers.</source>
+          <target state="translated">Tilgreinir tegund skattanúmera skattstofu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1996550869 - Action 1842981056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Balancing Report</source>
-          <target state="translated">VSK-mótreikningsskýrsla</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1996550869 - Action 3507405277 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View a VAT reconciliation report for sales and purchases for a specified period. The report lists entries by general ledger account and posting group.</source>
-          <target state="translated">Skoða VSK-afstemmingarskýrslu fyrir sölu og innkaup á tilteknu tímabili. Skýrslan birtir færslur eftir fjárhagsreikningi og bókunarflokki.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1996550869 - Action 3507405277 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Balancing A</source>
-          <target state="translated">VSK-mótreikningur A</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2308202596 - Action 1842981056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get an overview of VAT for sales and purchases and payments due for a specified period.</source>
-          <target state="translated">Fá yfirlit yfir VSK fyrir sölu og innkaup og greiðslur á gjalddaga fyrir tiltekið tímabil.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2852614862</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2308202596 - Action 1842981056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Balancing Report</source>
-          <target state="translated">VSK-mótreikningsskýrsla</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2852614862</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2308202596 - Action 3507405277 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View a VAT reconciliation report for sales and purchases for a specified period. The report lists entries by general ledger account and posting group.</source>
-          <target state="translated">Skoða VSK-afstemmingarskýrslu fyrir sölu og innkaup á tilteknu tímabili. Skýrslan birtir færslur eftir fjárhagsreikningi og bókunarflokki.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2852614862</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2308202596 - Action 3507405277 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Balancing A</source>
-          <target state="translated">VSK-mótreikningur A</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2852614862</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3384980555 - Action 1842981056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get an overview of VAT for sales and purchases and payments due for a specified period.</source>
-          <target state="translated">Fá yfirlit yfir VSK fyrir sölu og innkaup og greiðslur á gjalddaga fyrir tiltekið tímabil.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3384980555 - Action 1842981056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Balancing Report</source>
-          <target state="translated">VSK-mótreikningsskýrsla</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS IRS Types - Control Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 3384980555 - Action 3507405277 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>View a VAT reconciliation report for sales and purchases for a specified period. The report lists entries by general ledger account and posting group.</source>
@@ -319,6 +163,48 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3384980555 - Action 1842981056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get an overview of VAT for sales and purchases and payments due for a specified period.</source>
+          <target state="translated">Fá yfirlit yfir VSK fyrir sölu og innkaup og greiðslur á gjalddaga fyrir tiltekið tímabil.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3384980555 - Action 1842981056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Balancing Report</source>
+          <target state="translated">VSK-mótreikningsskýrsla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2521211343</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2308202596 - Action 3507405277 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View a VAT reconciliation report for sales and purchases for a specified period. The report lists entries by general ledger account and posting group.</source>
+          <target state="translated">Skoða VSK-afstemmingarskýrslu fyrir sölu og innkaup á tilteknu tímabili. Skýrslan birtir færslur eftir fjárhagsreikningi og bókunarflokki.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2852614862</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2308202596 - Action 3507405277 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Balancing A</source>
+          <target state="translated">VSK-mótreikningur A</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2852614862</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2308202596 - Action 1842981056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get an overview of VAT for sales and purchases and payments due for a specified period.</source>
+          <target state="translated">Fá yfirlit yfir VSK fyrir sölu og innkaup og greiðslur á gjalddaga fyrir tiltekið tímabil.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2852614862</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2308202596 - Action 1842981056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Balancing Report</source>
+          <target state="translated">VSK-mótreikningsskýrsla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2852614862</note>
+        </trans-unit>
         <trans-unit id="PageExtension 723955612 - Action 2168282849 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Reconciliation A</source>
           <target state="translated">VSK-afstemming A</target>
@@ -326,9 +212,9 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
         </trans-unit>
-        <trans-unit id="PageExtension 723955612 - Action 2494006031 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Group</source>
-          <target state="translated">Skattstofuflokkur</target>
+        <trans-unit id="PageExtension 723955612 - Action 2688852508 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Balancing Report</source>
+          <target state="translated">VSK-mótreikningsskýrsla</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
@@ -340,9 +226,16 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
         </trans-unit>
-        <trans-unit id="PageExtension 723955612 - Action 2688852508 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Balancing Report</source>
-          <target state="translated">VSK-mótreikningsskýrsla</target>
+        <trans-unit id="PageExtension 723955612 - Action 814957441 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance - IRS Number</source>
+          <target state="translated">Prófjöfnuður - Skattstofunúmer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 723955612 - Action 2494006031 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Group</source>
+          <target state="translated">Skattstofuflokkur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
@@ -361,78 +254,119 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
         </trans-unit>
-        <trans-unit id="PageExtension 723955612 - Action 814957441 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Trial Balance - IRS Number</source>
-          <target state="translated">Prófjöfnuður - Skattstofunúmer</target>
+        <trans-unit id="Report 1842981056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Balancing Report</source>
+          <target state="translated">VSK-mótreikningsskýrsla</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4105562392</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2184851986 - Control 27105229 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if depreciation and appreciation are possible. The default value is No.</source>
-          <target state="translated">Tilgreinir hvort afskrift og uppfærslur séu mögulegar. Sjálfgefið gildi er Nei.</target>
+        <trans-unit id="Report 1842981056 - NamedType 1933578523" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Base</source>
+          <target state="translated">Grunnur</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1855807544</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType BaseCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2184851986 - Control 3545779019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the percentage of the appreciated acquisition price to use when revaluing fixed assets.</source>
-          <target state="translated">Tilgreinir hlutfallið af uppfærðu kaupverðinu sem er notað við endurmat eigna.</target>
+        <trans-unit id="Report 1842981056 - NamedType 2632050446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Due</source>
+          <target state="translated">Greiðsla gjaldfellur</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 1855807544</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType PaymentDueCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2587203839 - Control 4167005385 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Internal Revenue Service (IRS) tax numbers for the account.</source>
-          <target state="translated">Tilgreinir skattanúmer skattstofunnar fyrir reikninginn.</target>
+        <trans-unit id="Report 1842981056 - NamedType 277850506" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period must be Custom.</source>
+          <target state="translated">Tímabil þarf að vera sérstillt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3105459369</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType PeriodMustBeCustomTxt</note>
         </trans-unit>
-        <trans-unit id="PageExtension 717333008 - Control 2992892244 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the company complies with the requirement of tracking invoicing electronically, when printing invoices in single copy.</source>
-          <target state="translated">Tilgreinir hvort fyrirtækið uppfyllir kröfur um rafræna rakningu reikninga þegar reikningar eru prentaðir í einriti.</target>
+        <trans-unit id="Report 1842981056 - NamedType 1108483361" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase</source>
+          <target state="translated">Innkaup</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4145206282</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType PurchaseCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3235415970 - NamedType 3455016050" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot delete purchase documents that are posted</source>
-          <target state="translated">Ekki er hægt að eyða bókuðum innkaupaskjölum</target>
+        <trans-unit id="Report 1842981056 - NamedType 1537695216" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase VAT</source>
+          <target state="translated">VSK á innkaup</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 3235415970</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType PurchaseVATCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="PageExtension 416134891 - NamedType 3455016050" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You cannot delete purchase documents that are posted</source>
-          <target state="translated">Ekki er hægt að eyða bókuðum innkaupaskjölum</target>
+        <trans-unit id="Report 1842981056 - NamedType 2336556456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales</source>
+          <target state="translated">Sala</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 416134891</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType SalesCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="PermissionSet 1428436164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IS Core - Edit</source>
-          <target state="translated">IS Core - Breyta</target>
+        <trans-unit id="Report 1842981056 - NamedType 4110501297" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales VAT</source>
+          <target state="translated">VSK sölu</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet IS Core - Edit - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType SalesVATCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="PermissionSet 3649441842 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IS Core - Objects</source>
-          <target state="translated">IS Core - hlutir</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet IS Core - Read - Property Caption</note>
+        <trans-unit id="Report 1842981056 - NamedType 2249057470" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Turnover for %1% VAT rate</source>
+          <target state="translated">Veltuhraði fyrir %1% VSK-hlutfall</target>
+          <note from="Developer" annotates="general" priority="2">%1 = VAT Rate</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType TurnoverVATRateTxt</note>
         </trans-unit>
-        <trans-unit id="Report 1842981056 - Control 1522029997 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if you want to include only open VAT ledger entries.</source>
-          <target state="translated">Tilgreinir hvort að taka eigi aðeins opnar VSK-höfuðbókarfærslur með.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control ISVATEntriesFilter - Property ToolTip</note>
+        <trans-unit id="Report 1842981056 - NamedType 1570445773" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attention! Variance in VAT payable. Calculated VAT payable. %1%. Variance %2 kr.</source>
+          <target state="translated">Til athugunar! Frávik í gjaldföllnum VSK. Reiknaður gjaldfallinn VSK. %1%. Frávik %2 kr.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = VAT Percentage, %2 - VAT variance amount</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VarianceinVATpayableTxt</note>
         </trans-unit>
-        <trans-unit id="Report 1842981056 - Control 1522029997 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Open/Closed</source>
-          <target state="translated">Opið/lokað</target>
+        <trans-unit id="Report 1842981056 - NamedType 3012985183" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attention! Variance in VAT receivable. Calculated VAT receivable. %1%. Variance %2 kr.</source>
+          <target state="translated">Til athugunar! Frávik í útistandandi VSK. Reiknaður útistandandi VSK. %1%. Frávik %2 kr.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = VAT Percentage, %2 - VAT variance amount</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VarianceinVATreceivableTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - NamedType 2728063152" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Bus. Posting Group</source>
+          <target state="translated">VSK viðskbókunarflokkur</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control ISVATEntriesFilter - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATBusPostingGroupCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - NamedType 2678680001" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT %</source>
+          <target state="translated">VSK%</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - NamedType 117160019" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Prod. Posting Group</source>
+          <target state="translated">VSK-vörubókunarflokkur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATProdPostingGroupCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - NamedType 4145137074" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Reconciliation  / Report</source>
+          <target state="translated">VAT-afstemming  / Skýrsla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATReconciliationReportCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - NamedType 1408516427" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Report</source>
+          <target state="translated">VSK-skýrsla</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATReportCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Valkostir</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - Control 30259774 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the start of the VAT report period.</source>
+          <target state="translated">Tilgreinir upphaf tímabils VSK-skýrslu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control DateFrom - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - Control 30259774 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>From</source>
+          <target state="translated">Frá</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control DateFrom - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1842981056 - Control 1537575777 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the end of the VAT report period.</source>
@@ -446,35 +380,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control DateTo - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 1842981056 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Options</source>
-          <target state="translated">Valkostir</target>
+        <trans-unit id="Report 1842981056 - Control 1522029997 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to include only open VAT ledger entries.</source>
+          <target state="translated">Tilgreinir hvort að taka eigi aðeins opnar VSK-höfuðbókarfærslur með.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control Options - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control ISVATEntriesFilter - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Report 1842981056 - Control 2832340769 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the VAT reporting year.</source>
-          <target state="translated">Tilgreinir skýrslugerðarár VSK-skýrslu.</target>
+        <trans-unit id="Report 1842981056 - Control 1522029997 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open/Closed</source>
+          <target state="translated">Opið/lokað</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control Year - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - Control 2832340769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Year</source>
-          <target state="translated">Ár</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control Year - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - Control 30259774 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the start of the VAT report period.</source>
-          <target state="translated">Tilgreinir upphaf tímabils VSK-skýrslu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control DateFrom - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - Control 30259774 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>From</source>
-          <target state="translated">Frá</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control DateFrom - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control ISVATEntriesFilter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1842981056 - Control 912261439 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT report period. Select a two month period, or choose Custom to specify a different period in the From and to fields.</source>
@@ -493,6 +409,108 @@
           <target state="translated">Sérstillt,Janúar-febrúar,Mars-apríl,Maí-júní,Júlí-ágúst,September-október,Nóvember-desember</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control Period - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - Control 2832340769 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT reporting year.</source>
+          <target state="translated">Tilgreinir skýrslugerðarár VSK-skýrslu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control Year - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1842981056 - Control 2832340769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Year</source>
+          <target state="translated">Ár</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Control Year - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Reconciliation A</source>
+          <target state="translated">VSK-afstemming A</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 1933578523" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Base</source>
+          <target state="translated">Grunnur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType BaseCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 4232438152" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carried over from previous page</source>
+          <target state="translated">Flutt frá fyrri bls.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType CarriedOverFromPreviousPageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 4051527209" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carried over to next page</source>
+          <target state="translated">Flutt yfir á næstu bls.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType CarriedOverToNextPageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 267478349" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period must be Custom.</source>
+          <target state="translated">Tímabil þarf að vera sérstillt.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType PeriodMustBeCustomErr</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 2224893564" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase</source>
+          <target state="translated">Innkaup</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType PurchCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 2485895653" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase VAT</source>
+          <target state="translated">VSK á innkaup</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType PurchVATCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 2336556456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales</source>
+          <target state="translated">Sala</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType SalesCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 4110501297" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales VAT</source>
+          <target state="translated">VSK sölu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType SalesVATCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 3821194466" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Bus. Posting Group</source>
+          <target state="translated">VSK viðskbókunarflokkur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VATBusPostingGrpCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 2678680001" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT %</source>
+          <target state="translated">VSK%</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VATCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 269966584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attention! Variance in VAT payable. Calculated VAT payable. %1 %. Variance %2 kr.</source>
+          <target state="translated">Til athugunar! Frávik í gjaldföllnum VSK. Reiknaður gjaldfallinn VSK. %1%. Frávik %2 kr.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = VAT percentage, %2 = VAT variance amount;</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VatPayableVarTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 2958880149" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Prod. Posting Group</source>
+          <target state="translated">VSK-vörubókunarflokkur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VATProdPostingGrpCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 2334004022" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attention! Variance in VAT receivable. Calculated VAT receivable. %1 %. Variance %2 kr.</source>
+          <target state="translated">Til athugunar! Frávik í gjaldföllnum VSK. Reiknaður gjaldfallinn VSK. %1%. Frávik %2 kr.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = VAT percentage, %2 = VAT variance amount;</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VatReceivableVarTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 2168282849 - NamedType 765115643" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VATReconciliation A</source>
+          <target state="translated">VSK-afstemming A</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VATReconciliationACaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2168282849 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
@@ -524,18 +542,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Control DTil - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 2168282849 - Control 2832340769 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the VAT reporting year.</source>
-          <target state="translated">Tilgreinir skýrslugerðarár VSK-skýrslu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Control Year - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - Control 2832340769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Year</source>
-          <target state="translated">Ár</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Control Year - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Report 2168282849 - Control 912261439 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT report period. Select a two month period, or choose Custom to specify a different period in the From and to fields.</source>
           <target state="translated">Tilgreinir tímabil VSK-skýrslu. Hægt er að velja tveggja mánaða tímabil eða velja Sérstillt til að tilgreina annað tímabil í reitunum Frá og til.</target>
@@ -548,23 +554,225 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Control Period - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 1123347329 - NamedType 1623326197" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>intents to utilize the possibility to issue single copy invoices in accordance with IS regulation no. 598/1999</source>
-          <target state="translated">hyggist nota möguleikann á að gefa út reikninga í einriti samkv. IS reglugerð nr. 598/1999</target>
+        <trans-unit id="Report 2168282849 - Control 2832340769 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT reporting year.</source>
+          <target state="translated">Tilgreinir skýrslugerðarár VSK-skýrslu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType InvInAccordanceCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Control Year - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Report 1123347329 - NamedType 2298117201" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Manager</source>
-          <target state="translated">Stjórnandi</target>
+        <trans-unit id="Report 2168282849 - Control 2832340769 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Year</source>
+          <target state="translated">Ár</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType ManagerCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Control Year - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 1123347329 - NamedType 2389164227" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Issue of single copy invoices</source>
-          <target state="translated">Útgáfa reikninga í einriti</target>
+        <trans-unit id="Enum 3757821429 - EnumValue 3703598467 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All</source>
+          <target state="translated">Allt</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType IssueOfSingleCopyInvoicesCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Entries Filter - EnumValue All - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3757821429 - EnumValue 1778072510 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closed</source>
+          <target state="translated">Lokað</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Entries Filter - EnumValue Closed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3757821429 - EnumValue 4259830144 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="translated">Opið</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Entries Filter - EnumValue Open - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 108607468 - EnumValue 3431463797 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Custom</source>
+          <target state="translated">Sérsnið</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue Custom - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 108607468 - EnumValue 2962429565 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>January-February</source>
+          <target state="translated">Janúar—febrúar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue January-February - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 108607468 - EnumValue 2495734018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>July-August</source>
+          <target state="translated">Júlí—ágúst</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue July-August - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 108607468 - EnumValue 3033350290 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>March-April</source>
+          <target state="translated">Mars—apríl</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue March-April - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 108607468 - EnumValue 3904003448 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>May-June</source>
+          <target state="translated">Maí—júní</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue May-June - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 108607468 - EnumValue 1338529068 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>November-December</source>
+          <target state="translated">Nóvember—desember</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue November-December - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 108607468 - EnumValue 3618202708 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>September-October</source>
+          <target state="translated">September—október</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum IS VAT Rec. Report Period - EnumValue September-October - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 144130867 - NamedType 1486116185" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder to read legal restrictions on form and print/send statement</source>
+          <target state="translated">Ábending um að lesa um lagalegar takmarkanir á eyðublaði og prenta/senda uppgjör.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IS Core - NamedType ReminderMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 675681164 - NamedType 2231244182" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The posted document cannot be deleted. Deleting is only permitted for documents whose Posting Date is before %1.</source>
+          <target state="translated">Ekki er hægt að eyða bókuðu skjali. Einungis er heimilt að eyða fyrir skjöl þar sem bókunardagsetning er á undan %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Posting Date.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit IS Docs Retention Period - NamedType PostingDateWithinLegalPeriodErr</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Iceland - Core App Setup</source>
+          <target state="translated">Ísland - Uppsetning Core App</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - NamedType 1483910758" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review Affected Data</source>
+          <target state="translated">Fara yfir viðkomandi gögn</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - NamedType ReviewDataLinkTok</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - NamedType 1154975446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Records from several Base Application tables will be copied to the new Iceland-Core App tables. Please review affected data as the data update can take longer in case of large amount of records. </source>
+          <target state="translated">Færslur úr nokkrum grunnforritstöflum verða afritaðar í nýju Iceland-Core forritatöflurnar. Farið yfir viðkomandi gögn þar sem gagnauppfærslan getur tekið lengri tíma ef færslurnar eru mjög margar. </target>
+          <note from="Developer" annotates="general" priority="2">%1, %2, %3, %4 - table captions</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - NamedType ReviewDataTok</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - NamedType 984350027" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The setup is not complete.\\Are you sure you want to exit?</source>
+          <target state="translated">Uppsetningu er ekki lokið.\\Viltu örugglega hætta?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - NamedType SetupNotCompletedQst</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 300852202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control FinishedBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 1121962313 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control StandardBanner - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 3647570164 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Choose Next to see which data will be updated.</source>
+          <target state="translated">Veljið „Áfram“ til að sjá hvaða gögn verða uppfærð.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Let's go! - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 3647570164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Let's go!</source>
+          <target state="translated">Hefjumst handa!</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Let's go! - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 2464092280 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>After you enable this feature for all users, you cannot turn it off again. This is because the feature may include changes to your data and may initiate an upgrade of some database tables as soon as you enable it. We strongly recommend that you first enable and test this feature on a sandbox environment that has a copy of production data before doing this on a production environment. For detailed information about the impact of enabling this feature, you should choose No and use the Learn more link. Are you sure you want to enable this feature?</source>
+          <target state="translated">Þegar búið er að gera þennan eiginleika virkan fyrir alla notendur er ekki hægt að slökkva á honum aftur. Þetta er vegna þess að aðgerðin kann að fela í sér breytingar á gögnunum og ef til vill hefja uppfærslu á sumum gagnagrunnstöflum um leið og hún er gerð virk. Eindregið er mælt með því að þessi eiginleiki sé fyrst virkjaður og prófaður í sandkassaumhverfi með afriti af framleiðslugögnum áður en þetta er gert í framleiðsluumhverfi. Til að fá ítarlegar upplýsingar um áhrif þessa eiginleika skal velja „Nei“ og nota tengilinn fyrir frekari upplýsingar. Á örugglega að gera þennan eiginleika virkan?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Welcome to Iceland Core App Setup - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 2464092280 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Welcome to the Iceland-Core App Setup</source>
+          <target state="translated">Velkomin í uppsetningu Iceland-Core-forritsins</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Welcome to Iceland Core App Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 2758287844 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the user does understand the update procedure and agree to proceed.</source>
+          <target state="translated">Tilgreinir hvort notandinn skilji uppfærsluferlið og samþykki að halda áfram.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Agreed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 2758287844 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>I accept the data update</source>
+          <target state="translated">Ég samþykki gagnauppfærsluna</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Agreed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 376187383 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>What is updated</source>
+          <target state="translated">Hvað er uppfært</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control WhatIsUpdated - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Review affected data.</source>
+          <target state="translated">Fara yfir viðkomandi gögn.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Action 2438272767 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back</source>
+          <target state="translated">Til baka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Action ActionBack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Action 3259912055 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finish</source>
+          <target state="translated">Ljúka</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Action ActionFinish - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3661913264 - Action 914282563 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next</source>
+          <target state="translated">Áfram</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page IS Core App Setup Wizard - Action ActionNext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 402131260 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Details</source>
+          <target state="translated">Upplýsingar vegna skattstofu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 402131260 - NamedType 4045836807" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>------------------------------</source>
+          <target state="translated">------------------------------</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - NamedType EmptyStringCaption1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 402131260 - NamedType 689524896" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>--------------------------------------------------------------------------------</source>
+          <target state="translated">--------------------------------------------------------------------------------</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - NamedType EmptyStringCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 402131260 - NamedType 935993202" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Details</source>
+          <target state="translated">Upplýsingar vegna skattstofu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - NamedType IRSDetailsCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 402131260 - NamedType 776787059" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value in IRS number list</source>
+          <target state="translated">Gildi í skattstofunúmeralista</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - NamedType ValueinIRSnumberlistCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1123347329 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS notification</source>
+          <target state="translated">Tilkynning skattayfirvalda</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1123347329 - NamedType 3026539464" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Address of tax authorities</source>
@@ -572,11 +780,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType AddrOfTaxAuthoritiesCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1123347329 - NamedType 3483994667" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Zip code of tax authorities</source>
-          <target state="translated">Póstnr. skattayfirvalda</target>
+        <trans-unit id="Report 1123347329 - NamedType 1623326197" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>intents to utilize the possibility to issue single copy invoices in accordance with IS regulation no. 598/1999</source>
+          <target state="translated">hyggist nota möguleikann á að gefa út reikninga í einriti samkv. IS reglugerð nr. 598/1999</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType ZipCodeOfTaxAuthoritiesCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType InvInAccordanceCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1123347329 - NamedType 2389164227" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue of single copy invoices</source>
+          <target state="translated">Útgáfa reikninga í einriti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType IssueOfSingleCopyInvoicesCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1123347329 - NamedType 2298117201" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manager</source>
+          <target state="translated">Stjórnandi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType ManagerCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1123347329 - NamedType 367984042" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Notification that the company</source>
@@ -584,191 +804,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType NotificationThatTheCompanyCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1123347329 - NamedType 591135832" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>It is also confirmed that the company uses a version of Navision that complies with the regulation.</source>
-          <target state="translated">Einnig er það staðfest að fyrirtækið notar útgáfu af Navision sem uppfyllir reglugerðina.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType VersionOfNavisionCaptionLbl</note>
-        </trans-unit>
         <trans-unit id="Report 1123347329 - NamedType 89477922" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tax authorities</source>
           <target state="translated">Skattayfirvöld</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType TaxAuthoritiesCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 1108483361" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase</source>
-          <target state="translated">Innkaup</target>
+        <trans-unit id="Report 1123347329 - NamedType 591135832" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It is also confirmed that the company uses a version of Navision that complies with the regulation.</source>
+          <target state="translated">Einnig er það staðfest að fyrirtækið notar útgáfu af Navision sem uppfyllir reglugerðina.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType PurchaseCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType VersionOfNavisionCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 117160019" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Prod. Posting Group</source>
-          <target state="translated">VSK-vörubókunarflokkur</target>
+        <trans-unit id="Report 1123347329 - NamedType 3483994667" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Zip code of tax authorities</source>
+          <target state="translated">Póstnr. skattayfirvalda</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATProdPostingGroupCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - NamedType ZipCodeOfTaxAuthoritiesCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 1408516427" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Report</source>
-          <target state="translated">VSK-skýrsla</target>
+        <trans-unit id="Report 2885536324 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance - IRS Number</source>
+          <target state="translated">Prófjöfnuður - Skattstofunúmer</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATReportCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 1537695216" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase VAT</source>
-          <target state="translated">VSK á innkaup</target>
+        <trans-unit id="Report 2885536324 - NamedType 1535750739" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit</source>
+          <target state="translated">Kredit</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType PurchaseVATCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 1570445773" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attention! Variance in VAT payable. Calculated VAT payable. %1%. Variance %2 kr.</source>
-          <target state="translated">Til athugunar! Frávik í gjaldföllnum VSK. Reiknaður gjaldfallinn VSK. %1%. Frávik %2 kr.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = VAT Percentage, %2 - VAT variance amount</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VarianceinVATpayableTxt</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 1933578523" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Base</source>
-          <target state="translated">Grunnur</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType BaseCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 2249057470" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Turnover for %1% VAT rate</source>
-          <target state="translated">Veltuhraði fyrir %1% VSK-hlutfall</target>
-          <note from="Developer" annotates="general" priority="2">%1 = VAT Rate</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType TurnoverVATRateTxt</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 2336556456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales</source>
-          <target state="translated">Sala</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType SalesCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 2632050446" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Payment Due</source>
-          <target state="translated">Greiðsla gjaldfellur</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType PaymentDueCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 2678680001" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT %</source>
-          <target state="translated">VSK%</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 2728063152" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Bus. Posting Group</source>
-          <target state="translated">VSK viðskbókunarflokkur</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATBusPostingGroupCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 277850506" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Period must be Custom.</source>
-          <target state="translated">Tímabil þarf að vera sérstillt.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType PeriodMustBeCustomTxt</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 3012985183" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attention! Variance in VAT receivable. Calculated VAT receivable. %1%. Variance %2 kr.</source>
-          <target state="translated">Til athugunar! Frávik í útistandandi VSK. Reiknaður útistandandi VSK. %1%. Frávik %2 kr.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = VAT Percentage, %2 - VAT variance amount</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VarianceinVATreceivableTxt</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 4110501297" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales VAT</source>
-          <target state="translated">VSK sölu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType SalesVATCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - NamedType 4145137074" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Reconciliation  / Report</source>
-          <target state="translated">VAT-afstemming  / Skýrsla</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - NamedType VATReconciliationReportCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 1933578523" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Base</source>
-          <target state="translated">Grunnur</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType BaseCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 2224893564" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase</source>
-          <target state="translated">Innkaup</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType PurchCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 2334004022" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attention! Variance in VAT receivable. Calculated VAT receivable. %1 %. Variance %2 kr.</source>
-          <target state="translated">Til athugunar! Frávik í gjaldföllnum VSK. Reiknaður gjaldfallinn VSK. %1%. Frávik %2 kr.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = VAT percentage, %2 = VAT variance amount;</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VatReceivableVarTxt</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 2336556456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales</source>
-          <target state="translated">Sala</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType SalesCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 2485895653" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase VAT</source>
-          <target state="translated">VSK á innkaup</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType PurchVATCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 267478349" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Period must be Custom.</source>
-          <target state="translated">Tímabil þarf að vera sérstillt.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType PeriodMustBeCustomErr</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 2678680001" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT %</source>
-          <target state="translated">VSK%</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VATCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 269966584" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attention! Variance in VAT payable. Calculated VAT payable. %1 %. Variance %2 kr.</source>
-          <target state="translated">Til athugunar! Frávik í gjaldföllnum VSK. Reiknaður gjaldfallinn VSK. %1%. Frávik %2 kr.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = VAT percentage, %2 = VAT variance amount;</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VatPayableVarTxt</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 2958880149" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Prod. Posting Group</source>
-          <target state="translated">VSK-vörubókunarflokkur</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VATProdPostingGrpCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 3821194466" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Bus. Posting Group</source>
-          <target state="translated">VSK viðskbókunarflokkur</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VATBusPostingGrpCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 4051527209" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Carried over to next page</source>
-          <target state="translated">Flutt yfir á næstu bls.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType CarriedOverToNextPageCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 4110501297" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales VAT</source>
-          <target state="translated">VSK sölu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType SalesVATCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 4232438152" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Carried over from previous page</source>
-          <target state="translated">Flutt frá fyrri bls.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType CarriedOverFromPreviousPageCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - NamedType 765115643" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VATReconciliation A</source>
-          <target state="translated">VSK-afstemming A</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - NamedType VATReconciliationACaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - NamedType CreditCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2885536324 - NamedType 1057048686" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Debit</source>
@@ -776,11 +840,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - NamedType DebitCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 2885536324 - NamedType 1535750739" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Credit</source>
-          <target state="translated">Kredit</target>
+        <trans-unit id="Report 2885536324 - NamedType 3476002371" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Heiti</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - NamedType CreditCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - NamedType GLAccNameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2885536324 - NamedType 4195750193" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IRS Number</source>
+          <target state="translated">Skattstofunúmer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - NamedType IRSNumberCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2885536324 - NamedType 2171017903" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Net Change</source>
@@ -806,99 +876,45 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - NamedType TrialBalanceIRSNumberCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 2885536324 - NamedType 3476002371" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <target state="translated">Heiti</target>
+        <trans-unit id="PermissionSet 1428436164 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IS Core - Edit</source>
+          <target state="translated">IS Core - Breyta</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - NamedType GLAccNameCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet IS Core - Edit - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 2885536324 - NamedType 4195750193" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Number</source>
-          <target state="translated">Skattstofunúmer</target>
+        <trans-unit id="PermissionSet 3649441842 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IS Core - Objects</source>
+          <target state="translated">IS Core - hlutir</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - NamedType IRSNumberCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet IS Core - Read - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 402131260 - NamedType 4045836807" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>------------------------------</source>
-          <target state="translated">------------------------------</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - NamedType EmptyStringCaption1Lbl</note>
-        </trans-unit>
-        <trans-unit id="Report 402131260 - NamedType 689524896" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>--------------------------------------------------------------------------------</source>
-          <target state="translated">--------------------------------------------------------------------------------</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - NamedType EmptyStringCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 402131260 - NamedType 776787059" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Value in IRS number list</source>
-          <target state="translated">Gildi í skattstofunúmeralista</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - NamedType ValueinIRSnumberlistCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 402131260 - NamedType 935993202" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Details</source>
-          <target state="translated">Upplýsingar vegna skattstofu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - NamedType IRSDetailsCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1123347329 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS notification</source>
-          <target state="translated">Tilkynning skattayfirvalda</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS notification - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 1842981056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Balancing Report</source>
-          <target state="translated">VSK-mótreikningsskýrsla</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Balancing Report - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2168282849 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Reconciliation A</source>
-          <target state="translated">VSK-afstemming A</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2885536324 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Trial Balance - IRS Number</source>
-          <target state="translated">Prófjöfnuður - Skattstofunúmer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS Trial Balance - IRS Number - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 402131260 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Details</source>
-          <target state="translated">Upplýsingar vegna skattstofu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report IS IRS Details - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="ReportExtension 1155919232 - Control 1149022782 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies that you want the document to include VAT information.</source>
-          <target state="translated">Tilgreinir að VSK-upplýsingar séu teknar fram á fylgiskjalinu.</target>
+        <trans-unit id="PageExtension 2184851986 - Control 3545779019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the percentage of the appreciated acquisition price to use when revaluing fixed assets.</source>
+          <target state="translated">Tilgreinir hlutfallið af uppfærðu kaupverðinu sem er notað við endurmat eigna.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Report 146219450</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1855807544</note>
         </trans-unit>
-        <trans-unit id="ReportExtension 1155919232 - Control 1149022782 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Always Show VAT Summary</source>
-          <target state="translated">Sýna alltaf VSK-yfirlit</target>
+        <trans-unit id="PageExtension 2184851986 - Control 27105229 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if depreciation and appreciation are possible. The default value is No.</source>
+          <target state="translated">Tilgreinir hvort afskrift og uppfærslur séu mögulegar. Sjálfgefið gildi er Nei.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Report 146219450</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Page 1855807544</note>
         </trans-unit>
-        <trans-unit id="ReportExtension 2075089964 - Control 1149022782 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies that you want the document to include VAT information.</source>
-          <target state="translated">Tilgreinir að VSK-upplýsingar séu teknar fram á fylgiskjalinu.</target>
+        <trans-unit id="TableExtension 57722326 - Field 3545779019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Residual Value %</source>
+          <target state="translated">Afgangsvirðis%</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Report 178652417</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1615433100</note>
         </trans-unit>
-        <trans-unit id="ReportExtension 2075089964 - Control 1149022782 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Always Show VAT Summary</source>
-          <target state="translated">Sýna alltaf VSK-yfirlit</target>
+        <trans-unit id="TableExtension 57722326 - Field 27105229 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Revalue in Year Purch.</source>
+          <target state="translated">Endurmat á ársinnkaupum</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Report 178652417</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Table 1615433100</note>
         </trans-unit>
         <trans-unit id="ReportExtension 2879644417 - Control 1149022782 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that you want the document to include VAT information.</source>
@@ -914,6 +930,20 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Report 2259427799</note>
         </trans-unit>
+        <trans-unit id="ReportExtension 1155919232 - Control 1149022782 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that you want the document to include VAT information.</source>
+          <target state="translated">Tilgreinir að VSK-upplýsingar séu teknar fram á fylgiskjalinu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 146219450</note>
+        </trans-unit>
+        <trans-unit id="ReportExtension 1155919232 - Control 1149022782 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Always Show VAT Summary</source>
+          <target state="translated">Sýna alltaf VSK-yfirlit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 146219450</note>
+        </trans-unit>
         <trans-unit id="ReportExtension 4285107939 - Control 1149022782 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies that you want the document to include VAT information.</source>
           <target state="translated">Tilgreinir að VSK-upplýsingar séu teknar fram á fylgiskjalinu.</target>
@@ -928,71 +958,54 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Report 2023516435</note>
         </trans-unit>
-        <trans-unit id="Table 1552904438 - Field 2105032629 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Number</source>
-          <target state="translated">Skattstofunúmer</target>
+        <trans-unit id="ReportExtension 2075089964 - Control 1149022782 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies that you want the document to include VAT information.</source>
+          <target state="translated">Tilgreinir að VSK-upplýsingar séu teknar fram á fylgiskjalinu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Field IRS Number - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 178652417</note>
         </trans-unit>
-        <trans-unit id="Table 1552904438 - Field 2534656220 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Identifier</source>
-          <target state="translated">Kennimerki VSK</target>
+        <trans-unit id="ReportExtension 2075089964 - Control 1149022782 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Always Show VAT Summary</source>
+          <target state="translated">Sýna alltaf VSK-yfirlit</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Field VAT Identifier - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Report 178652417</note>
         </trans-unit>
-        <trans-unit id="Table 1552904438 - Field 2961552353 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <target state="translated">Heiti</target>
+        <trans-unit id="PageExtension 717333008 - Control 2992892244 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the company complies with the requirement of tracking invoicing electronically, when printing invoices in single copy.</source>
+          <target state="translated">Tilgreinir hvort fyrirtækið uppfyllir kröfur um rafræna rakningu reikninga þegar reikningar eru prentaðir í einriti.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Field Name - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4145206282</note>
         </trans-unit>
-        <trans-unit id="Table 1552904438 - Field 989078300 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reverse Prefix</source>
-          <target state="translated">Víxla formerki</target>
+        <trans-unit id="PageExtension 1996550869 - Action 3507405277 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View a VAT reconciliation report for sales and purchases for a specified period. The report lists entries by general ledger account and posting group.</source>
+          <target state="translated">Skoða VSK-afstemmingarskýrslu fyrir sölu og innkaup á tilteknu tímabili. Skýrslan birtir færslur eftir fjárhagsreikningi og bókunarflokki.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Field Reverse Prefix - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
         </trans-unit>
-        <trans-unit id="Table 2249724314 - Field 3454070650 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Class</source>
-          <target state="translated">Flokkur</target>
+        <trans-unit id="PageExtension 1996550869 - Action 3507405277 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Balancing A</source>
+          <target state="translated">VSK-mótreikningur A</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Groups - Field Class - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
         </trans-unit>
-        <trans-unit id="Table 2249724314 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <target state="translated">Nr.</target>
+        <trans-unit id="PageExtension 1996550869 - Action 1842981056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get an overview of VAT for sales and purchases and payments due for a specified period.</source>
+          <target state="translated">Fá yfirlit yfir VSK fyrir sölu og innkaup og greiðslur á gjalddaga fyrir tiltekið tímabil.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Groups - Field No. - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
         </trans-unit>
-        <trans-unit id="Table 2267337867 - Field 1878130204 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Type</source>
-          <target state="translated">Gerð</target>
+        <trans-unit id="PageExtension 1996550869 - Action 1842981056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Balancing Report</source>
+          <target state="translated">VSK-mótreikningsskýrsla</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Types - Field Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2267337867 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <target state="translated">Nr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Types - Field No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1552904438 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Numbers</source>
-          <target state="translated">Skattstofunúmer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Numbers - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2249724314 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Groups</source>
-          <target state="translated">Skattstofuflokkar</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Groups - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2267337867 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>IRS Types</source>
-          <target state="translated">Skattstofutegundir</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table IS IRS Types - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 2589579403</note>
         </trans-unit>
         <trans-unit id="TableExtension 1141554529 - Field 4167005385 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>IRS Number</source>
@@ -1001,26 +1014,12 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Table 4274826855</note>
         </trans-unit>
-        <trans-unit id="TableExtension 57722326 - Field 27105229 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Revalue in Year Purch.</source>
-          <target state="translated">Endurmat á ársinnkaupum</target>
+        <trans-unit id="TableExtension 717333008 - NamedType 198420049" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This invoice originates in a ERP system that conforms with regulation no. 505/2013</source>
+          <target state="translated">Þessi reikningur er upprunninn í ERP-kerfi sem uppfyllir reglugerð nr. 505/2013</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1615433100</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 57722326 - Field 3545779019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Residual Value %</source>
-          <target state="translated">Afgangsvirðis%</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1615433100</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 717333008 - Field 2992892244 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Electronic Invoicing</source>
-          <target state="translated">Rafræn reikningsfærsla</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 4145206282</note>
+          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 717333008</note>
         </trans-unit>
         <trans-unit id="TableExtension 717333008 - NamedType 1486116185" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reminder to read legal restrictions on form and print/send statement</source>
@@ -1029,12 +1028,12 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 717333008</note>
         </trans-unit>
-        <trans-unit id="TableExtension 717333008 - NamedType 198420049" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This invoice originates in a ERP system that conforms with regulation no. 505/2013</source>
-          <target state="translated">Þessi reikningur er upprunninn í ERP-kerfi sem uppfyllir reglugerð nr. 505/2013</target>
+        <trans-unit id="TableExtension 717333008 - Field 2992892244 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Electronic Invoicing</source>
+          <target state="translated">Rafræn reikningsfærsla</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">TableExtension 717333008</note>
+          <note from="ObjectTarget" annotates="general" priority="5">Table 4145206282</note>
         </trans-unit>
       </group>
     </body>

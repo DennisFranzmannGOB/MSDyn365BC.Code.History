@@ -258,7 +258,7 @@ codeunit 5343 "CRM Sales Order to Sales Order"
     local procedure ReferencedSalesInvoiceHeaderExists(CRMSalesorder: Record "CRM Salesorder"; var SalesInvoiceHeader: Record "Sales Invoice Header"): Boolean
     begin
         if not IsNullGuid(CRMSalesorder.SalesOrderId) then begin
-            SalesInvoiceHeader.SetRange("Your Reference", CopyStr(CRMSalesorder.OrderNumber, 1, StrLen(SalesInvoiceHeader."Your Reference")));
+            SalesInvoiceHeader.SetRange("Your Reference", CopyStr(CRMSalesorder.OrderNumber, 1, MaxStrLen(SalesInvoiceHeader."Your Reference")));
             exit(SalesInvoiceHeader.FindFirst())
         end;
 
@@ -745,7 +745,7 @@ codeunit 5343 "CRM Sales Order to Sales Order"
         OnInitializeSalesOrderLineOnAfterCalcUpdateItemUnitPriceNeeded(CRMSalesorderdetail, CRMProduct, SalesLine, SalesHeader, UpdateItemUnitPriceNeeded);
         if UpdateItemUnitPriceNeeded then
             if Item.GET(SalesLine."No.") then
-                if (Item."Price Includes VAT") AND (Item."VAT Bus. Posting Gr. (Price)" <> '') then
+                if (Item."Price Includes VAT") and (Item."VAT Bus. Posting Gr. (Price)" <> '') then
                     if SalesLine."VAT Bus. Posting Group" = Item."VAT Bus. Posting Gr. (Price)" then
                         if VATPostingSetup.GET(SalesLine."VAT Bus. Posting Group", SalesLine."VAT Prod. Posting Group") then
                             UnitPrice :=

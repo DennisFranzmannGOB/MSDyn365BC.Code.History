@@ -28,6 +28,8 @@ codeunit 7600 "Calendar Management"
 
     procedure SetSource(SourceVariant: Variant; var NewCustomCalendarChange: Record "Customized Calendar Change")
     begin
+        OnBeforeSetSource(SourceVariant, NewCustomCalendarChange);
+
         if not SourceVariant.IsRecord then
             Error(SourceErr);
 
@@ -216,6 +218,8 @@ codeunit 7600 "Calendar Management"
         CustomizedCalendarChange: Record "Customized Calendar Change";
         EntryNo: Integer;
     begin
+        OnBeforeAddCustomizedCalendarChanges(CustomizedCalendarChange);
+
         if TempCustomizedCalendarChange.FindLast() then
             EntryNo := TempCustomizedCalendarChange."Entry No.";
 
@@ -244,6 +248,8 @@ codeunit 7600 "Calendar Management"
         BaseCalendarChange: Record "Base Calendar Change";
         EntryNo: Integer;
     begin
+        OnBeforeAddBaseCalendarChanges(NewCustomizedCalendarChange, TempCustomizedCalendarChange, BaseCalendarChange);
+
         if TempCustomizedCalendarChange.FindLast() then
             EntryNo := TempCustomizedCalendarChange."Entry No.";
 
@@ -412,17 +418,15 @@ codeunit 7600 "Calendar Management"
         CustomizedCalendarChange: Record "Customized Calendar Change";
     begin
         FillSource(SourceVariant, CustomizedCalendarChange);
-        with CustomizedCalendarChange do begin
-            Reset();
-            SetRange("Source Type", "Source Type");
-            SetRange("Source Code", "Source Code");
-            SetRange("Additional Source Code", "Additional Source Code");
-            SetRange("Base Calendar Code", "Base Calendar Code");
-            exit(not IsEmpty());
-        end;
+        CustomizedCalendarChange.Reset();
+        CustomizedCalendarChange.SetRange("Source Type", CustomizedCalendarChange."Source Type");
+        CustomizedCalendarChange.SetRange("Source Code", CustomizedCalendarChange."Source Code");
+        CustomizedCalendarChange.SetRange("Additional Source Code", CustomizedCalendarChange."Additional Source Code");
+        CustomizedCalendarChange.SetRange("Base Calendar Code", CustomizedCalendarChange."Base Calendar Code");
+        exit(not CustomizedCalendarChange.IsEmpty());
     end;
 
-    procedure CalcDateBOC(OrgDateExpression: Text[30]; OrgDate: Date; CustomCalendarChange: Array[2] of Record "Customized Calendar Change"; CheckBothCalendars: Boolean): Date
+    procedure CalcDateBOC(OrgDateExpression: Text[30]; OrgDate: Date; CustomCalendarChange: array[2] of Record "Customized Calendar Change"; CheckBothCalendars: Boolean): Date
     var
         CompanyInfo: Record "Company Information";
         CalendarMgt: array[2] of Codeunit "Calendar Management";
@@ -445,7 +449,7 @@ codeunit 7600 "Calendar Management"
             CustomCalendarChange[1].CalcCalendarCode();
             CustomCalendarChange[2].CalcCalendarCode();
 
-            OnCalcDateBOCOnAfterGetCalendarCodes(CustomCalendarChange);
+            OnCalcDateBOCOnAfterGetCalendarCodes(CustomCalendarChange, CalConvTimeFrame);
         end;
 
         IsHandled := false;
@@ -495,7 +499,7 @@ codeunit 7600 "Calendar Management"
         exit(NewDate);
     end;
 
-    procedure CalcDateBOC2(OrgDateExpression: Text[30]; OrgDate: Date; CustomCalendarChange: Array[2] of Record "Customized Calendar Change"; CheckBothCalendars: Boolean): Date
+    procedure CalcDateBOC2(OrgDateExpression: Text[30]; OrgDate: Date; CustomCalendarChange: array[2] of Record "Customized Calendar Change"; CheckBothCalendars: Boolean): Date
     var
         NewOrgDateExpression: Text[30];
     begin
@@ -524,7 +528,14 @@ codeunit 7600 "Calendar Management"
     end;
 
     procedure CalcTimeDelta(EndingTime: Time; StartingTime: Time) Result: Integer
+    var
+        IsHandled: Boolean;
     begin
+        IsHandled := false;
+        OnBeforeCalcTimeDelta(EndingTime, StartingTime, Result, IsHandled);
+        if IsHandled then
+            exit(Result);
+
         Result := EndingTime - StartingTime;
         if (Result <> 0) and (EndingTime = 235959T) then
             Result += 1000;
@@ -544,13 +555,13 @@ codeunit 7600 "Calendar Management"
             Result += 1000;
     end;
 
-    local procedure IsOnBeforeCalcDateBOCHandled(var CustomCalendarChange: Array[2] of Record "Customized Calendar Change"; var CalConvTimeFrame: Integer) IsHandled: Boolean
+    local procedure IsOnBeforeCalcDateBOCHandled(var CustomCalendarChange: array[2] of Record "Customized Calendar Change"; var CalConvTimeFrame: Integer) IsHandled: Boolean
     begin
         OnBeforeCalcDateBOC(CustomCalendarChange, CalConvTimeFrame, IsHandled)
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeCalcDateBOC(var CustomCalendarChange: Array[2] of Record "Customized Calendar Change"; var CalConvTimeFrame: Integer; var IsHandled: Boolean)
+    local procedure OnBeforeCalcDateBOC(var CustomCalendarChange: array[2] of Record "Customized Calendar Change"; var CalConvTimeFrame: Integer; var IsHandled: Boolean)
     begin
     end;
 
@@ -713,12 +724,12 @@ codeunit 7600 "Calendar Management"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnCalcDateBOCOnAfterGetCalendarCodes(var CustomCalendarChange: Array[2] of Record "Customized Calendar Change")
+    local procedure OnCalcDateBOCOnAfterGetCalendarCodes(var CustomCalendarChange: array[2] of Record "Customized Calendar Change"; var CalConvTimeFrame: Integer)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnCalcDateBOCOnAfterSetNonworking(var CustomCalendarChange: Array[2] of Record "Customized Calendar Change")
+    local procedure OnCalcDateBOCOnAfterSetNonworking(var CustomCalendarChange: array[2] of Record "Customized Calendar Change")
     begin
     end;
 
@@ -728,12 +739,12 @@ codeunit 7600 "Calendar Management"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnCheckDateStatusOnAfterCombineChanges(var TargetCustomizedCalendarChange: Record "Customized Calendar Change"; TempCustChange: Record "Customized Calendar Change")
+    local procedure OnCheckDateStatusOnAfterCombineChanges(var TargetCustomizedCalendarChange: Record "Customized Calendar Change"; var TempCustChange: Record "Customized Calendar Change")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnCalcDateBOCOnBeforeCalcNewDate(var OrgDateExpression: Text[30]; var OrgDate: Date; var CustomCalendarChange: Array[2] of Record "Customized Calendar Change"; CheckBothCalendars: Boolean; var NewDate: Date; var IsHandled: Boolean)
+    local procedure OnCalcDateBOCOnBeforeCalcNewDate(var OrgDateExpression: Text[30]; var OrgDate: Date; var CustomCalendarChange: array[2] of Record "Customized Calendar Change"; CheckBothCalendars: Boolean; var NewDate: Date; var IsHandled: Boolean)
     begin
     end;
 
@@ -749,6 +760,26 @@ codeunit 7600 "Calendar Management"
 
     [IntegrationEvent(false, false)]
     local procedure OnDeleteCustomizedBaseCalendarDataOnAfterFilterWhereUsedBaseCalendar(var WhereUsedBaseCalendar: Record "Where Used Base Calendar")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeCalcTimeDelta(EndingTime: Time; StartingTime: Time; var Result: Integer; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeAddCustomizedCalendarChanges(var CustomizedCalendarChange: Record "Customized Calendar Change")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeSetSource(SourceVariant: Variant; var NewCustomizedCalendarChange: Record "Customized Calendar Change")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeAddBaseCalendarChanges(NewCustomizedCalendarChange: Record "Customized Calendar Change"; var TempCustomizedCalendarChange: Record "Customized Calendar Change" temporary; var BaseCalendarChange: Record "Base Calendar Change")
     begin
     end;
 }
