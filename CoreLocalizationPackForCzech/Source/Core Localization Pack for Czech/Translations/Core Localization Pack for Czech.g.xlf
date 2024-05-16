@@ -1818,6 +1818,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Acc. Sched. Extension Mgt. CZL - Method CreateResults - NamedType DateFilterErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 30144176 - NamedType 2561268386" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income Statement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Acc. Schedule Management CZL - NamedType IncomeStatementTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 30144176 - NamedType 40344838" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Account category, e.g. Assets</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Acc. Schedule Management CZL - NamedType TotalingTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 30144176 - Method 1793367989 - NamedType 2367821945" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 has results. Do you want to delete it anyway?</source>
           <note from="Developer" annotates="general" priority="2">%1 = Description</note>
@@ -4903,10 +4913,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension G/L Account CZL - Field Net Change ACY (VAT Date) CZL - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1923660747 - Method 4165614636 - NamedType 3975508567" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 1923660747 - NamedType 3975508567" size-unit="char" translate="yes" xml:space="preserve">
           <source>must be less or equal to %1</source>
           <note from="Developer" annotates="general" priority="2">%1 = fieldcaption of VAT Date CZL</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen.Jnl.Check Line Handler CZL - Method CheckVatDateOnAfterCheckGenJnlLine - NamedType MustBeLessOrEqualErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Gen.Jnl.Check Line Handler CZL - NamedType MustBeLessOrEqualErr</note>
         </trans-unit>
         <trans-unit id="PageExtension 291050283 - Control 3511394398 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1638686336">
           <source>Specifies the posting group that will be used in posting the journal line.The field is used only if the account type is either customer or vendor.</source>
@@ -7443,6 +7453,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Open Balance Sheet CZL - Control PostToOpeningBalanceSheetAccFld - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2910014531 - Action 4039432442 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Set up VAT coefficient correction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup CZL - Action Non-Deductible VAT Setup CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2910014531 - Action 4039432442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Non-Deductible VAT Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension General Ledger Setup CZL - Action Non-Deductible VAT Setup CZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2910014531 - Control 1334307691 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
           <source>Specifies the code for the number series that will be used to assign numbers to account schedule results.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8903,6 +8923,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Get All Unreliable Payers - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3761073867 - Action 4039432442 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up VAT coefficient correction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Non-Deductible VAT Setup CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3761073867 - Action 4039432442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action Non-Deductible VAT Setup CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3761073867 - Action 488115721 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The report recalculate the value of non-deductible VAT according to settlement coeffiecient on VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action VAT Coeff. Correction CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3761073867 - Action 488115721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Coefficient Correction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Accountant CZ Role Center CZL - Action VAT Coeff. Correction CZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3761073867 - Action 247849756 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View and set sections for VAT control reports.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10308,6 +10348,31 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile Accountant CZ CZL - Property ProfileDescription</note>
         </trans-unit>
+        <trans-unit id="Table 4039432442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Non-Deductible VAT Setup CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4039432442 - Field 338478305 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Advance Coefficient</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Non-Deductible VAT Setup CZL - Field Advance Coefficient - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4039432442 - Field 2110632758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>From Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Non-Deductible VAT Setup CZL - Field From Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4039432442 - Field 2418153812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Settlement Coefficient</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Non-Deductible VAT Setup CZL - Field Settlement Coefficient - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4039432442 - Field 2565971985 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Non-Deductible VAT Setup CZL - Field To Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2553813930 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT LCY Correction Buffer</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10418,6 +10483,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table VAT LCY Correction Buffer CZL - Field VAT Registration No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1748658803 - NamedType 3458330273" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-deductible VAT is supported only for purchase and settlement transactions.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Non-Deductible VAT CZL - NamedType PurchaseSettlementOnlyErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1736579922 - NamedType 1263877309" size-unit="char" translate="yes" xml:space="preserve">
           <source>The replacing VAT Date CZ field with VAT Reporting Date is already enabled.\Please use the new VAT Reporting Date feature instead.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10492,6 +10562,36 @@
           <source> %1 is not within your range of allowed VAT dates</source>
           <note from="Developer" annotates="general" priority="2">%1 = VAT Date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT LCY Correction-Post CZL - NamedType VATRangeErr</note>
+        </trans-unit>
+        <trans-unit id="Page 4039432442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Non-Deductible VAT Setup CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4039432442 - NamedType 3447563422" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Non-Deductible VAT feature is not enabled. Please enable it in the VAT Setup page.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Non-Deductible VAT Setup CZL - NamedType NonDeductibleVATIsNoEnabledErr</note>
+        </trans-unit>
+        <trans-unit id="Page 4039432442 - Control 338478305 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount of the advance coefficient for non-deductible VAT (e.g. if you can only apply VAT at 12% of the original value, set the field to 100-12 = 88).</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Non-Deductible VAT Setup CZL - Control Advance Coefficient - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4039432442 - Control 2110632758 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date from which the VAT coefficient is valid.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Non-Deductible VAT Setup CZL - Control From Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4039432442 - Control 2418153812 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the amount of the settlement coefficient for annual settlement (e.g. if you can only apply VAT at 15% of the original value, set the field to 100-15 = 85)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Non-Deductible VAT Setup CZL - Control Settlement Coefficient - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4039432442 - Control 2565971985 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date to which the VAT coefficient is valid.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Non-Deductible VAT Setup CZL - Control To Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3207885181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Amount Summary</source>
@@ -10698,6 +10798,191 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT LCY Correction CZL - Action VAT Posting Setup Card - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 488115721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Coefficient Correction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT value added tax coefficient report,VAT value added tax coefficient correct</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Property AdditionalSearchTerms</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - NamedType 2997541454" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT setup has not been found for %1 %2 &lt;= %3.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = VAT Bus. Posting Group, %2 = VAT Prod. Posting Group, %3 = VAT Reporting Date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - NamedType NonDeductVATSetupNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - NamedType 2447990245" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must fill Starting VAT Date and Ending VAT Date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - NamedType NoPeriodSpecifiedErr</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - NamedType 4292592847" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No entries to correct have been found.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - NamedType NothingToCorrectErr</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 1530914118" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Corrected VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel CorrectedVATAmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 1967570229" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Corrected VAT Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel CorrectedVATBaseLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 3576764331" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deductible VAT Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel DeductibleVATBaseLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 1721277456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel DocumentNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 2968618954" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Non-Deductible VAT %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel LastNonDeductibleVATPctLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 1470953476" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Non-Deductible VAT %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel NewNonDeductibleVATPctLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 403716320" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel NonDeductibelVATPctLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 1027969698" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel PostingDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 617781293" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Coefficient Correction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel ReportNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 2410138484" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel TotalLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 301924975" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel VATAmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 2158521318" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Bus. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel VATBusPostingGroupLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 1015431591" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel VATDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - ReportLabel 1587981193" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Prod. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - ReportLabel VATProdPostingGroupLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 2571907030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 2902571085 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the first VAT date in the period.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control FromVATDateField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 2902571085 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting VAT Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control FromVATDateField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 482553010 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last VAT date in the period.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control ToVATDateField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 482553010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending VAT Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control ToVATDateField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 2808404044 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control Posting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 2617672022 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the non-deductible VAT correction has to be posted.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control PostField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 2617672022 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control PostField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 758465638 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the dimensions source of new entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UseDimensionsField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 758465638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UseDimensionsField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 758465638 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>From G/L Account,None</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UseDimensionsField - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 290922361 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies document No. for new entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UseDocumentNoField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 290922361 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use Document No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UseDocumentNoField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 2259884799 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies posting date for new entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UsePostingDateField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 2259884799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UsePostingDateField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 548779130 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies vat date for new entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UseVATDateField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 488115721 - Control 548779130 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use VAT Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Coeff. Correction CZL - Control UseVATDateField - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1631922032 - Field 2928823943 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3353980043">
           <source>VAT Amount (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10747,6 +11032,36 @@
           <source>Specifies when the VAT entry will use European Union third-party intermediate trade rules. This option complies with VAT accounting standards for EU third-party trade.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries CZL - Control EU 3-Party Intermed. Role CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1961763160 - Control 1307674298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2248515987">
+          <source>Specifies the VAT base increased by the amount of unapplied input VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries CZL - Control Deductible VAT Base CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1961763160 - Control 1307674298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2248515987">
+          <source>Deductible VAT Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries CZL - Control Deductible VAT Base CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1961763160 - Control 3991127416 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2248515987">
+          <source>Specifies the percentage of non-deductible VAT applied to the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries CZL - Control Non-Deductible VAT % CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1961763160 - Control 518447309 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2248515987">
+          <source>Specifies the VAT amount of the entry before the deduction by the coefficient.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries CZL - Control Original VAT Amount CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1961763160 - Control 2538941126 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2248515987">
+          <source>Specifies the VAT base of the entry before the deduction by the coefficient.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries CZL - Control Original VAT Base CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1961763160 - Control 3853126320 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2248515987">
+          <source>Specifies Entry No. of VAT Entry to which the current VAT Entry relates. If the value in the field is non-zero then the entry has been posted in relation to non-deductible VAT. If the value in the field 'Original Entry No.' is the same as 'Entry No.' then the entry has been created by posting the primary document. If the numbers do not match then it is posting of the difference between advance and settlement coefficient at the end of the accounting period.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries CZL - Control Original VAT Entry No. CZL - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1961763160 - Control 196745586 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2248515987">
           <source>Specifies the number of line in the VAT control report.</source>
@@ -10823,6 +11138,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries Preview CZL - Control EU 3-Party Intermed. Role CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3369956010 - Control 1307674298 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1556019237">
+          <source>Specifies the VAT base increased by the amount of unapplied input VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries Preview CZL - Control Deductible VAT Base CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3369956010 - Control 1307674298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1556019237">
+          <source>Deductible VAT Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries Preview CZL - Control Deductible VAT Base CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3369956010 - Control 3991127416 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1556019237">
+          <source>Specifies the percentage of non-deductible VAT applied to the entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries Preview CZL - Control Non-Deductible VAT % CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3369956010 - Control 518447309 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1556019237">
+          <source>Specifies the VAT amount of the entry before the deduction by the coefficient.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries Preview CZL - Control Original VAT Amount CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3369956010 - Control 2538941126 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1556019237">
+          <source>Specifies the VAT base of the entry before the deduction by the coefficient.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries Preview CZL - Control Original VAT Base CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3369956010 - Control 3853126320 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1556019237">
+          <source>Specifies Entry No. of VAT Entry to which the current VAT Entry relates. If the value in the field is non-zero then the entry has been posted in relation to non-deductible VAT. If the value in the field 'Original Entry No.' is the same as 'Entry No.' then the entry has been created by posting the primary document. If the numbers do not match then it is posting of the difference between advance and settlement coefficient at the end of the accounting period.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Entries Preview CZL - Control Original VAT Entry No. CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="TableExtension 481648486 - NamedType 3527871242" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 481648486">
           <source>VAT statement report period selection %1 is not supported.</source>
           <note from="Developer" annotates="general" priority="2">%1 = VAT Statement Report Period Selection</note>
@@ -10842,6 +11187,21 @@
           <source>Original Document VAT Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension VAT Entry CZL - Field Original Doc. VAT Date CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 481648486 - Field 518447309 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2941967353">
+          <source>Original VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VAT Entry CZL - Field Original VAT Amount CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 481648486 - Field 2538941126 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2941967353">
+          <source>Original VAT Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VAT Entry CZL - Field Original VAT Base CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 481648486 - Field 3853126320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2941967353">
+          <source>Original VAT Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VAT Entry CZL - Field Original VAT Entry No. CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 481648486 - Field 2153225461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2941967353">
           <source>Registration No.</source>
@@ -13113,6 +13473,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Periods CZL - Action Create Periods - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4016272548 - Action 4039432442 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up VAT coefficient correction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Periods CZL - Action Non-Deductible VAT Setup CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4016272548 - Action 4039432442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Periods CZL - Action Non-Deductible VAT Setup CZL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4016272548 - Action 895533398 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show the VAT Control Reports.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13142,6 +13512,16 @@
           <source>VIES Declarations</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Periods CZL - Action VIES Declarations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4016272548 - Action 488115721 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The report recalculate the value of non-deductible VAT according to settlement coeffiecient on VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Periods CZL - Action VAT Coeff. Correction CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4016272548 - Action 488115721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Coefficient Correction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Periods CZL - Action VAT Coeff. Correction CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4016272548 - Action 1242877871 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>This report compares general ledger entries by filtering data either by the posting date or the VAT date.</source>
@@ -15928,6 +16308,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension VAT Statement CZL - Control SettlementNoFilterCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1701932903 - Change 171080247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
+          <source>Specifies whether the Non-Deductible VAT is considered for this particular combination of VAT business posting group and VAT product posting group. If the 'Allow' value is used then the input VAT is reduced by the coefficient from 'Non-Deductible VAT Setup'. If the 'Do not apply' value is used then the input VAT is not applied.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Posting Setup Card CZL - Change Allow Non-Deductible VAT - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1701932903 - Control 659142475 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
           <source>VAT Control Report</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15978,6 +16363,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Posting Setup Card CZL - Control VIES Sales CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1701932903 - Control 32269726 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
+          <source>Specifies the account to be used to post for the VAT difference between the advance and settlement VAT coefficients at the end of the year.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Posting Setup Card CZL - Control VAT Coeff. Corr. Account CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1701932903 - Control 4290019297 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 434101636">
           <source>Specifies the account to which the VAT correction in LCY will be posted on documents in foreign currency, eg use an account for document rounding</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15987,6 +16377,11 @@
           <source>Specifies the option to include this posting setup in the purchase VIES declarations.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Posting Setup Card CZL - Control VIES Purchase CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2581899867 - Change 171080247 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
+          <source>Specifies whether the Non-Deductible VAT is considered for this particular combination of VAT business posting group and VAT product posting group. If the 'Allow' value is used then the input VAT is reduced by the coefficient from 'Non-Deductible VAT Setup'. If the 'Do not apply' value is used then the input VAT is not applied.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Posting Setup CZL - Change Allow Non-Deductible VAT - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2581899867 - Control 2119156326 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4132487568">
           <source>Specifies if this combination of VAT business posting group and VAT product posting group is used to the intrastat journal.</source>
@@ -16043,6 +16438,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Posting Setup CZL - Control VIES Sales CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1381205771 - Action 4039432442 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1985924896">
+          <source>Set up VAT coefficient correction.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Setup CZL - Action Non-Deductible VAT Setup CZL - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1381205771 - Action 4039432442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1985924896">
+          <source>Non-Deductible VAT Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension VAT Setup CZL - Action Non-Deductible VAT Setup CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2581899867 - NamedType 2776232387" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 2581899867">
+          <source>The "Non-Deductible VAT %" field should not be used. Use the "Non-Deductible VAT Setup" page instead.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VAT Posting Setup CZL - NamedType NotUsedNonDeductibleVATPctErr</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2581899867 - Field 3156052165 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
           <source>Corrections for Bad Receivable</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16077,6 +16487,11 @@
           <source>Supplies Mode Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension VAT Posting Setup CZL - Field Supplies Mode Code CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2581899867 - Field 32269726 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
+          <source>VAT Coefficient Correction Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VAT Posting Setup CZL - Field VAT Coeff. Corr. Account CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2581899867 - Field 4290019297 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4132487568">
           <source>VAT LCY Correction Rounding Account</source>
@@ -16152,6 +16567,11 @@
           <source>Reduced 2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum VAT Rate CZL - EnumValue Reduced 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 2034356560 - EnumValue 1718729769 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 608190927">
+          <source>Do Not Apply</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Allow Non-Deduct. VAT Type CZL - EnumValue Do Not Apply CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="ReportExtension 2760455843 - Control 253132000 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 4281532856">
           <source>Specifies if vies fields will be copied</source>
@@ -18113,6 +18533,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fixed Asset G/L Journal CZL - Control Amount (LCY) CZL - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3451318086 - Control 488115721 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
+          <source>Specifies the source code for end-of-period VAT coefficient entry of recalculation.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Source Code Setup CZL - Control VAT Coeff. Correction CZL - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3451318086 - Control 3652390357 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1642199961">
           <source>Specifies the source code for sales VAT delay.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18162,6 +18587,11 @@
           <source>Sales VAT Delay</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup CZL - Field Sales VAT Delay CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3451318086 - Field 488115721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
+          <source>VAT Coeff. Correction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Source Code Setup CZL - Field VAT Coeff. Correction CZL - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3451318086 - Field 135684962 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1642199961">
           <source>VAT LCY Correction</source>
@@ -23638,6 +24068,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - Control NoOfCopiesCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 4009097684 - ReportLayout 191154203 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Purchase Order (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - ReportLayout PurchaseOrder.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 4009097684 - ReportLayout 191154203 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - ReportLayout PurchaseOrder.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4009097684 - ReportLayout 2146838305 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Purchase Order Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - ReportLayout PurchaseOrderEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 4009097684 - ReportLayout 2146838305 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order CZL - ReportLayout PurchaseOrderEmail.docx - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2720915904 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Quote</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -25102,6 +25552,11 @@
           <source>Do you want to update the exchange rate for VAT?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Header CZL - NamedType UpdateExchRateQst</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3087185091 - NamedType 3480881837" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 3087185091">
+          <source>You have modified %1.\\Do you want to update the non-deductible VAT amounts?</source>
+          <note from="Developer" annotates="general" priority="2">%1 = field caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Purchase Header CZL - NamedType UpdateNonDeductVATAmountsQst</note>
         </trans-unit>
         <trans-unit id="TableExtension 3087185091 - Method 2522804495 - NamedType 334162638" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 3087185091">
           <source>%1 does not exist for currency %2 and date %3.</source>
@@ -29123,6 +29578,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Order Confirmation CZL - Control NoOfCopiesCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2634611088 - ReportLayout 566734103 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Order Confirmation (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Order Confirmation CZL - ReportLayout SalesOrderConfirmation.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2634611088 - ReportLayout 566734103 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Order Confirmation (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Order Confirmation CZL - ReportLayout SalesOrderConfirmation.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2634611088 - ReportLayout 2282469285 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Order Confirmation Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Order Confirmation CZL - ReportLayout SalesOrderConfirmationEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2634611088 - ReportLayout 2282469285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Order Confirmation Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Order Confirmation CZL - ReportLayout SalesOrderConfirmationEmail.docx - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1218007193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Quote</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -29267,6 +29742,26 @@
           <source>No. of Copies</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote CZL - Control NoOfCopiesCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1218007193 - ReportLayout 362142826 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Quote (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote CZL - ReportLayout SalesQuote.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 1218007193 - ReportLayout 362142826 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Quote (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote CZL - ReportLayout SalesQuote.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1218007193 - ReportLayout 2823084916 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Quote Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote CZL - ReportLayout SalesQuoteEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 1218007193 - ReportLayout 2823084916 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Quote Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Quote CZL - ReportLayout SalesQuoteEmail.docx - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3617860725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Return Order Confirmation</source>
@@ -31308,6 +31803,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Credit Memo CZL - Control NoOfCopiesCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3161673206 - ReportLayout 3746678117 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Credit Memo (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Credit Memo CZL - ReportLayout SalesCreditMemo.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 3161673206 - ReportLayout 3746678117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Credit Memo (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Credit Memo CZL - ReportLayout SalesCreditMemo.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3161673206 - ReportLayout 765475335 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Credit Memo Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Credit Memo CZL - ReportLayout SalesCreditMemoEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 3161673206 - ReportLayout 765475335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Credit Memo Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Credit Memo CZL - ReportLayout SalesCreditMemoEmail.docx - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 381903040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -31497,6 +32012,26 @@
           <source>No. of Copies</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales Invoice CZL - Control NoOfCopiesCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 381903040 - ReportLayout 1779199791 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Invoice (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Invoice CZL - ReportLayout SalesInvoice.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 381903040 - ReportLayout 1779199791 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Invoice (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Invoice CZL - ReportLayout SalesInvoice.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 381903040 - ReportLayout 3795414621 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Invoice Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Invoice CZL - ReportLayout SalesInvoiceEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 381903040 - ReportLayout 3795414621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Invoice Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales Invoice CZL - ReportLayout SalesInvoiceEmail.docx - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 4149927861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Return Reciept</source>
@@ -33522,6 +34057,26 @@
           <source>Show Not Due Amounts</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Reminder CZL - Control ShowNotDueAmountsCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 881578325 - ReportLayout 943236766 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Reminder (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder CZL - ReportLayout Reminder.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 881578325 - ReportLayout 943236766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder CZL - ReportLayout Reminder.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 881578325 - ReportLayout 1397898976 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Reminder Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder CZL - ReportLayout ReminderEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 881578325 - ReportLayout 1397898976 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Reminder CZL - ReportLayout ReminderEmail.docx - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 512700426 - Control 3243078520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1331685701">
           <source>Payment Details</source>
@@ -36912,6 +37467,21 @@
           <source>Inventory, Template, Item Journal, Job Journal,  Physical Inventory</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Guided Experience Handler CZL - Method RegisterInventoryMovementTemplates - NamedType InventoryMovementTemplateKeywordsTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3813376199 - Method 1772433881 - NamedType 4054626466" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Deductible VAT Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Guided Experience Handler CZL - Method RegisterNonDeductibleVATSetup - NamedType NonDeductibleVATNameTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3813376199 - Method 1772433881 - NamedType 3507076169" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set up Non-Deductible VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Guided Experience Handler CZL - Method RegisterNonDeductibleVATSetup - NamedType NonDeductibleVATDescriptionTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3813376199 - Method 1772433881 - NamedType 2936951629" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT, Finance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Guided Experience Handler CZL - Method RegisterNonDeductibleVATSetup - NamedType NonDeductibleVATKeywordsTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3813376199 - Method 2499858841 - NamedType 1534464571" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registration No. Service Config</source>

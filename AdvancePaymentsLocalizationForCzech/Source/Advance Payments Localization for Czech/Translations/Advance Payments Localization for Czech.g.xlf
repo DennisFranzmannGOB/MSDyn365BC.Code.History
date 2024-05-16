@@ -6683,6 +6683,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance Letter CZZ - Control NoOfCopies - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 234735014 - ReportLayout 3681405604 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Advance Letter (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance Letter CZZ - ReportLayout SalesAdvanceLetter.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 234735014 - ReportLayout 3681405604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance Letter (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance Letter CZZ - ReportLayout SalesAdvanceLetter.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 234735014 - ReportLayout 564450890 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Advance Letter Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance Letter CZZ - ReportLayout SalesAdvanceLetterEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 234735014 - ReportLayout 564450890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance Letter Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance Letter CZZ - ReportLayout SalesAdvanceLetterEmail.docx - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2545706739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales - Advance VAT Document</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6812,6 +6832,26 @@
           <source>No. of Copies</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance VAT Doc. CZZ - Control NoOfCopies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2545706739 - ReportLayout 2724255847 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Advance VAT Document (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance VAT Doc. CZZ - ReportLayout SalesAdvanceVATDoc.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2545706739 - ReportLayout 2724255847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance VAT Document (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance VAT Doc. CZZ - ReportLayout SalesAdvanceVATDoc.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2545706739 - ReportLayout 2332000181 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Advance VAT Document Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance VAT Doc. CZZ - ReportLayout SalesAdvanceVATDocEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2545706739 - ReportLayout 2332000181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Advance VAT Document Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Advance VAT Doc. CZZ - ReportLayout SalesAdvanceVATDocEmail.docx - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 485202580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales - Invoice with Advance</source>
@@ -6997,6 +7037,26 @@
           <source>No. of Copies</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Invoice with Adv. CZZ - Control NoOfCopies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 485202580 - ReportLayout 650497008 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Invoice with Advance (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Invoice with Adv. CZZ - ReportLayout SalesInvoicewithAdv.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 485202580 - ReportLayout 650497008 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Invoice with Advance (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Invoice with Adv. CZZ - ReportLayout SalesInvoicewithAdv.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 485202580 - ReportLayout 3026521566 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Sales Invoice with Advance Email (Word) provides an email body layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Invoice with Adv. CZZ - ReportLayout SalesInvoicewithAdvEmail.docx - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 485202580 - ReportLayout 3026521566 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Invoice with Advance Email (Word)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Invoice with Adv. CZZ - ReportLayout SalesInvoicewithAdvEmail.docx - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 595115396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Advance Letters Recapitulation</source>

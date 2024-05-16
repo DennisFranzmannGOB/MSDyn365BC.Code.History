@@ -198,6 +198,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = FieldCaption, %2 = FieldCaption</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Compensation Line CZC - NamedType MustHaveSameSignErr</note>
         </trans-unit>
+        <trans-unit id="Table 3407372436 - NamedType 1992722591" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2 is related to Advance Letter.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Ledger Entry TableCaption, %2 = Ledger Entry No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Compensation Line CZC - NamedType RelatedToAdvanceLetterErr</note>
+        </trans-unit>
         <trans-unit id="Table 3407372436 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -307,11 +312,6 @@
           <source>Source Entry No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Compensation Line CZC - Field Source Entry No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3407372436 - Field 3627141058 - Method 2126772001 - NamedType 1992722591" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 %2 is related to Advance Letter.</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Ledger Entry TableCaption, %2 = Ledger Entry No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Compensation Line CZC - Field Source Entry No. - Method OnValidate - NamedType RelatedToAdvanceLetterErr</note>
         </trans-unit>
         <trans-unit id="Table 3407372436 - Field 1882905478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Source No.</source>
