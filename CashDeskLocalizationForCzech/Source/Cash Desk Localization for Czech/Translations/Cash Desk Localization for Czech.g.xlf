@@ -528,6 +528,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Header CZP - NamedType DeleteQst</note>
         </trans-unit>
+        <trans-unit id="Table 2000055132 - NamedType 3804706331" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice %1</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cash Document Header CZP - NamedType InvoiceTxt</note>
+        </trans-unit>
         <trans-unit id="Table 2000055132 - NamedType 2006275734" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment %1</source>
           <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
