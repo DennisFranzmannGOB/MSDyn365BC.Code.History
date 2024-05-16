@@ -1818,6 +1818,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Acc. Sched. Extension Mgt. CZL - Method CreateResults - NamedType DateFilterErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 30144176 - NamedType 2561268386" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income Statement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Acc. Schedule Management CZL - NamedType IncomeStatementTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 30144176 - NamedType 40344838" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Account category, e.g. Assets</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Acc. Schedule Management CZL - NamedType TotalingTxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 30144176 - Method 1793367989 - NamedType 2367821945" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 has results. Do you want to delete it anyway?</source>
           <note from="Developer" annotates="general" priority="2">%1 = Description</note>
