@@ -144,7 +144,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Bank Service Tests - NamedType MatchSummaryMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3810257405 - NamedType 4104633221" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The password is missing in the Envestnet Yodlee Bank Feeds Service Setup window.</source>
+          <source>The client secret is missing in the Envestnet Yodlee Bank Feeds Service Setup window.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Bank Service Tests - NamedType MissingPasswordTxt</note>
         </trans-unit>
