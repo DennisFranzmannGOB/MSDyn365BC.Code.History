@@ -25,33 +25,35 @@ codeunit 5654 "Insurance Jnl.-Post"
 
     local procedure "Code"()
     begin
-        InsuranceJnlTempl.Get(InsuranceJnlLine."Journal Template Name");
-        InsuranceJnlTempl.TestField("Force Posting Report", false);
+        with InsuranceJnlLine do begin
+            InsuranceJnlTempl.Get("Journal Template Name");
+            InsuranceJnlTempl.TestField("Force Posting Report", false);
 
-        if not Confirm(Text000, false) then
-            exit;
+            if not Confirm(Text000, false) then
+                exit;
 
-        TempJnlBatchName := InsuranceJnlLine."Journal Batch Name";
+            TempJnlBatchName := "Journal Batch Name";
 
-        CODEUNIT.Run(CODEUNIT::"Insurance Jnl.-Post Batch", InsuranceJnlLine);
+            CODEUNIT.Run(CODEUNIT::"Insurance Jnl.-Post Batch", InsuranceJnlLine);
 
-        if InsuranceJnlLine."Line No." = 0 then
-            Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
-        else
-            if TempJnlBatchName = InsuranceJnlLine."Journal Batch Name" then
-                Message(Text002)
+            if "Line No." = 0 then
+                Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
             else
-                Message(
-                  Text003,
-                  InsuranceJnlLine."Journal Batch Name");
+                if TempJnlBatchName = "Journal Batch Name" then
+                    Message(Text002)
+                else
+                    Message(
+                      Text003,
+                      "Journal Batch Name");
 
-        if not InsuranceJnlLine.Find('=><') or (TempJnlBatchName <> InsuranceJnlLine."Journal Batch Name") then begin
-            InsuranceJnlLine.Reset();
-            InsuranceJnlLine.FilterGroup := 2;
-            InsuranceJnlLine.SetRange("Journal Template Name", InsuranceJnlLine."Journal Template Name");
-            InsuranceJnlLine.SetRange("Journal Batch Name", InsuranceJnlLine."Journal Batch Name");
-            InsuranceJnlLine.FilterGroup := 0;
-            InsuranceJnlLine."Line No." := 1;
+            if not Find('=><') or (TempJnlBatchName <> "Journal Batch Name") then begin
+                Reset();
+                FilterGroup := 2;
+                SetRange("Journal Template Name", "Journal Template Name");
+                SetRange("Journal Batch Name", "Journal Batch Name");
+                FilterGroup := 0;
+                "Line No." := 1;
+            end;
         end;
     end;
 }

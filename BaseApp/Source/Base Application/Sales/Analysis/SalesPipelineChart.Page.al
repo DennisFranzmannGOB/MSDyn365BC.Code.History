@@ -5,7 +5,7 @@
 namespace Microsoft.Sales.Analysis;
 
 using Microsoft.CRM.Opportunity;
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 781 "Sales Pipeline Chart"
@@ -24,20 +24,20 @@ page 781 "Sales Pipeline Chart"
                 Enabled = false;
                 ShowCaption = false;
                 Style = StrongAccent;
-                StyleExpr = true;
+                StyleExpr = TRUE;
                 ToolTip = 'Specifies the status of the chart.';
             }
-            usercontrol(BusinessChart; BusinessChart)
+            usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = RelationshipMgmt;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
-                    BusinessChartBuffer.SetDrillDownIndexes(Point);
+                    BusinessChartBuffer.SetDrillDownIndexes(point);
                     SalesPipelineChartMgt.DrillDown(BusinessChartBuffer, TempSalesCycleStage);
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -119,7 +119,7 @@ page 781 "Sales Pipeline Chart"
             exit;
 
         SalesPipelineChartMgt.UpdateData(BusinessChartBuffer, TempSalesCycleStage, SalesCycle);
-        BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
+        BusinessChartBuffer.Update(CurrPage.BusinessChart);
         UpdateStatusText(SalesCycle);
     end;
 

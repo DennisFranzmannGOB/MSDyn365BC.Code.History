@@ -29,7 +29,7 @@ codeunit 9064 "Stor. Serv. Auth. Shared Key" implements "Storage Service Authori
     end;
 
     [NonDebuggable]
-    procedure SetSharedKey(SharedKey: SecretText)
+    procedure SetSharedKey(SharedKey: Text)
     begin
         Secret := SharedKey;
     end;
@@ -47,7 +47,7 @@ codeunit 9064 "Stor. Serv. Auth. Shared Key" implements "Storage Service Authori
         SignaturePlaceHolderLbl: Label 'SharedKey %1:%2', Comment = '%1 = Account Name; %2 = Calculated Signature', Locked = true;
         SecretCanNotBeEmptyErr: Label 'Secret (Access Key) must be provided';
     begin
-        if Secret.IsEmpty() then
+        if Secret = '' then
             Error(SecretCanNotBeEmptyErr);
 
         StringToSign := CreateSharedKeyStringToSign(HttpRequestMessage, StorageAccount);
@@ -209,5 +209,6 @@ codeunit 9064 "Stor. Serv. Auth. Shared Key" implements "Storage Service Authori
     var
         AuthFormatHelper: Codeunit "Auth. Format Helper";
         ApiVersion: Enum "Storage Service API Version";
-        Secret: SecretText;
+        [NonDebuggable]
+        Secret: Text;
 }

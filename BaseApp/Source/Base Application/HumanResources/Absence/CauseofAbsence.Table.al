@@ -13,7 +13,6 @@ table 5206 "Cause of Absence"
     Caption = 'Cause of Absence';
     DrillDownPageID = "Causes of Absence";
     LookupPageID = "Causes of Absence";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -33,7 +32,7 @@ table 5206 "Cause of Absence"
         }
         field(4; "Total Absence (Base)"; Decimal)
         {
-            CalcFormula = sum("Employee Absence"."Quantity (Base)" where("Cause of Absence Code" = field(Code),
+            CalcFormula = Sum("Employee Absence"."Quantity (Base)" where("Cause of Absence Code" = field(Code),
                                                                           "Employee No." = field("Employee No. Filter"),
                                                                           "From Date" = field("Date Filter")));
             Caption = 'Total Absence (Base)';

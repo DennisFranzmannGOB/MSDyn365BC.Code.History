@@ -12,7 +12,6 @@ table 5332 "Coupling Record Buffer"
 {
     Caption = 'Coupling Record Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

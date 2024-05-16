@@ -8,7 +8,6 @@ table 5202 Qualification
     DataCaptionFields = "Code", Description;
     DrillDownPageID = Qualifications;
     LookupPageID = Qualifications;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -23,7 +22,7 @@ table 5202 Qualification
         }
         field(3; "Qualified Employees"; Boolean)
         {
-            CalcFormula = exist("Employee Qualification" where("Qualification Code" = field(Code),
+            CalcFormula = Exist("Employee Qualification" where("Qualification Code" = field(Code),
                                                                 "Employee Status" = const(Active)));
             Caption = 'Qualified Employees';
             Editable = false;

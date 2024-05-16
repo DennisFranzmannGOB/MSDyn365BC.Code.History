@@ -4,7 +4,7 @@ page 433 "Reminder Text"
 {
     AutoSplitKey = true;
     Caption = 'Reminder Text';
-    DataCaptionExpression = PageCaptionVariable;
+    DataCaptionExpression = PageCaption;
     DelayedInsert = true;
     MultipleNewLines = true;
     PageType = List;
@@ -64,10 +64,10 @@ page 433 "Reminder Text"
 
     trigger OnOpenPage()
     begin
-        PageCaptionVariable := Rec."Reminder Terms Code" + ' ' + Format(Rec."Reminder Level") + ' ' + Format(Rec.Position);
+        PageCaption := Rec."Reminder Terms Code" + ' ' + Format(Rec."Reminder Level") + ' ' + Format(Rec.Position);
     end;
 
     var
-        PageCaptionVariable: Text[250];
+        PageCaption: Text[250];
 }
 

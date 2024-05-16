@@ -12,6 +12,7 @@ codeunit 139866 "APIV2 - Contacts E2E"
 
     var
         Assert: Codeunit Assert;
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         LibraryGraphMgt: Codeunit "Library - Graph Mgt";
         LibraryUtility: Codeunit "Library - Utility";
         LibraryMarketing: Codeunit "Library - Marketing";
@@ -32,13 +33,12 @@ codeunit 139866 "APIV2 - Contacts E2E"
     procedure TestGetSimpleContact()
     var
         Contact: Record "Contact";
-        NoSeries: Codeunit "No. Series";
         Response: Text;
         TargetURL: Text;
     begin
         // [SCENARIO] User can get a simple contact with a GET request to the service.
         Initialize();
-        NoSeries.GetNextNo(SetupContactNumberSeries());
+        NoSeriesManagement.GetNextNo(SetupContactNumberSeries(), WorkDate(), true);
 
         // [GIVEN] A contact exists in the system.
         CreateSimpleContact(Contact);
@@ -55,13 +55,12 @@ codeunit 139866 "APIV2 - Contacts E2E"
     procedure TestGetContactWithAddressAndSpecialCharacters()
     var
         Contact: Record "Contact";
-        NoSeries: Codeunit "No. Series";
         Response: Text;
         TargetURL: Text;
     begin
         // [SCENARIO 184717] User can get a Contact that has non-empty values for complex type fields.
         Initialize();
-        NoSeries.GetNextNo(SetupContactNumberSeries());
+        NoSeriesManagement.GetNextNo(SetupContactNumberSeries(), WorkDate(), true);
 
         // [GIVEN] A Contact exists and has values assigned to some of the fields contained in complex types.
         CreateContactWithAddress(Contact);
@@ -106,14 +105,13 @@ codeunit 139866 "APIV2 - Contacts E2E"
     var
         Contact: Record "Contact";
         TempContact: Record "Contact" temporary;
-        NoSeries: Codeunit "No. Series";
         RequestBody: Text;
         Response: Text;
         TargetURL: Text;
     begin
         // [SCENARIO 184717] User can modify address in a Contact through a PATCH request.
         Initialize();
-        NoSeries.GetNextNo(SetupContactNumberSeries());
+        NoSeriesManagement.GetNextNo(SetupContactNumberSeries(), WorkDate(), true);
 
         // [GIVEN] A Contact exists with an address.
         CreateContactWithAddress(Contact);
@@ -184,10 +182,10 @@ codeunit 139866 "APIV2 - Contacts E2E"
 
     local procedure GetSimpleContactJSON(var Contact: Record "Contact") ContactJson: Text
     var
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement2: Codeunit "NoSeriesManagement";
     begin
         if Contact."No." = '' then
-            Contact."No." := NoSeries.PeekNextNo(SetupContactNumberSeries());
+            Contact."No." := NoSeriesManagement2.GetNextNo(SetupContactNumberSeries(), WorkDate(), false);
         if Contact.Name = '' then
             Contact.Name := LibraryUtility.GenerateGUID();
         ContactJson := LibraryGraphMgt.AddPropertytoJSON(ContactJson, 'number', Contact."No.");

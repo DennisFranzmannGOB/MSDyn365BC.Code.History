@@ -1,7 +1,6 @@
 table 135020 "Data Mig. Item Staging Table"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

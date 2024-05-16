@@ -1,7 +1,6 @@
 namespace System.Azure.Identity;
 
 using Microsoft.Utilities;
-using System.Security.Authentication;
 using System.Environment;
 
 page 6302 "Azure AD Access Dialog"
@@ -23,7 +22,7 @@ page 6302 "Azure AD Access Dialog"
                 ApplicationArea = Basic, Suite;
                 Caption = 'Before you can begin using this functionality, you must first grant access to these services.  To grant access, choose the ''Authorize Azure Services''  link.';
             }
-            usercontrol(OAuthIntegration; OAuthIntegration)
+            usercontrol(OAuthIntegration; "Microsoft.Dynamics.Nav.Client.OAuthIntegration")
             {
                 ApplicationArea = Basic, Suite;
 

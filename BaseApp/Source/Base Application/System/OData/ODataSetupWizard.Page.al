@@ -24,10 +24,8 @@ page 6711 "OData Setup Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and not (CurrentPage = 5);
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND NOT (CurrentPage = 5);
                 field("MediaResourcesStandard.""Media Reference"""; MediaResourcesStandard."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -38,10 +36,8 @@ page 6711 "OData Setup Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and (CurrentPage = 5);
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND (CurrentPage = 5);
                 field("MediaResourcesDone.""Media Reference"""; MediaResourcesDone."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -342,6 +338,7 @@ page 6711 "OData Setup Wizard"
                 Enabled = CurrentPage = 4;
                 Image = "Filter";
                 InFooterBar = true;
+                Promoted = true;
                 Visible = true;
 
                 trigger OnAction()
@@ -367,9 +364,10 @@ page 6711 "OData Setup Wizard"
             {
                 ApplicationArea = Basic, Suite;
                 Caption = '&Back';
-                Enabled = (CurrentPage > 1) and (CurrentPage < 5);
+                Enabled = (CurrentPage > 1) AND (CurrentPage < 5);
                 Image = PreviousRecord;
                 InFooterBar = true;
+                Promoted = true;
 
                 trigger OnAction()
                 begin
@@ -381,9 +379,10 @@ page 6711 "OData Setup Wizard"
             {
                 ApplicationArea = Basic, Suite;
                 Caption = '&Next';
-                Enabled = (CurrentPage >= 1) and (CurrentPage < 4);
+                Enabled = (CurrentPage >= 1) AND (CurrentPage < 4);
                 Image = NextRecord;
                 InFooterBar = true;
+                Promoted = true;
 
                 trigger OnAction()
                 begin
@@ -419,6 +418,7 @@ page 6711 "OData Setup Wizard"
                 Enabled = CurrentPage = 4;
                 Image = Post;
                 InFooterBar = true;
+                Promoted = true;
 
                 trigger OnAction()
                 var
@@ -444,6 +444,7 @@ page 6711 "OData Setup Wizard"
                 Enabled = CurrentPage = 5;
                 Image = Approve;
                 InFooterBar = true;
+                Promoted = true;
 
                 trigger OnAction()
                 begin
@@ -456,7 +457,8 @@ page 6711 "OData Setup Wizard"
                 Caption = '&Excel';
                 Enabled = (CurrentPage = 5);
                 InFooterBar = true;
-                Visible = (ExcelVisible = true);
+                Promoted = true;
+                Visible = (ExcelVisible = TRUE);
 
                 trigger OnAction()
                 var

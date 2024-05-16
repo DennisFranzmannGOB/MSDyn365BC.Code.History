@@ -9,7 +9,6 @@ table 286 Territory
     Caption = 'Territory';
     DrillDownPageID = Territories;
     LookupPageID = Territories;
-    DataClassification = CustomerContent;
 
     fields
     {

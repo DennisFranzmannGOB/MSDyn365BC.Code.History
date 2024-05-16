@@ -93,7 +93,7 @@ report 188 "Create Reminders"
         }
         dataitem(CustLedgEntryLineFeeOn; "Cust. Ledger Entry")
         {
-            DataItemTableView = sorting("Entry No.") order(ascending);
+            DataItemTableView = sorting("Entry No.") order(Ascending);
             RequestFilterFields = "Document Type";
             RequestFilterHeading = 'Apply Fee per Line On';
 
@@ -115,9 +115,7 @@ report 188 "Create Reminders"
                 group(Options)
                 {
                     Caption = 'Options';
-#pragma warning disable AA0100
                     field("ReminderHeaderReq.""Posting Date"""; ReminderHeaderReq."Posting Date")
-#pragma warning restore AA0100
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Posting Date';
@@ -162,8 +160,6 @@ report 188 "Create Reminders"
                 ReminderHeaderReq."Document Date" := WorkDate();
                 ReminderHeaderReq."Posting Date" := WorkDate();
             end;
-            if InitialCustomer."No." <> '' then
-                Customer.SetRange("No.", InitialCustomer."No.");
         end;
     }
 
@@ -185,8 +181,6 @@ report 188 "Create Reminders"
             FinishDateTime := CurrentDateTime();
         NumberOfReminderLines := ReminderLine.Count() - NumberOfReminderLines;
         LogReportTelemetry(StartDateTime, FinishDateTime, NumberOfReminderLines);
-        if OpenReminderListAfter then
-            Page.Run(Page::"Reminder List");
     end;
 
     trigger OnPreReport()
@@ -207,7 +201,6 @@ report 188 "Create Reminders"
     var
         CustLedgEntry: Record "Cust. Ledger Entry";
         CustLedgEntryLineFeeOnFilters: Record "Cust. Ledger Entry";
-        InitialCustomer: Record Customer;
         MakeReminder: Codeunit "Reminder-Make";
         Window: Dialog;
         NoOfRecords: Integer;
@@ -216,7 +209,6 @@ report 188 "Create Reminders"
         OldProgress: Integer;
         NewDateTime: DateTime;
         OldDateTime: DateTime;
-        OpenReminderListAfter: Boolean;
 
         Text000: Label '%1 must be specified.';
         Text001: Label 'Making reminders...';
@@ -246,16 +238,6 @@ report 188 "Create Reminders"
     procedure SetApplyLineFeeOnFilters(var CustLedgEntryLineFeeOn2: Record "Cust. Ledger Entry")
     begin
         CustLedgEntryLineFeeOnFilters.CopyFilters(CustLedgEntryLineFeeOn2);
-    end;
-
-    internal procedure SetCustomer(CustomerNo: Code[20])
-    begin
-        InitialCustomer.Get(CustomerNo);
-    end;
-
-    internal procedure SetOpenReminderListAfter(NewOpenReminderListAfter: Boolean)
-    begin
-        OpenReminderListAfter := NewOpenReminderListAfter;
     end;
 
     local procedure LogReportTelemetry(StartDateTime: DateTime; FinishDateTime: DateTime; NumberOfLines: Integer)

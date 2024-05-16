@@ -27,7 +27,6 @@ codeunit 137095 "SCM Kitting - Reservations"
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryRandom: Codeunit "Library - Random";
         LibraryManufacturing: Codeunit "Library - Manufacturing";
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryNotificationMgt: Codeunit "Library - Notification Mgt.";
         isInitialized: Boolean;
@@ -67,13 +66,13 @@ codeunit 137095 "SCM Kitting - Reservations"
         LibraryERMCountryData.UpdateGeneralPostingSetup();
 
         PurchasesPayablesSetup.Get();
-        PurchasesPayablesSetup.Validate("Vendor Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        PurchasesPayablesSetup.Validate("Vendor Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         PurchasesPayablesSetup.Modify(true);
 
         ManufacturingSetup.Get();
         WorkDate2 := CalcDate(ManufacturingSetup."Default Safety Lead Time", WorkDate()); // to avoid Due Date Before Work Date message.
         LibraryAssembly.UpdateAssemblySetup(
-          AssemblySetup, '', AssemblySetup."Copy Component Dimensions from"::"Order Header", LibraryUtility.GetGlobalNoSeriesCode());
+          AssemblySetup, '', AssemblySetup."Copy Component Dimensions from"::"Order Header", LibraryUtility.GetGlobalNoSeriesCode);
 
         isInitialized := true;
         Commit();
@@ -81,7 +80,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ResPageHandler,ResEntryPageHandler')]
+    [HandlerFunctions('ResPageHandler,ResEntryPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ShowItem()
     begin
@@ -89,6 +88,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ShowResource()
     begin
@@ -96,6 +96,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ShowText()
     begin
@@ -121,7 +122,6 @@ codeunit 137095 "SCM Kitting - Reservations"
         // Validate: Pages are raised according to the test function handler.
         AssemblyLine.ShowReservation();
         AssemblyLine.ShowReservationEntries(true);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     local procedure SetupAssemblyData(var AssemblyHeader: Record "Assembly Header"; DueDate: Date)
@@ -158,14 +158,15 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Validate: Reservation entries and Reserved Qty on Assembly Line.
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         AssemblyLine.TestField("Reserved Quantity", AssemblyLine."Reserved Qty. (Base)" * AssemblyLine."Qty. per Unit of Measure");
         VerifyReservationEntries(TempReservationEntry, AssemblyLine);
-        NotificationLifecycleMgt.RecallAllNotifications();
+
         exit(AssemblyHeader."No.");
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveOptional()
     begin
@@ -174,6 +175,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveNever()
     begin
@@ -182,6 +184,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveAlways()
     begin
@@ -190,6 +193,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ExcessSupply()
     begin
@@ -198,6 +202,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InsufficientSupply()
     begin
@@ -206,6 +211,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DueDateBefore()
     begin
@@ -214,6 +220,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DifferentLocation()
     begin
@@ -222,6 +229,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DifferentVariant()
     begin
@@ -230,6 +238,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DifferentVarAndLoc()
     begin
@@ -238,6 +247,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PostOptional()
     var
@@ -290,7 +300,7 @@ codeunit 137095 "SCM Kitting - Reservations"
                 repeat
                     RemainingResQty += Abs(ReservationEntry."Quantity (Base)");
                 until ReservationEntry.Next() = 0;
-                Assert.AreNearlyEqual(InitialResQty - InitialInventory, RemainingResQty, LibraryERM.GetAmountRoundingPrecision(),
+                Assert.AreNearlyEqual(InitialResQty - InitialInventory, RemainingResQty, LibraryERM.GetAmountRoundingPrecision,
                   'Remaining reserved quantity is not correct.');
             end
             else
@@ -298,8 +308,6 @@ codeunit 137095 "SCM Kitting - Reservations"
                   Format(InitialInventory))
         else
             Assert.AreEqual(0, ReservationEntry.Count, 'There shouldn''t be any reservation entries left.');
-
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Normal]
@@ -351,13 +359,13 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Validate: Reservation entries and Reserved Qty on Assembly Line.
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         AssemblyLine.TestField("Reserved Quantity", AssemblyLine."Reserved Qty. (Base)" * AssemblyLine."Qty. per Unit of Measure");
         VerifyReservationEntries(TempReservationEntry, AssemblyLine);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ResLineExcessSupply()
     begin
@@ -365,6 +373,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ResLineInsuffSupply()
     begin
@@ -372,6 +381,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ResLineDifferentLocation()
     begin
@@ -379,6 +389,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ResLineDifferentVariant()
     begin
@@ -386,6 +397,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ResLineDifferentVarAndLoc()
     begin
@@ -436,11 +448,10 @@ codeunit 137095 "SCM Kitting - Reservations"
             Assert.IsTrue(AssemblyHeaderReserve.ReservEntryExist(AssemblyHeader), 'ReservEntryExist, Item:' + AssemblyLine."No.");
             Assert.IsFalse(ReservationEntry.IsEmpty, 'Item: ' + AssemblyLine."No.");
         end;
-
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure HeaderResSunshine()
     begin
@@ -448,6 +459,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure HeaderResDiffLocation()
     begin
@@ -455,6 +467,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure HeaderResDiffVariant()
     begin
@@ -462,6 +475,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure HeaderResDueDateBefore()
     begin
@@ -509,11 +523,10 @@ codeunit 137095 "SCM Kitting - Reservations"
             Assert.IsTrue(AssemblyLineReserve.ReservEntryExist(AssemblyLine), 'ReservEntryExist,Item: ' + AssemblyLine."No.");
             Assert.IsFalse(ReservationEntry.IsEmpty, 'ReservEntryExist,Item: ' + AssemblyLine."No.");
         end;
-
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure LineResSunshine()
     begin
@@ -521,6 +534,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure LineResDiffLocation()
     begin
@@ -528,6 +542,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure LineResDueDateBefore()
     begin
@@ -545,7 +560,7 @@ codeunit 137095 "SCM Kitting - Reservations"
         // Setup Reservations.
         Initialize();
 
-        LibraryNotificationMgt.DisableMyNotification(ItemCheckAvail.GetItemAvailabilityNotificationId());
+        LibraryNotificationMgt.DisableMyNotification(ItemCheckAvail.GetItemAvailabilityNotificationId);
 
         SetupReservations(TempReservationEntry, AssemblyLine, AvailToReserve, Reserve,
           ExcessSupply, FilterOnVariant, FilterOnLocation, DueDateDelay, 2);
@@ -565,12 +580,13 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Validate: Reservation entries and Reserved Qty on Assembly Line.
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         AssemblyLine.TestField("Reserved Quantity", AssemblyLine."Reserved Qty. (Base)" * AssemblyLine."Qty. per Unit of Measure");
         VerifyReservationEntries(TempReservationEntry, AssemblyLine);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoReserveOptional()
     begin
@@ -579,6 +595,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoReserveNever()
     begin
@@ -587,6 +604,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoReserveAlways()
     begin
@@ -595,6 +613,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoExcessSupply()
     begin
@@ -603,7 +622,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('PartialResConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('PartialResConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoInsufficientSupply()
     begin
@@ -612,7 +631,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('PartialResConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('PartialResConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoInsSupplyLocation()
     begin
@@ -621,7 +640,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('PartialResConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('PartialResConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoInsSupplyVariant()
     begin
@@ -630,6 +649,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoDueDateBefore()
     begin
@@ -637,6 +657,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoDifferentLocation()
     begin
@@ -645,6 +666,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoDifferentVariant()
     begin
@@ -653,6 +675,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AutoDifferentVarAndLoc()
     begin
@@ -686,14 +709,13 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Validate: Reservation entries and Reserved Qty on Assembly Line.
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         AssemblyLine.TestField("Reserved Quantity", AssemblyLine."Reserved Qty. (Base)" * AssemblyLine."Qty. per Unit of Measure");
         VerifyReservationEntries(TempReservationEntry, AssemblyLine);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveOptional()
     begin
@@ -702,7 +724,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveAlways()
     begin
@@ -711,6 +733,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveNever()
     begin
@@ -722,7 +745,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveExcessSupply()
     begin
@@ -731,7 +754,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,InsufSupplyMessagHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,InsufSupplyMessagHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveInsufSupply()
     begin
@@ -740,7 +763,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveLocation()
     begin
@@ -749,7 +772,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveVariant()
     begin
@@ -758,7 +781,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveVarLoc()
     begin
@@ -767,7 +790,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveDueDate()
     begin
@@ -776,7 +799,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,InsufSupplyMessagHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,InsufSupplyMessagHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveInsufLocation()
     begin
@@ -785,7 +808,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,InsufSupplyMessagHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,InsufSupplyMessagHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveInsufVariant()
     begin
@@ -794,7 +817,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler')]
+    [HandlerFunctions('AvailToResModalHandler,AvailILEModalHandler,AvailPOModalHandler,AvailAOModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AvailToReserveNegativeFullyRes()
     begin
@@ -826,11 +849,10 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         AssemblyLine.ShowReservation();
         // Reservation page handler is triggered.
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveLocationILE()
     begin
@@ -839,7 +861,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveVariantILE()
     begin
@@ -848,7 +870,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveDueDateILE()
     begin
@@ -857,7 +879,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveVarLocILE()
     begin
@@ -866,7 +888,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveLocationPO()
     begin
@@ -875,7 +897,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveVariantPO()
     begin
@@ -884,7 +906,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveDueDatePO()
     begin
@@ -893,7 +915,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveVarLocPO()
     begin
@@ -902,7 +924,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveLocationAO()
     begin
@@ -911,7 +933,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveVariantAO()
     begin
@@ -920,7 +942,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveDueDateAO()
     begin
@@ -929,7 +951,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ReserveVarLocAO()
     begin
@@ -938,7 +960,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler,CancelResConfirmHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,CancelResConfirmHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure CancelAO()
     begin
@@ -947,7 +969,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler,CancelResConfirmHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,CancelResConfirmHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure CancelPO()
     begin
@@ -956,7 +978,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler,CancelResConfirmHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,CancelResConfirmHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure CancelILE()
     begin
@@ -965,7 +987,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ReserveCancelModalHandler')]
+    [HandlerFunctions('ReserveCancelModalHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure NegativeReserveILETwice()
     begin
@@ -1020,14 +1042,13 @@ codeunit 137095 "SCM Kitting - Reservations"
         end;
 
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         AssemblyLine.TestField("Reserved Quantity", AssemblyLine."Reserved Qty. (Base)" * AssemblyLine."Qty. per Unit of Measure");
         VerifyReservationEntries(TempReservationEntry, AssemblyLine);
-
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdateLocationPosOptional()
     begin
@@ -1035,6 +1056,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdateLocationPosOptPartial()
     begin
@@ -1042,6 +1064,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdateLocationNegOptional()
     begin
@@ -1052,6 +1075,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdateVariantPosOptional()
     begin
@@ -1059,6 +1083,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdateVariantPosOptPartial()
     begin
@@ -1066,6 +1091,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdateVariantNegOptional()
     begin
@@ -1076,6 +1102,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdDueDatePosOptUnavailSupply()
     begin
@@ -1083,6 +1110,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdDueDatePosOptAvailSupply()
     begin
@@ -1090,7 +1118,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('DueDateBeforeWorkDate')]
+    [HandlerFunctions('AvailabilityWindowHandler,DueDateBeforeWorkDate')]
     [Scope('OnPrem')]
     procedure UpdateDueDateNegOptional()
     begin
@@ -1098,6 +1126,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdateTypeNegOptional()
     begin
@@ -1109,6 +1138,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdateNoNegOptional()
     begin
@@ -1144,12 +1174,12 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Validate: Reservation entries and Reserved Qty on Assembly Line.
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         AssemblyLine.TestField("Reserved Quantity", AssemblyLine."Reserved Qty. (Base)" * AssemblyLine."Qty. per Unit of Measure");
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure IncrQtyFullyResOptional()
     var
@@ -1160,6 +1190,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure IncrQtyPartialResOptional()
     var
@@ -1170,6 +1201,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DecrQtyAboveAvailOptional()
     var
@@ -1180,6 +1212,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DecrQtyBelowAvailOptional()
     var
@@ -1212,13 +1245,13 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Validate: Reservation entries and Reserved Qty on Assembly Line.
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         AssemblyLine.TestField("Reserved Quantity", AssemblyLine."Reserved Qty. (Base)" * AssemblyLine."Qty. per Unit of Measure");
         VerifyReservationEntries(TempReservationEntry, AssemblyLine);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DeleteLineOptional()
     begin
@@ -1226,6 +1259,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DeleteLineAlways()
     begin
@@ -1276,15 +1310,13 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Validate: Reservation entries and Reserved Qty on Assembly Line.
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         AssemblyLine.TestField("Reserved Quantity", AssemblyLine."Reserved Qty. (Base)" * AssemblyLine."Qty. per Unit of Measure");
         VerifyReservationEntries(TempReservationEntry, AssemblyLine);
-
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdHdrLocationPosOptional()
     begin
@@ -1292,7 +1324,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdHdrLocationPosOptPartial()
     begin
@@ -1300,7 +1332,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdHdrLocationNegOptional()
     begin
@@ -1308,10 +1340,10 @@ codeunit 137095 "SCM Kitting - Reservations"
           TestChangeHeader(AssemblyHeader.FieldNo("Location Code"), false, 0, 0, 1);
         Assert.IsTrue(StrPos(GetLastErrorText, StrSubstNo(ErrorChangeLine, 'Location Code')) > 0, 'Actual:' + GetLastErrorText);
         ClearLastError();
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdHdrDDatePosOptUnavailSupply()
     begin
@@ -1319,6 +1351,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdHdrDueDatePosOptAvailSupply()
     begin
@@ -1326,7 +1359,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdHdrItemNoNegOptional()
     begin
@@ -1334,6 +1367,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdHdrQtyPosOptional()
     begin
@@ -1403,18 +1437,17 @@ codeunit 137095 "SCM Kitting - Reservations"
         PAGE.RunModal(PAGE::Reservation);
 
         SalesLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(ExpectedSalesResQty, SalesLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(ExpectedSalesResQty, SalesLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision,
           'Wrong Res. Qty Sales Line');
         AssemblyLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(ExpectedAsyResQty, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(ExpectedAsyResQty, AssemblyLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision,
           'Wrong Res. Qty Assembly Line');
 
-        NotificationLifecycleMgt.RecallAllNotifications();
         exit(SalesHeader."No.");
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PosOptionalAssemblyFirst()
     begin
@@ -1422,7 +1455,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure NegOptionalAssemblyFirst()
     begin
@@ -1430,7 +1463,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PosAlwaysAssemblyFirst()
     begin
@@ -1438,7 +1471,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure NegAlwaysAssemblyFirst()
     begin
@@ -1446,7 +1479,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PosOptionalAssemblyFirstLoc()
     begin
@@ -1454,7 +1487,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure NegOptionalAssemblyFirstVar()
     begin
@@ -1462,7 +1495,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PosOptionalAssemblyFirstDDate()
     begin
@@ -1470,7 +1503,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure NegOptionalAssemblyFirstDDate()
     begin
@@ -1478,7 +1511,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PosAlwaysAssemblyFirstVar()
     begin
@@ -1486,7 +1519,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure NegAlwaysAssemblyFirstLoc()
     begin
@@ -1494,7 +1527,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ResPageHandler')]
+    [HandlerFunctions('ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PosOptionalSalesFirst()
     begin
@@ -1502,7 +1535,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure NegAlwaysSalesFirst()
     begin
@@ -1510,7 +1543,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ResPageHandler')]
+    [HandlerFunctions('ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PosOptionalLocSalesFirst()
     begin
@@ -1518,7 +1551,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure NegOptionalDDateSalesFirst()
     begin
@@ -1561,7 +1594,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ResPageHandler')]
+    [HandlerFunctions('ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PostSalesLinePos()
     begin
@@ -1569,7 +1602,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ResPageHandler')]
+    [HandlerFunctions('ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PostSalesLineNeg()
     begin
@@ -1579,7 +1612,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ResPageHandler')]
+    [HandlerFunctions('ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PostOptionalAssemblyHeader()
     var
@@ -1628,7 +1661,7 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Sum of qty reserved against ILEs shifts with posted header qty.
         FindReservationEntries(ReservationEntry, true, SalesLine."No.", 32, '');
-        Assert.AreNearlyEqual(InitialResQty + PostedQty, GetReservedQty(ReservationEntry), LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(InitialResQty + PostedQty, GetReservedQty(ReservationEntry), LibraryERM.GetAmountRoundingPrecision,
           'Wrong shifted qty.');
     end;
 
@@ -1673,13 +1706,12 @@ codeunit 137095 "SCM Kitting - Reservations"
         end;
 
         SalesLine.CalcFields("Reserved Quantity", "Reserved Qty. (Base)");
-        Assert.AreNearlyEqual(AvailToReserve, SalesLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision(), 'Wrong Res. Qty');
+        Assert.AreNearlyEqual(AvailToReserve, SalesLine."Reserved Qty. (Base)", LibraryERM.GetAmountRoundingPrecision, 'Wrong Res. Qty');
         SalesLine.TestField("Reserved Quantity", SalesLine."Reserved Qty. (Base)" * SalesLine."Qty. per Unit of Measure");
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdSalesLineLocPos()
     begin
@@ -1687,7 +1719,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdSalesLineVarPos()
     begin
@@ -1695,7 +1727,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdSalesLineLocNeg()
     begin
@@ -1703,7 +1735,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdSalesLineVarNeg()
     begin
@@ -1711,7 +1743,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdSalesLineDueDatePos()
     begin
@@ -1719,7 +1751,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler,ShipmentDateMessageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,ShipmentDateMessageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdSalesLineDueDateNeg()
     begin
@@ -1727,7 +1759,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdSalesLineQtyIncr()
     begin
@@ -1735,7 +1767,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ResPageHandler')]
+    [HandlerFunctions('ConfirmHandler,ResPageHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure UpdSalesLineQtyDecr()
     begin
@@ -2008,7 +2040,6 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Create supply that falls outside the filter, as per the passed parameters.
         CreateFilterSupply(TempReservationEntry, AvailToReserve, AssemblyLine, FilterOnVariant, FilterOnLocation, DueDateDelay, ExcessSupply);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Normal]
@@ -2053,7 +2084,6 @@ codeunit 137095 "SCM Kitting - Reservations"
                       QtyToReserve, 900, AssemblyHeader."No.", 0, DueDate);
                 end;
         end;
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Normal]
@@ -2332,12 +2362,12 @@ codeunit 137095 "SCM Kitting - Reservations"
     begin
         AssemblyHeader.Get(AssemblyLine."Document Type", AssemblyLine."Document No.");
 
-        AssemblyOrder.OpenEdit();
+        AssemblyOrder.OpenEdit;
         AssemblyOrder.FILTER.SetFilter("No.", AssemblyHeader."No.");
         AssemblyOrder.GotoRecord(AssemblyHeader);
 
         // Add line again to trigger page triggers.
-        AssemblyOrder.Lines.New();
+        AssemblyOrder.Lines.New;
         AssemblyOrder.Lines.Type.Value := 'Item';
         AssemblyOrder.Lines."No.".Value := AssemblyLine."No.";
         AssemblyOrder.Lines."Variant Code".Value := AssemblyLine."Variant Code";
@@ -2354,7 +2384,6 @@ codeunit 137095 "SCM Kitting - Reservations"
         AssemblyLine.SetRange(Type, AssemblyLine.Type::Item);
         AssemblyLine.SetRange("No.", AssemblyLine."No.");
         AssemblyLine.FindLast();
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Normal]
@@ -2572,7 +2601,7 @@ codeunit 137095 "SCM Kitting - Reservations"
         TempReservationEntry.Validate("Item No.", ItemNo);
         TempReservationEntry.Validate("Variant Code", VariantCode);
         TempReservationEntry.Validate("Location Code", LocationCode);
-        TempReservationEntry.Validate("Quantity (Base)", Round(QtyToReserve, LibraryERM.GetUnitAmountRoundingPrecision()));
+        TempReservationEntry.Validate("Quantity (Base)", Round(QtyToReserve, LibraryERM.GetUnitAmountRoundingPrecision));
         // Save overall supply line qty. in an unused field.
         TempReservationEntry.Validate("Qty. to Handle (Base)", Quantity);
         TempReservationEntry.Validate("Reservation Status", TempReservationEntry."Reservation Status"::Reservation);
@@ -2662,7 +2691,6 @@ codeunit 137095 "SCM Kitting - Reservations"
         FieldRef.Validate(Value);
         RecRef.SetTable(AssemblyHeader);
         AssemblyHeader.Modify(true);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Normal]
@@ -2760,21 +2788,21 @@ codeunit 137095 "SCM Kitting - Reservations"
     var
         counter: Integer;
     begin
-        Reservation.First();
+        Reservation.First;
 
         // Validate: Entry summaries for various supply types.
         VerifyEntrySummary(Reservation, Format(GlobalILESupply), Format(GlobalILESupply), 'Item Ledger Entry');
-        Reservation.AvailableToReserve.Invoke();
+        Reservation.AvailableToReserve.Invoke;
         Reservation.Next();
 
         VerifyEntrySummary(Reservation, Format(GlobalPOSupply), Format(GlobalPOSupply), 'Purchase');
-        Reservation.AvailableToReserve.Invoke();
+        Reservation.AvailableToReserve.Invoke;
         Reservation.Next();
 
         VerifyEntrySummary(Reservation, Format(GlobalAOSupply), Format(GlobalAOSupply), 'Assembly');
-        Reservation.AvailableToReserve.Invoke();
+        Reservation.AvailableToReserve.Invoke;
 
-        Reservation.First();
+        Reservation.First;
         if Reservation."Summary Type".Value <> '' then
             counter := 1;
         while Reservation.Next() do
@@ -2783,9 +2811,9 @@ codeunit 137095 "SCM Kitting - Reservations"
         Assert.AreEqual(3, counter, 'Wrong no. of Summary entries.');
 
         // Exercise: Autoreserve.
-        Reservation."Auto Reserve".Invoke();
+        Reservation."Auto Reserve".Invoke;
         if GlobalReserveTwice then
-            Reservation."Auto Reserve".Invoke();
+            Reservation."Auto Reserve".Invoke;
     end;
 
     [ModalPageHandler]
@@ -2806,16 +2834,16 @@ codeunit 137095 "SCM Kitting - Reservations"
                 SupplyType := 'Assembly';
         end;
 
-        Reservation.First();
+        Reservation.First;
         // Set the cursor on the desired supply type.
         while StrPos(Reservation."Summary Type".Value, SupplyType) = 0 do
             if not Reservation.Next() then
                 Assert.Fail('Expected line for ' + SupplyType + ' not found.');
 
         // Exercise: Reserve from current line.
-        Reservation."Reserve from Current Line".Invoke();
+        Reservation."Reserve from Current Line".Invoke;
         if GlobalReserveTwice then
-            Reservation."Reserve from Current Line".Invoke();
+            Reservation."Reserve from Current Line".Invoke;
 
         // Validate: Reserved Qty.
         // Capable to Reserve = min(Assembly Line Qty, Avail To Reserve Qty for the current Supply Type).
@@ -2827,7 +2855,7 @@ codeunit 137095 "SCM Kitting - Reservations"
 
         // Exercise: Cancel reservation if required.
         if GlobalCancelReservation then begin
-            Reservation.CancelReservationCurrentLine.Invoke();
+            Reservation.CancelReservationCurrentLine.Invoke;
             // Validate: Reservation was canceled.
             Assert.AreEqual('', Reservation."Current Reserved Quantity".Value, 'Wrong reserved qty for ' + SupplyType);
         end;
@@ -2847,7 +2875,7 @@ codeunit 137095 "SCM Kitting - Reservations"
         ActualQty: Decimal;
         LineQty: Decimal;
     begin
-        AvailableItemLedgEntries.First();
+        AvailableItemLedgEntries.First;
         if AvailableItemLedgEntries."Remaining Quantity".Value <> '' then
             repeat
                 Evaluate(LineQty, AvailableItemLedgEntries."Remaining Quantity".Value);
@@ -2864,7 +2892,7 @@ codeunit 137095 "SCM Kitting - Reservations"
         ActualQty: Decimal;
         LineQty: Decimal;
     begin
-        AvailablePurchaseLines.First();
+        AvailablePurchaseLines.First;
         if AvailablePurchaseLines."Outstanding Qty. (Base)".Value <> '' then
             repeat
                 Evaluate(LineQty, AvailablePurchaseLines."Outstanding Qty. (Base)".Value);
@@ -2881,7 +2909,7 @@ codeunit 137095 "SCM Kitting - Reservations"
         ActualQty: Decimal;
         LineQty: Decimal;
     begin
-        AvailableAssemblyHeaders.First();
+        AvailableAssemblyHeaders.First;
         if AvailableAssemblyHeaders."Remaining Quantity".Value <> '' then
             repeat
                 Evaluate(LineQty, AvailableAssemblyHeaders."Remaining Quantity".Value);
@@ -2895,47 +2923,47 @@ codeunit 137095 "SCM Kitting - Reservations"
     [Scope('OnPrem')]
     procedure AvailableAssemblyHeadersPageHandler(var AvailableAssemblyHeaders: TestPage "Available - Assembly Headers")
     begin
-        AvailableAssemblyHeaders.Reserve.Invoke();
-        AvailableAssemblyHeaders."Reserved Qty. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+        AvailableAssemblyHeaders.Reserve.Invoke;
+        AvailableAssemblyHeaders."Reserved Qty. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal);
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure AvailableAssemblyLinesPageHandler(var AvailableAssemblyLines: TestPage "Available - Assembly Lines")
     begin
-        AvailableAssemblyLines.Reserve.Invoke();
-        AvailableAssemblyLines."Reserved Qty. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+        AvailableAssemblyLines.Reserve.Invoke;
+        AvailableAssemblyLines."Reserved Qty. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal);
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure AvailableProdOrderLinesPageHandler(var AvailableProdOrderLines: TestPage "Available - Prod. Order Lines")
     begin
-        AvailableProdOrderLines.Reserve.Invoke();
-        AvailableProdOrderLines."Reserved Qty. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+        AvailableProdOrderLines.Reserve.Invoke;
+        AvailableProdOrderLines."Reserved Qty. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal);
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure AvailableProdOrderCompPageHandler(var AvailableProdOrderComp: TestPage "Available - Prod. Order Comp.")
     begin
-        AvailableProdOrderComp.Reserve.Invoke();
-        AvailableProdOrderComp."Reserved Qty. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+        AvailableProdOrderComp.Reserve.Invoke;
+        AvailableProdOrderComp."Reserved Qty. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal);
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure AvailableTransferLinesPageHandler(var AvailableTransferLines: TestPage "Available - Transfer Lines")
     begin
-        AvailableTransferLines.Reserve.Invoke();
-        AvailableTransferLines."Reserved Qty. Inbnd. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+        AvailableTransferLines.Reserve.Invoke;
+        AvailableTransferLines."Reserved Qty. Inbnd. (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal);
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure AvailableProdOrderCompCancelReservationPageHandler(var AvailableProdOrderComp: TestPage "Available - Prod. Order Comp.")
     begin
-        AvailableProdOrderComp.CancelReservation.Invoke();
+        AvailableProdOrderComp.CancelReservation.Invoke;
         AvailableProdOrderComp."Reserved Qty. (Base)".AssertEquals(0);
     end;
 
@@ -2943,7 +2971,14 @@ codeunit 137095 "SCM Kitting - Reservations"
     [Scope('OnPrem')]
     procedure AvailableProdOrderCompDrillDownQtyPageHandler(var AvailableProdOrderComp: TestPage "Available - Prod. Order Comp.")
     begin
-        AvailableProdOrderComp.ReservedQuantity.DrillDown();
+        AvailableProdOrderComp.ReservedQuantity.DrillDown;
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure AvailabilityWindowHandler(var AsmAvailability: Page "Assembly Availability"; var Response: Action)
+    begin
+        Response := ACTION::Yes; // always confirm
     end;
 
     [MessageHandler]
@@ -2957,7 +2992,7 @@ codeunit 137095 "SCM Kitting - Reservations"
     [Scope('OnPrem')]
     procedure ReservationPageHandler(var Reservation: TestPage Reservation)
     begin
-        Reservation.AvailableToReserve.Invoke();
+        Reservation.AvailableToReserve.Invoke;
     end;
 
     [StrMenuHandler]

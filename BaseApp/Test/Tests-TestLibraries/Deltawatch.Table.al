@@ -1,7 +1,6 @@
 table 130001 "Delta watch"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -148,9 +148,11 @@ codeunit 737 "VAT Report Mgt."
     begin
         VATReportSetup.Get();
         VATReportSetup.TestField("Report Version");
-        VATReportHeader."VAT Report Config. Code" := VATReportHeader."VAT Report Config. Code"::"VAT Return";
-        VATReportHeader."VAT Report Version" := VATReportSetup."Report Version";
-        VATReportHeader.Insert(true);
+        with VATReportHeader do begin
+            "VAT Report Config. Code" := "VAT Report Config. Code"::"VAT Return";
+            "VAT Report Version" := VATReportSetup."Report Version";
+            Insert(true);
+        end;
     end;
 
     local procedure UpdateVATReturn(var VATReportHeader: Record "VAT Report Header"; var VATReturnPeriod: Record "VAT Return Period")
@@ -189,14 +191,15 @@ codeunit 737 "VAT Report Mgt."
 
     local procedure GetJobNoOfMinutes(VATReportSetup: Record "VAT Report Setup"): Integer
     begin
-        case VATReportSetup."Update Period Job Frequency" of
-            VATReportSetup."Update Period Job Frequency"::Never:
-                exit(0);
-            VATReportSetup."Update Period Job Frequency"::Daily:
-                exit(60 * 24);
-            VATReportSetup."Update Period Job Frequency"::Weekly:
-                exit(60 * 24 * 7);
-        end;
+        with VATReportSetup do
+            case "Update Period Job Frequency" of
+                "Update Period Job Frequency"::Never:
+                    exit(0);
+                "Update Period Job Frequency"::Daily:
+                    exit(60 * 24);
+                "Update Period Job Frequency"::Weekly:
+                    exit(60 * 24 * 7);
+            end;
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"VAT Return Period List", 'OnOpenPageEvent', '', false, false)]
@@ -218,10 +221,12 @@ codeunit 737 "VAT Report Mgt."
         then
             exit(false);
 
-        JobQueueLogEntry.SetRange("Object Type to Run", JobQueueLogEntry."Object Type to Run"::Codeunit);
-        JobQueueLogEntry.SetRange("Object ID to Run", VATReportSetup."Auto Receive Period CU ID");
-        if JobQueueLogEntry.FindLast() then
-            exit(JobQueueLogEntry.Status = JobQueueLogEntry.Status::Error);
+        with JobQueueLogEntry do begin
+            SetRange("Object Type to Run", "Object Type to Run"::Codeunit);
+            SetRange("Object ID to Run", VATReportSetup."Auto Receive Period CU ID");
+            if FindLast() then
+                exit(Status = Status::Error);
+        end;
 
         exit(false);
     end;
@@ -243,10 +248,12 @@ codeunit 737 "VAT Report Mgt."
         JobQueueEntry: Record "Job Queue Entry";
     begin
         VATReportSetup.Get();
-        JobQueueEntry.SetRange("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
-        JobQueueEntry.SetRange("Object ID to Run", VATReportSetup."Auto Receive Period CU ID");
-        if not JobQueueEntry.IsEmpty() then
-            PAGE.RunModal(PAGE::"Job Queue Entry Card", JobQueueEntry);
+        with JobQueueEntry do begin
+            SetRange("Object Type to Run", "Object Type to Run"::Codeunit);
+            SetRange("Object ID to Run", VATReportSetup."Auto Receive Period CU ID");
+            if not IsEmpty() then
+                PAGE.RunModal(PAGE::"Job Queue Entry Card", JobQueueEntry);
+        end;
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"VAT Report", 'OnBeforeValidateEvent', 'VAT Report Version', false, false)]

@@ -16,7 +16,6 @@ using Microsoft.Service.History;
 table 290 "VAT Amount Line"
 {
     Caption = 'VAT Amount Line';
-    DataClassification = CustomerContent;
 
     fields
     {

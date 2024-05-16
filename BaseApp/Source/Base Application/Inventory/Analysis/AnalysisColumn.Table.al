@@ -7,7 +7,6 @@ table 7118 "Analysis Column"
     Caption = 'Analysis Column';
     DrillDownPageID = "Analysis Columns";
     LookupPageID = "Analysis Columns";
-    DataClassification = CustomerContent;
 
     fields
     {

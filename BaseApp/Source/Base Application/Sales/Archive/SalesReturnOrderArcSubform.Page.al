@@ -254,7 +254,7 @@ page 6628 "Sales Return Order Arc Subform"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Outbound Whse. Handling Time"; Rec."Outbound Whse. Handling Time")
@@ -516,12 +516,11 @@ page 6628 "Sales Return Order Arc Subform"
 
     procedure ShowDocumentLineTracking()
     var
-        DocumentLineTrackingPage: Page "Document Line Tracking";
+        DocumentLineTracking: Page "Document Line Tracking";
     begin
-        Clear(DocumentLineTrackingPage);
-        DocumentLineTrackingPage.SetSourceDoc(
-            Enum::"Document Line Source Type"::"Sales Return Order", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
-        DocumentLineTrackingPage.RunModal();
+        Clear(DocumentLineTracking);
+        DocumentLineTracking.SetDoc(8, Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
+        DocumentLineTracking.RunModal();
     end;
 
     local procedure SetDimensionsVisibility()

@@ -30,44 +30,46 @@ codeunit 274 "Res. Jnl.-B.Post+Print"
     var
         HideDialog: Boolean;
     begin
-        ResJnlTemplate.Get(ResJnlBatch."Journal Template Name");
-        ResJnlTemplate.TestField("Posting Report ID");
+        with ResJnlBatch do begin
+            ResJnlTemplate.Get("Journal Template Name");
+            ResJnlTemplate.TestField("Posting Report ID");
 
-        HideDialog := false;
-        OnBeforePostJournalBatch(ResJnlBatch, HideDialog);
-        if not HideDialog then
-            if not Confirm(Text000) then
-                exit;
+            HideDialog := false;
+            OnBeforePostJournalBatch(ResJnlBatch, HideDialog);
+            if not HideDialog then
+                if not Confirm(Text000) then
+                    exit;
 
-        ResJnlBatch.Find('-');
-        repeat
-            ResJnlLine."Journal Template Name" := ResJnlBatch."Journal Template Name";
-            ResJnlLine."Journal Batch Name" := ResJnlBatch.Name;
-            ResJnlLine."Line No." := 1;
-            Clear(ResJnlPostBatch);
-            if ResJnlPostBatch.Run(ResJnlLine) then begin
-                OnAfterPostJournalBatch(ResJnlBatch);
-                ResJnlBatch.Mark(false);
-                if ResReg.Get(ResJnlLine."Line No.") then begin
-                    ResReg.SetRecFilter();
-                    REPORT.Run(ResJnlTemplate."Posting Report ID", false, false, ResReg);
+            Find('-');
+            repeat
+                ResJnlLine."Journal Template Name" := "Journal Template Name";
+                ResJnlLine."Journal Batch Name" := Name;
+                ResJnlLine."Line No." := 1;
+                Clear(ResJnlPostBatch);
+                if ResJnlPostBatch.Run(ResJnlLine) then begin
+                    OnAfterPostJournalBatch(ResJnlBatch);
+                    Mark(false);
+                    if ResReg.Get(ResJnlLine."Line No.") then begin
+                        ResReg.SetRecFilter();
+                        REPORT.Run(ResJnlTemplate."Posting Report ID", false, false, ResReg);
+                    end;
+                end else begin
+                    Mark(true);
+                    JnlWithErrors := true;
                 end;
-            end else begin
-                ResJnlBatch.Mark(true);
-                JnlWithErrors := true;
+            until Next() = 0;
+
+            if not JnlWithErrors then
+                Message(Text001)
+            else
+                Message(
+                  Text002 +
+                  Text003);
+
+            if not Find('=><') then begin
+                Reset();
+                Name := '';
             end;
-        until ResJnlBatch.Next() = 0;
-
-        if not JnlWithErrors then
-            Message(Text001)
-        else
-            Message(
-                Text002 +
-                Text003);
-
-        if not ResJnlBatch.Find('=><') then begin
-            ResJnlBatch.Reset();
-            ResJnlBatch.Name := '';
         end;
     end;
 

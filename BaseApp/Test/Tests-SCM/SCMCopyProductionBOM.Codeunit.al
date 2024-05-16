@@ -16,6 +16,7 @@ codeunit 137210 "SCM Copy Production BOM"
         LibraryInventory: Codeunit "Library - Inventory";
         LibraryUtility: Codeunit "Library - Utility";
         LibraryRandom: Codeunit "Library - Random";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         IsInitialized: Boolean;
         ErrAutoCopy: Label 'The Production BOM Header cannot be copied to itself.';
         ErrBOMIsCertified: Label 'Status on Production BOM Header %1 must not be Certified';
@@ -342,7 +343,7 @@ codeunit 137210 "SCM Copy Production BOM"
     begin
         LibraryInventory.CreateUnitOfMeasureCode(UnitOfMeasure);
         LibraryManufacturing.CreateProductionBOMHeader(ProductionBOMHeader, UnitOfMeasure.Code);
-        ProductionBOMHeader.Validate("Version Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        ProductionBOMHeader.Validate("Version Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         ProductionBOMHeader.Modify(true);
 
         for Counter := 1 to 2 do begin
@@ -407,7 +408,6 @@ codeunit 137210 "SCM Copy Production BOM"
     var
         Item: Record Item;
         ProductionBOMLine: Record "Production BOM Line";
-        NoSeries: Codeunit "No. Series";
         VersionCode: Text[20];
     begin
         // Create source Production BOM Header.
@@ -415,7 +415,7 @@ codeunit 137210 "SCM Copy Production BOM"
         ProdBOMNo := ProductionBOMHeader."No.";
 
         // Add first version to BOM Header.
-        VersionCode := NoSeries.GetNextNo(ProductionBOMHeader."Version Nos.");
+        VersionCode := NoSeriesManagement.GetNextNo(ProductionBOMHeader."Version Nos.", WorkDate(), true);
         LibraryManufacturing.CreateProductionBOMVersion(ProductionBOMVersion, ProductionBOMHeader."No.",
           CopyStr(VersionCode, StrLen(VersionCode) - 9, 10), ProductionBOMHeader."Unit of Measure Code");
         ProdBOMVersionCode := ProductionBOMVersion."Version Code";
@@ -427,7 +427,7 @@ codeunit 137210 "SCM Copy Production BOM"
 
         // Create destination version.
         Clear(ProductionBOMVersion);
-        VersionCode := NoSeries.GetNextNo(ProductionBOMHeader."Version Nos.");
+        VersionCode := NoSeriesManagement.GetNextNo(ProductionBOMHeader."Version Nos.", WorkDate(), true);
         LibraryManufacturing.CreateProductionBOMVersion(ProductionBOMVersion, ProductionBOMHeader."No.",
           CopyStr(VersionCode, StrLen(VersionCode) - 9, 10), ProductionBOMHeader."Unit of Measure Code");
 

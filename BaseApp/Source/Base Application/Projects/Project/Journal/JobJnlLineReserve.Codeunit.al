@@ -126,19 +126,21 @@ codeunit 99000844 "Job Jnl. Line-Reserve"
     var
         JobJnlLine: Record "Job Journal Line";
     begin
-        if NewJobJnlLine."Line No." = OldJobJnlLine."Line No." then
-            if NewJobJnlLine."Quantity (Base)" = OldJobJnlLine."Quantity (Base)" then
-                exit;
-        if NewJobJnlLine."Line No." = 0 then
-            if not JobJnlLine.Get(NewJobJnlLine."Journal Template Name", NewJobJnlLine."Journal Batch Name", NewJobJnlLine."Line No.") then
-                exit;
-        ReservMgt.SetReservSource(NewJobJnlLine);
-        if NewJobJnlLine."Qty. per Unit of Measure" <> OldJobJnlLine."Qty. per Unit of Measure" then
-            ReservMgt.ModifyUnitOfMeasure();
-        if NewJobJnlLine."Quantity (Base)" * OldJobJnlLine."Quantity (Base)" < 0 then
-            ReservMgt.DeleteReservEntries(true, 0)
-        else
-            ReservMgt.DeleteReservEntries(false, NewJobJnlLine."Quantity (Base)");
+        with NewJobJnlLine do begin
+            if "Line No." = OldJobJnlLine."Line No." then
+                if "Quantity (Base)" = OldJobJnlLine."Quantity (Base)" then
+                    exit;
+            if "Line No." = 0 then
+                if not JobJnlLine.Get("Journal Template Name", "Journal Batch Name", "Line No.") then
+                    exit;
+            ReservMgt.SetReservSource(NewJobJnlLine);
+            if "Qty. per Unit of Measure" <> OldJobJnlLine."Qty. per Unit of Measure" then
+                ReservMgt.ModifyUnitOfMeasure();
+            if "Quantity (Base)" * OldJobJnlLine."Quantity (Base)" < 0 then
+                ReservMgt.DeleteReservEntries(true, 0)
+            else
+                ReservMgt.DeleteReservEntries(false, "Quantity (Base)");
+        end;
     end;
 
     procedure RenameLine(var NewJobJnlLine: Record "Job Journal Line"; var OldJobJnlLine: Record "Job Journal Line")
@@ -158,24 +160,27 @@ codeunit 99000844 "Job Jnl. Line-Reserve"
 
     procedure DeleteLineConfirm(var JobJnlLine: Record "Job Journal Line"): Boolean
     begin
-        if not JobJnlLine.ReservEntryExist() then
-            exit(true);
+        with JobJnlLine do begin
+            if not ReservEntryExist() then
+                exit(true);
 
-        ReservMgt.SetReservSource(JobJnlLine);
-        if ReservMgt.DeleteItemTrackingConfirm() then
-            DeleteItemTracking := true;
+            ReservMgt.SetReservSource(JobJnlLine);
+            if ReservMgt.DeleteItemTrackingConfirm() then
+                DeleteItemTracking := true;
+        end;
 
         exit(DeleteItemTracking);
     end;
 
     procedure DeleteLine(var JobJnlLine: Record "Job Journal Line")
     begin
-        if JobJnlLine.Type = JobJnlLine.Type::Item then begin
-            ReservMgt.SetReservSource(JobJnlLine);
-            if DeleteItemTracking then
-                ReservMgt.SetItemTrackingHandling(1); // Allow Deletion
-            ReservMgt.DeleteReservEntries(true, 0);
-        end;
+        with JobJnlLine do
+            if Type = Type::Item then begin
+                ReservMgt.SetReservSource(JobJnlLine);
+                if DeleteItemTracking then
+                    ReservMgt.SetItemTrackingHandling(1); // Allow Deletion
+                ReservMgt.DeleteReservEntries(true, 0);
+            end;
     end;
 
     procedure CallItemTracking(var JobJnlLine: Record "Job Journal Line"; IsReclass: Boolean)

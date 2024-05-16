@@ -11,11 +11,10 @@ using System.Utilities;
 
 report 1013 "Items per Job"
 {
-    AdditionalSearchTerms = 'Items per Job';
     DefaultLayout = RDLC;
     RDLCLayout = './Projects/Project/Reports/ItemsperJob.rdlc';
     ApplicationArea = Jobs;
-    Caption = 'Items per Project';
+    Caption = 'Items per Job';
     UsageCategory = ReportsAndAnalysis;
 
     dataset
@@ -101,7 +100,7 @@ report 1013 "Items per Job"
                 {
                     DecimalPlaces = 0 : 5;
                 }
-                column(TableCaptionJobNo; TotalForTxt + ' ' + Job.TableCaption + ' ' + Job."No.")
+                column(TableCaptionJobNo; Text000 + ' ' + Job.TableCaption + ' ' + Job."No.")
                 {
                 }
 
@@ -157,9 +156,12 @@ report 1013 "Items per Job"
 
     var
         Item: Record Item;
+        TempJobBuffer2: Record "Job Buffer" temporary;
+        TempJobBuffer: Record "Job Buffer" temporary;
         JobFilter: Text;
         ItemFilter: Text;
-        ItemsperJobCaptionLbl: Label 'Items per Project';
+        Text000: Label 'Total for';
+        ItemsperJobCaptionLbl: Label 'Items per Job';
         CurrReportPageNoCaptionLbl: Label 'Page';
         AllamountsareinLCYCaptionLbl: Label 'All amounts are in LCY';
         JobBufferLineAmountCaptionLbl: Label 'Line Amount';
@@ -169,11 +171,5 @@ report 1013 "Items per Job"
         JobBufferDescriptionCaptionLbl: Label 'Description';
         ItemNoCaptionLbl: Label 'Item No.';
         TotalCaptionLbl: Label 'Total';
-
-        TotalForTxt: Label 'Total for';
-
-    protected var
-        TempJobBuffer2: Record "Job Buffer" temporary;
-        TempJobBuffer: Record "Job Buffer" temporary;
 }
 

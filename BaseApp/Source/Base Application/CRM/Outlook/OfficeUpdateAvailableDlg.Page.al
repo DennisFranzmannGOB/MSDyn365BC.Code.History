@@ -34,28 +34,28 @@ page 1607 "Office Update Available Dlg"
                 Caption = 'An update is available for this Outlook add-in. To update the add-in, please contact your system administrator.';
                 HideValue = true;
                 ToolTip = 'Specifies an option for updating the add-in.';
-                Visible = not UserCanUpdate and UserCanContinue;
+                Visible = NOT UserCanUpdate AND UserCanContinue;
             }
             label(AdminBreaking)
             {
                 ApplicationArea = Basic, Suite;
                 Caption = 'An update is available for this Outlook add-in. To continue using the add-in, please contact your system administrator.';
                 ToolTip = 'Specifies an option for updating the add-in.';
-                Visible = not UserCanUpdate and not UserCanContinue;
+                Visible = NOT UserCanUpdate AND NOT UserCanContinue;
             }
             label(UserNonBreaking)
             {
                 ApplicationArea = Basic, Suite;
                 Caption = 'An update is available for this Outlook add-in. Do you want to apply the update now?';
                 ToolTip = 'Specifies an option for updating the add-in.';
-                Visible = UserCanContinue and UserCanUpdate;
+                Visible = UserCanContinue AND UserCanUpdate;
             }
             label(UserBreaking)
             {
                 ApplicationArea = Basic, Suite;
                 Caption = 'An update is available for this Outlook add-in. To continue using the add-in, you must apply the update.';
                 ToolTip = 'Specifies an option for updating the add-in.';
-                Visible = not UserCanContinue and UserCanUpdate;
+                Visible = NOT UserCanContinue AND UserCanUpdate;
             }
             field(UpgradeNow; UpgradeNowLbl)
             {

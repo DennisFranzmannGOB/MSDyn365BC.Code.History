@@ -10,11 +10,11 @@ using Microsoft.EServices.EDocument;
 using Microsoft.Foundation.Navigate;
 using Microsoft.Integration.D365Sales;
 using Microsoft.Inventory.Item;
-#if CLEAN23
+#if CLEAN21
 using Microsoft.Pricing.Worksheet;
 #endif
 using Microsoft.Purchases.Vendor;
-#if not CLEAN23
+#if not CLEAN21
 using Microsoft.RoleCenters;
 #endif
 using Microsoft.Sales.Analysis;
@@ -34,12 +34,8 @@ page 9005 "Sales Manager Role Center"
     {
         area(rolecenter)
         {
-#if not CLEAN24
             group(Control1900724808)
             {
-                ObsoleteReason = 'Group removed for better alignment of Role Centers parts';
-                ObsoleteState = Pending;
-                ObsoleteTag = '24.0';
                 ShowCaption = false;
                 part(Control1907692008; "My Customers")
                 {
@@ -48,9 +44,6 @@ page 9005 "Sales Manager Role Center"
             }
             group(Control1900724708)
             {
-                ObsoleteReason = 'Group removed for better alignment of Role Centers parts';
-                ObsoleteState = Pending;
-                ObsoleteTag = '24.0';
                 ShowCaption = false;
                 part(Control11; "Sales Performance")
                 {
@@ -88,47 +81,6 @@ page 9005 "Sales Manager Role Center"
                     }
                 }
             }
-#else
-            part(Control1907692008; "My Customers")
-            {
-                ApplicationArea = RelationshipMgmt;
-            }
-            part(Control11; "Sales Performance")
-            {
-                ApplicationArea = RelationshipMgmt;
-            }
-            part(Control4; "Trailing Sales Orders Chart")
-            {
-                ApplicationArea = RelationshipMgmt;
-            }
-            part(Control1; "My Job Queue")
-            {
-                ApplicationArea = RelationshipMgmt;
-                Visible = false;
-            }
-            part(Control1902476008; "My Vendors")
-            {
-                ApplicationArea = RelationshipMgmt;
-                Visible = false;
-            }
-            part(Control6; "Report Inbox Part")
-            {
-                ApplicationArea = RelationshipMgmt;
-            }
-            systempart(Control31; MyNotes)
-            {
-                ApplicationArea = RelationshipMgmt;
-            }
-            group("My User Tasks")
-            {
-                Caption = 'My User Tasks';
-                part("User Tasks"; "User Tasks Activities")
-                {
-                    ApplicationArea = RelationshipMgmt;
-                    Caption = 'User Tasks';
-                }
-            }
-#endif
         }
     }
 
@@ -365,7 +317,7 @@ page 9005 "Sales Manager Role Center"
                 Caption = 'Tasks';
                 IsHeader = true;
             }
-#if not CLEAN23
+#if not CLEAN21
             action("Sales Price &Worksheet")
             {
                 ApplicationArea = RelationshipMgmt;

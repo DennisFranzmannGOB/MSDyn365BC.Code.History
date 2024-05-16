@@ -8,7 +8,6 @@ table 5928 "Service Status Priority Setup"
     Caption = 'Service Status Priority Setup';
     DrillDownPageID = "Service Order Status Setup";
     LookupPageID = "Service Order Status Setup";
-    DataClassification = CustomerContent;
 
     fields
     {

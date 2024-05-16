@@ -5,7 +5,6 @@ using Microsoft.CRM.Setup;
 table 5060 "Contact Web Source"
 {
     Caption = 'Contact Web Source';
-    DataClassification = CustomerContent;
     DrillDownPageID = "Contact Web Sources";
 
     fields
@@ -28,14 +27,14 @@ table 5060 "Contact Web Source"
         }
         field(4; "Web Source Description"; Text[100])
         {
-            CalcFormula = lookup("Web Source".Description where(Code = field("Web Source Code")));
+            CalcFormula = Lookup("Web Source".Description where(Code = field("Web Source Code")));
             Caption = 'Web Source Description';
             Editable = false;
             FieldClass = FlowField;
         }
         field(5; "Contact Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact No.")));
             Caption = 'Contact Name';
             Editable = false;
             FieldClass = FlowField;

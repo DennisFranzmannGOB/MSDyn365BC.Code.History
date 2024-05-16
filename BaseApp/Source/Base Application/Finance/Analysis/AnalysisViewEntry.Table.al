@@ -14,7 +14,6 @@ table 365 "Analysis View Entry"
     Caption = 'Analysis View Entry';
     DrillDownPageID = "Analysis View Entries";
     LookupPageID = "Analysis View Entries";
-    DataClassification = CustomerContent;
 
     fields
     {

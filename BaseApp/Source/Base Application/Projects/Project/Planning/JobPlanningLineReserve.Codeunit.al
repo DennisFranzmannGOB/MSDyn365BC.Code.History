@@ -173,14 +173,14 @@ codeunit 1032 "Job Planning Line-Reserve"
         ReservationEntry: Record "Reservation Entry";
         QtyReservedFromItemLedger: Query "Qty. Reserved From Item Ledger";
     begin
-        ReservationEntry.SetSource(Database::"Job Planning Line", Job.Status.AsInteger(), Job."No.", 0, '', 0);
+        ReservationEntry.SetSource(Database::"Job Planning Line", Job.Status.AsInteger(), Job."No.", 0, '', 0);        
         QtyReservedFromItemLedger.SetSourceFilter(ReservationEntry);
         QtyReservedFromItemLedger.Open();
         if QtyReservedFromItemLedger.Read() then
             exit(QtyReservedFromItemLedger.Quantity__Base_);
 
         exit(0);
-    end;
+    end;    
 
     procedure VerifyChange(var NewJobPlanningLine: Record "Job Planning Line"; var OldJobPlanningLine: Record "Job Planning Line")
     var
@@ -295,25 +295,27 @@ codeunit 1032 "Job Planning Line-Reserve"
         if IsHandled then
             exit;
 
-        if NewJobPlanningLine.Type <> NewJobPlanningLine.Type::Item then
-            exit;
-        if NewJobPlanningLine.Status = OldJobPlanningLine.Status then
-            if NewJobPlanningLine."Line No." = OldJobPlanningLine."Line No." then
-                if NewJobPlanningLine."Quantity (Base)" = OldJobPlanningLine."Quantity (Base)" then
-                    exit;
-        if NewJobPlanningLine."Line No." = 0 then
-            if not JobPlanningLine.Get(NewJobPlanningLine."Job No.", NewJobPlanningLine."Job Task No.", NewJobPlanningLine."Line No.") then
+        with NewJobPlanningLine do begin
+            if Type <> Type::Item then
                 exit;
-        ReservationManagement.SetReservSource(NewJobPlanningLine);
-        if NewJobPlanningLine."Qty. per Unit of Measure" <> OldJobPlanningLine."Qty. per Unit of Measure" then
-            ReservationManagement.ModifyUnitOfMeasure();
-        if NewJobPlanningLine."Remaining Qty. (Base)" * OldJobPlanningLine."Remaining Qty. (Base)" < 0 then
-            ReservationManagement.DeleteReservEntries(true, 0)
-        else
-            ReservationManagement.DeleteReservEntries(false, NewJobPlanningLine."Remaining Qty. (Base)");
-        ReservationManagement.ClearSurplus();
-        ReservationManagement.AutoTrack(NewJobPlanningLine."Remaining Qty. (Base)");
-        AssignForPlanning(NewJobPlanningLine);
+            if Status = OldJobPlanningLine.Status then
+                if "Line No." = OldJobPlanningLine."Line No." then
+                    if "Quantity (Base)" = OldJobPlanningLine."Quantity (Base)" then
+                        exit;
+            if "Line No." = 0 then
+                if not JobPlanningLine.Get("Job No.", "Job Task No.", "Line No.") then
+                    exit;
+            ReservationManagement.SetReservSource(NewJobPlanningLine);
+            if "Qty. per Unit of Measure" <> OldJobPlanningLine."Qty. per Unit of Measure" then
+                ReservationManagement.ModifyUnitOfMeasure();
+            if "Remaining Qty. (Base)" * OldJobPlanningLine."Remaining Qty. (Base)" < 0 then
+                ReservationManagement.DeleteReservEntries(true, 0)
+            else
+                ReservationManagement.DeleteReservEntries(false, "Remaining Qty. (Base)");
+            ReservationManagement.ClearSurplus();
+            ReservationManagement.AutoTrack("Remaining Qty. (Base)");
+            AssignForPlanning(NewJobPlanningLine);
+        end;
     end;
 
     procedure TransferJobLineToItemJnlLine(var JobPlanningLine: Record "Job Planning Line"; var NewItemJournalLine: Record "Item Journal Line"; TransferQty: Decimal): Decimal
@@ -418,13 +420,14 @@ codeunit 1032 "Job Planning Line-Reserve"
     var
         PlanningAssignment: Record "Planning Assignment";
     begin
-        if JobPlanningLine.Status <> JobPlanningLine.Status::Order then
-            exit;
-        if JobPlanningLine.Type <> JobPlanningLine.Type::Item then
-            exit;
-        if JobPlanningLine."No." <> '' then
-            PlanningAssignment.ChkAssignOne(
-                JobPlanningLine."No.", JobPlanningLine."Variant Code", JobPlanningLine."Location Code", JobPlanningLine."Planning Date");
+        with JobPlanningLine do begin
+            if Status <> Status::Order then
+                exit;
+            if Type <> Type::Item then
+                exit;
+            if "No." <> '' then
+                PlanningAssignment.ChkAssignOne("No.", "Variant Code", "Location Code", "Planning Date");
+        end;
     end;
 
     procedure BindToPurchase(JobPlanningLine: Record "Job Planning Line"; PurchaseLine: Record "Purchase Line"; ReservQty: Decimal; ReservQtyBase: Decimal)
@@ -684,15 +687,16 @@ codeunit 1032 "Job Planning Line-Reserve"
         if TotalQuantity = 0 then
             exit;
 
-        if (TotalQuantity < 0) = Positive then begin
-            TempEntrySummary."Table ID" := DATABASE::"Job Planning Line";
-            TempEntrySummary."Summary Type" :=
-                CopyStr(StrSubstNo(SummaryTypeTxt, JobPlanningLine.TableCaption(), JobPlanningLine.Status), 1, MaxStrLen(TempEntrySummary."Summary Type"));
-            TempEntrySummary."Total Quantity" := -TotalQuantity;
-            TempEntrySummary."Total Available Quantity" := TempEntrySummary."Total Quantity" - TempEntrySummary."Total Reserved Quantity";
-            if not TempEntrySummary.Insert() then
-                TempEntrySummary.Modify();
-        end;
+        with TempEntrySummary do
+            if (TotalQuantity < 0) = Positive then begin
+                "Table ID" := DATABASE::"Job Planning Line";
+                "Summary Type" :=
+                    CopyStr(StrSubstNo(SummaryTypeTxt, JobPlanningLine.TableCaption(), JobPlanningLine.Status), 1, MaxStrLen("Summary Type"));
+                "Total Quantity" := -TotalQuantity;
+                "Total Available Quantity" := "Total Quantity" - "Total Reserved Quantity";
+                if not Insert() then
+                    Modify();
+            end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Reservation Management", 'OnUpdateStatistics', '', false, false)]

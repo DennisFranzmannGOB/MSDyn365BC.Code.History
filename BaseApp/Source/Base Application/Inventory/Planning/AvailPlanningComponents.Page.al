@@ -325,12 +325,12 @@ page 99000900 "Avail. - Planning Components"
         exit(ReservMgt.MarkReservConnection(ReservEntry2, ReservEntry));
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterUpdateReservFrom(var ReservationEntry: Record "Reservation Entry")
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterUpdateReservMgt(var ReservationEntry: Record "Reservation Entry")
     begin
     end;

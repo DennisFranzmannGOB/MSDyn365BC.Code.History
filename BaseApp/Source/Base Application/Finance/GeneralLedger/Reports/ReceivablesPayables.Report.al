@@ -196,9 +196,11 @@ report 5 "Receivables-Payables"
 
     local procedure MultiplyAmounts()
     begin
-        GLSetup.SetRange("Date Filter", StartDate, EndDate);
-        GLSetup.CalcFields("Cust. Balances Due", "Vendor Balances Due");
-        NetBalancesDueLCY := NetBalancesDueLCY + GLSetup."Cust. Balances Due" - GLSetup."Vendor Balances Due";
+        with GLSetup do begin
+            SetRange("Date Filter", StartDate, EndDate);
+            CalcFields("Cust. Balances Due", "Vendor Balances Due");
+            NetBalancesDueLCY := NetBalancesDueLCY + "Cust. Balances Due" - "Vendor Balances Due";
+        end;
     end;
 
     procedure InitializeRequest(NewStartDate: Date; NewNoOfPeriods: Integer; NewPeriodLength: DateFormula)

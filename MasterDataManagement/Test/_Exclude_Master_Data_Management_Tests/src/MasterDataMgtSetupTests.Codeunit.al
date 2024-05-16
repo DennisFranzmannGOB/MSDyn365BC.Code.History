@@ -234,7 +234,6 @@ codeunit 139770 "Master Data Mgt. Setup Tests"
         LibraryVariableStorage.Enqueue(Database::"Activity Log");
         MasterDataSynchFields.Trap();
         MasterDataSynchTables.New();
-        MasterDataSynchTables.TableCaptionValue.AssistEdit();
         MasterDataSynchFields.Close();
 
         // export setup

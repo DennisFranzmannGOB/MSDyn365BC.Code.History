@@ -52,31 +52,37 @@ codeunit 1312 "Vendor Mgt."
     var
         PurchInvHeader: Record "Purch. Inv. Header";
     begin
-        PurchInvHeader.SetRange("Buy-from Vendor No.", VendNo);
-        PurchInvHeader.SetFilter("Posting Date", GetCurrentYearFilter());
+        with PurchInvHeader do begin
+            SetRange("Buy-from Vendor No.", VendNo);
+            SetFilter("Posting Date", GetCurrentYearFilter());
 
-        PAGE.Run(PAGE::"Posted Purchase Invoices", PurchInvHeader);
+            PAGE.Run(PAGE::"Posted Purchase Invoices", PurchInvHeader);
+        end;
     end;
 
     procedure DrillDownOnPostedCrMemo(VendNo: Code[20])
     var
         PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.";
     begin
-        PurchCrMemoHdr.SetRange("Buy-from Vendor No.", VendNo);
-        PurchCrMemoHdr.SetFilter("Posting Date", GetCurrentYearFilter());
+        with PurchCrMemoHdr do begin
+            SetRange("Buy-from Vendor No.", VendNo);
+            SetFilter("Posting Date", GetCurrentYearFilter());
 
-        PAGE.Run(PAGE::"Posted Purchase Credit Memos", PurchCrMemoHdr);
+            PAGE.Run(PAGE::"Posted Purchase Credit Memos", PurchCrMemoHdr);
+        end;
     end;
 
     procedure DrillDownOnPostedOrders(VendNo: Code[20])
     var
         PurchaseLine: Record "Purchase Line";
     begin
-        PurchaseLine.SetRange("Buy-from Vendor No.", VendNo);
-        PurchaseLine.SetRange("Document Type", PurchaseLine."Document Type"::Order);
-        PurchaseLine.SetFilter("Order Date", GetCurrentYearFilter());
+        with PurchaseLine do begin
+            SetRange("Buy-from Vendor No.", VendNo);
+            SetRange("Document Type", "Document Type"::Order);
+            SetFilter("Order Date", GetCurrentYearFilter());
 
-        PAGE.Run(PAGE::"Purchase Orders", PurchaseLine);
+            PAGE.Run(PAGE::"Purchase Orders", PurchaseLine);
+        end;
     end;
 
     procedure DrillDownOnOutstandingInvoices(VendNo: Code[20])
@@ -101,10 +107,12 @@ codeunit 1312 "Vendor Mgt."
     var
         VendLedgEntry: Record "Vendor Ledger Entry";
     begin
-        SetFilterForPostedDocs(VendLedgEntry, VendNo, DocType);
-        RecCount := VendLedgEntry.Count;
-        VendLedgEntry.CalcSums("Purchase (LCY)");
-        exit(VendLedgEntry."Purchase (LCY)");
+        with VendLedgEntry do begin
+            SetFilterForPostedDocs(VendLedgEntry, VendNo, DocType);
+            RecCount := Count;
+            CalcSums("Purchase (LCY)");
+            exit("Purchase (LCY)");
+        end;
     end;
 
     local procedure CalcAmountsOnUnpostedDocs(VendNo: Code[20]; var RecCount: Integer; DocType: Enum "Purchase Document Type") Result: Decimal
@@ -140,16 +148,20 @@ codeunit 1312 "Vendor Mgt."
 
     local procedure SetFilterForUnpostedLines(var PurchaseLine: Record "Purchase Line"; VendNo: Code[20]; DocumentType: Enum "Gen. Journal Document Type")
     begin
-        PurchaseLine.SetRange("Buy-from Vendor No.", VendNo);
+        with PurchaseLine do begin
+            SetRange("Buy-from Vendor No.", VendNo);
 
-        PurchaseLine.SetRange("Document Type", DocumentType);
+            SetRange("Document Type", DocumentType);
+        end;
     end;
 
     local procedure SetFilterForPostedDocs(var VendLedgEntry: Record "Vendor Ledger Entry"; VendNo: Code[20]; DocumentType: Enum "Gen. Journal Document Type")
     begin
-        VendLedgEntry.SetRange("Buy-from Vendor No.", VendNo);
-        VendLedgEntry.SetFilter("Posting Date", GetCurrentYearFilter());
-        VendLedgEntry.SetRange("Document Type", DocumentType);
+        with VendLedgEntry do begin
+            SetRange("Buy-from Vendor No.", VendNo);
+            SetFilter("Posting Date", GetCurrentYearFilter());
+            SetRange("Document Type", DocumentType);
+        end;
     end;
 
     procedure SetFilterForExternalDocNo(var VendorLedgerEntry: Record "Vendor Ledger Entry"; DocumentType: Enum "Gen. Journal Document Type"; ExternalDocNo: Text[35]; VendorNo: Code[20]; DocumentDate: Date)

@@ -7,13 +7,7 @@ namespace System.Security.Encryption;
 
 using System;
 
-#if not CLEAN24
-#pragma warning disable AL0432
-codeunit 1448 "DSACryptoServiceProvider Impl." implements SignatureAlgorithm, "Signature Algorithm v2"
-#pragma warning restore AL0432
-#else
-codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v2"
-#endif
+codeunit 1448 "DSACryptoServiceProvider Impl." implements SignatureAlgorithm
 {
     Access = Internal;
     InherentEntitlements = X;
@@ -31,12 +25,13 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
 
     #region SignData
     [NonDebuggable]
-    procedure SignData(XmlString: SecretText; DataInStream: InStream; HashAlgorithm: Enum "Hash Algorithm"; SignatureOutStream: OutStream)
+    procedure SignData(XmlString: Text; DataInStream: InStream; HashAlgorithm: Enum "Hash Algorithm"; SignatureOutStream: OutStream)
     begin
-        FromXmlString(XmlString.Unwrap());
+        FromXmlString(XmlString);
         SignData(DataInStream, HashAlgorithm, SignatureOutStream);
     end;
 
+    [NonDebuggable]
     procedure SignData(DataInStream: InStream; HashAlgorithm: Enum "Hash Algorithm"; SignatureOutStream: OutStream)
     var
         Bytes: DotNet Array;
@@ -49,6 +44,7 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
         ArrayToOutStream(Signature, SignatureOutStream);
     end;
 
+    [NonDebuggable]
     local procedure SignData(Bytes: DotNet Array; HashAlgorithm: Enum "Hash Algorithm"; var Signature: DotNet Array)
     begin
         if Bytes.Length() = 0 then
@@ -57,6 +53,7 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
     end;
 
     [TryFunction]
+    [NonDebuggable]
     local procedure TrySignData(Bytes: DotNet Array; HashAlgorithm: Enum "Hash Algorithm"; var Signature: DotNet Array)
     var
         DotNetHashAlgorithmName: DotNet HashAlgorithmName;
@@ -68,12 +65,13 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
 
     #region VerifyData
     [NonDebuggable]
-    procedure VerifyData(XmlString: SecretText; DataInStream: InStream; HashAlgorithm: Enum "Hash Algorithm"; SignatureInStream: InStream): Boolean
+    procedure VerifyData(XmlString: Text; DataInStream: InStream; HashAlgorithm: Enum "Hash Algorithm"; SignatureInStream: InStream): Boolean
     begin
-        FromXmlString(XmlString.Unwrap());
+        FromXmlString(XmlString);
         VerifyData(DataInStream, HashAlgorithm, SignatureInStream);
     end;
 
+    [NonDebuggable]
     procedure VerifyData(DataInStream: InStream; HashAlgorithm: Enum "Hash Algorithm"; SignatureInStream: InStream): Boolean
     var
         Bytes: DotNet Array;
@@ -86,6 +84,7 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
         exit(VerifyData(Bytes, HashAlgorithm, Signature));
     end;
 
+    [NonDebuggable]
     local procedure VerifyData(Bytes: DotNet Array; HashAlgorithm: Enum "Hash Algorithm"; Signature: DotNet Array): Boolean
     var
         Verified: Boolean;
@@ -99,6 +98,7 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
     end;
 
     [TryFunction]
+    [NonDebuggable]
     local procedure TryVerifyData(Bytes: DotNet Array; HashAlgorithm: Enum "Hash Algorithm"; Signature: DotNet Array)
     var
         DotNetHashAlgorithmName: DotNet HashAlgorithmName;
@@ -110,25 +110,15 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
     #endregion
 
     #region XmlString
+    [NonDebuggable]
     procedure FromXmlString(XmlString: Text)
     begin
         DSACryptoServiceProvider();
         DotNetDSACryptoServiceProvider.FromXmlString(XmlString);
     end;
 
-    procedure ToXmlString(IncludePrivateParameters: Boolean): Text
-    begin
-        exit(DotNetDSACryptoServiceProvider.ToXmlString(IncludePrivateParameters));
-    end;
-
     [NonDebuggable]
-    procedure FromSecretXmlString(XmlString: SecretText)
-    begin
-        DSACryptoServiceProvider();
-        DotNetDSACryptoServiceProvider.FromXmlString(XmlString.Unwrap());
-    end;
-
-    procedure ToSecretXmlString(IncludePrivateParameters: Boolean): SecretText
+    procedure ToXmlString(IncludePrivateParameters: Boolean): Text
     begin
         exit(DotNetDSACryptoServiceProvider.ToXmlString(IncludePrivateParameters));
     end;
@@ -140,6 +130,7 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
         DotNetDSACryptoServiceProvider := DotNetDSACryptoServiceProvider.DSACryptoServiceProvider();
     end;
 
+    [NonDebuggable]
     local procedure ArrayToOutStream(Bytes: DotNet Array; OutputOutStream: OutStream)
     var
         DotNetMemoryStream: DotNet MemoryStream;
@@ -148,6 +139,7 @@ codeunit 1448 "DSACryptoServiceProvider Impl." implements "Signature Algorithm v
         CopyStream(OutputOutStream, DotNetMemoryStream);
     end;
 
+    [NonDebuggable]
     local procedure InStreamToArray(InputInStream: InStream; var Bytes: DotNet Array)
     var
         DotNetMemoryStream: DotNet MemoryStream;

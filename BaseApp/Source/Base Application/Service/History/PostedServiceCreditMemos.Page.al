@@ -1,7 +1,6 @@
 namespace Microsoft.Service.History;
 
 using Microsoft.EServices.EDocument;
-using Microsoft.Foundation.Attachment;
 using Microsoft.Service.Comment;
 using Microsoft.Utilities;
 
@@ -14,7 +13,7 @@ page 5971 "Posted Service Credit Memos"
     PageType = List;
     SourceTable = "Service Cr.Memo Header";
     SourceTableView = sorting("Posting Date")
-                      order(descending);
+                      order(Descending);
     UsageCategory = History;
 
     layout
@@ -38,11 +37,6 @@ page 5971 "Posted Service Credit Memos"
                 {
                     ApplicationArea = Service;
                     ToolTip = 'Specifies the name of the customer to whom you shipped the service on the credit memo.';
-                }
-                field("External Document No."; Rec."External Document No.")
-                {
-                    ApplicationArea = Service;
-                    ToolTip = 'Specifies a document number that refers to the customer''s numbering system.';
                 }
                 field("Currency Code"; Rec."Currency Code")
                 {
@@ -175,13 +169,6 @@ page 5971 "Posted Service Credit Memos"
         }
         area(factboxes)
         {
-            part("Attached Documents"; "Document Attachment Factbox")
-            {
-                ApplicationArea = Service;
-                Caption = 'Attachments';
-                SubPageLink = "Table ID" = const(Database::"Service Cr.Memo Header"),
-                              "No." = field("No.");
-            }
             systempart(Control1900383207; Links)
             {
                 ApplicationArea = RecordLinks;
@@ -257,22 +244,6 @@ page 5971 "Posted Service Credit Memos"
                     ServCrMemoHeader.PrintRecords(true);
                 end;
             }
-            action(AttachAsPDF)
-            {
-                ApplicationArea = Service;
-                Caption = 'Attach as PDF';
-                Image = PrintAttachment;
-                ToolTip = 'Create a PDF file and attach it to the document.';
-
-                trigger OnAction()
-                var
-                    ServCrMemoHeader: Record "Service Cr.Memo Header";
-                begin
-                    ServCrMemoHeader := Rec;
-                    ServCrMemoHeader.SetRecFilter();
-                    Rec.PrintToDocumentAttachment(ServCrMemoHeader);
-                end;
-            }
             action("&Navigate")
             {
                 ApplicationArea = Service;
@@ -307,16 +278,8 @@ page 5971 "Posted Service Credit Memos"
             {
                 Caption = 'Process';
 
-                group(Category_CategoryPrint)
+                actionref("&Print_Promoted"; "&Print")
                 {
-                    ShowAs = SplitButton;
-
-                    actionref("&Print_Promoted"; "&Print")
-                    {
-                    }
-                    actionref(AttachAsPDF_Promoted; AttachAsPDF)
-                    {
-                    }
                 }
                 actionref(SendCustom_Promoted; SendCustom)
                 {

@@ -4,7 +4,6 @@ table 5607 "FA Class"
 {
     Caption = 'FA Class';
     LookupPageID = "FA Classes";
-    DataClassification = CustomerContent;
 
     fields
     {

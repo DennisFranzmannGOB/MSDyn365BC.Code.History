@@ -24,7 +24,6 @@ table 5907 "Service Ledger Entry"
     Caption = 'Service Ledger Entry';
     DrillDownPageID = "Service Ledger Entries";
     LookupPageID = "Service Ledger Entries";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -213,7 +212,7 @@ table 5907 "Service Ledger Entry"
         }
         field(40; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = Job."No." where("Bill-to Customer No." = field("Bill-to Customer No."));
         }
         field(41; "Gen. Bus. Posting Group"; Code[20])
@@ -294,21 +293,17 @@ table 5907 "Service Ledger Entry"
         }
         field(58; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
         }
         field(59; "Job Line Type"; Enum "Job Line Type")
         {
-            Caption = 'Project Line Type';
+            Caption = 'Job Line Type';
             InitValue = Budget;
         }
         field(60; "Job Posted"; Boolean)
         {
-            Caption = 'Project Posted';
-        }
-        field(61; "External Document No."; Code[35])
-        {
-            Caption = 'External Document No.';
+            Caption = 'Job Posted';
         }
         field(480; "Dimension Set ID"; Integer)
         {

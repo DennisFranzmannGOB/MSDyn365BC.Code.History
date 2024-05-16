@@ -561,8 +561,8 @@ report 116 Statement
                 CustLedgerEntry: Record "Cust. Ledger Entry";
             begin
                 TempAgingBandBuf.DeleteAll();
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
                 PrintLine := false;
                 if PrintAllHavingBal then
@@ -837,7 +837,7 @@ report 116 Statement
         TempCurrency2: Record Currency temporary;
         DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
         TempAgingBandBuf: Record "Aging Band Buffer" temporary;
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         SegManagement: Codeunit SegManagement;
         PeriodLength: DateFormula;

@@ -13,7 +13,6 @@ table 339 "Item Application Entry"
     LookupPageID = "Item Application Entries";
     Permissions = TableData "Item Application Entry" = rm,
                   TableData "Item Application Entry History" = ri;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -125,7 +124,6 @@ table 339 "Item Application Entry"
     var
         TempVisitedItemApplnEntry: Record "Item Application Entry" temporary;
         TempItemLedgEntryInChainNo: Record "Integer" temporary;
-        SearchedItemLedgerEntry: Record "Item Ledger Entry";
         TrackChain: Boolean;
         MaxValuationDate: Date;
 
@@ -303,7 +301,16 @@ table 339 "Item Application Entry"
     end;
 
     local procedure CheckCyclicProdCyclicalLoop(CheckItemLedgEntry: Record "Item Ledger Entry"; ItemLedgEntry: Record "Item Ledger Entry"): Boolean
+    var
+        Result: Boolean;
+        IsHandled: Boolean;
     begin
+        Result := false;
+        IsHandled := false;
+        OnBeforeCheckCyclicProdCyclicalLoop(Rec, CheckItemLedgEntry, ItemLedgEntry, Result, IsHandled);
+        if IsHandled then
+            exit(Result);
+
         if not IsItemEverOutput(ItemLedgEntry."Item No.") then
             exit(false);
 
@@ -330,13 +337,11 @@ table 339 "Item Application Entry"
         ItemLedgEntry.SetLoadFields(Positive);
         if ItemLedgEntry.FindSet() then
             repeat
-                if TrackChain then begin
-                    TempItemLedgEntryInChainNo.Number := ItemLedgEntry."Entry No.";
-                    if TempItemLedgEntryInChainNo.Insert() then;
-
-                    if SearchedItemLedgerEntryFound(ItemLedgEntry) then
-                        exit(true);
-                end;
+                if TrackChain then
+                    if not TempItemLedgEntryInChainNo.Get(ItemLedgEntry."Entry No.") then begin
+                        TempItemLedgEntryInChainNo.Number := ItemLedgEntry."Entry No.";
+                        TempItemLedgEntryInChainNo.Insert();
+                    end;
 
                 if ItemLedgEntry."Entry No." = CheckItemLedgEntry."Entry No." then
                     exit(true);
@@ -371,13 +376,11 @@ table 339 "Item Application Entry"
         ItemLedgEntry.SetLoadFields(Positive);
         if ItemLedgEntry.FindSet() then
             repeat
-                if TrackChain then begin
-                    TempItemLedgEntryInChainNo.Number := ItemLedgEntry."Entry No.";
-                    if TempItemLedgEntryInChainNo.Insert() then;
-
-                    if SearchedItemLedgerEntryFound(ItemLedgEntry) then
-                        exit(true);
-                end;
+                if TrackChain then
+                    if not TempItemLedgEntryInChainNo.Get(ItemLedgEntry."Entry No.") then begin
+                        TempItemLedgEntryInChainNo.Number := ItemLedgEntry."Entry No.";
+                        TempItemLedgEntryInChainNo.Insert();
+                    end;
 
                 if ItemLedgEntry."Entry No." = CheckItemLedgEntry."Entry No." then
                     exit(true);
@@ -639,10 +642,8 @@ table 339 "Item Application Entry"
     var
         ItemApplnEntry: Record "Item Application Entry";
     begin
-
         ItemApplnEntry.SetCurrentKey("Outbound Item Entry No.");
         ItemApplnEntry.SetRange("Outbound Item Entry No.", ItemLedgEntry."Entry No.");
-        OnSetInboundToUpdatedOnAfterSetFilters(ItemApplnEntry);
         if ItemLedgEntry."Completely Invoiced" then
             if ItemApplnEntry.Count = 1 then begin
                 ItemApplnEntry.FindFirst();
@@ -687,31 +688,13 @@ table 339 "Item Application Entry"
         exit(ValueEntry."Valuation Date" <= MaxDate);
     end;
 
-    procedure SetSearchedItemLedgerEntry(var ItemLedgerEntry: Record "Item Ledger Entry")
-    begin
-        SearchedItemLedgerEntry.Copy(ItemLedgerEntry);
-    end;
-
-    local procedure SearchedItemLedgerEntryFound(ItemLedgerEntry: Record "Item Ledger Entry"): Boolean
-    var
-        TempItemLedgerEntry: Record "Item Ledger Entry" temporary;
-    begin
-        if SearchedItemLedgerEntry.GetFilters() = '' then
-            exit(false);
-
-        TempItemLedgerEntry := ItemLedgerEntry;
-        TempItemLedgerEntry.Insert();
-        TempItemLedgerEntry.CopyFilters(SearchedItemLedgerEntry);
-        exit(not TempItemLedgerEntry.IsEmpty())
-    end;
-
     [IntegrationEvent(false, false)]
     local procedure OnBeforeFixed(ItemApplicationEntry: Record "Item Application Entry"; var Result: Boolean; var IsHandled: Boolean)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnSetInboundToUpdatedOnAfterSetFilters(var ItemApplicationEntry: Record "Item Application Entry")
+    local procedure OnBeforeCheckCyclicProdCyclicalLoop(var ItemApplicationEntry: Record "Item Application Entry"; CheckItemLedgerEntry: Record "Item Ledger Entry"; ItemLedgerEntry: Record "Item Ledger Entry"; var Result: Boolean; var IsHandled: Boolean)
     begin
     end;
 }

@@ -3,7 +3,6 @@ namespace System.IO;
 table 8400 "Record Set Definition"
 {
     Caption = 'Record Set Definition';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -23,7 +22,7 @@ table 8400 "Record Set Definition"
         }
         field(10; Value; RecordID)
         {
-            CalcFormula = lookup ("Record Set Tree".Value where("Table No." = field("Table No."),
+            CalcFormula = Lookup ("Record Set Tree".Value where("Table No." = field("Table No."),
                                                                 "Node ID" = field("Node ID")));
             Caption = 'Value';
             FieldClass = FlowField;

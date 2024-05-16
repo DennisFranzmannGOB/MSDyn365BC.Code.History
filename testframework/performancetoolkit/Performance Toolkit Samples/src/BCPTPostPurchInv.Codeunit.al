@@ -13,6 +13,7 @@ codeunit 149122 "BCPT Post Purch. Inv." implements "BCPT Test Param. Provider"
     SingleInstance = true;
 
     trigger OnRun();
+    var
     begin
         if not IsInitialized or true then begin
             InitTest();
@@ -44,7 +45,7 @@ codeunit 149122 "BCPT Post Purch. Inv." implements "BCPT Test Param. Provider"
         repeat
             if NoSeriesLine."Ending No." <> '' then begin
                 NoSeriesLine."Ending No." := '';
-                NoSeriesLine.Validate(Implementation, Enum::"No. Series Implementation"::Sequence);
+                NoSeriesLine.Validate("Allow Gaps in Nos.", true);
                 NoSeriesLine.Modify(true);
             end;
         until NoSeriesLine.Next() = 0;

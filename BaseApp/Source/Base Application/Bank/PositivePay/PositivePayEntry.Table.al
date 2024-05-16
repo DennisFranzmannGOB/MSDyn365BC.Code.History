@@ -7,7 +7,6 @@ using System.Utilities;
 table 1231 "Positive Pay Entry"
 {
     Caption = 'Positive Pay Entry';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -10,7 +10,6 @@ table 7601 "Base Calendar Change"
 {
     Caption = 'Base Calendar Change';
     DataCaptionFields = "Base Calendar Code";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -13,7 +13,6 @@ table 747 "VAT Report Archive"
 {
     Caption = 'VAT Report Archive';
     Permissions = TableData "VAT Report Archive" = rimd;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -112,9 +111,8 @@ table 747 "VAT Report Archive"
         TempBlob: Codeunit "Temp Blob";
         ZipFileName: Text[250];
     begin
-        if DocumentAttachment.DownloadZipFileWithVATReturnSubmissionAttachments("VAT Report Configuration".FromInteger(VATReportTypeValue), VATReportNoValue) then
+        if DocumentAttachment.DownloadZipFileWithVATReturnSubmissionAttachments(VATReportTypeValue, VATReportNoValue) then
             exit;
-
         if not VATReportArchive.Get(VATReportTypeValue, VATReportNoValue) then
             Error(NoSubmissionMessageAvailableErr);
 
@@ -135,9 +133,8 @@ table 747 "VAT Report Archive"
         TempBlob: Codeunit "Temp Blob";
         ZipFileName: Text[250];
     begin
-        if DocumentAttachment.DownloadZipFileWithVATReturnResponseAttachments("VAT Report Configuration".FromInteger(VATReportTypeValue), VATReportNoValue) then
+        if DocumentAttachment.DownloadZipFileWithVATReturnResponseAttachments(VATReportTypeValue, VATReportNoValue) then
             exit;
-
         if not VATReportArchive.Get(VATReportTypeValue, VATReportNoValue) then
             Error(NoResponseMessageAvailableErr);
 

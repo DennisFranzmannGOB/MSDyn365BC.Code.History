@@ -8,7 +8,6 @@ using System.Environment;
 table 6702 "Booking Sync"
 {
     Caption = 'Booking Sync';
-    DataClassification = CustomerContent;
 
     fields
     {

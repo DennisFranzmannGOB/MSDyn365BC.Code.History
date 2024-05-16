@@ -17,9 +17,7 @@ codeunit 136125 "Service Posting Journals"
         LibraryUtility: Codeunit "Library - Utility";
         LibraryInventory: Codeunit "Library - Inventory";
         LibrarySales: Codeunit "Library - Sales";
-#if not CLEAN23
         CopyFromToPriceListLine: Codeunit CopyFromToPriceListLine;
-#endif
         IsInitialized: Boolean;
         ExpectedConfirm: Label 'The Credit Memo doesn''t have a Corrected Invoice No. Do you want to continue?';
         NumberOfServiceLedgerEntriesErr: Label 'Number of Service Ledger Entries is incorrect';
@@ -36,7 +34,7 @@ codeunit 136125 "Service Posting Journals"
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"Service Posting Journals");
 
         LibraryERMCountryData.CreateVATData();
-        LibraryERMCountryData.UpdateAccountInServiceCosts();
+        LibraryERMCountryData.UpdateAccountInServiceCosts;
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         LibraryService.SetupServiceMgtNoSeries();
         LibraryERMCountryData.UpdateSalesReceivablesSetup();
@@ -128,7 +126,7 @@ codeunit 136125 "Service Posting Journals"
         Quantity := LibraryRandom.RandInt(10);  // Use Random because value is not important.
         CreateAndPostItemJournal(Bin, Item."No.", Quantity);
 
-        LibraryService.CreateServiceHeader(ServiceHeader, ServiceHeader."Document Type"::Order, CreateCustomer());
+        LibraryService.CreateServiceHeader(ServiceHeader, ServiceHeader."Document Type"::Order, CreateCustomer);
         LibraryService.CreateServiceItemLine(ServiceItemLine, ServiceHeader, '');
         LibraryService.CreateServiceLine(ServiceLine, ServiceHeader, ServiceLine.Type::Item, Item."No.");
         UpdateServiceLineWithLocation(ServiceLine, Bin, ServiceItemLine."Line No.", Quantity);
@@ -202,7 +200,7 @@ codeunit 136125 "Service Posting Journals"
 
         // 1. Setup: Create Service Order with Resource.
         Initialize();
-        LibraryService.CreateServiceHeader(ServiceHeader, ServiceHeader."Document Type"::Order, CreateCustomer());
+        LibraryService.CreateServiceHeader(ServiceHeader, ServiceHeader."Document Type"::Order, CreateCustomer);
         LibraryService.CreateServiceItemLine(ServiceItemLine, ServiceHeader, '');
         CreateServiceLineWithResource(ServiceHeader, ServiceItemLine."Line No.");
         GetServiceLines(ServiceLine, ServiceHeader."No.");
@@ -235,7 +233,7 @@ codeunit 136125 "Service Posting Journals"
         CreateServiceCreditMemo(ServiceHeader, ServiceLine, Bin);
 
         // 2. Exercise: Post Service Credit Memo.
-        ExecuteConfirmHandlerInvoiceES();
+        ExecuteConfirmHandlerInvoiceES;
         LibraryService.PostServiceOrder(ServiceHeader, false, false, false);
 
         // 3. Verify: Verify Service Ledger Entry after Posting Service Credit Memo.
@@ -250,6 +248,7 @@ codeunit 136125 "Service Posting Journals"
     procedure PostConsumeForServiceOrderWithMultipleLines()
     var
         ServiceHeader: Record "Service Header";
+        ServiceLedgerEntry: Record "Service Ledger Entry";
         Quantity: Decimal;
         ItemNo: Code[20];
         OldAutomaticCostPosting: Boolean;
@@ -272,7 +271,7 @@ codeunit 136125 "Service Posting Journals"
         UpdateAutomaticCostPosting(OldAutomaticCostPosting);
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     [Test]
     [Scope('OnPrem')]
     procedure ServiceOrderWithJob_Customer_PriceInclVAT()
@@ -403,7 +402,7 @@ codeunit 136125 "Service Posting Journals"
     begin
         LibraryInventory.CreateItem(Item);
 
-        LibraryService.CreateServiceHeader(ServiceHeader, ServiceHeader."Document Type"::"Credit Memo", CreateCustomer());
+        LibraryService.CreateServiceHeader(ServiceHeader, ServiceHeader."Document Type"::"Credit Memo", CreateCustomer);
         LibraryService.CreateServiceLine(ServiceLine, ServiceHeader, ServiceLine.Type::Item, Item."No.");
         ServiceLine.Validate("Location Code", Bin."Location Code");
         ServiceLine.Validate("Bin Code", Bin.Code);
@@ -420,7 +419,7 @@ codeunit 136125 "Service Posting Journals"
     begin
         // Create 2 to 10 Service Lines with Type Resource - Boundary 2 is important.
         for Counter := 2 to 2 + LibraryRandom.RandInt(8) do begin
-            LibraryService.CreateServiceLine(ServiceLine, ServiceHeader, ServiceLine.Type::Resource, LibraryResource.CreateResourceNo());
+            LibraryService.CreateServiceLine(ServiceLine, ServiceHeader, ServiceLine.Type::Resource, LibraryResource.CreateResourceNo);
             ServiceLine.Validate("Service Item Line No.", ServiceItemLineNo);
             ServiceLine.Validate(Quantity, LibraryRandom.RandInt(10));  // Use Random because value is not important.
             ServiceLine.Validate("Qty. to Consume", ServiceLine.Quantity);
@@ -451,11 +450,11 @@ codeunit 136125 "Service Posting Journals"
         LibraryERM.FindGLAccount(GLAccount);
         LibraryService.FindServiceCost(ServiceCost);
 
-        CreateServiceLine(ServiceHeader, ServiceLine.Type::Item, LibraryInventory.CreateItemNo(), ServiceItemLine."Line No.");
-        CreateServiceLine(ServiceHeader, ServiceLine.Type::Resource, LibraryResource.CreateResourceNo(), ServiceItemLine."Line No.");
+        CreateServiceLine(ServiceHeader, ServiceLine.Type::Item, LibraryInventory.CreateItemNo, ServiceItemLine."Line No.");
+        CreateServiceLine(ServiceHeader, ServiceLine.Type::Resource, LibraryResource.CreateResourceNo, ServiceItemLine."Line No.");
         CreateServiceLine(ServiceHeader, ServiceLine.Type::Cost, ServiceCost.Code, ServiceItemLine."Line No.");
         CreateServiceLine(
-          ServiceHeader, ServiceLine.Type::"G/L Account", LibraryERM.CreateGLAccountWithSalesSetup(), ServiceItemLine."Line No.");
+          ServiceHeader, ServiceLine.Type::"G/L Account", LibraryERM.CreateGLAccountWithSalesSetup, ServiceItemLine."Line No.");
     end;
 
     local procedure CreateServiceOrderWithMultipleLines(var ServiceHeader: Record "Service Header"; ItemNo: Code[20]; Qty: Decimal)

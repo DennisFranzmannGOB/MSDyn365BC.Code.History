@@ -12,7 +12,6 @@ table 5362 "CRM Uomschedule"
     Description = 'Grouping of units.';
     ExternalName = 'uomschedule';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -92,7 +91,7 @@ table 5362 "CRM Uomschedule"
         }
         field(10; CreatedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
             Caption = 'CreatedByName';
             ExternalAccess = Read;
             ExternalName = 'createdbyname';
@@ -101,7 +100,7 @@ table 5362 "CRM Uomschedule"
         }
         field(11; ModifiedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
             Caption = 'ModifiedByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedbyname';
@@ -110,7 +109,7 @@ table 5362 "CRM Uomschedule"
         }
         field(12; OrganizationIdName; Text[160])
         {
-            CalcFormula = lookup("CRM Organization".Name where(OrganizationId = field(OrganizationId)));
+            CalcFormula = Lookup("CRM Organization".Name where(OrganizationId = field(OrganizationId)));
             Caption = 'OrganizationIdName';
             ExternalAccess = Read;
             ExternalName = 'organizationidname';
@@ -152,7 +151,7 @@ table 5362 "CRM Uomschedule"
         }
         field(17; CreatedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
             Caption = 'CreatedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'createdonbehalfbyname';
@@ -170,7 +169,7 @@ table 5362 "CRM Uomschedule"
         }
         field(19; ModifiedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
             Caption = 'ModifiedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedonbehalfbyname';

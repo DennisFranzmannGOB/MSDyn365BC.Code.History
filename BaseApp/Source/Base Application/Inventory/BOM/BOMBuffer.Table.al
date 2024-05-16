@@ -21,7 +21,6 @@ table 5870 "BOM Buffer"
     DataCaptionFields = "No.", Description;
     Permissions =;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -1117,7 +1116,7 @@ table 5870 "BOM Buffer"
     begin
         IsHandled := false;
         OnBeforeIsQtyPerOk(Rec, BOMWarningLog, LogWarning, Result, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(Result);
 
         if "Qty. per Parent" <> 0 then
@@ -1185,7 +1184,7 @@ table 5870 "BOM Buffer"
     begin
         IsHandled := false;
         OnBeforeIsReplenishmentOk(Rec, BOMWarningLog, LogWarning, Result, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(Result);
 
         if Type <> Type::Item then

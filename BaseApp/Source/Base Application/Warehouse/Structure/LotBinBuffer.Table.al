@@ -4,7 +4,6 @@ table 7351 "Lot Bin Buffer"
 {
     Caption = 'Lot Bin Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

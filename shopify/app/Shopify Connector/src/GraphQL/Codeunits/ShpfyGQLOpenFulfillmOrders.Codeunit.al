@@ -10,7 +10,7 @@ codeunit 30234 "Shpfy GQL OpenFulfillmOrders" implements "Shpfy IGraphQL"
     /// <returns>Return value of type Text.</returns>
     internal procedure GetGraphQL(): Text
     begin
-        exit('{"query":"{fulfillmentOrders(first: 25, includeClosed: false) { pageInfo { hasNextPage } edges { cursor node { id updatedAt assignedLocation {location {legacyResourceId}} order {legacyResourceId} deliveryMethod {methodType}}}}}"}');
+        exit('{"query":"{fulfillmentOrders(first: 25, includeClosed: false) { pageInfo { hasNextPage } edges { cursor node { id updatedAt assignedLocation {location {legacyResourceId}} order {legacyResourceId}}}}}"}');
     end;
 
     /// <summary>
@@ -19,6 +19,6 @@ codeunit 30234 "Shpfy GQL OpenFulfillmOrders" implements "Shpfy IGraphQL"
     /// <returns>Return value of type Integer.</returns>
     internal procedure GetExpectedCost(): Integer
     begin
-        exit(108);
+        exit(102);
     end;
 }

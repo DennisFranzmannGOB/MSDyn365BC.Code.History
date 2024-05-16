@@ -24,7 +24,6 @@ table 352 "Default Dimension"
 {
     Caption = 'Default Dimension';
     LookupPageID = "Default Dimensions";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -822,7 +821,7 @@ table 352 "Default Dimension"
         TempDimValuePerAccount.SetRange("Dimension Code", DimValuePerAccount."Dimension Code");
         TempDimValuePerAccount.SetFilter("Dimension Value Code", "Allowed Values Filter");
 
-        if not TempDimValuePerAccount.IsEmpty() then
+        If not TempDimValuePerAccount.IsEmpty() then
             exit(true);
     end;
 

@@ -58,16 +58,6 @@ page 30071 "APIV2 - Contacts"
                         RegisterFieldSet(Rec.FieldNo(Name));
                     end;
                 }
-                field(jobTitle; Rec."Job Title")
-                {
-                    Caption = 'Job Title';
-                    ShowMandatory = true;
-
-                    trigger OnValidate()
-                    begin
-                        RegisterFieldSet(Rec.FieldNo("Job Title"));
-                    end;
-                }
                 field(companyNumber; Rec."Company No.")
                 {
                     Caption = 'Company Number';

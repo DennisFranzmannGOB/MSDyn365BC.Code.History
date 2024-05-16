@@ -64,7 +64,7 @@ page 5902 "Service Order Subform"
                 }
                 field("Variant Code"; Rec."Variant Code")
                 {
-                    ApplicationArea = Service;
+                    ApplicationArea = Planning;
                     ToolTip = 'Specifies the variant of the item on the line.';
                     Visible = false;
                 }

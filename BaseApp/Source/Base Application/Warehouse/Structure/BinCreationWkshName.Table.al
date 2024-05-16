@@ -7,7 +7,6 @@ table 7337 "Bin Creation Wksh. Name"
     Caption = 'Bin Creation Wksh. Name';
     DataCaptionFields = Name, Description;
     LookupPageID = "Bin Creation Wksh. Names";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -42,7 +41,7 @@ table 7337 "Bin Creation Wksh. Name"
         }
         field(21; "Template Type"; Option)
         {
-            CalcFormula = lookup("Bin Creation Wksh. Template".Type where(Name = field("Worksheet Template Name")));
+            CalcFormula = Lookup("Bin Creation Wksh. Template".Type WHERE(Name = FIELD("Worksheet Template Name")));
             Caption = 'Template Type';
             Editable = false;
             FieldClass = FlowField;

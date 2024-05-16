@@ -569,7 +569,7 @@ page 41 "Sales Quote"
                         group(Control72)
                         {
                             ShowCaption = false;
-                            Visible = not (ShipToOptions = ShipToOptions::"Default (Sell-to Address)");
+                            Visible = NOT (ShipToOptions = ShipToOptions::"Default (Sell-to Address)");
                             field("Ship-to Code"; Rec."Ship-to Code")
                             {
                                 ApplicationArea = Basic, Suite;
@@ -705,7 +705,7 @@ page 41 "Sales Quote"
                 }
                 group(Control49)
                 {
-                    Enabled = not EnableSellToCustomerTemplateCode;
+                    Enabled = NOT EnableSellToCustomerTemplateCode;
                     ShowCaption = false;
                     field(BillToOptions; BillToOptions)
                     {
@@ -726,7 +726,7 @@ page 41 "Sales Quote"
                     group(Control41)
                     {
                         ShowCaption = false;
-                        Visible = not (BillToOptions = BillToOptions::"Default (Customer)");
+                        Visible = NOT (BillToOptions = BillToOptions::"Default (Customer)");
 
                         field("Bill-to Name"; Rec."Bill-to Name")
                         {
@@ -1134,7 +1134,7 @@ page 41 "Sales Quote"
                     Enabled = IsCustomerOrContactNotEmpty;
                     Image = Print;
                     ToolTip = 'Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.';
-                    Visible = not IsOfficeAddin;
+                    Visible = NOT IsOfficeAddin;
 
                     trigger OnAction()
                     begin
@@ -1407,7 +1407,7 @@ page 41 "Sales Quote"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Send A&pproval Request';
-                    Enabled = not OpenApprovalEntriesExist and CanRequestApprovalForFlow;
+                    Enabled = NOT OpenApprovalEntriesExist AND CanRequestApprovalForFlow;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval of the document.';
 
@@ -1423,7 +1423,7 @@ page 41 "Sales Quote"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Cancel Approval Re&quest';
-                    Enabled = CanCancelApprovalForRecord or CanCancelApprovalForFlow;
+                    Enabled = CanCancelApprovalForRecord OR CanCancelApprovalForFlow;
                     Image = CancelApprovalRequest;
                     ToolTip = 'Cancel the approval request.';
 
@@ -1475,6 +1475,20 @@ page 41 "Sales Quote"
                             FlowTemplateSelector.SetSearchText(FlowServiceManagement.GetSalesTemplateFilter());
                             FlowTemplateSelector.Run();
                         end;
+                    }
+#endif
+#if not CLEAN21
+                    action(SeeFlows)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'See my flows';
+                        Image = Flow;
+                        RunObject = Page "Flow Selector";
+                        ToolTip = 'View and configure Power Automate flows that you created.';
+                        Visible = false;
+                        ObsoleteState = Pending;
+                        ObsoleteReason = 'This action has been moved to the tab dedicated to Power Automate';
+                        ObsoleteTag = '21.0';
                     }
 #endif
                 }
@@ -1553,7 +1567,7 @@ page 41 "Sales Quote"
                         ApplicationArea = Basic, Suite;
                         Caption = 'Create Incoming Document from File';
                         Ellipsis = true;
-                        Enabled = not HasIncomingDocument;
+                        Enabled = NOT HasIncomingDocument;
                         Image = Attach;
                         ToolTip = 'Create an incoming document record by selecting a file to attach, and then link the incoming document record to the entry or document.';
 
@@ -1685,6 +1699,24 @@ page 41 "Sales Quote"
                 actionref(CancelApprovalRequest_Promoted; CancelApprovalRequest)
                 {
                 }
+#if not CLEAN21
+                actionref(CreateFlow_Promoted; CreateFlow)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
+#if not CLEAN21
+                actionref(SeeFlows_Promoted; SeeFlows)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'This action has been moved to the tab dedicated to Power Automate';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category4)
             {
@@ -1942,7 +1974,7 @@ page 41 "Sales Quote"
 
     local procedure UpdateShipToBillToGroupVisibility()
     begin
-        CustomerMgt.CalculateShipBillToOptions(ShipToOptions, BillToOptions, Rec);
+        CustomerMgt.CalculateShipToBillToOptions(ShipToOptions, BillToOptions, Rec);
     end;
 
     local procedure SetEnableSellToCustomerTemplateCode()

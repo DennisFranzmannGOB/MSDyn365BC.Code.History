@@ -314,6 +314,7 @@ codeunit 139905 "Serv. Decl. Suggest Lines"
     end;
 
     local procedure Initialize()
+    var
     begin
         LibraryTestInitialize.OnTestInitialize(Codeunit::"Serv. Decl. Suggest Lines");
         LibrarySetupStorage.Restore();

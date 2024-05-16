@@ -9,7 +9,6 @@ table 842 "Cash Flow Account Comment"
     Caption = 'Cash Flow Account Comment';
     DrillDownPageID = "Cash Flow Comment List";
     LookupPageID = "Cash Flow Comment List";
-    DataClassification = CustomerContent;
 
     fields
     {

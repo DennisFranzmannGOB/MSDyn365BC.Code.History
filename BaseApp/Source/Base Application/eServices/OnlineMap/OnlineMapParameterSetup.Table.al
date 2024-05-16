@@ -10,7 +10,6 @@ table 801 "Online Map Parameter Setup"
 {
     Caption = 'Online Map Parameter Setup';
     LookupPageID = "Online Map Parameter Setup";
-    DataClassification = CustomerContent;
 
     fields
     {

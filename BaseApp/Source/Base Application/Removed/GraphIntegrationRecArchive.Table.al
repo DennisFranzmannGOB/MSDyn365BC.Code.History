@@ -5,7 +5,6 @@ table 5452 "Graph Integration Rec. Archive"
     ObsoleteReason = 'This functionality will be removed. The API that it was integrating to was discontinued.';
     ObsoleteTag = '20.0';
     Caption = 'Graph Integration Rec. Archive';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -28,7 +27,7 @@ table 5452 "Graph Integration Rec. Archive"
         }
         field(6; "Table ID"; Integer)
         {
-            CalcFormula = lookup("Integration Record"."Table ID" where("Integration ID" = field("Integration ID")));
+            CalcFormula = Lookup("Integration Record"."Table ID" where("Integration ID" = field("Integration ID")));
             Caption = 'Table ID';
             FieldClass = FlowField;
         }

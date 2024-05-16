@@ -28,6 +28,7 @@ codeunit 134220 "WFWH General Journal Line"
         UserCannotCancelErr: Label 'User %1 does not have the permission necessary to cancel the item.', Comment = '%1 = NAV USERID';
         UserCannotActErr: Label 'User %1 cannot act on this step. Make sure the user who created the webhook (%2) is the same who is trying to act.', Comment = '%1, %2 = two distinct NAV user IDs, for example "MEGANB" and "WILLIAMC"';
         UnexpectedNoOfApprovalEntriesErr: Label 'Unexpected number of approval entries found.', Locked = true;
+        UnexpectedNoOfWorkflowStepInstancesErr: Label 'Unexpected number of workflow step instances found.';
         PreventDeleteRecordWithOpenApprovalEntryForSenderMsg: Label 'You can''t delete a record that has open approval entries. To delete a record, you need to Cancel approval request first.';
 
     [Test]
@@ -125,7 +126,7 @@ codeunit 134220 "WFWH General Journal Line"
         WorkflowCode: Code[20];
     begin
         WorkflowCode :=
-          WorkflowWebhookSetup.CreateWorkflowDefinition(WorkflowEventHandling.RunWorkflowOnSendGeneralJournalLineForApprovalCode(),
+          WorkflowWebhookSetup.CreateWorkflowDefinition(WorkflowEventHandling.RunWorkflowOnSendGeneralJournalLineForApprovalCode,
             '', DynamicRequestPageParametersGeneralJournalLineTxt, ResponseUserID);
         Workflow.Get(WorkflowCode);
         LibraryWorkflow.EnableWorkflow(Workflow);
@@ -146,7 +147,7 @@ codeunit 134220 "WFWH General Journal Line"
         // [THEN] Workflow table relations for general journal line and workflow webhook entry exist.
 
         // Setup
-        LibraryWorkflow.DeleteAllExistingWorkflows();
+        LibraryWorkflow.DeleteAllExistingWorkflows;
 
         // Excercise
         WorkflowSetup.InitWorkflow();
@@ -213,7 +214,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateGeneralJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForGeneralJournal(GenJournalLine."Journal Batch Name");
 
         Commit();
@@ -249,7 +250,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateGeneralJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForGeneralJournal(GenJournalLine."Journal Batch Name");
 
         Commit();
@@ -285,7 +286,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateGeneralJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForGeneralJournal(GenJournalLine."Journal Batch Name");
 
         Commit();
@@ -321,7 +322,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateCashReceiptJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForCashReceipt(GenJournalBatch.Name);
         Commit();
 
@@ -356,7 +357,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateCashReceiptJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForCashReceipt(GenJournalBatch.Name);
         Commit();
 
@@ -391,7 +392,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateCashReceiptJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForCashReceipt(GenJournalBatch.Name);
         Commit();
 
@@ -426,7 +427,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreatePaymentJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForPaymentJournal(GenJournalBatch.Name);
 
         Commit();
@@ -462,7 +463,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreatePaymentJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForPaymentJournal(GenJournalBatch.Name);
 
         Commit();
@@ -498,7 +499,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreatePaymentJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForPaymentJournal(GenJournalBatch.Name);
 
         Commit();
@@ -744,7 +745,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateJournalBatchWithMultipleJournalLines(GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendFilteredApprovalRequest(GenJournalLine."Journal Batch Name", GenJournalLine."Line No.");
 
         Commit();
@@ -780,7 +781,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateJournalBatchWithMultipleJournalLines(GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendFilteredApprovalRequest(GenJournalLine."Journal Batch Name", GenJournalLine."Line No.");
 
         Commit();
@@ -816,7 +817,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateJournalBatchWithMultipleJournalLines(GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendFilteredApprovalRequest(GenJournalLine."Journal Batch Name", GenJournalLine."Line No.");
 
         Commit();
@@ -963,7 +964,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateGeneralJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForGeneralJournal(GenJournalLine."Journal Batch Name");
 
         Commit();
@@ -989,6 +990,8 @@ codeunit 134220 "WFWH General Journal Line"
         GenJournalBatch: Record "Gen. Journal Batch";
         GenJournalLine: Record "Gen. Journal Line";
         DummyWorkflowWebhookEntry: Record "Workflow Webhook Entry";
+        WorkflowStepInstance: Record "Workflow Step Instance";
+        DummyWorkflowCode: Code[20];
     begin
         // [SCENARIO] A user can delete a general journal line after they send it for approval and the approval requests
         // will be cancelled.
@@ -1001,7 +1004,7 @@ codeunit 134220 "WFWH General Journal Line"
         // Setup
         CreateAndEnableGeneralJournalLineWorkflowDefinition(UserId);
         CreateGeneralJournalBatchWithOneJournalLine(GenJournalBatch, GenJournalLine);
-        MakeCurrentUserAnApprover();
+        MakeCurrentUserAnApprover;
         SendApprovalRequestForGeneralJournal(GenJournalLine."Journal Batch Name");
 
         Commit();
@@ -1035,14 +1038,14 @@ codeunit 134220 "WFWH General Journal Line"
 
         // [WHEN] User opens the journal batch
         Commit();
-        GeneralJournal.OpenEdit();
+        GeneralJournal.OpenEdit;
         GeneralJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
 
         // [THEN] Approval actions are correctly enabled/disabled
-        Assert.IsFalse(GeneralJournal.SendApprovalRequestJournalBatch.Enabled(), 'Send Batch should be disabled');
-        Assert.IsFalse(GeneralJournal.CancelApprovalRequestJournalBatch.Enabled(), 'Cancel Batch should be disabled');
-        Assert.IsFalse(GeneralJournal.SendApprovalRequestJournalLine.Enabled(), 'Send Line should be disabled');
-        Assert.IsTrue(GeneralJournal.CancelApprovalRequestJournalLine.Enabled(), 'Cancel Line should be enabled');
+        Assert.IsFalse(GeneralJournal.SendApprovalRequestJournalBatch.Enabled, 'Send Batch should be disabled');
+        Assert.IsFalse(GeneralJournal.CancelApprovalRequestJournalBatch.Enabled, 'Cancel Batch should be disabled');
+        Assert.IsFalse(GeneralJournal.SendApprovalRequestJournalLine.Enabled, 'Send Line should be disabled');
+        Assert.IsTrue(GeneralJournal.CancelApprovalRequestJournalLine.Enabled, 'Cancel Line should be enabled');
 
         // [THEN] Close the journal
         GeneralJournal.Close();
@@ -1068,14 +1071,14 @@ codeunit 134220 "WFWH General Journal Line"
 
         // [WHEN] User opens the journal batch
         Commit();
-        PaymentJournal.OpenEdit();
+        PaymentJournal.OpenEdit;
         PaymentJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
 
         // [THEN] Approval actions are correctly enabled/disabled
-        Assert.IsFalse(PaymentJournal.SendApprovalRequestJournalBatch.Enabled(), 'Send Batch should be disabled');
-        Assert.IsFalse(PaymentJournal.CancelApprovalRequestJournalBatch.Enabled(), 'Cancel Batch should be disabled');
-        Assert.IsFalse(PaymentJournal.SendApprovalRequestJournalLine.Enabled(), 'Send Line should be disabled');
-        Assert.IsTrue(PaymentJournal.CancelApprovalRequestJournalLine.Enabled(), 'Cancel Line should be enabled');
+        Assert.IsFalse(PaymentJournal.SendApprovalRequestJournalBatch.Enabled, 'Send Batch should be disabled');
+        Assert.IsFalse(PaymentJournal.CancelApprovalRequestJournalBatch.Enabled, 'Cancel Batch should be disabled');
+        Assert.IsFalse(PaymentJournal.SendApprovalRequestJournalLine.Enabled, 'Send Line should be disabled');
+        Assert.IsTrue(PaymentJournal.CancelApprovalRequestJournalLine.Enabled, 'Cancel Line should be enabled');
 
         // [THEN] Close the journal
         PaymentJournal.Close();
@@ -1165,14 +1168,14 @@ codeunit 134220 "WFWH General Journal Line"
 
         // [WHEN] User opens the journal batch
         Commit();
-        CashReceiptJournal.OpenEdit();
+        CashReceiptJournal.OpenEdit;
         CashReceiptJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
 
         // [THEN] Approval actions are correctly enabled/disabled
-        Assert.IsFalse(CashReceiptJournal.SendApprovalRequestJournalBatch.Enabled(), 'Send Batch should be disabled');
-        Assert.IsFalse(CashReceiptJournal.CancelApprovalRequestJournalBatch.Enabled(), 'Cancel Batch should be disabled');
-        Assert.IsFalse(CashReceiptJournal.SendApprovalRequestJournalLine.Enabled(), 'Send Line should be disabled');
-        Assert.IsTrue(CashReceiptJournal.CancelApprovalRequestJournalLine.Enabled(), 'Cancel Line should be enabled');
+        Assert.IsFalse(CashReceiptJournal.SendApprovalRequestJournalBatch.Enabled, 'Send Batch should be disabled');
+        Assert.IsFalse(CashReceiptJournal.CancelApprovalRequestJournalBatch.Enabled, 'Cancel Batch should be disabled');
+        Assert.IsFalse(CashReceiptJournal.SendApprovalRequestJournalLine.Enabled, 'Send Line should be disabled');
+        Assert.IsTrue(CashReceiptJournal.CancelApprovalRequestJournalLine.Enabled, 'Cancel Line should be enabled');
 
         // [THEN] Close the journal
         CashReceiptJournal.Close();
@@ -1200,9 +1203,9 @@ codeunit 134220 "WFWH General Journal Line"
 
         // [WHEN] User opens the journal batch and clicks Cancel
         Commit();
-        GeneralJournal.OpenEdit();
+        GeneralJournal.OpenEdit;
         GeneralJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
-        GeneralJournal.CancelApprovalRequestJournalLine.Invoke();
+        GeneralJournal.CancelApprovalRequestJournalLine.Invoke;
 
         // [THEN] Flow approval is cancelled
         WorkflowWebhookEntry.FindFirst();
@@ -1234,9 +1237,9 @@ codeunit 134220 "WFWH General Journal Line"
 
         // [WHEN] User opens the journal batch and clicks Cancel
         Commit();
-        PaymentJournal.OpenEdit();
+        PaymentJournal.OpenEdit;
         PaymentJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
-        PaymentJournal.CancelApprovalRequestJournalLine.Invoke();
+        PaymentJournal.CancelApprovalRequestJournalLine.Invoke;
 
         // [THEN] Flow approval is cancelled
         WorkflowWebhookEntry.FindFirst();
@@ -1334,9 +1337,9 @@ codeunit 134220 "WFWH General Journal Line"
 
         // [WHEN] User opens the journal batch and clicks Cancel
         Commit();
-        CashReceiptJournal.OpenEdit();
+        CashReceiptJournal.OpenEdit;
         CashReceiptJournal.CurrentJnlBatchName.SetValue(GenJournalBatch.Name);
-        CashReceiptJournal.CancelApprovalRequestJournalLine.Invoke();
+        CashReceiptJournal.CancelApprovalRequestJournalLine.Invoke;
 
         // [THEN] Flow approval is cancelled
         WorkflowWebhookEntry.FindFirst();
@@ -1360,7 +1363,7 @@ codeunit 134220 "WFWH General Journal Line"
         UserSetup.DeleteAll();
         GenJournalTemplate.DeleteAll();
         ClearWorkflowWebhookEntry.DeleteAll();
-        RemoveBogusUser();
+        RemoveBogusUser;
         if IsInitialized then
             exit;
 
@@ -1373,36 +1376,36 @@ codeunit 134220 "WFWH General Journal Line"
     begin
         LibraryERM.CreateGenJournalBatch(GenJournalBatch, JournalTemplateName);
         GenJournalBatch.Validate("Bal. Account Type", GenJournalBatch."Bal. Account Type"::"G/L Account");
-        GenJournalBatch.Validate("Bal. Account No.", LibraryERM.CreateGLAccountNoWithDirectPosting());
+        GenJournalBatch.Validate("Bal. Account No.", LibraryERM.CreateGLAccountNoWithDirectPosting);
         GenJournalBatch.Modify(true);
     end;
 
     local procedure CreateGeneralJournalBatchWithOneJournalLine(var GenJournalBatch: Record "Gen. Journal Batch"; var GenJournalLine: Record "Gen. Journal Line")
     begin
-        CreateJournalBatch(GenJournalBatch, LibraryERM.SelectGenJnlTemplate());
+        CreateJournalBatch(GenJournalBatch, LibraryERM.SelectGenJnlTemplate);
 
         LibraryERM.CreateGeneralJnlLine(GenJournalLine, GenJournalBatch."Journal Template Name", GenJournalBatch.Name,
-          GenJournalLine."Document Type"::Invoice, GenJournalLine."Account Type"::Customer, LibrarySales.CreateCustomerNo(),
+          GenJournalLine."Document Type"::Invoice, GenJournalLine."Account Type"::Customer, LibrarySales.CreateCustomerNo,
           LibraryRandom.RandDecInRange(10000, 50000, 2));
     end;
 
     local procedure CreatePaymentJournalBatchWithOneJournalLine(var GenJournalBatch: Record "Gen. Journal Batch"; var GenJournalLine: Record "Gen. Journal Line")
     begin
-        CreateJournalBatch(GenJournalBatch, LibraryERM.SelectGenJnlTemplate());
-        CreateJournalBatch(GenJournalBatch, LibraryPurchase.SelectPmtJnlTemplate());
+        CreateJournalBatch(GenJournalBatch, LibraryERM.SelectGenJnlTemplate);
+        CreateJournalBatch(GenJournalBatch, LibraryPurchase.SelectPmtJnlTemplate);
 
         LibraryERM.CreateGeneralJnlLine(GenJournalLine, GenJournalBatch."Journal Template Name", GenJournalBatch.Name,
-          GenJournalLine."Document Type"::Invoice, GenJournalLine."Account Type"::Customer, LibrarySales.CreateCustomerNo(),
+          GenJournalLine."Document Type"::Invoice, GenJournalLine."Account Type"::Customer, LibrarySales.CreateCustomerNo,
           LibraryRandom.RandDecInRange(10000, 50000, 2));
     end;
 
     local procedure CreateCashReceiptJournalBatchWithOneJournalLine(var GenJournalBatch: Record "Gen. Journal Batch"; var GenJournalLine: Record "Gen. Journal Line")
     begin
-        CreateJournalBatch(GenJournalBatch, LibraryERM.SelectGenJnlTemplate());
-        CreateJournalBatch(GenJournalBatch, LibrarySales.SelectCashReceiptJnlTemplate());
+        CreateJournalBatch(GenJournalBatch, LibraryERM.SelectGenJnlTemplate);
+        CreateJournalBatch(GenJournalBatch, LibrarySales.SelectCashReceiptJnlTemplate);
 
         LibraryERM.CreateGeneralJnlLine(GenJournalLine, GenJournalBatch."Journal Template Name", GenJournalBatch.Name,
-          GenJournalLine."Document Type"::Invoice, GenJournalLine."Account Type"::Customer, LibrarySales.CreateCustomerNo(),
+          GenJournalLine."Document Type"::Invoice, GenJournalLine."Account Type"::Customer, LibrarySales.CreateCustomerNo,
           LibraryRandom.RandDecInRange(10000, 50000, 2));
     end;
 
@@ -1436,16 +1439,16 @@ codeunit 134220 "WFWH General Journal Line"
         GenJournalLine1: Record "Gen. Journal Line";
         GenJournalLine3: Record "Gen. Journal Line";
     begin
-        CreateJournalBatch(GenJournalBatch, LibraryERM.SelectGenJnlTemplate());
+        CreateJournalBatch(GenJournalBatch, LibraryERM.SelectGenJnlTemplate);
 
         LibraryERM.CreateGeneralJnlLine(GenJournalLine1, GenJournalBatch."Journal Template Name", GenJournalBatch.Name,
-          GenJournalLine1."Document Type"::Invoice, GenJournalLine1."Account Type"::Customer, LibrarySales.CreateCustomerNo(),
+          GenJournalLine1."Document Type"::Invoice, GenJournalLine1."Account Type"::Customer, LibrarySales.CreateCustomerNo,
           LibraryRandom.RandDecInRange(10000, 50000, 2));
         LibraryERM.CreateGeneralJnlLine(GenJournalLine2, GenJournalBatch."Journal Template Name", GenJournalBatch.Name,
-          GenJournalLine2."Document Type"::Invoice, GenJournalLine2."Account Type"::Customer, LibrarySales.CreateCustomerNo(),
+          GenJournalLine2."Document Type"::Invoice, GenJournalLine2."Account Type"::Customer, LibrarySales.CreateCustomerNo,
           LibraryRandom.RandDecInRange(10000, 50000, 2));
         LibraryERM.CreateGeneralJnlLine(GenJournalLine3, GenJournalBatch."Journal Template Name", GenJournalBatch.Name,
-          GenJournalLine3."Document Type"::Invoice, GenJournalLine3."Account Type"::Customer, LibrarySales.CreateCustomerNo(),
+          GenJournalLine3."Document Type"::Invoice, GenJournalLine3."Account Type"::Customer, LibrarySales.CreateCustomerNo,
           LibraryRandom.RandDecInRange(10000, 50000, 2));
     end;
 
@@ -1453,27 +1456,27 @@ codeunit 134220 "WFWH General Journal Line"
     var
         GeneralJournal: TestPage "General Journal";
     begin
-        GeneralJournal.OpenView();
+        GeneralJournal.OpenView;
         GeneralJournal.CurrentJnlBatchName.SetValue(GenJournalBatchName);
-        GeneralJournal.SendApprovalRequestJournalLine.Invoke();
+        GeneralJournal.SendApprovalRequestJournalLine.Invoke;
     end;
 
     local procedure SendApprovalRequestForCashReceipt(GenJournalBatchName: Code[20])
     var
         CashReceiptJournal: TestPage "Cash Receipt Journal";
     begin
-        CashReceiptJournal.OpenView();
+        CashReceiptJournal.OpenView;
         CashReceiptJournal.CurrentJnlBatchName.SetValue(GenJournalBatchName);
-        CashReceiptJournal.SendApprovalRequestJournalLine.Invoke();
+        CashReceiptJournal.SendApprovalRequestJournalLine.Invoke;
     end;
 
     local procedure SendApprovalRequestForPaymentJournal(GenJournalBatchName: Code[20])
     var
         PaymentJournal: TestPage "Payment Journal";
     begin
-        PaymentJournal.OpenView();
+        PaymentJournal.OpenView;
         PaymentJournal.CurrentJnlBatchName.SetValue(GenJournalBatchName);
-        PaymentJournal.SendApprovalRequestJournalLine.Invoke();
+        PaymentJournal.SendApprovalRequestJournalLine.Invoke;
     end;
 
     local procedure SendApprovalRequestForPurchaseJournal(GenJournalBatchName: Code[20])
@@ -1498,10 +1501,10 @@ codeunit 134220 "WFWH General Journal Line"
     var
         GeneralJournal: TestPage "General Journal";
     begin
-        GeneralJournal.OpenView();
+        GeneralJournal.OpenView;
         GeneralJournal.CurrentJnlBatchName.SetValue(GenJournalBatchName);
         GeneralJournal.FILTER.SetFilter("Line No.", Format(LineNo));
-        GeneralJournal.SendApprovalRequestJournalLine.Invoke();
+        GeneralJournal.SendApprovalRequestJournalLine.Invoke;
     end;
 
     local procedure AllowRecordUsageCode(Variant: Variant; xVariant: Variant)
@@ -1512,7 +1515,7 @@ codeunit 134220 "WFWH General Journal Line"
         WorkflowMgt: Codeunit "Workflow Management";
     begin
         CreateWorkflowStepInstanceWithTwoResponses(FirstWorkflowStepInstance, RemoveRestrictionWorkflowStepInstance,
-          WorkflowResponseHandling.AllowRecordUsageCode());
+          WorkflowResponseHandling.AllowRecordUsageCode);
         WorkflowMgt.ExecuteResponses(Variant, xVariant, FirstWorkflowStepInstance);
     end;
 
@@ -1527,7 +1530,7 @@ codeunit 134220 "WFWH General Journal Line"
         Workflow.Modify();
 
         CreateResponseWorkflowStepInstance(FirstWorkflowStepInstance, Workflow.Code,
-          CreateGuid(), WorkflowResponseHandling.DoNothingCode(), 1, 0, FirstWorkflowStepInstance.Status::Completed);
+          CreateGuid, WorkflowResponseHandling.DoNothingCode, 1, 0, FirstWorkflowStepInstance.Status::Completed);
 
         CreateResponseWorkflowStepInstance(SecondWorkflowStepInstance, Workflow.Code,
           FirstWorkflowStepInstance.ID, SecondResponseCode, 2, 1, SecondWorkflowStepInstance.Status::Active);

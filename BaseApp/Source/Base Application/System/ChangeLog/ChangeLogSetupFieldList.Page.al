@@ -5,7 +5,7 @@ using System.Reflection;
 page 594 "Change Log Setup (Field) List"
 {
     Caption = 'Change Log Setup (Field) List';
-    DataCaptionExpression = PageCaptionText;
+    DataCaptionExpression = PageCaption;
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = List;
@@ -134,7 +134,7 @@ page 594 "Change Log Setup (Field) List"
         Rec.FilterGroup(2);
         Rec.SetRange(Class, Rec.Class::Normal);
         Rec.FilterGroup(0);
-        PageCaptionText := Format(Rec.TableNo) + ' ' + Rec.TableName;
+        PageCaption := Format(Rec.TableNo) + ' ' + Rec.TableName;
     end;
 
     var
@@ -149,7 +149,7 @@ page 594 "Change Log Setup (Field) List"
         LogInsertionVisible: Boolean;
         LogModificationVisible: Boolean;
         LogDeletionVisible: Boolean;
-        PageCaptionText: Text[250];
+        PageCaption: Text[250];
         PageIsEditable: Boolean;
 
     procedure SelectColumn(NewInsVisible: Boolean; NewModVisible: Boolean; NewDelVisible: Boolean)
@@ -174,11 +174,12 @@ page 594 "Change Log Setup (Field) List"
 
         GetRec();
         TransToRec();
-        if not (ChangeLogSetupField."Log Insertion" or ChangeLogSetupField."Log Modification" or ChangeLogSetupField."Log Deletion") then begin
-            if ChangeLogSetupField.Delete() then;
-        end else
-            if not ChangeLogSetupField.Modify() then
-                ChangeLogSetupField.Insert();
+        with ChangeLogSetupField do
+            if not ("Log Insertion" or "Log Modification" or "Log Deletion") then begin
+                if Delete() then;
+            end else
+                if not Modify() then
+                    Insert();
     end;
 
     local procedure GetRec()

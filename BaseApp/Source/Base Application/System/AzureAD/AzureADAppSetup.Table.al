@@ -5,7 +5,6 @@ table 6300 "Azure AD App Setup"
     Caption = 'Microsoft Entra App Setup';
     DataPerCompany = false;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

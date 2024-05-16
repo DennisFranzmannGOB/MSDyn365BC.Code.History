@@ -5,7 +5,6 @@ table 5217 "Grounds for Termination"
     Caption = 'Grounds for Termination';
     DrillDownPageID = "Grounds for Termination";
     LookupPageID = "Grounds for Termination";
-    DataClassification = CustomerContent;
 
     fields
     {

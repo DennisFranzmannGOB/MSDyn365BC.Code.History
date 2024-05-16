@@ -6,7 +6,6 @@ table 8626 "Config. Package Filter"
 {
     Caption = 'Config. Package Filter';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -39,7 +38,7 @@ table 8626 "Config. Package Filter"
         }
         field(6; "Field Name"; Text[30])
         {
-            CalcFormula = lookup(Field.FieldName where(TableNo = field("Table ID"),
+            CalcFormula = Lookup(Field.FieldName where(TableNo = field("Table ID"),
                                                         "No." = field("Field ID")));
             Caption = 'Field Name';
             Editable = false;
@@ -47,7 +46,7 @@ table 8626 "Config. Package Filter"
         }
         field(7; "Field Caption"; Text[250])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table ID"),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table ID"),
                                                               "No." = field("Field ID")));
             Caption = 'Field Caption';
             Editable = false;

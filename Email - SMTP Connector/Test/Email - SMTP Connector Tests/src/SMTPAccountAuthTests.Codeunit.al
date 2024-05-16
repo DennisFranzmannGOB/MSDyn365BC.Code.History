@@ -67,24 +67,20 @@ codeunit 139762 "SMTP Account Auth Tests"
     var
         OAuth2SMTPAuthentication: Codeunit "OAuth2 SMTP Authentication";
         ReturnedUserName: Text;
-        Token: Text;
     begin
-        Token := TokenFromCacheTxt;
-        OAuth2SMTPAuthentication.GetUserName(Token, ReturnedUserName);
+        OAuth2SMTPAuthentication.GetUserName(TokenFromCacheTxt, ReturnedUserName);
         Assert.AreEqual(TokenFromCacheUserNameTxt, ReturnedUserName, 'Incorrect returned username.');
     end;
 
     [Test]
     [TransactionModel(TransactionModel::AutoRollback)]
-    [NonDebuggable]
     procedure GetOAuth2CredentialsTest()
     var
         OAuth2SMTPAuthentication: Codeunit "OAuth2 SMTP Authentication";
         SMTPAccountAuthTests: Codeunit "SMTP Account Auth Tests";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         UserName: Text;
-        AuthToken: SecretText;
-        Token: Text;
+        AuthToken: Text;
     begin
         // [SCENARIO] If the provided server is the O365 SMTP server, and there is available token cache,
         // the access token is acquires from cache and the user name variable is filled.
@@ -92,8 +88,7 @@ codeunit 139762 "SMTP Account Auth Tests"
         // [GIVEN] Environment is on-prem and token from cache with credentials is available.
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(false);
         SetAuthFlowProvider(Codeunit::"SMTP Account Auth Tests");
-        Token := TokenFromCacheTxt;
-        SMTPAccountAuthTests.SetTokenCache(Token);
+        SMTPAccountAuthTests.SetTokenCache(TokenFromCacheTxt);
         BindSubscription(SMTPAccountAuthTests);
 
         // [WHEN] AuthenticateWithOAuth2 is called.
@@ -101,7 +96,7 @@ codeunit 139762 "SMTP Account Auth Tests"
 
         // [THEN] The AuthToken and UserName have the expected values.
         Assert.AreEqual(TokenFromCacheUserNameTxt, UserName, 'UserName should not have been filled.');
-        Assert.AreEqual(TokenFromCacheTxt, AuthToken.Unwrap(), 'AuthToken should not have been filled.');
+        Assert.AreEqual(TokenFromCacheTxt, AuthToken, 'AuthToken should not have been filled.');
     end;
 
     [Test]

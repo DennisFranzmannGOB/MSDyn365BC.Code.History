@@ -13,6 +13,7 @@ codeunit 138698 "AllProfile V2 Test"
         Assert: Codeunit Assert;
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryRandom: Codeunit "Library - Random";
+        FileManagement: Codeunit "File Management";
         DescriptionFilterTxt: Label 'Navigation menu only.';
 
     // Demotool tests
@@ -127,7 +128,7 @@ codeunit 138698 "AllProfile V2 Test"
         // [WHEN] The user opens the Profile List
         // [THEN] The list is not editable
         ProfileList.OpenEdit();
-        Assert.IsFalse(ProfileList.Editable(), 'Profile list should not be editable.');
+        Assert.IsFalse(ProfileList.Editable, 'Profile list should not be editable.');
         ProfileList.Close();
 
         Cleanup();
@@ -299,6 +300,7 @@ codeunit 138698 "AllProfile V2 Test"
     procedure TestProfileCardEditOwnedProfile()
     var
         ProfileCard: TestPage "Profile Card";
+        EmptyGuid: Guid;
         TempAllProfile: Record "All Profile" temporary;
         DBAllProfile: Record "All Profile";
         FieldTable: Record Field;
@@ -654,6 +656,7 @@ codeunit 138698 "AllProfile V2 Test"
             Assert.AreEqual(Format(AllObjWithCaption."Object ID"), ProfileCard.RoleCenterIdField.Value, 'Unexpected Role Center.');
         until AllObjWithCaption.Next() = 0;
 
+        ProfileCard.Close();
         Cleanup();
     end;
 
@@ -791,6 +794,7 @@ codeunit 138698 "AllProfile V2 Test"
         asserterror ProfileCard.RoleCenterIdField.Value := Format(Page::"Customer Card");
         Assert.AreEqual(ProfileCard.RoleCenterIdField.GetValidationError(1), 'Object Subtype must be equal to ''RoleCenter''  in AllObjWithCaption: Object Type=Page, Object ID=21. Current value is ''Card''.', 'Unexpected error.');
         ProfileCard.RoleCenterIdField.Value := Format(Page::"Business Manager Role Center");
+        ProfileCard.Close();
 
         Cleanup();
     end;
@@ -1247,7 +1251,7 @@ codeunit 138698 "AllProfile V2 Test"
         AllProfile.SetRange("Profile ID", LibraryVariableStorage.DequeueText());
         AllProfile.FindFirst();
         Roles.GoToRecord(AllProfile);
-        Roles.OK().Invoke();
+        Roles.OK.Invoke();
     end;
 
     [SessionSettingsHandler]
@@ -1286,6 +1290,7 @@ codeunit 138698 "AllProfile V2 Test"
     local procedure SaveFileToDisk(var ToFolder: Text; ToFileName: Text; FromFileName: Text; var IsHandled: Boolean)
     var
         FileManagement: Codeunit "File Management";
+        TempFile: File;
         ServerTempFileName: Text;
     begin
         // The download handler deletes the file before we can check the content, so need to copy it for the test to succeed

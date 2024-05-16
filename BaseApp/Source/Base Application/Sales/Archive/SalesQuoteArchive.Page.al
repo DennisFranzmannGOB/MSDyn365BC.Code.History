@@ -1,13 +1,11 @@
 namespace Microsoft.Sales.Archive;
 
 using Microsoft.CRM.Contact;
-using Microsoft.EServices.EDocument;
 using Microsoft.Finance.Dimension;
 using Microsoft.Foundation.Address;
 using Microsoft.Foundation.Reporting;
 using Microsoft.Sales.Customer;
 using Microsoft.Utilities;
-using System.Environment;
 using System.Security.User;
 
 page 5162 "Sales Quote Archive"
@@ -501,12 +499,6 @@ page 5162 "Sales Quote Archive"
         }
         area(factboxes)
         {
-            part(IncomingDocAttachFactBox; "Incoming Doc. Attach. FactBox")
-            {
-                ApplicationArea = Basic, Suite;
-                ShowFilter = false;
-                Visible = false;
-            }
             systempart(Control1900383207; Links)
             {
                 ApplicationArea = RecordLinks;
@@ -597,32 +589,6 @@ page 5162 "Sales Quote Archive"
                     ArchiveManagement.RestoreSalesDocument(Rec);
                 end;
             }
-            group(Functions)
-            {
-                Caption = 'Functions';
-                Image = "Action";
-                group(IncomingDocument)
-                {
-                    Caption = 'Incoming Document';
-                    Image = Documents;
-
-                    action(IncomingDocCard)
-                    {
-                        ApplicationArea = Suite;
-                        Caption = 'View Incoming Document';
-                        Enabled = HasIncomingDocument;
-                        Image = ViewOrder;
-                        ToolTip = 'View any incoming document records and file attachments that exist for the entry or document, for example for auditing purposes';
-
-                        trigger OnAction()
-                        var
-                            IncomingDocument: Record "Incoming Document";
-                        begin
-                            IncomingDocument.ShowCardFromEntryNo(Rec."Incoming Document Entry No.");
-                        end;
-                    }
-                }
-            }
         }
         area(Promoted)
         {
@@ -644,9 +610,6 @@ page 5162 "Sales Quote Archive"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
-                actionref(IncomingDocCard_Promoted; IncomingDocCard)
-                {
-                }
             }
         }
     }
@@ -658,24 +621,10 @@ page 5162 "Sales Quote Archive"
         IsBillToCountyVisible := FormatAddress.UseCounty(Rec."Bill-to Country/Region Code");
     end;
 
-    trigger OnAfterGetCurrRecord()
-    var
-        ClientTypeManagement: Codeunit "Client Type Management";
-    begin
-        SetControlAppearance();
-        if not (ClientTypeManagement.GetCurrentClientType() in [ClientType::SOAP, ClientType::OData, ClientType::ODataV4]) then
-            CurrPage.IncomingDocAttachFactBox.Page.LoadDataFromRecord(Rec);
-    end;
-
     trigger OnAfterGetRecord()
-    var
-        ClientTypeManagement: Codeunit "Client Type Management";
     begin
-        if not (ClientTypeManagement.GetCurrentClientType() in [ClientType::SOAP, ClientType::OData, ClientType::ODataV4]) then begin
-            SellToContact.GetOrClear(Rec."Sell-to Contact No.");
-            BillToContact.GetOrClear(Rec."Bill-to Contact No.");
-            CurrPage.IncomingDocAttachFactBox.Page.SetCurrentRecordID(Rec.RecordId);
-        end;
+        SellToContact.GetOrClear(Rec."Sell-to Contact No.");
+        BillToContact.GetOrClear(Rec."Bill-to Contact No.");
     end;
 
     var
@@ -686,11 +635,5 @@ page 5162 "Sales Quote Archive"
         IsShipToCountyVisible: Boolean;
         IsSellToCountyVisible: Boolean;
         IsBillToCountyVisible: Boolean;
-        HasIncomingDocument: Boolean;
-
-    local procedure SetControlAppearance()
-    begin
-        HasIncomingDocument := Rec."Incoming Document Entry No." <> 0;
-    end;
 }
 

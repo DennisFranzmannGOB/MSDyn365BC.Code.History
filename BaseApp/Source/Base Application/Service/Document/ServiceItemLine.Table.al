@@ -29,7 +29,6 @@ table 5901 "Service Item Line"
     LookupPageID = "Service Item Lines";
     Permissions = TableData "Loaner Entry" = rimd,
                   TableData "Service Order Allocation" = rimd;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -51,9 +50,7 @@ table 5901 "Service Item Line"
         field(3; "Service Item No."; Code[20])
         {
             Caption = 'Service Item No.';
-            TableRelation = if ("Document Type" = filter(<> "Credit Memo")) "Service Item"."No." where(Blocked = filter(<> All))
-            else
-            if ("Document Type" = filter("Credit Memo")) "Service Item"."No.";
+            TableRelation = "Service Item"."No.";
 
             trigger OnValidate()
             var
@@ -225,9 +222,7 @@ table 5901 "Service Item Line"
         field(5; "Item No."; Code[20])
         {
             Caption = 'Item No.';
-            TableRelation = if ("Document Type" = filter(<> "Credit Memo")) Item."No." where(Blocked = const(false), "Service Blocked" = const(false))
-            else
-            if ("Document Type" = filter("Credit Memo")) Item."No." where(Blocked = const(false));
+            TableRelation = Item."No.";
 
             trigger OnValidate()
             begin
@@ -977,7 +972,7 @@ table 5901 "Service Item Line"
         }
         field(27; "Location of Service Item"; Text[30])
         {
-            CalcFormula = lookup("Service Item"."Location of Service Item" where("No." = field("Service Item No.")));
+            CalcFormula = Lookup("Service Item"."Location of Service Item" where("No." = field("Service Item No.")));
             Caption = 'Location of Service Item';
             Editable = false;
             FieldClass = FlowField;
@@ -1047,6 +1042,7 @@ table 5901 "Service Item Line"
                 SetFilterForType();
                 if ServLine.Find('-') then
                     repeat
+                        ServLine.SetCalledFromServiceItemLine(true);
                         ServLine.Validate("Fault Reason Code", "Fault Reason Code");
                         ServLine.Modify();
                     until ServLine.Next() = 0;
@@ -1199,28 +1195,14 @@ table 5901 "Service Item Line"
         field(40; "Variant Code"; Code[10])
         {
             Caption = 'Variant Code';
-            TableRelation = if ("Document Type" = filter(<> "Credit Memo")) "Item Variant".Code where("Item No." = field("Item No."), Blocked = const(false), "Service Blocked" = const(false))
-            else
-            if ("Document Type" = filter("Credit Memo")) "Item Variant".Code where("Item No." = field("Item No."), Blocked = const(false));
+            TableRelation = "Item Variant".Code where("Item No." = field("Item No."));
 
             trigger OnValidate()
-            var
-                ItemVariant: Record "Item Variant";
             begin
                 if "Service Item No." <> '' then
                     Error(
                       Text016,
                       FieldCaption("Variant Code"), FieldCaption("Service Item No."));
-
-                if Rec."Variant Code" = xRec."Variant Code" then
-                    exit;
-
-                if Rec."Variant Code" <> '' then begin
-                    ItemVariant.SetLoadFields(Description, "Description 2");
-                    ItemVariant.Get(Rec."Item No.", Rec."Variant Code");
-                    Description := ItemVariant.Description;
-                    "Description 2" := ItemVariant."Description 2";
-                end;
             end;
         }
         field(41; "Service Item Loaner Comment"; Boolean)
@@ -1452,8 +1434,6 @@ table 5901 "Service Item Line"
         fieldgroup(DropDown; "Service Item No.", Description, "Serial No.")
         {
         }
-        fieldgroup(Brick; "Item No.", Description, "Service Item No.", "Serial No.", "Repair Status Code")
-        { }
     }
 
     trigger OnDelete()
@@ -2081,19 +2061,19 @@ table 5901 "Service Item Line"
     end;
 
     local procedure CheckServItemCustomer(ServiceHeader: Record "Service Header"; ServiceItem: Record "Service Item");
-    var
+    VAR
         IsHandled: Boolean;
-    begin
-        IsHandled := false;
+    BEGIN
+        IsHandled := FALSE;
         OnBeforeCheckServItemCustomer(ServiceHeader, ServiceItem, IsHandled);
         if IsHandled then
-            exit;
+            Exit;
 
         if ServiceHeader."Customer No." <> ServiceItem."Customer No." then
             Error(
               Text012,
               ServiceItem.TableCaption(), "Service Item No.", ServiceHeader.FieldCaption("Customer No."), ServiceHeader."Customer No.");
-    end;
+    END;
 
     procedure CheckServLineExist(): Boolean
     begin
@@ -2661,12 +2641,9 @@ table 5901 "Service Item Line"
         if IsHandled then
             exit;
 
-        ServItem.ErrorIfBlockedForAll();
-
         "Item No." := ServItem."Item No.";
         "Serial No." := ServItem."Serial No.";
         "Variant Code" := ServItem."Variant Code";
-        ServOrderMgt.CheckItemServiceBlocked(Rec);
         "Warranty Starting Date (Parts)" := ServItem."Warranty Starting Date (Parts)";
         "Warranty Ending Date (Parts)" := ServItem."Warranty Ending Date (Parts)";
         "Warranty Starting Date (Labor)" := ServItem."Warranty Starting Date (Labor)";

@@ -10,7 +10,6 @@ using Microsoft.Utilities;
 table 6670 "Returns-Related Document"
 {
     Caption = 'Returns-Related Document';
-    DataClassification = CustomerContent;
 
     fields
     {

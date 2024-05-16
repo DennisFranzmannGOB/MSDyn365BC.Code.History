@@ -3,7 +3,6 @@ namespace Microsoft.Manufacturing.Routing;
 table 99000803 "Routing Personnel"
 {
     Caption = 'Routing Personnel';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -5,7 +5,6 @@ using Microsoft.Finance.Currency;
 table 5127 "Deferral Header Archive"
 {
     Caption = 'Deferral Header Archive';
-    DataClassification = CustomerContent;
 
     fields
     {

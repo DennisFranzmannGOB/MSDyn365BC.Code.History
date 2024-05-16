@@ -18,9 +18,4 @@ codeunit 132933 "Azure OpenAI Test Library"
         exit(AOAIChatMessages.AssembleHistory(SystemMessageTokenCount, MessagesTokenCount));
     end;
 
-    procedure GetAOAIAssembleTools(var AOAIChatMessages: Codeunit "AOAI Chat Messages"): JsonArray
-    begin
-        exit(AOAIChatMessages.AssembleTools());
-    end;
-
 }

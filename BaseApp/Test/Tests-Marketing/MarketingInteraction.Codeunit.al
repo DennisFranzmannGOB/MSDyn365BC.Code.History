@@ -22,6 +22,7 @@ codeunit 136208 "Marketing Interaction"
         LibraryApplicationArea: Codeunit "Library - Application Area";
         LibraryWorkflow: Codeunit "Library - Workflow";
         LibraryPermissions: Codeunit "Library - Permissions";
+        FileMgt: Codeunit "File Management";
         ActiveDirectoryMockEvents: Codeunit "Active Directory Mock Events";
         isInitialized: Boolean;
         FieldEmptyErr: Label 'You must fill in the %1 field.';
@@ -33,8 +34,11 @@ codeunit 136208 "Marketing Interaction"
         WizardAction: Enum "Interaction Template Wizard Action";
         FinishWizardLaterQst: Label 'Do you want to finish this interaction later?';
         SelectContactErr: Label 'You must select a contact to interact with.';
+        MergedFieldErr: Label 'Value %1 from merged file are not equal to %2.', Comment = '%1 = Merged value,%2 = Original value';
+        AttachmentErr: Label 'Wrong attachment.';
         IsNotFoundOnPageErr: Label 'is not found on the page.';
         FirstContentBodyTxt: Label 'First Content Body Text';
+        AttachmentExportQst: Label 'Do you want to export attachment to view or edit it externaly?';
         FilePathsAreNotEqualErr: Label 'Export file path is not equal to file path of the attachment.';
         WordTemplateUsedErr: Label 'You cannot use an attachment when a Word template has been specified.';
         NoAttachmentErr: Label 'No attachment found. You must either add an attachment or choose a template in the Word Template Code field on the Interaction Template page.';
@@ -143,7 +147,7 @@ codeunit 136208 "Marketing Interaction"
         InteractionTemplate.TestField("Attachment No.", 0);  // Checks that there are no attachment.
 
         // 4. TearDown:
-        TransactionRollback();
+        TransactionRollback;
     end;
 
     [Test]
@@ -403,7 +407,7 @@ codeunit 136208 "Marketing Interaction"
         // [SCENARIO] "Wizard Action" value can not be validated with "Merge" value for an Interaction Template with Interaction Tmpl. Language with Word attachment
         Initialize();
 
-        InteractionTmplLanguage.SetRange("Attachment No.", FindWordAttachment());
+        InteractionTmplLanguage.SetRange("Attachment No.", FindWordAttachment);
         InteractionTmplLanguage.FindFirst();
         InteractionTemplate.Get(InteractionTmplLanguage."Interaction Template Code");
         SavedWizardAction := InteractionTemplate."Wizard Action";
@@ -516,7 +520,7 @@ codeunit 136208 "Marketing Interaction"
         Initialize();
         PrepareInteractionTmplLangCodeWithoutAttachment(InteractionTmplLanguage);
 
-        InteractTmplLanguages.OpenView();
+        InteractTmplLanguages.OpenView;
         InteractTmplLanguages.GotoRecord(InteractionTmplLanguage);
         InteractTmplLanguages.ReportLayoutName.SetValue(LibraryMarketing.FindEmailMergeCustomLayoutName());
         InteractTmplLanguages.Close();
@@ -541,7 +545,7 @@ codeunit 136208 "Marketing Interaction"
         Initialize();
         PrepareInteractionTmplLangCodeWithoutAttachment(InteractionTmplLanguage);
 
-        InteractTmplLanguages.OpenView();
+        InteractTmplLanguages.OpenView;
         InteractTmplLanguages.GotoRecord(InteractionTmplLanguage);
 
         InteractTmplLanguages.ReportLayoutName.SetValue(LibraryMarketing.FindEmailMergeCustomLayoutName());
@@ -576,7 +580,7 @@ codeunit 136208 "Marketing Interaction"
         PrepareInteractionTmplLangCodeWithoutAttachment(InteractionTmplLanguage);
         Count := DummyAttachment.Count();
 
-        InteractTmplLanguages.OpenView();
+        InteractTmplLanguages.OpenView;
         InteractTmplLanguages.GotoRecord(InteractionTmplLanguage);
         InteractTmplLanguages.ReportLayoutName.SetValue(LibraryMarketing.FindEmailMergeCustomLayoutName());
         InteractTmplLanguages.ReportLayoutName.SetValue('');
@@ -694,7 +698,7 @@ codeunit 136208 "Marketing Interaction"
         // [SCENARIO] SegmentLine.IsHTMLAttachment() returns FALSE for empty record
         Initialize();
         TempSegmentLine.LoadSegLineAttachment(false);
-        Assert.IsFalse(TempSegmentLine.IsHTMLAttachment(), TempSegmentLine.TableCaption());
+        Assert.IsFalse(TempSegmentLine.IsHTMLAttachment, TempSegmentLine.TableCaption());
     end;
 
     [Test]
@@ -712,7 +716,7 @@ codeunit 136208 "Marketing Interaction"
 
         TempSegmentLine.LoadSegLineAttachment(false);
 
-        Assert.IsFalse(TempSegmentLine.IsHTMLAttachment(), TempSegmentLine.TableCaption());
+        Assert.IsFalse(TempSegmentLine.IsHTMLAttachment, TempSegmentLine.TableCaption());
     end;
 
     [Test]
@@ -730,7 +734,7 @@ codeunit 136208 "Marketing Interaction"
 
         TempSegmentLine.LoadSegLineAttachment(false);
 
-        Assert.IsTrue(TempSegmentLine.IsHTMLAttachment(), TempSegmentLine.TableCaption());
+        Assert.IsTrue(TempSegmentLine.IsHTMLAttachment, TempSegmentLine.TableCaption());
 
         // Tear Down
         Attachment.Delete(true);
@@ -775,7 +779,7 @@ codeunit 136208 "Marketing Interaction"
 
         Assert.AreEqual(
           ContentBodyText,
-          TempSegmentLine.LoadContentBodyTextFromCustomLayoutAttachment(),
+          TempSegmentLine.LoadContentBodyTextFromCustomLayoutAttachment,
           TempSegmentLine.FieldCaption("Attachment No."));
 
         // Tear Down
@@ -802,7 +806,7 @@ codeunit 136208 "Marketing Interaction"
 
         Assert.AreEqual(
           NewContentBodyText,
-          TempSegmentLine.LoadContentBodyTextFromCustomLayoutAttachment(),
+          TempSegmentLine.LoadContentBodyTextFromCustomLayoutAttachment,
           TempSegmentLine.FieldCaption("Attachment No."));
 
         // Tear Down
@@ -833,7 +837,7 @@ codeunit 136208 "Marketing Interaction"
         // [THEN] Attachment was not loaded ("SL" Attachment = "A1")
         Assert.AreEqual(
           FirstContentBodyTxt,
-          TempSegmentLine.LoadContentBodyTextFromCustomLayoutAttachment(),
+          TempSegmentLine.LoadContentBodyTextFromCustomLayoutAttachment,
           TempSegmentLine.FieldCaption("Attachment No."));
 
         // Tear Down
@@ -866,7 +870,7 @@ codeunit 136208 "Marketing Interaction"
         // [THEN] Attachment was loaded ("SL" Attachment = "A2")
         Assert.AreEqual(
           ContentBodyText,
-          TempSegmentLine.LoadContentBodyTextFromCustomLayoutAttachment(),
+          TempSegmentLine.LoadContentBodyTextFromCustomLayoutAttachment,
           TempSegmentLine.FieldCaption("Attachment No."));
 
         // Tear Down
@@ -894,7 +898,7 @@ codeunit 136208 "Marketing Interaction"
 
         LibraryVariableStorage.Enqueue(TempSegmentLine."Interaction Template Code");
         LibraryVariableStorage.Enqueue(TempSegmentLine."Language Code");
-        TempSegmentLine.LanguageCodeOnLookup();
+        TempSegmentLine.LanguageCodeOnLookup;
 
         // Verify "Interact. Tmpl. Languages" page is opened in InteractTmplLanguagesMPH handler
 
@@ -986,7 +990,7 @@ codeunit 136208 "Marketing Interaction"
         Initialize();
 
         PrepareInteractionTmplLangCodeWithoutAttachment(InteractionTmplLanguage);
-        MockSegmentLine(TempSegmentLine, InteractionTmplLanguage, MockContactNo(''), MockSalesPersonCode(), 0D, '');
+        MockSegmentLine(TempSegmentLine, InteractionTmplLanguage, MockContactNo(''), MockSalesPersonCode, 0D, '');
 
         asserterror TempSegmentLine.FinishSegLineWizard(true);
         Assert.ExpectedErrorCode('Dialog');
@@ -1007,7 +1011,7 @@ codeunit 136208 "Marketing Interaction"
 
         PrepareInteractionTmplLangCodeWithoutAttachment(InteractionTmplLanguage);
         ContactCode := MockContactNo('');
-        MockSegmentLine(TempSegmentLine, InteractionTmplLanguage, ContactCode, MockSalesPersonCode(), WorkDate(), '');
+        MockSegmentLine(TempSegmentLine, InteractionTmplLanguage, ContactCode, MockSalesPersonCode, WorkDate(), '');
 
         asserterror TempSegmentLine.FinishSegLineWizard(true);
         Assert.ExpectedErrorCode('Dialog');
@@ -1028,7 +1032,7 @@ codeunit 136208 "Marketing Interaction"
         PrepareInteractionTmplLangCodeWithoutAttachment(InteractionTmplLanguage);
         MockSegmentLine(
           TempSegmentLine, InteractionTmplLanguage, MockContactNo(InteractionTmplLanguage."Language Code"),
-          MockSalesPersonCode(), WorkDate(), LibraryUtility.GenerateGUID());
+          MockSalesPersonCode, WorkDate(), LibraryUtility.GenerateGUID());
 
         InteractionLogEntry.FindLast();
         TempSegmentLine.FinishSegLineWizard(true);
@@ -1246,14 +1250,14 @@ codeunit 136208 "Marketing Interaction"
             SetFilter("Campaign No.", "Campaign No." + '|' + "Campaign No.");
             SetFilter("Opportunity No.", "Opportunity No." + '|' + "Opportunity No.");
 
-            ResumeInteraction();
+            ResumeInteraction;
 
             Find();
             VerifyFilterValuesAfterResumeInteraction(
               "To-do No.", "Contact Company No.", "Contact No.", "Salesperson Code", "Campaign No.", "Opportunity No.");
         end;
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1274,14 +1278,14 @@ codeunit 136208 "Marketing Interaction"
         // Cancel "Create Interaction" (CreateInteraction_Cancel_MPH) and decline save (ConfirmHandlerNo)
         MockInterLogEntryWithRandomDetails(InteractionLogEntry);
         with InteractionLogEntry do begin
-            ResumeInteraction();
+            ResumeInteraction;
 
             Find();
             VerifyFilterValuesAfterResumeInteraction(
               "To-do No.", "Contact Company No.", "Contact No.", "Salesperson Code", "Campaign No.", "Opportunity No.");
         end;
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1302,11 +1306,11 @@ codeunit 136208 "Marketing Interaction"
         // Cancel "Create Interaction" (CreateInteraction_Cancel_MPH) and decline save (ConfirmHandlerNo)
         with InteractionLogEntry do begin
             Init();
-            ResumeInteraction();
+            ResumeInteraction;
             VerifyFilterValuesAfterResumeInteraction('', '', '', '', '', '');
         end;
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1332,13 +1336,13 @@ codeunit 136208 "Marketing Interaction"
         with InteractionLogEntry[1] do begin
             SetFilter("Salesperson Code", "Salesperson Code" + '|' + InteractionLogEntry[2]."Salesperson Code");
 
-            ResumeInteraction();
+            ResumeInteraction;
 
             Find();
             VerifyFilterValuesAfterResumeInteraction('', '', '', "Salesperson Code", '', '');
         end;
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1364,13 +1368,13 @@ codeunit 136208 "Marketing Interaction"
         with InteractionLogEntry[2] do begin
             SetFilter("Salesperson Code", InteractionLogEntry[1]."Salesperson Code" + '|' + "Salesperson Code");
 
-            ResumeInteraction();
+            ResumeInteraction;
 
             Find();
             VerifyFilterValuesAfterResumeInteraction('', '', '', "Salesperson Code", '', '');
         end;
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1389,7 +1393,7 @@ codeunit 136208 "Marketing Interaction"
         CreateSalesInvoiceForCustomerWithContact(SalesHeader);
 
         // [WHEN] A document creation is logged
-        SegManagement.LogDocument("Interaction Log Entry Document Type"::"Sales Inv.".AsInteger(), SalesHeader."No.", 0, 0, DATABASE::Contact,
+        SegManagement.LogDocument("Interaction Log Entry Document Type"::"Sales Inv.", SalesHeader."No.", 0, 0, DATABASE::Contact,
           SalesHeader."Bill-to Contact No.", SalesHeader."Salesperson Code", SalesHeader."Campaign No.",
           SalesHeader."Posting Description", '');
 
@@ -1416,7 +1420,7 @@ codeunit 136208 "Marketing Interaction"
         CreateSalesInvoiceForCustomerWithContact(SalesHeader);
 
         // [WHEN] A document creation is logged
-        SegManagement.LogDocument("Interaction Log Entry Document Type"::"Sales Inv.".AsInteger(), SalesHeader."No.", 0, 0, DATABASE::Contact,
+        SegManagement.LogDocument("Interaction Log Entry Document Type"::"Sales Inv.", SalesHeader."No.", 0, 0, DATABASE::Contact,
           SalesHeader."Bill-to Contact No.", SalesHeader."Salesperson Code", SalesHeader."Campaign No.",
           SalesHeader."Posting Description", '');
 
@@ -1439,23 +1443,23 @@ codeunit 136208 "Marketing Interaction"
         LibraryApplicationArea.EnableFoundationSetup();
 
         // [GIVEN] Create sales order XXX
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
 
         // [GIVEN] Mock interaction log entry related to created sales order XXX
         MockInterLogEntryRelatedToSalesDocument(SalesHeader);
 
         // [WHEN] Action "Interaction log entries" is being pushed on sales order card page
-        SalesOrder.OpenEdit();
+        SalesOrder.OpenEdit;
         SalesOrder.GotoRecord(SalesHeader);
-        InteractionLogEntries.Trap();
-        SalesOrder.PageInteractionLogEntries.Invoke();
+        InteractionLogEntries.Trap;
+        SalesOrder.PageInteractionLogEntries.Invoke;
 
         // [THEN] Opened Interaction log entries page contains entry related to order XXX
         VerifyInterLogEntry(
-          InteractionLogEntries."Entry No.".AsInteger(), SalesHeader."No.", GetInterLogEntryDocTypeFromSalesDoc(SalesHeader));
+          InteractionLogEntries."Entry No.".AsInteger, SalesHeader."No.", GetInterLogEntryDocTypeFromSalesDoc(SalesHeader));
 
         // TearDown
-        LibraryApplicationArea.DisableApplicationAreaSetup();
+        LibraryApplicationArea.DisableApplicationAreaSetup;
     end;
 
     [Test]
@@ -1468,21 +1472,21 @@ codeunit 136208 "Marketing Interaction"
         // [FEATURE] [UI]
         // [SCENARIO 199812] Action "Interaction log entries" is not available on sales order page if only #Basic app area enabled
         Initialize();
-        LibraryApplicationArea.EnableBasicSetup();
+        LibraryApplicationArea.EnableBasicSetup;
 
         // [GIVEN] Create sales order XXX
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
 
         // [WHEN] Order card page is being opened
-        SalesOrder.OpenEdit();
+        SalesOrder.OpenEdit;
         SalesOrder.GotoRecord(SalesHeader);
 
         // [THEN] Action "Interaction log entries" is hidden
-        asserterror SalesOrder.PageInteractionLogEntries.Invoke();
+        asserterror SalesOrder.PageInteractionLogEntries.Invoke;
         Assert.ExpectedError(IsNotFoundOnPageErr);
 
         // TearDown
-        LibraryApplicationArea.DisableApplicationAreaSetup();
+        LibraryApplicationArea.DisableApplicationAreaSetup;
     end;
 
     [Test]
@@ -1499,24 +1503,24 @@ codeunit 136208 "Marketing Interaction"
         LibraryApplicationArea.EnableFoundationSetup();
 
         // [GIVEN] Create sales quote XXX
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Quote, LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Quote, LibrarySales.CreateCustomerNo);
 
         // [GIVEN] Mock interaction log entry related to created sales quote XXX
         MockInterLogEntryRelatedToSalesDocument(SalesHeader);
 
         // [WHEN] Action "Interaction log entries" is being pushed on sales quote card page
-        SalesQuote.OpenEdit();
+        SalesQuote.OpenEdit;
         SalesQuote.GotoRecord(SalesHeader);
-        InteractionLogEntries.Trap();
-        SalesQuote.PageInteractionLogEntries.Invoke();
+        InteractionLogEntries.Trap;
+        SalesQuote.PageInteractionLogEntries.Invoke;
 
         // [THEN] Opened Interaction log entries page contains entry related to quote XXX
-        InteractionLogEntries.First();
+        InteractionLogEntries.First;
         VerifyInterLogEntry(
-          InteractionLogEntries."Entry No.".AsInteger(), SalesHeader."No.", GetInterLogEntryDocTypeFromSalesDoc(SalesHeader));
+          InteractionLogEntries."Entry No.".AsInteger, SalesHeader."No.", GetInterLogEntryDocTypeFromSalesDoc(SalesHeader));
 
         // TearDown
-        LibraryApplicationArea.DisableApplicationAreaSetup();
+        LibraryApplicationArea.DisableApplicationAreaSetup;
     end;
 
     [Test]
@@ -1529,21 +1533,21 @@ codeunit 136208 "Marketing Interaction"
         // [FEATURE] [UI]
         // [SCENARIO 199812] Action "Interaction log entries" is not available on sales quote page if only #Basic app area enabled
         Initialize();
-        LibraryApplicationArea.EnableBasicSetup();
+        LibraryApplicationArea.EnableBasicSetup;
 
         // [GIVEN] Create sales quote XXX
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Quote, LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Quote, LibrarySales.CreateCustomerNo);
 
         // [WHEN] quote card page is being opened
-        SalesQuote.OpenEdit();
+        SalesQuote.OpenEdit;
         SalesQuote.GotoRecord(SalesHeader);
 
         // [THEN] Action "Interaction log entries" is hidden
-        asserterror SalesQuote.PageInteractionLogEntries.Invoke();
+        asserterror SalesQuote.PageInteractionLogEntries.Invoke;
         Assert.ExpectedError(IsNotFoundOnPageErr);
 
         // TearDown
-        LibraryApplicationArea.DisableApplicationAreaSetup();
+        LibraryApplicationArea.DisableApplicationAreaSetup;
     end;
 
     [Test]
@@ -1560,7 +1564,7 @@ codeunit 136208 "Marketing Interaction"
         Initialize();
 
         // [GIVEN] User experience set to Suite
-        LibraryApplicationArea.EnableRelationshipMgtSetup();
+        LibraryApplicationArea.EnableRelationshipMgtSetup;
 
         // [GIVEN] Mock interaction log entry XXX
         MockInterLogEntry(InteractionLogEntry);
@@ -1569,19 +1573,19 @@ codeunit 136208 "Marketing Interaction"
         CreateInteractionLogEntryComment(InterLogEntryCommentLine, InteractionLogEntry."Entry No.");
 
         // [GIVEN] Open page Interaction Log Entries with entry XXX
-        InteractionLogEntries.OpenView();
+        InteractionLogEntries.OpenView;
         InteractionLogEntries.GotoRecord(InteractionLogEntry);
 
         // [WHEN] Action Comments is being hit
-        InterLogEntryCommentSheet.Trap();
-        InteractionLogEntries."Co&mments".Invoke();
+        InterLogEntryCommentSheet.Trap;
+        InteractionLogEntries."Co&mments".Invoke;
 
         // [THEN] Comment YYY is displayed in the opened Inter. Log Entry Comment Sheet
         InterLogEntryCommentSheet.Date.AssertEquals(InterLogEntryCommentLine.Date);
         InterLogEntryCommentSheet.Comment.AssertEquals(InterLogEntryCommentLine.Comment);
 
         // TearDown
-        LibraryApplicationArea.DisableApplicationAreaSetup();
+        LibraryApplicationArea.DisableApplicationAreaSetup;
     end;
 
     [Test]
@@ -1602,7 +1606,7 @@ codeunit 136208 "Marketing Interaction"
         CreateInteractionLogEntryComment(InterLogEntryCommentLine, InteractionLogEntry."Entry No.");
 
         // [WHEN] Opportunity is being created from interaction log entry
-        InteractionLogEntry.AssignNewOpportunity();
+        InteractionLogEntry.AssignNewOpportunity;
 
         // [THEN] Comment YYY is copied to opportunity's comment
         FindOpportunityCommentLine(InteractionLogEntry."Opportunity No.", RlshpMgtCommentLine);
@@ -1626,13 +1630,13 @@ codeunit 136208 "Marketing Interaction"
         Initialize();
 
         // [GIVEN] User experience set to Suite
-        LibraryApplicationArea.EnableRelationshipMgtSetup();
+        LibraryApplicationArea.EnableRelationshipMgtSetup;
 
         // [GIVEN] Create contact XXX wiht phone number
         CreateContactWithPhoneNo(Contact);
 
         // [GIVEN] Open contact card with contact XXX
-        ContactList.OpenView();
+        ContactList.OpenView;
         ContactList.GotoRecord(Contact);
 
         // [GIVEN] Run Make Phone Call action
@@ -1645,7 +1649,7 @@ codeunit 136208 "Marketing Interaction"
             DATABASE::"Inter. Log Entry Comment Line");
         LibraryVariableStorage.Enqueue(CommentDate);
         LibraryVariableStorage.Enqueue(CommentText);
-        ContactList.MakePhoneCall.Invoke();
+        ContactList.MakePhoneCall.Invoke;
 
         // [THEN] Comment YYY saved into interacton log entry comments
         FindContactInteractionLogEntry(InteractionLogEntry, Contact."No.");
@@ -1654,7 +1658,7 @@ codeunit 136208 "Marketing Interaction"
         InterLogEntryCommentLine.TestField(Comment, CommentText);
 
         // TearDown
-        LibraryApplicationArea.DisableApplicationAreaSetup();
+        LibraryApplicationArea.DisableApplicationAreaSetup;
     end;
 
     [Test]
@@ -1685,7 +1689,7 @@ codeunit 136208 "Marketing Interaction"
         // [GIVEN] Set template XXX as Email Draft in the Intraction Template Setup
         SetEmailDraftInteractionTemplate(InteractionTemplate.Code);
         // [GIVEN] New Sales order
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
 
         // [WHEN] Sales order confirmation is being sent by email
         DocumentPrint.EmailSalesHeader(SalesHeader);
@@ -1722,7 +1726,7 @@ codeunit 136208 "Marketing Interaction"
         // [GIVEN] Set template XXX as Email Draft in the Intraction Template Setup
         SetEmailDraftInteractionTemplate(InteractionTemplate.Code);
         // [GIVEN] New Purchase order
-        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo());
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo);
 
         // [WHEN] Purchase order confirmation is being sent by email
         PurchaseHeader.SetRecFilter();
@@ -1748,7 +1752,7 @@ codeunit 136208 "Marketing Interaction"
         Initialize();
 
         // [GIVEN] User experience set to Suite
-        LibraryApplicationArea.EnableRelationshipMgtSetup();
+        LibraryApplicationArea.EnableRelationshipMgtSetup;
 
         // [GIVEN] New interaction template XXX
         LibraryMarketing.CreateInteractionTemplate(InteractionTemplate);
@@ -1756,13 +1760,13 @@ codeunit 136208 "Marketing Interaction"
         SetEmailDraftInteractionTemplate(InteractionTemplate.Code);
 
         // [WHEN] Interaction Template Setup is being opened
-        InteractionTemplateSetupPage.OpenEdit();
+        InteractionTemplateSetupPage.OpenEdit;
 
         // [THEN] Field Email Draft has value XXX
         InteractionTemplateSetupPage."E-Mail Draft".AssertEquals(InteractionTemplate.Code);
 
         // TearDown
-        LibraryApplicationArea.DisableApplicationAreaSetup();
+        LibraryApplicationArea.DisableApplicationAreaSetup;
     end;
 
     [Test]
@@ -1800,7 +1804,7 @@ codeunit 136208 "Marketing Interaction"
         // [WHEN] Invoke export attachment from Interaction Tmpl. Language.
         BindSubscription(MarketingInteraction);
         InteractionTmplLanguage.ExportAttachment();
-        NameValueBuffer.Get(SessionId());
+        NameValueBuffer.Get(SessionId);
         ExportFilePath := NameValueBuffer.Value;
         UnbindSubscription(MarketingInteraction);
 
@@ -2150,7 +2154,7 @@ codeunit 136208 "Marketing Interaction"
         ContactCard.ContactIntEntriesSubform."Create &Interaction".Invoke();
 
         // [THEN] Create Interaction Wizard has "Contact Name" = "C"
-        Assert.AreEqual(Contact.Name, LibraryVariableStorage.DequeueText(), 'Invalid contact name');
+        Assert.AreEqual(Contact.Name, LibraryVariableStorage.DequeueText, 'Invalid contact name');
     end;
 
     [Test]
@@ -2176,7 +2180,7 @@ codeunit 136208 "Marketing Interaction"
         ContactCard.ContactIntEntriesSubform."Create &Interaction".Invoke();
 
         // [THEN] Create Interaction Wizard has "Contact Name" = "C"
-        Assert.AreEqual(Contact.Name, LibraryVariableStorage.DequeueText(), 'Invalid contact name');
+        Assert.AreEqual(Contact.Name, LibraryVariableStorage.DequeueText, 'Invalid contact name');
     end;
 
     [Test]
@@ -2200,6 +2204,7 @@ codeunit 136208 "Marketing Interaction"
     var
         Contact: Record Contact;
         InteractionTemplate: Record "Interaction Template";
+        InteractionTmplLanguage: Record "Interaction Tmpl. Language";
         InteractionTemplates: TestPage "Interaction Templates";
     begin
         // [SCENARIO] When editing the attachment, if a Word template is specified, an error is thrown.
@@ -2229,6 +2234,7 @@ codeunit 136208 "Marketing Interaction"
     var
         Contact: Record Contact;
         InteractionTemplate: Record "Interaction Template";
+        SegmentLine: Record "Segment Line";
     begin
         // [SCENARIO] When creating an interaction from Contact, where template has no attachment and no Word template, an error is thrown.
         Initialize();
@@ -2390,7 +2396,7 @@ codeunit 136208 "Marketing Interaction"
         Commit();
 
         // [WHEN] Log Segment with "Deliver" = true
-        Segment.OpenView();
+        Segment.OpenView;
         Segment.GotoRecord(SegmentHeader);
         asserterror Segment.LogSegment.Invoke();
 
@@ -2438,7 +2444,7 @@ codeunit 136208 "Marketing Interaction"
         Commit();
 
         // [WHEN] Log Segment with Deliver = true
-        Segment.OpenView();
+        Segment.OpenView;
         Segment.GotoRecord(SegmentHeader);
         asserterror Segment.LogSegment.Invoke();
 
@@ -2460,6 +2466,7 @@ codeunit 136208 "Marketing Interaction"
         InteractionTemplate: Record "Interaction Template";
         Contact: Record Contact;
         InteractionLogEntry: Record "Interaction Log Entry";
+        TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
         Segment: TestPage Segment;
         FileExtension: Text[250];
     begin
@@ -2485,7 +2492,7 @@ codeunit 136208 "Marketing Interaction"
         Commit();
 
         // [WHEN] Log Segment with Deliver = False
-        Segment.OpenView();
+        Segment.OpenView;
         Segment.GotoRecord(SegmentHeader);
         Segment.LogSegment.Invoke();
 
@@ -2532,7 +2539,7 @@ codeunit 136208 "Marketing Interaction"
         EnqueueVariablesForEmailDialog(Contact."E-Mail", SegmentHeader."Subject (Default)", '.' + FileExtension);
 
         // [WHEN] Log Segment with Deliver = false
-        Segment.OpenView();
+        Segment.OpenView;
         Segment.GotoRecord(SegmentHeader);
         Segment.LogSegment.Invoke();
 
@@ -2547,6 +2554,7 @@ codeunit 136208 "Marketing Interaction"
     procedure OutboundFlowEntryTitleUserName()
     var
         Contact: Record Contact;
+        SalespersonPurchaser: Record "Salesperson/Purchaser";
         InteractionLogEntry: Record "Interaction Log Entry";
         InteractionTemplate: Record "Interaction Template";
         User: Record User;
@@ -2642,6 +2650,7 @@ codeunit 136208 "Marketing Interaction"
     var
         SegmentHeader: Record "Segment Header";
         InteractionLogEntry: Record "Interaction Log Entry";
+        TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
         Segment: TestPage Segment;
         ExpectedCount: Integer;
     begin
@@ -2672,9 +2681,12 @@ codeunit 136208 "Marketing Interaction"
     procedure LogSegmentWithWordTemplate2Lines1PDF()
     var
         SegmentHeader: Record "Segment Header";
+        InteractionLogEntry: Record "Interaction Log Entry";
+        TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
         LibraryFileMgtHandler: Codeunit "Library - File Mgt Handler";
         Segment: TestPage Segment;
         WizardAction: Enum "Interaction Template Wizard Action";
+        ExpectedEntryNo: Integer;
     begin
         // [SCENARIO] Segment with Word Template when logged for 2 contacts generates 1 pdf file
         Initialize();
@@ -2708,6 +2720,7 @@ codeunit 136208 "Marketing Interaction"
         FileExtension: Text[250];
         TempBlob: Codeunit "Temp Blob";
         InStreamVar: InStream;
+        ZipEntryName: Text;
         ZipEntryList: List of [Text];
     begin
         // [SCENARIO 428476] Segment with Attachment when logged for 2 contacts generates zip file with 2 pdfs inside
@@ -2723,12 +2736,12 @@ codeunit 136208 "Marketing Interaction"
         Commit();
 
         // [WHEN] Log Segment
-        Segment.OpenView();
+        Segment.OpenView;
         Segment.GotoRecord(SegmentHeader);
 
         LibraryFileMgtHandler.SetBeforeDownloadFromStreamHandlerActivated(true);
         BindSubscription(LibraryFileMgtHandler);
-        Segment.LogSegment.Invoke();
+        Segment.LogSegment.Invoke;
 
         // [THEN] 1 zip file with name = SegmentHeader.'No.'
         Assert.TextEndsWith(LibraryFileMgtHandler.GetDownloadFromSreamToFileName(), SegmentHeader."No." + '.zip');
@@ -2767,11 +2780,11 @@ codeunit 136208 "Marketing Interaction"
         Commit();
 
         // [WHEN] Log Segment
-        Segment.OpenView();
+        Segment.OpenView;
         Segment.GotoRecord(SegmentHeader);
         LibraryFileMgtHandler.SetBeforeDownloadFromStreamHandlerActivated(true);
         BindSubscription(LibraryFileMgtHandler);
-        Segment.LogSegment.Invoke();
+        Segment.LogSegment.Invoke;
 
         // [THEN] One file with name = Segment.Subject and 'pdf' extensions downloaded
         Assert.TextEndsWith(LibraryFileMgtHandler.GetDownloadFromSreamToFileName(), SegmentHeader."Subject (Default)" + '.pdf');
@@ -3043,12 +3056,107 @@ codeunit 136208 "Marketing Interaction"
                 InteractionLogEntry.TableCaption));
     end;
 
+    [Test]
+    [HandlerFunctions('ModalPageHandlerCreateInteraction,ModalPageHandlerCreateInteractionComments')]
+    [Scope('OnPrem')]
+    procedure CreateInteractionFromInteractionLogEntriesPageWithComments()
+    var
+        Contact: Record Contact;
+        InteractionGroup: Record "Interaction Group";
+        InteractionLogEntry: Record "Interaction Log Entry";
+        InteractionLogEntries: TestPage "Interaction Log Entries";
+    begin
+        // [SCENARIO 492286] When Adding comments to Interaction, all of the comments are displayed/saved
+        Initialize();
+
+        // [GIVEN] Create Interaction Group and Contact
+        LibraryMarketing.CreateInteractionGroup(InteractionGroup);
+        LibraryMarketing.CreateCompanyContact(Contact);
+        LibraryVariableStorage.Enqueue(Contact."No.");
+
+        // [GIVEN] Open Interaction Log Entries page and Invoke Create Interaction Action
+        InteractionLogEntries.OpenNew();
+        InteractionLogEntries."Create &Interaction".Invoke();
+
+        // [WHEN] Interaction log entry is created
+        InteractionLogEntry.SetFilter("Contact No.", Contact."No.");
+        InteractionLogEntry.FindFirst();
+        Assert.RecordIsNotEmpty(InteractionLogEntry);
+
+        // [THEN] Three comments created for Interaction Log Entry
+        VerifyInterLogEntryCommentCount(InteractionLogEntry."Entry No.");
+    end;
+
+    [Test]
+    [HandlerFunctions('ModalPageHandlerCreateInteraction,ModalPageHandlerCreateInteractionComments')]
+    [Scope('OnPrem')]
+    procedure CreateInteractionLogWithCommentsForOpportunity()
+    var
+        Contact: Record Contact;
+        InteractionLogEntry: Record "Interaction Log Entry";
+        Opportunity: Record Opportunity;
+        OpportunityCard: TestPage "Opportunity Card";
+    begin
+        // [SCENARIO 492286] When Adding comments to an Interaction of opportunity, all of the comments are displayed/saved
+        Initialize();
+
+        // [GIVEN] Create opportunity XXX
+        LibraryMarketing.CreateCompanyContact(Contact);
+        LibraryMarketing.CreateOpportunity(Opportunity, Contact."No.");
+        LibraryVariableStorage.Enqueue(Contact."No.");
+
+        // [GIVEN] Open opportunity card page and Invoke Create Interaction Action
+        OpportunityCard.OpenEdit();
+        OpportunityCard.GotoRecord(Opportunity);
+        OpportunityCard."Create &Interaction".Invoke();
+
+        // [WHEN] Interaction log entry is created
+        InteractionLogEntry.SetFilter("Contact No.", Contact."No.");
+        InteractionLogEntry.FindFirst();
+        Assert.RecordIsNotEmpty(InteractionLogEntry);
+
+        // [THEN] Verify: 3 comments created for Interaction Log Entry
+        VerifyInterLogEntryCommentCount(InteractionLogEntry."Entry No.");
+    end;
+
+    [Test]
+    [HandlerFunctions('ConfirmHandler,ModalPageHandlerCreateInteraction,ModalPageHandlerCreateInteractionComments')]
+    [Scope('OnPrem')]
+    procedure CreateInteractionLogWithCommentsForTask()
+    var
+        InteractionLogEntry: Record "Interaction Log Entry";
+        Task: Record "To-do";
+        TaskCard: TestPage "Task Card";
+    begin
+        // [SCENARIO 492286] When Adding comments to an Interction of Task, all of the comments are displayed/saved
+        Initialize();
+
+        // [GIVEN] Task with Type 'Meeting'
+        LibraryMarketing.CreateCompanyContactTask(Task, Task.Type::Meeting.AsInteger());
+
+        // [GIVEN] Task Card page opened
+        TaskCard.OpenEdit();
+        TaskCard.FILTER.SetFilter("No.", Task."No.");
+        LibraryVariableStorage.Enqueue(Task."Contact No.");
+
+        // [WHEN] Task Status is set to Complete
+        TaskCard.Status.SetValue(Task.Status::Completed);
+
+        // [WHEN] Interaction log entry is created
+        InteractionLogEntry.SetFilter("Contact No.", Task."Contact No.");
+        InteractionLogEntry.FindFirst();
+        Assert.RecordIsNotEmpty(InteractionLogEntry);
+
+        // [THEN] Verify: 3 comments created for Interaction Log Entry
+        VerifyInterLogEntryCommentCount(InteractionLogEntry."Entry No.");
+    end;
+
     local procedure Initialize()
     var
         LibrarySales: Codeunit "Library - Sales";
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"Marketing Interaction");
-        BindActiveDirectoryMockEvents();
+        BindActiveDirectoryMockEvents;
         LibraryVariableStorage.Clear();
         LibrarySetupStorage.Restore();
 
@@ -3056,7 +3164,7 @@ codeunit 136208 "Marketing Interaction"
             exit;
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"Marketing Interaction");
 
-        LibrarySales.SetCreditWarningsToNoWarnings();
+        LibrarySales.SetCreditWarningsToNoWarnings;
         LibrarySales.SetStockoutWarning(false);
 
         isInitialized := true;
@@ -3164,7 +3272,7 @@ codeunit 136208 "Marketing Interaction"
     begin
         LibraryVariableStorage.Enqueue(TemplateCode);
         LibraryVariableStorage.Enqueue(false);
-        Contact.CreateInteraction();
+        Contact.CreateInteraction;
     end;
 
     local procedure CreateInteractionFromContact_EmailMerge(SegmentLine: Record "Segment Line")
@@ -3173,7 +3281,7 @@ codeunit 136208 "Marketing Interaction"
     begin
         LibraryVariableStorage.Enqueue(SegmentLine."Interaction Template Code");
         Contact.Get(SegmentLine."Contact No.");
-        Contact.CreateInteraction();
+        Contact.CreateInteraction;
     end;
 
     local procedure CreateInteractionFromLogEntry(var InteractionLogEntry: Record "Interaction Log Entry"; TemplateCode: Code[10]; AdditionalValuesinPageHandler: Boolean; CostLCY: Decimal; DurationMin: Decimal)
@@ -3182,7 +3290,7 @@ codeunit 136208 "Marketing Interaction"
         LibraryVariableStorage.Enqueue(AdditionalValuesinPageHandler);
         LibraryVariableStorage.Enqueue(CostLCY);
         LibraryVariableStorage.Enqueue(DurationMin);
-        InteractionLogEntry.CreateInteraction();
+        InteractionLogEntry.CreateInteraction;
     end;
 
     local procedure CreateInteractionTmplLangWithoutAttachment(var InteractionTmplLanguage: Record "Interaction Tmpl. Language"; InteractionTemplateCode: Code[10]): Code[10]
@@ -3322,6 +3430,7 @@ codeunit 136208 "Marketing Interaction"
     end;
 
     local procedure CreateSegmentWithInteractionTemplateAndContactAndSalesperson(var SegmentHeader: Record "Segment Header"; InteractionTemplateCode: Code[10]; ContactNo: Code[20]; SalespersonCode: Code[20]; CorrespondenceType: Enum "Correspondence Type")
+    var
     begin
         LibraryMarketing.CreateSegmentHeader(SegmentHeader);
         SegmentHeader.Validate("Interaction Template Code", InteractionTemplateCode);
@@ -3487,7 +3596,7 @@ codeunit 136208 "Marketing Interaction"
             Init();
             "No." := LibraryUtility.GenerateRandomCode(FieldNo("No."), DATABASE::Contact);
             "Salutation Code" := CreateSalutation(LanguageCode);
-            "E-Mail" := LibraryUtility.GenerateRandomEmail();
+            "E-Mail" := LibraryUtility.GenerateRandomEmail;
             Insert();
             exit("No.");
         end;
@@ -3574,7 +3683,7 @@ codeunit 136208 "Marketing Interaction"
     begin
         MockSegmentLine(
           SegmentLine, InteractionTmplLanguage, MockContactNo(InteractionTmplLanguage."Language Code"),
-          MockSalesPersonCode(), WorkDate(), LibraryUtility.GenerateGUID());
+          MockSalesPersonCode, WorkDate(), LibraryUtility.GenerateGUID());
     end;
 
     local procedure MockSegmentLine(var SegmentLine: Record "Segment Line"; InteractionTmplLanguage: Record "Interaction Tmpl. Language"; ContactNo: Code[20]; SalespersonCode: Code[10]; NewDate: Date; NewDescription: Text[50])
@@ -3787,10 +3896,10 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         InteractionGroupStatistics: TestPage "Interaction Group Statistics";
     begin
         // Open Interaction Group Statistics Page and verify values.
-        InteractionGroups.OpenEdit();
+        InteractionGroups.OpenEdit;
         InteractionGroups.FILTER.SetFilter(Code, InteractionGroup.Code);
-        InteractionGroupStatistics.Trap();
-        InteractionGroups.Statistics.Invoke();
+        InteractionGroupStatistics.Trap;
+        InteractionGroups.Statistics.Invoke;
 
         InteractionGroupStatistics."No. of Interactions".AssertEquals(InteractionGroup."No. of Interactions");
         InteractionGroupStatistics."Cost (LCY)".AssertEquals(InteractionGroup."Cost (LCY)");
@@ -3803,10 +3912,10 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         InteractionTmplStatistics: TestPage "Interaction Tmpl. Statistics";
     begin
         // Open Interaction Template Statistics Page and verify values.
-        InteractionTemplates.OpenEdit();
+        InteractionTemplates.OpenEdit;
         InteractionTemplates.FILTER.SetFilter(Code, InteractionTemplate.Code);
-        InteractionTmplStatistics.Trap();
-        InteractionTemplates.Statistics.Invoke();
+        InteractionTmplStatistics.Trap;
+        InteractionTemplates.Statistics.Invoke;
 
         InteractionTmplStatistics."No. of Interactions".AssertEquals(InteractionTemplate."No. of Interactions");
         InteractionTmplStatistics."Cost (LCY)".AssertEquals(InteractionTemplate."Cost (LCY)");
@@ -3816,14 +3925,14 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     local procedure VerifyFilterValuesAfterResumeInteraction(TodoNo: Code[20]; ContactCompanyNo: Code[20]; ContactNo: Code[20]; SalespersonCode: Code[20]; CampaignNo: Code[20]; OpportunityNo: Code[20])
     begin
         // "Salesperson Code" field value
-        Assert.AreEqual(SalespersonCode, LibraryVariableStorage.DequeueText(), '');
+        Assert.AreEqual(SalespersonCode, LibraryVariableStorage.DequeueText, '');
         // Filter values:
-        Assert.AreEqual(TodoNo, LibraryVariableStorage.DequeueText(), '');
-        Assert.AreEqual(ContactCompanyNo, LibraryVariableStorage.DequeueText(), '');
-        Assert.AreEqual(ContactNo, LibraryVariableStorage.DequeueText(), '');
-        Assert.AreEqual(SalespersonCode, LibraryVariableStorage.DequeueText(), '');
-        Assert.AreEqual(CampaignNo, LibraryVariableStorage.DequeueText(), '');
-        Assert.AreEqual(OpportunityNo, LibraryVariableStorage.DequeueText(), '');
+        Assert.AreEqual(TodoNo, LibraryVariableStorage.DequeueText, '');
+        Assert.AreEqual(ContactCompanyNo, LibraryVariableStorage.DequeueText, '');
+        Assert.AreEqual(ContactNo, LibraryVariableStorage.DequeueText, '');
+        Assert.AreEqual(SalespersonCode, LibraryVariableStorage.DequeueText, '');
+        Assert.AreEqual(CampaignNo, LibraryVariableStorage.DequeueText, '');
+        Assert.AreEqual(OpportunityNo, LibraryVariableStorage.DequeueText, '');
     end;
 
     local procedure GetWordTemplate(): Text
@@ -3891,16 +4000,16 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         TempSegmentLine.Insert();
 
         TempSegmentLine.Validate("Interaction Template Code",
-          CopyStr(LibraryVariableStorage.DequeueText(), 1, MaxStrLen(TempSegmentLine."Interaction Template Code")));
+          CopyStr(LibraryVariableStorage.DequeueText, 1, MaxStrLen(TempSegmentLine."Interaction Template Code")));
         TempSegmentLine.Validate(Description, TempSegmentLine."Interaction Template Code");  // Validating Description as TemplateCode as using for contact search.
         TempSegmentLine.Modify();
 
-        if LibraryVariableStorage.DequeueBoolean() then begin
-            TempSegmentLine.Validate("Cost (LCY)", LibraryVariableStorage.DequeueDecimal());
-            TempSegmentLine.Validate("Duration (Min.)", LibraryVariableStorage.DequeueDecimal());
+        if LibraryVariableStorage.DequeueBoolean then begin
+            TempSegmentLine.Validate("Cost (LCY)", LibraryVariableStorage.DequeueDecimal);
+            TempSegmentLine.Validate("Duration (Min.)", LibraryVariableStorage.DequeueDecimal);
         end;
 
-        TempSegmentLine.CheckStatus();
+        TempSegmentLine.CheckStatus;
         TempSegmentLine.FinishSegLineWizard(true);
     end;
 
@@ -3915,12 +4024,12 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     var
         HTMLMode: Boolean;
     begin
-        HTMLMode := LibraryVariableStorage.DequeueBoolean();
-        CreateInteraction."Interaction Template Code".SetValue(LibraryVariableStorage.DequeueText());
+        HTMLMode := LibraryVariableStorage.DequeueBoolean;
+        CreateInteraction."Interaction Template Code".SetValue(LibraryVariableStorage.DequeueText);
         CreateInteraction.NextInteraction.Invoke();
 
-        Assert.AreEqual(HTMLMode, CreateInteraction.HTMLContentBodyText.Visible(), CreateInteraction.Caption);
-        Assert.AreEqual(HTMLMode, CreateInteraction.Preview.Visible(), CreateInteraction.Caption);
+        Assert.AreEqual(HTMLMode, CreateInteraction.HTMLContentBodyText.Visible, CreateInteraction.Caption);
+        Assert.AreEqual(HTMLMode, CreateInteraction.Preview.Visible, CreateInteraction.Caption);
     end;
 
     [ModalPageHandler]
@@ -3930,14 +4039,14 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         HTMLMode: Boolean;
         NewLanguageCode: Code[10];
     begin
-        HTMLMode := LibraryVariableStorage.DequeueBoolean();
-        NewLanguageCode := CopyStr(LibraryVariableStorage.DequeueText(), 1, MaxStrLen(NewLanguageCode));
-        CreateInteraction."Interaction Template Code".SetValue(LibraryVariableStorage.DequeueText());
+        HTMLMode := LibraryVariableStorage.DequeueBoolean;
+        NewLanguageCode := CopyStr(LibraryVariableStorage.DequeueText, 1, MaxStrLen(NewLanguageCode));
+        CreateInteraction."Interaction Template Code".SetValue(LibraryVariableStorage.DequeueText);
         CreateInteraction."Language Code".SetValue(NewLanguageCode);
         CreateInteraction.NextInteraction.Invoke();
 
-        Assert.AreEqual(HTMLMode, CreateInteraction.HTMLContentBodyText.Visible(), CreateInteraction.Caption);
-        Assert.AreEqual(HTMLMode, CreateInteraction.Preview.Visible(), CreateInteraction.Caption);
+        Assert.AreEqual(HTMLMode, CreateInteraction.HTMLContentBodyText.Visible, CreateInteraction.Caption);
+        Assert.AreEqual(HTMLMode, CreateInteraction.Preview.Visible, CreateInteraction.Caption);
     end;
 
     [ModalPageHandler]
@@ -3946,18 +4055,18 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     var
         ContentText: Text;
     begin
-        CreateInteraction."Interaction Template Code".SetValue(LibraryVariableStorage.DequeueText());
+        CreateInteraction."Interaction Template Code".SetValue(LibraryVariableStorage.DequeueText);
         ContentText := LibraryUtility.GenerateRandomAlphabeticText(LibraryRandom.RandIntInRange(2000, 3000), 0);
         CreateInteraction.HTMLContentBodyText.SetValue(ContentText);
-        CreateInteraction.Preview.Invoke();
+        CreateInteraction.Preview.Invoke;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure InteractTmplLanguagesMPH(var InteractTmplLanguages: TestPage "Interact. Tmpl. Languages")
     begin
-        InteractTmplLanguages."Interaction Template Code".AssertEquals(LibraryVariableStorage.DequeueText());
-        InteractTmplLanguages."Language Code".AssertEquals(LibraryVariableStorage.DequeueText());
+        InteractTmplLanguages."Interaction Template Code".AssertEquals(LibraryVariableStorage.DequeueText);
+        InteractTmplLanguages."Language Code".AssertEquals(LibraryVariableStorage.DequeueText);
     end;
 
     [ModalPageHandler]
@@ -3970,13 +4079,13 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         TempSegmentLine.Init();
         CreateInteraction.GetRecord(TempSegmentLine);
         TempSegmentLine.Insert();
-        TemplateCode := CopyStr(LibraryVariableStorage.DequeueText(), 1, MaxStrLen(TemplateCode));
+        TemplateCode := CopyStr(LibraryVariableStorage.DequeueText, 1, MaxStrLen(TemplateCode));
         if TemplateCode <> '' then begin
             TempSegmentLine.Validate("Interaction Template Code", TemplateCode);
             TempSegmentLine.Modify();
         end;
 
-        TempSegmentLine.CheckStatus();
+        TempSegmentLine.CheckStatus;
     end;
 
     [ModalPageHandler]
@@ -3987,8 +4096,8 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     begin
         InteractionGroupStatistics.GetRecord(InteractionGroup);
         InteractionGroup.CalcFields("Cost (LCY)", "Duration (Min.)");
-        InteractionGroup.TestField("Cost (LCY)", LibraryVariableStorage.DequeueDecimal());
-        InteractionGroup.TestField("Duration (Min.)", LibraryVariableStorage.DequeueDecimal());
+        InteractionGroup.TestField("Cost (LCY)", LibraryVariableStorage.DequeueDecimal);
+        InteractionGroup.TestField("Duration (Min.)", LibraryVariableStorage.DequeueDecimal);
     end;
 
     [ModalPageHandler]
@@ -3997,21 +4106,21 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     begin
         // OpenCommentsPage action is visible on all three steps
         Assert.IsTrue(MakePhoneCall.OpenCommentsPage.Visible(), 'OpenCommentsPage. not Visible #1');
-        MakePhoneCall.OpenCommentsPage.Invoke();
+        MakePhoneCall.OpenCommentsPage.Invoke;
         MakePhoneCall.Next.Invoke(); // step 2
         Assert.IsTrue(MakePhoneCall.OpenCommentsPage.Visible(), 'OpenCommentsPage. not Visible #2');
         MakePhoneCall.Next.Invoke(); // step 3
         Assert.IsTrue(MakePhoneCall.OpenCommentsPage.Visible(), 'OpenCommentsPage. not Visible #3');
-        MakePhoneCall.Finish.Invoke();
+        MakePhoneCall.Finish.Invoke;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure InterLogEntryCommentSheet_MPH(var InterLogEntryCommentSheet: TestPage "Inter. Log Entry Comment Sheet")
     begin
-        InterLogEntryCommentSheet.Date.SetValue(LibraryVariableStorage.DequeueDate());
-        InterLogEntryCommentSheet.Comment.SetValue(LibraryVariableStorage.DequeueText());
-        InterLogEntryCommentSheet.OK().Invoke();
+        InterLogEntryCommentSheet.Date.SetValue(LibraryVariableStorage.DequeueDate);
+        InterLogEntryCommentSheet.Comment.SetValue(LibraryVariableStorage.DequeueText);
+        InterLogEntryCommentSheet.OK.Invoke;
     end;
 
     [RequestPageHandler]
@@ -4019,7 +4128,7 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     procedure ModalReportHandler(var LogSegment: TestRequestPage "Log Segment")
     begin
         LogSegment.Deliver.SetValue(true);
-        LogSegment.OK().Invoke();
+        LogSegment.OK.Invoke();
     end;
 
     [RequestPageHandler]
@@ -4027,7 +4136,7 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     procedure LogSegmentDeliverFalseHandler(var LogSegment: TestRequestPage "Log Segment")
     begin
         LogSegment.Deliver.SetValue(false);
-        LogSegment.OK().Invoke();
+        LogSegment.OK.Invoke();
     end;
 
     [MessageHandler]
@@ -4040,9 +4149,9 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     [Scope('OnPrem')]
     procedure EmailEditorHandler(var EmailEditor: TestPage "Email Editor")
     begin
-        EmailEditor.ToField.AssertEquals(LibraryVariableStorage.DequeueText());
-        EmailEditor.SubjectField.AssertEquals(LibraryVariableStorage.DequeueText());
-        // Assert.IsSubstring(EmailEditor.Attachments.FileName.Value, LibraryVariableStorage.DequeueText()); // bug 397659
+        EmailEditor.ToField.AssertEquals(LibraryVariableStorage.DequeueText);
+        EmailEditor.SubjectField.AssertEquals(LibraryVariableStorage.DequeueText);
+        // Assert.IsSubstring(EmailEditor.Attachments.FileName.Value, LibraryVariableStorage.DequeueText); // bug 397659
     end;
 
     [StrMenuHandler]
@@ -4078,7 +4187,7 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
     procedure CreateInteraction_GetContactName_MPH(var CreateInteraction: TestPage "Create Interaction")
     begin
         LibraryVariableStorage.Enqueue(CreateInteraction."Wizard Contact Name".Value);
-        CreateInteraction.CancelInteraction.Invoke();
+        CreateInteraction.CancelInteraction.Invoke;
     end;
 
     [ModalPageHandler]
@@ -4094,7 +4203,7 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         DummyDocumentSendingProfile: Record "Document Sending Profile";
     begin
         SelectSendingOptions."E-Mail".SetValue(DummyDocumentSendingProfile."E-Mail"::"Yes (Prompt for Settings)");
-        SelectSendingOptions.OK().Invoke();
+        SelectSendingOptions.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -4164,10 +4273,10 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
 
     local procedure BindActiveDirectoryMockEvents()
     begin
-        if ActiveDirectoryMockEvents.Enabled() then
+        if ActiveDirectoryMockEvents.Enabled then
             exit;
         BindSubscription(ActiveDirectoryMockEvents);
-        ActiveDirectoryMockEvents.Enable();
+        ActiveDirectoryMockEvents.Enable;
     end;
 
     local procedure ClearVariables(SegmentHeader: Record "Segment Header")
@@ -4327,13 +4436,56 @@ CopyStr(StorageLocation, 1, MaxStrLen(MarketingSetup."Attachment Storage Locatio
         Assert.AreNotEqual('', Format(Attachment."Attachment File"), AttachmentFileShouldNotBeBlankErr);
     end;
 
+    local procedure VerifyInterLogEntryCommentCount(InteractionLogEntryNo: Integer)
+    var
+        InterLogEntryCommentLine: Record "Inter. Log Entry Comment Line";
+    begin
+        InterLogEntryCommentLine.SetRange("Entry No.", InteractionLogEntryNo);
+        Assert.IsTrue(InterLogEntryCommentLine.Count() = 3, '');
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure ModalPageHandlerCreateInteraction(var CreateInteraction: TestPage "Create Interaction")
+    var
+        InteractionTemplate: Record "Interaction Template";
+        InterLogEntryCommentSheet: TestPage "Inter. Log Entry Comment Sheet";
+        ContactNo: Code[20];
+    begin
+        InterLogEntryCommentSheet.Trap();
+        LibraryMarketing.CreateInteractionTemplate(InteractionTemplate);
+        ContactNo := LibraryVariableStorage.DequeueText();
+        CreateInteraction."Wizard Contact Name".SetValue(ContactNo);
+        CreateInteraction."Interaction Template Code".SetValue(InteractionTemplate.Code);
+        CreateInteraction.Description.SetValue(InteractionTemplate.Code);
+
+        // Invoke Comments on each step
+        CreateInteraction."Co&mments".Invoke();
+        CreateInteraction.NextInteraction.Invoke();
+        CreateInteraction."Co&mments".Invoke();
+        CreateInteraction.NextInteraction.Invoke();
+        CreateInteraction."Co&mments".Invoke();
+        CreateInteraction.FinishInteraction.Invoke();
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure ModalPageHandlerCreateInteractionComments(var InterLogEntryCommentSheet: TestPage "Inter. Log Entry Comment Sheet")
+    begin
+        InterLogEntryCommentSheet.Last();
+        InterLogEntryCommentSheet.Next();
+        InterLogEntryCommentSheet.Date.SetValue(WorkDate());
+        InterLogEntryCommentSheet.Comment.SetValue(LibraryRandom.RandText(20));
+    end;
+
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"File Management", 'OnBeforeDownloadHandler', '', false, false)]
     local procedure OnBeforeDownloadHandler(var ToFolder: Text; ToFileName: Text; FromFileName: Text; var IsHandled: Boolean)
     var
         NameValueBuffer: Record "Name/Value Buffer";
     begin
         NameValueBuffer.Init();
-        NameValueBuffer.ID := SessionId();
+        NameValueBuffer.ID := SessionId;
         NameValueBuffer.Value := FromFileName;
         NameValueBuffer.Insert(true);
         IsHandled := true;

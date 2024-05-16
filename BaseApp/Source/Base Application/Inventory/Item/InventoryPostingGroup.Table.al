@@ -10,7 +10,6 @@ table 94 "Inventory Posting Group"
 {
     Caption = 'Inventory Posting Group';
     LookupPageID = "Inventory Posting Groups";
-    DataClassification = CustomerContent;
 
     fields
     {

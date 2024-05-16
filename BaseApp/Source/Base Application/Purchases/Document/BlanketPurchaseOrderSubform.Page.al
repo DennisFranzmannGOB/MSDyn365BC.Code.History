@@ -1045,12 +1045,12 @@ page 510 "Blanket Purchase Order Subform"
 
     procedure ShowDocumentLineTracking()
     var
-        DocumentLineTrackingPage: Page "Document Line Tracking";
+        DocumentLineTracking: Page "Document Line Tracking";
     begin
-        Clear(DocumentLineTrackingPage);
-        DocumentLineTrackingPage.SetSourceDoc(
-            "Document Line Source Type"::"Blanket Purchase Order", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
-        DocumentLineTrackingPage.RunModal();
+        Clear(DocumentLineTracking);
+        DocumentLineTracking.SetDoc(
+            3, Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
+        DocumentLineTracking.RunModal();
     end;
 
     local procedure SetDimensionsVisibility()
@@ -1092,7 +1092,7 @@ page 510 "Blanket Purchase Order Subform"
             Rec.Type := Rec.GetDefaultLineType();
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterNoOnAfterValidate(var PurchaseLine: Record "Purchase Line"; var xPurchaseLine: Record "Purchase Line")
     begin
     end;

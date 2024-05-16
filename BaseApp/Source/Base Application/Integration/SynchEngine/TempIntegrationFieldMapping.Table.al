@@ -7,7 +7,6 @@ namespace Microsoft.Integration.SyncEngine;
 table 5337 "Temp Integration Field Mapping"
 {
     Caption = 'Temp Integration Field Mapping';
-    DataClassification = CustomerContent;
 
     fields
     {

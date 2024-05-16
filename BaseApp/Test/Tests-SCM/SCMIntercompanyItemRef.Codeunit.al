@@ -25,7 +25,10 @@ codeunit 137630 "SCM Intercompany Item Ref."
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         IsInitialized: Boolean;
         ValidationErr: Label '%1 must be %2 in %3.';
+        SameICPartnerErr: Label 'The IC Partner Code %1 has been assigned to Customer %2.';
         TableFieldErr: Label 'Wrong table field value: table "%1", field "%2".';
+        ReservationEntryNotExistErr: Label 'Reservation Entry doen''s exist.';
+        NoItemForCommonItemErr: Label 'There is no Item related to Common Item No. %1', Comment = '%1 = Common Item No value';
 
     [Test]
     [Scope('OnPrem')]
@@ -71,10 +74,10 @@ codeunit 137630 "SCM Intercompany Item Ref."
         // [GIVEN] Purchase Order with Item Reference and Variant Code
         CreatePurchaseDocumentWithReceiptDates(
           PurchaseHeader, PurchaseHeader."Document Type"::Order, ICPartnerCode, CustomerNo,
-          CreateItem(), LibraryRandom.RandIntInRange(10, 100), true, false,
+          CreateItem, LibraryRandom.RandIntInRange(10, 100), true, false,
           DummyICPartner."Outbound Purch. Item No. Type"::"Cross Reference");
 
-        LibraryLowerPermissions.SetIntercompanyPostingsEdit();
+        LibraryLowerPermissions.SetIntercompanyPostingsEdit;
         LibraryLowerPermissions.AddPurchDocsCreate();
         LibraryLowerPermissions.AddSalesDocsCreate();
         // [WHEN] Send Purchase Order to IC Partner
@@ -100,8 +103,8 @@ codeunit 137630 "SCM Intercompany Item Ref."
         LibraryLowerPermissions.AddSalesDocsCreate();
         LibraryLowerPermissions.AddO365Setup();
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order,
-          CreateICCustomer(CreateICPartnerWithItemRefOutbndType()));
-        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, CreateItem(), LibraryRandom.RandInt(10));
+          CreateICCustomer(CreateICPartnerWithItemRefOutbndType));
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, CreateItem, LibraryRandom.RandInt(10));
 
         // [GIVEN] Item Reference with Variant Code for the Item
         ItemReference.SetRange("Reference No.", CreateItemReferenceWithVariant(SalesLine."No.", SalesLine."Sell-to Customer No.", ''));
@@ -137,9 +140,9 @@ codeunit 137630 "SCM Intercompany Item Ref."
         LibraryLowerPermissions.AddPurchDocsCreate();
         LibraryLowerPermissions.AddO365Setup();
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order,
-          CreateICVendor(CreateICPartnerWithItemRefOutbndType()));
+          CreateICVendor(CreateICPartnerWithItemRefOutbndType));
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, CreateItem(), LibraryRandom.RandInt(10));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, CreateItem, LibraryRandom.RandInt(10));
 
         // [GIVEN] Item Reference with Variant Code for the Item
         ItemReference.SetRange("Reference No.", CreateItemReferenceWithVariant(PurchaseLine."No.", '', PurchaseLine."Buy-from Vendor No."));
@@ -176,8 +179,8 @@ codeunit 137630 "SCM Intercompany Item Ref."
         LibraryLowerPermissions.AddSalesDocsCreate();
         LibraryLowerPermissions.AddO365Setup();
         LibrarySales.CreateSalesHeader(
-          SalesHeader, SalesHeader."Document Type"::Order, CreateICCustomer(CreateICPartner()));
-        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, CreateItem(), LibraryRandom.RandInt(10));
+          SalesHeader, SalesHeader."Document Type"::Order, CreateICCustomer(CreateICPartner));
+        LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, CreateItem, LibraryRandom.RandInt(10));
 
         // [GIVEN] Variant Code "VAR1" for the Item "I" with ItemRef setup
         ItemReference.SetRange("Reference No.", CreateItemReferenceWithVariant(SalesLine."No.", SalesLine."Sell-to Customer No.", ''));
@@ -217,9 +220,9 @@ codeunit 137630 "SCM Intercompany Item Ref."
         LibraryLowerPermissions.AddPurchDocsCreate();
         LibraryLowerPermissions.AddO365Setup();
         LibraryPurchase.CreatePurchHeader(
-          PurchaseHeader, PurchaseHeader."Document Type"::Order, CreateICVendor(CreateICPartner()));
+          PurchaseHeader, PurchaseHeader."Document Type"::Order, CreateICVendor(CreateICPartner));
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, CreateItem(), LibraryRandom.RandInt(10));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, CreateItem, LibraryRandom.RandInt(10));
 
         // [GIVEN] Variant Code "VAR1" for the Item "I" with ItemRef setup
         ItemReference.SetRange(
@@ -289,7 +292,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
         // [GIVEN] Purchase Order, Item = 'X' with Vendor Item Reference = 'Y'
         CreatePurchaseDocumentWithReceiptDates(
           PurchaseHeader, PurchaseHeader."Document Type"::Order, ICPartnerCode, CustomerNo,
-          CreateItem(), LibraryRandom.RandIntInRange(10, 100), false, false,
+          CreateItem, LibraryRandom.RandIntInRange(10, 100), false, false,
           DummyICPartner."Outbound Purch. Item No. Type"::"Internal No.");
         LibraryLowerPermissions.SetPurchDocsCreate();
         LibraryLowerPermissions.AddIntercompanyPostingsEdit();
@@ -432,7 +435,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
         ICPartner: Record "IC Partner";
         ICPartnerCode: Code[20];
     begin
-        ICPartnerCode := CreateICPartner();
+        ICPartnerCode := CreateICPartner;
         ICPartner.Get(ICPartnerCode);
         ICPartner.Validate("Outbound Purch. Item No. Type", ICPartner."Outbound Purch. Item No. Type"::"Cross Reference");
         ICPartner.Validate("Outbound Sales Item No. Type", ICPartner."Outbound Sales Item No. Type"::"Cross Reference");
@@ -509,7 +512,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
         ICPartner: Record "IC Partner";
     begin
         with ICPartner do begin
-            Get(CreateICPartner());
+            Get(CreateICPartner);
             Validate("Outbound Sales Item No. Type", "Outbound Sales Item No. Type"::"Common Item No.");
             Validate("Outbound Purch. Item No. Type", "Outbound Purch. Item No. Type"::"Common Item No.");
             Modify();
@@ -553,7 +556,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
     var
         ICCustomer: Record Customer;
     begin
-        ICCustomer.Get(CreateICCustomer(CreateICPartner()));
+        ICCustomer.Get(CreateICCustomer(CreateICPartner));
         ICCustomer.Validate("VAT Bus. Posting Group", VATBusPostingGroup);
         ICCustomer.Modify(true);
         exit(ICCustomer."No.");
@@ -573,7 +576,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
     var
         ICVendor: Record Vendor;
     begin
-        ICVendor.Get(CreateICVendor(CreateICPartner()));
+        ICVendor.Get(CreateICVendor(CreateICPartner));
         ICVendor.Validate("VAT Bus. Posting Group", VATBusPostingGroup);
         ICVendor.Modify(true);
         exit(ICVendor."No.");
@@ -581,9 +584,9 @@ codeunit 137630 "SCM Intercompany Item Ref."
 
     local procedure CreatePartnerCustomerVendor(var ICPartnerCodeVendor: Code[20]; var VendorNo: Code[20]; var CustomerNo: Code[20])
     begin
-        ICPartnerCodeVendor := CreateICPartner();
+        ICPartnerCodeVendor := CreateICPartner;
         VendorNo := CreateICVendor(ICPartnerCodeVendor);
-        CustomerNo := CreateICCustomer(CreateICPartner());
+        CustomerNo := CreateICCustomer(CreateICPartner);
     end;
 
     local procedure CreatePurchaseDocument(var PurchaseHeader: Record "Purchase Header"; DocumentType: Enum "Purchase Document Type"; VendorNo: Code[20]; ItemNo: Code[20])
@@ -607,11 +610,11 @@ codeunit 137630 "SCM Intercompany Item Ref."
         SalesLine.Modify(true);
     end;
 
-    local procedure CreateSalesDocumentWithDeliveryDates(var SalesHeader: Record "Sales Header"; DocumentType: Enum "Sales Document Type"; var ICPartnerCode: Code[20]; var VendorNo: Code[20]; ItemRef: Boolean; PricesInclVAT: Boolean; OutboundType: Enum "IC Outb. Sales Item No. Type")
+    local procedure CreateSalesDocumentWithDeliveryDates(var SalesHeader: Record "Sales Header"; DocumentType: Enum "Sales Document Type"; var ICPartnerCode: Code[20]; var VendorNo: Code[20]; ItemRef: Boolean; PricesInclVAT: Boolean; OutboundType: Option)
     var
         SalesLine: Record "Sales Line";
     begin
-        ICPartnerCode := CreateICPartner();
+        ICPartnerCode := CreateICPartner;
         UpdateICPartnerWithOutboundType(ICPartnerCode, OutboundType);
         VendorNo := CreateICVendor(ICPartnerCode);
 
@@ -620,7 +623,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
         SalesHeader.Modify();
 
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, CreateItem(), LibraryRandom.RandIntInRange(10, 100));
+          SalesLine, SalesHeader, SalesLine.Type::Item, CreateItem, LibraryRandom.RandIntInRange(10, 100));
 
         SalesLine.Validate("Unit Price", SalesLine."Unit Price" + LibraryRandom.RandDec(1000, 2));
         if ItemRef then
@@ -637,11 +640,11 @@ codeunit 137630 "SCM Intercompany Item Ref."
         SalesHeader.Modify(true);
     end;
 
-    local procedure CreatePurchaseDocumentWithReceiptDates(var PurchaseHeader: Record "Purchase Header"; DocumentType: Enum "Purchase Document Type"; var ICPartnerCode: Code[20]; var CustomerNo: Code[20]; ItemNo: Code[20]; Qty: Decimal; ItemRef: Boolean; PricesInclVAT: Boolean; OutboundType: Enum "IC Outb. Sales Item No. Type")
+    local procedure CreatePurchaseDocumentWithReceiptDates(var PurchaseHeader: Record "Purchase Header"; DocumentType: Enum "Purchase Document Type"; var ICPartnerCode: Code[20]; var CustomerNo: Code[20]; ItemNo: Code[20]; Qty: Decimal; ItemRef: Boolean; PricesInclVAT: Boolean; OutboundType: Option)
     var
         PurchaseLine: Record "Purchase Line";
     begin
-        ICPartnerCode := CreateICPartner();
+        ICPartnerCode := CreateICPartner;
         UpdateICPartnerWithOutboundType(ICPartnerCode, OutboundType);
         CustomerNo := CreateICCustomer(ICPartnerCode);
 
@@ -1053,7 +1056,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
         end;
     end;
 
-    local procedure UpdateICPartnerWithOutboundType(ICPartnerCode: Code[20]; OutboundType: Enum "IC Outb. Sales Item No. Type")
+    local procedure UpdateICPartnerWithOutboundType(ICPartnerCode: Code[20]; OutboundType: Option)
     var
         ICPartner: Record "IC Partner";
     begin
@@ -1069,7 +1072,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
     begin
         FindPurchLine(PurchaseLine, PurchaseHeader);
         CreateItemReference(PurchaseLine."No.", '', PurchaseLine."Unit of Measure Code",
-          "Item Reference Type"::Vendor, PurchaseLine."Buy-from Vendor No.", LibraryInventory.CreateItemNo());
+          "Item Reference Type"::Vendor, PurchaseLine."Buy-from Vendor No.", LibraryInventory.CreateItemNo);
         PurchaseLine.Validate("No.");
         PurchaseLine.Modify(true);
     end;
@@ -1081,7 +1084,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
         FindSalesLine(SalesLine, SalesHeader);
         CreateItemReference(
             SalesLine."No.", '', SalesLine."Unit of Measure Code",
-            "Item Reference Type"::Customer, SalesLine."Sell-to Customer No.", LibraryInventory.CreateItemNo());
+            "Item Reference Type"::Customer, SalesLine."Sell-to Customer No.", LibraryInventory.CreateItemNo);
         SalesLine.Validate("No.");
         SalesLine.Modify(true);
     end;
@@ -1177,7 +1180,7 @@ codeunit 137630 "SCM Intercompany Item Ref."
           StrSubstNo(
             ValidationErr, ICOutboxJnlLine.FieldCaption("Account No."), ICOutboxJnlLine."Account No.", ICOutboxJnlLine.TableCaption()));
         Assert.AreNearlyEqual(
-          Amount, ICOutboxJnlLine.Amount, LibraryERM.GetAmountRoundingPrecision(),
+          Amount, ICOutboxJnlLine.Amount, LibraryERM.GetAmountRoundingPrecision,
           StrSubstNo(ValidationErr, ICOutboxJnlLine.FieldCaption(Amount), ICOutboxJnlLine.Amount, ICOutboxJnlLine.TableCaption()));
     end;
 

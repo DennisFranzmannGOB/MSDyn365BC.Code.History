@@ -39,11 +39,13 @@ codeunit 6364 "Pagero Auth."
         SetIsolatedStorageValue(ClienId, ClientID, DataScope::Company);
     end;
 
-    procedure SetClientSecret(var ClienSecret: Guid; ClientSecret: SecretText)
+    [NonDebuggable]
+    procedure SetClientSecret(var ClienSecret: Guid; ClientSecret: Text)
     begin
         SetIsolatedStorageValue(ClienSecret, ClientSecret, DataScope::Company);
     end;
 
+    [NonDebuggable]
     procedure IsClientCredsSet(var ClientId: Text; var ClientSecret: Text): Boolean
     var
         EDocExtConnectionSetup: Record "E-Doc. Ext. Connection Setup";
@@ -68,6 +70,7 @@ codeunit 6364 "Pagero Auth."
         Page.RunModal(Page::"OAuth 2.0 Setup", OAuth20Setup);
     end;
 
+    [NonDebuggable]
     procedure GetAuthBearerTxt(): SecretText;
     var
         OAuth20Setup: Record "OAuth 2.0 Setup";
@@ -78,7 +81,7 @@ codeunit 6364 "Pagero Auth."
             if not RefreshAccessToken(HttpError) then
                 Error(HttpError);
 
-        exit(SecretStrSubstNo(BearerTxt, GetToken(OAuth20Setup."Access Token", OAuth20Setup.GetTokenDataScope())));
+        exit(StrSubstNo(BearerTxt, GetToken(OAuth20Setup."Access Token", OAuth20Setup.GetTokenDataScope())));
     end;
 
     [NonDebuggable]
@@ -146,7 +149,8 @@ codeunit 6364 "Pagero Auth."
         OAuth20Setup.TestField("Daily Limit");
     end;
 
-    local procedure SaveTokens(var OAuth20Setup: Record "OAuth 2.0 Setup"; TokenDataScope: DataScope; AccessToken: SecretText; RefreshToken: SecretText)
+    [NonDebuggable]
+    local procedure SaveTokens(var OAuth20Setup: Record "OAuth 2.0 Setup"; TokenDataScope: DataScope; AccessToken: Text; RefreshToken: Text)
     begin
         SetIsolatedStorageValue(OAuth20Setup."Access Token", AccessToken, TokenDataScope);
         SetIsolatedStorageValue(OAuth20Setup."Refresh Token", RefreshToken, TokenDataScope);
@@ -154,7 +158,8 @@ codeunit 6364 "Pagero Auth."
         OAuth20Setup.Modify();
     end;
 
-    local procedure SetIsolatedStorageValue(var ValueKey: Guid; Value: SecretText; TokenDataScope: DataScope) NewToken: Boolean
+    [NonDebuggable]
+    local procedure SetIsolatedStorageValue(var ValueKey: Guid; Value: Text; TokenDataScope: DataScope) NewToken: Boolean
     begin
         if IsNullGuid(ValueKey) then
             NewToken := true;
@@ -164,12 +169,13 @@ codeunit 6364 "Pagero Auth."
         IsolatedStorage.Set(ValueKey, Value, TokenDataScope);
     end;
 
-    local procedure GetToken(TokenKey: Text; TokenDataScope: DataScope) TokenValueAsSecret: SecretText
+    [NonDebuggable]
+    local procedure GetToken(TokenKey: Text; TokenDataScope: DataScope) TokenValue: Text
     begin
         if not HasToken(TokenKey, TokenDataScope) then
-            exit(TokenValueAsSecret);
+            exit('');
 
-        IsolatedStorage.Get(TokenKey, TokenDataScope, TokenValueAsSecret);
+        IsolatedStorage.Get(TokenKey, TokenDataScope, TokenValue);
     end;
 
     [NonDebuggable]
@@ -198,14 +204,15 @@ codeunit 6364 "Pagero Auth."
         end;
 
         if EDocExtConnectionSetup.Get() then
-            exit(GetToken(EDocExtConnectionSetup."Client ID", DataScope::Company).Unwrap());
+            exit(GetToken(EDocExtConnectionSetup."Client ID", DataScope::Company));
     end;
 
-    local procedure GetClientSecret(): SecretText
+    [NonDebuggable]
+    local procedure GetClientSecret(): Text
     var
         EDocExtConnectionSetup: Record "E-Doc. Ext. Connection Setup";
         AzureKeyVault: Codeunit "Azure Key Vault";
-        Secret: SecretText;
+        Secret: Text;
     begin
         if EnvironmentInfo.IsSaaS() then begin
             AzureKeyVault.GetAzureKeyVaultSecret('pagero-client-secret', Secret);
@@ -222,9 +229,8 @@ codeunit 6364 "Pagero Auth."
     var
         EDocExtConnectionSetup: Record "E-Doc. Ext. Connection Setup";
         RequestJSON: Text;
-        AccessToken: SecretText;
-        RefreshToken: SecretText;
-        AuthorizationCodeSecret: SecretText;
+        AccessToken: Text;
+        RefreshToken: Text;
         TokenDataScope: DataScope;
     begin
         if not EDocExtConnectionSetup.Get() then
@@ -234,8 +240,7 @@ codeunit 6364 "Pagero Auth."
 
         CheckOAuthConsistencySetup(OAuth20Setup);
         TokenDataScope := OAuth20Setup.GetTokenDataScope();
-        AuthorizationCodeSecret := AuthorizationCode;
-        Result := OAuth20Mgt.RequestAccessTokenWithContentType(OAuth20Setup, RequestJSON, MessageText, AuthorizationCodeSecret, GetClientId(), GetClientSecret(), AccessToken, RefreshToken, true);
+        Result := OAuth20Mgt.RequestAccessTokenWithContentType(OAuth20Setup, RequestJSON, MessageText, AuthorizationCode, GetClientId(), GetClientSecret(), AccessToken, RefreshToken, true);
 
         if not Result then
             Error(AuthenticationFailedErr);
@@ -250,8 +255,8 @@ codeunit 6364 "Pagero Auth."
     var
         EDocExtConnectionSetup: Record "E-Doc. Ext. Connection Setup";
         RequestJSON: Text;
-        AccessToken: SecretText;
-        RefreshToken: SecretText;
+        AccessToken: Text;
+        RefreshToken: Text;
         TokenDataScope: DataScope;
         OldServiceUrl: Text[250];
     begin
@@ -278,8 +283,8 @@ codeunit 6364 "Pagero Auth."
         SaveTokens(OAuth20Setup, TokenDataScope, AccessToken, RefreshToken);
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"OAuth 2.0 Setup", 'OnBeforeRequestAuthoizationCode', '', true, true)]
     [NonDebuggable]
+    [EventSubscriber(ObjectType::Table, Database::"OAuth 2.0 Setup", 'OnBeforeRequestAuthoizationCode', '', true, true)]
     local procedure OnBeforeRequestAuthoizationCode(OAuth20Setup: Record "OAuth 2.0 Setup"; var Processed: Boolean)
     var
         EDocExtConnectionSetup: Record "E-Doc. Ext. Connection Setup";
@@ -287,7 +292,7 @@ codeunit 6364 "Pagero Auth."
         OAuth2ControlAddIn: Page OAuth2ControlAddIn;
         auth_error: Text;
         AuthorizationCode: Text;
-        url: SecretText;
+        url: Text;
         state: Text;
     begin
         if not EDocExtConnectionSetup.Get() or Processed then
@@ -299,9 +304,9 @@ codeunit 6364 "Pagero Auth."
             exit;
 
         state := Format(CreateGuid(), 0, 4);
-        url := SecretStrSubstNo(CurrUrlWithStateTxt, OAuth20Mgt.GetAuthorizationURLAsSecretText(OAuth20Setup, GetClientId()), state);
+        url := StrSubstNo(CurrUrlWithStateTxt, OAuth20Mgt.GetAuthorizationURL(OAuth20Setup, GetClientId()), state);
 
-        OAuth2ControlAddIn.SetOAuth2Properties(url.Unwrap(), state);
+        OAuth2ControlAddIn.SetOAuth2Properties(url, state);
         OAuth2ControlAddIn.RunModal();
         auth_error := OAuth2ControlAddIn.GetAuthError();
         if auth_error <> '' then
@@ -320,7 +325,7 @@ codeunit 6364 "Pagero Auth."
     local procedure OnBeforeInvokeRequest(var OAuth20Setup: Record "OAuth 2.0 Setup"; RequestJSON: Text; var ResponseJSON: Text; var HttpError: Text; var Result: Boolean; var Processed: Boolean; RetryOnCredentialsFailure: Boolean)
     var
         PageroSetup: Record "E-Doc. Ext. Connection Setup";
-        TokenValue: SecretText;
+        TokenValue: Text;
         RequestJsonObj: JsonObject;
         ResponseJsonObj: JsonObject;
     begin
@@ -329,7 +334,7 @@ codeunit 6364 "Pagero Auth."
         Processed := true;
 
         CheckOAuthConsistencySetup(OAuth20Setup);
-        TokenValue := GetToken(OAuth20Setup."Access Token", OAuth20Setup.GetTokenDataScope()).Unwrap();
+        TokenValue := GetToken(OAuth20Setup."Access Token", OAuth20Setup.GetTokenDataScope());
 
         Result := OAuth20Mgt.InvokeRequest(OAuth20Setup, RequestJSON, ResponseJSON, HttpError, TokenValue, RetryOnCredentialsFailure);
 

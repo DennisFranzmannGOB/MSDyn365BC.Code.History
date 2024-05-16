@@ -4,7 +4,6 @@ table 387 "Allocation Policy"
 {
     Caption = 'Allocation Policy';
     LookupPageId = "Allocation Policies";
-    DataClassification = CustomerContent;
 
     fields
     {

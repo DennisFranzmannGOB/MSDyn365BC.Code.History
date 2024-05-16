@@ -6,7 +6,6 @@ table 5057 "Industry Group"
 {
     Caption = 'Industry Group';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Industry Groups";
 
     fields
@@ -22,7 +21,7 @@ table 5057 "Industry Group"
         }
         field(3; "No. of Contacts"; Integer)
         {
-            CalcFormula = count("Contact Industry Group" where("Industry Group Code" = field(Code)));
+            CalcFormula = Count("Contact Industry Group" where("Industry Group Code" = field(Code)));
             Caption = 'No. of Contacts';
             Editable = false;
             FieldClass = FlowField;

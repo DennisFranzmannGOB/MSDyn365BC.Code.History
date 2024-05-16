@@ -17,7 +17,7 @@ codeunit 5365 "CDS Int. Option Couple"
         Handled: Boolean;
     begin
         OnBeforeRun(Rec, Handled);
-        if Handled then
+        If Handled then
             exit;
 
         ConnectionName := CRMIntegrationTableSynch.InitConnection();

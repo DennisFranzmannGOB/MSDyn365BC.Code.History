@@ -587,15 +587,6 @@ codeunit 8900 "Email Impl"
         SentEmails.Run();
     end;
 
-    procedure OpenSentEmails(TableId: Integer; SystemId: Guid; NewerThanDate: DateTime)
-    var
-        SentEmails: Page "Sent Emails";
-    begin
-        SentEmails.SetRelatedRecord(TableId, SystemId);
-        SentEmails.SetNewerThan(NewerThanDate);
-        SentEmails.Run();
-    end;
-
     procedure GetEmailOutboxSentEmailWithinRateLimit(var SentEmail: Record "Sent Email"; var EmailOutbox: Record "Email Outbox"; AccountId: Guid): Duration
     var
         EmailCheckWindowTime: DateTime;

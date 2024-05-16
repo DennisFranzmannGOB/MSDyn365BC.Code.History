@@ -53,7 +53,7 @@ page 577 "Change Global Dimensions"
                 field("Parallel Processing"; Rec."Parallel Processing")
                 {
                     ApplicationArea = Dimensions;
-                    Enabled = IsGlobalDimCodeEnabled and IsParallelProcessingAllowed;
+                    Enabled = IsGlobalDimCodeEnabled AND IsParallelProcessingAllowed;
                     ToolTip = 'Specifies if the change will be processed by parallel background jobs.';
 
                     trigger OnValidate()
@@ -104,7 +104,7 @@ page 577 "Change Global Dimensions"
                     AccessByPermission = TableData "Change Global Dim. Log Entry" = IMD;
                     ApplicationArea = Dimensions;
                     Caption = 'Start';
-                    Enabled = IsPrepareEnabledFlag and not Rec."Parallel Processing";
+                    Enabled = IsPrepareEnabledFlag AND NOT Rec."Parallel Processing";
                     Image = Start;
                     ToolTip = 'Start the process that implements the specified dimension change(s) in the affected tables within the current session. Other users cannot change the affected tables while the process is running.';
 
@@ -122,7 +122,7 @@ page 577 "Change Global Dimensions"
                     AccessByPermission = TableData "Change Global Dim. Log Entry" = IM;
                     ApplicationArea = Dimensions;
                     Caption = 'Prepare';
-                    Enabled = IsPrepareEnabledFlag and Rec."Parallel Processing";
+                    Enabled = IsPrepareEnabledFlag AND Rec."Parallel Processing";
                     Image = ChangeBatch;
                     ToolTip = 'Fill the Log Entries FastTab with the list of tables that will be affected by the specified dimension change. Here you can also follow the progress of the background job that performs the change. Note: Before you can start the job, you must sign out and in to ensure that the current user cannot modify the tables that are being updated.';
 

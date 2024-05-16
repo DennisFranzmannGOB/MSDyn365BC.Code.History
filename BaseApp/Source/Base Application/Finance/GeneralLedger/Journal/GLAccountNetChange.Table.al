@@ -5,7 +5,6 @@ table 269 "G/L Account Net Change"
     Tabletype = temporary;
     Caption = 'G/L Account Net Change';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

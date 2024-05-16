@@ -19,7 +19,6 @@ table 9002 "User Group Access Control"
     ObsoleteTag = '25.0';
 #endif 
     ObsoleteReason = '[220_UserGroups] The user groups functionality is deprecated. Use security groups or permission sets directly instead. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -47,7 +46,7 @@ table 9002 "User Group Access Control"
         }
         field(5; "User Name"; Code[50])
         {
-            CalcFormula = lookup(User."User Name" where("User Security ID" = field("User Security ID")));
+            CalcFormula = Lookup(User."User Name" where("User Security ID" = field("User Security ID")));
             Caption = 'User Name';
             Editable = false;
             FieldClass = FlowField;

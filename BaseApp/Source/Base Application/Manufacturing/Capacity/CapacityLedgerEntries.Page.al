@@ -17,7 +17,7 @@ page 5832 "Capacity Ledger Entries"
     PageType = List;
     SourceTable = "Capacity Ledger Entry";
     SourceTableView = sorting("Entry No.")
-                      order(descending);
+                      order(Descending);
     UsageCategory = History;
 
     layout

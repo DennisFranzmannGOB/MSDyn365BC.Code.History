@@ -1,11 +1,7 @@
 #if not CLEAN22
-#pragma warning disable AS0072
 codeunit 135972 "Upg User Group Perm. Set Tests"
 {
     Subtype = Test;
-    ObsoleteReason = 'Not used.';
-    ObsoleteState = Pending;
-    ObsoleteTag = '22.0';
 
     [Test]
     procedure UserGroupPermissionSetAppIDTest()

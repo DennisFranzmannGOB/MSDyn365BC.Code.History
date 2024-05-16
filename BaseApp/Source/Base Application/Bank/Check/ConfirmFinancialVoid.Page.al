@@ -38,27 +38,21 @@ page 695 "Confirm Financial Void"
             group(Details)
             {
                 Caption = 'Details';
-#pragma warning disable AA0100
                 field("CheckLedgerEntry.""Bank Account No."""; CheckLedgerEntry."Bank Account No.")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Bank Account No.';
                     Editable = false;
                     ToolTip = 'Specifies the bank account.';
                 }
-#pragma warning disable AA0100
                 field("CheckLedgerEntry.""Check No."""; CheckLedgerEntry."Check No.")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Check No.';
                     Editable = false;
                     ToolTip = 'Specifies the check number to be voided.';
                 }
-#pragma warning disable AA0100
                 field("CheckLedgerEntry.""Bal. Account No."""; CheckLedgerEntry."Bal. Account No.")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     CaptionClass = Format(StrSubstNo(Text001, CheckLedgerEntry."Bal. Account Type"));
@@ -88,11 +82,13 @@ page 695 "Confirm Financial Void"
     begin
         OnBeforeOnOpenPage(CheckLedgerEntry, VoidDate);
 
-        VoidDate := CheckLedgerEntry."Check Date";
-        if CheckLedgerEntry."Bal. Account Type" in [CheckLedgerEntry."Bal. Account Type"::Vendor, CheckLedgerEntry."Bal. Account Type"::Customer, CheckLedgerEntry."Bal. Account Type"::Employee] then
-            VoidType := VoidType::"Unapply and void check"
-        else
-            VoidType := VoidType::"Void check only";
+        with CheckLedgerEntry do begin
+            VoidDate := "Check Date";
+            if "Bal. Account Type" in ["Bal. Account Type"::Vendor, "Bal. Account Type"::Customer, "Bal. Account Type"::Employee] then
+                VoidType := VoidType::"Unapply and void check"
+            else
+                VoidType := VoidType::"Void check only";
+        end;
     end;
 
     var

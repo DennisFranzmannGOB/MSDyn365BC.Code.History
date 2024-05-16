@@ -15,6 +15,10 @@ permissionset 7243 "User Groups - Admin"
     IncludedPermissionSets = "Permissions & Licenses - Edit";
 
     Permissions =
+#if not CLEAN21
+                  tabledata "Table Permission Buffer" = RIMD,
+#endif
+
                   tabledata "User Group" = RIMD,
                   tabledata "User Group Access Control" = RIMD,
                   tabledata "User Group Member" = RIMD,

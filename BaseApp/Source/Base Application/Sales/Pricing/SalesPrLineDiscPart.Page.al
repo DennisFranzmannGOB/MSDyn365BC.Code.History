@@ -1,4 +1,4 @@
-#if not CLEAN23
+#if not CLEAN21
 namespace Microsoft.Sales.Pricing;
 
 using Microsoft.Inventory.Item;
@@ -181,6 +181,9 @@ page 1347 "Sales Pr. & Line Disc. Part"
                 Caption = 'Set Special Prices';
                 Enabled = SalesPriceIsEnabled;
                 Image = Price;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
                 ToolTip = 'Set up different prices for items that you sell to the customer. An item price is automatically granted on invoice lines when the specified criteria are met, such as customer, quantity, or ending date.';
 
                 trigger OnAction()
@@ -199,6 +202,9 @@ page 1347 "Sales Pr. & Line Disc. Part"
                 ApplicationArea = Basic, Suite;
                 Caption = 'Set Special Discounts';
                 Image = LineDiscount;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
                 ToolTip = 'Set up different discounts for items that you sell to the customer. An item discount is automatically granted on invoice lines when the specified criteria are met, such as customer, quantity, or ending date.';
 
                 trigger OnAction()
@@ -234,6 +240,7 @@ page 1347 "Sales Pr. & Line Disc. Part"
         DummySalesPriceAndLineDiscBuff: Record "Sales Price and Line Disc Buff";
         CurrFilterGroup: Integer;
         SalesCode: Code[20];
+        SalesType: Option;
         SalesTypeAsText: Text;
         ContextIsCustomer: Boolean;
     begin

@@ -6,7 +6,6 @@ table 5814 "Inventory Period"
 {
     Caption = 'Inventory Period';
     LookupPageID = "Inventory Periods";
-    DataClassification = CustomerContent;
 
     fields
     {

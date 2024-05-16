@@ -111,6 +111,7 @@ page 20016 "APIV1 - Journals"
     end;
 
     local procedure SetActionResponse(var ActionContext: WebServiceActionContext; GenJournalBatchId: Guid)
+    var
     begin
 
         ActionContext.SetObjectType(ObjectType::Page);

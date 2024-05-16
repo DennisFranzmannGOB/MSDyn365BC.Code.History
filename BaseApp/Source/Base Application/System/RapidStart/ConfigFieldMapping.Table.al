@@ -9,7 +9,6 @@ table 8628 "Config. Field Mapping"
     ObsoleteState = Removed;
     ObsoleteReason = 'Replaced by Config. Field Map table with increased length for old and new values.';
     ObsoleteTag = '19.0';
-    DataClassification = CustomerContent;
 
     fields
     {

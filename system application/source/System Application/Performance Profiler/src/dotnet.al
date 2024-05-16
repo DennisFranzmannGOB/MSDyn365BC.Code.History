@@ -22,4 +22,12 @@ dotnet
         {
         }
     }
+
+    assembly("Microsoft.Dynamics.Nav.Client.BusinessChart")
+    {
+        type("Microsoft.Dynamics.Nav.Client.BusinessChart.BusinessChartAddIn"; "BusinessChartUserControl")
+        {
+            IsControlAddIn = true;
+        }
+    }
 }

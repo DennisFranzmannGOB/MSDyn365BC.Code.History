@@ -130,7 +130,7 @@ page 6638 "Get Return Receipt Lines"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = SalesReturnOrder;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Shipment Date"; Rec."Shipment Date")

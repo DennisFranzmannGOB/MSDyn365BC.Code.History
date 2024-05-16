@@ -31,47 +31,49 @@ codeunit 5670 "FA. Jnl.-Post+Print"
     var
         HideDialog: Boolean;
     begin
-        FAJnlTemplate.Get(FAJnlLine."Journal Template Name");
-        FAJnlTemplate.TestField("Posting Report ID");
-        FAJnlTemplate.TestField("Maint. Posting Report ID");
-        if FAJnlTemplate.Recurring and (FAJnlLine.GetFilter("FA Posting Date") <> '') then
-            FAJnlLine.FieldError("FA Posting Date", Text000);
+        with FAJnlLine do begin
+            FAJnlTemplate.Get("Journal Template Name");
+            FAJnlTemplate.TestField("Posting Report ID");
+            FAJnlTemplate.TestField("Maint. Posting Report ID");
+            if FAJnlTemplate.Recurring and (GetFilter("FA Posting Date") <> '') then
+                FieldError("FA Posting Date", Text000);
 
-        HideDialog := false;
-        OnBeforePostJournalBatch(FAJnlLine, HideDialog);
-        if not HideDialog then
-            if not Confirm(Text001, false) then
-                exit;
+            HideDialog := false;
+            OnBeforePostJournalBatch(FAJnlLine, HideDialog);
+            if not HideDialog then
+                if not Confirm(Text001, false) then
+                    exit;
 
-        TempJnlBatchName := FAJnlLine."Journal Batch Name";
+            TempJnlBatchName := "Journal Batch Name";
 
-        CODEUNIT.Run(CODEUNIT::"FA Jnl.-Post Batch", FAJnlLine);
+            CODEUNIT.Run(CODEUNIT::"FA Jnl.-Post Batch", FAJnlLine);
 
-        if FAReg.Get(FAJnlLine."Line No.") then begin
-            FAReg.SetRecFilter();
-            if FAReg."From Entry No." > 0 then
-                REPORT.Run(FAJnlTemplate."Posting Report ID", false, false, FAReg);
-            if FAReg."From Maintenance Entry No." > 0 then
-                REPORT.Run(FAJnlTemplate."Maint. Posting Report ID", false, false, FAReg);
-        end;
+            if FAReg.Get("Line No.") then begin
+                FAReg.SetRecFilter();
+                if FAReg."From Entry No." > 0 then
+                    REPORT.Run(FAJnlTemplate."Posting Report ID", false, false, FAReg);
+                if FAReg."From Maintenance Entry No." > 0 then
+                    REPORT.Run(FAJnlTemplate."Maint. Posting Report ID", false, false, FAReg);
+            end;
 
-        if FAJnlLine."Line No." = 0 then
-            Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
-        else
-            if TempJnlBatchName = FAJnlLine."Journal Batch Name" then
-                Message(Text003)
+            if "Line No." = 0 then
+                Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
             else
-                Message(
-                  Text004,
-                  FAJnlLine."Journal Batch Name");
+                if TempJnlBatchName = "Journal Batch Name" then
+                    Message(Text003)
+                else
+                    Message(
+                      Text004,
+                      "Journal Batch Name");
 
-        if not FAJnlLine.Find('=><') or (TempJnlBatchName <> FAJnlLine."Journal Batch Name") then begin
-            FAJnlLine.Reset();
-            FAJnlLine.FilterGroup := 2;
-            FAJnlLine.SetRange("Journal Template Name", FAJnlLine."Journal Template Name");
-            FAJnlLine.SetRange("Journal Batch Name", FAJnlLine."Journal Batch Name");
-            FAJnlLine.FilterGroup := 0;
-            FAJnlLine."Line No." := 1;
+            if not Find('=><') or (TempJnlBatchName <> "Journal Batch Name") then begin
+                Reset();
+                FilterGroup := 2;
+                SetRange("Journal Template Name", "Journal Template Name");
+                SetRange("Journal Batch Name", "Journal Batch Name");
+                FilterGroup := 0;
+                "Line No." := 1;
+            end;
         end;
     end;
 

@@ -4,7 +4,6 @@ table 1259 "Bank Data Conv. Bank"
     ObsoleteState = Removed;
     ObsoleteReason = 'Changed to AMC Banking 365 Fundamentals Extension';
     ObsoleteTag = '15.0';
-    DataClassification = CustomerContent;
 
     fields
     {

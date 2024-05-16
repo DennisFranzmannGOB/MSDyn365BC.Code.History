@@ -12,6 +12,7 @@ codeunit 20115 "AMC Bank Imp.BankList Hndl"
                   TableData "AMC Banking Setup" = r;
 
     trigger OnRun()
+    var
     begin
         GetBankListFromWebService(true, '', 5000, AMCBankingMgt.GetAppCaller());
     end;
@@ -175,6 +176,7 @@ codeunit 20115 "AMC Bank Imp.BankList Hndl"
     end;
 
     local procedure GetOwnRefOnBankNameList(var TempAMCBankBanks: record "AMC Bank Banks" temporary; AMCBankBanks: record "AMC Bank Banks"): Enum AMCBankOwnreference
+    var
     begin
         TempAMCBankBanks.Reset();
         TempAMCBankBanks.SetFilter(TempAMCBankBanks.Bank, AMCBankBanks.Bank);

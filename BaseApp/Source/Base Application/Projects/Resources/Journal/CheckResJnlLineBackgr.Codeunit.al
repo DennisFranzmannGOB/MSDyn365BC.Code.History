@@ -120,7 +120,7 @@ codeunit 9075 "Check Res. Jnl. Line. Backgr."
     var
         ID: Integer;
     begin
-        if TempErrorMessage.FindLast() then;
+        If TempErrorMessage.FindLast() then;
         ID := TempErrorMessage.ID + 1;
 
         if TempLineErrorMessage.FindSet() then

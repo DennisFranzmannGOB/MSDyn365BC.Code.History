@@ -16,7 +16,6 @@ table 376 "G/L Account (Analysis View)"
 {
     Caption = 'G/L Account (Analysis View)';
     DataCaptionFields = "No.", Name;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -145,12 +144,12 @@ table 376 "G/L Account (Analysis View)"
                                                                   "Business Unit Code" = field("Business Unit Filter"),
                                                                   "Account No." = field("No."),
                                                                   "Account Source" = field("Account Source"),
-                                                                  "Account No." = field(filter(Totaling)),
+                                                                  "Account No." = field(FILTER(Totaling)),
                                                                   "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                   "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                   "Dimension 3 Value Code" = field("Dimension 3 Filter"),
                                                                   "Dimension 4 Value Code" = field("Dimension 4 Filter"),
-                                                                  "Posting Date" = field(upperlimit("Date Filter")),
+                                                                  "Posting Date" = field(UPPERLIMIT("Date Filter")),
                                                                   "Cash Flow Forecast No." = field("Cash Flow Forecast Filter")));
             Caption = 'Balance at Date';
             Editable = false;
@@ -164,7 +163,7 @@ table 376 "G/L Account (Analysis View)"
                                                                   "Business Unit Code" = field("Business Unit Filter"),
                                                                   "Account No." = field("No."),
                                                                   "Account Source" = field("Account Source"),
-                                                                  "Account No." = field(filter(Totaling)),
+                                                                  "Account No." = field(FILTER(Totaling)),
                                                                   "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                   "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                   "Dimension 3 Value Code" = field("Dimension 3 Filter"),
@@ -183,7 +182,7 @@ table 376 "G/L Account (Analysis View)"
                                                                          "Budget Name" = field("Budget Filter"),
                                                                          "Business Unit Code" = field("Business Unit Filter"),
                                                                          "G/L Account No." = field("No."),
-                                                                         "G/L Account No." = field(filter(Totaling)),
+                                                                         "G/L Account No." = field(FILTER(Totaling)),
                                                                          "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                          "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                          "Dimension 3 Value Code" = field("Dimension 3 Filter"),
@@ -214,7 +213,7 @@ table 376 "G/L Account (Analysis View)"
                                                                   "Business Unit Code" = field("Business Unit Filter"),
                                                                   "Account No." = field("No."),
                                                                   "Account Source" = field("Account Source"),
-                                                                  "Account No." = field(filter(Totaling)),
+                                                                  "Account No." = field(FILTER(Totaling)),
                                                                   "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                   "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                   "Dimension 3 Value Code" = field("Dimension 3 Filter"),
@@ -233,12 +232,12 @@ table 376 "G/L Account (Analysis View)"
                                                                          "Budget Name" = field("Budget Filter"),
                                                                          "Business Unit Code" = field("Business Unit Filter"),
                                                                          "G/L Account No." = field("No."),
-                                                                         "G/L Account No." = field(filter(Totaling)),
+                                                                         "G/L Account No." = field(FILTER(Totaling)),
                                                                          "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                          "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                          "Dimension 3 Value Code" = field("Dimension 3 Filter"),
                                                                          "Dimension 4 Value Code" = field("Dimension 4 Filter"),
-                                                                         "Posting Date" = field(upperlimit("Date Filter"))));
+                                                                         "Posting Date" = field(UPPERLIMIT("Date Filter"))));
             Caption = 'Budgeted at Date';
             FieldClass = FlowField;
         }
@@ -325,7 +324,7 @@ table 376 "G/L Account (Analysis View)"
                                                                          "Budget Name" = field("Budget Filter"),
                                                                          "Business Unit Code" = field("Business Unit Filter"),
                                                                          "G/L Account No." = field("No."),
-                                                                         "G/L Account No." = field(filter(Totaling)),
+                                                                         "G/L Account No." = field(FILTER(Totaling)),
                                                                          "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                          "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                          "Dimension 3 Value Code" = field("Dimension 3 Filter"),
@@ -344,7 +343,7 @@ table 376 "G/L Account (Analysis View)"
                                                                           "Budget Name" = field("Budget Filter"),
                                                                           "Business Unit Code" = field("Business Unit Filter"),
                                                                           "G/L Account No." = field("No."),
-                                                                          "G/L Account No." = field(filter(Totaling)),
+                                                                          "G/L Account No." = field(FILTER(Totaling)),
                                                                           "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                           "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                           "Dimension 3 Value Code" = field("Dimension 3 Filter"),
@@ -386,7 +385,7 @@ table 376 "G/L Account (Analysis View)"
                                                                                "Business Unit Code" = field("Business Unit Filter"),
                                                                                "Account No." = field("No."),
                                                                                "Account Source" = field("Account Source"),
-                                                                               "Account No." = field(filter(Totaling)),
+                                                                               "Account No." = field(FILTER(Totaling)),
                                                                                "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                                "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                                "Dimension 3 Value Code" = field("Dimension 3 Filter"),
@@ -405,12 +404,12 @@ table 376 "G/L Account (Analysis View)"
                                                                                "Business Unit Code" = field("Business Unit Filter"),
                                                                                "Account No." = field("No."),
                                                                                "Account Source" = field("Account Source"),
-                                                                               "Account No." = field(filter(Totaling)),
+                                                                               "Account No." = field(FILTER(Totaling)),
                                                                                "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                                "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                                "Dimension 3 Value Code" = field("Dimension 3 Filter"),
                                                                                "Dimension 4 Value Code" = field("Dimension 4 Filter"),
-                                                                               "Posting Date" = field(upperlimit("Date Filter")),
+                                                                               "Posting Date" = field(UPPERLIMIT("Date Filter")),
                                                                                "Cash Flow Forecast No." = field("Cash Flow Forecast Filter")));
             Caption = 'Add.-Currency Balance at Date';
             Editable = false;
@@ -424,7 +423,7 @@ table 376 "G/L Account (Analysis View)"
                                                                                "Business Unit Code" = field("Business Unit Filter"),
                                                                                "Account No." = field("No."),
                                                                                "Account Source" = field("Account Source"),
-                                                                               "Account No." = field(filter(Totaling)),
+                                                                               "Account No." = field(FILTER(Totaling)),
                                                                                "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                                "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                                "Dimension 3 Value Code" = field("Dimension 3 Filter"),
@@ -449,7 +448,7 @@ table 376 "G/L Account (Analysis View)"
                                                                                      "Business Unit Code" = field("Business Unit Filter"),
                                                                                      "Account No." = field("No."),
                                                                                      "Account Source" = field("Account Source"),
-                                                                                     "Account No." = field(filter(Totaling)),
+                                                                                     "Account No." = field(FILTER(Totaling)),
                                                                                      "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                                      "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                                      "Dimension 3 Value Code" = field("Dimension 3 Filter"),
@@ -468,7 +467,7 @@ table 376 "G/L Account (Analysis View)"
                                                                                       "Business Unit Code" = field("Business Unit Filter"),
                                                                                       "Account No." = field("No."),
                                                                                       "Account Source" = field("Account Source"),
-                                                                                      "Account No." = field(filter(Totaling)),
+                                                                                      "Account No." = field(FILTER(Totaling)),
                                                                                       "Dimension 1 Value Code" = field("Dimension 1 Filter"),
                                                                                       "Dimension 2 Value Code" = field("Dimension 2 Filter"),
                                                                                       "Dimension 3 Value Code" = field("Dimension 3 Filter"),

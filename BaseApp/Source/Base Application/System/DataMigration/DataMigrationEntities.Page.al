@@ -34,7 +34,7 @@ page 1810 "Data Migration Entities"
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies whether the table will be migrated. If the check box is selected, then the table will be migrated.';
-                    Visible = not HideSelected;
+                    Visible = NOT HideSelected;
                 }
                 field("Table Name"; Rec."Table Name")
                 {

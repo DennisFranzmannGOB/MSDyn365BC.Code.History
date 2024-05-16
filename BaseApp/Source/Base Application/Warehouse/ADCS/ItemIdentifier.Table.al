@@ -8,7 +8,6 @@ table 7704 "Item Identifier"
     DataCaptionFields = "Code", "Item No.";
     DrillDownPageID = "Item Identifiers List";
     LookupPageID = "Item Identifiers List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -16,7 +15,6 @@ table 7704 "Item Identifier"
         {
             Caption = 'Code';
             NotBlank = true;
-            ExtendedDatatype = Barcode;
         }
         field(2; "Item No."; Code[20])
         {

@@ -5,7 +5,6 @@ table 6705 "Booking Staff"
     Caption = 'Booking Staff';
     ExternalName = 'BookingStaff';
     TableType = Exchange;
-    DataClassification = CustomerContent;
 
     fields
     {

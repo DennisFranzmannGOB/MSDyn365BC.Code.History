@@ -217,6 +217,9 @@ codeunit 134560 "Cash Flow Setup Test"
     var
         CashFlowSetup: Record "Cash Flow Setup";
         APIURL: Text[250];
+        APIKey: Text[200];
+        LimitValue: Decimal;
+        UsingStdCreds: Boolean;
     begin
         Initialize();
         // [SCENARIO] Setting an invalid URL on the cash flow setup throws an error
@@ -239,7 +242,7 @@ codeunit 134560 "Cash Flow Setup Test"
     var
         CashFlowSetup: Record "Cash Flow Setup";
         APIURL: Text[250];
-        APIKey: SecretText;
+        APIKey: Text[200];
         LimitValue: Decimal;
         UsingStdCreds: Boolean;
     begin
@@ -254,7 +257,7 @@ codeunit 134560 "Cash Flow Setup Test"
 
         // [THEN] API URL and API Key are empty, Limit is 0
         Assert.AreEqual(APIURL, '', '');
-        Assert.AreEqual(UnwrapSecretText(APIKey), '', '');
+        Assert.AreEqual(APIKey, '', '');
         Assert.AreEqual(LimitValue, 0, '');
     end;
 
@@ -264,7 +267,7 @@ codeunit 134560 "Cash Flow Setup Test"
     var
         CashFlowSetup: Record "Cash Flow Setup";
         APIURL: Text[250];
-        APIKey: SecretText;
+        APIKey: Text[200];
         LimitValue: Decimal;
         APIURLInput: Text[250];
         APIKeyInput: Text[200];
@@ -289,7 +292,7 @@ codeunit 134560 "Cash Flow Setup Test"
     var
         CashFlowSetup: Record "Cash Flow Setup";
         APIURL: Text[250];
-        APIKey: SecretText;
+        APIKey: Text[200];
         LimitValue: Decimal;
         UsingStdCreds: Boolean;
     begin
@@ -314,7 +317,7 @@ codeunit 134560 "Cash Flow Setup Test"
     var
         CashFlowSetup: Record "Cash Flow Setup";
         APIURL: Text[250];
-        APIKey: SecretText;
+        APIKey: Text[200];
         APIURLInput: Text[250];
         APIKeyInput: Text[200];
         LimitValue: Decimal;
@@ -346,10 +349,10 @@ codeunit 134560 "Cash Flow Setup Test"
         CashFlowSetup.Modify(true);
     end;
 
-    local procedure VerifyMLCredentials(APIURL: Text[250]; APIKey: SecretText; LimitValue: Decimal; APIURLInput: Text[250]; APIKeyInput: Text[200]; LimitInput: Decimal)
+    local procedure VerifyMLCredentials(APIURL: Text[250]; APIKey: Text[200]; LimitValue: Decimal; APIURLInput: Text[250]; APIKeyInput: Text[200]; LimitInput: Decimal)
     begin
         Assert.AreEqual(APIURLInput, APIURL, UnexpectedAPIURLTxt);
-        Assert.AreEqual(APIKeyInput, UnwrapSecretText(APIKey), UnexpectedAPIKeyTxt);
+        Assert.AreEqual(APIKeyInput, APIKey, UnexpectedAPIKeyTxt);
         Assert.AreEqual(LimitInput, LimitValue, UnexpectedLimitTxt);
     end;
 
@@ -361,13 +364,6 @@ codeunit 134560 "Cash Flow Setup Test"
         InitializeAccountingPeriods();
 
         IsInitialized := true;
-    end;
-
-    [NonDebuggable]
-    [Scope('OnPrem')]
-    local procedure UnwrapSecretText(SecretTextToUnwrap: SecretText): Text
-    begin
-        exit(SecretTextToUnwrap.Unwrap());
     end;
 }
 

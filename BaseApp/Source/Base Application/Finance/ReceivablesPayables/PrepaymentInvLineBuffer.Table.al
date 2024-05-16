@@ -15,7 +15,6 @@ table 461 "Prepayment Inv. Line Buffer"
 {
     Caption = 'Prepayment Inv. Line Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -134,7 +133,7 @@ table 461 "Prepayment Inv. Line Buffer"
         }
         field(21; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             DataClassification = SystemMetadata;
             TableRelation = Job;
         }
@@ -196,7 +195,7 @@ table 461 "Prepayment Inv. Line Buffer"
         }
         field(1001; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             DataClassification = SystemMetadata;
             TableRelation = "Job Task";
         }

@@ -2,9 +2,7 @@ namespace Microsoft.Bank.Deposit;
 
 using System.Environment;
 using System.Upgrade;
-#if not CLEAN23
 using Microsoft.Finance.GeneralLedger.Setup;
-#endif
 using Microsoft.Foundation.Reporting;
 using System.Reflection;
 using Microsoft.Bank.Reconciliation;
@@ -30,16 +28,12 @@ codeunit 1714 "Upgrade Bank Deposits"
         if UpgradeTag.HasUpgradeTag(UpgTagDefBankDeposits.GetNADepositsUpgradeTag()) then
             exit;
 #if not CLEAN23
-        if FeatureWasAlreadyEnabled() then begin
-            UpgradeTag.SetUpgradeTag(UpgTagDefBankDeposits.GetNADepositsUpgradeTag());
+        if FeatureWasAlreadyEnabled() then
             exit;
-        end;
 #endif
         UpgradeNADepositsIntoBankDeposits();
         UpgradeNABankRecWorksheetsIntoBankReconciliations();
-#if not CLEAN24
         SetDepositsPageMgtPages();
-#endif
         SetReportSelections();
         UpgradeTag.SetUpgradeTag(UpgTagDefBankDeposits.GetNADepositsUpgradeTag());
     end;
@@ -92,7 +86,6 @@ codeunit 1714 "Upgrade Bank Deposits"
         end;
     end;
 
-#if not CLEAN24
     local procedure SetDepositsPageMgtPages()
     var
         DepositsPageMgt: Codeunit "Deposits Page Mgt.";
@@ -104,7 +97,6 @@ codeunit 1714 "Upgrade Bank Deposits"
         DepositsPageMgt.SetSetupKey(Enum::"Deposits Page Setup Key"::DepositTestReport, Report::"Bank Deposit Test Report");
         DepositsPageMgt.SetSetupKey(Enum::"Deposits Page Setup Key"::PostedBankDepositListPage, Page::"Posted Bank Deposit List");
     end;
-#endif
 
     local procedure UpgradeNADepositsIntoBankDeposits()
     var

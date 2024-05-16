@@ -21,7 +21,8 @@ codeunit 137906 "SCM Assembly Availability"
         LibraryInventory: Codeunit "Library - Inventory";
         LibraryManufacturing: Codeunit "Library - Manufacturing";
         LibraryWarehouse: Codeunit "Library - Warehouse";
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
+        LibraryUtility: Codeunit "Library - Utility";
+        LibraryRandom: Codeunit "Library - Random";
         DummyAssemblyOrderTestPage: TestPage "Assembly Order";
         LastEntryNo: Integer;
         WorkDate2: Date;
@@ -42,7 +43,7 @@ codeunit 137906 "SCM Assembly Availability"
     end;
 
     [Test]
-    [HandlerFunctions('IsBeforeWorkDateMsgHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,IsBeforeWorkDateMsgHandler')]
     [Scope('OnPrem')]
     procedure BUG231289Availabilitydateblank()
     var
@@ -81,7 +82,6 @@ codeunit 137906 "SCM Assembly Availability"
         ValidateQtyAvailableToMake(AssemblyHeader, 1);
         ValidateEarliestDate(AssemblyHeader, ExpectedDate);
         ValidateOrderRatio(AssemblyHeader, 1);
-        NotificationLifecycleMgt.RecallAllNotifications();
         asserterror Error('') // roll back
     end;
 
@@ -120,6 +120,7 @@ codeunit 137906 "SCM Assembly Availability"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure TestRemainingOnLineforOne()
     var
@@ -136,17 +137,17 @@ codeunit 137906 "SCM Assembly Availability"
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parentItem."No.", BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
 
-        AssemblyHeader.RefreshBOM();
+        AssemblyHeader.RefreshBOM;
         AssemblyLine.SetRange("Document Type", AssemblyLine."Document Type"::Order);
         AssemblyLine.SetRange("Document No.", AssemblyHeader."No.");
         AssemblyLine.FindFirst();
         ValidateremainingQty(AssemblyLine, 1);
         ValidateremainingQtyBase(AssemblyLine, 1);
-        NotificationLifecycleMgt.RecallAllNotifications();
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure TestCalcFieldsForOrderAndLine()
     var
@@ -169,12 +170,11 @@ codeunit 137906 "SCM Assembly Availability"
 
         ValidateInItemOnOrder(parentItem."No.", QTYParent);
         ValidateInItemOnComponents(childItem."No.", QTYParent * QTYChild);
-        NotificationLifecycleMgt.RecallAllNotifications();
         asserterror Error('') // roll back
     end;
 
     [Test]
-    [HandlerFunctions('UpdateLocationHandler')]
+    [HandlerFunctions('UpdateLocationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure TestCalcFieldsForOrderLocation()
     var
@@ -212,12 +212,11 @@ codeunit 137906 "SCM Assembly Availability"
         AssemblyLine.Validate("Location Code", Location.Code);
         ValidateInItemOnCompLocation(childItem."No.", QTYParent * QTYChild, Location.Code);
         ValidateInItemOnCompLocation(childItem."No.", 0, otherLocation.Code);
-        NotificationLifecycleMgt.RecallAllNotifications();
         asserterror Error('') // roll back
     end;
 
     [Test]
-    [HandlerFunctions('IsBeforeWorkDateMsgHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,IsBeforeWorkDateMsgHandler')]
     [Scope('OnPrem')]
     procedure TestAvailablilty()
     var
@@ -251,12 +250,11 @@ codeunit 137906 "SCM Assembly Availability"
         ValidateOrderAvailability(AssemblyHeader, true);
         MockSalesOrder(childItem."No.", 7, AssemblyHeader."Location Code", DMY2Date(1, 1, 2010));
         ValidateOrderAvailability(AssemblyHeader, false);
-        NotificationLifecycleMgt.RecallAllNotifications();
         asserterror Error('') // roll back
     end;
 
     [Test]
-    [HandlerFunctions('IsBeforeWorkDateMsgHandler,SendNotificationHandler,RecallNotificationHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,IsBeforeWorkDateMsgHandler,SendNotificationHandler,RecallNotificationHandler')]
     [Scope('OnPrem')]
     procedure TestAvailabilityWarning()
     var
@@ -291,7 +289,7 @@ codeunit 137906 "SCM Assembly Availability"
         AssemblyLine.SetRange("Document Type", AssemblyLine."Document Type"::Order);
         AssemblyLine.SetRange("Document No.", AssemblyHeader."No.");
         AssemblyLine.FindFirst();
-        AssemblyLine.ShowAvailabilityWarning();
+        AssemblyLine.ShowAvailabilityWarning;
 
         // WHEN we decrease the quantity so the item is available (0 items ordered)
         NotificationLifecycleMgt.GetTmpNotificationContext(TempNotificationContext);
@@ -333,7 +331,7 @@ codeunit 137906 "SCM Assembly Availability"
     end;
 
     [Test]
-    [HandlerFunctions('IsBeforeWorkDateMsgHandler,SendNotificationHandler,RecallNotificationHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,IsBeforeWorkDateMsgHandler,SendNotificationHandler,RecallNotificationHandler')]
     [Scope('OnPrem')]
     procedure TestAvailabilityWarningFields()
     var
@@ -389,7 +387,7 @@ codeunit 137906 "SCM Assembly Availability"
     end;
 
     [Test]
-    [HandlerFunctions('IsBeforeWorkDateMsgHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,IsBeforeWorkDateMsgHandler')]
     [Scope('OnPrem')]
     procedure TestAvailabilityFields()
     var
@@ -434,11 +432,11 @@ codeunit 137906 "SCM Assembly Availability"
         ValidateQtyAvailableToMake(AssemblyHeader, 4);
         ValidateEarliestDate(AssemblyHeader, CalcDate(MfgSetup."Default Safety Lead Time", ExpectedDate));
         ValidateOrderRatio(AssemblyHeader, 4);
-        NotificationLifecycleMgt.RecallAllNotifications();
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure TestRatioUOM()
     var
@@ -467,7 +465,6 @@ codeunit 137906 "SCM Assembly Availability"
         MockItemLedgerEntry(ChildItem."No.", 5, AssemblyHeader."Location Code", DMY2Date(1, 1, 2008));
 
         ValidateOrderRatio(AssemblyHeader, 0.25);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
@@ -501,11 +498,11 @@ codeunit 137906 "SCM Assembly Availability"
         LibraryInventory.CreateItemJournalLineInItemTemplate(ItemJournalLine, CompItem."No.", '', '', 2);
         LibraryInventory.PostItemJournalLine(ItemJournalLine."Journal Template Name", ItemJournalLine."Journal Batch Name");
 
-        // [GIVEN] Assembly order for 1 pc on WorkDate() + 1. Assembly line = "A1".
+        // [GIVEN] Assembly order for 1 pc on WORKDATE + 1. Assembly line = "A1".
         LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, WorkDate() + 1, AsmItem."No.", '', 1, '');
         FindAssemblyLine(AssemblyLine[1], AssemblyHeader, CompItem."No.");
 
-        // [GIVEN] Assembly order for 1 pc on WorkDate() + 2. Assembly line = "A2".
+        // [GIVEN] Assembly order for 1 pc on WORKDATE + 2. Assembly line = "A2".
         LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, WorkDate() + 2, AsmItem."No.", '', 1, '');
         FindAssemblyLine(AssemblyLine[2], AssemblyHeader, CompItem."No.");
 
@@ -576,7 +573,7 @@ codeunit 137906 "SCM Assembly Availability"
         DummyAssemblyHeader: Record "Assembly Header";
     begin
         // Method Opens assembly order page for the assembly order no.
-        AssemblyOrderToReturn.OpenEdit();
+        AssemblyOrderToReturn.OpenEdit;
         Assert.IsTrue(
           AssemblyOrderToReturn.GotoKey(DummyAssemblyHeader."Document Type"::Order, AssemblyOrderNoToFind),
           'Unable to locate assembly order with order no');
@@ -590,6 +587,13 @@ codeunit 137906 "SCM Assembly Availability"
         Item.FindFirst();
         Item.Validate(Inventory, Quantity);
         Item.Modify();
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure AvailabilityWindowHandler(var AsmAvailability: Page "Assembly Availability"; var Response: Action)
+    begin
+        Response := ACTION::Yes; // always confirm
     end;
 
     local procedure ValidateOrderRatio(AsmHeader: Record "Assembly Header"; ExpectedAvailable: Decimal)

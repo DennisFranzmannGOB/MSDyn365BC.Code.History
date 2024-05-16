@@ -8,7 +8,6 @@ table 7327 "Whse. Worksheet Name"
     Caption = 'Whse. Worksheet Name';
     DataCaptionFields = Name, Description, "Location Code";
     LookupPageID = "Worksheet Names List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -33,7 +32,7 @@ table 7327 "Whse. Worksheet Name"
         }
         field(21; "Template Type"; Enum "Warehouse Worksheet Template Type")
         {
-            CalcFormula = lookup("Whse. Worksheet Template".Type where(Name = field("Worksheet Template Name")));
+            CalcFormula = Lookup("Whse. Worksheet Template".Type where(Name = field("Worksheet Template Name")));
             Caption = 'Template Type';
             Editable = false;
             FieldClass = FlowField;

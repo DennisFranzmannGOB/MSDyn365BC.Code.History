@@ -3,7 +3,6 @@ namespace System.Integration.PowerBI;
 using System.Environment;
 using System.Telemetry;
 using System.Utilities;
-using System.Integration;
 
 page 6325 "Power BI Embedded Report Part"
 {
@@ -92,17 +91,17 @@ page 6325 "Power BI Embedded Report Part"
                 ShowCaption = false;
                 Visible = PageState = PageState::ElementVisible;
 
-                usercontrol(WebReportViewer; WebPageViewer)
+                usercontrol(WebReportViewer; "Microsoft.Dynamics.Nav.Client.WebPageViewer")
                 {
                     ApplicationArea = All;
                     Visible = false;
                 }
 
-                usercontrol(PowerBIAddin; PowerBIManagement)
+                usercontrol(PowerBIAddin; "Microsoft.Dynamics.Nav.Client.PowerBIManagement")
                 {
                     ApplicationArea = All;
 
-                    trigger ControlAddInReady()
+                    trigger AddInReady()
                     begin
                         AddInReady := true;
                         if not (ClientTypeManagement.GetCurrentClientType() in [ClientType::Phone, ClientType::Windows]) then begin

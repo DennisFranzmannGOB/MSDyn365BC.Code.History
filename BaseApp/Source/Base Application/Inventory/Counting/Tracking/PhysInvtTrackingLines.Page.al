@@ -1,4 +1,3 @@
-#if not CLEAN24
 namespace Microsoft.Inventory.Counting.Tracking;
 
 page 5899 "Phys. Invt. Tracking Lines"
@@ -7,9 +6,6 @@ page 5899 "Phys. Invt. Tracking Lines"
     Editable = false;
     PageType = List;
     SourceTable = "Phys. Invt. Tracking";
-    ObsoleteReason = 'Replaced by page 6029 "Invt.Order.Tracking.Lines"';
-    ObsoleteState = Pending;
-    ObsoleteTag = '24.0';
 
     layout
     {
@@ -81,4 +77,4 @@ page 5899 "Phys. Invt. Tracking Lines"
             until PhysInvtTracking.Next() = 0;
     end;
 }
-#endif
+

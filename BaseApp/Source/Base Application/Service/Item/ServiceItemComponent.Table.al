@@ -10,7 +10,6 @@ table 5941 "Service Item Component"
     Caption = 'Service Item Component';
     DrillDownPageID = "Service Item Component List";
     LookupPageID = "Service Item Component List";
-    DataClassification = CustomerContent;
 
     fields
     {

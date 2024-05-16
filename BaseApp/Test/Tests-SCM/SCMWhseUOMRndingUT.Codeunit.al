@@ -406,6 +406,8 @@ codeunit 137057 "SCM Whse. UOM Rnding. UT"
         BaseItemUnitOfMeasure: Record "Item Unit of Measure";
         NonBaseItemUnitOfMeasure: Record "Item Unit of Measure";
         Item: Record Item;
+        Bin: Record Bin;
+        WarehouseJournalBatch: Record "Warehouse Journal Batch";
         NonBaseQtyPerUOM: Decimal;
         BaseQtyRoundingPrecision: Decimal;
     begin
@@ -437,6 +439,8 @@ codeunit 137057 "SCM Whse. UOM Rnding. UT"
         BaseItemUnitOfMeasure: Record "Item Unit of Measure";
         NonBaseItemUnitOfMeasure: Record "Item Unit of Measure";
         Item: Record Item;
+        Bin: Record Bin;
+        WarehouseJournalBatch: Record "Warehouse Journal Batch";
         NonBaseQtyPerUOM: Decimal;
         BaseQtyRoundingPrecision: Decimal;
     begin
@@ -468,6 +472,8 @@ codeunit 137057 "SCM Whse. UOM Rnding. UT"
         BaseItemUnitOfMeasure: Record "Item Unit of Measure";
         NonBaseItemUnitOfMeasure: Record "Item Unit of Measure";
         Item: Record Item;
+        Bin: Record Bin;
+        WarehouseJournalBatch: Record "Warehouse Journal Batch";
         NonBaseQtyPerUOM: Decimal;
         BaseQtyRoundingPrecision: Decimal;
         InputQty: Integer;
@@ -720,6 +726,6 @@ codeunit 137057 "SCM Whse. UOM Rnding. UT"
         WarehouseShipmentLine."Source No." := SalesLine."Document No.";
         WarehouseShipmentLine."Source Line No." := SalesLine."Line No.";
         WarehouseShipmentLine."Item No." := ItemNo;
-        WarehouseShipmentLine.Validate(Quantity, NonBaseQtyPerUOM);
+        WarehouseShipmentLine.Validate(Quantity, SalesLine.Quantity);
     end;
 }

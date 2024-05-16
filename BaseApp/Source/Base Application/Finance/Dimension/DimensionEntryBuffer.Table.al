@@ -4,7 +4,6 @@ table 373 "Dimension Entry Buffer"
 {
     Caption = 'Dimension Entry Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

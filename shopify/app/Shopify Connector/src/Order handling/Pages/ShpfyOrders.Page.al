@@ -209,7 +209,7 @@ page 30115 "Shpfy Orders"
     {
         area(processing)
         {
-            action(DeleteSelected)
+            Action(DeleteSelected)
             {
                 ApplicationArea = All;
                 Caption = 'Delete Selected Rows';
@@ -228,7 +228,7 @@ page 30115 "Shpfy Orders"
                     OrderHeader.DeleteAll(true);
                 end;
             }
-            action(SyncOrdersFromShopify)
+            Action(SyncOrdersFromShopify)
             {
                 ApplicationArea = All;
                 Caption = 'Sync Orders From Shopify';
@@ -251,7 +251,7 @@ page 30115 "Shpfy Orders"
                     BackgroundSyncs.OrderSync(Shop);
                 end;
             }
-            action(CreateSalesDocuments)
+            Action(CreateSalesDocuments)
             {
                 ApplicationArea = All;
                 Caption = 'Create Sales Documents';
@@ -308,7 +308,7 @@ page 30115 "Shpfy Orders"
                     RunPageMode = View;
                     ToolTip = 'View the level and message that indicates the results of the fraud check.';
                 }
-                action(SalesOrder)
+                Action(SalesOrder)
                 {
                     ApplicationArea = All;
                     Caption = 'Sales Order';
@@ -330,7 +330,7 @@ page 30115 "Shpfy Orders"
                         SalesOrder.Run();
                     end;
                 }
-                action(SalesInvoice)
+                Action(SalesInvoice)
                 {
                     ApplicationArea = All;
                     Caption = 'Sales Invoice';
@@ -352,7 +352,7 @@ page 30115 "Shpfy Orders"
                         SalesOrder.Run();
                     end;
                 }
-                action(ShopifyStatusPage)
+                Action(ShopifyStatusPage)
                 {
                     ApplicationArea = All;
                     Caption = 'Shopify Status Page';

@@ -20,7 +20,6 @@ using Microsoft.Service.Document;
 table 846 "Cash Flow Worksheet Line"
 {
     Caption = 'Cash Flow Worksheet Line';
-    DataClassification = CustomerContent;
 
     fields
     {

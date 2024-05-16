@@ -14,7 +14,6 @@ using System.Security.AccessControl;
 table 1104 "Cost Entry"
 {
     Caption = 'Cost Entry';
-    DataClassification = CustomerContent;
     DrillDownPageID = "Cost Entries";
     LookupPageID = "Cost Entries";
 

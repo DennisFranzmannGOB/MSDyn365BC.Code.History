@@ -777,8 +777,8 @@ report 407 "Purchase - Credit Memo"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 FormatAddressFields("Purch. Cr. Memo Hdr.");
@@ -898,6 +898,7 @@ report 407 "Purchase - Credit Memo"
         Text003: Label '(Applies to %1 %2)';
         Text005: Label 'Purchase - Credit Memo %1', Comment = '%1 = Document No.';
         GLSetup: Record "General Ledger Setup";
+        CompanyInfo: Record "Company Information";
         SalesPurchPerson: Record "Salesperson/Purchaser";
         TempVATAmountLine: Record "VAT Amount Line" temporary;
         DimSetEntry1: Record "Dimension Set Entry";
@@ -906,7 +907,7 @@ report 407 "Purchase - Credit Memo"
         CurrExchRate: Record "Currency Exchange Rate";
         BuyFromContact: Record Contact;
         PayToContact: Record Contact;
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;
@@ -988,10 +989,8 @@ report 407 "Purchase - Credit Memo"
         PayToContactPhoneNoLbl: Label 'Pay-to Contact Phone No.';
         PayToContactMobilePhoneNoLbl: Label 'Pay-to Contact Mobile Phone No.';
         PayToContactEmailLbl: Label 'Pay-to Contact E-Mail';
-
-    protected var
-        CompanyInfo: Record "Company Information";
 #if not CLEAN24
+    protected var
         [Obsolete('The code has been moved to the Iceland Core App.', '24.0')]
         ISCoreAppSetup: Record "IS Core App Setup";
         [Obsolete('The code has been moved to the Iceland Core App.', '24.0')]
@@ -1003,7 +1002,6 @@ report 407 "Purchase - Credit Memo"
         [Obsolete('The code has been moved to the Iceland Core App.', '24.0')]
         IsISCoreAppEnabled: Boolean;
 #endif
-
     procedure InitLogInteraction()
     begin
         LogInteraction := SegManagement.FindInteractionTemplateCode(Enum::"Interaction Log Entry Document Type"::"Purch. Cr. Memo") <> '';
@@ -1034,6 +1032,7 @@ report 407 "Purchase - Credit Memo"
         LogInteraction := NewLogInteraction;
     end;
 
+
     local procedure IsReportInPreviewMode(): Boolean
     var
         MailManagement: Codeunit "Mail Management";
@@ -1050,23 +1049,25 @@ report 407 "Purchase - Credit Memo"
 
     local procedure FormatDocumentFields(PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.")
     begin
-        FormatDocument.SetTotalLabels(PurchCrMemoHdr."Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
-        FormatDocument.SetPurchaser(SalesPurchPerson, PurchCrMemoHdr."Purchaser Code", PurchaserText);
+        with PurchCrMemoHdr do begin
+            FormatDocument.SetTotalLabels("Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
+            FormatDocument.SetPurchaser(SalesPurchPerson, "Purchaser Code", PurchaserText);
 
-        ReturnOrderNoText := FormatDocument.SetText(PurchCrMemoHdr."Return Order No." <> '', PurchCrMemoHdr.FieldCaption("Return Order No."));
-        ReferenceText := FormatDocument.SetText(PurchCrMemoHdr."Your Reference" <> '', PurchCrMemoHdr.FieldCaption("Your Reference"));
-        VATNoText := FormatDocument.SetText(PurchCrMemoHdr."VAT Registration No." <> '', PurchCrMemoHdr.FieldCaption("VAT Registration No."));
-        AppliedToText :=
-          FormatDocument.SetText(
-            PurchCrMemoHdr."Applies-to Doc. No." <> '', Format(StrSubstNo(Text003, Format(PurchCrMemoHdr."Applies-to Doc. Type"), PurchCrMemoHdr."Applies-to Doc. No.")));
+            ReturnOrderNoText := FormatDocument.SetText("Return Order No." <> '', FieldCaption("Return Order No."));
+            ReferenceText := FormatDocument.SetText("Your Reference" <> '', FieldCaption("Your Reference"));
+            VATNoText := FormatDocument.SetText("VAT Registration No." <> '', FieldCaption("VAT Registration No."));
+            AppliedToText :=
+              FormatDocument.SetText(
+                "Applies-to Doc. No." <> '', Format(StrSubstNo(Text003, Format("Applies-to Doc. Type"), "Applies-to Doc. No.")));
+        end;
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterInitReport()
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterPostDataItem(var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.")
     begin
     end;

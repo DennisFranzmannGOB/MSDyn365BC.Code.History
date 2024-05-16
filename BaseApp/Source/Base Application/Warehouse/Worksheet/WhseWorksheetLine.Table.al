@@ -28,7 +28,6 @@ using System.Telemetry;
 table 7326 "Whse. Worksheet Line"
 {
     Caption = 'Whse. Worksheet Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -567,8 +566,6 @@ table 7326 "Whse. Worksheet Line"
 
     fieldgroups
     {
-        fieldgroup(Brick; "Item No.", Description, Quantity, "Source No.", "Due Date")
-        { }
     }
 
     trigger OnDelete()
@@ -639,38 +636,42 @@ table 7326 "Whse. Worksheet Line"
     var
         NotEnough: Boolean;
     begin
-        NotEnough := false;
-        WhseWkshLine.SetHideValidationDialog(true);
-        WhseWkshLine.LockTable();
-        if WhseWkshLine.Find('-') then
-            repeat
-                if WhseWkshLine."Qty. to Handle" <> WhseWkshLine."Qty. Outstanding" then begin
-                    WhseWkshLine.Validate(WhseWkshLine."Qty. to Handle", WhseWkshLine."Qty. Outstanding");
-                    if WhseWkshLine."Qty. to Handle" <> xRec."Qty. to Handle" then begin
-                        OnAutofillQtyToHandleOnbeforeModify(WhseWkshLine);
-                        WhseWkshLine.Modify();
-                        if not NotEnough then
-                            if WhseWkshLine."Qty. to Handle" < WhseWkshLine."Qty. Outstanding" then
-                                NotEnough := true;
+        with WhseWkshLine do begin
+            NotEnough := false;
+            SetHideValidationDialog(true);
+            LockTable();
+            if Find('-') then
+                repeat
+                    if "Qty. to Handle" <> "Qty. Outstanding" then begin
+                        Validate("Qty. to Handle", "Qty. Outstanding");
+                        if "Qty. to Handle" <> xRec."Qty. to Handle" then begin
+                            OnAutofillQtyToHandleOnbeforeModify(WhseWkshLine);
+                            Modify();
+                            if not NotEnough then
+                                if "Qty. to Handle" < "Qty. Outstanding" then
+                                    NotEnough := true;
+                        end;
                     end;
-                end;
-            until WhseWkshLine.Next() = 0;
-        WhseWkshLine.SetHideValidationDialog(false);
-        if NotEnough then
-            Message(Text011);
+                until Next() = 0;
+            SetHideValidationDialog(false);
+            if NotEnough then
+                Message(Text011);
+        end;
 
         OnAfterAutofillQtyToHandle(WhseWkshLine);
     end;
 
     procedure DeleteQtyToHandle(var WhseWkshLine: Record "Whse. Worksheet Line")
     begin
-        WhseWkshLine.LockTable();
-        if WhseWkshLine.Find('-') then
-            repeat
-                WhseWkshLine.Validate(WhseWkshLine."Qty. to Handle", 0);
-                WhseWkshLine.OnDeleteQtyToHandleOnBeforeModify(WhseWkshLine);
-                WhseWkshLine.Modify();
-            until WhseWkshLine.Next() = 0;
+        with WhseWkshLine do begin
+            LockTable();
+            if Find('-') then
+                repeat
+                    Validate("Qty. to Handle", 0);
+                    OnDeleteQtyToHandleOnBeforeModify(WhseWkshLine);
+                    Modify();
+                until Next() = 0;
+        end;
     end;
 
     procedure AssignedQtyOnReservedLines(): Decimal
@@ -1114,7 +1115,7 @@ table 7326 "Whse. Worksheet Line"
             for WhseWkshTemplate.Type := WhseWkshTemplate.Type::"Put-away" to WhseWkshTemplate.Type::Movement do begin
                 WhseWkshTemplate.SetRange(Type, WhseWkshTemplate.Type);
                 if not WhseWkshTemplate.FindFirst() then
-                    TemplateSelection(0, WhseWkshTemplate.Type.AsInteger(), WhseWkshLine, JnlSelected);
+                    TemplateSelection(0, WhseWkshTemplate.Type, WhseWkshLine, JnlSelected);
                 if WhseWkshTemplate.FindFirst() then begin
                     if WhseWkshName."Location Code" = '' then
                         WhseWkshName."Location Code" := WmsMgt.GetDefaultLocation();

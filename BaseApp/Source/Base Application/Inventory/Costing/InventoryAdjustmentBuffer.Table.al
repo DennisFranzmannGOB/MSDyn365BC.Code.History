@@ -11,7 +11,6 @@ table 5895 "Inventory Adjustment Buffer"
 {
     Caption = 'Inventory Adjustment Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

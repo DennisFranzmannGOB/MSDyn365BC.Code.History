@@ -4,7 +4,6 @@ table 5641 "FA Buffer Projection"
 {
     Caption = 'FA Buffer Projection';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

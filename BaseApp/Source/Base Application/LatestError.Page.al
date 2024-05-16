@@ -48,7 +48,7 @@ page 9180 "Latest Error"
                 {
                     InstructionalText = 'No errors have occurred since you last logged in';
                     ShowCaption = false;
-                    Visible = not ErrorOccurred;
+                    Visible = NOT ErrorOccurred;
                 }
             }
         }

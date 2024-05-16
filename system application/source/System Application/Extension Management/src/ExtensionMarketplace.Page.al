@@ -1,4 +1,3 @@
-#if not CLEAN24
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
@@ -8,7 +7,6 @@ namespace System.Apps;
 
 using System;
 using System.Utilities;
-using System.Integration;
 
 /// <summary>
 /// Shows the Extension Marketplace.
@@ -21,15 +19,12 @@ page 2502 "Extension Marketplace"
     ApplicationArea = All;
     UsageCategory = Administration;
     Editable = false;
-    ObsoleteState = Pending;
-    ObsoleteReason = 'This page will be obsoleted. Microsoft AppSource apps feature will replace the Extension Marketplace.';
-    ObsoleteTag = '24.0';
 
     layout
     {
         area(Content)
         {
-            usercontrol(Marketplace; WebPageViewer)
+            usercontrol(Marketplace; WebPageViewerExtMgmt)
             {
                 ApplicationArea = Basic, Suite;
                 trigger ControlAddInReady(callbackUrl: Text)
@@ -113,4 +108,4 @@ page 2502 "Extension Marketplace"
         TelemetryUrl: Text;
         AppsourceUrl: Text;
 }
-#endif
+

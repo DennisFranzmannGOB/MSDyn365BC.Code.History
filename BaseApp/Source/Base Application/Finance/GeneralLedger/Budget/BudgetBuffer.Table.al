@@ -6,7 +6,6 @@ table 371 "Budget Buffer"
 {
     Caption = 'Budget Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

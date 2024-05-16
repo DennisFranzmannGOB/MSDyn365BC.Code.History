@@ -76,17 +76,19 @@ codeunit 5616 "Depreciation Calculation"
 
     procedure SetFAFilter(var FALedgEntry: Record "FA Ledger Entry"; FANo: Code[20]; DeprBookCode: Code[10]; FAPostingTypeOrder: Boolean)
     begin
-        FALedgEntry.Reset();
-        if FAPostingTypeOrder then begin
-            FALedgEntry.SetCurrentKey(
-              "FA No.", "Depreciation Book Code",
-              "FA Posting Category", "FA Posting Type", "FA Posting Date");
-            FALedgEntry.SetRange("FA Posting Category", FALedgEntry."FA Posting Category"::" ");
-        end else
-            FALedgEntry.SetCurrentKey("FA No.", "Depreciation Book Code", "FA Posting Date");
-        FALedgEntry.SetRange("FA No.", FANo);
-        FALedgEntry.SetRange("Depreciation Book Code", DeprBookCode);
-        FALedgEntry.SetRange(Reversed, false);
+        with FALedgEntry do begin
+            Reset();
+            if FAPostingTypeOrder then begin
+                SetCurrentKey(
+                  "FA No.", "Depreciation Book Code",
+                  "FA Posting Category", "FA Posting Type", "FA Posting Date");
+                SetRange("FA Posting Category", "FA Posting Category"::" ");
+            end else
+                SetCurrentKey("FA No.", "Depreciation Book Code", "FA Posting Date");
+            SetRange("FA No.", FANo);
+            SetRange("Depreciation Book Code", DeprBookCode);
+            SetRange(Reversed, false);
+        end;
 
         OnAfterSetFAFilter(FALedgEntry);
     end;
@@ -98,23 +100,25 @@ codeunit 5616 "Depreciation Calculation"
     begin
         if EndingDate = 0D then
             EndingDate := DMY2Date(31, 12, 9999);
-        SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
-        FALedgEntry.SetRange("FA Posting Date", StartingDate, EndingDate);
-        FALedgEntry.SetRange("Part of Book Value", true);
-        for I := 1 to 4 do begin
-            case I of
-                1:
-                    FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Write-Down");
-                2:
-                    FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::Appreciation);
-                3:
-                    FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Custom 1");
-                4:
-                    FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Custom 2");
+        with FALedgEntry do begin
+            SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
+            SetRange("FA Posting Date", StartingDate, EndingDate);
+            SetRange("Part of Book Value", true);
+            for I := 1 to 4 do begin
+                case I of
+                    1:
+                        SetRange("FA Posting Type", "FA Posting Type"::"Write-Down");
+                    2:
+                        SetRange("FA Posting Type", "FA Posting Type"::Appreciation);
+                    3:
+                        SetRange("FA Posting Type", "FA Posting Type"::"Custom 1");
+                    4:
+                        SetRange("FA Posting Type", "FA Posting Type"::"Custom 2");
+                end;
+                OnCalcEntryAmountsOnAfterSetFALedgEntryFilters(FALedgEntry, I);
+                CalcSums(Amount);
+                EntryAmounts[I] := Amount;
             end;
-            OnCalcEntryAmountsOnAfterSetFALedgEntryFilters(FALedgEntry, I);
-            FALedgEntry.CalcSums(Amount);
-            EntryAmounts[I] := FALedgEntry.Amount;
         end;
     end;
 
@@ -124,25 +128,27 @@ codeunit 5616 "Depreciation Calculation"
         i: Integer;
     begin
         Clear(EntryDates);
-        SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
-        for i := 1 to 4 do begin
-            case i of
-                1:
-                    FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Write-Down");
-                2:
-                    FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::Appreciation);
-                3:
-                    FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Custom 1");
-                4:
-                    FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Custom 2");
+        with FALedgEntry do begin
+            SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
+            for i := 1 to 4 do begin
+                case i of
+                    1:
+                        SetRange("FA Posting Type", "FA Posting Type"::"Write-Down");
+                    2:
+                        SetRange("FA Posting Type", "FA Posting Type"::Appreciation);
+                    3:
+                        SetRange("FA Posting Type", "FA Posting Type"::"Custom 1");
+                    4:
+                        SetRange("FA Posting Type", "FA Posting Type"::"Custom 2");
+                end;
+                if GetPartOfCalculation(0, i - 1, DeprBookCode) then
+                    if Find('-') then
+                        repeat
+                            if "Part of Book Value" or "Part of Depreciable Basis" then
+                                if "FA Posting Date" > EntryDates[i] then
+                                    EntryDates[i] := CheckEntryDate(FALedgEntry, "FA Ledger Entry FA Posting Type".FromInteger(i - 1));
+                        until Next() = 0;
             end;
-            if GetPartOfCalculation(0, i - 1, DeprBookCode) then
-                if FALedgEntry.Find('-') then
-                    repeat
-                        if FALedgEntry."Part of Book Value" or FALedgEntry."Part of Depreciable Basis" then
-                            if FALedgEntry."FA Posting Date" > EntryDates[i] then
-                                EntryDates[i] := CheckEntryDate(FALedgEntry, "FA Ledger Entry FA Posting Type".FromInteger(i - 1));
-                    until FALedgEntry.Next() = 0;
         end;
     end;
 
@@ -182,21 +188,23 @@ codeunit 5616 "Depreciation Calculation"
         if IsHandled then
             exit(LocalDate);
 
-        SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
-        FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Acquisition Cost");
-        if FALedgEntry.FindLast() then
-            if FALedgEntry."FA Posting Date" > LocalDate then
-                LocalDate := FALedgEntry."FA Posting Date";
-        FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Salvage Value");
-        if FALedgEntry.FindLast() then
-            if FALedgEntry."FA Posting Date" > LocalDate then
-                LocalDate := FALedgEntry."FA Posting Date";
-        FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::Depreciation);
-        if FALedgEntry.FindLast() then
-            if ToMorrow(FALedgEntry."FA Posting Date", Year365Days) > LocalDate then
-                LocalDate := ToMorrow(FALedgEntry."FA Posting Date", Year365Days);
-        GetLastEntryDates(FANo, DeprBookCode, EntryDates);
-        FindMaxDate(FALedgEntry, EntryDates, LocalDate, Year365Days);
+        with FALedgEntry do begin
+            SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
+            SetRange("FA Posting Type", "FA Posting Type"::"Acquisition Cost");
+            if FindLast() then
+                if "FA Posting Date" > LocalDate then
+                    LocalDate := "FA Posting Date";
+            SetRange("FA Posting Type", "FA Posting Type"::"Salvage Value");
+            if FindLast() then
+                if "FA Posting Date" > LocalDate then
+                    LocalDate := "FA Posting Date";
+            SetRange("FA Posting Type", "FA Posting Type"::Depreciation);
+            if FindLast() then
+                if ToMorrow("FA Posting Date", Year365Days) > LocalDate then
+                    LocalDate := ToMorrow("FA Posting Date", Year365Days);
+            GetLastEntryDates(FANo, DeprBookCode, EntryDates);
+            FindMaxDate(FALedgEntry, EntryDates, LocalDate, Year365Days);
+        end;
         exit(LocalDate);
     end;
 
@@ -358,44 +366,48 @@ codeunit 5616 "Depreciation Calculation"
         DeprBook: Record "Depreciation Book";
         IsHandled: Boolean;
     begin
-        DeprBook.Get(DeprBookCode);
+        with DeprBook do begin
+            Get(DeprBookCode);
 
-        IsHandled := false;
-        OnBeforeCalcRounding(DeprBook, DeprAmount, IsHandled);
-        if IsHandled then
-            exit(DeprAmount);
+            IsHandled := false;
+            OnBeforeCalcRounding(DeprBook, DeprAmount, IsHandled);
+            if IsHandled then
+                exit(DeprAmount);
 
-        if DeprBook."Use Rounding in Periodic Depr." then
-            exit(Round(DeprAmount, 1));
+            if "Use Rounding in Periodic Depr." then
+                exit(Round(DeprAmount, 1));
 
-        exit(Round(DeprAmount));
+            exit(Round(DeprAmount));
+        end;
     end;
 
     procedure CalculateDeprInPeriod(FANo: Code[20]; DeprBookCode: Code[10]; EndingDate: Date; CalculatedDepr: Decimal; Sign: Integer; var NewBookValue: Decimal; var DeprBasis: Decimal; var SalvageValue: Decimal; var MinusBookValue: Decimal)
     var
         FALedgEntry: Record "FA Ledger Entry";
     begin
-        FALedgEntry.SetCurrentKey("FA No.", "Depreciation Book Code", "Part of Book Value", "FA Posting Date");
-        FALedgEntry.SetRange("Depreciation Book Code", DeprBookCode);
-        FALedgEntry.SetRange("FA No.", FANo);
-        FALedgEntry.SetRange("FA Posting Date", 0D, EndingDate);
-        FALedgEntry.SetRange("Part of Book Value", true);
-        FALedgEntry.CalcSums(Amount);
-        NewBookValue := Sign * FALedgEntry.Amount + CalculatedDepr;
-        FALedgEntry.SetRange("Part of Book Value");
-        FALedgEntry.SetCurrentKey("FA No.", "Depreciation Book Code", "Part of Depreciable Basis", "FA Posting Date");
-        FALedgEntry.SetRange("Part of Depreciable Basis", true);
-        FALedgEntry.CalcSums(Amount);
-        DeprBasis := Sign * FALedgEntry.Amount;
-        FALedgEntry.SetRange("Part of Depreciable Basis");
-        FALedgEntry.SetCurrentKey(
-          "FA No.", "Depreciation Book Code",
-          "FA Posting Category", "FA Posting Type", "FA Posting Date");
-        FALedgEntry.SetRange("FA Posting Category", FALedgEntry."FA Posting Category"::" ");
-        FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::"Salvage Value");
-        FALedgEntry.CalcSums(Amount);
-        SalvageValue := Sign * FALedgEntry.Amount;
-        MinusBookValue := Sign * GetMinusBookValue(FANo, DeprBookCode, 0D, EndingDate);
+        with FALedgEntry do begin
+            SetCurrentKey("FA No.", "Depreciation Book Code", "Part of Book Value", "FA Posting Date");
+            SetRange("Depreciation Book Code", DeprBookCode);
+            SetRange("FA No.", FANo);
+            SetRange("FA Posting Date", 0D, EndingDate);
+            SetRange("Part of Book Value", true);
+            CalcSums(Amount);
+            NewBookValue := Sign * Amount + CalculatedDepr;
+            SetRange("Part of Book Value");
+            SetCurrentKey("FA No.", "Depreciation Book Code", "Part of Depreciable Basis", "FA Posting Date");
+            SetRange("Part of Depreciable Basis", true);
+            CalcSums(Amount);
+            DeprBasis := Sign * Amount;
+            SetRange("Part of Depreciable Basis");
+            SetCurrentKey(
+              "FA No.", "Depreciation Book Code",
+              "FA Posting Category", "FA Posting Type", "FA Posting Date");
+            SetRange("FA Posting Category", "FA Posting Category"::" ");
+            SetRange("FA Posting Type", "FA Posting Type"::"Salvage Value");
+            CalcSums(Amount);
+            SalvageValue := Sign * Amount;
+            MinusBookValue := Sign * GetMinusBookValue(FANo, DeprBookCode, 0D, EndingDate);
+        end;
     end;
 
     procedure GetDeprPeriod(FANo: Code[20]; DeprBookCode: Code[10]; UntilDate: Date; var StartingDate: Date; var EndingDate: Date; var NumberOfDays: Integer; Year365Days: Boolean)
@@ -405,39 +417,42 @@ codeunit 5616 "Depreciation Calculation"
         UsedDeprStartingDate: Boolean;
     begin
         FADeprBook.Get(FANo, DeprBookCode);
-        // Calculate Starting Date
-        if StartingDate = 0D then begin
-            SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
-            FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::Depreciation);
-            if FALedgEntry.Find('+') then
-                StartingDate := ToMorrow(FALedgEntry."FA Posting Date", Year365Days)
-            else begin
-                StartingDate := FADeprBook."Depreciation Starting Date";
-                UsedDeprStartingDate := true;
-            end;
-        end else
-            StartingDate := ToMorrow(EndingDate, Year365Days);
-        // Calculate Ending Date
-        EndingDate := 0D;
-        SetFAFilter(FALedgEntry, FANo, DeprBookCode, false);
-        if not UsedDeprStartingDate then
-            FALedgEntry.SetFilter("FA Posting Date", '%1..', StartingDate + 1);
-        if FALedgEntry.Find('-') then
-            repeat
-                if FALedgEntry."Part of Book Value" or FALedgEntry."Part of Depreciable Basis" then begin
-                    if (FALedgEntry."FA Posting Type" = FALedgEntry."FA Posting Type"::"Acquisition Cost") or
-                       (FALedgEntry."FA Posting Type" = FALedgEntry."FA Posting Type"::"Salvage Value")
-                    then begin
-                        if not UsedDeprStartingDate then
-                            EndingDate := FALedgEntry."FA Posting Date";
-                    end else
-                        if GetPartOfDeprCalculation(FALedgEntry) then
-                            EndingDate := FALedgEntry."FA Posting Date";
-                    EndingDate := Yesterday(EndingDate, Year365Days);
-                    if EndingDate < StartingDate then
-                        EndingDate := 0D;
+        with FALedgEntry do begin
+            // Calculate Starting Date
+            if StartingDate = 0D then begin
+                SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
+                SetRange("FA Posting Type", "FA Posting Type"::Depreciation);
+                if Find('+') then
+                    StartingDate := ToMorrow("FA Posting Date", Year365Days)
+                else begin
+                    StartingDate := FADeprBook."Depreciation Starting Date";
+                    UsedDeprStartingDate := true;
                 end;
-            until (FALedgEntry.Next() = 0) or (EndingDate > 0D);
+            end else
+                StartingDate := ToMorrow(EndingDate, Year365Days);
+
+            // Calculate Ending Date
+            EndingDate := 0D;
+            SetFAFilter(FALedgEntry, FANo, DeprBookCode, false);
+            if not UsedDeprStartingDate then
+                SetFilter("FA Posting Date", '%1..', StartingDate + 1);
+            if Find('-') then
+                repeat
+                    if "Part of Book Value" or "Part of Depreciable Basis" then begin
+                        if ("FA Posting Type" = "FA Posting Type"::"Acquisition Cost") or
+                           ("FA Posting Type" = "FA Posting Type"::"Salvage Value")
+                        then begin
+                            if not UsedDeprStartingDate then
+                                EndingDate := "FA Posting Date";
+                        end else
+                            if GetPartOfDeprCalculation(FALedgEntry) then
+                                EndingDate := "FA Posting Date";
+                        EndingDate := Yesterday(EndingDate, Year365Days);
+                        if EndingDate < StartingDate then
+                            EndingDate := 0D;
+                    end;
+                until (Next() = 0) or (EndingDate > 0D);
+        end;
         if EndingDate = 0D then
             EndingDate := UntilDate;
         NumberOfDays := DeprDays(StartingDate, EndingDate, Year365Days);
@@ -455,17 +470,19 @@ codeunit 5616 "Depreciation Calculation"
         i: Integer;
     begin
         FiscalYearBegin := FADateCalc.GetFiscalYear(DeprBookCode, StartingDate);
-        SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
-        FALedgEntry.SetFilter("FA Posting Date", '%1..', FiscalYearBegin);
-        FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::Depreciation);
-        FALedgEntry.SetRange("Part of Book Value", true);
-        FALedgEntry.SetRange("Reclassification Entry", false);
-        FALedgEntry.CalcSums(Amount);
-        LocalAmount := FALedgEntry.Amount;
-        CalcEntryAmounts(FANo, DeprBookCode, FiscalYearBegin, 0D, EntryAmounts);
-        for i := 1 to 4 do
-            if GetPartOfCalculation(2, i - 1, DeprBookCode) then
-                LocalAmount := LocalAmount + EntryAmounts[i];
+        with FALedgEntry do begin
+            SetFAFilter(FALedgEntry, FANo, DeprBookCode, true);
+            SetFilter("FA Posting Date", '%1..', FiscalYearBegin);
+            SetRange("FA Posting Type", "FA Posting Type"::Depreciation);
+            SetRange("Part of Book Value", true);
+            SetRange("Reclassification Entry", false);
+            CalcSums(Amount);
+            LocalAmount := Amount;
+            CalcEntryAmounts(FANo, DeprBookCode, FiscalYearBegin, 0D, EntryAmounts);
+            for i := 1 to 4 do
+                if GetPartOfCalculation(2, i - 1, DeprBookCode) then
+                    LocalAmount := LocalAmount + EntryAmounts[i];
+        end;
         exit(LocalAmount);
     end;
 
@@ -473,46 +490,50 @@ codeunit 5616 "Depreciation Calculation"
     var
         FAPostingTypeSetup: Record "FA Posting Type Setup";
     begin
-        case PostingType of
-            PostingType::"Write-Down":
-                FAPostingTypeSetup.Get(DeprBookCode, FAPostingTypeSetup."FA Posting Type"::"Write-Down");
-            PostingType::Appreciation:
-                FAPostingTypeSetup.Get(DeprBookCode, FAPostingTypeSetup."FA Posting Type"::Appreciation);
-            PostingType::"Custom 1":
-                FAPostingTypeSetup.Get(DeprBookCode, FAPostingTypeSetup."FA Posting Type"::"Custom 1");
-            PostingType::"Custom 2":
-                FAPostingTypeSetup.Get(DeprBookCode, FAPostingTypeSetup."FA Posting Type"::"Custom 2");
-        end;
-        OnAfterGetFAPostingTypeSetup(FAPostingTypeSetup, Type);
+        with FAPostingTypeSetup do begin
+            case PostingType of
+                PostingType::"Write-Down":
+                    Get(DeprBookCode, "FA Posting Type"::"Write-Down");
+                PostingType::Appreciation:
+                    Get(DeprBookCode, "FA Posting Type"::Appreciation);
+                PostingType::"Custom 1":
+                    Get(DeprBookCode, "FA Posting Type"::"Custom 1");
+                PostingType::"Custom 2":
+                    Get(DeprBookCode, "FA Posting Type"::"Custom 2");
+            end;
+            OnAfterGetFAPostingTypeSetup(FAPostingTypeSetup, Type);
 
-        if Type = Type::IncludeInDeprCalc then
-            exit(FAPostingTypeSetup."Include in Depr. Calculation");
-        if Type = Type::IncludeInGainLoss then
-            exit(FAPostingTypeSetup."Include in Gain/Loss Calc.");
-        if Type = Type::DepreciationType then
-            exit(FAPostingTypeSetup."Depreciation Type");
-        if Type = Type::ReverseType then
-            exit(FAPostingTypeSetup."Reverse before Disposal");
+            if Type = Type::IncludeInDeprCalc then
+                exit("Include in Depr. Calculation");
+            if Type = Type::IncludeInGainLoss then
+                exit("Include in Gain/Loss Calc.");
+            if Type = Type::DepreciationType then
+                exit("Depreciation Type");
+            if Type = Type::ReverseType then
+                exit("Reverse before Disposal");
+        end;
     end;
 
     local procedure GetPartOfDeprCalculation(var FALedgEntry: Record "FA Ledger Entry"): Boolean
     var
         i: Integer;
     begin
-        case FALedgEntry."FA Posting Type" of
-            FALedgEntry."FA Posting Type"::"Write-Down":
-                i := 1;
-            FALedgEntry."FA Posting Type"::Appreciation:
-                i := 2;
-            FALedgEntry."FA Posting Type"::"Custom 1":
-                i := 3;
-            FALedgEntry."FA Posting Type"::"Custom 2":
-                i := 4;
-        end;
-        if i = 0 then
-            exit(false);
+        with FALedgEntry do begin
+            case "FA Posting Type" of
+                "FA Posting Type"::"Write-Down":
+                    i := 1;
+                "FA Posting Type"::Appreciation:
+                    i := 2;
+                "FA Posting Type"::"Custom 1":
+                    i := 3;
+                "FA Posting Type"::"Custom 2":
+                    i := 4;
+            end;
+            if i = 0 then
+                exit(false);
 
-        exit(GetPartOfCalculation(0, i - 1, FALedgEntry."Depreciation Book Code"));
+            exit(GetPartOfCalculation(0, i - 1, "Depreciation Book Code"));
+        end;
     end;
 
     procedure FAName(var FA: Record "Fixed Asset"; DeprBookCode: Code[10]): Text[200]
@@ -584,9 +605,11 @@ codeunit 5616 "Depreciation Calculation"
 
     local procedure CheckEntryDate(FALedgerEntry: Record "FA Ledger Entry"; FAPostingType: Enum "FA Ledger Entry FA Posting Type"): Date
     begin
-        if IsDepreciationTypeEntry(FALedgerEntry."Depreciation Book Code", FAPostingType) then
-            exit(FALedgerEntry."FA Posting Date" + 1);
-        exit(FALedgerEntry."FA Posting Date");
+        with FALedgerEntry do begin
+            if IsDepreciationTypeEntry("Depreciation Book Code", FAPostingType) then
+                exit("FA Posting Date" + 1);
+            exit("FA Posting Date");
+        end;
     end;
 
     local procedure IsDepreciationTypeEntry(DeprBookCode: Code[10]; FAPostingType: Enum "FA Ledger Entry FA Posting Type"): Boolean

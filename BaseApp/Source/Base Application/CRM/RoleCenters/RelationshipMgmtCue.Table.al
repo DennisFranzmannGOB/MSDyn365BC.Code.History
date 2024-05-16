@@ -13,7 +13,6 @@ using Microsoft.Sales.Document;
 table 9063 "Relationship Mgmt. Cue"
 {
     Caption = 'Relationship Mgmt. Cue';
-    DataClassification = CustomerContent;
 
     fields
     {

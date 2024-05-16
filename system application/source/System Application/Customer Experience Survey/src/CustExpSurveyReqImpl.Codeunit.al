@@ -169,17 +169,18 @@ codeunit 9263 "Cust. Exp. Survey Req. Impl."
         ErrorMessage := JToken.AsValue().AsText();
     end;
 
+    [NonDebuggable]
     local procedure Authorize(var HttpHeaders: HttpHeaders; var ErrorMessage: Text; IsGraph: Boolean): Boolean
     var
-        AccessToken: SecretText;
+        AccessToken: Text;
     begin
         if IsGraph then
             AccessToken := AcquireGraphToken(ErrorMessage)
         else
             AccessToken := AcquireToken(ErrorMessage);
 
-        if not AccessToken.IsEmpty() then begin
-            HttpHeaders.Add('Authorization', SecretStrSubstNo(BearerLbl, AccessToken));
+        if AccessToken <> '' then begin
+            HttpHeaders.Add('Authorization', StrSubstNo(BearerLbl, AccessToken));
             exit(true);
         end;
 
@@ -190,13 +191,14 @@ codeunit 9263 "Cust. Exp. Survey Req. Impl."
         exit(false);
     end;
 
-    local procedure AcquireToken(var ErrorMessage: Text): SecretText
+    [NonDebuggable]
+    local procedure AcquireToken(var ErrorMessage: Text): Text
     var
         OAuth2: Codeunit OAuth2;
         Scopes: List of [Text];
         ClientId: Text;
         ClientCertificate: Text;
-        AccessToken: SecretText;
+        AccessToken: Text;
         IdToken: Text;
     begin
         ClientId := GetClientId();
@@ -213,12 +215,12 @@ codeunit 9263 "Cust. Exp. Survey Req. Impl."
     end;
 
     [NonDebuggable]
-    local procedure AcquireGraphToken(var ErrorMessage: Text): SecretText
+    local procedure AcquireGraphToken(var ErrorMessage: Text): Text
     var
         OAuth2: Codeunit OAuth2;
         CustomerExpSurveyImpl: Codeunit "Customer Exp. Survey Impl.";
         Scopes: List of [Text];
-        AccessToken: SecretText;
+        AccessToken: Text;
     begin
         if not CustomerExpSurveyImpl.IsPPE() then
             Scopes.Add(GraphScopesLbl)

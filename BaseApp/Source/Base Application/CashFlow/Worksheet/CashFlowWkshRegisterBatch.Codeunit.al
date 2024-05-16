@@ -30,22 +30,24 @@ codeunit 844 "Cash Flow Wksh.-Register Batch"
         UpdateAnalysisView: Codeunit "Update Analysis View";
         Which: Option "Ledger Entries","Budget Entries",Both;
     begin
-        CFWkshLine.LockTable();
+        with CFWkshLine do begin
+            LockTable();
 
-        if not CFWkshLine.Find('=><') then begin
-            CFWkshLine."Line No." := 0;
+            if not Find('=><') then begin
+                "Line No." := 0;
+                Commit();
+                exit;
+            end;
+
+            CreateWindow();
+
+            CheckLines();
+            RegisterLines();
+
+            DeleteLines();
+
             Commit();
-            exit;
         end;
-
-        CreateWindow();
-
-        CheckLines();
-        RegisterLines();
-
-        DeleteLines();
-
-        Commit();
 
         LicPermission.Get(
           LicPermission."Object Type"::Codeunit,
@@ -75,30 +77,34 @@ codeunit 844 "Cash Flow Wksh.-Register Batch"
     var
         LineCount: Integer;
     begin
-        LineCount := 0;
-        StartLineNo := CFWkshLine."Line No.";
-        repeat
-            LineCount := LineCount + 1;
-            Window.Update(2, LineCount);
-            CFWkshCheckLine.RunCheck(CFWkshLine);
-            if CFWkshLine.Next() = 0 then
-                CFWkshLine.Find('-');
-        until CFWkshLine."Line No." = StartLineNo;
-        NoOfRecords := LineCount;
+        with CFWkshLine do begin
+            LineCount := 0;
+            StartLineNo := "Line No.";
+            repeat
+                LineCount := LineCount + 1;
+                Window.Update(2, LineCount);
+                CFWkshCheckLine.RunCheck(CFWkshLine);
+                if Next() = 0 then
+                    Find('-');
+            until "Line No." = StartLineNo;
+            NoOfRecords := LineCount;
+        end;
     end;
 
     local procedure RegisterLines()
     var
         LineCount: Integer;
     begin
-        LineCount := 0;
-        CFWkshLine.Find('-');
-        repeat
-            LineCount := LineCount + 1;
-            Window.Update(3, LineCount);
-            Window.Update(4, Round(LineCount / NoOfRecords * 10000, 1));
-            CODEUNIT.Run(CODEUNIT::"Cash Flow Wksh. -Register Line", CFWkshLine);
-        until CFWkshLine.Next() = 0;
+        with CFWkshLine do begin
+            LineCount := 0;
+            Find('-');
+            repeat
+                LineCount := LineCount + 1;
+                Window.Update(3, LineCount);
+                Window.Update(4, Round(LineCount / NoOfRecords * 10000, 1));
+                CODEUNIT.Run(CODEUNIT::"Cash Flow Wksh. -Register Line", CFWkshLine);
+            until Next() = 0;
+        end;
     end;
 }
 

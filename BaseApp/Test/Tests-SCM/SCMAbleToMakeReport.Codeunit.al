@@ -17,7 +17,6 @@ codeunit 137392 "SCM - Able To Make Report"
         LibraryManufacturing: Codeunit "Library - Manufacturing";
         LibraryTrees: Codeunit "Library - Trees";
         LibraryWarehouse: Codeunit "Library - Warehouse";
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryReportDataset: Codeunit "Library - Report Dataset";
         Assert: Codeunit Assert;
@@ -258,7 +257,7 @@ codeunit 137392 "SCM - Able To Make Report"
 
         // [THEN] Component item "N" is not shown on the page.
         ItemAvailabilitybyBOMLevel.FILTER.SetFilter("No.", CompItem[2]."No.");
-        Assert.IsFalse(ItemAvailabilitybyBOMLevel.First(), '');
+        Assert.IsFalse(ItemAvailabilitybyBOMLevel.First, '');
     end;
 
     [Normal]
@@ -364,8 +363,6 @@ codeunit 137392 "SCM - Able To Make Report"
         VerifyAbleToMakeReport(
           BOMBuffer, CalcDate(DueDateDelayDateFormula, WorkDate()), GLBDateInterval::Day, AssemblyHeader."Location Code",
           AssemblyHeader."No.", '');
-
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
@@ -393,7 +390,7 @@ codeunit 137392 "SCM - Able To Make Report"
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler,ItemAbleToMakeTimelineRequestPageHandler')]
+    [HandlerFunctions('MessageHandler,AvailabilityWindowHandler,ItemAbleToMakeTimelineRequestPageHandler')]
     [Scope('OnPrem')]
     procedure NegAvailForLeafAsmOrder()
     begin
@@ -401,7 +398,7 @@ codeunit 137392 "SCM - Able To Make Report"
     end;
 
     [Test]
-    [HandlerFunctions('MessageHandler,ItemAbleToMakeTimelineRequestPageHandler')]
+    [HandlerFunctions('MessageHandler,AvailabilityWindowHandler,ItemAbleToMakeTimelineRequestPageHandler')]
     [Scope('OnPrem')]
     procedure NegAvailForLeafAsmOrderUnbalancedTree()
     begin
@@ -578,7 +575,7 @@ codeunit 137392 "SCM - Able To Make Report"
         GrossReq: Decimal;
         SchedReceipts: Decimal;
     begin
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('AsOfPeriod', Format(RowDate));
 
         Qty := LibraryReportDataset.Sum('AbleToMakeQty');
@@ -630,6 +627,13 @@ codeunit 137392 "SCM - Able To Make Report"
         ItemAvailabilityByBOMLevel.Run();
     end;
 
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure AvailabilityWindowHandler(var AsmAvailability: Page "Assembly Availability"; var Response: Action)
+    begin
+        Response := ACTION::Yes; // always confirm
+    end;
+
     [MessageHandler]
     [Scope('OnPrem')]
     procedure MessageHandler(Message: Text)
@@ -654,20 +658,20 @@ codeunit 137392 "SCM - Able To Make Report"
         LibraryVariableStorage.Dequeue(DequeueVar);
         ItemNo := DequeueVar;
         ItemAvailByBOMLevel.FILTER.SetFilter("No.", ItemNo);
-        ItemAvailByBOMLevel.First();
+        ItemAvailByBOMLevel.First;
 
         LibraryVariableStorage.Dequeue(DequeueVar);
         Qty := DequeueVar;
         Assert.AreEqual(
-          Qty, ItemAvailByBOMLevel."Able to Make Top Item".AsDecimal(),
+          Qty, ItemAvailByBOMLevel."Able to Make Top Item".AsDEcimal,
           'Wrong able to make top item on page for item ' + Format(ItemAvailByBOMLevel."No."));
         Assert.AreEqual(
-          Qty, ItemAvailByBOMLevel."Able to Make Parent".AsDecimal(),
+          Qty, ItemAvailByBOMLevel."Able to Make Parent".AsDEcimal,
           'Wrong able to make parent on page for item ' + Format(ItemAvailByBOMLevel."No."));
 
         Commit(); // To allow running the action from the page.
-        ItemAvailByBOMLevel."Item - Able to Make (Timeline)".Invoke(); // Run Show Warnings for code coverage purposes.
-        ItemAvailByBOMLevel."Show Warnings".Invoke(); // Run Item Avail by BOM Level report for code coverage purposes.
+        ItemAvailByBOMLevel."Item - Able to Make (Timeline)".Invoke; // Run Show Warnings for code coverage purposes.
+        ItemAvailByBOMLevel."Show Warnings".Invoke; // Run Item Avail by BOM Level report for code coverage purposes.
     end;
 
     [ReportHandler]
@@ -694,7 +698,7 @@ codeunit 137392 "SCM - Able To Make Report"
         ItemAbleToMakeTimeline.DateInterval.SetValue(DateInterval);
         ItemAbleToMakeTimeline.NoOfIntervals.SetValue(NoOfIntervals);
         ItemAbleToMakeTimeline.ShowDetails.SetValue(ShowDetails);
-        ItemAbleToMakeTimeline.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        ItemAbleToMakeTimeline.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 }
 

@@ -28,7 +28,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         LibraryPlanning: Codeunit "Library - Planning";
         LibraryUtility: Codeunit "Library - Utility";
         ErrorDoNotMatchErr: Label 'Expected error: ''%1''\Actual error: ''%2''', Locked = true;
-        BlockedItemErr: Label 'Blocked must be equal to ''No''  in Item: No.=%1. Current value is ''Yes''.', Comment = '%1 is the Item No.';
+        BlockedErr: Label 'Blocked must be equal to ''No''';
         LibraryPurchase: Codeunit "Library - Purchase";
         LibrarySales: Codeunit "Library - Sales";
         LibraryWarehouse: Codeunit "Library - Warehouse";
@@ -37,8 +37,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
-        LibrarySetupStorage: Codeunit "Library - Setup Storage";
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Initialized: Boolean;
         PlanningLinesErr: Label 'Wrong number of Planning Lines.';
         ReservationEntriesErr: Label 'Wrong number of Reservation Entries.';
@@ -70,7 +69,6 @@ codeunit 137063 "SCM Manufacturing 7.0"
         FieldErr: Label 'Wrong %1 in %2', Locked = true;
         IncorrectQtyOnEndingDateErr: Label 'Incorrect Quantity planned for given Ending Date.';
         WrongVersionCodeErr: Label 'Wrong version code.';
-        ItemPlannedForExactDemandTxt: Label 'The item is planned to cover the exact demand.';
 
     [Test]
     [Scope('OnPrem')]
@@ -131,7 +129,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         CreateItemHierarchy(ProductionBOMHeader, ParentItem, ChildItem, LibraryRandom.RandInt(5));
         CreateItemHierarchy(GrandProductionBOMHeader, GrandParentItem, ParentItem, LibraryRandom.RandInt(5));
         LibraryVariableStorage.Enqueue(LowLevelCodeQst);  // Enqueue value for Confirm Handler.
-        LibraryPlanning.CalculateLowLevelCode();
+        LibraryPlanning.CalculateLowLevelCode;
 
         // Exercise: Create Production BOM Version and change Status.
         CreateBOMVersionAndCertify(ProductionBOMHeader."No.", ParentItem."Base Unit of Measure");
@@ -141,7 +139,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
 
         // Exercise.
         LibraryVariableStorage.Enqueue(LowLevelCodeQst);  // Enqueue value for Confirm Handler.
-        LibraryPlanning.CalculateLowLevelCode();
+        LibraryPlanning.CalculateLowLevelCode;
 
         // Verify: Verify Low Level Code.
         VerifyBOMHeaderLLC(ProductionBOMHeader."No.", 2);  // Value is important for Test.
@@ -309,20 +307,24 @@ codeunit 137063 "SCM Manufacturing 7.0"
         ProductionBOMHeader: Record "Production BOM Header";
         ParentItem: Record Item;
         ChildItem: Record Item;
+        RequisitionLine: Record "Requisition Line";
     begin
-        // [SCENARIO 161274] Cannot add a blocked item to a prod order (modified existing test)
-        // [GIVEN] Blocked Item
+        // Test Order Planning with blocked Item.
+        // Setup: Create Item Hierarchy setup and blocked the Item.
         Initialize();
         CreateItemHierarchy(ProductionBOMHeader, ParentItem, ChildItem, LibraryRandom.RandInt(5));
-        UpdateItem(ChildItem, ChildItem.FieldNo(Blocked), true);
-
-        // [WHEN] Creating a Prod Order with blocked item
-        asserterror CreateAndRefreshProdOrder(
+        UpdateItem(ChildItem, ChildItem.FieldNo(Blocked), true);  // Block Item.
+        CreateAndRefreshProdOrder(
           ProductionOrder, ProductionOrder.Status::Released, ParentItem."No.", LibraryRandom.RandDec(10, 2),
           ProductionOrder."Source Type"::Item, false);
 
-        // [THEN] Error expected because of blocked item
-        Assert.ExpectedError(StrSubstNo(BlockedItemErr, ChildItem."No."));
+        // Exercise: Calculate Order Planning.
+        asserterror LibraryPlanning.CalculateOrderPlanProduction(RequisitionLine);
+
+        // Verify: Verify Error message.
+        Assert.IsFalse(StrPos(GetLastErrorText, BlockedErr) = 0, StrSubstNo(ErrorDoNotMatchErr, BlockedErr, GetLastErrorText));
+        // TearDown.
+        UpdateItem(ChildItem, ChildItem.FieldNo(Blocked), false);  // Unblock Item.
     end;
 
     [Test]
@@ -1774,6 +1776,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         ProductionBOMHeader: Record "Production BOM Header";
         ProductionBOMLine: Record "Production BOM Line";
         ProductionOrder: Record "Production Order";
+        RequisitionLine: Record "Requisition Line";
         ProdOrderLine: Record "Prod. Order Line";
     begin
         // Check assignment of Routing No. and Production BOM No. from SKU
@@ -1823,6 +1826,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         ProductionBOMHeader: Record "Production BOM Header";
         ProductionBOMLine: Record "Production BOM Line";
         ProductionOrder: Record "Production Order";
+        RequisitionLine: Record "Requisition Line";
         ProdOrderLine: Record "Prod. Order Line";
     begin
         // Check assignment of Routing No. and Production BOM No. from Parent  Item
@@ -1909,7 +1913,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         ProdOrderCompCmtLine.SetRange("Prod. Order Line No.", ProdOrderComponent."Prod. Order Line No.");
         ProdOrderCompCmtLine.SetRange("Prod. Order BOM Line No.", ProdOrderComponent."Line No.");
 
-        ProdOrderCompCmtLine.Caption();
+        ProdOrderCompCmtLine.Caption;
     end;
 
     [Test]
@@ -2541,7 +2545,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         CreateItem(ParentItem, ParentItem."Replenishment System"::"Prod. Order", ParentItem."Reordering Policy"::Order, false, 0, 0, 0, '');
         UpdateItem(ParentItem, ParentItem.FieldNo("Manufacturing Policy"), ParentItem."Manufacturing Policy"::"Make-to-Order");
         CreateItem(ChildItem, ChildItem."Replenishment System"::Purchase, ChildItem."Reordering Policy"::Order, false, 0, 0, 0, '');
-        UpdateItem(ChildItem, ChildItem.FieldNo("Vendor No."), LibraryPurchase.CreateVendorNo());
+        UpdateItem(ChildItem, ChildItem.FieldNo("Vendor No."), LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Production BOM "ProdBOM" is assigned to "Parent" and consist of "Child"
         CreateProductionBOM(
@@ -2804,73 +2808,6 @@ codeunit 137063 "SCM Manufacturing 7.0"
     end;
 
     [Test]
-    procedure AttentionMessageWhenPlanningMinimalSupplyForMissingSKU()
-    var
-        Item: Record Item;
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        RequisitionLine: Record "Requisition Line";
-        UntrackedPlanningElement: Record "Untracked Planning Element";
-    begin
-        // [SCENARIO 485125] Attention message when planning minimal supply for missing SKU.
-        Initialize();
-
-        // [GIVEN] Item set up for fixed reorder planning. Reorder Quantity = 100.
-        CreateItem(Item, Item."Replenishment System"::Purchase, Item."Reordering Policy"::"Fixed Reorder Qty.", false, 10, 100, 0, '');
-
-        // [GIVEN] Sales order for quantity = 10 at location "BLUE".
-        // [GIVEN] Note that SKU does not exist for location "BLUE".
-        CreateSalesOrder(SalesHeader, SalesLine, Item."No.", LocationBlue.Code);
-
-        // [WHEN] Calculate regenerative plan.
-        LibraryPlanning.CalcRegenPlanForPlanWksh(Item, WorkDate(), WorkDate());
-
-        // [THEN] Attention message is added in Untracked Planning Elements pointing out that the planning system only covers the exact demand (10 pcs).
-        RequisitionLine.SetRange("Location Code", LocationBlue.Code);
-        FindRequisitionLine(RequisitionLine, Item."No.");
-        RequisitionLine.TestField(Quantity, SalesLine.Quantity);
-        UntrackedPlanningElement.SetRange("Worksheet Template Name", RequisitionLine."Worksheet Template Name");
-        UntrackedPlanningElement.SetRange("Worksheet Batch Name", RequisitionLine."Journal Batch Name");
-        UntrackedPlanningElement.Setrange("Worksheet Line No.", RequisitionLine."Line No.");
-        UntrackedPlanningElement.SetFilter(Source, '*' + ItemPlannedForExactDemandTxt + '*');
-        Assert.RecordIsNotEmpty(UntrackedPlanningElement);
-    end;
-
-    [Test]
-    procedure AttentionMessageWhenPlanningMinimalSupplyForMissingLocation()
-    var
-        Item: Record Item;
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        RequisitionLine: Record "Requisition Line";
-        UntrackedPlanningElement: Record "Untracked Planning Element";
-    begin
-        // [SCENARIO 485125] Attention message when planning minimal supply for missing location.
-        Initialize();
-
-        // [GIVEN] Set "Location Mandatory" = true in Inventory Setup.
-        LibraryInventory.SetLocationMandatory(true);
-
-        // [GIVEN] Item set up for fixed reorder planning. Reorder Quantity = 100.
-        CreateItem(Item, Item."Replenishment System"::Purchase, Item."Reordering Policy"::"Fixed Reorder Qty.", false, 10, 100, 0, '');
-
-        // [GIVEN] Sales order for quantity = 10 at location <blank>.
-        CreateSalesOrder(SalesHeader, SalesLine, Item."No.", '');
-
-        // [WHEN] Calculate regenerative plan.
-        LibraryPlanning.CalcRegenPlanForPlanWksh(Item, WorkDate(), WorkDate());
-
-        // [THEN] Attention message is added in Untracked Planning Elements pointing out that the planning system only covers the exact demand (10 pcs).
-        FindRequisitionLine(RequisitionLine, Item."No.");
-        RequisitionLine.TestField(Quantity, SalesLine.Quantity);
-        UntrackedPlanningElement.SetRange("Worksheet Template Name", RequisitionLine."Worksheet Template Name");
-        UntrackedPlanningElement.SetRange("Worksheet Batch Name", RequisitionLine."Journal Batch Name");
-        UntrackedPlanningElement.Setrange("Worksheet Line No.", RequisitionLine."Line No.");
-        UntrackedPlanningElement.SetFilter(Source, '*' + ItemPlannedForExactDemandTxt + '*');
-        Assert.RecordIsNotEmpty(UntrackedPlanningElement);
-    end;
-
-    [Test]
     [Scope('OnPrem')]
     procedure PlanningComponentWithZeroQuantityPer()
     var
@@ -2932,7 +2869,6 @@ codeunit 137063 "SCM Manufacturing 7.0"
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"SCM Manufacturing 7.0");
         LibraryVariableStorage.Clear();
-        LibrarySetupStorage.Restore();
         if Initialized then
             exit;
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"SCM Manufacturing 7.0");
@@ -2941,12 +2877,11 @@ codeunit 137063 "SCM Manufacturing 7.0"
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         LibraryERMCountryData.CreateGeneralPostingSetupData();
         NoSeriesSetup();
-        ItemJournalSetup();
-        CapacityJournalSetup();
-        OutputJournalSetup();
-        CreateLocationSetup();
+        ItemJournalSetup;
+        CapacityJournalSetup;
+        OutputJournalSetup;
+        CreateLocationSetup;
         ManufacturingSetup.Get();
-        LibrarySetupStorage.Save(Database::"Inventory Setup");
 
         Initialized := true;
         Commit();
@@ -2959,11 +2894,11 @@ codeunit 137063 "SCM Manufacturing 7.0"
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         PurchasesPayablesSetup.Get();
-        PurchasesPayablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        PurchasesPayablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         PurchasesPayablesSetup.Modify(true);
 
         SalesReceivablesSetup.Get();
-        SalesReceivablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        SalesReceivablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         SalesReceivablesSetup.Modify(true);
     end;
 
@@ -2990,25 +2925,25 @@ codeunit 137063 "SCM Manufacturing 7.0"
     begin
         ItemJournalTemplate.Init();
         LibraryInventory.SelectItemJournalTemplateName(ItemJournalTemplate, ItemJournalTemplate.Type::Item);
-        ItemJournalTemplate.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode());
+        ItemJournalTemplate.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode);
         ItemJournalTemplate.Modify(true);
 
         ItemJournalBatch.Init();
         LibraryInventory.SelectItemJournalBatchName(ItemJournalBatch, ItemJournalTemplate.Type, ItemJournalTemplate.Name);
-        UpdateNoSeriesOnItemJournalBatch(ItemJournalBatch, LibraryUtility.GetGlobalNoSeriesCode());
+        UpdateNoSeriesOnItemJournalBatch(ItemJournalBatch, LibraryUtility.GetGlobalNoSeriesCode);
     end;
 
     local procedure OutputJournalSetup()
     begin
         OutputItemJournalTemplate.Init();
         LibraryInventory.SelectItemJournalTemplateName(OutputItemJournalTemplate, OutputItemJournalTemplate.Type::Output);
-        OutputItemJournalTemplate.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode());
+        OutputItemJournalTemplate.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode);
         OutputItemJournalTemplate.Modify(true);
 
         OutputItemJournalBatch.Init();
         LibraryInventory.SelectItemJournalBatchName(
           OutputItemJournalBatch, OutputItemJournalTemplate.Type, OutputItemJournalTemplate.Name);
-        OutputItemJournalBatch.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode());
+        OutputItemJournalBatch.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode);
         OutputItemJournalBatch.Modify(true);
     end;
 
@@ -3016,13 +2951,13 @@ codeunit 137063 "SCM Manufacturing 7.0"
     begin
         CapacityItemJournalTemplate.Init();
         LibraryInventory.SelectItemJournalTemplateName(CapacityItemJournalTemplate, CapacityItemJournalTemplate.Type::Capacity);
-        CapacityItemJournalTemplate.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode());
+        CapacityItemJournalTemplate.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode);
         CapacityItemJournalTemplate.Modify(true);
 
         CapacityItemJournalBatch.Init();
         LibraryInventory.SelectItemJournalBatchName(
           CapacityItemJournalBatch, CapacityItemJournalTemplate.Type, CapacityItemJournalTemplate.Name);
-        CapacityItemJournalBatch.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode());
+        CapacityItemJournalBatch.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode);
         CapacityItemJournalBatch.Modify(true);
     end;
 
@@ -3450,11 +3385,11 @@ codeunit 137063 "SCM Manufacturing 7.0"
 
         LibraryManufacturing.RefreshProdOrder(ProductionOrder, false, true, true, true, false);
 
-        ReleasedProductionOrder.OpenEdit();
+        ReleasedProductionOrder.OpenEdit;
         ReleasedProductionOrder.FILTER.SetFilter("No.", ProductionOrder."No.");
-        ReleasedProductionOrder.First();
+        ReleasedProductionOrder.First;
         LibraryVariableStorage.Enqueue(TrackingOption::SelectEntries);
-        ReleasedProductionOrder.ProdOrderLines.Components.Invoke();
+        ReleasedProductionOrder.ProdOrderLines.Components.Invoke;
     end;
 
     local procedure CreateAndCertifyRoutingSetup(var RoutingHeader: Record "Routing Header"; var RoutingLine: Record "Routing Line")
@@ -3542,9 +3477,9 @@ codeunit 137063 "SCM Manufacturing 7.0"
     begin
         LibraryManufacturing.CreateRoutingHeader(RoutingHeader, RoutingHeader.Type::Serial);
         LibraryManufacturing.CreateRoutingLine(
-          RoutingHeader, RoutingLine, '', LibraryUtility.GenerateGUID(), RoutingLine.Type::"Work Center", WorkCenterNo);
+          RoutingHeader, RoutingLine, '', LibraryUtility.GenerateGUID, RoutingLine.Type::"Work Center", WorkCenterNo);
         LibraryManufacturing.CreateRoutingLine(
-          RoutingHeader, RoutingLine, '', LibraryUtility.GenerateGUID(), RoutingLine.Type::"Machine Center", MachineCenterNo);
+          RoutingHeader, RoutingLine, '', LibraryUtility.GenerateGUID, RoutingLine.Type::"Machine Center", MachineCenterNo);
         UpdateRoutingStatus(RoutingHeader, RoutingHeader.Status::Certified);
 
         exit(RoutingHeader."No.");
@@ -3622,7 +3557,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
     begin
         Item.SetRange("No.", Item."No.");
         Item.SetRange("Location Filter", LocationCode);
-        LibraryInventory.CreateStockKeepingUnit(Item, "SKU Creation Method"::Location, false, false);
+        LibraryInventory.CreateStockKeepingUnit(Item, 0, false, false);
         StockkeepingUnit.Get(LocationCode, Item."No.", '');
     end;
 
@@ -3717,7 +3652,8 @@ codeunit 137063 "SCM Manufacturing 7.0"
           ItemJournalLine, ItemJournalBatch2."Journal Template Name", ItemJournalBatch2.Name, ItemJournalLine."Entry Type"::Output, '', 0);
         ItemJournalLine.Validate("Order Type", ItemJournalLine."Order Type"::Production);
         ItemJournalLine.Validate("Order No.", ProductionOrder."No.");
-        ItemJournalLine.Validate("Document No.", NoSeriesBatch.GetNextNo(ItemJournalBatch2."No. Series", ItemJournalLine."Posting Date"));
+        ItemJournalLine.Validate(
+          "Document No.", NoSeriesMgt.GetNextNo(ItemJournalBatch2."No. Series", ItemJournalLine."Posting Date", false));
         ItemJournalLine.Modify(true);
         LibraryInventory.OutputJnlExplRoute(ItemJournalLine);
         LibraryInventory.PostItemJournalLine(ItemJournalBatch2."Journal Template Name", ItemJournalBatch2.Name);
@@ -4241,12 +4177,12 @@ codeunit 137063 "SCM Manufacturing 7.0"
         ItemJournalLine.Modify(true);
 
         Commit();
-        ItemJournal.OpenEdit();
+        ItemJournal.OpenEdit;
         ItemJournal.CurrentJnlBatchName.SetValue(ItemJournalLine."Journal Batch Name");
 
         LibraryVariableStorage.Enqueue(TrackingOption::AssignLotNo);
-        ItemJournal.ItemTrackingLines.Invoke();
-        ItemJournal.Post.Invoke();
+        ItemJournal.ItemTrackingLines.Invoke;
+        ItemJournal.Post.Invoke;
     end;
 
     local procedure UpdateShopCalendarWorkingDays(StartTime: Time; EndTime: Time): Code[10]
@@ -4307,7 +4243,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         CalendarEntry.SetCurrentKey("Capacity Type", "No.", Date, "Starting Time", "Ending Time", "Work Shift Code");
         CalendarEntry.SetRange("Capacity Type", CalendarEntry."Capacity Type"::"Work Center");
         CalendarEntry.SetRange("No.", WorkCenterNo);
-        CalendarEntry.SetRange(Date, CalcDate('<-WD1>', WorkDate() - LibraryRandom.RandIntInRange(1, 3))); // Value important for Test.
+        CalendarEntry.SetRange(Date, CalcDate('<-WD1>', WorkDate - LibraryRandom.RandIntInRange(1, 3))); // Value important for Test.
         CalendarEntry.CalcSums("Capacity (Effective)");
         exit(CalendarEntry."Capacity (Effective)");
     end;
@@ -4318,7 +4254,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
     begin
         ProdOrderCapacityNeed.SetCurrentKey("Work Center No.", Date, Active, "Starting Date-Time");
         ProdOrderCapacityNeed.SetRange("Work Center No.", WorkCenterNo);
-        ProdOrderCapacityNeed.SetRange(Date, CalcDate('<-WD1>', WorkDate() - LibraryRandom.RandIntInRange(1, 3))); // Value important for Test.
+        ProdOrderCapacityNeed.SetRange(Date, CalcDate('<-WD1>', WorkDate - LibraryRandom.RandIntInRange(1, 3))); // Value important for Test.
         ProdOrderCapacityNeed.CalcSums("Needed Time");
         exit(ProdOrderCapacityNeed."Needed Time");
     end;
@@ -4334,7 +4270,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         ItemJournalLine.Modify(true);
         ItemJournalLine.OpenItemTrackingLines(false);  // Assign Tracking on Page Handler.
         LibraryInventory.PostItemJournalLine(ItemJournalBatch."Journal Template Name", ItemJournalBatch.Name);
-        UpdateNoSeriesOnItemJournalBatch(ItemJournalBatch, LibraryUtility.GetGlobalNoSeriesCode());
+        UpdateNoSeriesOnItemJournalBatch(ItemJournalBatch, LibraryUtility.GetGlobalNoSeriesCode);
     end;
 
     local procedure UpdateNoSeriesOnItemJournalBatch(var ItemJournalBatch: Record "Item Journal Batch"; NoSeries: Code[20])
@@ -4355,7 +4291,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
     local procedure UpdateTrackingCodeOnItem(var Item: Record Item; ItemTrackingCode: Code[10])
     begin
         Item.Validate("Item Tracking Code", ItemTrackingCode);
-        Item.Validate("Serial Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        Item.Validate("Serial Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         Item.Modify(true);
     end;
 
@@ -4366,7 +4302,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
     begin
         Evaluate(ReschedulePeriod, '<1W>');
         Evaluate(LotAccumulationPeriod, '<1W>');
-        Item.Validate("Vendor No.", LibraryPurchase.CreateVendorNo());
+        Item.Validate("Vendor No.", LibraryPurchase.CreateVendorNo);
         Item.Validate("Rescheduling Period", ReschedulePeriod);
         Item.Validate("Lot Accumulation Period", LotAccumulationPeriod);
         Item.Validate("Safety Stock Quantity", LibraryRandom.RandInt(5) + 5);  // Random Value required.
@@ -4387,7 +4323,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
     begin
         Item.SetRange("No.", ItemNo);
         Item.SetFilter("Location Filter", '%1|%2', LocationCode, LocationCode2);
-        LibraryInventory.CreateStockKeepingUnit(Item, "SKU Creation Method"::Location, false, false);
+        LibraryInventory.CreateStockKeepingUnit(Item, 0, false, false);
     end;
 
     local procedure SetReplSystemTransferOnSKU(LocationCode: Code[10]; ItemNo: Code[20]; TransferFrom: Code[10])
@@ -4476,7 +4412,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         PurchaseHeader.Validate("Due Date", PurchaseHeader."Posting Date");
         PurchaseHeader.Modify(true);
         Clear(PurchaseOrder);
-        PurchaseOrder.OpenEdit();
+        PurchaseOrder.OpenEdit;
         PurchaseOrder.FILTER.SetFilter("Buy-from Vendor No.", PurchaseHeader."Buy-from Vendor No.");
         PurchaseOrder.PurchLines."Expected Receipt Date".SetValue(
           CalcDate(StrSubstNo('%1D', LibraryRandom.RandInt(5)), PurchaseHeader."Due Date"));
@@ -4986,7 +4922,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         ProdOrderLine.SetRange("Prod. Order No.", ProductionOrder."No.");
         ProdOrderLine.FindFirst();
 
-        ProductionJournalMgt.InitSetupValues();
+        ProductionJournalMgt.InitSetupValues;
         ProductionJournalMgt.SetTemplateAndBatchName();
         ProductionJournalMgt.CreateJnlLines(ProductionOrder, ProdOrderLine."Line No.");
         ItemJournalLine.SetRange("Order Type", ItemJournalLine."Order Type"::Production);
@@ -5001,7 +4937,7 @@ codeunit 137063 "SCM Manufacturing 7.0"
         RoutingLine: Record "Routing Line";
     begin
         LibraryManufacturing.CreateRoutingHeader(RoutingHeader, RoutingHeader.Type::Serial);
-        LibraryManufacturing.CreateRoutingLineSetup(RoutingLine, RoutingHeader, WorkCenterNo, LibraryUtility.GenerateGUID(), 0, 10);
+        LibraryManufacturing.CreateRoutingLineSetup(RoutingLine, RoutingHeader, WorkCenterNo, LibraryUtility.GenerateGUID, 0, 10);
         RoutingLine.Validate("Routing Link Code", RoutingLinkCode);
         RoutingLine.Modify(true);
 
@@ -5085,19 +5021,19 @@ codeunit 137063 "SCM Manufacturing 7.0"
         // Assign Serial no based on requirments.
         case ItemTracking of
             ItemTracking::AssignSerial:
-                ItemTrackingLines."Assign Serial No.".Invoke();  // Open Enter Quantity to Create Page for Create Serial No or with Lot No.
+                ItemTrackingLines."Assign Serial No.".Invoke;  // Open Enter Quantity to Create Page for Create Serial No or with Lot No.
             ItemTracking::SelectSerial:
                 begin
-                    ItemTrackingLines."Select Entries".Invoke();  // Open Item Tracking Summary for Select Line.
-                    ItemTrackingLines.OK().Invoke();
+                    ItemTrackingLines."Select Entries".Invoke;  // Open Item Tracking Summary for Select Line.
+                    ItemTrackingLines.OK.Invoke;
                 end;
             ItemTracking::VerifyValue: // Using For Transfer Receipt.
                 begin
-                    ItemTrackingLines.Last();
+                    ItemTrackingLines.Last;
                     repeat
                         ItemTrackingLines."Qty. to Handle (Base)".AssertEquals(1);  // For Serial No.
                         LineCount += 1;
-                    until not ItemTrackingLines.Previous();
+                    until not ItemTrackingLines.Previous;
                     Assert.AreEqual(TrackingQuantity, LineCount, NumberOfLineErr);  // Verify Number of line Tracking Line.
                 end;
         end;
@@ -5107,14 +5043,14 @@ codeunit 137063 "SCM Manufacturing 7.0"
     [Scope('OnPrem')]
     procedure ItemTrackingSummaryPageHandler(var ItemTrackingSummary: TestPage "Item Tracking Summary")
     begin
-        ItemTrackingSummary.OK().Invoke();
+        ItemTrackingSummary.OK.Invoke;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure QuantityToCreatePageHandler(var EnterQuantityToCreate: TestPage "Enter Quantity to Create")
     begin
-        EnterQuantityToCreate.OK().Invoke();
+        EnterQuantityToCreate.OK.Invoke;
     end;
 
     [MessageHandler]
@@ -5141,11 +5077,11 @@ codeunit 137063 "SCM Manufacturing 7.0"
         TrackingOption := OptionValue;
         case TrackingOption of
             TrackingOption::AssignLotNo:
-                ItemTrackingLines."Assign Lot No.".Invoke();
+                ItemTrackingLines."Assign Lot No.".Invoke;
             TrackingOption::SelectEntries:
-                ItemTrackingLines."Select Entries".Invoke();
+                ItemTrackingLines."Select Entries".Invoke;
         end;
-        ItemTrackingLines.OK().Invoke();
+        ItemTrackingLines.OK.Invoke;
     end;
 
     [ConfirmHandler]
@@ -5176,8 +5112,8 @@ codeunit 137063 "SCM Manufacturing 7.0"
     [Scope('OnPrem')]
     procedure ProdOrderComponentsHandler(var ProdOrderComponents: TestPage "Prod. Order Components")
     begin
-        ProdOrderComponents.ItemTrackingLines.Invoke();
-        ProdOrderComponents.OK().Invoke();
+        ProdOrderComponents.ItemTrackingLines.Invoke;
+        ProdOrderComponents.OK.Invoke;
     end;
 
     local procedure GetShopCalendarCodeForProductionOrder(ProductionOrder: Record "Production Order"): Code[10]

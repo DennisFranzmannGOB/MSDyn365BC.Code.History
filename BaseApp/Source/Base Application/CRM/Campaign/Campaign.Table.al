@@ -17,7 +17,6 @@ table 5071 Campaign
 {
     Caption = 'Campaign';
     DataCaptionFields = "No.", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Campaign List";
 
     fields
@@ -30,7 +29,7 @@ table 5071 Campaign
             begin
                 if "No." <> xRec."No." then begin
                     RMSetup.Get();
-                    NoSeries.TestManual(RMSetup."Campaign Nos.");
+                    NoSeriesMgt.TestManual(RMSetup."Campaign Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -368,32 +367,11 @@ table 5071 Campaign
     end;
 
     trigger OnInsert()
-#if not CLEAN24
-    var
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         if "No." = '' then begin
             RMSetup.Get();
             RMSetup.TestField("Campaign Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(RMSetup."Campaign Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(RMSetup."Campaign Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := RMSetup."Campaign Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", RMSetup."Campaign Nos.", 0D, "No.");
-            end;
-#else
-			if NoSeries.AreRelated(RMSetup."Campaign Nos.", xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := RMSetup."Campaign Nos.";
-            "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(RMSetup."Campaign Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
         if "Salesperson Code" = '' then
@@ -422,7 +400,7 @@ table 5071 Campaign
         RMCommentLine: Record "Rlshp. Mgt. Comment Line";
         CampaignEntry: Record "Campaign Entry";
         CommentLine: Record "Comment Line";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         DimMgt: Codeunit DimensionManagement;
         CampaignMgmt: Codeunit "Campaign Target Group Mgt";
 
@@ -431,13 +409,17 @@ table 5071 Campaign
 
     procedure AssistEdit(OldCampaign: Record Campaign): Boolean
     begin
-        Campaign := Rec;
-        RMSetup.Get();
-        RMSetup.TestField("Campaign Nos.");
-        if NoSeries.LookupRelatedNoSeries(RMSetup."Campaign Nos.", OldCampaign."No. Series", Campaign."No. Series") then begin
-            Campaign."No." := NoSeries.GetNextNo(Campaign."No. Series");
-            Rec := Campaign;
-            exit(true);
+        with Campaign do begin
+            Campaign := Rec;
+            RMSetup.Get();
+            RMSetup.TestField("Campaign Nos.");
+            if NoSeriesMgt.SelectSeries(RMSetup."Campaign Nos.", OldCampaign."No. Series", "No. Series") then begin
+                RMSetup.Get();
+                RMSetup.TestField("Campaign Nos.");
+                NoSeriesMgt.SetSeries("No.");
+                Rec := Campaign;
+                exit(true);
+            end;
         end;
     end;
 

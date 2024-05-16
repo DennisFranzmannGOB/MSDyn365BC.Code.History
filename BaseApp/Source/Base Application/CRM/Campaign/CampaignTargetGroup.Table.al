@@ -6,7 +6,6 @@ using Microsoft.Sales.Customer;
 table 7030 "Campaign Target Group"
 {
     Caption = 'Campaign Target Group';
-    DataClassification = CustomerContent;
 
     fields
     {

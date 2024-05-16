@@ -9,7 +9,6 @@ using System.Threading;
 table 5370 "CRM Synch. Job Status Cue"
 {
     Caption = 'CRM Synch. Job Status Cue';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -19,7 +18,7 @@ table 5370 "CRM Synch. Job Status Cue"
         }
         field(2; "Failed Synch. Jobs"; Integer)
         {
-            CalcFormula = count("Job Queue Entry" where("Object ID to Run" = field("Object ID to Run"),
+            CalcFormula = Count("Job Queue Entry" where("Object ID to Run" = field("Object ID to Run"),
                                                          Status = const(Error),
                                                          "Last Ready State" = field("Date Filter")));
             Caption = 'Failed Synch. Jobs';

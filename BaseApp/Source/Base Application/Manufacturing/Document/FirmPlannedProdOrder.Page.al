@@ -105,17 +105,13 @@ page 99000829 "Firm Planned Prod. Order"
             group(Schedule)
             {
                 Caption = 'Schedule';
-#if not CLEAN24
                 field("Starting Time"; StartingTime)
                 {
                     ApplicationArea = Manufacturing;
                     Caption = 'Starting Time';
                     Importance = Promoted;
                     ToolTip = 'Specifies the starting time of the production order.';
-                    Visible = false;
-                    ObsoleteReason = 'Replaced by "Starting Date-Time" field';
-                    ObsoleteState = Pending;
-                    ObsoleteTag = '24.0';
+                    Visible = DateAndTimeFieldVisible;
 
                     trigger OnValidate()
                     begin
@@ -129,10 +125,7 @@ page 99000829 "Firm Planned Prod. Order"
                     Caption = 'Starting Date';
                     Importance = Promoted;
                     ToolTip = 'Specifies the starting date of the production order.';
-                    Visible = false;
-                    ObsoleteReason = 'Replaced by "Starting Date-Time" field';
-                    ObsoleteState = Pending;
-                    ObsoleteTag = '24.0';
+                    Visible = DateAndTimeFieldVisible;
 
                     trigger OnValidate()
                     begin
@@ -146,10 +139,7 @@ page 99000829 "Firm Planned Prod. Order"
                     Caption = 'Ending Time';
                     Importance = Promoted;
                     ToolTip = 'Specifies the ending time of the production order.';
-                    Visible = false;
-                    ObsoleteReason = 'Replaced by "Ending Date-Time" field';
-                    ObsoleteState = Pending;
-                    ObsoleteTag = '24.0';
+                    Visible = DateAndTimeFieldVisible;
 
                     trigger OnValidate()
                     begin
@@ -163,10 +153,7 @@ page 99000829 "Firm Planned Prod. Order"
                     Caption = 'Ending Date';
                     Importance = Promoted;
                     ToolTip = 'Specifies the ending date of the production order.';
-                    Visible = false;
-                    ObsoleteReason = 'Replaced by "Ending Date-Time" field';
-                    ObsoleteState = Pending;
-                    ObsoleteTag = '24.0';
+                    Visible = DateAndTimeFieldVisible;
 
                     trigger OnValidate()
                     begin
@@ -174,7 +161,6 @@ page 99000829 "Firm Planned Prod. Order"
                         CurrPage.Update(true);
                     end;
                 }
-#endif
                 field("Starting Date-Time"; Rec."Starting Date-Time")
                 {
                     ApplicationArea = Manufacturing;
@@ -489,6 +475,15 @@ page 99000829 "Firm Planned Prod. Order"
                 actionref("Re&plan_Promoted"; "Re&plan")
                 {
                 }
+#if not CLEAN21
+                actionref("C&opy Prod. Order Document_Promoted"; "C&opy Prod. Order Document")
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Print)
             {
@@ -527,31 +522,27 @@ page 99000829 "Firm Planned Prod. Order"
 
     trigger OnAfterGetRecord()
     begin
-#if not CLEAN24
-        StartingTime := DT2Time(Rec."Starting Date-Time");
-        StartingDate := DT2Date(Rec."Starting Date-Time");
-        EndingTime := DT2Time(Rec."Ending Date-Time");
-        EndingDate := DT2Date(Rec."Ending Date-Time");
-#endif
+        Rec.GetStartingEndingDateAndTime(StartingTime, StartingDate, EndingTime, EndingDate);
     end;
 
     trigger OnInit()
     begin
+        DateAndTimeFieldVisible := false;
     end;
 
     trigger OnOpenPage()
     begin
+        DateAndTimeFieldVisible := false;
     end;
 
     var
         CopyProdOrderDoc: Report "Copy Production Order Document";
         ManuPrintReport: Codeunit "Manu. Print Report";
-#if not CLEAN24
         StartingTime: Time;
         EndingTime: Time;
         StartingDate: Date;
         EndingDate: Date;
-#endif
+        DateAndTimeFieldVisible: Boolean;
 
     local procedure ShortcutDimension1CodeOnAfterV()
     begin

@@ -23,6 +23,45 @@ codeunit 138100 "Streamline. Autofill No Series"
         CurrentSalesSetupDocType: Integer;
         PurchSetupDocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order";
         CurrentPurchSetupDocType: Integer;
+        NoSeriesCodeForUseInModalPageHendler: Code[20];
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure SettingDefaultNosFalseWhenManualNosIsFalseForcesManualNosToTrue()
+    var
+        NoSeries: Record "No. Series";
+    begin
+        // [GIVEN] NoSeries where Default Nos is TRUE and Manual Nos is FALSE
+        Initialize();
+        NoSeries.Get(CreateNonVisibleNoSeries(false));
+        NoSeries.Validate("Default Nos.", true);
+        NoSeries.Validate("Manual Nos.", false);
+
+        // [WHEN] When Default Nos is et to FALSE
+        NoSeries.Validate("Default Nos.", false);
+
+        // [THEN] Manual Nos is forced to be true because both Manual Nos and Default Nos being FALSE is not a valid scenario
+        NoSeries.TestField("Manual Nos.", true);
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure SettingManualNosFalseWhenDefaultNosIsFalseForcesDefaultNosToTrue()
+    var
+        NoSeries: Record "No. Series";
+    begin
+        // [GIVEN] NoSeries where Manual Nos is TRUE and Default Nos is FALSE
+        Initialize();
+        NoSeries.Get(CreateNonVisibleNoSeries(false));
+        NoSeries.Validate("Manual Nos.", true);
+        NoSeries.Validate("Default Nos.", false);
+
+        // [WHEN] When Manual Nos is et to FALSE
+        NoSeries.Validate("Manual Nos.", false);
+
+        // [THEN] Default Nos is forced to be true because both Manual Nos and Default Nos being FALSE is not a valid scenario
+        NoSeries.TestField("Default Nos.", true);
+    end;
 
     [Test]
     [HandlerFunctions('SetupSalesNoSeriesPageHandler')]
@@ -307,7 +346,7 @@ codeunit 138100 "Streamline. Autofill No Series"
 
         UpdateNoSeriesOnSalesSetup(SalesSetupDocType::Invoice, NoSeriesCode);
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsFalse(
           Result,
@@ -332,7 +371,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         NoSeriesRelationship."Series Code" := WrongNoSeriesCodeTxt;
         if NoSeriesRelationship.Insert() then;
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsTrue(
           Result,
@@ -353,7 +392,7 @@ codeunit 138100 "Streamline. Autofill No Series"
 
         SetNoSeriesManualNos(NoSeriesCode, true);
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsTrue(
           Result,
@@ -374,7 +413,7 @@ codeunit 138100 "Streamline. Autofill No Series"
 
         SetNoSeriesDefaultNos(NoSeriesCode, false);
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsTrue(
           Result,
@@ -386,7 +425,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure DocNoVisibility_StartingDateInFuture()
     var
         NoSeriesLine: Record "No. Series Line";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Result: Boolean;
         NoSeriesCode: Code[20];
     begin
@@ -395,10 +434,10 @@ codeunit 138100 "Streamline. Autofill No Series"
         NoSeriesCode := CreateNonVisibleNoSeries(true);
         UpdateNoSeriesOnSalesSetup(SalesSetupDocType::Invoice, NoSeriesCode);
 
-        NoSeries.GetNoSeriesLine(NoSeriesLine, NoSeriesCode, WorkDate(), true);
-        NoSeriesLine.ModifyAll("Starting Date", WorkDate() + 1);
+        NoSeriesMgt.SetNoSeriesLineFilter(NoSeriesLine, NoSeriesCode, WorkDate());
+        NoSeriesLine.ModifyAll("Starting Date", WorkDate + 1);
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsTrue(
           Result,
@@ -410,7 +449,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure DocNoVisibility_LastDateUsedInFuture_WithDateOrder()
     var
         NoSeriesLine: Record "No. Series Line";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Result: Boolean;
         NoSeriesCode: Code[20];
     begin
@@ -421,10 +460,10 @@ codeunit 138100 "Streamline. Autofill No Series"
 
         SetNoSeriesDateOrder(NoSeriesCode, true);
 
-        NoSeries.GetNoSeriesLine(NoSeriesLine, NoSeriesCode, WorkDate(), true);
-        NoSeriesLine.ModifyAll("Last Date Used", WorkDate() + 1);
+        NoSeriesMgt.SetNoSeriesLineFilter(NoSeriesLine, NoSeriesCode, WorkDate());
+        NoSeriesLine.ModifyAll("Last Date Used", WorkDate + 1);
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsTrue(
           Result,
@@ -436,7 +475,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure DocNoVisibility_LastDateUsedInFuture_NoDateOrder()
     var
         NoSeriesLine: Record "No. Series Line";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Result: Boolean;
         NoSeriesCode: Code[20];
     begin
@@ -447,10 +486,10 @@ codeunit 138100 "Streamline. Autofill No Series"
 
         SetNoSeriesDateOrder(NoSeriesCode, false);
 
-        NoSeries.GetNoSeriesLine(NoSeriesLine, NoSeriesCode, WorkDate(), true);
-        NoSeriesLine.ModifyAll("Last Date Used", WorkDate() + 1);
+        NoSeriesMgt.SetNoSeriesLineFilter(NoSeriesLine, NoSeriesCode, WorkDate());
+        NoSeriesLine.ModifyAll("Last Date Used", WorkDate + 1);
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsFalse(
           Result,
@@ -462,7 +501,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure DocNoVisibility_EmptyStartingNo()
     var
         NoSeriesLine: Record "No. Series Line";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Result: Boolean;
         NoSeriesCode: Code[20];
     begin
@@ -471,11 +510,11 @@ codeunit 138100 "Streamline. Autofill No Series"
         NoSeriesCode := CreateNonVisibleNoSeries(false);
         UpdateNoSeriesOnSalesSetup(SalesSetupDocType::Invoice, NoSeriesCode);
 
-        NoSeries.GetNoSeriesLine(NoSeriesLine, NoSeriesCode, WorkDate(), true);
+        NoSeriesMgt.SetNoSeriesLineFilter(NoSeriesLine, NoSeriesCode, WorkDate());
         NoSeriesLine.ModifyAll("Last No. Used", '');
         NoSeriesLine.ModifyAll("Starting No.", '');
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsTrue(
           Result,
@@ -487,7 +526,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure DocNoVisibility_LastNoTooBig()
     var
         NoSeriesLine: Record "No. Series Line";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Result: Boolean;
         NoSeriesCode: Code[20];
     begin
@@ -496,11 +535,11 @@ codeunit 138100 "Streamline. Autofill No Series"
         NoSeriesCode := CreateNonVisibleNoSeries(false);
         UpdateNoSeriesOnSalesSetup(SalesSetupDocType::Invoice, NoSeriesCode);
 
-        NoSeries.GetNoSeriesLine(NoSeriesLine, NoSeriesCode, WorkDate(), true);
+        NoSeriesMgt.SetNoSeriesLineFilter(NoSeriesLine, NoSeriesCode, WorkDate());
         NoSeriesLine.ModifyAll("Last No. Used", '2');
         NoSeriesLine.ModifyAll("Ending No.", '1');
 
-        Result := WrapperSalesDocumentNoIsVisible();
+        Result := WrapperSalesDocumentNoIsVisible;
 
         Assert.IsTrue(
           Result,
@@ -555,6 +594,84 @@ codeunit 138100 "Streamline. Autofill No Series"
 
     [Test]
     [Scope('OnPrem')]
+    procedure NoSeriesPage_FieldsValues_WithGoodLines()
+    var
+        NoSeries: Record "No. Series";
+        NoSeriesLine: Record "No. Series Line";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+        NoSeriesCode: Code[20];
+    begin
+        Initialize();
+
+        NoSeriesCode := CreateNonVisibleNoSeries(false);
+        NoSeriesManagement.SetNoSeriesLineFilter(NoSeriesLine, NoSeriesCode, 0D);
+        NoSeriesLine.FindFirst();
+        NoSeries.Get(NoSeriesCode);
+
+        ValidateFieldsOnNoSeriesPage(NoSeries, NoSeriesLine);
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure NoSeriesPage_FieldsValues_WithoutGoodLines()
+    var
+        NoSeries: Record "No. Series";
+        NoSeriesLine: Record "No. Series Line";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+        NoSeriesCode: Code[20];
+    begin
+        Initialize();
+
+        NoSeriesCode := CreateNonVisibleNoSeries(false);
+        NoSeriesManagement.SetNoSeriesLineFilter(NoSeriesLine, NoSeriesCode, 0D);
+        NoSeriesLine.DeleteAll();
+        NoSeriesLine.Reset();
+        NoSeriesLine.SetRange("Series Code", NoSeriesCode);
+        NoSeriesLine.FindFirst();
+
+        NoSeries.Get(NoSeriesCode);
+
+        ValidateFieldsOnNoSeriesPage(NoSeries, NoSeriesLine);
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
+    procedure NoSeriesPage_FieldsValues_WithoutLines()
+    var
+        NoSeries: Record "No. Series";
+        NoSeriesLine: Record "No. Series Line";
+        NoSeriesCode: Code[20];
+    begin
+        Initialize();
+
+        NoSeriesCode := CreateNonVisibleNoSeries(false);
+
+        NoSeriesLine.SetRange("Series Code", NoSeriesCode);
+        NoSeriesLine.DeleteAll();
+        if NoSeriesLine.FindFirst() then;
+
+        NoSeries.Get(NoSeriesCode);
+
+        ValidateFieldsOnNoSeriesPage(NoSeries, NoSeriesLine);
+    end;
+
+    [Test]
+    [HandlerFunctions('NoSeriesLinesPageHandler')]
+    [Scope('OnPrem')]
+    procedure NoSeriesPage_DrillDown()
+    var
+        NoSeries: Record "No. Series";
+    begin
+        Initialize();
+
+        NoSeriesCodeForUseInModalPageHendler := CreateNonVisibleNoSeries(false);
+
+        NoSeries.Get(NoSeriesCodeForUseInModalPageHendler);
+        NoSeries.DrillDown();
+    end;
+
+    [Test]
+    [Scope('OnPrem')]
     procedure DocNoVisibility_CustomerManualNoSeries()
     var
         DocumentNoVisibility: Codeunit DocumentNoVisibility;
@@ -570,7 +687,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesManualNos(NoSeriesCode, true);
 
         // [THEN] The CustomerNo should be visible
-        Result := DocumentNoVisibility.CustomerNoIsVisible();
+        Result := DocumentNoVisibility.CustomerNoIsVisible;
         Assert.IsTrue(
           Result,
           'When "Manual Nos." is TRUE, "Customer No" should be visible.');
@@ -579,7 +696,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesManualNos(NoSeriesCode, false);
 
         // [THEN] The CustomerNo should be NOT visible
-        Result := DocumentNoVisibility.CustomerNoIsVisible();
+        Result := DocumentNoVisibility.CustomerNoIsVisible;
         Assert.IsFalse(
           Result,
           'When "Manual Nos." is FALSE, "Customer No" should be hidden.');
@@ -603,7 +720,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         CustomerCard.OpenNew();
 
         // [THEN] The the handler should open
-        Assert.IsTrue(LibraryVariableStorage.DequeueBoolean(),
+        Assert.IsTrue(LibraryVariableStorage.DequeueBoolean,
           'The "Config Templates" Modal page should open');
 
         // [WHEN] NoSeries for Customer is NOT set to Default and opennew CustomerCard
@@ -611,7 +728,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         CustomerCard.OpenNew();
 
         // [THEN] The the handler should NOT open
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
         CustomerCard.Close();
     end;
 
@@ -631,14 +748,14 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
 
         // [THEN] CustomerNoSeriesIsDefault should return TRUE
-        Assert.IsTrue(DocumentNoVisibility.CustomerNoSeriesIsDefault(),
+        Assert.IsTrue(DocumentNoVisibility.CustomerNoSeriesIsDefault,
           'The Customer NoSeries Default Nos. should be TRUE');
 
         // [WHEN] NoSeries for Customer is set to Default=FALSE
         SetNoSeriesDefaultNos(NoSeriesCode, false);
 
         // [THEN] CustomerNoSeriesIsDefault should return FALSE
-        Assert.IsFalse(DocumentNoVisibility.CustomerNoSeriesIsDefault(),
+        Assert.IsFalse(DocumentNoVisibility.CustomerNoSeriesIsDefault,
           'The Customer NoSeries Default Nos. should be FALSE');
     end;
 
@@ -692,7 +809,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         VendorCard.OpenNew();
 
         // [THEN] The the handler should open
-        Assert.IsTrue(LibraryVariableStorage.DequeueBoolean(),
+        Assert.IsTrue(LibraryVariableStorage.DequeueBoolean,
           'The "Config Templates" Modal page should open');
 
         // [WHEN] NoSeries for Vendor is NOT set to Default and opennew VendorCard
@@ -700,7 +817,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         VendorCard.OpenNew();
 
         // [THEN] The the handler should NOT open
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
         VendorCard.Close();
     end;
 
@@ -720,14 +837,14 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
 
         // [THEN] VendorNoSeriesIsDefault should return TRUE
-        Assert.IsTrue(DocumentNoVisibility.VendorNoSeriesIsDefault(),
+        Assert.IsTrue(DocumentNoVisibility.VendorNoSeriesIsDefault,
           'The Vendor NoSeries Default Nos. should be TRUE');
 
         // [WHEN] NoSeries for Vendor is set to Default=FALSE
         SetNoSeriesDefaultNos(NoSeriesCode, false);
 
         // [THEN] VendorNoSeriesIsDefault should return FALSE
-        Assert.IsFalse(DocumentNoVisibility.VendorNoSeriesIsDefault(),
+        Assert.IsFalse(DocumentNoVisibility.VendorNoSeriesIsDefault,
           'The Vendor NoSeries Default Nos. should be FALSE');
     end;
 
@@ -748,7 +865,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesManualNos(NoSeriesCode, true);
 
         // [THEN] The ItemNo should be visible
-        Result := DocumentNoVisibility.ItemNoIsVisible();
+        Result := DocumentNoVisibility.ItemNoIsVisible;
         Assert.IsTrue(
           Result,
           'When "Manual Nos." is TRUE, "Item No" should be visible.');
@@ -757,7 +874,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesManualNos(NoSeriesCode, false);
 
         // [THEN] The ItemNo should NOT be visible
-        Result := DocumentNoVisibility.ItemNoIsVisible();
+        Result := DocumentNoVisibility.ItemNoIsVisible;
         Assert.IsFalse(
           Result,
           'When "Manual Nos." is FALSE, "Item No" should be hidden.');
@@ -781,7 +898,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         ItemCard.OpenNew();
 
         // [THEN] The the handler should open
-        Assert.IsTrue(LibraryVariableStorage.DequeueBoolean(),
+        Assert.IsTrue(LibraryVariableStorage.DequeueBoolean,
           'The "Config Templates" Modal page should open');
 
         // [WHEN] NoSeries for Item is NOT set to Default and opennew ItemCard
@@ -789,7 +906,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         ItemCard.OpenNew();
 
         // [THEN] The the handler should NOT open
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
         ItemCard.Close();
     end;
 
@@ -809,14 +926,14 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
 
         // [THEN] ItemNoSeriesIsDefault should return TRUE
-        Assert.IsTrue(DocumentNoVisibility.ItemNoSeriesIsDefault(),
+        Assert.IsTrue(DocumentNoVisibility.ItemNoSeriesIsDefault,
           'The Item NoSeries Default Nos. should be TRUE');
 
         // [WHEN] NoSeries for Item is set to Default=FALSE
         SetNoSeriesDefaultNos(NoSeriesCode, false);
 
         // [THEN] ItemNoSeriesIsDefault should return FALSE
-        Assert.IsFalse(DocumentNoVisibility.ItemNoSeriesIsDefault(),
+        Assert.IsFalse(DocumentNoVisibility.ItemNoSeriesIsDefault,
           'The Item NoSeries Default Nos. should be FALSE');
     end;
 
@@ -837,7 +954,7 @@ codeunit 138100 "Streamline. Autofill No Series"
 
         // [THEN] The Transfer Order No. should be visible
         Assert.IsTrue(
-          DocumentNoVisibility.TransferOrderNoIsVisible(),
+          DocumentNoVisibility.TransferOrderNoIsVisible,
           'When "Manual Nos." is TRUE, "Transfer Order No." should be visible.');
 
         // [WHEN] NoSeries for Transfer Order  is NOT set to Manual
@@ -845,7 +962,7 @@ codeunit 138100 "Streamline. Autofill No Series"
 
         // [THEN] The The Transfer Order No. should NOT be visible
         Assert.IsFalse(
-          DocumentNoVisibility.TransferOrderNoIsVisible(),
+          DocumentNoVisibility.TransferOrderNoIsVisible,
           'When "Manual Nos." is FALSE, "Transfer Order No." should be hidden.');
     end;
 
@@ -865,14 +982,14 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
 
         // [THEN] TransferOrderNoSeriesIsDefault should return TRUE
-        Assert.IsTrue(DocumentNoVisibility.TransferOrderNoSeriesIsDefault(),
+        Assert.IsTrue(DocumentNoVisibility.TransferOrderNoSeriesIsDefault,
           'The Transfer Order NoSeries Default Nos. should be TRUE');
 
         // [WHEN] NoSeries for Transfer Order is set to Default=FALSE
         SetNoSeriesDefaultNos(NoSeriesCode, false);
 
         // [THEN] TransferOrderNoSeriesIsDefault should return FALSE
-        Assert.IsFalse(DocumentNoVisibility.TransferOrderNoSeriesIsDefault(),
+        Assert.IsFalse(DocumentNoVisibility.TransferOrderNoSeriesIsDefault,
           'The Transfer Order NoSeries Default Nos. should be FALSE');
     end;
 
@@ -893,7 +1010,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesManualNos(NoSeriesCode, true);
 
         // [THEN] The EmlpoyeeNo should be visible
-        Result := DocumentNoVisibility.EmployeeNoIsVisible();
+        Result := DocumentNoVisibility.EmployeeNoIsVisible;
         Assert.IsTrue(
           Result,
           'When "Manual Nos." is TRUE, "Employee No" should be visible.');
@@ -902,7 +1019,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesManualNos(NoSeriesCode, false);
 
         // [THEN] The EmployeeNo should NOT be visible
-        Result := DocumentNoVisibility.EmployeeNoIsVisible();
+        Result := DocumentNoVisibility.EmployeeNoIsVisible;
         Assert.IsFalse(
           Result,
           'When "Manual Nos." is FALSE, "Employee No" should be hidden.');
@@ -924,14 +1041,14 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
 
         // [THEN] EmployeeNoSeriesIsDefault should return TRUE
-        Assert.IsTrue(DocumentNoVisibility.EmployeeNoSeriesIsDefault(),
+        Assert.IsTrue(DocumentNoVisibility.EmployeeNoSeriesIsDefault,
           'The Emplpoyee NoSeries Default Nos. should be TRUE');
 
         // [WHEN] NoSeries for Employee is set to Default=FALSE
         SetNoSeriesDefaultNos(NoSeriesCode, false);
 
         // [THEN] EmployeeNoSeriesIsDefault should return FALSE
-        Assert.IsFalse(DocumentNoVisibility.EmployeeNoSeriesIsDefault(),
+        Assert.IsFalse(DocumentNoVisibility.EmployeeNoSeriesIsDefault,
           'The Employee NoSeries Default Nos. should be FALSE');
     end;
 
@@ -941,7 +1058,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure OpenCustomer_WithNoSeries_InUse()
     var
         Customer: Record Customer;
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         CustomerCard: TestPage "Customer Card";
         NoSeriesCode: Code[20];
         NewNo: Code[20];
@@ -954,15 +1071,15 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
         CustomerCard.OpenNew();
         if CustomerCard."No.".Value = '' then begin
-            NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+            NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
             SetNoSeriesDefaultNos(NoSeriesCode, false);
             CustomerCard."No.".Value(NewNo);
             SetNoSeriesDefaultNos(NoSeriesCode, true);
         end;
-        CustomerCard.OK().Invoke();
+        CustomerCard.OK.Invoke;
 
         // [WHEN] A new customer is created using the next Number in the series bypassing the UI
-        NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+        NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
         with Customer do begin
             Init();
             "No." := NewNo;
@@ -979,7 +1096,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure OpenVendor_WithNoSeries_InUse()
     var
         Vendor: Record Vendor;
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         VendorCard: TestPage "Vendor Card";
         NoSeriesCode: Code[20];
         NewNo: Code[20];
@@ -992,15 +1109,15 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
         VendorCard.OpenNew();
         if VendorCard."No.".Value = '' then begin
-            NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+            NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
             SetNoSeriesDefaultNos(NoSeriesCode, false);
             VendorCard."No.".Value(NewNo);
             SetNoSeriesDefaultNos(NoSeriesCode, true);
         end;
-        VendorCard.OK().Invoke();
+        VendorCard.OK.Invoke;
 
         // [WHEN] A new vendor is created using the next Number in the series bypassing the UI
-        NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+        NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
         with Vendor do begin
             Init();
             "No." := NewNo;
@@ -1016,7 +1133,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure OpenSQ_WithNoSeries_InUse()
     var
         SalesHeader: Record "Sales Header";
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         SalesQuoteCard: TestPage "Sales Quote";
         NoSeriesCode: Code[20];
         NewNo: Code[20];
@@ -1029,15 +1146,15 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
         SalesQuoteCard.OpenNew();
         if SalesQuoteCard."No.".Value = '' then begin
-            NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+            NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
             SetNoSeriesDefaultNos(NoSeriesCode, false);
             SalesQuoteCard."No.".Value(NewNo);
             SetNoSeriesDefaultNos(NoSeriesCode, true);
         end;
-        SalesQuoteCard.OK().Invoke();
+        SalesQuoteCard.OK.Invoke;
 
         // [WHEN] A new sales quote is created using the next Number in the series bypassing the UI
-        NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+        NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
         with SalesHeader do begin
             Init();
             "No." := NewNo;
@@ -1054,7 +1171,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure OpenSI_WithNoSeries_InUse()
     var
         SalesHeader: Record "Sales Header";
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         SalesInvoiceCard: TestPage "Sales Invoice";
         NoSeriesCode: Code[20];
         NewNo: Code[20];
@@ -1067,15 +1184,15 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
         SalesInvoiceCard.OpenNew();
         if SalesInvoiceCard."No.".Value = '' then begin
-            NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+            NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
             SetNoSeriesDefaultNos(NoSeriesCode, false);
             SalesInvoiceCard."No.".Value(NewNo);
             SetNoSeriesDefaultNos(NoSeriesCode, true);
         end;
-        SalesInvoiceCard.OK().Invoke();
+        SalesInvoiceCard.OK.Invoke;
 
         // [WHEN] A new sales invoice is created using the next Number in the series bypassing the UI
-        NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+        NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
         with SalesHeader do begin
             Init();
             "No." := NewNo;
@@ -1092,7 +1209,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure OpenPQ_WithNoSeries_InUse()
     var
         PurchaseHeader: Record "Purchase Header";
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         PurchaseQuoteCard: TestPage "Purchase Quote";
         NoSeriesCode: Code[20];
         NewNo: Code[20];
@@ -1106,15 +1223,15 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
         PurchaseQuoteCard.OpenNew();
         if PurchaseQuoteCard."No.".Value = '' then begin
-            NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+            NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
             SetNoSeriesDefaultNos(NoSeriesCode, false);
             PurchaseQuoteCard."No.".Value(NewNo);
             SetNoSeriesDefaultNos(NoSeriesCode, true);
         end;
-        PurchaseQuoteCard.OK().Invoke();
+        PurchaseQuoteCard.OK.Invoke;
 
         // [WHEN] A new purchase quote is created using the next Number in the series bypassing the UI
-        NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+        NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
         with PurchaseHeader do begin
             Init();
             "No." := NewNo;
@@ -1131,7 +1248,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure OpenPI_WithNoSeries_InUse()
     var
         PurchaseHeader: Record "Purchase Header";
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         PurchaseInvoiceCard: TestPage "Purchase Invoice";
         NoSeriesCode: Code[20];
         NewNo: Code[20];
@@ -1145,15 +1262,15 @@ codeunit 138100 "Streamline. Autofill No Series"
         SetNoSeriesDefaultNos(NoSeriesCode, true);
         PurchaseInvoiceCard.OpenNew();
         if PurchaseInvoiceCard."No.".Value = '' then begin
-            NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+            NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
             SetNoSeriesDefaultNos(NoSeriesCode, false);
             PurchaseInvoiceCard."No.".Value(NewNo);
             SetNoSeriesDefaultNos(NoSeriesCode, true);
         end;
-        PurchaseInvoiceCard.OK().Invoke();
+        PurchaseInvoiceCard.OK.Invoke;
 
         // [WHEN] A new purchase invoice is created using the next Number in the series bypassing the UI
-        NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+        NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
         with PurchaseHeader do begin
             Init();
             "No." := NewNo;
@@ -1243,6 +1360,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure DocNoForDifferentSalesTypes()
     var
         DocumentNoVisibility: Codeunit DocumentNoVisibility;
+        Result: Boolean;
         NoSeriesCode: Code[20];
         HiddenNoSeriesCode: Code[20];
     begin
@@ -1266,6 +1384,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure DocNoForDifferentPurchTypes()
     var
         DocumentNoVisibility: Codeunit DocumentNoVisibility;
+        Result: Boolean;
         NoSeriesCode: Code[20];
         HiddenNoSeriesCode: Code[20];
     begin
@@ -1294,7 +1413,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     var
         Customer: Record Customer;
         NoSeries: Record "No. Series";
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         CustomerCard: TestPage "Customer Card";
         NoSeriesCode: Code[20];
         NewNo: Code[20];
@@ -1313,15 +1432,15 @@ codeunit 138100 "Streamline. Autofill No Series"
         // [WHEN] NoSeries for Customer is set and opennew CustomerCard
         CustomerCard.OpenNew();
         if CustomerCard."No.".Value = '' then begin
-            NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+            NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
             SetNoSeriesDefaultNos(NoSeriesCode, false);
             CustomerCard."No.".Value(NewNo);
             SetNoSeriesDefaultNos(NoSeriesCode, true);
         end;
-        CustomerCard.OK().Invoke();
+        CustomerCard.OK.Invoke;
 
         // [WHEN] A new customer is created using the next Number in the series bypassing the UI
-        NewNo := NoSeriesBatch.GetNextNo(NoSeriesCode, 0D, true);
+        NewNo := NoSeriesMgt.DoGetNextNo(NoSeriesCode, 0D, false, true);
         with Customer do begin
             Init();
             "No." := NewNo;
@@ -1441,8 +1560,8 @@ codeunit 138100 "Streamline. Autofill No Series"
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         SalesReceivablesSetup.Get();
-        NoSeriesCode[1] := LibraryERM.CreateNoSeriesCode();
-        NoSeriesCode[2] := LibraryERM.CreateNoSeriesCode();
+        NoSeriesCode[1] := LibraryERM.CreateNoSeriesCode;
+        NoSeriesCode[2] := LibraryERM.CreateNoSeriesCode;
         SalesReceivablesSetup."Posted Invoice Nos." := NoSeriesCode[1];
         SalesReceivablesSetup."Posted Shipment Nos." := NoSeriesCode[2];
         SalesReceivablesSetup.Modify();
@@ -1453,8 +1572,8 @@ codeunit 138100 "Streamline. Autofill No Series"
         PurchasesPayablesSetup: Record "Purchases & Payables Setup";
     begin
         PurchasesPayablesSetup.Get();
-        NoSeriesCode[1] := LibraryERM.CreateNoSeriesCode();
-        NoSeriesCode[2] := LibraryERM.CreateNoSeriesCode();
+        NoSeriesCode[1] := LibraryERM.CreateNoSeriesCode;
+        NoSeriesCode[2] := LibraryERM.CreateNoSeriesCode;
         PurchasesPayablesSetup."Posted Invoice Nos." := NoSeriesCode[1];
         PurchasesPayablesSetup."Posted Receipt Nos." := NoSeriesCode[2];
         PurchasesPayablesSetup.Modify();
@@ -1463,50 +1582,50 @@ codeunit 138100 "Streamline. Autofill No Series"
     local procedure CheckFieldsVisibilityOnSalesSetupPage(var SalesNoSeriesSetup: TestPage "Sales No. Series Setup"; DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order",Reminder,FinChMemo)
     begin
         Assert.IsTrue(
-          SalesNoSeriesSetup."Quote Nos.".Visible() = (DocType = SalesSetupDocType::Quote),
+          SalesNoSeriesSetup."Quote Nos.".Visible = (DocType = SalesSetupDocType::Quote),
           'Visible is incorrect for Quote');
         Assert.IsTrue(
-          SalesNoSeriesSetup."Blanket Order Nos.".Visible() = (DocType = SalesSetupDocType::"Blanket Order"),
+          SalesNoSeriesSetup."Blanket Order Nos.".Visible = (DocType = SalesSetupDocType::"Blanket Order"),
           'Visible is incorrect for Blanket Order.');
         Assert.IsTrue(
-          SalesNoSeriesSetup."Order Nos.".Visible() = (DocType = SalesSetupDocType::Order),
+          SalesNoSeriesSetup."Order Nos.".Visible = (DocType = SalesSetupDocType::Order),
           'Visible is incorrect for Order.');
         Assert.IsTrue(
-          SalesNoSeriesSetup."Return Order Nos.".Visible() = (DocType = SalesSetupDocType::"Return Order"),
+          SalesNoSeriesSetup."Return Order Nos.".Visible = (DocType = SalesSetupDocType::"Return Order"),
           'Visible is incorrect for Return Order.');
         Assert.IsTrue(
-          SalesNoSeriesSetup."Invoice Nos.".Visible() = (DocType = SalesSetupDocType::Invoice),
+          SalesNoSeriesSetup."Invoice Nos.".Visible = (DocType = SalesSetupDocType::Invoice),
           'Visible is incorrect for Invoice.');
         Assert.IsTrue(
-          SalesNoSeriesSetup."Credit Memo Nos.".Visible() = (DocType = SalesSetupDocType::"Credit Memo"),
+          SalesNoSeriesSetup."Credit Memo Nos.".Visible = (DocType = SalesSetupDocType::"Credit Memo"),
           'Visible is incorrect for Cr.Memo.');
         Assert.IsTrue(
-          SalesNoSeriesSetup."Reminder Nos.".Visible() = (DocType = SalesSetupDocType::Reminder),
+          SalesNoSeriesSetup."Reminder Nos.".Visible = (DocType = SalesSetupDocType::Reminder),
           'Visible is incorrect for Reminder.');
         Assert.IsTrue(
-          SalesNoSeriesSetup."Fin. Chrg. Memo Nos.".Visible() = (DocType = SalesSetupDocType::FinChMemo),
+          SalesNoSeriesSetup."Fin. Chrg. Memo Nos.".Visible = (DocType = SalesSetupDocType::FinChMemo),
           'Visible is incorrect for Fin. Chrg. Memo.');
     end;
 
     local procedure CheckFieldsVisibilityOnPurchSetupPage(var PurchaseNoSeriesSetup: TestPage "Purchase No. Series Setup"; DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order")
     begin
         Assert.IsTrue(
-          PurchaseNoSeriesSetup."Quote Nos.".Visible() = (DocType = PurchSetupDocType::Quote),
+          PurchaseNoSeriesSetup."Quote Nos.".Visible = (DocType = PurchSetupDocType::Quote),
           'Visible is incorrect for Quote');
         Assert.IsTrue(
-          PurchaseNoSeriesSetup."Order Nos.".Visible() = (DocType = PurchSetupDocType::Order),
+          PurchaseNoSeriesSetup."Order Nos.".Visible = (DocType = PurchSetupDocType::Order),
           'Visible is incorrect for Order.');
         Assert.IsTrue(
-          PurchaseNoSeriesSetup."Invoice Nos.".Visible() = (DocType = PurchSetupDocType::Invoice),
+          PurchaseNoSeriesSetup."Invoice Nos.".Visible = (DocType = PurchSetupDocType::Invoice),
           'Visible is incorrect for Invoice.');
         Assert.IsTrue(
-          PurchaseNoSeriesSetup."Credit Memo Nos.".Visible() = (DocType = PurchSetupDocType::"Credit Memo"),
+          PurchaseNoSeriesSetup."Credit Memo Nos.".Visible = (DocType = PurchSetupDocType::"Credit Memo"),
           'Visible is incorrect for Cr.Memo.');
         Assert.IsTrue(
-          PurchaseNoSeriesSetup."Blanket Order Nos.".Visible() = (DocType = PurchSetupDocType::"Blanket Order"),
+          PurchaseNoSeriesSetup."Blanket Order Nos.".Visible = (DocType = PurchSetupDocType::"Blanket Order"),
           'Visible is incorrect for Blanket Order.');
         Assert.IsTrue(
-          PurchaseNoSeriesSetup."Return Order Nos.".Visible() = (DocType = PurchSetupDocType::"Return Order"),
+          PurchaseNoSeriesSetup."Return Order Nos.".Visible = (DocType = PurchSetupDocType::"Return Order"),
           'Visible is incorrect for Return Order.');
     end;
 
@@ -1515,7 +1634,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure SetupSalesNoSeriesPageHandler(var SalesNoSeriesSetup: TestPage "Sales No. Series Setup")
     begin
         CheckFieldsVisibilityOnSalesSetupPage(SalesNoSeriesSetup, CurrentSalesSetupDocType);
-        SalesNoSeriesSetup.OK().Invoke();
+        SalesNoSeriesSetup.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -1523,7 +1642,7 @@ codeunit 138100 "Streamline. Autofill No Series"
     procedure SetupPurchNoSeriesPageHandler(var PurchaseNoSeriesSetup: TestPage "Purchase No. Series Setup")
     begin
         CheckFieldsVisibilityOnPurchSetupPage(PurchaseNoSeriesSetup, CurrentPurchSetupDocType);
-        PurchaseNoSeriesSetup.OK().Invoke();
+        PurchaseNoSeriesSetup.OK.Invoke;
     end;
 
     local procedure CreateNonVisibleNoSeries(SingleLine: Boolean): Code[20]
@@ -1531,7 +1650,7 @@ codeunit 138100 "Streamline. Autofill No Series"
         NoSeries: Record "No. Series";
     begin
         NoSeries.Init();
-        NoSeries.Code := CopyStr(CreateGuid(), 1, 10);    // todo: use the last instead of the first charackters
+        NoSeries.Code := CopyStr(CreateGuid, 1, 10);    // todo: use the last instead of the first charackters
         NoSeries."Default Nos." := true;
         NoSeries."Manual Nos." := false;
         if not NoSeries.Insert() then;
@@ -1568,7 +1687,7 @@ codeunit 138100 "Streamline. Autofill No Series"
             Type::Future:
                 begin
                     NoSeriesLine."Ending No." := CopyStr(NoSeriesCode, 1, 10) + '8888888888';
-                    NoSeriesLine."Starting Date" := WorkDate() + 1;
+                    NoSeriesLine."Starting Date" := WorkDate + 1;
                 end;
             Type::Ended:
                 begin
@@ -1586,6 +1705,37 @@ codeunit 138100 "Streamline. Autofill No Series"
         DocumentNoVisibility: Codeunit DocumentNoVisibility;
     begin
         exit(DocumentNoVisibility.SalesDocumentNoIsVisible(SalesSetupDocType::Invoice, ''));
+    end;
+
+    local procedure ValidateFieldsOnNoSeriesPage(var NoSeries: Record "No. Series"; var NoSeriesLine: Record "No. Series Line")
+    var
+        NoSeriesPage: TestPage "No. Series";
+    begin
+        NoSeriesPage.OpenView();
+        NoSeriesPage.GotoRecord(NoSeries);
+
+        Assert.AreEqual(NoSeriesLine."Starting No.", NoSeriesPage.StartNo.Value, 'Wrong "Starting No."');
+        Assert.AreEqual(NoSeriesLine."Ending No.", NoSeriesPage.EndNo.Value, 'Wrong "Ending No."');
+
+        NoSeriesPage.OK().Invoke();
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure NoSeriesLinesPageHandler(var NoSeriesLinesPage: TestPage "No. Series Lines")
+    var
+        NoSeriesLine: Record "No. Series Line";
+    begin
+        NoSeriesLine.SetRange("Series Code", NoSeriesCodeForUseInModalPageHendler);
+        NoSeriesLine.Find('-');
+
+        repeat
+            Assert.IsTrue(
+              NoSeriesLinesPage.GotoRecord(NoSeriesLine),
+              'Cannot find record in set.');
+        until NoSeriesLine.Next() = 0;
+
+        NoSeriesLinesPage.OK.Invoke;
     end;
 
     [ModalPageHandler]

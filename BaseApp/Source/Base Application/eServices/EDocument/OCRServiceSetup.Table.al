@@ -14,7 +14,6 @@ using System.Threading;
 table 1270 "OCR Service Setup"
 {
     Caption = 'OCR Service Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -10,7 +10,6 @@ using Microsoft.Sales.Customer;
 table 5054 "Contact Business Relation"
 {
     Caption = 'Contact Business Relation';
-    DataClassification = CustomerContent;
     DrillDownPageID = "Contact Business Relations";
 
     fields
@@ -78,14 +77,14 @@ table 5054 "Contact Business Relation"
         }
         field(5; "Business Relation Description"; Text[100])
         {
-            CalcFormula = lookup("Business Relation".Description where(Code = field("Business Relation Code")));
+            CalcFormula = Lookup("Business Relation".Description where(Code = field("Business Relation Code")));
             Caption = 'Business Relation Description';
             Editable = false;
             FieldClass = FlowField;
         }
         field(6; "Contact Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact No.")));
             Caption = 'Contact Name';
             Editable = false;
             FieldClass = FlowField;

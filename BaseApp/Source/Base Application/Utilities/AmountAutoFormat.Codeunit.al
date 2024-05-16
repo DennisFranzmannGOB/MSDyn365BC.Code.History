@@ -115,9 +115,9 @@ codeunit 347 "Amount Auto Format"
         AutoFormatPrefixedText: Text[80];
     begin
         FormatSubtype := SelectStr(1, AutoFormatExpr);
-        if FormatSubtype in ['1', '2'] then begin
+        if FormatSubtype IN ['1', '2'] then begin
             GetCurrencyCodeAndPrefixedText(AutoFormatExpr, AutoFormatCurrencyCode, AutoFormatPrefixedText);
-            case FormatSubtype of
+            CASE FormatSubtype OF
                 '1':
                     exit(GetCustomAmountFormat(AutoFormatCurrencyCode, AutoFormatPrefixedText));
                 '2':

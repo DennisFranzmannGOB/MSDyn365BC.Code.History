@@ -161,6 +161,7 @@ procedure GetBasicInfo(var EDocument: Record "E-Document"; var TempBlob: Codeuni
 
 ```
 procedure PrepareDocument(var EDocument: Record "E-Document"; var CreatedDocumentHeader: RecordRef; var CreatedDocumentLines: RecordRef; var TempBlob: Codeunit "Temp Blob")
+    var
     begin
 
     end;

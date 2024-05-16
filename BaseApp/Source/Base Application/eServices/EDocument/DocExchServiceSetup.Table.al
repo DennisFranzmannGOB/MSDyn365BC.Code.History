@@ -13,7 +13,6 @@ using System.Threading;
 table 1275 "Doc. Exch. Service Setup"
 {
     Caption = 'Doc. Exch. Service Setup';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -499,7 +498,7 @@ table 1275 "Doc. Exch. Service Setup"
 
         TokenLen := StrLen(TokenValue);
         PartLen := GetMaxTokenPartLength();
-        PartCount := TokenLen div PartLen;
+        PartCount := TokenLen DIV PartLen;
         if TokenLen > (PartCount * PartLen) then
             PartCount += 1;
 

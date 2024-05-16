@@ -9,7 +9,6 @@ table 130400 "CAL Test Suite"
     DataCaptionFields = Name, Description;
     LookupPageID = "CAL Test Suites";
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

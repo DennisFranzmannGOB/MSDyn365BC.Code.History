@@ -6,7 +6,7 @@ pageextension 9206 "User Personalization" extends "User Personalization"
 {
     actions
     {
-        addfirst(navigation)
+        addFirst(navigation)
         {
             action(PersonalizedPages)
             {
@@ -39,7 +39,7 @@ pageextension 9206 "User Personalization" extends "User Personalization"
             }
         }
 
-        addfirst(processing)
+        addFirst(processing)
         {
             group("F&unctions")
             {

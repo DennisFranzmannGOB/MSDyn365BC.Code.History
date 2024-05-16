@@ -37,7 +37,6 @@ table 5991 "Service Shipment Line"
     LookupPageID = "Posted Serv. Shpt. Line List";
     Permissions = TableData "Item Ledger Entry" = r,
                   TableData "Value Entry" = r;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -593,8 +592,6 @@ table 5991 "Service Shipment Line"
 
     fieldgroups
     {
-        fieldgroup(Brick; "No.", Description, Quantity, "Location Code", "Unit of Measure Code")
-        { }
     }
 
     var

@@ -12,7 +12,6 @@ table 5350 "CRM Incidentresolution"
     Description = 'Special type of activity that includes description of the resolution, billing status, and the duration of the case.';
     ExternalName = 'incidentresolution';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -223,7 +222,7 @@ table 5350 "CRM Incidentresolution"
         }
         field(26; CreatedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
             Caption = 'CreatedByName';
             ExternalAccess = Read;
             ExternalName = 'createdbyname';
@@ -232,7 +231,7 @@ table 5350 "CRM Incidentresolution"
         }
         field(27; IncidentIdName; Text[200])
         {
-            CalcFormula = lookup("CRM Incident".Title where(IncidentId = field(IncidentId)));
+            CalcFormula = Lookup("CRM Incident".Title where(IncidentId = field(IncidentId)));
             Caption = 'IncidentIdName';
             ExternalAccess = Read;
             ExternalName = 'incidentidname';
@@ -241,7 +240,7 @@ table 5350 "CRM Incidentresolution"
         }
         field(28; ModifiedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
             Caption = 'ModifiedByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedbyname';
@@ -308,7 +307,7 @@ table 5350 "CRM Incidentresolution"
         }
         field(36; CreatedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
             Caption = 'CreatedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'createdonbehalfbyname';
@@ -326,7 +325,7 @@ table 5350 "CRM Incidentresolution"
         }
         field(38; ModifiedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
             Caption = 'ModifiedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedonbehalfbyname';

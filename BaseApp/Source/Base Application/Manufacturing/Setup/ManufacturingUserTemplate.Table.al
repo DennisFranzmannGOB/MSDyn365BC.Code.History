@@ -12,7 +12,6 @@ table 5525 "Manufacturing User Template"
 {
     Caption = 'Manufacturing User Template';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

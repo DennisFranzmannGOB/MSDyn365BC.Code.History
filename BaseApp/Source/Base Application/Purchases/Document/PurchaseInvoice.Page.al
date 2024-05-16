@@ -531,7 +531,7 @@ page 51 "Purchase Invoice"
                         {
                             ApplicationArea = Basic, Suite;
                             Caption = 'Ship-to';
-                            HideValue = not ShowShippingOptionsWithLocation and (ShipToOptions = ShipToOptions::Location);
+                            HideValue = NOT ShowShippingOptionsWithLocation AND (ShipToOptions = ShipToOptions::Location);
                             OptionCaption = 'Default (Company Address),Location,Custom Address';
                             ToolTip = 'Specifies the address that the products on the purchase document are shipped to. Default (Company Address): The same as the company address specified in the Company Information window. Location: One of the company''s location addresses. Custom Address: Any ship-to address that you specify in the fields below.';
 
@@ -650,7 +650,7 @@ page 51 "Purchase Invoice"
                     group(Control88)
                     {
                         ShowCaption = false;
-                        Visible = not (PayToOptions = PayToOptions::"Default (Vendor)");
+                        Visible = NOT (PayToOptions = PayToOptions::"Default (Vendor)");
                         field("Pay-to Name"; Rec."Pay-to Name")
                         {
                             ApplicationArea = Basic, Suite;
@@ -965,7 +965,7 @@ page 51 "Purchase Invoice"
             {
                 ApplicationArea = Basic, Suite;
                 ShowFilter = false;
-                Visible = not IsOfficeAddin;
+                Visible = NOT IsOfficeAddin;
             }
             part(Control1904651607; "Vendor Statistics FactBox")
             {
@@ -1408,7 +1408,7 @@ page 51 "Purchase Invoice"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Send A&pproval Request';
-                    Enabled = not OpenApprovalEntriesExist and CanRequestApprovalForFlow;
+                    Enabled = NOT OpenApprovalEntriesExist AND CanRequestApprovalForFlow;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval of the document.';
 
@@ -1424,7 +1424,7 @@ page 51 "Purchase Invoice"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Cancel Approval Re&quest';
-                    Enabled = CanCancelApprovalForRecord or CanCancelApprovalForFlow;
+                    Enabled = CanCancelApprovalForRecord OR CanCancelApprovalForFlow;
                     Image = CancelApprovalRequest;
                     ToolTip = 'Cancel the approval request.';
 
@@ -1545,7 +1545,7 @@ page 51 "Purchase Invoice"
                     Image = PostPrint;
                     ShortCutKey = 'Shift+F9';
                     ToolTip = 'Finalize and print the document or journal. The values and quantities are posted to the related accounts.';
-                    Visible = not IsOfficeAddin;
+                    Visible = NOT IsOfficeAddin;
 
                     trigger OnAction()
                     begin
@@ -1701,6 +1701,24 @@ page 51 "Purchase Invoice"
                 actionref(CancelApprovalRequest_Promoted; CancelApprovalRequest)
                 {
                 }
+#if not CLEAN21
+                actionref(CreateFlow_Promoted; CreateFlow)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
+#if not CLEAN21
+                actionref(SeeFlows_Promoted; SeeFlows)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category5)
             {
@@ -1906,7 +1924,7 @@ page 51 "Purchase Invoice"
         IsPurchaseLinesEditable: Boolean;
         RejectICPurchaseInvoiceEnabled: Boolean;
         VATDateEnabled: Boolean;
-
+        
     protected var
         ShipToOptions: Option "Default (Company Address)",Location,"Custom Address";
         PayToOptions: Option "Default (Vendor)","Another Vendor","Custom Address";
@@ -1965,7 +1983,7 @@ page 51 "Purchase Invoice"
         if IsHandled then
             exit;
 
-        if PostingCodeunitID <> CODEUNIT::"Purch.-Post (Yes/No)" then
+                if PostingCodeunitID <> CODEUNIT::"Purch.-Post (Yes/No)" then
             exit;
 
         case Navigate of
@@ -2106,10 +2124,9 @@ page 51 "Purchase Invoice"
     begin
         if (Rec."Last Posting No." <> '') and (Rec."Last Posting No." <> xLastPostingNo) then
             PurchInvHeader.SetRange("No.", Rec."Last Posting No.")
-        else begin
+        else
             PurchInvHeader.SetRange("Pre-Assigned No.", PreAssignedNo);
-            PurchInvHeader.SetRange("Order No.", '');
-        end;
+
         if PurchInvHeader.FindFirst() then
             if InstructionMgt.ShowConfirm(StrSubstNo(OpenPostedPurchaseInvQst, PurchInvHeader."No."),
                  InstructionMgt.ShowPostedConfirmationMessageCode())

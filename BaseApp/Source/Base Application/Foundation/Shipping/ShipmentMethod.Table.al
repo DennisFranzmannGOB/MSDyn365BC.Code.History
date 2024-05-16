@@ -11,7 +11,6 @@ table 10 "Shipment Method"
     Caption = 'Shipment Method';
     DataCaptionFields = "Code", Description;
     LookupPageID = "Shipment Methods";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -70,8 +69,10 @@ table 10 "Shipment Method"
     var
         ShipmentTermsTranslation: Record "Shipment Method Translation";
     begin
-        ShipmentTermsTranslation.SetRange("Shipment Method", Code);
-        ShipmentTermsTranslation.DeleteAll();
+        with ShipmentTermsTranslation do begin
+            SetRange("Shipment Method", Code);
+            DeleteAll();
+        end;
     end;
 
     trigger OnInsert()

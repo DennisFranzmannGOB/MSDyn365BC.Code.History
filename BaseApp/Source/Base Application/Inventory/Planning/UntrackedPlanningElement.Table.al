@@ -7,7 +7,6 @@ using Microsoft.Inventory.Requisition;
 table 99000855 "Untracked Planning Element"
 {
     Caption = 'Untracked Planning Element';
-    DataClassification = CustomerContent;
 
     fields
     {

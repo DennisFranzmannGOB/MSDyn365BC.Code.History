@@ -21,12 +21,6 @@
           <note from="Developer" annotates="general" priority="2">%1=integer value</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - PayPal Standard Account - NamedType AccountIDTooLongForWebhooksErr</note>
         </trans-unit>
-        <trans-unit id="Table 2591710920 - NamedType 2078394958" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To enable PayPal payment notifications you must have a Business PayPal account.\\Do you want to enable the webhooks for automatic payment registrations from PayPal?</source>
-          <target state="translated">Para habilitar las notificaciones de pago de PayPal, debe tener una cuenta de PayPal para empresas.\\¿Desea habilitar los webhooks para los registros de pagos automáticos desde PayPal?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table MS - PayPal Standard Account - NamedType EnablePayPalWebhookPaymentRegistrationQst</note>
-        </trans-unit>
         <trans-unit id="Table 2591710920 - NamedType 2592877442" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The target URL is not valid.</source>
           <target state="translated">La dirección URL de destino no es válida.</target>
@@ -38,12 +32,6 @@
           <target state="translated">Se incluirá un vínculo del servicio de pago de PayPal para los nuevos documentos de venta. Para agregarlo a los documentos de venta existentes, debe seleccionarlo manualmente en el campo Servicio de pago del documento de venta.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - PayPal Standard Account - NamedType UpdateOpenInvoicesManuallyMsg</note>
-        </trans-unit>
-        <trans-unit id="Table 2591710920 - NamedType 2406886917" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Would you like to update the Payment Registration setup that will be used to automatically register payments from PayPal?</source>
-          <target state="translated">¿Desea actualizar la configuración de Registro de pago que se usará para registrar automáticamente los pagos desde PayPal?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table MS - PayPal Standard Account - NamedType UpdatePaymentRegistrationSetupQst</note>
         </trans-unit>
         <trans-unit id="Table 2591710920 - Field 629845928 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account ID</source>
@@ -62,12 +50,6 @@
           <target state="translated">Descripción</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - PayPal Standard Account - Field Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2591710920 - Field 1856552115 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Disable Webhook Notifications</source>
-          <target state="translated">Deshabilitar notificaciones de webhook</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table MS - PayPal Standard Account - Field Disable Webhook Notifications - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2591710920 - Field 2891538263 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Enabled</source>
@@ -291,23 +273,11 @@
           <note from="Developer" annotates="general" priority="2">Will be shown next to Pay with PayPal link</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType DemoLinkCaptionTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 1926784871 - NamedType 4198109" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Don't show again</source>
-          <target state="translated">No volver a mostrar</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType DontShowAgainMsg</note>
-        </trans-unit>
         <trans-unit id="Codeunit 1926784871 - NamedType 3804706331" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice %1</source>
           <target state="translated">Factura %1</target>
           <note from="Developer" annotates="general" priority="2">%1 Invoice No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType InvoiceTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1926784871 - NamedType 2619169564" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Learn more</source>
-          <target state="translated">Más información</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType LearnMoreMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1926784871 - NamedType 3023250626" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This function is not supported for the %1 table.</source>
@@ -368,24 +338,6 @@
           <target state="translated">PayPal Payments Standard</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType PayPalStandardNameTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1926784871 - NamedType 2172153922" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Notify about setting up automatic payment registration when document is paid by PayPal.</source>
-          <target state="translated">Permite notificar sobre cómo configurar el registro de pagos automáticos cuando el documento se pague por PayPal.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType PayPalWebhookNotificationsDescriptionTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1926784871 - NamedType 1269109596" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PayPal Webhooks</source>
-          <target state="translated">Webhooks de PayPal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType PayPalWebhookNotificationsTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1926784871 - NamedType 2048327613" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>If you have a Business PayPal account you can automatically register payments and close open documents. Would you like to learn more?</source>
-          <target state="translated">Si tiene una cuenta de PayPal para empresas, puede registrar automáticamente los pagos y cerrar los documentos abiertos. ¿Desea obtener más información?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - PayPal Standard Mgt. - NamedType SetupWebhooksNotificationMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 1926784871 - NamedType 3394800156" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You cannot change the target URL in the demonstration company.</source>
@@ -482,12 +434,6 @@
           <target state="translated">Nuevo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Accounts - Action NewAction - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 113868361 - Action 278110413 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Category_New</source>
-          <target state="translated">Nueva_Categoría</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Accounts - Action Category_New - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4244671604 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>PayPal</source>
@@ -598,8 +544,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Control Account ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4268182158 - Control 3302455580 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if this PayPal account should be included on all of the documents by default.</source>
-          <target state="translated">Especifica si esta cuenta de PayPal debe incluirse en todos los documentos de forma predeterminada.</target>
+          <source>Specifies if this PayPal account should be included on all of the Documents by default.</source>
+          <target state="translated">Especifica si esta cuenta PayPal debe incluirse en todos los documentos de forma predeterminada.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Control Always Include on Documents - Property ToolTip</note>
         </trans-unit>
@@ -620,18 +566,6 @@
           <target state="translated">Especifica el nombre de la cuenta de PayPal.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Control Name - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4268182158 - Control 4188452082 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the PayPal payments should automatically be registered by using PayPal Webhook notifications. When the document is paid by using a PayPal link it will automatically be closed. The notifications can only be used with Business PayPal accounts.</source>
-          <target state="translated">Especifica si los pagos de PayPal deben registrarse automáticamente mediante las notificaciones de webhook de PayPal. Cuando se paga el documento mediante un vínculo de PayPal, se cerrará automáticamente. Las notificaciones solo se pueden usar con cuentas de PayPal para empresas.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Control Use Webhook Notifications - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4268182158 - Control 4188452082 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Register payments automatically</source>
-          <target state="translated">Registrar pagos automáticamente</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Control Use Webhook Notifications - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4268182158 - Control 4086242710 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the target URL that will be opened when the customer chooses the link on the invoice.</source>
@@ -663,18 +597,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Action ActivityLog - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4268182158 - Action 104868552 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update Payment Registration setup. Payment Registration Setup is needed if you want to use webhooks to automatically close paid invoices.</source>
-          <target state="translated">Permite actualizar la configuración de Registro de pago. La Configuración de registro de pagos es necesaria si desea usar webhooks para cerrar automáticamente las facturas pagadas.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Action PaymentRegistratoinSetup - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4268182158 - Action 104868552 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Payment Registration Setup</source>
-          <target state="translated">Configuración de registro de pago</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Action PaymentRegistratoinSetup - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4268182158 - Action 2397962153 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Opens Template Setup for all PayPal accounts.</source>
           <target state="translated">Abre la plantilla de configuración para todas las cuentas de PayPal.</target>
@@ -686,12 +608,6 @@
           <target state="translated">Plantilla de configuración</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Action SetupTemplate - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4268182158 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Category_Process</source>
-          <target state="translated">Proceso_Categoría</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Setup - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 945518375 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>PayPal Payments Standard Template</source>
@@ -777,11 +693,47 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Template - Action ResetToDefault - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 945518375 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Category_Process</source>
-          <target state="translated">Proceso_Categoría</target>
+        <trans-unit id="PageExtension 1655671086 - NamedType 961880541" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Terms of service</source>
+          <target state="translated">Condiciones del servicio</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page MS - PayPal Standard Template - Action Category_Process - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1655671086</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1655671086 - Control 2725778290 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the PayPal email address.</source>
+          <target state="translated">Especifica la dirección de correo electrónico de PayPal.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 202177750</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1655671086 - Control 2725778290 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PayPal email address</source>
+          <target state="translated">Dirección de correo electrónico de PayPal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 202177750</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1655671086 - Control 161526099 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies PayPal terms of service.</source>
+          <target state="translated">Especifica las condiciones del servicio de PayPal.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1655671086</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1655671086 - Control 161526099 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PayPal Terms of Service</source>
+          <target state="translated">Condiciones del servicio de PayPal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 1655671086</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1655671086 - Control 2102977698 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ask your Office 365 administrator to change the settings for PayPal.</source>
+          <target state="translated">Pida al administrador de Office 365 que cambie la configuración de PayPal.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 202177750</note>
         </trans-unit>
         <trans-unit id="PermissionSet 307601816 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>PayPal Payments Standard - Edit</source>

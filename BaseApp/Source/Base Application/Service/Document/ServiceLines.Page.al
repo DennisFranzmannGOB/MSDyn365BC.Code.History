@@ -1,7 +1,6 @@
 namespace Microsoft.Service.Document;
 
 using Microsoft.Finance.Dimension;
-using Microsoft.Foundation.Attachment;
 using Microsoft.Foundation.ExtendedText;
 using Microsoft.Inventory.Availability;
 using Microsoft.Inventory.Item;
@@ -98,23 +97,6 @@ page 5905 "Service Lines"
                         if Rec."Variant Code" = '' then
                             VariantCodeMandatory := Item.IsVariantMandatory(Rec.Type = Rec.Type::Item, Rec."No.");
                         NoOnAfterValidate();
-                    end;
-                }
-                field("Item Reference No."; Rec."Item Reference No.")
-                {
-                    AccessByPermission = tabledata "Item Reference" = R;
-                    ApplicationArea = Service, ItemReferences;
-                    QuickEntry = false;
-                    ToolTip = 'Specifies the referenced item number. If you enter a cross reference between yours and your vendor''s or customer''s item number, then this number will override the standard item number when you enter the reference number on a sales or purchase document.';
-                    Visible = ItemReferenceVisible;
-
-                    trigger OnLookup(var Text: Text): Boolean
-                    var
-                        ServItemReferenceMgt: Codeunit "Serv. Item Reference Mgt.";
-                    begin
-                        ServItemReferenceMgt.ServiceReferenceNoLookup(Rec);
-                        NoOnAfterValidate();
-                        CurrPage.Update();
                     end;
                 }
                 field("Variant Code"; Rec."Variant Code")
@@ -299,28 +281,28 @@ page 5905 "Service Lines"
                 {
                     ApplicationArea = Jobs;
                     BlankZero = true;
-                    ToolTip = 'Specifies the quantity that remains to complete a project.';
+                    ToolTip = 'Specifies the quantity that remains to complete a job.';
                     Visible = false;
                 }
                 field("Job Remaining Total Cost"; Rec."Job Remaining Total Cost")
                 {
                     ApplicationArea = Jobs;
                     BlankZero = true;
-                    ToolTip = 'Specifies the remaining total cost, as the sum of costs from project planning lines associated with the order.';
+                    ToolTip = 'Specifies the remaining total cost, as the sum of costs from job planning lines associated with the order.';
                     Visible = false;
                 }
                 field("Job Remaining Total Cost (LCY)"; Rec."Job Remaining Total Cost (LCY)")
                 {
                     ApplicationArea = Jobs;
                     BlankZero = true;
-                    ToolTip = 'Specifies the remaining total cost for the project planning line associated with the service order.';
+                    ToolTip = 'Specifies the remaining total cost for the job planning line associated with the service order.';
                     Visible = false;
                 }
                 field("Job Remaining Line Amount"; Rec."Job Remaining Line Amount")
                 {
                     ApplicationArea = Jobs;
                     BlankZero = true;
-                    ToolTip = 'Specifies the net amount of the project planning line.';
+                    ToolTip = 'Specifies the net amount of the job planning line.';
                     Visible = false;
                 }
                 field("Work Type Code"; Rec."Work Type Code")
@@ -474,25 +456,25 @@ page 5905 "Service Lines"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Job Task No."; Rec."Job Task No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project task.';
+                    ToolTip = 'Specifies the number of the related job task.';
                     Visible = false;
                 }
                 field("Job Planning Line No."; Rec."Job Planning Line No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the project planning line number associated with this line. This establishes a link that can be used to calculate actual usage.';
+                    ToolTip = 'Specifies the job planning line number associated with this line. This establishes a link that can be used to calculate actual usage.';
                     Visible = false;
                 }
                 field("Job Line Type"; Rec."Job Line Type")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the type of journal line that is created in the Project Planning Line table from this line.';
+                    ToolTip = 'Specifies the type of journal line that is created in the Job Planning Line table from this line.';
                     Visible = false;
                 }
                 field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
@@ -595,16 +577,6 @@ page 5905 "Service Lines"
         }
         area(factboxes)
         {
-            part("Attached Documents"; "Document Attachment Factbox")
-            {
-                ApplicationArea = Service;
-                Caption = 'Attachments';
-                SubPageLink = "Table ID" = const(Database::"Service Line"),
-                              "No." = field("Document No."),
-                              "Document Type" = field("Document Type"),
-                              "Line No." = field("Line No.");
-                Visible = false;
-            }
             part(Control1904739907; "Service Line FactBox")
             {
                 ApplicationArea = Service;
@@ -658,13 +630,13 @@ page 5905 "Service Lines"
                 action("&Job Ledger Entries")
                 {
                     ApplicationArea = Jobs;
-                    Caption = '&Project Ledger Entries';
+                    Caption = '&Job Ledger Entries';
                     Image = JobLedger;
                     RunObject = Page "Job Ledger Entries";
                     RunPageLink = "Service Order No." = field("Document No.");
                     RunPageView = sorting("Service Order No.", "Posting Date")
                                   where("Entry Type" = const(Usage));
-                    ToolTip = 'View all the project ledger entries that result from posting transactions in the service document that involve a project.';
+                    ToolTip = 'View all the job ledger entries that result from posting transactions in the service document that involve a job.';
                 }
                 action("&Customer Card")
                 {
@@ -909,23 +881,6 @@ page 5905 "Service Lines"
                         Rec.ShowOrderPromisingLine();
                     end;
                 }
-                action(DocAttach)
-                {
-                    ApplicationArea = Service;
-                    Caption = 'Attachments';
-                    Image = Attach;
-                    ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
-
-                    trigger OnAction()
-                    var
-                        DocumentAttachmentDetails: Page "Document Attachment Details";
-                        RecRef: RecordRef;
-                    begin
-                        RecRef.GetTable(Rec);
-                        DocumentAttachmentDetails.OpenForRecRef(RecRef);
-                        DocumentAttachmentDetails.RunModal();
-                    end;
-                }
             }
         }
         area(processing)
@@ -969,20 +924,6 @@ page 5905 "Service Lines"
                     trigger OnAction()
                     begin
                         InsertTravelFee();
-                    end;
-                }
-                action(SelectMultiItems)
-                {
-                    AccessByPermission = TableData Item = R;
-                    ApplicationArea = Service;
-                    Caption = 'Select items';
-                    Ellipsis = true;
-                    Image = NewItem;
-                    ToolTip = 'Add two or more items from the full list of available items.';
-
-                    trigger OnAction()
-                    begin
-                        Rec.SelectMultipleItems();
                     end;
                 }
                 action("S&plit Resource Line")
@@ -1104,7 +1045,7 @@ page 5905 "Service Lines"
                         end;
                     end;
                 }
-#if not CLEAN23
+#if not CLEAN21
                 action("Get Li&ne Discount")
                 {
                     AccessByPermission = TableData "Sales Line Discount" = R;
@@ -1166,28 +1107,29 @@ page 5905 "Service Lines"
 
                     trigger OnAction()
                     var
-                        ServiceLine: Record "Service Line";
-                        TempServiceLine: Record "Service Line" temporary;
+                        ServLine: Record "Service Line";
+                        TempServLine: Record "Service Line" temporary;
                     begin
+                        Clear(ServLine);
                         Rec.Modify(true);
                         CurrPage.SaveRecord();
-                        CurrPage.SetSelectionFilter(ServiceLine);
+                        CurrPage.SetSelectionFilter(ServLine);
 
-                        if ServiceLine.FindSet() then
+                        if ServLine.FindFirst() then
                             repeat
-                                TempServiceLine.Init();
-                                TempServiceLine := ServiceLine;
-                                TempServiceLine.Insert();
-                            until ServiceLine.Next() = 0
+                                TempServLine.Init();
+                                TempServLine := ServLine;
+                                TempServLine.Insert();
+                            until ServLine.Next() = 0
                         else
                             exit;
 
                         ServHeader.Get(Rec."Document Type", Rec."Document No.");
-                        ServHeader.SendToPostWithLines(Codeunit::"Service-Post (Yes/No)", TempServiceLine);
+                        ServHeader.SendToPostWithLines(Codeunit::"Service-Post (Yes/No)", TempServLine);
 
-                        ServiceLine.SetRange("Document Type", ServHeader."Document Type");
-                        ServiceLine.SetRange("Document No.", ServHeader."No.");
-                        if ServiceLine.IsEmpty() then begin
+                        ServLine.SetRange("Document Type", ServHeader."Document Type");
+                        ServLine.SetRange("Document No.", ServHeader."No.");
+                        if not ServLine.Find('-') then begin
                             Rec.Reset();
                             CurrPage.Close();
                         end else
@@ -1204,24 +1146,25 @@ page 5905 "Service Lines"
 
                     trigger OnAction()
                     var
-                        ServiceLine: Record "Service Line";
-                        TempServiceLine: Record "Service Line" temporary;
-                        ServicePostYesNo: Codeunit "Service-Post (Yes/No)";
+                        ServLine: Record "Service Line";
+                        TempServLine: Record "Service Line" temporary;
+                        ServPostYesNo: Codeunit "Service-Post (Yes/No)";
                     begin
+                        Clear(ServLine);
                         CurrPage.SaveRecord();
-                        CurrPage.SetSelectionFilter(ServiceLine);
+                        CurrPage.SetSelectionFilter(ServLine);
 
-                        if ServiceLine.Findset() then
+                        if ServLine.FindFirst() then
                             repeat
-                                TempServiceLine.Init();
-                                TempServiceLine := ServiceLine;
-                                if TempServiceLine.Insert() then;
-                            until ServiceLine.Next() = 0
+                                TempServLine.Init();
+                                TempServLine := ServLine;
+                                if TempServLine.Insert() then;
+                            until Rec.Next() = 0
                         else
                             exit;
 
                         ServHeader.Get(Rec."Document Type", Rec."Document No.");
-                        ServicePostYesNo.PreviewDocumentWithLines(ServHeader, TempServiceLine);
+                        ServPostYesNo.PreviewDocumentWithLines(ServHeader, TempServLine);
                     end;
                 }
             }
@@ -1245,9 +1188,6 @@ page 5905 "Service Lines"
                     }
                 }
                 actionref(Reserve_Promoted; Reserve)
-                {
-                }
-                actionref(SelectMultiItems_Promoted; SelectMultiItems)
                 {
                 }
             }
@@ -1290,9 +1230,6 @@ page 5905 "Service Lines"
                 actionref("Order &Promising_Promoted"; "Order &Promising")
                 {
                 }
-                actionref(DocAttach_Promoted; DocAttach)
-                {
-                }
             }
         }
     }
@@ -1328,7 +1265,7 @@ page 5905 "Service Lines"
     begin
         Clear(ShortcutDimCode);
 
-        if ServHeader.Get(Rec."Document Type", Rec."Document No.") then
+        if ServHeader.Get(Rec."Document Type", Rec."Document No.") then begin
             if ServHeader."Link Service to Service Item" then
                 if SelectionFilter <> SelectionFilter::"Lines Not Item Related" then
                     Rec.Validate("Service Item Line No.", ServItemLineNo)
@@ -1336,6 +1273,7 @@ page 5905 "Service Lines"
                     Rec.Validate("Service Item Line No.", 0)
             else
                 Rec.Validate("Service Item Line No.", 0);
+        end;
     end;
 
     trigger OnOpenPage()
@@ -1347,7 +1285,6 @@ page 5905 "Service Lines"
         SelectionFilter := SelectionFilter::"Lines per Selected Service Item";
         OnOpenPageOnBeforeSetSelectionFilter(SelectionFilter);
         SetSelectionFilter();
-        SetItemReferenceVisibility();
 
         ServMgtSetup.Get();
         case ServMgtSetup."Fault Reporting Level" of
@@ -1383,19 +1320,17 @@ page 5905 "Service Lines"
     end;
 
     var
+        Text008: Label 'You cannot open the window because %1 is %2 in the %3 table.';
         ServMgtSetup: Record "Service Mgt. Setup";
         ServHeader: Record "Service Header";
         ServItemLine: Record "Service Item Line";
         ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
         ServItemLineNo: Integer;
-        AddExtendedText: Boolean;
-        ExtendedPriceEnabled: Boolean;
-        ItemReferenceVisible: Boolean;
-        VariantCodeMandatory: Boolean;
-
-        Text008: Label 'You cannot open the window because %1 is %2 in the %3 table.';
         Text011: Label 'This will reset all price adjusted lines to default values. Do you want to continue?';
         Text012: Label 'Do you want to create service lines from time sheets?';
+        AddExtendedText: Boolean;
+        ExtendedPriceEnabled: Boolean;
+        VariantCodeMandatory: Boolean;
 
     protected var
         ShortcutDimCode: array[8] of Code[20];
@@ -1410,9 +1345,9 @@ page 5905 "Service Lines"
         CODEUNIT.Run(CODEUNIT::"Service-Calc. Discount", ServLine);
     end;
 
-    procedure Initialize(NewServItemLine: Integer)
+    procedure Initialize(ServItemLine: Integer)
     begin
-        ServItemLineNo := NewServItemLine;
+        ServItemLineNo := ServItemLine;
     end;
 
     procedure SetSelectionFilter()
@@ -1554,13 +1489,6 @@ page 5905 "Service Lines"
     begin
         CurrPage.Update();
         SetSelectionFilter();
-    end;
-
-    local procedure SetItemReferenceVisibility()
-    var
-        ItemReference: Record "Item Reference";
-    begin
-        ItemReferenceVisible := not ItemReference.IsEmpty();
     end;
 
     [IntegrationEvent(false, false)]

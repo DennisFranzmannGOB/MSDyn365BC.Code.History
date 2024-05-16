@@ -8,7 +8,6 @@ using Microsoft.Manufacturing.WorkCenter;
 table 99000764 "Routing Line"
 {
     Caption = 'Routing Line';
-    DataClassification = CustomerContent;
 
     fields
     {

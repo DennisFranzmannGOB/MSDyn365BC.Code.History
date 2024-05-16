@@ -1,7 +1,6 @@
 table 139144 "Update Parent Fact Line"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

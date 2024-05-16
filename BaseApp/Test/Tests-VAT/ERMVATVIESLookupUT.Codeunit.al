@@ -12,6 +12,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
         LibraryUtility: Codeunit "Library - Utility";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryERM: Codeunit "Library - ERM";
+        LibraryRandom: Codeunit "Library - Random";
         Assert: Codeunit Assert;
         DefaultTxt: Label 'Default';
         CustomerUpdatedMsg: Label 'The customer has been updated.';
@@ -724,7 +725,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
 
         VATRegistrationLog.OpenModifyDetails();
 
-        Assert.ExpectedMessage(ContactUpdatedMsg, LibraryVariableStorage.DequeueText());
+        Assert.ExpectedMessage(ContactUpdatedMsg, LibraryVariableStorage.DequeueText);
         VerifyCustomer(Customer, Name2Txt, Street2Txt, City2Txt, PostCode2Txt);
 
         LibraryVariableStorage.AssertEmpty();
@@ -748,7 +749,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
 
         VATRegistrationLog.OpenModifyDetails();
 
-        Assert.ExpectedMessage(ContactUpdatedMsg, LibraryVariableStorage.DequeueText());
+        Assert.ExpectedMessage(ContactUpdatedMsg, LibraryVariableStorage.DequeueText);
         VerifyVendor(Vendor, Name2Txt, Street2Txt, City2Txt, PostCode2Txt);
 
         LibraryVariableStorage.AssertEmpty();
@@ -772,7 +773,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
 
         VATRegistrationLog.OpenModifyDetails();
 
-        Assert.ExpectedMessage(CustomerUpdatedMsg, LibraryVariableStorage.DequeueText());
+        Assert.ExpectedMessage(CustomerUpdatedMsg, LibraryVariableStorage.DequeueText);
         VerifyContact(Contact, Name2Txt, Street2Txt, City2Txt, PostCode2Txt);
 
         LibraryVariableStorage.AssertEmpty();
@@ -796,7 +797,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
 
         VATRegistrationLog.OpenModifyDetails();
 
-        Assert.ExpectedMessage(VendorUpdatedMsg, LibraryVariableStorage.DequeueText());
+        Assert.ExpectedMessage(VendorUpdatedMsg, LibraryVariableStorage.DequeueText);
         VerifyContact(Contact, Name2Txt, Street2Txt, City2Txt, PostCode2Txt);
 
         LibraryVariableStorage.AssertEmpty();
@@ -817,7 +818,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
         VATRegistrationLog.SetAccountDetails(NameTxt, StreetTxt, CityTxt, PostCodeTxt);
         VATRegistrationLog.SetResponseDetails(Name2Txt, Address2Txt, Street2Txt, City2Txt, PostCode2Txt);
 
-        Assert.AreEqual(true, VATRegistrationLog.LogDetails(), 'VATRegistrationLog.LogDetails');
+        Assert.AreEqual(true, VATRegistrationLog.LogDetails, 'VATRegistrationLog.LogDetails');
         VATRegistrationLog.TestField("Details Status", VATRegistrationLog."Details Status"::Ignored);
         Assert.RecordCount(VATRegistrationLogDetails, 5);
 
@@ -853,7 +854,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
         VATRegistrationLog.SetAccountDetails(NameTxt, StreetTxt, CityTxt, PostCodeTxt);
         VATRegistrationLog.SetResponseDetails('', '', '', '', '');
 
-        Assert.AreEqual(false, VATRegistrationLog.LogDetails(), 'VATRegistrationLog.LogDetails');
+        Assert.AreEqual(false, VATRegistrationLog.LogDetails, 'VATRegistrationLog.LogDetails');
         VATRegistrationLog.TestField("Details Status", VATRegistrationLog."Details Status"::"Not Verified");
         Assert.RecordIsEmpty(VATRegistrationLogDetails);
     end;
@@ -873,7 +874,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
         VATRegistrationLog.SetAccountDetails(NameTxt, StreetTxt, CityTxt, PostCodeTxt);
         VATRegistrationLog.SetResponseMatchDetails(TRUE, false, false, false);
 
-        Assert.AreEqual(true, VATRegistrationLog.LogDetails(), 'VATRegistrationLog.LogDetails');
+        Assert.AreEqual(true, VATRegistrationLog.LogDetails, 'VATRegistrationLog.LogDetails');
         VATRegistrationLog.TestField("Details Status", VATRegistrationLog."Details Status"::Ignored);
         Assert.RecordCount(VATRegistrationLogDetails, 1);
 
@@ -897,7 +898,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
         VATRegistrationLog.SetAccountDetails(NameTxt, StreetTxt, CityTxt, PostCodeTxt);
         VATRegistrationLog.SetResponseMatchDetails(FALSE, false, false, false);
 
-        Assert.AreEqual(true, VATRegistrationLog.LogDetails(), 'VATRegistrationLog.LogDetails');
+        Assert.AreEqual(true, VATRegistrationLog.LogDetails, 'VATRegistrationLog.LogDetails');
         VATRegistrationLog.TestField("Details Status", VATRegistrationLog."Details Status"::Ignored);
         Assert.RecordCount(VATRegistrationLogDetails, 1);
 
@@ -988,6 +989,7 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
         VATRegistrationLog: Record "VAT Registration Log";
         CountryRegion: Record "Country/Region";
         CustomerCard: TestPage "Customer Card";
+        ContactCard: TestPage "Contact Card";
     begin
         // [SCENARIO 472592] "VAT Registration No." is validated before Country/Region
         Initialize();
@@ -1347,9 +1349,9 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
     var
         ContactCard: TestPage "Contact Card";
     begin
-        ContactCard.OpenEdit();
+        ContactCard.OpenEdit;
         ContactCard.GotoRecord(Contact);
-        ContactCard."VAT Registration No.".DrillDown();
+        ContactCard."VAT Registration No.".DrillDown;
         ContactCard.Close();
     end;
 
@@ -1372,9 +1374,9 @@ codeunit 134193 "ERM VAT VIES Lookup UT"
         VATRegistrationNo: Variant;
     begin
         LibraryVariableStorage.Dequeue(VATRegistrationNo);
-        VATRegistrationLog.First();
+        VATRegistrationLog.First;
         Assert.AreEqual(VATRegistrationNo, VATRegistrationLog."VAT Registration No.".Value, WrongLogEntryOnPageErr);
-        VATRegistrationLog.OK().Invoke();
+        VATRegistrationLog.OK.Invoke;
     end;
 
     [MessageHandler]

@@ -8,7 +8,6 @@ using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Requisition;
 using Microsoft.Inventory.Tracking;
 using Microsoft.Warehouse.Worksheet;
-using System.Environment.Configuration;
 
 codeunit 905 "Assembly Line Management"
 {
@@ -19,17 +18,15 @@ codeunit 905 "Assembly Line Management"
     end;
 
     var
-        WarningModeOff: Boolean;
-        HideValidationDialog: Boolean;
         Text001: Label 'Do you want to update the %1 on the lines?';
         Text002: Label 'Do you want to update the Dimensions on the lines?';
         Text003: Label 'Changing %1 will change all the lines. Do you want to change the %1 from %2 to %3?';
+        WarningModeOff: Boolean;
+        HideValidationDialog: Boolean;
         Text004: Label 'This assembly order may have customized lines. Are you sure that you want to reset the lines according to the assembly BOM?';
         Text005: Label 'Due Date %1 is before work date %2 in one or more of the assembly lines.';
         Text006: Label 'Item %1 is not a BOM.';
         Text007: Label 'There is not enough space to explode the BOM.';
-        AssembleAvailabilityNotificationMsg: Label 'The inventory is not sufficient to cover request to assemble requested quantity of Item %1.', Comment = '%1=Item No.';
-        AssembleAvailabilityCheckMsg: Label 'Assembly availability check for requested quantity of Item %1.', Comment = '%1=Item No.';
 
     local procedure LinesExist(AsmHeader: Record "Assembly Header"): Boolean
     var
@@ -80,11 +77,13 @@ codeunit 905 "Assembly Line Management"
 
     procedure InsertAsmLine(AsmHeader: Record "Assembly Header"; var AssemblyLine: Record "Assembly Line"; AsmLineRecordIsTemporary: Boolean)
     begin
-        AssemblyLine.Init();
-        AssemblyLine."Document Type" := AsmHeader."Document Type";
-        AssemblyLine."Document No." := AsmHeader."No.";
-        AssemblyLine."Line No." := GetNextAsmLineNo(AssemblyLine, AsmLineRecordIsTemporary);
-        AssemblyLine.Insert(true);
+        with AsmHeader do begin
+            AssemblyLine.Init();
+            AssemblyLine."Document Type" := "Document Type";
+            AssemblyLine."Document No." := "No.";
+            AssemblyLine."Line No." := GetNextAsmLineNo(AssemblyLine, AsmLineRecordIsTemporary);
+            AssemblyLine.Insert(true);
+        end;
     end;
 
     procedure AddBOMLine(AssemblyHeader: Record "Assembly Header"; var AssemblyLine: Record "Assembly Line"; AsmLineRecordIsTemporary: Boolean; BOMComponent: Record "BOM Component"; ShowDueDateBeforeWorkDateMessage: Boolean; QtyPerUoM: Decimal)
@@ -92,50 +91,52 @@ codeunit 905 "Assembly Line Management"
         DueDateBeforeWorkDateMsgShown: Boolean;
         SkipVerificationsThatChangeDatabase: Boolean;
     begin
-        SkipVerificationsThatChangeDatabase := AsmLineRecordIsTemporary;
-        AssemblyLine.SetSkipVerificationsThatChangeDatabase(SkipVerificationsThatChangeDatabase);
-        AssemblyLine.Validate(Type, BOMComponent.Type);
-        AssemblyLine.Validate("No.", BOMComponent."No.");
-        OnAddBOMLineOnAfterValidatedNo(AssemblyHeader, AssemblyLine, BOMComponent);
-        if AssemblyLine.Type = AssemblyLine.Type::Resource then
-            case BOMComponent."Resource Usage Type" of
-                BOMComponent."Resource Usage Type"::Direct:
-                    AssemblyLine.Validate("Resource Usage Type", AssemblyLine."Resource Usage Type"::Direct);
-                BOMComponent."Resource Usage Type"::Fixed:
-                    AssemblyLine.Validate("Resource Usage Type", AssemblyLine."Resource Usage Type"::Fixed);
-            end;
-        AssemblyLine.Validate("Unit of Measure Code", BOMComponent."Unit of Measure Code");
-        OnAddBOMLineOnAfterValidateUOMCode(AssemblyLine, BOMComponent, AssemblyHeader);
-        if AssemblyLine.Type <> AssemblyLine.Type::" " then
+        with AssemblyHeader do begin
+            SkipVerificationsThatChangeDatabase := AsmLineRecordIsTemporary;
+            AssemblyLine.SetSkipVerificationsThatChangeDatabase(SkipVerificationsThatChangeDatabase);
+            AssemblyLine.Validate(Type, BOMComponent.Type);
+            AssemblyLine.Validate("No.", BOMComponent."No.");
+            OnAddBOMLineOnAfterValidatedNo(AssemblyHeader, AssemblyLine, BOMComponent);
+            if AssemblyLine.Type = AssemblyLine.Type::Resource then
+                case BOMComponent."Resource Usage Type" of
+                    BOMComponent."Resource Usage Type"::Direct:
+                        AssemblyLine.Validate("Resource Usage Type", AssemblyLine."Resource Usage Type"::Direct);
+                    BOMComponent."Resource Usage Type"::Fixed:
+                        AssemblyLine.Validate("Resource Usage Type", AssemblyLine."Resource Usage Type"::Fixed);
+                end;
+            AssemblyLine.Validate("Unit of Measure Code", BOMComponent."Unit of Measure Code");
+            OnAddBOMLineOnAfterValidateUOMCode(AssemblyLine, BOMComponent, AssemblyHeader);
+            if AssemblyLine.Type <> AssemblyLine.Type::" " then
+                AssemblyLine.Validate(
+                  "Quantity per",
+                  AssemblyLine.CalcBOMQuantity(
+                    BOMComponent.Type, BOMComponent."Quantity per", 1, QtyPerUoM, AssemblyLine."Resource Usage Type"));
+            OnAddBOMLineOnBeforeValidateQuantity(AssemblyHeader, AssemblyLine, BOMComponent);
             AssemblyLine.Validate(
-                "Quantity per",
+                Quantity,
                 AssemblyLine.CalcBOMQuantity(
-                BOMComponent.Type, BOMComponent."Quantity per", 1, QtyPerUoM, AssemblyLine."Resource Usage Type"));
-        OnAddBOMLineOnBeforeValidateQuantity(AssemblyHeader, AssemblyLine, BOMComponent);
-        AssemblyLine.Validate(
-            Quantity,
-            AssemblyLine.CalcBOMQuantity(
-                BOMComponent.Type, BOMComponent."Quantity per", AssemblyHeader.Quantity, QtyPerUoM, AssemblyLine."Resource Usage Type"));
-        AssemblyLine.Validate(
-            "Quantity to Consume",
-            AssemblyLine.CalcBOMQuantity(
-                BOMComponent.Type, BOMComponent."Quantity per", AssemblyHeader."Quantity to Assemble", QtyPerUoM, AssemblyLine."Resource Usage Type"));
-        AssemblyLine.ValidateDueDate(AssemblyHeader, AssemblyHeader."Starting Date", ShowDueDateBeforeWorkDateMessage);
-        DueDateBeforeWorkDateMsgShown := (AssemblyLine."Due Date" < WorkDate()) and ShowDueDateBeforeWorkDateMessage;
-        AssemblyLine.ValidateLeadTimeOffset(
-            AssemblyHeader, BOMComponent."Lead-Time Offset", not DueDateBeforeWorkDateMsgShown and ShowDueDateBeforeWorkDateMessage);
-        if AssemblyLine.Type = AssemblyLine.Type::Item then
-            AssemblyLine.Validate("Variant Code", BOMComponent."Variant Code");
-        AssemblyLine.Description := BOMComponent.Description;
-        AssemblyLine.Position := BOMComponent.Position;
-        AssemblyLine."Position 2" := BOMComponent."Position 2";
-        AssemblyLine."Position 3" := BOMComponent."Position 3";
-        UpdateAssemblyLineLocationCode(AssemblyHeader, AssemblyLine);
-        AssemblyLine.Validate("Consumed Quantity", AssemblyHeader."Assembled Quantity");
+                    BOMComponent.Type, BOMComponent."Quantity per", Quantity, QtyPerUoM, AssemblyLine."Resource Usage Type"));
+            AssemblyLine.Validate(
+                "Quantity to Consume",
+                AssemblyLine.CalcBOMQuantity(
+                    BOMComponent.Type, BOMComponent."Quantity per", "Quantity to Assemble", QtyPerUoM, AssemblyLine."Resource Usage Type"));
+            AssemblyLine.ValidateDueDate(AssemblyHeader, "Starting Date", ShowDueDateBeforeWorkDateMessage);
+            DueDateBeforeWorkDateMsgShown := (AssemblyLine."Due Date" < WorkDate()) and ShowDueDateBeforeWorkDateMessage;
+            AssemblyLine.ValidateLeadTimeOffset(
+                AssemblyHeader, BOMComponent."Lead-Time Offset", not DueDateBeforeWorkDateMsgShown and ShowDueDateBeforeWorkDateMessage);
+            if AssemblyLine.Type = AssemblyLine.Type::Item then
+                AssemblyLine.Validate("Variant Code", BOMComponent."Variant Code");
+            AssemblyLine.Description := BOMComponent.Description;
+            AssemblyLine.Position := BOMComponent.Position;
+            AssemblyLine."Position 2" := BOMComponent."Position 2";
+            AssemblyLine."Position 3" := BOMComponent."Position 3";
+            UpdateAssemblyLineLocationCode(AssemblyHeader, AssemblyLine);
+            AssemblyLine.Validate("Consumed Quantity", "Assembled Quantity");
 
-        OnAfterTransferBOMComponent(AssemblyLine, BOMComponent, AssemblyHeader);
+            OnAfterTransferBOMComponent(AssemblyLine, BOMComponent, AssemblyHeader);
 
-        AssemblyLine.Modify(true);
+            AssemblyLine.Modify(true);
+        end;
     end;
 
     local procedure UpdateAssemblyLineLocationCode(AssemblyHeader: Record "Assembly Header"; var AssemblyLine: Record "Assembly Line")
@@ -157,7 +158,7 @@ codeunit 905 "Assembly Line Management"
         AddBOMLine(AsmHeader, AssemblyLine, false, BOMComponent, GetWarningMode(), AsmHeader."Qty. per Unit of Measure");
     end;
 
-    procedure ExplodeAsmList(var AssemblyLine: Record "Assembly Line")
+    procedure ExplodeAsmList(var AsmLine: Record "Assembly Line")
     var
         AssemblyHeader: Record "Assembly Header";
         FromBOMComp: Record "BOM Component";
@@ -169,65 +170,67 @@ codeunit 905 "Assembly Line Management"
         DueDateBeforeWorkDate: Boolean;
         NewLineDueDate: Date;
     begin
-        AssemblyLine.TestField(Type, AssemblyLine.Type::Item);
-        AssemblyLine.TestField("Consumed Quantity", 0);
-        AssemblyLine.CalcFields("Reserved Qty. (Base)");
-        AssemblyLine.TestField("Reserved Qty. (Base)", 0);
+        with AsmLine do begin
+            TestField(Type, Type::Item);
+            TestField("Consumed Quantity", 0);
+            CalcFields("Reserved Qty. (Base)");
+            TestField("Reserved Qty. (Base)", 0);
 
-        AssemblyHeader.Get(AssemblyLine."Document Type", AssemblyLine."Document No.");
-        FromBOMComp.SetRange("Parent Item No.", AssemblyLine."No.");
-        NoOfBOMCompLines := FromBOMComp.Count();
-        if NoOfBOMCompLines = 0 then
-            Error(Text006, AssemblyLine."No.");
+            AssemblyHeader.Get("Document Type", "Document No.");
+            FromBOMComp.SetRange("Parent Item No.", "No.");
+            NoOfBOMCompLines := FromBOMComp.Count();
+            if NoOfBOMCompLines = 0 then
+                Error(Text006, "No.");
 
-        ToAssemblyLine.Reset();
-        ToAssemblyLine.SetRange("Document Type", AssemblyLine."Document Type");
-        ToAssemblyLine.SetRange("Document No.", AssemblyLine."Document No.");
-        ToAssemblyLine := AssemblyLine;
-        LineSpacing := 10000;
-        if ToAssemblyLine.Find('>') then begin
-            LineSpacing := (ToAssemblyLine."Line No." - AssemblyLine."Line No.") div (1 + NoOfBOMCompLines);
-            if LineSpacing = 0 then
-                Error(Text007);
-        end;
+            ToAssemblyLine.Reset();
+            ToAssemblyLine.SetRange("Document Type", "Document Type");
+            ToAssemblyLine.SetRange("Document No.", "Document No.");
+            ToAssemblyLine := AsmLine;
+            LineSpacing := 10000;
+            if ToAssemblyLine.Find('>') then begin
+                LineSpacing := (ToAssemblyLine."Line No." - "Line No.") div (1 + NoOfBOMCompLines);
+                if LineSpacing = 0 then
+                    Error(Text007);
+            end;
 
-        TempAssemblyLine := AssemblyLine;
-        TempAssemblyLine.Init();
-        TempAssemblyLine.Description := AssemblyLine.Description;
-        TempAssemblyLine."Description 2" := AssemblyLine."Description 2";
-        TempAssemblyLine."No." := AssemblyLine."No.";
-        TempAssemblyLine.Insert();
-
-        NextLineNo := AssemblyLine."Line No.";
-        FromBOMComp.FindSet();
-        repeat
+            TempAssemblyLine := AsmLine;
             TempAssemblyLine.Init();
-            TempAssemblyLine."Document Type" := AssemblyLine."Document Type";
-            TempAssemblyLine."Document No." := AssemblyLine."Document No.";
-            NextLineNo := NextLineNo + LineSpacing;
-            TempAssemblyLine."Line No." := NextLineNo;
-            TempAssemblyLine.Insert(true);
-            AddBOMLine(AssemblyHeader, TempAssemblyLine, true, FromBOMComp, false, 1);
-            CalcTempAssemblyLineQuantityRelatedFields(AssemblyHeader, AssemblyLine, TempAssemblyLine);
-            TempAssemblyLine."Cost Amount" := TempAssemblyLine."Unit Cost" * TempAssemblyLine.Quantity;
-            TempAssemblyLine."Dimension Set ID" := AssemblyLine."Dimension Set ID";
-            TempAssemblyLine."Shortcut Dimension 1 Code" := AssemblyLine."Shortcut Dimension 1 Code";
-            TempAssemblyLine."Shortcut Dimension 2 Code" := AssemblyLine."Shortcut Dimension 2 Code";
-            TempAssemblyLine.Modify(true);
-        until FromBOMComp.Next() = 0;
+            TempAssemblyLine.Description := Description;
+            TempAssemblyLine."Description 2" := "Description 2";
+            TempAssemblyLine."No." := "No.";
+            TempAssemblyLine.Insert();
 
-        TempAssemblyLine.Reset();
-        TempAssemblyLine.FindSet();
-        ToAssemblyLine := TempAssemblyLine;
-        ToAssemblyLine.Modify();
-        OnExplodeAsmListOnAfterToAssemblyLineModify(TempAssemblyLine, ToAssemblyLine);
-        while TempAssemblyLine.Next() <> 0 do begin
+            NextLineNo := "Line No.";
+            FromBOMComp.FindSet();
+            repeat
+                TempAssemblyLine.Init();
+                TempAssemblyLine."Document Type" := "Document Type";
+                TempAssemblyLine."Document No." := "Document No.";
+                NextLineNo := NextLineNo + LineSpacing;
+                TempAssemblyLine."Line No." := NextLineNo;
+                TempAssemblyLine.Insert(true);
+                AddBOMLine(AssemblyHeader, TempAssemblyLine, true, FromBOMComp, false, 1);
+                CalcTempAssemblyLineQuantityRelatedFields(AssemblyHeader, AsmLine, TempAssemblyLine);
+                TempAssemblyLine."Cost Amount" := TempAssemblyLine."Unit Cost" * TempAssemblyLine.Quantity;
+                TempAssemblyLine."Dimension Set ID" := "Dimension Set ID";
+                TempAssemblyLine."Shortcut Dimension 1 Code" := "Shortcut Dimension 1 Code";
+                TempAssemblyLine."Shortcut Dimension 2 Code" := "Shortcut Dimension 2 Code";
+                TempAssemblyLine.Modify(true);
+            until FromBOMComp.Next() = 0;
+
+            TempAssemblyLine.Reset();
+            TempAssemblyLine.FindSet();
             ToAssemblyLine := TempAssemblyLine;
-            ToAssemblyLine.Insert();
-            OnExplodeAsmListOnAfterToAssemblyLineInsert(TempAssemblyLine, ToAssemblyLine);
-            if ToAssemblyLine."Due Date" < WorkDate() then begin
-                DueDateBeforeWorkDate := true;
-                NewLineDueDate := ToAssemblyLine."Due Date";
+            ToAssemblyLine.Modify();
+            OnExplodeAsmListOnAfterToAssemblyLineModify(TempAssemblyLine, ToAssemblyLine);
+            while TempAssemblyLine.Next() <> 0 do begin
+                ToAssemblyLine := TempAssemblyLine;
+                ToAssemblyLine.Insert();
+                OnExplodeAsmListOnAfterToAssemblyLineInsert(TempAssemblyLine, ToAssemblyLine);
+                if ToAssemblyLine."Due Date" < WorkDate() then begin
+                    DueDateBeforeWorkDate := true;
+                    NewLineDueDate := ToAssemblyLine."Due Date";
+                end;
             end;
         end;
 
@@ -235,25 +238,27 @@ codeunit 905 "Assembly Line Management"
             ShowDueDateBeforeWorkDateMsg(NewLineDueDate);
     end;
 
-    local procedure CalcTempAssemblyLineQuantityRelatedFields(AssemblyHeader: Record "Assembly Header"; AssemblyLine: Record "Assembly Line"; var TempAssemblyLine: Record "Assembly Line" temporary)
+    local procedure CalcTempAssemblyLineQuantityRelatedFields(AssemblyHeader: Record "Assembly Header"; AsmLine: Record "Assembly Line"; var TempAssemblyLine: Record "Assembly Line" temporary)
     var
         IsHandled: Boolean;
     begin
         IsHandled := false;
-        OnBeforeCalcTempAssemblyLineQuantityRelatedFields(AssemblyHeader, TempAssemblyLine, AssemblyLine, IsHandled);
+        OnBeforeCalcTempAssemblyLineQuantityRelatedFields(AssemblyHeader, TempAssemblyLine, AsmLine, IsHandled);
         if IsHandled then
             exit;
 
-        TempAssemblyLine.Quantity := TempAssemblyLine.Quantity * AssemblyLine."Quantity per" * AssemblyLine."Qty. per Unit of Measure";
-        TempAssemblyLine."Quantity (Base)" := TempAssemblyLine."Quantity (Base)" * AssemblyLine."Quantity per" * AssemblyLine."Qty. per Unit of Measure";
-        TempAssemblyLine."Quantity per" := TempAssemblyLine."Quantity per" * AssemblyLine."Quantity per" * AssemblyLine."Qty. per Unit of Measure";
-        TempAssemblyLine."Remaining Quantity" := TempAssemblyLine."Remaining Quantity" * AssemblyLine."Quantity per" * AssemblyLine."Qty. per Unit of Measure";
-        TempAssemblyLine."Remaining Quantity (Base)" :=
-            TempAssemblyLine."Remaining Quantity (Base)" * AssemblyLine."Quantity per" * AssemblyLine."Qty. per Unit of Measure";
-        TempAssemblyLine."Quantity to Consume" :=
-            TempAssemblyLine."Quantity to Consume" * AssemblyLine."Quantity per" * AssemblyLine."Qty. per Unit of Measure";
-        TempAssemblyLine."Quantity to Consume (Base)" :=
-            TempAssemblyLine."Quantity to Consume (Base)" * AssemblyLine."Quantity per" * AssemblyLine."Qty. per Unit of Measure";
+        with AsmLine do begin
+            TempAssemblyLine.Quantity := TempAssemblyLine.Quantity * "Quantity per" * "Qty. per Unit of Measure";
+            TempAssemblyLine."Quantity (Base)" := TempAssemblyLine."Quantity (Base)" * "Quantity per" * "Qty. per Unit of Measure";
+            TempAssemblyLine."Quantity per" := TempAssemblyLine."Quantity per" * "Quantity per" * "Qty. per Unit of Measure";
+            TempAssemblyLine."Remaining Quantity" := TempAssemblyLine."Remaining Quantity" * "Quantity per" * "Qty. per Unit of Measure";
+            TempAssemblyLine."Remaining Quantity (Base)" :=
+                TempAssemblyLine."Remaining Quantity (Base)" * "Quantity per" * "Qty. per Unit of Measure";
+            TempAssemblyLine."Quantity to Consume" :=
+                TempAssemblyLine."Quantity to Consume" * "Quantity per" * "Qty. per Unit of Measure";
+            TempAssemblyLine."Quantity to Consume (Base)" :=
+                TempAssemblyLine."Quantity to Consume (Base)" * "Quantity per" * "Qty. per Unit of Measure";
+        end;
     end;
 
     procedure UpdateWarningOnLines(AsmHeader: Record "Assembly Header")
@@ -389,56 +394,57 @@ codeunit 905 "Assembly Line Management"
         UpdateQtyToConsume := false;
         UpdateDimension := false;
 
-        case FieldNum of
-            AsmHeader.FieldNo("Item No."):
-                if AsmHeader."Item No." <> OldAsmHeader."Item No." then
-                    if LinesExist(AsmHeader) then
-                        if GuiAllowed then
-                            if not Confirm(StrSubstNo(Text003, AsmHeader.FieldCaption("Item No."), OldAsmHeader."Item No.", AsmHeader."Item No."), true) then
-                                Error('');
-            AsmHeader.FieldNo("Variant Code"):
-                UpdateDueDate := true;
-            AsmHeader.FieldNo("Location Code"):
-                begin
-                    UpdateDueDate := true;
-                    if AsmHeader."Location Code" <> OldAsmHeader."Location Code" then begin
-                        TempAssemblyLine.SetRange(Type, TempAssemblyLine.Type::Item);
-                        TempAssemblyLine.SetFilter("Location Code", '<>%1', AsmHeader."Location Code");
-                        if not TempAssemblyLine.IsEmpty() then
+        with AsmHeader do
+            case FieldNum of
+                FieldNo("Item No."):
+                    if "Item No." <> OldAsmHeader."Item No." then
+                        if LinesExist(AsmHeader) then
                             if GuiAllowed then
-                                if Confirm(StrSubstNo(Text001, TempAssemblyLine.FieldCaption("Location Code")), false) then
-                                    UpdateLocation := true;
-                        TempAssemblyLine.SetRange("Location Code");
-                        TempAssemblyLine.SetRange(Type);
+                                if not Confirm(StrSubstNo(Text003, FieldCaption("Item No."), OldAsmHeader."Item No.", "Item No."), true) then
+                                    Error('');
+                FieldNo("Variant Code"):
+                    UpdateDueDate := true;
+                FieldNo("Location Code"):
+                    begin
+                        UpdateDueDate := true;
+                        if "Location Code" <> OldAsmHeader."Location Code" then begin
+                            TempAssemblyLine.SetRange(Type, TempAssemblyLine.Type::Item);
+                            TempAssemblyLine.SetFilter("Location Code", '<>%1', "Location Code");
+                            if not TempAssemblyLine.IsEmpty() then
+                                if GuiAllowed then
+                                    if Confirm(StrSubstNo(Text001, TempAssemblyLine.FieldCaption("Location Code")), false) then
+                                        UpdateLocation := true;
+                            TempAssemblyLine.SetRange("Location Code");
+                            TempAssemblyLine.SetRange(Type);
+                        end;
                     end;
-                end;
-            AsmHeader.FieldNo("Starting Date"):
-                UpdateDueDate := true;
-            AsmHeader.FieldNo(Quantity):
-                if AsmHeader.Quantity <> OldAsmHeader.Quantity then begin
-                    UpdateQuantity := true;
+                FieldNo("Starting Date"):
+                    UpdateDueDate := true;
+                FieldNo(Quantity):
+                    if Quantity <> OldAsmHeader.Quantity then begin
+                        UpdateQuantity := true;
+                        UpdateQtyToConsume := true;
+                    end;
+                FieldNo("Unit of Measure Code"):
+                    if "Unit of Measure Code" <> OldAsmHeader."Unit of Measure Code" then
+                        UpdateUOM := true;
+                FieldNo("Quantity to Assemble"):
                     UpdateQtyToConsume := true;
-                end;
-            AsmHeader.FieldNo("Unit of Measure Code"):
-                if AsmHeader."Unit of Measure Code" <> OldAsmHeader."Unit of Measure Code" then
-                    UpdateUOM := true;
-            AsmHeader.FieldNo("Quantity to Assemble"):
-                UpdateQtyToConsume := true;
-            AsmHeader.FieldNo("Dimension Set ID"):
-                if AsmHeader."Dimension Set ID" <> OldAsmHeader."Dimension Set ID" then
-                    if LinesExist(AsmHeader) then begin
-                        UpdateDimension := true;
-                        if GuiAllowed and not HideValidationDialog then
-                            if not Confirm(Text002) then
-                                UpdateDimension := false;
-                    end;
-            else
-                if CalledFromRefreshBOM(ReplaceLinesFromBOM, FieldNum) then
-                    if LinesExist(AsmHeader) then
-                        if GuiAllowed then
-                            if not Confirm(Text004, false) then
-                                ReplaceLinesFromBOM := false;
-        end;
+                FieldNo("Dimension Set ID"):
+                    if "Dimension Set ID" <> OldAsmHeader."Dimension Set ID" then
+                        if LinesExist(AsmHeader) then begin
+                            UpdateDimension := true;
+                            if GuiAllowed and not HideValidationDialog then
+                                if not Confirm(Text002) then
+                                    UpdateDimension := false;
+                        end;
+                else
+                    if CalledFromRefreshBOM(ReplaceLinesFromBOM, FieldNum) then
+                        if LinesExist(AsmHeader) then
+                            if GuiAllowed then
+                                if not Confirm(Text004, false) then
+                                    ReplaceLinesFromBOM := false;
+            end;
 
         if not (UpdateDueDate or UpdateLocation or UpdateQuantity or UpdateUOM or UpdateQtyToConsume or UpdateDimension) and
            // nothing to update
@@ -460,44 +466,46 @@ codeunit 905 "Assembly Line Management"
         if IsHandled then
             exit;
 
-        if AsmHeader.IsStatusCheckSuspended() then
-            AssemblyLine.SuspendStatusCheck(true);
+        with AsmHeader do begin
+            if IsStatusCheckSuspended() then
+                AssemblyLine.SuspendStatusCheck(true);
 
-        if UpdateLocation and (AssemblyLine.Type = AssemblyLine.Type::Item) then
-            AssemblyLine.Validate("Location Code", AsmHeader."Location Code");
+            if UpdateLocation and (AssemblyLine.Type = AssemblyLine.Type::Item) then
+                AssemblyLine.Validate("Location Code", "Location Code");
 
-        if UpdateDueDate then begin
-            AssemblyLine.SetTestReservationDateConflict(CurrFieldNo <> 0);
-            AssemblyLine.ValidateLeadTimeOffset(AsmHeader, AssemblyLine."Lead-Time Offset", false);
-        end;
-
-        if UpdateQuantity then begin
-            QtyRatio := AsmHeader.Quantity / OldAsmHeader.Quantity;
-            UpdateAssemblyLineQuantity(AsmHeader, AssemblyLine, QtyRatio);
-            AssemblyLine.InitQtyToConsume();
-        end;
-
-        if UpdateUOM then begin
-            QtyRatio := AsmHeader."Qty. per Unit of Measure" / OldAsmHeader."Qty. per Unit of Measure";
-            if AssemblyLine.FixedUsage() then
-                AssemblyLine.Validate("Quantity per")
-            else
-                AssemblyLine.Validate("Quantity per", AssemblyLine."Quantity per" * QtyRatio);
-            AssemblyLine.InitQtyToConsume();
-        end;
-
-        if UpdateQtyToConsume then
-            if not AssemblyLine.FixedUsage() then begin
-                AssemblyLine.InitQtyToConsume();
-                QtyToConsume := AssemblyLine.Quantity * AsmHeader."Quantity to Assemble" / AsmHeader.Quantity;
-                AssemblyLine.RoundQty(QtyToConsume);
-                UpdateQuantityToConsume(AsmHeader, AssemblyLine, QtyToConsume);
+            if UpdateDueDate then begin
+                AssemblyLine.SetTestReservationDateConflict(CurrFieldNo <> 0);
+                AssemblyLine.ValidateLeadTimeOffset(AsmHeader, AssemblyLine."Lead-Time Offset", false);
             end;
 
-        if UpdateDimension then
-            AssemblyLine.UpdateDim(AsmHeader."Dimension Set ID", OldAsmHeader."Dimension Set ID");
+            if UpdateQuantity then begin
+                QtyRatio := Quantity / OldAsmHeader.Quantity;
+                UpdateAssemblyLineQuantity(AsmHeader, AssemblyLine, QtyRatio);
+                AssemblyLine.InitQtyToConsume();
+            end;
 
-        AssemblyLine.Modify(true);
+            if UpdateUOM then begin
+                QtyRatio := "Qty. per Unit of Measure" / OldAsmHeader."Qty. per Unit of Measure";
+                if AssemblyLine.FixedUsage() then
+                    AssemblyLine.Validate("Quantity per")
+                else
+                    AssemblyLine.Validate("Quantity per", AssemblyLine."Quantity per" * QtyRatio);
+                AssemblyLine.InitQtyToConsume();
+            end;
+
+            if UpdateQtyToConsume then
+                if not AssemblyLine.FixedUsage() then begin
+                    AssemblyLine.InitQtyToConsume();
+                    QtyToConsume := AssemblyLine.Quantity * "Quantity to Assemble" / Quantity;
+                    AssemblyLine.RoundQty(QtyToConsume);
+                    UpdateQuantityToConsume(AsmHeader, AssemblyLine, QtyToConsume);
+                end;
+
+            if UpdateDimension then
+                AssemblyLine.UpdateDim("Dimension Set ID", OldAsmHeader."Dimension Set ID");
+
+            AssemblyLine.Modify(true);
+        end;
     end;
 
     local procedure UpdateQuantityToConsume(AsmHeader: Record "Assembly Header"; var AssemblyLine: Record "Assembly Line"; QtyToConsume: Decimal)
@@ -564,9 +572,16 @@ codeunit 905 "Assembly Line Management"
 
     procedure ShowAvailability(ShowPageEvenIfEnoughComponentsAvailable: Boolean; var TempAssemblyHeader: Record "Assembly Header" temporary; var TempAssemblyLine: Record "Assembly Line" temporary) Rollback: Boolean
     var
+        Item: Record Item;
         TempAssemblyLine2: Record "Assembly Line" temporary;
         AssemblySetup: Record "Assembly Setup";
-
+        ItemCheckAvail: Codeunit "Item-Check Avail.";
+        AssemblyAvailability: Page "Assembly Availability";
+        Inventory: Decimal;
+        GrossRequirement: Decimal;
+        ReservedRequirement: Decimal;
+        ScheduledReceipts: Decimal;
+        ReservedReceipts: Decimal;
         EarliestAvailableDateX: Date;
         QtyAvailToMake: Decimal;
         QtyAvailTooLow: Boolean;
@@ -586,158 +601,21 @@ codeunit 905 "Assembly Line Management"
             exit(false);
 
         TempAssemblyHeader.TestField("Item No.");
+        Item.Get(TempAssemblyHeader."Item No.");
+
+        ItemCheckAvail.AsmOrderCalculate(TempAssemblyHeader, Inventory,
+          GrossRequirement, ReservedRequirement, ScheduledReceipts, ReservedReceipts);
         CopyInventoriableItemAsmLines(TempAssemblyLine2, TempAssemblyLine);
         AvailToPromise(TempAssemblyHeader, TempAssemblyLine2, QtyAvailToMake, EarliestAvailableDateX);
         QtyAvailTooLow := QtyAvailToMake < TempAssemblyHeader."Remaining Quantity";
-
-        if QtyAvailTooLow and not ShowPageEvenIfEnoughComponentsAvailable then
-            Rollback := CreateAndSendNotification(TempAssemblyHeader, TempAssemblyLine)
-        else
-            if ShowPageEvenIfEnoughComponentsAvailable then
-                ShowAssemblyAvailability(TempAssemblyHeader, TempAssemblyLine2, '');
-    end;
-
-    #region Notification
-    local procedure CreateAndSendNotification(var TempAssemblyHeader: Record "Assembly Header" temporary; var TempAssemblyLine: Record "Assembly Line" temporary) Rollback: Boolean
-    var
-        DummyAssemblyHeader: Record "Assembly Header" temporary;
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
-        AssemblyAvailability2: Page "Assembly Availability Check";
-        AssemblyAvailCheckNotification: Notification;
-        IsHandled: Boolean;
-        DetailsTxt: Label 'Show details';
-        DontShowAgainTxt: Label 'Don''t show again';
-    begin
-        IsHandled := false;
-        OnBeforeCreateAndSendNotification(TempAssemblyHeader, TempAssemblyLine, IsHandled, Rollback);
-        if IsHandled then
-            exit(Rollback);
-
-        //remove initial notifications for assembly if exists
-        if TempAssemblyHeader."No." <> '' then begin
-            DummyAssemblyHeader := TempAssemblyHeader;
-            DummyAssemblyHeader."No." := '';
-            NotificationLifecycleMgt.RecallNotificationsForRecordWithAdditionalContext(DummyAssemblyHeader.RecordId, GetAssemblyAvailabilityNotificationId(), true);
+        if ShowPageEvenIfEnoughComponentsAvailable or QtyAvailTooLow then begin
+            AssemblyAvailability.SetData(TempAssemblyHeader, TempAssemblyLine2);
+            AssemblyAvailability.SetHeaderInventoryData(
+              Inventory, GrossRequirement, ReservedRequirement, ScheduledReceipts, ReservedReceipts,
+              EarliestAvailableDateX, QtyAvailToMake, QtyAvailTooLow);
+            Rollback := not (AssemblyAvailability.RunModal() = ACTION::Yes);
         end;
-        NotificationLifecycleMgt.RecallNotificationsForRecordWithAdditionalContext(TempAssemblyHeader.RecordId, GetAssemblyAvailabilityNotificationId(), true);
-
-        AssemblyAvailCheckNotification.Id(CreateGuid());
-        AssemblyAvailCheckNotification.Message(StrSubstNo(AssembleAvailabilityNotificationMsg, TempAssemblyHeader."Item No."));
-        AssemblyAvailCheckNotification.Scope(NotificationScope::LocalScope);
-        AssemblyAvailCheckNotification.AddAction(DetailsTxt, Codeunit::"Assembly Line Management", 'ShowNotificationDetails');
-        AssemblyAvailCheckNotification.AddAction(DontShowAgainTxt, Codeunit::"Assembly Line Management", 'DeactivateNotification');
-        AssemblyAvailability2.PopulateDataOnNotification(AssemblyAvailCheckNotification, TempAssemblyHeader);
-        NotificationLifecycleMgt.SendNotificationWithAdditionalContext(
-          AssemblyAvailCheckNotification, TempAssemblyHeader.RecordId, GetAssemblyAvailabilityNotificationId());
-        exit(false);
     end;
-
-    local procedure GetAssemblyAvailabilityNotificationId(): Guid
-    begin
-        exit('3531EDA8-b30E-4422-B742-1F418B865596');
-    end;
-
-    procedure ShowNotificationDetails(AvailabilityCheckNotification: Notification)
-    var
-        TempAssemblyHeader: Record "Assembly Header" temporary;
-        TempAssemblyLine: Record "Assembly Line" temporary;
-        AssemblyAvailabilityCheck: Page "Assembly Availability Check";
-        ExistingDocument: Boolean;
-    begin
-        AssemblyAvailabilityCheck.InitializeFromNotification(AvailabilityCheckNotification, TempAssemblyHeader, ExistingDocument);
-        GetAssemblyLines(TempAssemblyHeader, TempAssemblyLine, ExistingDocument);
-
-        ShowAssemblyAvailability(TempAssemblyHeader, TempAssemblyLine, AvailabilityCheckNotification.Message);
-    end;
-
-    local procedure ShowAssemblyAvailability(var TempAssemblyHeader: Record "Assembly Header" temporary; var TempAssemblyLine: Record "Assembly Line" temporary; HeadinMessage: Text)
-    var
-        ItemCheckAvail: Codeunit "Item-Check Avail.";
-        AssemblyAvailabilityCheck: Page "Assembly Availability Check";
-        EarliestAvailableDateX: Date;
-        Inventory: Decimal;
-        GrossRequirement: Decimal;
-        ReservedRequirement: Decimal;
-        ScheduledReceipts: Decimal;
-        ReservedReceipts: Decimal;
-        QtyAvailToMake: Decimal;
-    begin
-        ItemCheckAvail.AsmOrderCalculate(TempAssemblyHeader, Inventory, GrossRequirement, ReservedRequirement, ScheduledReceipts, ReservedReceipts);
-        AvailToPromise(TempAssemblyHeader, TempAssemblyLine, QtyAvailToMake, EarliestAvailableDateX);
-
-        AssemblyAvailabilityCheck.SetAssemblyHeader(TempAssemblyHeader);
-        AssemblyAvailabilityCheck.SetHeaderInventoryData(
-                  Inventory, GrossRequirement, ReservedRequirement, ScheduledReceipts, ReservedReceipts,
-                  EarliestAvailableDateX, QtyAvailToMake, QtyAvailToMake < TempAssemblyHeader."Remaining Quantity");
-        AssemblyAvailabilityCheck.SetAssemblyLines(TempAssemblyLine);
-
-        if HeadinMessage = '' then
-            if QtyAvailToMake < TempAssemblyHeader."Remaining Quantity" then
-                HeadinMessage := StrSubstNo(AssembleAvailabilityNotificationMsg, TempAssemblyHeader."Item No.")
-            else
-                HeadinMessage := StrSubstNo(AssembleAvailabilityCheckMsg, TempAssemblyHeader."Item No.");
-
-        AssemblyAvailabilityCheck.SetHeading(HeadinMessage);
-        AssemblyAvailabilityCheck.RunModal();
-    end;
-
-    local procedure GetAssemblyLines(var TempAssemblyHeader: Record "Assembly Header" temporary; var TempAssemblyLine: Record "Assembly Line" temporary; ExistingDocument: Boolean)
-    var
-        AssembleToOrderLink: Record "Assemble-to-Order Link";
-        AssemblyLine: Record "Assembly Line";
-        TempAssemblyLine2: Record "Assembly Line" temporary;
-    begin
-        TempAssemblyLine.DeleteAll();
-
-        if not ExistingDocument then begin
-            AssembleToOrderLink.TransAvailBOMCompToAsmLines(TempAssemblyHeader, TempAssemblyLine2);
-            if TempAssemblyLine2.FindSet() then
-                repeat
-                    if TempAssemblyLine2.IsInventoriableItem() then begin
-                        TempAssemblyLine.Init();
-                        TempAssemblyLine := TempAssemblyLine2;
-                        TempAssemblyLine.Insert();
-                    end;
-                until TempAssemblyLine2.Next() = 0;
-            exit;
-        end;
-
-        AssemblyLine.Reset();
-        AssemblyLine.SetRange("Document Type", TempAssemblyHeader."Document Type");
-        AssemblyLine.SetRange("Document No.", TempAssemblyHeader."No.");
-        if AssemblyLine.FindSet() then
-            repeat
-                if AssemblyLine.IsInventoriableItem() then begin
-                    TempAssemblyLine.Init();
-                    TempAssemblyLine := AssemblyLine;
-                    TempAssemblyLine.UpdateAvailWarning();
-                    TempAssemblyLine.Insert();
-                end;
-            until AssemblyLine.Next() = 0;
-    end;
-
-    procedure DeactivateNotification(SetupNotification: Notification)
-    var
-        MyNotifications: Record "My Notifications";
-    begin
-        // Insert notification in case the My Notifications page has not been opened yet
-        OnInitializingNotificationWithDefaultState();
-        MyNotifications.Disable(GetAssemblyAvailabilityNotificationId())
-    end;
-
-    [EventSubscriber(ObjectType::Page, Page::"My Notifications", 'OnInitializingNotificationWithDefaultState', '', false, false)]
-    local procedure OnInitializingNotificationWithDefaultState()
-    var
-        MyNotifications: Record "My Notifications";
-        ItemToAssemblyAvailabilityNotificationTxt: Label 'Assembly BOM availability is low.';
-        ItemToAssemblyAvailabilityNotificationDescriptionTxt: Label 'Show a warning when someone creates a sales order line with item which should be assebled and which BOM components are out of stock.';
-    begin
-        MyNotifications.InsertDefaultWithTableNum(GetAssemblyAvailabilityNotificationId(),
-          ItemToAssemblyAvailabilityNotificationTxt,
-          ItemToAssemblyAvailabilityNotificationDescriptionTxt,
-          DATABASE::"Assembly Header");
-    end;
-    #endregion
 
     local procedure DoVerificationsSkippedEarlier(ReplaceLinesFromBOM: Boolean; var TempNewAsmLine: Record "Assembly Line" temporary; var TempOldAsmLine: Record "Assembly Line" temporary; UpdateDimension: Boolean; NewHeaderSetID: Integer; OldHeaderSetID: Integer)
     begin
@@ -816,15 +694,17 @@ codeunit 905 "Assembly Line Management"
     begin
         OnBeforeCalcEarliestDueDate(AsmHeader);
 
-        EarliestDueDate := 0D;
-        if EarliestStartingDate > 0D then begin
-            EarliestEndingDate := // earliest starting date + lead time calculation
-                LeadTimeMgt.PlannedEndingDate(AsmHeader."Item No.", AsmHeader."Location Code", AsmHeader."Variant Code",
-                '', LeadTimeMgt.ManufacturingLeadTime(AsmHeader."Item No.", AsmHeader."Location Code", AsmHeader."Variant Code"),
-                ReqLine."Ref. Order Type"::Assembly, EarliestStartingDate);
-            EarliestDueDate := // earliest ending date + (default) safety lead time
-                LeadTimeMgt.PlannedDueDate(AsmHeader."Item No.", AsmHeader."Location Code", AsmHeader."Variant Code",
-                EarliestEndingDate, '', ReqLine."Ref. Order Type"::Assembly);
+        with AsmHeader do begin
+            EarliestDueDate := 0D;
+            if EarliestStartingDate > 0D then begin
+                EarliestEndingDate := // earliest starting date + lead time calculation
+                  LeadTimeMgt.PlannedEndingDate("Item No.", "Location Code", "Variant Code",
+                    '', LeadTimeMgt.ManufacturingLeadTime("Item No.", "Location Code", "Variant Code"),
+                    ReqLine."Ref. Order Type"::Assembly, EarliestStartingDate);
+                EarliestDueDate := // earliest ending date + (default) safety lead time
+                  LeadTimeMgt.PlannedDueDate("Item No.", "Location Code", "Variant Code",
+                    EarliestEndingDate, '', ReqLine."Ref. Order Type"::Assembly);
+            end;
         end;
 
         OnAfterCalcEarliestDueDate(AsmHeader);
@@ -874,14 +754,16 @@ codeunit 905 "Assembly Line Management"
         if IsHandled then
             exit;
 
-        SetLinkToItemLines(AsmHeader, AssemblyLine);
-        if AssemblyLine.FindSet() then
-            repeat
-                if ItemTrackingMgt.GetWhseItemTrkgSetup(AssemblyLine."No.") then
-                    ItemTrackingMgt.InitItemTrackingForTempWhseWorksheetLine(
-                        Enum::"Warehouse Worksheet Document Type"::Assembly, AssemblyLine."Document No.", AssemblyLine."Line No.",
-                        Database::"Assembly Line", AssemblyLine."Document Type".AsInteger(), AssemblyLine."Document No.", AssemblyLine."Line No.", 0);
-            until AssemblyLine.Next() = 0;
+        with AssemblyLine do begin
+            SetLinkToItemLines(AsmHeader, AssemblyLine);
+            if FindSet() then
+                repeat
+                    if ItemTrackingMgt.GetWhseItemTrkgSetup("No.") then
+                        ItemTrackingMgt.InitItemTrackingForTempWhseWorksheetLine(
+                            Enum::"Warehouse Worksheet Document Type"::Assembly, "Document No.", "Line No.",
+                            Database::"Assembly Line", "Document Type".AsInteger(), "Document No.", "Line No.", 0);
+                until Next() = 0;
+        end;
     end;
 
     local procedure CopyInventoriableItemAsmLines(var TempToAssemblyLine: Record "Assembly Line" temporary; var TempFromAssemblyLine: Record "Assembly Line" temporary)
@@ -908,7 +790,7 @@ codeunit 905 "Assembly Line Management"
         SetLinkToBOM(AssemblyHeader, BomComponent);
         BomComponent.SetRange("No.", AssemblyLine."No.");
         if not BomComponent.FindFirst() then
-            exit(0);
+            exit(AssemblyLineQty);
 
         AssemblyLineQty := AssemblyLine.CalcBOMQuantity(
                     BOMComponent.Type, BOMComponent."Quantity per",
@@ -1030,11 +912,6 @@ codeunit 905 "Assembly Line Management"
 
     [IntegrationEvent(false, false)]
     local procedure OnUpdateAssemblyLinesOnAfterCopyAssemblyData(var AssemblyLine: Record "Assembly Line"; var ReplaceLinesFromBOM: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeCreateAndSendNotification(var AssemblyHeader: Record "Assembly Header"; var AssemblyLine: Record "Assembly Line"; var IsHandled: Boolean; var Rollback: Boolean)
     begin
     end;
 }

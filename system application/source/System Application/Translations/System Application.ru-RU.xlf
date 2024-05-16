@@ -111,24 +111,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI TextCompletionParams Impl - NamedType TemperatureErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 4063503383 - NamedType 4250359517" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Tool id does not exist.</source>
-          <target state="translated">ИД инструмента не существует.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Tools Impl - NamedType ToolIdDoesNotExistErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4063503383 - NamedType 3372307219" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 object does not contain %2 property.</source>
-          <target state="translated">Объект %1 не содержит свойства %2.</target>
-          <note from="Developer" annotates="general" priority="2">%1 is the object name and %2 is the property that is missing.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Tools Impl - NamedType ToolObjectInvalidErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4063503383 - NamedType 723514311" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Tool type must be of function type.</source>
-          <target state="translated">Тип инструмента должен быть "функция".</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Tools Impl - NamedType ToolTypeErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 223636344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The authentication was not configured.</source>
           <target state="translated">Проверка подлинности не настроена.</target>
@@ -292,8 +274,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control GenerallyAvailableCapabilities - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1549657920 - Control 3117944029 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>By allowing data movement, you agree to data being stored and processed by the Azure OpenAI Service outside of your environment's geographic region or compliance boundary.</source>
-          <target state="translated">Разрешая перемещение данных, вы соглашаетесь с тем, что данные будут храниться и обрабатываться в Службе Azure OpenAI за пределами географического региона и границы соответствия вашей среды.</target>
+          <source>Generative AI capabilities are deactivated because Azure OpenAI Service is not available in your region. By allowing data movement, you agree to data being stored and processed by the Azure OpenAI Service outside of your environment's geographic region or compliance boundary.</source>
+          <target state="translated">Возможности генеративного ИИ деактивированы, так Служба Azure OpenAI недоступна в вашем регионе. Разрешая перемещение данных, вы соглашаетесь с тем, что данные будут храниться и обрабатываться в Службе Azure OpenAI за пределами географического региона и границы соответствия вашей среды.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control NotAlwaysConnected - Property InstructionalText</note>
         </trans-unit>
@@ -308,24 +290,6 @@
           <target state="translated">Разрешить перемещение данных</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control DataMovement - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1549657920 - Control 1369294027 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Generative AI capabilities are deactivated because Azure OpenAI Service is not available in your region. By allowing data movement, you agree to data being stored and processed by the Azure OpenAI Service outside of your environment's geographic region or compliance boundary.</source>
-          <target state="translated">Возможности генеративного ИИ деактивированы, так Служба Azure OpenAI недоступна в вашем регионе. Разрешая перемещение данных, вы соглашаетесь с тем, что данные будут храниться и обрабатываться в Службе Azure OpenAI за пределами географического региона и границы соответствия вашей среды.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control NotAlwaysConnected2 - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 1549657920 - Control 1969027627 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether data movement across regions is allowed. This is required to enable Copilot in your environment.</source>
-          <target state="translated">Определяет, разрешено ли перемещение данных между регионами. Это необходимо для включения Copilot в вашей среде.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control DataMovement2 - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1549657920 - Control 1969027627 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow data movement</source>
-          <target state="translated">Разрешить перемещение данных</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control DataMovement2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1549657920 - Control 1622127448 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Production ready previews</source>
@@ -650,552 +614,6 @@
           <target state="translated">Неактивно</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Copilot Status - EnumValue Inactive - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>AppSource Product</source>
-          <target state="translated">Продукт AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 665602392 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Application Identifier</source>
-          <target state="translated">Идентификатор приложения</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field AppID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 2058393039 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Name</source>
-          <target state="translated">Имя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field DisplayName - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 4063908606 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Last Modified Date Time</source>
-          <target state="translated">Дата и время последнего изменения</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field LastModifiedDateTime - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 1980912907 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Popularity</source>
-          <target state="translated">Популярность</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field Popularity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 1339285693 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Product Type</source>
-          <target state="translated">Тип продукта</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field ProductType - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 1758228669 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Publisher Name</source>
-          <target state="translated">Название издателя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field PublisherDisplayName - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 2647464421 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Publisher ID</source>
-          <target state="translated">ИД издателя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field PublisherID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 1923722738 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Publisher Type</source>
-          <target state="translated">Тип издателя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field PublisherType - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 2208560776 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Average Rating</source>
-          <target state="translated">Средняя оценка</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field RatingAverage - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 4183982824 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No. Of Ratings</source>
-          <target state="translated">Количество оценок</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field RatingCount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2695573153 - Field 3711555087 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unique Product ID</source>
-          <target state="translated">Уникальный ИД продукта</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AppSource Product - Field UniqueProductID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 925521872 - NamedType 2722016426" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Not supported on premises.</source>
-          <target state="translated">Локальное использование не поддерживается.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AppSource Product Manager - NamedType NotSupportedOnPremisesErrorLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 925521872 - NamedType 3446213308" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Language %1 is not supported by AppSource. Defaulting to "en". Change the language in the user profile to use another language.</source>
-          <target state="translated">Язык %1 не поддерживается AppSource. Язык изменен на en. Чтобы использовать другой язык, измените язык в профиле пользователя.</target>
-          <note from="Developer" annotates="general" priority="2">%1=Language ID, such as en</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AppSource Product Manager - NamedType UnsupportedLanguageNotificationLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 925521872 - NamedType 414968362" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Market %1 is not supported by AppSource. Defaulting to "us". Change the region in the user profile to use another market.</source>
-          <target state="translated">Рынок %1 не поддерживается AppSource. Рынок изменен на us. Чтобы использовать другой рынок, измените регион в профиле пользователя.</target>
-          <note from="Developer" annotates="general" priority="2">%1=Market ID, such as "us"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AppSource Product Manager - NamedType UnsupportedMarketNotificationLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>App Overview</source>
-          <target state="translated">Обзор приложения</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 1337286837" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>First month free, then %1.</source>
-          <target state="translated">Первый месяц бесплатно, затем %1.</target>
-          <note from="Developer" annotates="general" priority="2">Added to the plan line when the first month is free, %1 is the plan after the trial period.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PlanLineFirstMonthIsFreeLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 3620252684" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>varies</source>
-          <target state="translated">разная</target>
-          <note from="Developer" annotates="general" priority="2">Added to the plan line when the price varies.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PlanLinePriceVariesLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 4287121178" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 %2 user/month</source>
-          <target state="translated">%1 %2 пользователь/месяц</target>
-          <note from="Developer" annotates="general" priority="2">Price added a plan line, %1 is the currency code, such as USD or IDR, %2 is the price</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PlanLinePrUserPrMonthLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 1995960371" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 %2 user/year</source>
-          <target state="translated">%1 %2 пользователь/год</target>
-          <note from="Developer" annotates="general" priority="2">Price added a plan line, %1 is the currency code, such as USD or IDR, %2 is the price</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PlanLinePrUserPrYearLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 4016409330" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Annual Price</source>
-          <target state="translated">Стоимость за год</target>
-          <note from="Developer" annotates="general" priority="2">Column header for the plans section</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PlanLinesColumnAnnualPriceLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 1734157712" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="translated">Описание</target>
-          <note from="Developer" annotates="general" priority="2">Column header for the plans section</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PlanLinesColumnDescriptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 3209891502" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Monthly Price</source>
-          <target state="translated">Стоимость за месяц</target>
-          <note from="Developer" annotates="general" priority="2">Column header for the plans section</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PlanLinesColumnMonthlyPriceLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 4013388342" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Plans</source>
-          <target state="translated">Планы</target>
-          <note from="Developer" annotates="general" priority="2">Column header for the plans section</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PlanLinesColumnPlansLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - NamedType 3142883453" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Installing this app might lead to undesired behavior if licenses are not purchased before use. You must purchase licenses through Microsoft AppSource.\Do you want to continue with the installation?</source>
-          <target state="translated">Установка этого приложения может привести к нежелательному поведению, если перед использованием не будут приобретены лицензии. Лицензии необходимо приобрести через Microsoft AppSource.\Продолжить установку?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - NamedType PurchaseLicensesElsewhereLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1869249089 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description text of the offer.</source>
-          <target state="translated">Определяет текст описания предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Description_Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1869249089 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="translated">Описание</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Description_Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1722969528 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Links</source>
-          <target state="translated">Ссылки</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control LinksGroup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1876937040 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the legal terms of the offer.</source>
-          <target state="translated">Определяет юридические условия предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Links_LegalTermsUri - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1876937040 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Legal Terms Uri</source>
-          <target state="translated">URI юридических условий</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Links_LegalTermsUri - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 3843239304 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the privacy policy of the offer.</source>
-          <target state="translated">Определяет политику конфиденциальности предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Links_PrivacyPolicyUri - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 3843239304 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Privacy Policy Uri</source>
-          <target state="translated">URI политики конфиденциальности</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Links_PrivacyPolicyUri - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 681278599 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the support Uri of the offer.</source>
-          <target state="translated">Определяет URI поддержки предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Links_SupportUri - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 681278599 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Support Uri</source>
-          <target state="translated">URI поддержки</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Links_SupportUri - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1651089321 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Offer</source>
-          <target state="translated">Предложение</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control OfferGroup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1919680558 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the display name of the offer.</source>
-          <target state="translated">Определяет отображаемое название предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_DisplayName - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1919680558 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Display Name</source>
-          <target state="translated">Отображаемое название</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_DisplayName - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2896417159 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the date the offer was last updated.</source>
-          <target state="translated">Определяет дату последнего обновления предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_LastModifiedDateTime - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2896417159 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Last Modified Date Time</source>
-          <target state="translated">Дата и время последнего изменения</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_LastModifiedDateTime - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1503561056 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the delivery method or deployment mode of the offer.</source>
-          <target state="translated">Определяет способ доставки или режим развертывания предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_ProductType - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1503561056 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Product Type</source>
-          <target state="translated">Тип продукта</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_ProductType - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2067922088 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the display name of the publisher.</source>
-          <target state="translated">Определяет отображаемое название издателя.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_PublisherDisplayName - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2067922088 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Publisher Display Name</source>
-          <target state="translated">Отображаемое название издателя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_PublisherDisplayName - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2663349080 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the ID of the publisher.</source>
-          <target state="translated">Определяет ИД издателя.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_PublisherID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2663349080 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Publisher ID</source>
-          <target state="translated">ИД издателя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_PublisherID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1340079915 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the offer is a Microsoft or third party product.</source>
-          <target state="translated">Указывает, является предложение продуктом Майкрософт или сторонним продуктом.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_PublisherType - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1340079915 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Publisher Type</source>
-          <target state="translated">Тип издателя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_PublisherType - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 224340107 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the unique product identifier.</source>
-          <target state="translated">Определяет уникальный идентификатор продукта.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_UniqueID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 224340107 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unique Product ID</source>
-          <target state="translated">Уникальный ИД продукта</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Offer_UniqueID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 467134825 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Plans</source>
-          <target state="translated">Планы</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control PlansGroup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2964789533 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the overview of all the plans available for the offer.</source>
-          <target state="translated">Определяет обзор всех планов, доступных для предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control PlansOverview - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2964789533 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Plans Overview</source>
-          <target state="translated">Обзор планов</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control PlansOverview - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 2833813748 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Rating</source>
-          <target state="translated">Оценка</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control RatingGroup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1281014227 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a value from 0-10 indicating the popularity of the offer.</source>
-          <target state="translated">Определяет значение от 0 до 10, характеризующее популярность предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Rating_Popularity - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 1281014227 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Popularity</source>
-          <target state="translated">Популярность</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Rating_Popularity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 3537928592 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a value from 0-5 indicating the average user rating.</source>
-          <target state="translated">Определяет значение от 0 до 5, характеризующее среднюю оценку пользователей.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Rating_RatingAverage - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 3537928592 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Rating Average</source>
-          <target state="translated">Средняя оценка</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Rating_RatingAverage - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 3032545456 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of users that have rated the offer.</source>
-          <target state="translated">Определяет количество пользователей, поставивших оценку предложению.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Rating_RatingCount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Control 3032545456 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Rating Count</source>
-          <target state="translated">Число оценок</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Control Rating_RatingCount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Action 614615843 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Installs the app.</source>
-          <target state="translated">Устанавливает приложение.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Action Install - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Action 614615843 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Install App</source>
-          <target state="translated">Установить приложение</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Action Install - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Action 4051539565 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Installs the app from Microsoft AppSource.</source>
-          <target state="translated">Установка приложения из Microsoft AppSource.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Action InstallFromAppSource - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Action 4051539565 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Install From AppSource</source>
-          <target state="translated">Установить из AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Action InstallFromAppSource - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Action 294032465 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens the app offer in the AppSource marketplace.</source>
-          <target state="translated">Открывает предложение приложения на платформе AppSource.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Action OpenInAppSource - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Action 294032465 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View in AppSource</source>
-          <target state="translated">Просмотреть в AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Action OpenInAppSource - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Action 375208022 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Uninstalls the app.</source>
-          <target state="translated">Удаляет приложение.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Action Uninstall - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4186071871 - Action 375208022 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Uninstall App</source>
-          <target state="translated">Удалить приложение</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product Details - Action Uninstall - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Microsoft AppSource Apps</source>
-          <target state="translated">Приложения Microsoft AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 665602392 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the app ID.</source>
-          <target state="translated">Определяет ИД приложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control AppID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 2058393039 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the display name of the offer.</source>
-          <target state="translated">Определяет отображаемое название предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control DisplayName - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 4140905748 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether this app is installed.</source>
-          <target state="translated">Указывает, установлено ли это приложение.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control Installed - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 4140905748 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Installed</source>
-          <target state="translated">Установлено</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control Installed - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 4063908606 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the date and time this was last modified</source>
-          <target state="translated">Определяет дату и время последнего изменения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control LastModifiedDateTime - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 1980912907 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a value from 0-10 indicating the popularity of the offer.</source>
-          <target state="translated">Определяет значение от 0 до 10, характеризующее популярность предложения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control Popularity - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 1758228669 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the display name of the publisher.</source>
-          <target state="translated">Определяет отображаемое название издателя.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control PublisherDisplayName - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 2647464421 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the ID of the publisher.</source>
-          <target state="translated">Определяет ИД издателя.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control PublisherID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 1923722738 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the offer is a Microsoft or third party product.</source>
-          <target state="translated">Указывает, является предложение продуктом Майкрософт или сторонним продуктом.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control PublisherType - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 2208560776 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a value from 0-5 indicating the average user rating.</source>
-          <target state="translated">Определяет значение от 0 до 5, характеризующее среднюю оценку пользователей.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control RatingAverage - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 4183982824 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of users that have rated the offer.</source>
-          <target state="translated">Определяет количество пользователей, поставивших оценку предложению.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control RatingCount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Control 3711555087 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the unique product identifier.</source>
-          <target state="translated">Определяет уникальный идентификатор продукта.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Control UniqueProductID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Action 3480561003 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Refreshes the list by downloading the latest apps from Microsoft AppSource</source>
-          <target state="translated">Обновляет список путем загрузки последних приложений из Microsoft AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Action UpdateProducts - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Action 3480561003 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Refresh list from Microsoft AppSource</source>
-          <target state="translated">Обновить список из Microsoft AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Action UpdateProducts - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Action 568230892 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View all apps in AppSource</source>
-          <target state="translated">Все приложения в AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Action OpenAppSource - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Action 568230892 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View AppSource</source>
-          <target state="translated">Открыть AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Action OpenAppSource - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Action 294032465 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View selected app in AppSource</source>
-          <target state="translated">Просмотр выбранного приложения в AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Action OpenInAppSource - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Action 294032465 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View in AppSource</source>
-          <target state="translated">Просмотреть в AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Action OpenInAppSource - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Action 521112874 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Locale will be used to determine the market and language will be used to determine the language of the app details listed here.</source>
-          <target state="translated">Языковой стандарт будет использоваться для определения рынка, а язык — для определения языка отображаемых здесь сведений о приложениях.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Action ShowSettings - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - Action 521112874 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Edit User Settings</source>
-          <target state="translated">Изменить параметры пользователя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - Action ShowSettings - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - View 563449847 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Popular apps</source>
-          <target state="translated">Популярные приложения</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - View Popular - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - View 3286124219 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Recently changed apps</source>
-          <target state="translated">Недавно измененные приложения</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - View Resent Updates - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1495123671 - View 1653781455 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Top rated apps</source>
-          <target state="translated">Приложения с наивысшими оценками</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AppSource Product List - View TopRated - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3170013184 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Extension Deployment Status</source>
@@ -2252,6 +1670,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Logo Part - Control Logo - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2005578726 - Property 2019332006" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New,Process,Report,Details,Manage</source>
+          <target state="translated">Новый,Процесс,Отчет,Сведения,Управление</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Property PromotedActionCategories</note>
+        </trans-unit>
         <trans-unit id="Page 2005578726 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Extension Management</source>
           <target state="translated">Управление расширениями</target>
@@ -2365,6 +1789,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action ActionGroup13 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2005578726 - Action 2575491252 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configure the extension.</source>
+          <target state="translated">Настройка расширения.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Configure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2005578726 - Action 2575491252 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Configure</source>
+          <target state="translated">Настроить</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Configure - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2005578726 - Action 2954564037 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete the data of orphaned extensions.</source>
           <target state="translated">Удаление данных потерянных расширений.</target>
@@ -2437,18 +1873,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Learn More - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2005578726 - Action 3310388844 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Browse the Microsoft AppSource Gallery for new extensions to install.</source>
-          <target state="translated">Просмотр галереи Microsoft AppSource на предмет новых расширений для установки.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Microsoft AppSource Gallery - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2005578726 - Action 3310388844 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>AppSource Gallery</source>
-          <target state="translated">Коллекция AppSource</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Microsoft AppSource Gallery - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 2005578726 - Action 2026913255 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Refresh the list of extensions.</source>
           <target state="translated">Обновление списка расширений.</target>
@@ -2520,12 +1944,6 @@
           <target state="translated">Просмотр</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action View - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2005578726 - Action 2224783030 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Manage</source>
-          <target state="translated">Управление</target>
-          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 4.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Extension Management - Action Category_Category5 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3666029466 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Extension Marketplace</source>
@@ -2899,24 +2317,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control ActiveUsers - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 513864971 - Control 1028095384 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>When installing an AppSource app, it may require additional apps to be installed as dependencies. Make sure to review the provider's terms of use and privacy policy review before proceeding. For more information on installing and uninstalling apps, see the link below.</source>
-          <target state="translated">При установке приложения из AppSource может потребоваться установка дополнительных приложений в качестве зависимостей. Прежде чем продолжить, прочитайте условия использования и политику конфиденциальности поставщика приложения. Дополнительные сведения об установке и удалении приложений см. по ссылке ниже.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control InstallAppDependencyDisclaimer - Property InstructionalText</note>
-        </trans-unit>
-        <trans-unit id="Page 513864971 - Control 1028095384 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Important</source>
-          <target state="translated">Важно!</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control InstallAppDependencyDisclaimer - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 513864971 - Control 754520315 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Read more about installing and uninstalling apps.</source>
-          <target state="translated">Дополнительная информация об установке и удалении приложений.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control HelpLink - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 513864971 - Control 340684856 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are about to install a preview version of the extension.</source>
           <target state="translated">Вы собираетесь установить предварительную версию расширения.</target>
@@ -2946,6 +2346,12 @@
           <target state="translated">Язык</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control Language - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 513864971 - Control 2484606180 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Read more about the best practices for installing and publishing extensions.</source>
+          <target state="translated">Дополнительные рекомендации по установке и публикации расширений.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Marketplace Extn Deployment - Control BestPractices - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 513864971 - Action 614615843 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Install the extension.</source>
@@ -3492,6 +2898,24 @@
           <target state="translated">Пользователь устройства не может быть первым пользователем, входящим в систему.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Plan Impl. - NamedType DeviceUserCannotBeFirstUserErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1645891195 - NamedType 1763109697" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Before you can update user information, go to your Microsoft 365 admin center and make sure that all users are assigned to the same Business Central license, either Basic, Essential, or Premium. For example, we found that users %1 and %2 are assigned to different licenses, but there may be other mismatches.</source>
+          <target state="translated">Прежде чем обновлять сведения о пользователях, перейдите в Центр администрирования Microsoft 365 и убедитесь, что все пользователи назначены одной и той же лицензии на Business Central (Basic, Essential или Premium). Например, пользователи %1 и %2 назначены разным лицензиям, однако могут быть и другие несоответствия.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = %2 = Authentication email.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Plan Impl. - NamedType MixedPlansAdminErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1645891195 - NamedType 3468023376" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>One or more users are not assigned to the same Business Central license. For example, we found that users %1 and %2 are assigned to different licenses, but there may be other mismatches. In your Microsoft 365 admin center, make sure that all users are assigned to the same Business Central license, either Basic, Essential, or Premium.  Afterward, update Business Central by opening the Users page and using the 'Update Users from Office 365' action.</source>
+          <target state="translated">Не все пользователи назначены одной и той же лицензии на Business Central. Например, пользователи %1 и %2 назначены разным лицензиям, однако могут быть и другие несоответствия. В центре администрирования Microsoft 365 проверьте, что все пользователи назначены одной и той же лицензии на Business Central (Basic, Essential или Premium). Затем обновите Business Central: откройте страницу "Пользователи" и используйте действие "Обновление пользователей из Office 365".</target>
+          <note from="Developer" annotates="general" priority="2">%1 = %2 = Authentication email.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Plan Impl. - NamedType MixedPlansMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1645891195 - NamedType 1383399196" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All users must be assigned to the same license, either Basic, Essential, or Premium. %1 and %2 are assigned to different licenses, for example, but there may be other mismatches. Your system administrator or Microsoft partner can verify license assignments in your Microsoft 365 admin portal.\\We will sign you out when you choose the OK button.</source>
+          <target state="translated">Все пользователи должны быть назначены одной и той же лицензии (Basic, Essential или Premium). Например, пользователи %1 и %2 назначены разным лицензиям, однако возможны и другие несоответствия. Ваш системный администратор или партнер Майкрософт могут проверить назначения лицензий на портале администрирования Microsoft 365.\\После нажатия кнопки "ОК" вы выйдете из системы.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = %2 = Authentication email.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure AD Plan Impl. - NamedType MixedPlansNonAdminErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4205038922 - NamedType 2237935850" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to retrieve the Microsoft Entra tenant country letter code.</source>
@@ -4399,97 +3823,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query Users in Plans - QueryColumn User_State - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 3026495043 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the use has an Essential or Premium license.</source>
-          <target state="translated">Определяет, имеет ли пользователь лицензию Essential или Premium.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 2811144856 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the use has the Microsoft 365 license.</source>
-          <target state="translated">Определяет, имеет ли пользователь лицензию на Microsoft 365.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 3283716963 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the user is a delegated admin or delegated helpdesk.</source>
-          <target state="translated">Определяет, является ли пользователь делегированным администратором или делегированным представителем службы технической поддержки.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 1580618763 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the licenses that are assigned to the user.</source>
-          <target state="translated">Определяет лицензии, которые назначены пользователю.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - View 3535824659 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delegated users</source>
-          <target state="translated">Делегированные пользователи</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - View 4140719798 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Users with Essential or Premium license</source>
-          <target state="translated">Пользователи с лицензией Essential или Premium</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - View 3824317345 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Users with Microsoft 365 license</source>
-          <target state="translated">Пользователи с лицензией на Microsoft 365</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 3026495043 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Has Essential Or Premium license</source>
-          <target state="translated">Имеет лицензию Essential или Premium</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 987916193 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Has Essential Or Premium license</source>
-          <target state="translated">Имеет лицензию Essential или Premium</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 2811144856 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Has Microsoft 365 license</source>
-          <target state="translated">Имеет лицензию на Microsoft 365</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 4133694222 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Has Essential Or Premium license</source>
-          <target state="translated">Имеет лицензию Essential или Premium</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 3283716963 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Is Delegated</source>
-          <target state="translated">Является делегированным</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2933130685</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 1580618763 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User Licenses</source>
-          <target state="translated">Лицензии пользователя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2933130685</note>
-        </trans-unit>
         <trans-unit id="Enum 21381257 - EnumValue 238975602 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Append</source>
           <target state="translated">Добавить</target>
@@ -4555,30 +3888,6 @@
           <target state="translated">План</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Azure AD User Update Entity - EnumValue Plan - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2249273296 - EnumValue 3227672870 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Basic</source>
-          <target state="translated">Basic</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum User Plan Experience - EnumValue Basic - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2249273296 - EnumValue 2891725511 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Essentials</source>
-          <target state="translated">Essentials</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum User Plan Experience - EnumValue Essentials - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2249273296 - EnumValue 3448339824 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Other</source>
-          <target state="translated">Другой</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum User Plan Experience - EnumValue Other - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2249273296 - EnumValue 2049976461 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Premium</source>
-          <target state="translated">Premium</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum User Plan Experience - EnumValue Premium - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 4215518646 - NamedType 3975998961" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Initialization of allowed secret names failed.</source>
@@ -6523,18 +5832,6 @@
           <target state="translated">Указывает, может ли политика хранения запускаться только вручную.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Manual - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1206474225 - Control 1021600936 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of expired records the retention policy will delete the next time it runs.</source>
-          <target state="translated">Определяет количество записей с истекшим сроком хранения, которые будут удалены при следующем запуске политики хранения.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Records To Delete - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1206474225 - Control 1021600936 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Records to delete</source>
-          <target state="translated">Удаляемые записи</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Retention Policy Setup Card - Control Records To Delete - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1206474225 - Control 1789703403 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies an identifier for the retention period.</source>
@@ -10255,7 +9552,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Control Attachments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2282749623 - Control 840308226 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Email Details</source>
+          <source>Email details</source>
           <target state="translated">Сведения о сообщении электронной почты</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Editor - Control Email Details - Property Caption</note>
@@ -11010,12 +10307,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Viewer - Control Attachments - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4021082514 - Control 840308226 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Email Details</source>
-          <target state="translated">Отправить сведения по электронной почте</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Email Viewer - Control Email Details - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4021082514 - Control 1267408499 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the account from which the email was sent.</source>
           <target state="translated">Определяет учетную запись, от которой было отправлено сообщение электронной почты.</target>
@@ -11447,12 +10738,6 @@
           <target state="translated">Настройки пользователя приложения</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Application User Settings - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2461374210 - Field 874623014 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Legacy Action Bar</source>
-          <target state="translated">Старая панель действий</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Application User Settings - Field Legacy Action Bar - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2461374210 - Field 2564753503 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Teaching Tips</source>
@@ -12149,12 +11434,6 @@
           <target state="translated">Информация о последнем входе</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table User Settings - Field Last Login - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2303806024 - Field 874623014 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Legacy Action Bar</source>
-          <target state="translated">Старая панель действий</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Settings - Field Legacy Action Bar - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2303806024 - Field 3806115519 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Locale ID</source>
@@ -13428,18 +12707,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Control LearnMore - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4061016505 - Control 3213697834 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a future software version when this feature is automatically enabled for all users and cannot be disabled. Until this future version, the feature is optional.</source>
-          <target state="translated">Определяет будущую версию программного обеспечения, когда эта функция будет автоматически включена для всех пользователей, и отключить ее будет невозможно. До этой будущей версии эта функция является необязательной.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Control Mandatory By Version - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4061016505 - Control 3213697834 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Automatically enabled from version</source>
-          <target state="translated">Включается автоматически с версии</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Control Mandatory By Version - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4061016505 - Control 2931427064 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a future software version and approximate date when this feature is automatically enabled for all users and cannot be disabled. Until this future version, the feature is optional.</source>
           <target state="translated">Определяет будущую версию программного обеспечения и приблизительную дату, когда эта функция будет автоматически включена для всех пользователей, и отключить ее будет невозможно. До этой будущей версии эта функция является необязательной.</target>
@@ -13535,78 +12802,6 @@
           <target state="translated">Показать журнал</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - Action ShowTaskLog - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4061016505 - View 1377046446 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Try it out now</source>
-          <target state="translated">Попробовать</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Feature Management - View Try it out now - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Duplicated Guided Experience Item Cleanup</source>
-          <target state="translated">Удаление повторяющихся пунктов интерактивной процедуры</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - NamedType 2493312850" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This operation may take a long time to execute, are you sure you want to proceed?</source>
-          <target state="translated">Выполнение этой операции может занять длительное время. Вы действительно хотите продолжить?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - NamedType LongRunningOperationQst</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - NamedType 446992553" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Only one Guided Experience Item can be selected at a time.</source>
-          <target state="translated">Одновременно можно выбрать только один пункт интерактивной процедуры.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - NamedType MoreThanOneSelectionErr</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Control 3004954119 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the code of the Guided Experience Item.</source>
-          <target state="translated">Определяет код пункта интерактивной процедуры.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Control Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Control 1300919661 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of Guided Experience Items with the same code.</source>
-          <target state="translated">Определяет количество пунктов интерактивной процедуры с одинаковым кодом.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Control Count - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Control 1300919661 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Number of Records</source>
-          <target state="translated">Количество записей</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Control Count - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Control 3507891009 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This page provides an overview of duplicated guided experience items. You can either delete individual items or schedule a daily job queue to clean up all duplicated items.</source>
-          <target state="translated">На этой странице приведен обзор повторяющихся пунктов интерактивной процедуры. Вы можете либо удалить отдельные пункты, либо запланировать ежедневную очередь заданий для удаления всех повторяющихся пунктов.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Control PageInformation - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Action 2477294019 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete duplicated records for the selected Guided Experience Item.</source>
-          <target state="translated">Удаление повторяющихся записей для выбранного пункта интерактивной процедуры.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Action Delete - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Action 2477294019 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete Duplicates</source>
-          <target state="translated">Удалить дубликаты</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Action Delete - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Action 3435726661 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Load or Refresh duplicated Guided Experience Items.</source>
-          <target state="translated">Загрузка или обновление повторяющихся пунктов интерактивной процедуры.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Action LoadDuplicatedItems - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3703856119 - Action 3435726661 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Load or Refresh Duplicated Items</source>
-          <target state="translated">Загрузить или обновить повторяющиеся пункты</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Guided Experience Item Cleanup - Action LoadDuplicatedItems - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 25890369 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Guided Experience Item List</source>
@@ -14009,18 +13204,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Personalization - Control Language - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1849231761 - Control 874623014 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Revert the action bar to the legacy terms and layout. For example, the action bar won't be pinned on pages, the Home tab is named Process, and split buttons become multiple actions, which means more clicks. Also, your options for personalization will be limited.</source>
-          <target state="translated">Возврат панели действий к старым терминам и компоновке. Например, панель действий не будет закреплена на страницах, вкладка "Главная" будет называться "Обработать", а каждая разворачивающаяся кнопка превратятся в несколько действий, что означает необходимость делать больше нажатий. Кроме того, возможности персонализации будут ограничены.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Personalization - Control Legacy Action Bar - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1849231761 - Control 874623014 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Legacy Action Bar</source>
-          <target state="translated">Старая панель действий</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Personalization - Control Legacy Action Bar - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1849231761 - Control 2241665020 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the region setting for the user. The region defines display formats, for example, for dates, numbering, symbols, and currency. Users can change this on the My Settings page.</source>
           <target state="translated">Определяет регион пользователя. От региона зависят форматы отображения дат, нумерации, символов, денежных значений и т. п. Пользователь может сменить регион на странице "Мои настройки".</target>
@@ -14134,18 +13317,6 @@
           <target state="translated">Язык</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page User Settings - Control LanguageName - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2303806024 - Control 874623014 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Revert the action bar to the legacy terms and layout. For example, the action bar won't be pinned on pages, the Home tab is named Process, and split buttons become multiple actions, which means more clicks. Also, your options for personalization will be limited.</source>
-          <target state="translated">Возврат панели действий к старым терминам и компоновке. Например, панель действий не будет закреплена на страницах, вкладка "Главная" будет называться "Обработать", а каждая разворачивающаяся кнопка превратятся в несколько действий, что означает необходимость делать больше нажатий. Кроме того, возможности персонализации будут ограничены.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Settings - Control Legacy Action Bar - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2303806024 - Control 874623014 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Legacy Action Bar</source>
-          <target state="translated">Старая панель действий</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Settings - Control Legacy Action Bar - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2303806024 - Control 2241665020 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the regional settings, such as date and numeric format, on all devices. You must sign out and then sign in again for the change to take effect.</source>
@@ -14811,24 +13982,6 @@
           <target state="translated">Значение</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Translation - Field Value - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3291568232 - NamedType 332470066" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>FormatRegionOverride has been applied in GetFormatRegionOrDefault. The new FormatRegion is %1.</source>
-          <target state="translated">В GetFormatRegionOrDefault применен FormatRegionOverride. Новый FormatRegion: %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Format Region</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType FormatRegionOverrideMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3291568232 - NamedType 25515846" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Language</source>
-          <target state="translated">Язык</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType LanguageCategoryTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3291568232 - NamedType 3034596646" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>LanguageIdOverride has been applied in GetLanguageIdOrDefault. The new Language Id is %1.</source>
-          <target state="translated">В GetLanguageIdOrDefault применен LanguageIdOverride. Новый ИД языка: %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Language ID</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType LanguageIdOverrideMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3291568232 - NamedType 611240008" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The language %1 could not be found.</source>
@@ -22104,18 +21257,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet LOGIN - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PermissionSet 397179255 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow Page Scripting Playback</source>
-          <target state="translated">Разрешить воспроизведение скриптов на страницах</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PageScripting - Play - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PermissionSet 4064337879 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Allow Page Scripting Recording</source>
-          <target state="translated">Разрешить запись скриптов на страницах</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PageScripting - Rec - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PermissionSet 757517586 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assign permissions to users</source>
           <target state="translated">Назнач. разреш. пользователям</target>
@@ -22410,72 +21551,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Data Encryption Management - Action Import Encryption Key - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2933130685 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User Details</source>
-          <target state="translated">Сведения о пользователе</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 89296664 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Authentication Email</source>
-          <target state="translated">Адрес эл. почты для проверки подлинности</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field Authentication Email - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 969389916 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Entra Object ID</source>
-          <target state="translated">ИД объекта Entra</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field Authentication Object ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 2632886192 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Contact Email</source>
-          <target state="translated">Контактный адрес эл. почты</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field Contact Email - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 2981864456 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Full Name</source>
-          <target state="translated">ФИО</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field Full Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 522717206 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Has SUPER permission set</source>
-          <target state="translated">Имеет набор разрешений SUPER</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field Has SUPER permission set - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 269761521 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>State</source>
-          <target state="translated">Состояние</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field State - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 269761521 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Active,Inactive</source>
-          <target state="translated">Активный,Неактивный</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field State - Property OptionCaption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 3456111117 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Telemetry ID</source>
-          <target state="translated">ИД телеметрии</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field Telemetry User ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 129688762 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User Name</source>
-          <target state="translated">Имя пользователя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field User Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2933130685 - Field 3021697414 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>User Security ID</source>
-          <target state="translated">ИД безопасности пользователя</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table User Details - Field User Security ID - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3780677409 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>User Environment Login</source>
           <target state="translated">Имя пользователя для входа в среду</target>
@@ -22529,96 +21604,6 @@
           <target state="translated">Пользователь с именем %1 не существует.</target>
           <note from="Developer" annotates="general" priority="2">%1 username</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit User Selection Impl. - NamedType UserNameDoesNotExistErr</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>About the users detailed view</source>
-          <target state="translated">О подробном представлении пользователей</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Property AboutTitle</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the additional information about users in a list view, which allows for easy searching and filtering.</source>
-          <target state="translated">Просмотр дополнительных сведений о пользователях в представлении списка, что позволяет легко искать и фильтровать их.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Property AboutText</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Users</source>
-          <target state="translated">Пользователи</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 89296664 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft account that this user signs into Microsoft 365 or SharePoint Online with.</source>
-          <target state="translated">Определяет учетную запись Microsoft, с которой пользователь входит в Microsoft 365 и SharePoint Online.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control Authentication Email - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 969389916 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies ID assigned to the user in Microsoft Entra.</source>
-          <target state="translated">Определяет ИД, присвоенный пользователю в Microsoft Entra.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control Authentication Object ID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 2632886192 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the user's email address.</source>
-          <target state="translated">Определяет адрес электронной почты пользователя.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control Contact Email - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 2981864456 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the full name of the user.</source>
-          <target state="translated">Определяет полное имя пользователя.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control Full Name - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 522717206 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the SUPER permission set is assigned to the user.</source>
-          <target state="translated">Определяет, назначен ли пользователю набор разрешений SUPER.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control Has SUPER permission set - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 269761521 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies whether the user can access companies in the current environment.</source>
-          <target state="translated">Определяет, может ли пользователь осуществлять доступ к организациям в текущей среде.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control State - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 269761521 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Status</source>
-          <target state="translated">Статус</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control State - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 3456111117 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a telemetry ID which can be used for troubleshooting purposes.</source>
-          <target state="translated">Определяет ИД телеметрии, который можно использовать для устранения неполадок.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control Telemetry User ID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 129688762 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the user's name.</source>
-          <target state="translated">Определяет имя пользователя.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control User Name - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - Control 3021697414 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies an ID that uniquely identifies the user.</source>
-          <target state="translated">Определяет ИД, который уникальным образом идентифицирует пользователя.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - Control User Security ID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - View 2188440594 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Active users</source>
-          <target state="translated">Активные пользователи</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - View ActiveUsers - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2933130685 - View 2741518013 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Users with SUPER permission set</source>
-          <target state="translated">Пользователи с набором разрешений SUPER</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page User Details - View SuperUsers - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 383217645 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>User Lookup</source>
@@ -23411,6 +22396,13 @@
           <target state="translated">Приподнятый</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Entity Text Tone - EnumValue Upbeat - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 4246872218 - EnumValue 3050346346 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Chat</source>
+          <target state="translated">Чат</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Enum 3058546390</note>
         </trans-unit>
         <trans-unit id="EnumExtension 4246872218 - EnumValue 1535088282 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Marketing text suggestions</source>

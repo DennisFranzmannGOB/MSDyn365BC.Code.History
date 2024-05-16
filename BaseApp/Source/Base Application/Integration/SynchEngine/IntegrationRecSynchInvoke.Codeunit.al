@@ -162,14 +162,8 @@ codeunit 5345 "Integration Rec. Synch. Invoke"
                 IntegrationRecordSynch.GetBidirectionalFieldModifiedContext(TempTempIntegrationFieldMapping);
                 OnUpdateConflictDetected(IntegrationTableMapping, SourceRecordRef, DestinationRecordRef, UpdateConflictHandled, SkipRecord);
                 if not UpdateConflictHandled then begin
-                    if not GetFieldNameAndCaption(SourceRecordRef, TempTempIntegrationFieldMapping."Source Field No.", SourceFieldName, SourceFieldCaption) then begin
-                        SourceFieldName := Format(TempTempIntegrationFieldMapping."Source Field No.");
-                        SourceFieldCaption := SourceFieldName;
-                    end;
-                    if not GetFieldNameAndCaption(DestinationRecordRef, TempTempIntegrationFieldMapping."Destination Field No.", DestinationFieldName, DestinationFieldCaption) then begin
-                        DestinationFieldName := Format(TempTempIntegrationFieldMapping."Destination Field No.");
-                        DestinationFieldCaption := DestinationFieldName;
-                    end;
+                    GetFieldNameAndCaption(SourceRecordRef, TempTempIntegrationFieldMapping."Source Field No.", SourceFieldName, SourceFieldCaption);
+                    GetFieldNameAndCaption(DestinationRecordRef, TempTempIntegrationFieldMapping."Destination Field No.", DestinationFieldName, DestinationFieldCaption);
                     Session.LogMessage('0000CTC', StrSubstNo(SyncConflictNotResolvedTxt,
                           TempTempIntegrationFieldMapping."No.", TempTempIntegrationFieldMapping."Integration Table Mapping Name",
                           SourceFieldName, DestinationFieldName), Verbosity::Normal, DataClassification::CustomerContent, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
@@ -212,7 +206,6 @@ codeunit 5345 "Integration Rec. Synch. Invoke"
         end;
     end;
 
-    [TryFunction]
     local procedure GetFieldNameAndCaption(RecRef: RecordRef; FieldNo: Integer; var FieldName: Text; var FieldCaption: Text)
     begin
         if RecRef.FieldExist(FieldNo) then begin
@@ -326,7 +319,6 @@ codeunit 5345 "Integration Rec. Synch. Invoke"
     local procedure GetCoupledRecord(var IntegrationTableMapping: Record "Integration Table Mapping"; var RecordRef: RecordRef; var CoupledRecordRef: RecordRef; var SynchAction: Option; var IsDestinationMarkedAsDeleted: Boolean; JobId: Guid; IntegrationTableConnectionType: TableConnectionType): Integer
     var
         DeletionConflictHandled: Boolean;
-        SetSynchActionHandled: Boolean;
         RecordState: Option NotFound,Coupled,Decoupled;
     begin
         IsDestinationMarkedAsDeleted := false;
@@ -346,9 +338,6 @@ codeunit 5345 "Integration Rec. Synch. Invoke"
         if SynchAction <> SynchActionType::ForceModify then
             if RecordState = RecordState::Coupled then begin
                 OnDeletionConflictDetected(IntegrationTableMapping, RecordRef, DeletionConflictHandled);
-                if not DeletionConflictHandled then
-                    OnDeletionConflictDetectedSetRecordStateAndSynchAction(IntegrationTableMapping, RecordRef, CoupledRecordRef, RecordState, SynchAction, DeletionConflictHandled);
-
                 if not DeletionConflictHandled then begin
                     RecordState := RecordState::NotFound;
                     SynchAction := SynchActionType::Fail;
@@ -368,9 +357,6 @@ codeunit 5345 "Integration Rec. Synch. Invoke"
                                 RecordState := RecordState::Decoupled;
                                 SynchAction := SynchActionType::None;
                             end;
-
-                        IntegrationTableMapping."Deletion-Conflict Resolution"::None:
-                            OnDeletionConflictSetSynchAction(IntegrationTableMapping, RecordRef, SynchAction, SetSynchActionHandled);
                     end;
             end;
 
@@ -464,7 +450,7 @@ codeunit 5345 "Integration Rec. Synch. Invoke"
             IsDestinationDeleted := not IntegrationTableMapping.GetRecordRef(IDValueVariant, DestinationRecordRef);
     end;
 
-    internal procedure PrepareNewDestination(var IntegrationTableMapping: Record "Integration Table Mapping"; var RecordRef: RecordRef; var CoupledRecordRef: RecordRef)
+    local procedure PrepareNewDestination(var IntegrationTableMapping: Record "Integration Table Mapping"; var RecordRef: RecordRef; var CoupledRecordRef: RecordRef)
     begin
         CoupledRecordRef.Close();
 
@@ -671,16 +657,6 @@ codeunit 5345 "Integration Rec. Synch. Invoke"
 
     [IntegrationEvent(false, false)]
     local procedure OnDeletionConflictDetected(var IntegrationTableMapping: Record "Integration Table Mapping"; var SourceRecordRef: RecordRef; var DeletionConflictHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnDeletionConflictSetSynchAction(var IntegrationTableMapping: Record "Integration Table Mapping"; var SourceRecordRef: RecordRef; var SynchAction: Option "None",Insert,Modify,ForceModify,IgnoreUnchanged,Fail,Skip,Delete,Uncouple,Couple; var SetSynchActionHandled: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnDeletionConflictDetectedSetRecordStateAndSynchAction(var IntegrationTableMapping: Record "Integration Table Mapping"; var SourceRecordRef: RecordRef; var CoupledRecordRef: RecordRef; var RecordState: Option NotFound,Coupled,Decoupled; var SynchAction: Option "None",Insert,Modify,ForceModify,IgnoreUnchanged,Fail,Skip,Delete,Uncouple,Couple; var DeletionConflictHandled: Boolean)
     begin
     end;
 

@@ -129,9 +129,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the quantity of all G/L account entries, costs, items and/or resource hours in the service order.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLine[1].""Units per Parcel"""; TotalServLine[1]."Units per Parcel")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Parcels';
@@ -139,9 +137,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the quantity of parcels of the items specified on the service lines in the order.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLine[1].""Net Weight"""; TotalServLine[1]."Net Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Net Weight';
@@ -149,9 +145,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the net weight of the items specified on the service lines in the order.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLine[1].""Gross Weight"""; TotalServLine[1]."Gross Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Gross Weight';
@@ -159,9 +153,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the gross weight of the items on the service lines in the order.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLine[1].""Unit Volume"""; TotalServLine[1]."Unit Volume")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Volume';
@@ -185,9 +177,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total cost, in LCY, of the items in the service order, adjusted for any changes in the original costs of these items';
                 }
-#pragma warning disable AA0100
                 field("TotalAdjCostLCY[1] - TotalServLineLCY[1].""Unit Cost (LCY)"""; TotalAdjCostLCY[1] - TotalServLineLCY[1]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     AutoFormatType = 1;
@@ -195,7 +185,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the difference between the original cost and the total adjusted cost of the items in the service order.';
 
-                    trigger OnLookup(var Text: Text): Boolean
+                    trigger OnDrillDown()
                     begin
                         Rec.LookupAdjmtValueEntries(0);
                     end;
@@ -333,9 +323,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the amount of the adjusted profit on the service order, expressed as percentage of the amount in the Amount Excl. VAT (Amount Incl. VAT) field.';
                         }
-#pragma warning disable AA0100
                         field("TotalServLineLCY[2].""Unit Cost (LCY)"""; TotalServLineLCY[2]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -351,9 +339,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the total cost, in LCY, of the items in the service order, adjusted for any changes in the original costs of these items';
                         }
-#pragma warning disable AA0100
                         field("TotalAdjCostLCY[2] - TotalServLineLCY[2].""Unit Cost (LCY)"""; TotalAdjCostLCY[2] - TotalServLineLCY[2]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -361,7 +347,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the difference between the original cost and the total adjusted cost of the items in the service order.';
 
-                            trigger OnLookup(var Text: Text): Boolean
+                            trigger OnDrillDown()
                             begin
                                 Rec.LookupAdjmtValueEntries(1);
                             end;
@@ -440,9 +426,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the amount of the adjusted profit on the service order, expressed as percentage of the amount in the Amount Excl. VAT (Amount Incl. VAT) field.';
                         }
-#pragma warning disable AA0100
                         field("TotalServLineLCY[4].""Unit Cost (LCY)"""; TotalServLineLCY[4]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -458,9 +442,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the total cost, in LCY, of the items in the service order, adjusted for any changes in the original costs of these items';
                         }
-#pragma warning disable AA0100
                         field("TotalAdjCostLCY[4] - TotalServLineLCY[4].""Unit Cost (LCY)"""; TotalAdjCostLCY[4] - TotalServLineLCY[4]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -485,9 +467,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the quantity of all G/L account entries, costs, items and/or resource hours in the service order.';
                         }
-#pragma warning disable AA0100
                         field("TotalServLine[2].""Line Amount"""; TotalServLine[2]."Line Amount")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatExpression = Rec."Currency Code";
@@ -495,9 +475,7 @@ page 5914 "Service Order Statistics"
                             CaptionClass = GetCaptionClass(Text002, false);
                             Editable = false;
                         }
-#pragma warning disable AA0100
                         field("TotalServLine[2].""Inv. Discount Amount"""; TotalServLine[2]."Inv. Discount Amount")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatExpression = Rec."Currency Code";
@@ -582,9 +560,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the percent of profit related to the service order.';
                         }
-#pragma warning disable AA0100
                         field("TotalServLineLCY[2].""Unit Cost (LCY)"" + TotalServLineLCY[4].""Unit Cost (LCY)"""; TotalServLineLCY[2]."Unit Cost (LCY)" + TotalServLineLCY[4]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -663,9 +639,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies your total service sales turnover in the fiscal year. It is calculated from amounts excluding VAT on all completed and open service sales invoices and credit memos.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLineLCY[3].""Unit Cost (LCY)"""; TotalServLineLCY[3]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     AutoFormatType = 1;
@@ -697,9 +671,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the quantity of all G/L account entries, costs, items and/or resource hours in the service order.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLine[3].""Units per Parcel"""; TotalServLine[3]."Units per Parcel")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Parcels';
@@ -707,9 +679,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the quantity of parcels of the items specified on the service lines in the order.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLine[3].""Net Weight"""; TotalServLine[3]."Net Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Net Weight';
@@ -717,9 +687,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the net weight of the items specified on the service lines in the order.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLine[3].""Gross Weight"""; TotalServLine[3]."Gross Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Gross Weight';
@@ -727,9 +695,7 @@ page 5914 "Service Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the gross weight of the items on the service lines in the order.';
                 }
-#pragma warning disable AA0100
                 field("TotalServLine[3].""Unit Volume"""; TotalServLine[3]."Unit Volume")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Volume';
@@ -852,9 +818,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the amount of the adjusted profit on the service order, expressed as percentage of the amount in the Amount Excl. VAT (Amount Incl. VAT) field.';
                         }
-#pragma warning disable AA0100
                         field("TotalServLineLCY[5].""Unit Cost (LCY)"""; TotalServLineLCY[5]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -870,9 +834,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the total cost, in LCY, of the items in the service order, adjusted for any changes in the original costs of these items';
                         }
-#pragma warning disable AA0100
                         field("TotalAdjCostLCY[5] - TotalServLineLCY[5].""Unit Cost (LCY)"""; TotalAdjCostLCY[5] - TotalServLineLCY[5]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -880,7 +842,7 @@ page 5914 "Service Order Statistics"
                             Editable = false;
                             ToolTip = 'Specifies the difference between the original cost and the total adjusted cost of the items in the service order.';
 
-                            trigger OnLookup(var Text: Text): Boolean
+                            trigger OnDrillDown()
                             begin
                                 Rec.LookupAdjmtValueEntries(1);
                             end;
@@ -975,9 +937,7 @@ page 5914 "Service Order Statistics"
                             ApplicationArea = Service;
                             Visible = false;
                         }
-#pragma warning disable AA0100
                         field("TotalServLineLCY[6].""Unit Cost (LCY)"""; TotalServLineLCY[6]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -1085,9 +1045,7 @@ page 5914 "Service Order Statistics"
                             ApplicationArea = Service;
                             Visible = false;
                         }
-#pragma warning disable AA0100
                         field("TotalServLineLCY[7].""Unit Cost (LCY)"""; TotalServLineLCY[7]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                         {
                             ApplicationArea = Service;
                             AutoFormatType = 1;
@@ -1111,9 +1069,7 @@ page 5914 "Service Order Statistics"
             group(Customer)
             {
                 Caption = 'Customer';
-#pragma warning disable AA0100
                 field("Cust.""Balance (LCY)"""; Cust."Balance (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     AutoFormatType = 1;
@@ -1367,7 +1323,8 @@ page 5914 "Service Order Statistics"
             TotalAmount1[IndexNo] := SaveTotalAmount;
         end;
 
-        TotalServLine[IndexNo]."Inv. Discount Amount" := TotalServLine[IndexNo]."Line Amount" - TotalAmount1[IndexNo];
+        with TotalServLine[IndexNo] do
+            "Inv. Discount Amount" := "Line Amount" - TotalAmount1[IndexNo];
         UpdateInvDiscAmount(IndexNo);
     end;
 
@@ -1412,36 +1369,37 @@ page 5914 "Service Order Statistics"
             else
                 TotalServLine[1]."Inv. Discount Amount" := TotalServLine[2]."Inv. Discount Amount";
 
-        for i := 1 to MaxIndexNo do begin
-            if (i = 1) or not PartialInvoicing then
-                if IndexNo[i] = 1 then
-                    TempVATAmountLine1.SetInvoiceDiscountAmount(
-                      TotalServLine[IndexNo[i]]."Inv. Discount Amount", TotalServLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %")
-                else
-                    TempVATAmountLine2.SetInvoiceDiscountAmount(
-                      TotalServLine[IndexNo[i]]."Inv. Discount Amount", TotalServLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %");
+        for i := 1 to MaxIndexNo do
+            with TotalServLine[IndexNo[i]] do begin
+                if (i = 1) or not PartialInvoicing then
+                    if IndexNo[i] = 1 then begin
+                        TempVATAmountLine1.SetInvoiceDiscountAmount(
+                          "Inv. Discount Amount", "Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %");
+                    end else
+                        TempVATAmountLine2.SetInvoiceDiscountAmount(
+                          "Inv. Discount Amount", "Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %");
 
-            if (i = 2) and PartialInvoicing then
-                if IndexNo[i] = 1 then begin
-                    InvDiscBaseAmount := TempVATAmountLine2.GetTotalInvDiscBaseAmount(false, TotalServLine[IndexNo[i]]."Currency Code");
-                    if InvDiscBaseAmount = 0 then
-                        TempVATAmountLine1.SetInvoiceDiscountPercent(
-                          0, TotalServLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
-                    else
-                        TempVATAmountLine1.SetInvoiceDiscountPercent(
-                          100 * TempVATAmountLine2.GetTotalInvDiscAmount() / InvDiscBaseAmount,
-                          TotalServLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
-                end else begin
-                    InvDiscBaseAmount := TempVATAmountLine1.GetTotalInvDiscBaseAmount(false, TotalServLine[IndexNo[i]]."Currency Code");
-                    if InvDiscBaseAmount = 0 then
-                        TempVATAmountLine2.SetInvoiceDiscountPercent(
-                          0, TotalServLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
-                    else
-                        TempVATAmountLine2.SetInvoiceDiscountPercent(
-                          100 * TempVATAmountLine1.GetTotalInvDiscAmount() / InvDiscBaseAmount,
-                          TotalServLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
-                end;
-        end;
+                if (i = 2) and PartialInvoicing then
+                    if IndexNo[i] = 1 then begin
+                        InvDiscBaseAmount := TempVATAmountLine2.GetTotalInvDiscBaseAmount(false, "Currency Code");
+                        if InvDiscBaseAmount = 0 then
+                            TempVATAmountLine1.SetInvoiceDiscountPercent(
+                              0, "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
+                        else
+                            TempVATAmountLine1.SetInvoiceDiscountPercent(
+                              100 * TempVATAmountLine2.GetTotalInvDiscAmount() / InvDiscBaseAmount,
+                              "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
+                    end else begin
+                        InvDiscBaseAmount := TempVATAmountLine1.GetTotalInvDiscBaseAmount(false, "Currency Code");
+                        if InvDiscBaseAmount = 0 then
+                            TempVATAmountLine2.SetInvoiceDiscountPercent(
+                              0, "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
+                        else
+                            TempVATAmountLine2.SetInvoiceDiscountPercent(
+                              100 * TempVATAmountLine1.GetTotalInvDiscAmount() / InvDiscBaseAmount,
+                              "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
+                    end;
+            end;
 
         UpdateHeaderInfo(1, TempVATAmountLine1);
         UpdateHeaderInfo(2, TempVATAmountLine2);
@@ -1523,10 +1481,12 @@ page 5914 "Service Order Statistics"
 
     local procedure TotalAmount21OnAfterValidate()
     begin
-        if Rec."Prices Including VAT" then
-            TotalServLine[1]."Inv. Discount Amount" := TotalServLine[1]."Line Amount" - TotalServLine[1]."Amount Including VAT"
-        else
-            TotalServLine[1]."Inv. Discount Amount" := TotalServLine[1]."Line Amount" - TotalServLine[1].Amount;
+        with TotalServLine[1] do begin
+            if Rec."Prices Including VAT" then
+                "Inv. Discount Amount" := "Line Amount" - "Amount Including VAT"
+            else
+                "Inv. Discount Amount" := "Line Amount" - Amount;
+        end;
         ActiveTab := ActiveTab::General;
         UpdateInvDiscAmount(1);
     end;

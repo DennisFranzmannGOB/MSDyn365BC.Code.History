@@ -3,7 +3,6 @@ namespace Microsoft.CRM.Team;
 table 5124 "Current Salesperson"
 {
     Caption = 'Current Salesperson';
-    DataClassification = CustomerContent;
 
     fields
     {

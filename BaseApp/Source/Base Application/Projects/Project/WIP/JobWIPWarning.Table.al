@@ -4,10 +4,9 @@ using Microsoft.Projects.Project.Job;
 
 table 1007 "Job WIP Warning"
 {
-    Caption = 'Project WIP Warning';
+    Caption = 'Job WIP Warning';
     DrillDownPageID = "Job WIP Warnings";
     LookupPageID = "Job WIP Warnings";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -18,17 +17,17 @@ table 1007 "Job WIP Warning"
         }
         field(2; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = Job;
         }
         field(3; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Task"."Job Task No.";
         }
         field(4; "Job WIP Total Entry No."; Integer)
         {
-            Caption = 'Project WIP Total Entry No.';
+            Caption = 'Job WIP Total Entry No.';
             Editable = false;
             TableRelation = "Job WIP Total";
         }

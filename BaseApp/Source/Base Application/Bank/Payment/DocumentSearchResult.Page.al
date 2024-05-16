@@ -8,7 +8,7 @@ page 986 "Document Search Result"
     SourceTable = "Document Search Result";
     SourceTableTemporary = true;
     SourceTableView = sorting("Doc. No.")
-                      order(ascending);
+                      order(Ascending);
 
     layout
     {

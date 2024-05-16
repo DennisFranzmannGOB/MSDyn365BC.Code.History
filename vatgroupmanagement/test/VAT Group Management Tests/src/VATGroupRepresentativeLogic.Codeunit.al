@@ -629,15 +629,15 @@ codeunit 139521 "VAT Group Representative Logic"
     local procedure CreateGenJournalTemplateWithNoSeries(var TemplateName: Code[10]; var NextDocumentNo: Code[20]; SkipNextNoSeriesDocNo: Boolean)
     var
         GenJournalTemplate: Record "Gen. Journal Template";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
     begin
         LibraryERM.CreateGenJournalTemplate(GenJournalTemplate);
         GenJournalTemplate."No. Series" := LibraryERM.CreateNoSeriesCode('vat');
         GenJournalTemplate.Modify();
         TemplateName := GenJournalTemplate.Name;
         if SkipNextNoSeriesDocNo then
-            NoSeries.GetNextNo(GenJournalTemplate."No. Series");
-        NextDocumentNo := NoSeries.PeekNextNo(GenJournalTemplate."No. Series");
+            NoSeriesManagement.GetNextNo(GenJournalTemplate."No. Series", WorkDate(), true);
+        NextDocumentNo := NoSeriesManagement.GetNextNo(GenJournalTemplate."No. Series", WorkDate(), false);
     end;
 
     local procedure CreateGLAccountNo(Category: Enum "G/L Account Category"): Code[20]

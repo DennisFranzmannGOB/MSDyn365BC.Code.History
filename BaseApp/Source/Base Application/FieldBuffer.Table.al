@@ -4,7 +4,6 @@ table 8450 "Field Buffer"
 {
     Caption = 'Field Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

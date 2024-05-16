@@ -14,7 +14,7 @@ page 701 "Error Messages Part"
     SourceTable = "Error Message";
     SourceTableTemporary = true;
     SourceTableView = sorting("Message Type", ID)
-                      order(ascending);
+                      order(Ascending);
 
     layout
     {
@@ -116,12 +116,12 @@ page 701 "Error Messages Part"
             Rec.Copy(TempErrorMessage, true);
     end;
 
-    procedure SetRecordID(RecID: RecordID)
+    procedure SetRecordID(recordID: RecordID)
     var
         ErrorMessage: Record "Error Message";
         TempErrorMessage: Record "Error Message" temporary;
     begin
-        ErrorMessage.SetRange("Record ID", RecId);
+        ErrorMessage.SetRange("Record ID", Rec.RecordId);
         ErrorMessage.CopyToTemp(TempErrorMessage);
         SetRecords(TempErrorMessage);
         CurrPage.Update();

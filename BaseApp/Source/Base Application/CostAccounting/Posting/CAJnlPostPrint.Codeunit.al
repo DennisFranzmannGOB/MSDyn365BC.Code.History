@@ -29,36 +29,38 @@ codeunit 1113 "CA Jnl.-Post+Print"
         TempJnlBatchName: Code[10];
         HideDialog: Boolean;
     begin
-        CostJnlTemplate.Get(CostJnlLine."Journal Template Name");
-        CostJnlTemplate.TestField("Posting Report ID");
+        with CostJnlLine do begin
+            CostJnlTemplate.Get("Journal Template Name");
+            CostJnlTemplate.TestField("Posting Report ID");
 
-        HideDialog := false;
-        OnBeforePostJournalBatch(CostJnlLine, HideDialog);
-        if not HideDialog then
-            if not Confirm(Text001) then
-                exit;
+            HideDialog := false;
+            OnBeforePostJournalBatch(CostJnlLine, HideDialog);
+            if not HideDialog then
+                if not Confirm(Text001) then
+                    exit;
 
-        TempJnlBatchName := CostJnlLine."Journal Batch Name";
-        CODEUNIT.Run(CODEUNIT::"CA Jnl.-Post Batch", CostJnlLine);
-        CostReg.Get(CostJnlLine."Line No.");
-        CostReg.SetRecFilter();
-        REPORT.Run(CostJnlTemplate."Posting Report ID", false, false, CostReg);
+            TempJnlBatchName := "Journal Batch Name";
+            CODEUNIT.Run(CODEUNIT::"CA Jnl.-Post Batch", CostJnlLine);
+            CostReg.Get("Line No.");
+            CostReg.SetRecFilter();
+            REPORT.Run(CostJnlTemplate."Posting Report ID", false, false, CostReg);
 
-        if CostJnlLine."Line No." = 0 then
-            Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
-        else
-            if TempJnlBatchName = CostJnlLine."Journal Batch Name" then
-                Message(Text003)
+            if "Line No." = 0 then
+                Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
             else
-                Message(Text004, CostJnlLine."Journal Batch Name");
+                if TempJnlBatchName = "Journal Batch Name" then
+                    Message(Text003)
+                else
+                    Message(Text004, "Journal Batch Name");
 
-        if not CostJnlLine.Find('=><') or (TempJnlBatchName <> CostJnlLine."Journal Batch Name") then begin
-            CostJnlLine.Reset();
-            CostJnlLine.FilterGroup(2);
-            CostJnlLine.SetRange("Journal Template Name", CostJnlLine."Journal Template Name");
-            CostJnlLine.SetRange("Journal Batch Name", CostJnlLine."Journal Batch Name");
-            CostJnlLine.FilterGroup(0);
-            CostJnlLine."Line No." := 1;
+            if not Find('=><') or (TempJnlBatchName <> "Journal Batch Name") then begin
+                Reset();
+                FilterGroup(2);
+                SetRange("Journal Template Name", "Journal Template Name");
+                SetRange("Journal Batch Name", "Journal Batch Name");
+                FilterGroup(0);
+                "Line No." := 1;
+            end;
         end;
     end;
 

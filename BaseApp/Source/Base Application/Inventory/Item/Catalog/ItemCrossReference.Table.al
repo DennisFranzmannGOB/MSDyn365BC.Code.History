@@ -10,7 +10,6 @@ table 5717 "Item Cross Reference"
     ObsoleteReason = 'Replaced by ItemReference table as part of Item Reference feature.';
     ObsoleteState = Removed;
     ObsoleteTag = '22.0';
-    DataClassification = CustomerContent;
 
     fields
     {

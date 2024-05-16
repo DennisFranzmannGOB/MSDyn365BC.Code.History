@@ -11,7 +11,6 @@ table 5881 "Pstd. Phys. Invt. Record Hdr"
     Caption = 'Pstd. Phys. Invt. Record Hdr';
     DrillDownPageID = "Posted Phys. Invt. Rec. List";
     LookupPageID = "Posted Phys. Invt. Rec. List";
-    DataClassification = CustomerContent;
 
     fields
     {

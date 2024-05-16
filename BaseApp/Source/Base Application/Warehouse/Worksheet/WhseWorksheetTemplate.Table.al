@@ -7,7 +7,6 @@ table 7328 "Whse. Worksheet Template"
     Caption = 'Whse. Worksheet Template';
     LookupPageID = "Whse. Worksheet Template List";
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -49,7 +48,7 @@ table 7328 "Whse. Worksheet Template"
         }
         field(5; "Page Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
                                                                            "Object ID" = field("Page ID")));
             Caption = 'Page Caption';
             Editable = false;

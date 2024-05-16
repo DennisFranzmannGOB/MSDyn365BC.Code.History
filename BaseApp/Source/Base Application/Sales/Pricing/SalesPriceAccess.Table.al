@@ -6,8 +6,6 @@ namespace Microsoft.Sales.Pricing;
 /// </summary>
 table 7015 "Sales Price Access"
 {
-    DataClassification = CustomerContent;
-
     fields
     {
         field(1; Code; Code[20])

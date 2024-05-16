@@ -6,28 +6,27 @@ using Microsoft.Projects.Project.Job;
 
 table 1014 "Job G/L Account Price"
 {
-    Caption = 'Project G/L Account Price';
-#if not CLEAN23
+    Caption = 'Job G/L Account Price';
+#if not CLEAN21
     DrillDownPageID = "Job G/L Account Prices";
     LookupPageID = "Job G/L Account Prices";
     ObsoleteState = Pending;
     ObsoleteTag = '16.0';
 #else
     ObsoleteState = Removed;
-    ObsoleteTag = '26.0';
+    ObsoleteTag = '24.0';
 #endif    
     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation: table Price List Line';
-    DataClassification = CustomerContent;
 
     fields
     {
         field(1; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             NotBlank = true;
             TableRelation = Job;
 
-#if not CLEAN23
+#if not CLEAN21
             trigger OnValidate()
             begin
                 GetJob();
@@ -37,10 +36,10 @@ table 1014 "Job G/L Account Price"
         }
         field(2; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
 
-#if not CLEAN23
+#if not CLEAN21
             trigger OnValidate()
             begin
                 if "Job Task No." <> '' then begin
@@ -102,7 +101,7 @@ table 1014 "Job G/L Account Price"
         }
         field(10; Description; Text[100])
         {
-            CalcFormula = lookup("G/L Account".Name where("No." = field("G/L Account No.")));
+            CalcFormula = Lookup("G/L Account".Name where("No." = field("G/L Account No.")));
             Caption = 'Description';
             Editable = false;
             FieldClass = FlowField;
@@ -121,7 +120,7 @@ table 1014 "Job G/L Account Price"
     {
     }
 
-#if not CLEAN23
+#if not CLEAN21
     trigger OnInsert()
     begin
         LockTable();

@@ -5,8 +5,9 @@ namespace Microsoft.Integration.Shopify;
 /// </summary>
 enum 30134 "Shpfy Transaction Type"
 {
+    Access = Internal;
     Caption = 'Shopify Transaction Type';
-    Extensible = false;
+    Extensible = true;
 
     value(0; " ")
     {

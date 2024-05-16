@@ -303,12 +303,12 @@ page 926 "Available - Assembly Lines"
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterUpdateReservFrom(var ReservationEntry: Record "Reservation Entry")
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterUpdateReservMgt(var ReservationEntry: Record "Reservation Entry")
     begin
     end;

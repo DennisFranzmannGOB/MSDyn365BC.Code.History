@@ -51,6 +51,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         NothingToReleaseErr: Label 'There is nothing to release for the incoming document';
         NoDocCreatedForChoiceErr: Label 'The given key was not present in the dictionary.';
         UnknownChoiceErr: Label 'Unknown choice %1.', Comment = '%1=Choice (number)';
+        PEPPOLINVOICELbl: Label 'PEPPOLINVOICE';
+        PEPPOLLbl: Label 'PEPPOL';
+        StatusErr: Label '%1 must be %2 in %3';
 
     [Test]
     [Scope('OnPrem')]
@@ -296,14 +299,14 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         LibraryIncomingDocuments.CreateNewIncomingDocument(IncomingDocument);
 
         // Execute and Assert
-        GeneralJournal.Trap();
+        GeneralJournal.Trap;
         AssertDataExchTypeMatchesResponse(IncomingDocument, IncomingDocument."Document Type"::Journal);
         GeneralJournal.Close();
 
         asserterror AssertDataExchTypeMatchesResponse(IncomingDocument, InvalidChoice);
         Assert.ExpectedError(StrSubstNo(NoDocCreatedForChoiceErr, InvalidChoice));
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -458,9 +461,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute: run data exchange
         LibraryVariableStorage.Enqueue(DocCreatedMsg);
-        IncomingDocumentCard.OpenView();
+        IncomingDocumentCard.OpenView;
         IncomingDocumentCard.GotoRecord(IncomingDocument);
-        IncomingDocumentCard.CreateDocument.Invoke();
+        IncomingDocumentCard.CreateDocument.Invoke;
 
         // Assert Result
         Assert.AreEqual(Format(IncomingDocument.Status::Created), IncomingDocumentCard.StatusField.Value, '');
@@ -528,9 +531,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute: run data exchange
         LibraryVariableStorage.Enqueue(DocCreatedMsg);
-        IncomingDocumentCard.OpenView();
+        IncomingDocumentCard.OpenView;
         IncomingDocumentCard.GotoRecord(IncomingDocument);
-        IncomingDocumentCard.CreateDocument.Invoke();
+        IncomingDocumentCard.CreateDocument.Invoke;
 
         // Assert Result
         Assert.AreEqual(Format(IncomingDocument.Status::Created), IncomingDocumentCard.StatusField.Value, '');
@@ -641,9 +644,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         // Execute: run data exchanges
         LibraryVariableStorage.Enqueue(DocNotCreatedMsg);
 
-        IncomingDocumentCard.OpenView();
+        IncomingDocumentCard.OpenView;
         IncomingDocumentCard.GotoRecord(IncomingDocument);
-        IncomingDocumentCard.CreateGenJnlLine.Invoke();
+        IncomingDocumentCard.CreateGenJnlLine.Invoke;
 
         // Assert Result
         ExpectedErrorMessage := StrSubstNo(NoBalanceAccountMappingErr, CompanyInformation.Name);
@@ -742,9 +745,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         LibraryVariableStorage.Enqueue(true);
         LibraryVariableStorage.Enqueue(DocCreatedMsg);
 
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
-        IncomingDocuments.CreateGenJnlLine.Invoke();
+        IncomingDocuments.CreateGenJnlLine.Invoke;
 
         // Assert Result
         Assert.AreEqual(Format(IncomingDocument.Status::Created), IncomingDocuments.StatusField.Value, '');
@@ -767,9 +770,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         Assert.AreEqual(CompanyInformation.Name, GenJournalLine.Description, '');
 
         // Assert opened page
-        GeneralJournal.Trap();
+        GeneralJournal.Trap;
         IncomingDocument.Get(IncomingDocument."Entry No.");
-        IncomingDocument.ShowRecord();
+        IncomingDocument.ShowRecord;
         Assert.AreEqual(GenJournalLine."Journal Batch Name", GeneralJournal.CurrentJnlBatchName.Value, '');
     end;
 
@@ -832,9 +835,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute: run data exchange
         LibraryVariableStorage.Enqueue(DocCreatedMsg);
-        IncomingDocumentCard.OpenView();
+        IncomingDocumentCard.OpenView;
         IncomingDocumentCard.GotoRecord(IncomingDocument);
-        IncomingDocumentCard.CreateDocument.Invoke();
+        IncomingDocumentCard.CreateDocument.Invoke;
 
         // Assert Result
         Assert.AreEqual(Format(IncomingDocument.Status::Created), IncomingDocumentCard.StatusField.Value, '');
@@ -903,9 +906,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute: run data exchange
         LibraryVariableStorage.Enqueue(DocCreatedMsg);
-        IncomingDocumentCard.OpenView();
+        IncomingDocumentCard.OpenView;
         IncomingDocumentCard.GotoRecord(IncomingDocument);
-        IncomingDocumentCard.CreateDocument.Invoke();
+        IncomingDocumentCard.CreateDocument.Invoke;
 
         // Assert Result
         Assert.AreEqual(Format(IncomingDocument.Status::Created), IncomingDocumentCard.StatusField.Value, '');
@@ -1018,9 +1021,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         LibraryVariableStorage.Enqueue(AutomMsg);
         LibraryVariableStorage.Enqueue(true);
         LibraryVariableStorage.Enqueue(DocCreatedMsg);
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
-        IncomingDocuments.CreateGenJnlLine.Invoke();
+        IncomingDocuments.CreateGenJnlLine.Invoke;
 
         // Assert Result
         Assert.AreEqual(Format(IncomingDocument.Status::Created), IncomingDocuments.StatusField.Value, '');
@@ -1091,9 +1094,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute: run data exchange
         LibraryVariableStorage.Enqueue(DocNotCreatedMsg);
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
-        IncomingDocuments.CreateDocument.Invoke();
+        IncomingDocuments.CreateDocument.Invoke;
 
         // Verify - there should be the error about missing G/L Account for non-item lines;
         Assert.AreEqual(Format(IncomingDocument.Status::Failed), IncomingDocuments.StatusField.Value, '');
@@ -1129,9 +1132,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute
         LibraryVariableStorage.Enqueue(DocNotCreatedMsg);
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
-        asserterror IncomingDocuments.CreateDocument.Invoke();
+        asserterror IncomingDocuments.CreateDocument.Invoke;
 
         // Verify;
         Assert.ExpectedError(NothingToReleaseErr);
@@ -1179,9 +1182,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute
         LibraryVariableStorage.Enqueue(DocNotCreatedMsg);
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
-        IncomingDocuments.CreateDocument.Invoke();
+        IncomingDocuments.CreateDocument.Invoke;
 
         // Verify;
         Assert.AreEqual(Format(IncomingDocument.Status::Failed), IncomingDocuments.StatusField.Value, '');
@@ -1228,9 +1231,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute
         LibraryVariableStorage.Enqueue(DocNotCreatedMsg);
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
-        IncomingDocuments.CreateDocument.Invoke();
+        IncomingDocuments.CreateDocument.Invoke;
 
         // Verify;
         Assert.AreEqual(Format(IncomingDocument.Status::Failed), IncomingDocuments.StatusField.Value, '');
@@ -1277,9 +1280,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute
         LibraryVariableStorage.Enqueue(DocNotCreatedMsg);
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
-        IncomingDocuments.CreateDocument.Invoke();
+        IncomingDocuments.CreateDocument.Invoke;
 
         // Verify;
         Assert.AreEqual(Format(IncomingDocument.Status::Failed), IncomingDocuments.StatusField.Value, '');
@@ -1330,10 +1333,10 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
 
         // Execute
         LibraryVariableStorage.Enqueue(DocNotCreatedMsg);
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
         // Verify;
-        IncomingDocuments.CreateDocument.Invoke();
+        IncomingDocuments.CreateDocument.Invoke;
         AssertExpectedError(IncomingDocuments, Format(CannotCreateErr));
     end;
 
@@ -1368,33 +1371,33 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         // Execute - Create Manually - on list
         LibraryVariableStorage.Enqueue(AutomMsg);
         LibraryVariableStorage.Enqueue(false);
-        IncomingDocuments.OpenView();
+        IncomingDocuments.OpenView;
         IncomingDocuments.GotoRecord(IncomingDocument);
-        IncomingDocuments.CreateManually.Invoke();
-        LibraryVariableStorage.AssertEmpty();
+        IncomingDocuments.CreateManually.Invoke;
+        LibraryVariableStorage.AssertEmpty;
 
         // Ensure legacy functionality it hidden
-        Assert.IsFalse(IncomingDocuments.PurchaseInvoice.Visible(), '');
-        Assert.IsFalse(IncomingDocuments.PurchaseCreditMemo.Visible(), '');
-        Assert.IsFalse(IncomingDocuments.SalesInvoice.Visible(), '');
-        Assert.IsFalse(IncomingDocuments.SalesCreditMemo.Visible(), '');
-        Assert.IsFalse(IncomingDocuments.Journal.Visible(), '');
+        Assert.IsFalse(IncomingDocuments.PurchaseInvoice.Visible, '');
+        Assert.IsFalse(IncomingDocuments.PurchaseCreditMemo.Visible, '');
+        Assert.IsFalse(IncomingDocuments.SalesInvoice.Visible, '');
+        Assert.IsFalse(IncomingDocuments.SalesCreditMemo.Visible, '');
+        Assert.IsFalse(IncomingDocuments.Journal.Visible, '');
 
-        IncomingDocumentCard.Trap();
-        IncomingDocuments.Edit().Invoke();
+        IncomingDocumentCard.Trap;
+        IncomingDocuments.Edit.Invoke;
 
         // Execute - Create Manually - on card
         LibraryVariableStorage.Enqueue(AutomMsg);
         LibraryVariableStorage.Enqueue(false);
-        IncomingDocumentCard.CreateManually.Invoke();
-        LibraryVariableStorage.AssertEmpty();
+        IncomingDocumentCard.CreateManually.Invoke;
+        LibraryVariableStorage.AssertEmpty;
 
         // Ensure legacy functionality is hidden
-        Assert.IsFalse(IncomingDocumentCard.PurchaseInvoice.Visible(), '');
-        Assert.IsFalse(IncomingDocumentCard.PurchaseCreditMemo.Visible(), '');
-        Assert.IsFalse(IncomingDocumentCard.SalesInvoice.Visible(), '');
-        Assert.IsFalse(IncomingDocumentCard.SalesCreditMemo.Visible(), '');
-        Assert.IsFalse(IncomingDocumentCard.Journal.Visible(), '');
+        Assert.IsFalse(IncomingDocumentCard.PurchaseInvoice.Visible, '');
+        Assert.IsFalse(IncomingDocumentCard.PurchaseCreditMemo.Visible, '');
+        Assert.IsFalse(IncomingDocumentCard.SalesInvoice.Visible, '');
+        Assert.IsFalse(IncomingDocumentCard.SalesCreditMemo.Visible, '');
+        Assert.IsFalse(IncomingDocumentCard.Journal.Visible, '');
 
         // Verify - status not changed
         Assert.AreEqual(IncomingDocument.Status::New, IncomingDocument.Status, '');
@@ -1470,6 +1473,72 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
               'The customer''s VAT registration number', IncomingDocumentTestPage.ErrorMessagesPart.Description.Value);
             IncomingDocumentTestPage.Close();
         end;
+    end;
+
+    [Test]
+    [HandlerFunctions('MessageHandler')]
+    [Scope('OnPrem')]
+    procedure StatusRemainsCreatedIfHasLinkedDocWhenReopenIncomingDoc()
+    var
+        DataExchDef: Record "Data Exch. Def";
+        SalesHeader: Record "Sales Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        IncomingDocument: Record "Incoming Document";
+        DataExchangeType: Record "Data Exchange Type";
+        IncomingDocumentCard: TestPage "Incoming Document";
+        XmlPath: Text;
+    begin
+        // [SCENARIO 487620] When Stan runs Reopen action on an Incoming Document hvaing Status as Created, then Status remains as Created if a document is linked to it.
+        Initialize();
+
+        // [GIVEN] Create a Sales Invoice.
+        SalesHeader.Get(
+            SalesHeader."Document Type"::Invoice,
+            CreateSalesDocument(
+                SalesHeader."Document Type"::Invoice,
+                false));
+
+        // [GIVEN] Post Sales Invoice.
+        SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeader, true, true));
+
+        // [GIVEN] Generate and save XmlPath of Sales Invoice.
+        XmlPath := ExportPEPPOLInvoice(SalesInvoiceHeader);
+
+        // [GIVEN] Setup Company Information for Sales Invoice Import.
+        SetupCompanyForInvoiceImport(SalesInvoiceHeader);
+
+        // [GIVEN] Find Data Exchange Def.
+        DataExchDef.Get(PEPPOLINVOICELbl);
+
+        // [GIVEN] Create Data Exchange Type.
+        CreateDataExchangeType(DataExchangeType, DataExchDef);
+
+        // [GIVEN] Create Incoming Document and Validate Data Exchange Type.
+        LibraryIncomingDocuments.CreateNewIncomingDocument(IncomingDocument);
+        IncomingDocument."Data Exchange Type" := DataExchangeType.Code;
+        IncomingDocument.Modify(true);
+
+        // [GIVEN] Import Incoming Document.
+        ImportAttachToIncomingDoc(IncomingDocument, XmlPath);
+
+        // [GIVEN] Open Incoming Document Card page and run Create Document action.
+        LibraryVariableStorage.Enqueue(DocCreatedMsg);
+        IncomingDocumentCard.OpenView();
+        IncomingDocumentCard.GotoRecord(IncomingDocument);
+        IncomingDocumentCard.CreateDocument.Invoke();
+
+        // [WHEN] Run Reopen action.
+        IncomingDocumentCard.Reopen.Invoke();
+
+        // [VERIFY] Status of Incoming Document remains as Created.
+        Assert.AreEqual(
+            Format(IncomingDocument.Status::Created),
+            IncomingDocumentCard.StatusField.Value,
+            StrSubstNo(
+                StatusErr,
+                IncomingDocumentCard.StatusField.Caption(),
+                Format(IncomingDocument.Status::Created),
+                IncomingDocument.TableCaption()));
     end;
 
     local procedure CreateDataExchDefSalesInvoiceAndLinesWithNamespaces(var DataExchDef: Record "Data Exch. Def")
@@ -1716,7 +1785,7 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
               SalesInvoiceHeader."Currency Code", PEPPOLSalesHeaderCodeTxt)
         else
             CreateDataExchangeColumnValuePair(TempExpectedDataExchField, DataExch, 3,
-              LibraryERM.GetLCYCode(), PEPPOLSalesHeaderCodeTxt);
+              LibraryERM.GetLCYCode, PEPPOLSalesHeaderCodeTxt);
 
         // Supplier GLN (since we created the invoice, that's us)
         CompanyInfo.Get();
@@ -1988,10 +2057,10 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
         LineAmount: Decimal;
     begin
-        CompanyInfoSetup();
-        ConfigureVATPostingSetup();
+        CompanyInfoSetup;
+        ConfigureVATPostingSetup;
 
-        Cust.Get(CreateCustomer());
+        Cust.Get(CreateCustomer);
 
         LibrarySales.CreateSalesHeader(SalesHeader, DocumentType, Cust."No.");
         SalesHeader.Validate("Your Reference", '123457890');
@@ -2062,10 +2131,10 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         Item: Record Item;
         UnitOfMeasure: Record "Unit of Measure";
     begin
-        CompanyInfoSetup();
-        ConfigureVATPostingSetup();
+        CompanyInfoSetup;
+        ConfigureVATPostingSetup;
 
-        Customer.Get(CreateCustomer());
+        Customer.Get(CreateCustomer);
 
         LibraryService.CreateServiceHeader(ServiceHeader, DocumentType, Customer."No.");
         ServiceHeader.Validate("Your Reference", '123457890');
@@ -2397,7 +2466,7 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
     local procedure WriteLine(OutStream: OutStream; Text: Text)
     begin
         OutStream.WriteText(Text);
-        OutStream.WriteText();
+        OutStream.WriteText;
     end;
 
     local procedure ImportAttachToIncomingDoc(IncomingDocument: Record "Incoming Document"; FilePath: Text)
@@ -2426,7 +2495,7 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
             Assert.AreEqual(SalesInvoiceHeader."Amount Including VAT", PurchaseHeader."Amount Including VAT", '')
         else
             Assert.AreNearlyEqual(SalesInvoiceHeader."Amount Including VAT", PurchaseHeader."Amount Including VAT",
-              10 * LibraryERM.GetAmountRoundingPrecision(), '');
+              10 * LibraryERM.GetAmountRoundingPrecision, '');
         Assert.AreEqual(SalesInvoiceHeader."Invoice Discount Amount", PurchaseHeader."Invoice Discount Amount", '');
         Assert.AreEqual(SalesInvoiceHeader."No.", PurchaseHeader."Vendor Invoice No.", '');
     end;
@@ -2473,7 +2542,7 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
             Assert.AreEqual(ServiceInvoiceLine."Amount Including VAT", PurchaseHeader."Amount Including VAT", '')
         else
             Assert.AreNearlyEqual(ServiceInvoiceLine."Amount Including VAT", PurchaseHeader."Amount Including VAT",
-              10 * LibraryERM.GetAmountRoundingPrecision(), '');
+              10 * LibraryERM.GetAmountRoundingPrecision, '');
         Assert.AreEqual(ServiceInvoiceHeader."No.", PurchaseHeader."Vendor Invoice No.", '');
     end;
 
@@ -2516,7 +2585,7 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
             Assert.AreEqual(SalesCrMemoHeader."Amount Including VAT", PurchaseHeader."Amount Including VAT", '')
         else
             Assert.AreNearlyEqual(SalesCrMemoHeader."Amount Including VAT", PurchaseHeader."Amount Including VAT",
-              10 * LibraryERM.GetAmountRoundingPrecision(), '');
+              10 * LibraryERM.GetAmountRoundingPrecision, '');
         Assert.AreEqual(SalesCrMemoHeader."Invoice Discount Amount", PurchaseHeader."Invoice Discount Amount", '');
         Assert.AreEqual(SalesCrMemoHeader."No.", PurchaseHeader."Vendor Cr. Memo No.", '');
     end;
@@ -2539,7 +2608,7 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
             Assert.AreEqual(ServiceCrMemoLine."Amount Including VAT", PurchaseHeader."Amount Including VAT", '')
         else
             Assert.AreNearlyEqual(ServiceCrMemoLine."Amount Including VAT", PurchaseHeader."Amount Including VAT",
-              10 * LibraryERM.GetAmountRoundingPrecision(), '');
+              10 * LibraryERM.GetAmountRoundingPrecision, '');
         Assert.AreEqual(ServiceCrMemoHeader."No.", PurchaseHeader."Vendor Cr. Memo No.", '');
     end;
 
@@ -2596,12 +2665,12 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         ErrorMessages: TestPage "Error Messages";
         IncomingDocumentCard: TestPage "Incoming Document";
     begin
-        ErrorMessages.Trap();
-        IncomingDocuments.StatusField.DrillDown();
+        ErrorMessages.Trap;
+        IncomingDocuments.StatusField.DrillDown;
         Assert.IsTrue(ErrorMessages.FindFirstField(Description, Format(ExpectedErrorMessage)), 'Expected error message not found');
         ErrorMessages.Close();
-        IncomingDocumentCard.Trap();
-        IncomingDocuments.Edit().Invoke();
+        IncomingDocumentCard.Trap;
+        IncomingDocuments.Edit.Invoke;
         Assert.IsTrue(IncomingDocumentCard.ErrorMessagesPart.FindFirstField(Description, ExpectedErrorMessage),
           'Expected error message not found');
         IncomingDocumentCard.Close();
@@ -2613,9 +2682,9 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         ErrorFound: Boolean;
     begin
         ErrorFound := false;
-        ErrorMessages.Trap();
-        IncomingDocuments.StatusField.DrillDown();
-        ErrorMessages.First();
+        ErrorMessages.Trap;
+        IncomingDocuments.StatusField.DrillDown;
+        ErrorMessages.First;
         repeat
             if StrPos(ErrorMessages.Description.Value, Format(ExpectedErrorMessage)) > 0 then
                 ErrorFound := true;
@@ -2762,8 +2831,8 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         IntermediateDataImport.DeleteAll();
         TextToAccountMapping.DeleteAll();
 
-        PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyVendorAddressNotificationId());
-        PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyPayToVendorAddressNotificationId());
+        PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyVendorAddressNotificationId);
+        PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyPayToVendorAddressNotificationId);
         LibraryVariableStorage.Clear();
         LibraryERM.FindVATPostingSetup(VATPostingSetup, VATPostingSetup."VAT Calculation Type"::"Normal VAT");
         PurchasesPayablesSetup.Get();
@@ -2789,6 +2858,19 @@ codeunit 139154 "Incoming Doc. To Data Exch.UT"
         IncomingDocumentsSetup.Validate("General Journal Batch Name", GenJournalBatch.Name);
         IncomingDocumentsSetup.Validate("Require Approval To Create", false);
         IncomingDocumentsSetup.Insert();
+    end;
+
+    local procedure CreateDataExchangeType(var DataExchangeType: Record "Data Exchange Type"; DataExchDef: Record "Data Exch. Def")
+    begin
+        DataExchDef.SetLoadFields(Code);
+
+        DataExchangeType.SetLoadFields(Code, "Data Exch. Def. Code");
+        DataExchangeType.SetRange("Data Exch. Def. Code", DataExchDef.Code);
+        if not DataExchangeType.FindFirst() then begin
+            DataExchangeType.Code := PEPPOLLbl;
+            DataExchangeType."Data Exch. Def. Code" := DataExchDef.Code;
+            DataExchangeType.Insert();
+        end;
     end;
 
     [MessageHandler]

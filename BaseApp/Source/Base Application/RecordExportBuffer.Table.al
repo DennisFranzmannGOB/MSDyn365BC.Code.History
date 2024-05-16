@@ -7,7 +7,6 @@ table 62 "Record Export Buffer"
 {
     Caption = 'Record Export Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

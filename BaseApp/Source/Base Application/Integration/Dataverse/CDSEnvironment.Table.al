@@ -8,7 +8,6 @@ table 7202 "CDS Environment"
 {
     Access = Internal;
     LookupPageId = "CDS Environments";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -48,14 +47,6 @@ table 7202 "CDS Environment"
         field(9; "Url Name"; Text[250])
         {
             DataClassification = OrganizationIdentifiableInformation;
-        }
-        field(10; "Environment Id"; Text[1024])
-        {
-            DataClassification = OrganizationIdentifiableInformation;
-        }
-        field(11; Linked; Boolean)
-        {
-            DataClassification = SystemMetadata;
         }
     }
 

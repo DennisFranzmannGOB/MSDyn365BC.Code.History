@@ -52,18 +52,20 @@ codeunit 903 "Release Assembly Document"
     var
         WhseAssemblyRelease: Codeunit "Whse.-Assembly Release";
     begin
-        if AssemblyHeader.Status = AssemblyHeader.Status::Open then
-            exit;
+        with AssemblyHeader do begin
+            if Status = Status::Open then
+                exit;
 
-        OnBeforeReopenAssemblyDoc(AssemblyHeader);
+            OnBeforeReopenAssemblyDoc(AssemblyHeader);
 
-        AssemblyHeader.Status := AssemblyHeader.Status::Open;
-        AssemblyHeader.Modify(true);
+            Status := Status::Open;
+            Modify(true);
 
-        if AssemblyHeader."Document Type" = AssemblyHeader."Document Type"::Order then
-            WhseAssemblyRelease.Reopen(AssemblyHeader);
+            if "Document Type" = "Document Type"::Order then
+                WhseAssemblyRelease.Reopen(AssemblyHeader);
 
-        OnAfterReopenAssemblyDoc(AssemblyHeader);
+            OnAfterReopenAssemblyDoc(AssemblyHeader);
+        end;
     end;
 
     [IntegrationEvent(false, false)]

@@ -7,7 +7,6 @@ namespace Microsoft.Projects.TimeSheet;
 table 958 "Time Sheet Posting Entry"
 {
     Caption = 'Time Sheet Posting Entry';
-    DataClassification = CustomerContent;
 
     fields
     {

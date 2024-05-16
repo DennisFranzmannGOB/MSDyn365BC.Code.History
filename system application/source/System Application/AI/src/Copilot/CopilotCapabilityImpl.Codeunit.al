@@ -236,7 +236,12 @@ codeunit 7774 "Copilot Capability Impl"
         PlanIds: Codeunit "Plan Ids";
         UserPermissions: Codeunit "User Permissions";
     begin
-        IsAdmin := AzureADGraphUser.IsUserDelegatedAdmin() or AzureADPlan.IsPlanAssignedToUser(PlanIds.GetGlobalAdminPlanId()) or AzureADPlan.IsPlanAssignedToUser(PlanIds.GetBCAdminPlanId()) or AzureADPlan.IsPlanAssignedToUser(PlanIds.GetD365AdminPlanId()) or AzureADGraphUser.IsUserDelegatedHelpdesk() or UserPermissions.IsSuper(UserSecurityId());
+        IsAdmin := AzureADGraphUser.IsUserDelegatedAdmin() or
+                   AzureADPlan.IsPlanAssignedToUser(PlanIds.GetGlobalAdminPlanId()) or
+                   AzureADPlan.IsPlanAssignedToUser(PlanIds.GetBCAdminPlanId()) or
+                   AzureADPlan.IsPlanAssignedToUser(PlanIds.GetD365AdminPlanId()) or
+                   AzureADGraphUser.IsUserDelegatedHelpdesk() or
+                   UserPermissions.IsSuper(UserSecurityId());
     end;
 
     [Tryfunction]
@@ -272,13 +277,8 @@ codeunit 7774 "Copilot Capability Impl"
     var
         AzureOpenAI: Codeunit "Azure OpenAI";
         CopilotCapability: Enum "Copilot Capability";
-        Silent: Boolean;
     begin
         CopilotCapability := Enum::"Copilot Capability".FromInteger(Capability);
-
-        if CopilotCapability = Enum::"Copilot Capability"::Chat then
-            Silent := true;
-
-        IsEnabled := AzureOpenAI.IsEnabled(CopilotCapability, Silent);
+        Isenabled := AzureOpenAI.IsEnabled(CopilotCapability, true);
     end;
 }

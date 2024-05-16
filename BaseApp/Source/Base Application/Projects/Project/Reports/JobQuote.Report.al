@@ -12,7 +12,7 @@ using System.Utilities;
 report 1016 "Job Quote"
 {
     DefaultRenderingLayout = "JobQuote.rdlc";
-    Caption = 'Project Quote';
+    Caption = 'Job Quote';
     PreviewMode = PrintLayout;
 
     dataset
@@ -113,10 +113,10 @@ report 1016 "Job Quote"
                 column(QuantityCaption; QuantityLbl)
                 {
                 }
-                column(UnitPriceCaption; UnitPriceLbl)
+                column(UnitCostCaption; UnitCostLbl)
                 {
                 }
-                column(TotalPriceCaption; TotalPriceLbl)
+                column(TotalCostCaption; TotalCostLbl)
                 {
                 }
                 column(JobTaskTypeCaption; JobTaskTypeLbl)
@@ -151,18 +151,18 @@ report 1016 "Job Quote"
                     column(Quantity; Quantity)
                     {
                     }
-                    column(UnitPriceLCY; "Unit Price (LCY)")
+                    column(UnitCostLCY; "Unit Price (LCY)")
                     {
                     }
-                    column(UnitPrice; "Unit Price")
+                    column(UnitCost; "Unit Price")
                     {
                     }
-                    column(TotalPriceLCY; "Total Price (LCY)")
+                    column(TotalCostLCY; "Total Price (LCY)")
                     {
                         AutoFormatExpression = CurrencyFormat;
                         AutoFormatType = 10;
                     }
-                    column(TotalPrice; "Total Price")
+                    column(TotalCost; "Total Price")
                     {
                     }
                     column(Type; Type)
@@ -276,14 +276,14 @@ report 1016 "Job Quote"
         {
             Type = RDLC;
             LayoutFile = './Projects/Project/Reports/JobQuote.rdlc';
-            Caption = 'Project Quote (RDLC)';
+            Caption = 'Job Quote (RDLC)';
             Summary = 'The Job Quote (RDLC) provides a detailed layout.';
         }
         layout("JobQuote.docx")
         {
             Type = Word;
             LayoutFile = './Projects/Project/JobQuote.docx';
-            Caption = 'Project Quote (Word)';
+            Caption = 'Job Quote (Word)';
             Summary = 'The Job Quote (Word) provides a basic layout.';
         }
     }
@@ -333,13 +333,13 @@ report 1016 "Job Quote"
         FirstLineHasBeenOutput: Boolean;
         PrintSection: Boolean;
         CurrReportPageNoCaptionLbl: Label 'Page';
-        JobQuoteCaptLbl: Label 'Project Quote';
+        JobQuoteCaptLbl: Label 'Job Quote';
         DescriptionCaptionLbl: Label 'Description';
-        JobTaskNoCaptLbl: Label 'Project Task No.';
+        JobTaskNoCaptLbl: Label 'Job Task No.';
         QuantityLbl: Label 'Quantity';
-        UnitPriceLbl: Label 'Unit Price';
-        TotalPriceLbl: Label 'Total Price';
-        JobTaskTypeLbl: Label 'Project Task Type';
+        UnitCostLbl: Label 'Unit Cost';
+        TotalCostLbl: Label 'Total Cost';
+        JobTaskTypeLbl: Label 'Job Task Type';
         NoLbl: Label 'No.';
         NewTaskGroup: Integer;
         CurrentIndentation: Integer;

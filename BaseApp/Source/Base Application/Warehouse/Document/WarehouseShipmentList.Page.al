@@ -318,35 +318,6 @@ page 7339 "Warehouse Shipment List"
         }
     }
 
-    views
-    {
-        view(Released)
-        {
-            Caption = 'Released';
-            Filters = where(Status = const(Released));
-        }
-        view(PartiallyPicked)
-        {
-            Caption = 'Partially Picked';
-            Filters = where("Document Status" = const("Partially Picked"));
-        }
-        view(CompletelyPicked)
-        {
-            Caption = 'Completely Picked';
-            Filters = where("Document Status" = const("Completely Picked"));
-        }
-        view(ShipmentsToday)
-        {
-            Caption = 'Shipments Today';
-            Filters = where("Shipment Date" = filter('%workdate'), "Status" = const(Released));
-        }
-        view(PickedShipmentsToday)
-        {
-            Caption = 'Picked Shipments Today';
-            Filters = where("Shipment Date" = filter('%workdate'), "Document Status" = filter('Partially Picked' | 'Completely Picked'));
-        }
-    }
-
     trigger OnOpenPage()
     var
         WMSManagement: Codeunit "WMS Management";
@@ -369,11 +340,8 @@ page 7339 "Warehouse Shipment List"
     local procedure ShowPreview()
     var
         WhseShptLine: Record "Warehouse Shipment Line";
-        SelectedWarehouseShipmentHeader: Record "Warehouse Shipment Header";
         WhsePostShipmentYesNo: Codeunit "Whse.-Post Shipment (Yes/No)";
     begin
-        CurrPage.SetSelectionFilter(SelectedWarehouseShipmentHeader);
-        WhsePostShipmentYesNo.MessageIfPostingPreviewMultipleDocuments(SelectedWarehouseShipmentHeader, Rec."No.");
         GetLinesForRec(WhseShptLine);
         WhsePostShipmentYesNo.Preview(WhseShptLine);
     end;

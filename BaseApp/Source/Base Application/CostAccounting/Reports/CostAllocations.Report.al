@@ -140,7 +140,7 @@ report 1129 "Cost Allocations"
             var
                 CostAllocationTarget: Record "Cost Allocation Target";
             begin
-                if GlobalPrintOnlyIfDetail then begin
+                if PrintOnlyIfDetail then begin
                     CostAllocationTarget.SetView("Cost Allocation Target".GetView());
                     CostAllocationTarget.SetRange(ID, ID);
 
@@ -158,7 +158,7 @@ report 1129 "Cost Allocations"
         {
             area(content)
             {
-                field(SkipalocSourceswithoutaloctgt; GlobalPrintOnlyIfDetail)
+                field(SkipalocSourceswithoutaloctgt; PrintOnlyIfDetail)
                 {
                     ApplicationArea = CostAccounting;
                     Caption = 'Skip allocation sources without allocation targets in the filter.';
@@ -178,7 +178,7 @@ report 1129 "Cost Allocations"
 
     var
         Text000: Label 'Filter: ';
-        GlobalPrintOnlyIfDetail: Boolean;
+        PrintOnlyIfDetail: Boolean;
         AllocationsCaptionLbl: Label 'Cost Allocations';
         PageCaptionLbl: Label 'Page';
         CostAllocationSourceValidFromCaptionLbl: Label 'Valid From';
@@ -189,7 +189,7 @@ report 1129 "Cost Allocations"
     begin
         "Cost Allocation Source".CopyFilters(CostAllocationSource);
         "Cost Allocation Target".CopyFilters(CostAllocationTarget);
-        GlobalPrintOnlyIfDetail := PrintOnlyIfDetailNew;
+        PrintOnlyIfDetail := PrintOnlyIfDetailNew;
     end;
 }
 

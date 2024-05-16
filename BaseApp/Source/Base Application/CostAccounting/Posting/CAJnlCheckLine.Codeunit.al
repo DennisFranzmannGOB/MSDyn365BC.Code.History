@@ -35,54 +35,56 @@ codeunit 1101 "CA Jnl.-Check Line"
         if IsHandled then
             exit;
 
-        CostJnlLine.TestField("Posting Date");
-        CostJnlLine.TestField("Document No.");
+        with CostJnlLine do begin
+            TestField("Posting Date");
+            TestField("Document No.");
 
-        SourceCodeSetup.Get();
-        CostJnlLine.TestField(Amount);
+            SourceCodeSetup.Get();
+            TestField(Amount);
 
-        if (CostJnlLine."Cost Type No." = '') and (CostJnlLine."Bal. Cost Type No." = '') then
-            Error(Text000, CostJnlLine."Line No.", CostJnlLine."Document No.", CostJnlLine.Amount);
+            if ("Cost Type No." = '') and ("Bal. Cost Type No." = '') then
+                Error(Text000, "Line No.", "Document No.", Amount);
 
-        if CostJnlLine."Cost Type No." <> '' then begin
-            CostType.Get(CostJnlLine."Cost Type No.");
-            CostType.TestField(Blocked, false);
-            CostType.TestField(Type, CostType.Type::"Cost Type");
+            if "Cost Type No." <> '' then begin
+                CostType.Get("Cost Type No.");
+                CostType.TestField(Blocked, false);
+                CostType.TestField(Type, CostType.Type::"Cost Type");
+
+                IsHandled := false;
+                OnRunCheckOnBeforeCheckSourceCode(CostJnlLine, IsHandled);
+                if not IsHandled then
+                    if "Source Code" <> SourceCodeSetup."G/L Entry to CA" then
+                        if ("Cost Center Code" = '') and ("Cost Object Code" = '') then
+                            Error(Text004, "Line No.", "Document No.", Amount);
+                OnRunCheckOnBeforeVerifyCostCenterAndObjectFilled(CostJnlLine, IsHandled);
+                if not IsHandled then
+                    if ("Cost Center Code" <> '') and ("Cost Object Code" <> '') then
+                        Error(Text001, "Line No.", "Document No.", Amount);
+            end;
+
+            if "Bal. Cost Type No." <> '' then begin
+                CostType.Get("Bal. Cost Type No.");
+                CostType.TestField(Blocked, false);
+                CostType.TestField(Type, CostType.Type::"Cost Type");
+
+                IsHandled := false;
+                OnRunCheckOnBeforeCheckBalCostCenterCode(CostJnlLine, IsHandled);
+                if not IsHandled then
+                    if ("Bal. Cost Center Code" = '') and ("Bal. Cost Object Code" = '') then
+                        Error(Text002, "Line No.", "Document No.", Amount);
+
+                OnRunCheckOnBeforeVerifyBalCostCenterAndObjectFilled(CostJnlLine, IsHandled);
+                if not IsHandled then
+                    if ("Bal. Cost Center Code" <> '') and ("Bal. Cost Object Code" <> '') then
+                        Error(Text003, "Line No.", "Document No.", Amount);
+            end;
 
             IsHandled := false;
-            OnRunCheckOnBeforeCheckSourceCode(CostJnlLine, IsHandled);
+            OnRunCheckOnBeforeDateNotAllowed(CostJnlLine, IsHandled);
             if not IsHandled then
-                if CostJnlLine."Source Code" <> SourceCodeSetup."G/L Entry to CA" then
-                    if (CostJnlLine."Cost Center Code" = '') and (CostJnlLine."Cost Object Code" = '') then
-                        Error(Text004, CostJnlLine."Line No.", CostJnlLine."Document No.", CostJnlLine.Amount);
-            OnRunCheckOnBeforeVerifyCostCenterAndObjectFilled(CostJnlLine, IsHandled);
-            if not IsHandled then
-                if (CostJnlLine."Cost Center Code" <> '') and (CostJnlLine."Cost Object Code" <> '') then
-                    Error(Text001, CostJnlLine."Line No.", CostJnlLine."Document No.", CostJnlLine.Amount);
+                if GenJnlCheckLine.DateNotAllowed("Posting Date") then
+                    FieldError("Posting Date", Text005);
         end;
-
-        if CostJnlLine."Bal. Cost Type No." <> '' then begin
-            CostType.Get(CostJnlLine."Bal. Cost Type No.");
-            CostType.TestField(Blocked, false);
-            CostType.TestField(Type, CostType.Type::"Cost Type");
-
-            IsHandled := false;
-            OnRunCheckOnBeforeCheckBalCostCenterCode(CostJnlLine, IsHandled);
-            if not IsHandled then
-                if (CostJnlLine."Bal. Cost Center Code" = '') and (CostJnlLine."Bal. Cost Object Code" = '') then
-                    Error(Text002, CostJnlLine."Line No.", CostJnlLine."Document No.", CostJnlLine.Amount);
-
-            OnRunCheckOnBeforeVerifyBalCostCenterAndObjectFilled(CostJnlLine, IsHandled);
-            if not IsHandled then
-                if (CostJnlLine."Bal. Cost Center Code" <> '') and (CostJnlLine."Bal. Cost Object Code" <> '') then
-                    Error(Text003, CostJnlLine."Line No.", CostJnlLine."Document No.", CostJnlLine.Amount);
-        end;
-
-        IsHandled := false;
-        OnRunCheckOnBeforeDateNotAllowed(CostJnlLine, IsHandled);
-        if not IsHandled then
-            if GenJnlCheckLine.DateNotAllowed(CostJnlLine."Posting Date") then
-                CostJnlLine.FieldError(CostJnlLine."Posting Date", Text005);
 
         OnAfterCheckCostJnlLine(CostJnlLine);
     end;

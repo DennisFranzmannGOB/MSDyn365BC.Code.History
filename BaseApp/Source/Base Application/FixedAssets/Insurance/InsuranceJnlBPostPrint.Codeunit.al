@@ -28,48 +28,50 @@ codeunit 5673 "Insurance Jnl.-B.Post+Print"
     var
         HideDialog: Boolean;
     begin
-        InsuranceJnlTempl.Get(InsuranceJnlBatch."Journal Template Name");
-        InsuranceJnlTempl.TestField("Posting Report ID");
+        with InsuranceJnlBatch do begin
+            InsuranceJnlTempl.Get("Journal Template Name");
+            InsuranceJnlTempl.TestField("Posting Report ID");
 
-        HideDialog := false;
-        OnBeforePostJournalBatch(InsuranceJnlBatch, HideDialog);
-        if not HideDialog then
-            if not Confirm(Text000, false) then
-                exit;
+            HideDialog := false;
+            OnBeforePostJournalBatch(InsuranceJnlBatch, HideDialog);
+            if not HideDialog then
+                if not Confirm(Text000, false) then
+                    exit;
 
-        InsuranceJnlBatch.Find('-');
-        repeat
-            InsuranceJnlLine."Journal Template Name" := InsuranceJnlBatch."Journal Template Name";
-            InsuranceJnlLine."Journal Batch Name" := InsuranceJnlBatch.Name;
-            InsuranceJnlLine."Line No." := 1;
+            Find('-');
+            repeat
+                InsuranceJnlLine."Journal Template Name" := "Journal Template Name";
+                InsuranceJnlLine."Journal Batch Name" := Name;
+                InsuranceJnlLine."Line No." := 1;
 
-            Clear(InsuranceJnlPostBatch);
-            if InsuranceJnlPostBatch.Run(InsuranceJnlLine) then begin
-                if InsuranceReg.Get(InsuranceJnlLine."Line No.") then begin
-                    InsuranceReg.SetRecFilter();
-                    REPORT.Run(InsuranceJnlTempl."Posting Report ID", false, false, InsuranceReg);
+                Clear(InsuranceJnlPostBatch);
+                if InsuranceJnlPostBatch.Run(InsuranceJnlLine) then begin
+                    if InsuranceReg.Get(InsuranceJnlLine."Line No.") then begin
+                        InsuranceReg.SetRecFilter();
+                        REPORT.Run(InsuranceJnlTempl."Posting Report ID", false, false, InsuranceReg);
+                    end;
+                    Mark(false);
+                end
+                else begin
+                    Mark(true);
+                    JournalWithErrors := true;
                 end;
-                InsuranceJnlBatch.Mark(false);
-            end
-            else begin
-                InsuranceJnlBatch.Mark(true);
-                JournalWithErrors := true;
+            until Next() = 0;
+
+            if not JournalWithErrors then
+                Message(Text001)
+            else
+                Message(
+                  Text002 +
+                  Text003);
+
+            if not Find('=><') then begin
+                Reset();
+                FilterGroup := 2;
+                SetRange("Journal Template Name", "Journal Template Name");
+                FilterGroup := 0;
+                Name := '';
             end;
-        until InsuranceJnlBatch.Next() = 0;
-
-        if not JournalWithErrors then
-            Message(Text001)
-        else
-            Message(
-              Text002 +
-              Text003);
-
-        if not InsuranceJnlBatch.Find('=><') then begin
-            InsuranceJnlBatch.Reset();
-            InsuranceJnlBatch.FilterGroup := 2;
-            InsuranceJnlBatch.SetRange("Journal Template Name", InsuranceJnlBatch."Journal Template Name");
-            InsuranceJnlBatch.FilterGroup := 0;
-            InsuranceJnlBatch.Name := '';
         end;
     end;
 

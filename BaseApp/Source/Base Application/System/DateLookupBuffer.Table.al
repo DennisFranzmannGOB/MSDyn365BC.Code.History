@@ -5,7 +5,6 @@ table 749 "Date Lookup Buffer"
     Caption = 'Date Lookup Buffer';
     LookupPageID = "Date Lookup";
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

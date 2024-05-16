@@ -11,7 +11,6 @@ codeunit 134851 "Purchase Over Receipt"
 
     var
         Assert: Codeunit Assert;
-        LibraryERM: Codeunit "Library - ERM";
         LibraryPurchase: Codeunit "Library - Purchase";
         LibraryInventory: Codeunit "Library - Inventory";
         LibraryUtility: Codeunit "Library - Utility";
@@ -570,7 +569,6 @@ codeunit 134851 "Purchase Over Receipt"
         MessageText: Text;
     begin
         Initialize();
-        LibraryERM.SetEnableDataCheck(false);
 
         // [GIVEN] "Over Receipt" feature is enabled
         PurchaseOverReceipt.SetOverReceiptFeatureEnabled(true);
@@ -599,7 +597,6 @@ codeunit 134851 "Purchase Over Receipt"
         PurchaseOrder.Close();
 
         NotificationLifecycleMgt.RecallAllNotifications();
-        LibraryERM.SetEnableDataCheck(true);
     end;
 
     [Test]
@@ -2007,7 +2004,7 @@ codeunit 134851 "Purchase Over Receipt"
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), 10);
         PurchaseLine.Validate("Direct Unit Cost", 100);
         PurchaseLine.Validate("Location Code", Location.Code);
-        PurchaseLine.Validate("Over-Receipt Code", OverReceiptCode);
+        PurchaseLine.validate("Over-Receipt Code", OverReceiptCode);
         PurchaseLine.Modify(true);
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
 
@@ -2072,7 +2069,7 @@ codeunit 134851 "Purchase Over Receipt"
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), 10);
         PurchaseLine.Validate("Direct Unit Cost", 100);
         PurchaseLine.Validate("Location Code", Location.Code);
-        PurchaseLine.Validate("Over-Receipt Code", OverReceiptCode);
+        PurchaseLine.validate("Over-Receipt Code", OverReceiptCode);
         PurchaseLine.Modify(true);
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
         LibraryWarehouse.CreateInvtPutPickPurchaseOrder(PurchaseHeader);

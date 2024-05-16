@@ -9,7 +9,6 @@ table 140 "License Agreement"
     Caption = 'License Agreement';
     InherentEntitlements = rX;
     InherentPermissions = rX;
-    DataClassification = CustomerContent;
 
     fields
     {

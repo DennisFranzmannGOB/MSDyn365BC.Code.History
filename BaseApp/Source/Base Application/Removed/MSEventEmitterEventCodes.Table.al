@@ -8,7 +8,6 @@ table 7800 "MS-Event Emitter Event Codes"
     ObsoleteState = Removed;
     ObsoleteTag = '18.0';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

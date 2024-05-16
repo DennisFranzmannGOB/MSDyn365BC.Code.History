@@ -8,7 +8,7 @@ page 1511 "Notification Entries"
     PageType = List;
     SourceTable = "Notification Entry";
     SourceTableView = sorting("Created Date-Time")
-                      order(ascending);
+                      order(Ascending);
     UsageCategory = Lists;
 
     layout
@@ -33,9 +33,7 @@ page 1511 "Notification Entries"
                     ApplicationArea = Suite;
                     ToolTip = 'Specifies the user who received the notification.';
                 }
-#pragma warning disable AA0100
                 field("FORMAT(""Triggered By Record"")"; Format(Rec."Triggered By Record"))
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Triggered By Record';

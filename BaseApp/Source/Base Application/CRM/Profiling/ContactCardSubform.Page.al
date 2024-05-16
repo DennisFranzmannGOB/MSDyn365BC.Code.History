@@ -10,7 +10,7 @@ page 5051 "Contact Card Subform"
     PageType = ListPart;
     SourceTable = "Contact Profile Answer";
     SourceTableView = sorting("Contact No.", "Answer Priority", "Profile Questionnaire Priority")
-                      order(descending)
+                      ORDER(Descending)
                       where("Answer Priority" = filter(<> "Very Low (Hidden)"));
 
     layout

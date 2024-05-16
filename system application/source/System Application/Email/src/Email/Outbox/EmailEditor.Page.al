@@ -32,7 +32,7 @@ page 13 "Email Editor"
         {
             group("Email Details")
             {
-                Caption = 'Email Details';
+                Caption = 'Email details';
 
                 grid("Email Details Grid")
                 {

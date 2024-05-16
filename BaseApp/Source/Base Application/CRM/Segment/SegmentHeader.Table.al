@@ -21,7 +21,6 @@ table 5076 "Segment Header"
 {
     Caption = 'Segment Header';
     DataCaptionFields = "No.", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Segment List";
 
     fields
@@ -29,12 +28,13 @@ table 5076 "Segment Header"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
+            DataClassification = SystemMetadata;
 
             trigger OnValidate()
             begin
                 if "No." <> xRec."No." then begin
                     RMSetup.Get();
-                    NoSeries.TestManual(RMSetup."Segment Nos.");
+                    NoSeriesMgt.TestManual(RMSetup."Segment Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -42,6 +42,7 @@ table 5076 "Segment Header"
         field(2; Description; Text[100])
         {
             Caption = 'Description';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -52,6 +53,7 @@ table 5076 "Segment Header"
         {
             Caption = 'Campaign No.';
             TableRelation = Campaign;
+            DataClassification = SystemMetadata;
 
             trigger OnValidate()
             begin
@@ -62,6 +64,7 @@ table 5076 "Segment Header"
         {
             Caption = 'Salesperson Code';
             TableRelation = "Salesperson/Purchaser" where(Blocked = const(false));
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -71,6 +74,7 @@ table 5076 "Segment Header"
         field(5; "Correspondence Type (Default)"; Enum "Correspondence Type")
         {
             Caption = 'Correspondence Type (Default)';
+            DataClassification = SystemMetadata;
 
             trigger OnValidate()
             var
@@ -104,6 +108,7 @@ table 5076 "Segment Header"
         {
             Caption = 'Interaction Template Code';
             TableRelation = "Interaction Template".Code;
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             var
@@ -120,6 +125,7 @@ table 5076 "Segment Header"
             AutoFormatType = 1;
             Caption = 'Unit Cost (LCY)';
             MinValue = 0;
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -131,6 +137,7 @@ table 5076 "Segment Header"
             Caption = 'Unit Duration (Min.)';
             DecimalPlaces = 0 : 0;
             MinValue = 0;
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -154,6 +161,7 @@ table 5076 "Segment Header"
         field(10; Date; Date)
         {
             Caption = 'Date';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -163,6 +171,7 @@ table 5076 "Segment Header"
         field(11; "Campaign Target"; Boolean)
         {
             Caption = 'Campaign Target';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -175,6 +184,7 @@ table 5076 "Segment Header"
             Caption = 'Information Flow';
             OptionCaption = ' ,Outbound,Inbound';
             OptionMembers = " ",Outbound,Inbound;
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -187,6 +197,7 @@ table 5076 "Segment Header"
             Caption = 'Initiated By';
             OptionCaption = ' ,Us,Them';
             OptionMembers = " ",Us,Them;
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -198,10 +209,12 @@ table 5076 "Segment Header"
             Caption = 'No. Series';
             Editable = false;
             TableRelation = "No. Series";
+            DataClassification = CustomerContent;
         }
         field(15; "Campaign Response"; Boolean)
         {
             Caption = 'Campaign Response';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -235,6 +248,7 @@ table 5076 "Segment Header"
         {
             Caption = 'Language Code (Default)';
             TableRelation = Language;
+            DataClassification = SystemMetaData;
 
             trigger OnLookup()
             var
@@ -283,6 +297,7 @@ table 5076 "Segment Header"
         {
             Caption = 'Interaction Group Code';
             TableRelation = "Interaction Group";
+            DataClassification = CustomerContent;
         }
         field(21; "No. of Criteria Actions"; Integer)
         {
@@ -295,6 +310,7 @@ table 5076 "Segment Header"
         field(22; "Send Word Docs. as Attmt."; Boolean)
         {
             Caption = 'Send Word Docs. as Attmt.';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -304,10 +320,12 @@ table 5076 "Segment Header"
         field(23; "Ignore Contact Corres. Type"; Boolean)
         {
             Caption = 'Ignore Contact Corres. Type';
+            DataClassification = CustomerContent;
         }
         field(24; "Subject (Default)"; Text[100])
         {
             Caption = 'Subject (Default)';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             var
@@ -341,7 +359,7 @@ table 5076 "Segment Header"
         }
         field(25; "Campaign Description"; Text[100])
         {
-            CalcFormula = lookup(Campaign.Description where("No." = field("Campaign No.")));
+            CalcFormula = Lookup(Campaign.Description where("No." = field("Campaign No.")));
             Caption = 'Campaign Description';
             Editable = false;
             FieldClass = FlowField;
@@ -409,32 +427,11 @@ table 5076 "Segment Header"
     end;
 
     trigger OnInsert()
-#if not CLEAN24
-    var
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         if "No." = '' then begin
             RMSetup.Get();
             RMSetup.TestField("Segment Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(RMSetup."Segment Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(RMSetup."Segment Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := RMSetup."Segment Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", RMSetup."Segment Nos.", 0D, "No.");
-            end;
-#else
-			if NoSeries.AreRelated(RMSetup."Segment Nos.", xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := RMSetup."Segment Nos.";
-            "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(RMSetup."Segment Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
         if "Salesperson Code" = '' then
@@ -447,7 +444,7 @@ table 5076 "Segment Header"
         RMSetup: Record "Marketing Setup";
         SegHeader: Record "Segment Header";
         SegLine: Record "Segment Line";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         SegCriteriaManagement: Codeunit SegCriteriaManagement;
         SegHistMgt: Codeunit SegHistoryManagement;
 
@@ -468,13 +465,17 @@ table 5076 "Segment Header"
 
     procedure AssistEdit(OldSegHeader: Record "Segment Header"): Boolean
     begin
-        SegHeader := Rec;
-        RMSetup.Get();
-        RMSetup.TestField("Segment Nos.");
-        if NoSeries.LookupRelatedNoSeries(RMSetup."Segment Nos.", OldSegHeader."No. Series", SegHeader."No. Series") then begin
-            SegHeader."No." := NoSeries.GetNextNo(SegHeader."No. Series");
-            Rec := SegHeader;
-            exit(true);
+        with SegHeader do begin
+            SegHeader := Rec;
+            RMSetup.Get();
+            RMSetup.TestField("Segment Nos.");
+            if NoSeriesMgt.SelectSeries(RMSetup."Segment Nos.", OldSegHeader."No. Series", "No. Series") then begin
+                RMSetup.Get();
+                RMSetup.TestField("Segment Nos.");
+                NoSeriesMgt.SetSeries("No.");
+                Rec := SegHeader;
+                exit(true);
+            end;
         end;
     end;
 

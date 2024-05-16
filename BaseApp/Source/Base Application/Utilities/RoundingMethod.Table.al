@@ -8,7 +8,6 @@ table 42 "Rounding Method"
 {
     Caption = 'Rounding Method';
     LookupPageID = "Rounding Methods";
-    DataClassification = CustomerContent;
 
     fields
     {

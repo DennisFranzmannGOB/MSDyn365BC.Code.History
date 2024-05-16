@@ -89,6 +89,7 @@ codeunit 9070 "Document Errors Mgt."
     end;
 
     procedure BackgroundValidationEnabled(): Boolean
+    var
     begin
         if not BackgroundErrorHandlingMgt.BackgroundValidationFeatureEnabled() then
             exit(false);
@@ -100,6 +101,7 @@ codeunit 9070 "Document Errors Mgt."
     end;
 
     procedure CheckShowEnableBackgrValidationNotification(): Boolean
+    var
     begin
         if not BackgroundErrorHandlingMgt.BackgroundValidationFeatureEnabled() then
             exit(false);

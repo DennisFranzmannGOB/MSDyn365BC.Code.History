@@ -132,105 +132,107 @@ codeunit 63 "Sales-Explode BOM"
         PreviousSalesLine: Record "Sales Line";
         InsertLinesBetween: Boolean;
     begin
-        ToSalesLine.Reset();
-        ToSalesLine.SetRange("Document Type", SalesLine."Document Type");
-        ToSalesLine.SetRange("Document No.", SalesLine."Document No.");
-        ToSalesLine := SalesLine;
-        NextLineNo := SalesLine."Line No.";
-        InsertLinesBetween := false;
-        if ToSalesLine.Find('>') then
-            if ToSalesLine.IsExtendedText() and (ToSalesLine."Attached to Line No." = SalesLine."Line No.") then begin
-                ToSalesLine.SetRange("Attached to Line No.", SalesLine."Line No.");
-                ToSalesLine.FindLast();
-                ToSalesLine.SetRange("Attached to Line No.");
-                NextLineNo := ToSalesLine."Line No.";
-                InsertLinesBetween := ToSalesLine.Find('>');
-            end else
-                InsertLinesBetween := true;
-        if InsertLinesBetween then
-            LineSpacing := (ToSalesLine."Line No." - NextLineNo) div (1 + NoOfBOMComp)
-        else
-            LineSpacing := 10000;
-        if LineSpacing = 0 then
-            Error(Text003);
-
-        FromBOMComp.Reset();
-        FromBOMComp.SetRange("Parent Item No.", SalesLine."No.");
-        OnExplodeBOMCompLinesOnAfterFromBOMCompSetFilters(FromBOMComp, SalesLine, LineSpacing, NextLineNo);
-        FromBOMComp.FindSet();
-        repeat
-            ToSalesLine.Init();
-            NextLineNo := NextLineNo + LineSpacing;
-            ToSalesLine."Line No." := NextLineNo;
-
-            case FromBOMComp.Type of
-                FromBOMComp.Type::" ":
-                    ToSalesLine.Type := ToSalesLine.Type::" ";
-                FromBOMComp.Type::Item:
-                    ToSalesLine.Type := ToSalesLine.Type::Item;
-                FromBOMComp.Type::Resource:
-                    ToSalesLine.Type := ToSalesLine.Type::Resource;
-            end;
-            OnExplodeBOMCompLinesOnAfterAssignType(ToSalesLine, SalesLine, FromBOMComp, SalesHeader);
-            if ToSalesLine.Type <> ToSalesLine.Type::" " then begin
-                FromBOMComp.TestField("No.");
-                ToSalesLine.Validate("No.", FromBOMComp."No.");
-                if SalesHeader."Location Code" <> SalesLine."Location Code" then
-                    ToSalesLine.Validate("Location Code", SalesLine."Location Code");
-                if FromBOMComp."Variant Code" <> '' then
-                    ToSalesLine.Validate("Variant Code", FromBOMComp."Variant Code");
-                if ToSalesLine.Type = ToSalesLine.Type::Item then begin
-                    ToSalesLine."Drop Shipment" := SalesLine."Drop Shipment";
-                    Item.Get(FromBOMComp."No.");
-                    ToSalesLine.Validate("Unit of Measure Code", FromBOMComp."Unit of Measure Code");
-                    ToSalesLine."Qty. per Unit of Measure" := UOMMgt.GetQtyPerUnitOfMeasure(Item, ToSalesLine."Unit of Measure Code");
-                    ToSalesLine.Validate(Quantity, Round(SalesLine."Quantity (Base)" * FromBOMComp."Quantity per", UOMMgt.QtyRndPrecision()));
+        with SalesLine do begin
+            ToSalesLine.Reset();
+            ToSalesLine.SetRange("Document Type", "Document Type");
+            ToSalesLine.SetRange("Document No.", "Document No.");
+            ToSalesLine := SalesLine;
+            NextLineNo := "Line No.";
+            InsertLinesBetween := false;
+            if ToSalesLine.Find('>') then
+                if ToSalesLine.IsExtendedText() and (ToSalesLine."Attached to Line No." = "Line No.") then begin
+                    ToSalesLine.SetRange("Attached to Line No.", "Line No.");
+                    ToSalesLine.FindLast();
+                    ToSalesLine.SetRange("Attached to Line No.");
+                    NextLineNo := ToSalesLine."Line No.";
+                    InsertLinesBetween := ToSalesLine.Find('>');
                 end else
-                    if ToSalesLine.Type = ToSalesLine.Type::Resource then begin
-                        Resource.Get(FromBOMComp."No.");
-                        ToSalesLine.Validate("Unit of Measure Code", FromBOMComp."Unit of Measure Code");
-                        ToSalesLine."Qty. per Unit of Measure" := UOMMgt.GetResQtyPerUnitOfMeasure(Resource, ToSalesLine."Unit of Measure Code");
-                        ToSalesLine.Validate(Quantity, Round(SalesLine."Quantity (Base)" * FromBOMComp."Quantity per", UOMMgt.QtyRndPrecision()));
-                    end else
-                        ToSalesLine.Validate(Quantity, SalesLine."Quantity (Base)" * FromBOMComp."Quantity per");
-
-                if SalesHeader."Shipment Date" <> SalesLine."Shipment Date" then
-                    ToSalesLine.Validate("Shipment Date", SalesLine."Shipment Date");
-            end;
-            if SalesHeader."Language Code" = '' then
-                ToSalesLine.Description := FromBOMComp.Description
+                    InsertLinesBetween := true;
+            if InsertLinesBetween then
+                LineSpacing := (ToSalesLine."Line No." - NextLineNo) div (1 + NoOfBOMComp)
             else
-                if not ItemTranslation.Get(FromBOMComp."No.", FromBOMComp."Variant Code", SalesHeader."Language Code") then
-                    ToSalesLine.Description := FromBOMComp.Description;
+                LineSpacing := 10000;
+            if LineSpacing = 0 then
+                Error(Text003);
 
-            ToSalesLine."BOM Item No." := BOMItemNo;
+            FromBOMComp.Reset();
+            FromBOMComp.SetRange("Parent Item No.", "No.");
+            OnExplodeBOMCompLinesOnAfterFromBOMCompSetFilters(FromBOMComp, SalesLine, LineSpacing, NextLineNo);
+            FromBOMComp.FindSet();
+            repeat
+                ToSalesLine.Init();
+                NextLineNo := NextLineNo + LineSpacing;
+                ToSalesLine."Line No." := NextLineNo;
 
-            OnInsertOfExplodedBOMLineToSalesLine(ToSalesLine, SalesLine, FromBOMComp, SalesHeader, LineSpacing);
+                case FromBOMComp.Type of
+                    FromBOMComp.Type::" ":
+                        ToSalesLine.Type := ToSalesLine.Type::" ";
+                    FromBOMComp.Type::Item:
+                        ToSalesLine.Type := ToSalesLine.Type::Item;
+                    FromBOMComp.Type::Resource:
+                        ToSalesLine.Type := ToSalesLine.Type::Resource;
+                end;
+                OnExplodeBOMCompLinesOnAfterAssignType(ToSalesLine, SalesLine, FromBOMComp, SalesHeader);
+                if ToSalesLine.Type <> ToSalesLine.Type::" " then begin
+                    FromBOMComp.TestField("No.");
+                    ToSalesLine.Validate("No.", FromBOMComp."No.");
+                    if SalesHeader."Location Code" <> "Location Code" then
+                        ToSalesLine.Validate("Location Code", "Location Code");
+                    if FromBOMComp."Variant Code" <> '' then
+                        ToSalesLine.Validate("Variant Code", FromBOMComp."Variant Code");
+                    if ToSalesLine.Type = ToSalesLine.Type::Item then begin
+                        ToSalesLine."Drop Shipment" := "Drop Shipment";
+                        Item.Get(FromBOMComp."No.");
+                        ToSalesLine.Validate("Unit of Measure Code", FromBOMComp."Unit of Measure Code");
+                        ToSalesLine."Qty. per Unit of Measure" := UOMMgt.GetQtyPerUnitOfMeasure(Item, ToSalesLine."Unit of Measure Code");
+                        ToSalesLine.Validate(Quantity, Round("Quantity (Base)" * FromBOMComp."Quantity per", UOMMgt.QtyRndPrecision()));
+                    end else
+                        if ToSalesLine.Type = ToSalesLine.Type::Resource then begin
+                            Resource.Get(FromBOMComp."No.");
+                            ToSalesLine.Validate("Unit of Measure Code", FromBOMComp."Unit of Measure Code");
+                            ToSalesLine."Qty. per Unit of Measure" := UOMMgt.GetResQtyPerUnitOfMeasure(Resource, ToSalesLine."Unit of Measure Code");
+                            ToSalesLine.Validate(Quantity, Round("Quantity (Base)" * FromBOMComp."Quantity per", UOMMgt.QtyRndPrecision()));
+                        end else
+                            ToSalesLine.Validate(Quantity, "Quantity (Base)" * FromBOMComp."Quantity per");
 
-            ToSalesLine.Insert();
-            OnExplodeBOMCompLinesOnAfterToSalesLineInsert(ToSalesLine, SalesLine, FromBOMComp, SalesHeader, NextLineNo);
+                    if SalesHeader."Shipment Date" <> "Shipment Date" then
+                        ToSalesLine.Validate("Shipment Date", "Shipment Date");
+                end;
+                if SalesHeader."Language Code" = '' then
+                    ToSalesLine.Description := FromBOMComp.Description
+                else
+                    if not ItemTranslation.Get(FromBOMComp."No.", FromBOMComp."Variant Code", SalesHeader."Language Code") then
+                        ToSalesLine.Description := FromBOMComp.Description;
 
-            ToSalesLine.Validate("Qty. to Assemble to Order");
+                ToSalesLine."BOM Item No." := BOMItemNo;
 
-            if (ToSalesLine.Type = ToSalesLine.Type::Item) and (ToSalesLine.Reserve = ToSalesLine.Reserve::Always) then
-                ToSalesLine.AutoReserve();
+                OnInsertOfExplodedBOMLineToSalesLine(ToSalesLine, SalesLine, FromBOMComp, SalesHeader, LineSpacing);
 
-            if Selection = 1 then begin
-                ToSalesLine."Shortcut Dimension 1 Code" := SalesLine."Shortcut Dimension 1 Code";
-                ToSalesLine."Shortcut Dimension 2 Code" := SalesLine."Shortcut Dimension 2 Code";
-                ToSalesLine."Dimension Set ID" := SalesLine."Dimension Set ID";
-                ToSalesLine.Modify();
-            end;
+                ToSalesLine.Insert();
+                OnExplodeBOMCompLinesOnAfterToSalesLineInsert(ToSalesLine, SalesLine, FromBOMComp, SalesHeader, NextLineNo);
 
-            if PreviousSalesLine."Document No." <> '' then
-                if TransferExtendedText.SalesCheckIfAnyExtText(PreviousSalesLine, false) then
-                    TransferExtendedText.InsertSalesExtText(PreviousSalesLine);
+                ToSalesLine.Validate("Qty. to Assemble to Order");
 
-            PreviousSalesLine := ToSalesLine;
-        until FromBOMComp.Next() = 0;
+                if (ToSalesLine.Type = ToSalesLine.Type::Item) and (ToSalesLine.Reserve = ToSalesLine.Reserve::Always) then
+                    ToSalesLine.AutoReserve();
 
-        if TransferExtendedText.SalesCheckIfAnyExtText(ToSalesLine, false) then
-            TransferExtendedText.InsertSalesExtText(ToSalesLine);
+                if Selection = 1 then begin
+                    ToSalesLine."Shortcut Dimension 1 Code" := "Shortcut Dimension 1 Code";
+                    ToSalesLine."Shortcut Dimension 2 Code" := "Shortcut Dimension 2 Code";
+                    ToSalesLine."Dimension Set ID" := "Dimension Set ID";
+                    ToSalesLine.Modify();
+                end;
+
+                if PreviousSalesLine."Document No." <> '' then
+                    if TransferExtendedText.SalesCheckIfAnyExtText(PreviousSalesLine, false) then
+                        TransferExtendedText.InsertSalesExtText(PreviousSalesLine);
+
+                PreviousSalesLine := ToSalesLine;
+            until FromBOMComp.Next() = 0;
+
+            if TransferExtendedText.SalesCheckIfAnyExtText(ToSalesLine, false) then
+                TransferExtendedText.InsertSalesExtText(ToSalesLine);
+        end;
 
         OnAfterExplodeBOMCompLines(SalesLine, Selection, LineSpacing);
     end;

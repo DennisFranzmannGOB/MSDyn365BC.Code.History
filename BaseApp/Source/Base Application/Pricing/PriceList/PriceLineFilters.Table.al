@@ -13,8 +13,9 @@ using System.Globalization;
 
 table 7021 "Price Line Filters"
 {
+#pragma warning disable AS0034
     TableType = Temporary;
-    DataClassification = CustomerContent;
+#pragma warning restore AS0034
 
     fields
     {
@@ -183,6 +184,7 @@ table 7021 "Price Line Filters"
         SameFromListCodeErr: Label '%1 must not be the same as %2.', Comment = '%1 and %2 - captions of the fields From Price List Code and To Price List Code';
 
     procedure Initialize(PriceListHeader: Record "Price List Header"; CopyLines: Boolean)
+    var
     begin
         "Price Type" := PriceListHeader."Price Type";
         "Source Group" := PriceListHeader."Source Group";

@@ -6,7 +6,6 @@ table 5918 "Fault Code"
 {
     Caption = 'Fault Code';
     LookupPageID = "Fault Codes";
-    DataClassification = CustomerContent;
 
     fields
     {

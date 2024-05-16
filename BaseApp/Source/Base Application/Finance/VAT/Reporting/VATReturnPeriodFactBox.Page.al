@@ -24,7 +24,7 @@ page 736 "VAT Return Period FactBox"
                     ApplicationArea = Basic, Suite;
                     ShowCaption = false;
                     Style = Unfavorable;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies the warning text that is displayed for an open or overdue obligation.';
                 }
             }

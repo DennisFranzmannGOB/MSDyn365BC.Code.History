@@ -3,7 +3,7 @@
 page 980 "Balancing Account Setup"
 {
     Caption = 'Balancing Account Setup';
-    DataCaptionExpression = PageCaptionVariable;
+    DataCaptionExpression = PageCaption;
     PageType = StandardDialog;
     SourceTable = "Payment Registration Setup";
 
@@ -38,10 +38,10 @@ page 980 "Balancing Account Setup"
     trigger OnOpenPage()
     begin
         Rec.Get(UserId);
-        PageCaptionVariable := '';
+        PageCaption := '';
     end;
 
     var
-        PageCaptionVariable: Text[10];
+        PageCaption: Text[10];
 }
 

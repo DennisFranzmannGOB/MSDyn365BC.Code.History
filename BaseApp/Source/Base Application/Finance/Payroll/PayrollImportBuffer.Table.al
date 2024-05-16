@@ -8,7 +8,6 @@ table 1662 "Payroll Import Buffer"
 {
     Caption = 'Payroll Import Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

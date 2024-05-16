@@ -19,7 +19,6 @@ using Microsoft.Purchases.Vendor;
 table 5477 "Purch. Inv. Entity Aggregate"
 {
     Caption = 'Purch. Inv. Entity Aggregate';
-    DataClassification = CustomerContent;
 
     fields
     {

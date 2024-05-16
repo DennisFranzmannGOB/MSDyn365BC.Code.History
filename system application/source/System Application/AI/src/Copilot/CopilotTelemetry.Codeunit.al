@@ -30,8 +30,7 @@ codeunit 7775 "Copilot Telemetry"
         CopilotCapabilitiesImpl: Codeunit "Copilot Capability Impl";
         FeatureTelemetry: Codeunit "Feature Telemetry";
     begin
-        if not CustomDimensions.ContainsKey('Capability') then
-            CopilotCapabilitiesImpl.AddTelemetryDimensions(CopilotCapability, AppId, CustomDimensions);
+        CopilotCapabilitiesImpl.AddTelemetryDimensions(CopilotCapability, AppId, CustomDimensions);
         FeatureTelemetry.LogUsage('0000LFO', CopilotCapabilitiesImpl.GetCopilotCategory(), TelemetryFeedbackOnCopilotCapabilityLbl, CustomDimensions);
     end;
 
@@ -40,8 +39,7 @@ codeunit 7775 "Copilot Telemetry"
         CopilotCapabilitiesImpl: Codeunit "Copilot Capability Impl";
         FeatureTelemetry: Codeunit "Feature Telemetry";
     begin
-        if not CustomDimensions.ContainsKey('Capability') then
-            CopilotCapabilitiesImpl.AddTelemetryDimensions(CopilotCapability, AppId, CustomDimensions);
+        CopilotCapabilitiesImpl.AddTelemetryDimensions(CopilotCapability, AppId, CustomDimensions);
         FeatureTelemetry.LogUsage('0000LLW', CopilotCapabilitiesImpl.GetCopilotCategory(), TelemetryActionInvokedOnCopilotCapabilityLbl, CustomDimensions);
     end;
 }

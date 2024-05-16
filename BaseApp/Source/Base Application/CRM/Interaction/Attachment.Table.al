@@ -12,7 +12,6 @@ using System.Utilities;
 table 5062 Attachment
 {
     Caption = 'Attachment';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -480,11 +479,13 @@ table 5062 Attachment
         OnBeforeWizSaveAttachment(Rec, IsHandled);
         if IsHandled then
             exit;
-
-        RMSetup.Get();
-        if RMSetup."Attachment Storage Type" = RMSetup."Attachment Storage Type"::Embedded then begin
-            "Storage Pointer" := '';
-            exit;
+            
+        with RMSetup do begin
+            Get();
+            if "Attachment Storage Type" = "Attachment Storage Type"::Embedded then begin
+                "Storage Pointer" := '';
+                exit;
+            end;
         end;
 
         "Storage Pointer" := RMSetup."Attachment Storage Location";

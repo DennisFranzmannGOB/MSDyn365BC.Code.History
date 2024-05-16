@@ -4,9 +4,8 @@ using System.Security.User;
 
 page 278 "Job Registers"
 {
-    AdditionalSearchTerms = 'Job Registers';
     ApplicationArea = Jobs;
-    Caption = 'Project Registers';
+    Caption = 'Job Registers';
     Editable = false;
     PageType = List;
     SourceTable = "Job Register";
@@ -94,10 +93,10 @@ page 278 "Job Registers"
                 action("Job Ledger")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Project Ledger';
+                    Caption = 'Job Ledger';
                     Image = JobLedger;
                     RunObject = Codeunit "Job Reg.-Show Ledger";
-                    ToolTip = 'View the project ledger entries.';
+                    ToolTip = 'View the job ledger entries.';
                 }
             }
         }

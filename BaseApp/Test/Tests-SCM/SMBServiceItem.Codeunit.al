@@ -18,7 +18,6 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory: Codeunit "Library - Inventory";
         LibraryAssembly: Codeunit "Library - Assembly";
         LibrarySetupStorage: Codeunit "Library - Setup Storage";
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryRandom: Codeunit "Library - Random";
         LibraryUtility: Codeunit "Library - Utility";
@@ -538,7 +537,7 @@ codeunit 137510 "SMB Service Item"
         // EXERCISE
         SKU.Init();
         SKU.Validate("Item No.", Item."No.");
-        SKU.Validate("Location Code", FindLocation());
+        SKU.Validate("Location Code", FindLocation);
         SKU.Insert(true);
 
         asserterror Item.Validate(Type, Item.Type::Service);
@@ -567,6 +566,7 @@ codeunit 137510 "SMB Service Item"
     var
         ItemJnlLine: Record "Item Journal Line";
         Item: Record Item;
+        EntryType: Integer;
     begin
         // [Scenario] You should not be able to use service items on any entry type of item journal line.
         Initialize();
@@ -630,6 +630,7 @@ codeunit 137510 "SMB Service Item"
     var
         ItemJnlLine: Record "Item Journal Line";
         Item: Record Item;
+        EntryType: Integer;
     begin
         // [Scenario] You should only be able to use non-inventory items in item journal line if the entry type is 
         // consumption or assembly consumption.
@@ -726,8 +727,8 @@ codeunit 137510 "SMB Service Item"
     begin
         Initialize();
         CreateServItem(Item);
-        SalesHeader.DontNotifyCurrentUserAgain(SalesHeader.GetModifyBillToCustomerAddressNotificationId());
-        SalesHeader.DontNotifyCurrentUserAgain(SalesHeader.GetModifyCustomerAddressNotificationId());
+        SalesHeader.DontNotifyCurrentUserAgain(SalesHeader.GetModifyBillToCustomerAddressNotificationId);
+        SalesHeader.DontNotifyCurrentUserAgain(SalesHeader.GetModifyCustomerAddressNotificationId);
 
         LibrarySales.CreateCustomer(Cust);
 
@@ -798,7 +799,7 @@ codeunit 137510 "SMB Service Item"
         LibrarySales.CreateCustomer(Cust);
 
         LibrarySales.CreateCustomer(Cust2);
-        Cust2.Validate("Location Code", FindLocation());
+        Cust2.Validate("Location Code", FindLocation);
         Cust2.Modify(true);
 
         CreateSalesOrder(Cust, SalesHeader, SalesLine, Item);
@@ -932,7 +933,7 @@ codeunit 137510 "SMB Service Item"
         // EXERCISE
         asserterror LibrarySales.PostSalesDocument(SalesHeader, true, true);
 
-        SalesLine.Validate("Location Code", FindLocation());
+        SalesLine.Validate("Location Code", FindLocation);
         SalesLine.Modify(true);
 
         SalesHeader.Find();
@@ -1018,8 +1019,8 @@ codeunit 137510 "SMB Service Item"
         LibraryPurch: Codeunit "Library - Purchase";
     begin
         Initialize();
-        PurchHeader.DontNotifyCurrentUserAgain(PurchHeader.GetModifyVendorAddressNotificationId());
-        PurchHeader.DontNotifyCurrentUserAgain(PurchHeader.GetModifyPayToVendorAddressNotificationId());
+        PurchHeader.DontNotifyCurrentUserAgain(PurchHeader.GetModifyVendorAddressNotificationId);
+        PurchHeader.DontNotifyCurrentUserAgain(PurchHeader.GetModifyPayToVendorAddressNotificationId);
         CreateServItem(Item);
 
         LibraryPurch.CreateVendor(Vend);
@@ -1154,7 +1155,7 @@ codeunit 137510 "SMB Service Item"
         // EXERCISE
         asserterror LibraryPurch.PostPurchaseDocument(PurchHeader, true, true);
 
-        PurchLine.Validate("Location Code", FindLocation());
+        PurchLine.Validate("Location Code", FindLocation);
         PurchLine.Modify(true);
 
         PurchHeader.Find();
@@ -1665,7 +1666,7 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory.CreateServiceTypeItem(Item);
 
         // [GIVEN] Released sales order for item "I".
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", LibraryRandom.RandInt(10));
         LibrarySales.ReleaseSalesDocument(SalesHeader);
 
@@ -1701,7 +1702,7 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory.CreateItem(ItemTypeInventory);
 
         // [GIVEN] Released sales order for items "I-Serv", "I-Invt".
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemTypeService."No.", LibraryRandom.RandInt(10));
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemTypeInventory."No.", LibraryRandom.RandInt(10));
         LibrarySales.ReleaseSalesDocument(SalesHeader);
@@ -1739,7 +1740,7 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory.CreateServiceTypeItem(Item);
 
         // [GIVEN] Released purchase return order for item "I".
-        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::"Return Order", LibraryPurchase.CreateVendorNo());
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::"Return Order", LibraryPurchase.CreateVendorNo);
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, Item."No.", LibraryRandom.RandInt(10));
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
 
@@ -1775,7 +1776,7 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory.CreateItem(ItemTypeInventory);
 
         // [GIVEN] Released purchase return order for items "I-Serv", "I-Invt".
-        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::"Return Order", LibraryPurchase.CreateVendorNo());
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::"Return Order", LibraryPurchase.CreateVendorNo);
         LibraryPurchase.CreatePurchaseLine(
           PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, ItemTypeService."No.", LibraryRandom.RandInt(10));
         LibraryPurchase.CreatePurchaseLine(
@@ -1815,7 +1816,7 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory.CreateServiceTypeItem(Item);
 
         // [GIVEN] Released purchase order for item "I".
-        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo());
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo);
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, Item."No.", LibraryRandom.RandInt(10));
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
 
@@ -1851,7 +1852,7 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory.CreateItem(ItemTypeInventory);
 
         // [GIVEN] Released purchase order for items "I-Serv", "I-Invt".
-        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo());
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo);
         LibraryPurchase.CreatePurchaseLine(
           PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, ItemTypeService."No.", LibraryRandom.RandInt(10));
         LibraryPurchase.CreatePurchaseLine(
@@ -1891,7 +1892,7 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory.CreateServiceTypeItem(Item);
 
         // [GIVEN] Released sales return order for item "I".
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::"Return Order", LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::"Return Order", LibrarySales.CreateCustomerNo);
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, Item."No.", LibraryRandom.RandInt(10));
         LibrarySales.ReleaseSalesDocument(SalesHeader);
 
@@ -1927,7 +1928,7 @@ codeunit 137510 "SMB Service Item"
         LibraryInventory.CreateItem(ItemTypeInventory);
 
         // [GIVEN] Released sales return order for items "I-Serv", "I-Invt".
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::"Return Order", LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::"Return Order", LibrarySales.CreateCustomerNo);
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemTypeService."No.", LibraryRandom.RandInt(10));
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemTypeInventory."No.", LibraryRandom.RandInt(10));
         LibrarySales.ReleaseSalesDocument(SalesHeader);
@@ -2012,22 +2013,22 @@ codeunit 137510 "SMB Service Item"
 
         // [GIVEN] Open item card.
         LibraryInventory.CreateItem(Item);
-        ItemCard.OpenEdit();
+        ItemCard.OpenEdit;
         ItemCard.GotoKey(Item."No.");
 
         // [WHEN] Set Type = "Service" on the item card.
         ItemCard.Type.SetValue(Item.Type::Service);
 
         // [THEN] "Indirect Cost %" and "Overhead Rate" fields have become disabled.
-        Assert.IsFalse(ItemCard."Indirect Cost %".Enabled(), 'Indirect Cost % must be disabled on non-inventory item card.');
-        Assert.IsFalse(ItemCard."Overhead Rate".Enabled(), 'Overhead Rate must be disabled on non-inventory item card.');
+        Assert.IsFalse(ItemCard."Indirect Cost %".Enabled, 'Indirect Cost % must be disabled on non-inventory item card.');
+        Assert.IsFalse(ItemCard."Overhead Rate".Enabled, 'Overhead Rate must be disabled on non-inventory item card.');
 
         // [WHEN] Set Type = "Inventory".
         ItemCard.Type.SetValue(Item.Type::Inventory);
 
         // [THEN] "Indirect Cost %" and "Overhead Rate" fields have become enabled.
-        Assert.IsTrue(ItemCard."Indirect Cost %".Enabled(), 'Indirect Cost % must be enabled on inventory item card.');
-        Assert.IsTrue(ItemCard."Overhead Rate".Enabled(), 'Overhead Rate must be enabled on inventory item card.');
+        Assert.IsTrue(ItemCard."Indirect Cost %".Enabled, 'Indirect Cost % must be enabled on inventory item card.');
+        Assert.IsTrue(ItemCard."Overhead Rate".Enabled, 'Overhead Rate must be enabled on inventory item card.');
 
         ItemCard.Close();
     end;
@@ -2242,7 +2243,7 @@ codeunit 137510 "SMB Service Item"
     end;
 
     [Test]
-    [HandlerFunctions('AssemblyAvailabilityModalPageHandler,SendAssemblyAvailabilityNotificationHandler')]
+    [HandlerFunctions('AssemblyAvailabilityModalPageHandler')]
     [Scope('OnPrem')]
     procedure AssemblyAvailabilityPageDoesNotShowShortageOfNonInventoryComponents()
     var
@@ -2279,8 +2280,7 @@ codeunit 137510 "SMB Service Item"
         // [THEN] Non-inventoriable item "NI" is not shown on the page.
         // The verification is done in AssemblyAvailabilityModalPageHandler.
 
-        LibraryVariableStorage.AssertEmpty();
-        NotificationLifecycleMgt.RecallAllNotifications();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -2350,7 +2350,7 @@ codeunit 137510 "SMB Service Item"
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, '');
 
         LibraryPurchase.CreatePurchaseLine(
-            PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandDecInRange(10, 20, 2));
+            PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandDecInRange(10, 20, 2));
 
         with PurchaseLine do begin
             Validate("Direct Unit Cost", LibraryRandom.RandDecInRange(100, 200, 2));
@@ -2535,51 +2535,12 @@ codeunit 137510 "SMB Service Item"
         LibrarySetupStorage.Save(DATABASE::"Inventory Setup");
         LibrarySetupStorage.Save(DATABASE::"Assembly Setup");
         LibrarySetupStorage.SaveGeneralLedgerSetup();
+        SetNoSeries;
         LibraryERMCountryData.CreateVATData();
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         LibraryERMCountryData.UpdatePurchasesPayablesSetup();
-        LibraryERMCountryData.UpdateSalesReceivablesSetup();
-
-        SetGlobalNoSeriesInSetups();
         IsInitialized := true;
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"SMB Service Item");
-    end;
-
-    local procedure SetGlobalNoSeriesInSetups()
-    var
-        SalesReceivablesSetup: Record "Sales & Receivables Setup";
-        PurchasesPayablesSetup: Record "Purchases & Payables Setup";
-        MarketingSetup: Record "Marketing Setup";
-        WarehouseSetup: Record "Warehouse Setup";
-        InventorySetup: Record "Inventory Setup";
-    begin
-        SalesReceivablesSetup.Get();
-        SalesReceivablesSetup."Credit Memo Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        SalesReceivablesSetup."Posted Credit Memo Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        SalesReceivablesSetup."Invoice Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        SalesReceivablesSetup."Order Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        SalesReceivablesSetup."Customer Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        SalesReceivablesSetup.Modify();
-
-        MarketingSetup.Get();
-        MarketingSetup."Contact Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        MarketingSetup.Modify();
-
-        PurchasesPayablesSetup.Get();
-        PurchasesPayablesSetup."Credit Memo Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        PurchasesPayablesSetup."Posted Credit Memo Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        PurchasesPayablesSetup."Invoice Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        PurchasesPayablesSetup."Order Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        PurchasesPayablesSetup."Vendor Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        PurchasesPayablesSetup.Modify();
-
-        WarehouseSetup.Get();
-        WarehouseSetup."Whse. Ship Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        WarehouseSetup.Modify();
-
-        InventorySetup.Get();
-        InventorySetup."Transfer Order Nos." := LibraryUtility.GetGlobalNoSeriesCode();
-        InventorySetup.Modify();
     end;
 
     local procedure CreateInvtItem(var Item: Record Item)
@@ -2794,14 +2755,14 @@ codeunit 137510 "SMB Service Item"
         LibraryPurch: Codeunit "Library - Purchase";
     begin
         LibraryPurch.CreateVendor(Vend);
-        Vend.Validate("Location Code", FindLocation());
+        Vend.Validate("Location Code", FindLocation);
         Vend.Modify(true);
     end;
 
     local procedure CreateCustWithLocation(var Cust: Record Customer)
     begin
         LibrarySales.CreateCustomer(Cust);
-        Cust.Validate("Location Code", FindLocation());
+        Cust.Validate("Location Code", FindLocation);
         Cust.Modify(true);
     end;
 
@@ -2874,23 +2835,15 @@ codeunit 137510 "SMB Service Item"
 
     [ModalPageHandler]
     [Scope('OnPrem')]
-    procedure AssemblyAvailabilityModalPageHandler(var AssemblyAvailability: TestPage "Assembly Availability Check")
+    procedure AssemblyAvailabilityModalPageHandler(var AssemblyAvailability: TestPage "Assembly Availability")
     begin
-        AssemblyAvailability.AssemblyLineAvail.FILTER.SetFilter("No.", LibraryVariableStorage.DequeueText());
-        Assert.IsTrue(AssemblyAvailability.AssemblyLineAvail.First(), '');
+        AssemblyAvailability.AssemblyLineAvail.FILTER.SetFilter("No.", LibraryVariableStorage.DequeueText);
+        Assert.IsTrue(AssemblyAvailability.AssemblyLineAvail.First, '');
 
-        AssemblyAvailability.AssemblyLineAvail.FILTER.SetFilter("No.", LibraryVariableStorage.DequeueText());
-        Assert.IsFalse(AssemblyAvailability.AssemblyLineAvail.First(), '');
-    end;
+        AssemblyAvailability.AssemblyLineAvail.FILTER.SetFilter("No.", LibraryVariableStorage.DequeueText);
+        Assert.IsFalse(AssemblyAvailability.AssemblyLineAvail.First, '');
 
-    [SendNotificationHandler]
-    [Scope('OnPrem')]
-    procedure SendAssemblyAvailabilityNotificationHandler(var Notification: Notification): Boolean
-    var
-        AssemblyLineManagement: Codeunit "Assembly Line Management";
-    begin
-        Commit();
-        AssemblyLineManagement.ShowNotificationDetails(Notification);
+        AssemblyAvailability.Yes.Invoke;
     end;
 
     [MessageHandler]
@@ -2911,6 +2864,31 @@ codeunit 137510 "SMB Service Item"
     begin
         Assert.IsTrue(StrPos(GetLastErrorText, ExpectedErrorTextContains) > 0, Msg);
         ClearLastError();
+    end;
+
+    local procedure SetNoSeries()
+    var
+        NoSeriesLine: Record "No. Series Line";
+        LibraryERMCountryData: Codeunit "Library - ERM Country Data";
+        LastMaxNo: Code[20];
+    begin
+        with NoSeriesLine do
+            if Find('-') then
+                repeat
+                    if LastMaxNo < "Last No. Used" then
+                        LastMaxNo := "Last No. Used";
+                until Next = 0;
+
+        with NoSeriesLine do
+            if Find('-') then
+                repeat
+                    "Last No. Used" := LastMaxNo;
+                    "Ending No." := '';
+                    "Warning No." := '';
+                    Modify(true);
+                until Next = 0;
+
+        LibraryERMCountryData.UpdateSalesReceivablesSetup();
     end;
 }
 

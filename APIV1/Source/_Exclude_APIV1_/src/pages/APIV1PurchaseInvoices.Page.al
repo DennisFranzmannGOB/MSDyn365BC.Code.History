@@ -663,6 +663,7 @@ page 20042 "APIV1 - Purchase Invoices"
     end;
 
     local procedure SetActionResponse(var ActionContext: WebServiceActionContext; InvoiceId: Guid)
+    var
     begin
         ActionContext.SetObjectType(ObjectType::Page);
         ActionContext.SetObjectId(Page::"APIV1 - Purchase Invoices");

@@ -7,7 +7,6 @@ using Microsoft.Service.Maintenance;
 table 6081 "Serv. Price Group Setup"
 {
     Caption = 'Serv. Price Group Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

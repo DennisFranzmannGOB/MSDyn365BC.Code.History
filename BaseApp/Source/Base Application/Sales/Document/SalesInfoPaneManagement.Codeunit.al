@@ -202,13 +202,15 @@ codeunit 7171 "Sales Info-Pane Management"
         if IsHandled then
             exit(Result);
 
-        if (SalesLine.Type <> SalesLine.Type::Item) or (SalesLine."No." = '') then
-            exit(false);
+        with Item do begin
+            if (SalesLine.Type <> SalesLine.Type::Item) or (SalesLine."No." = '') then
+                exit(false);
 
-        if SalesLine."No." <> Item."No." then
-            Item.Get(SalesLine."No.");
+            if SalesLine."No." <> "No." then
+                Get(SalesLine."No.");
 
-        exit(true);
+            exit(true);
+        end;
     end;
 
     local procedure SetItemFilter(var Item: Record Item; var SalesLine: Record "Sales Line")
@@ -221,7 +223,7 @@ codeunit 7171 "Sales Info-Pane Management"
         OnAfterSetItemFilter(Item, SalesLine);
     end;
 
-    [IntegrationEvent(false, false)]
+    [IntegrationEvent(False, false)]
     local procedure OnAfterConvertQty(Qty: Decimal; PerUoMQty: Decimal; var Result: Decimal)
     begin
     end;

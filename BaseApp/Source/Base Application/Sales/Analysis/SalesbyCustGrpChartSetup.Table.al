@@ -11,7 +11,6 @@ table 1319 "Sales by Cust. Grp.Chart Setup"
 {
     Caption = 'Sales by Cust. Grp.Chart Setup';
     LookupPageID = "Account Schedule Chart List";
-    DataClassification = CustomerContent;
 
     fields
     {

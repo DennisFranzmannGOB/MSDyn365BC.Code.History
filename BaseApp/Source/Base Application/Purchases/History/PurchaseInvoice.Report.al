@@ -825,8 +825,8 @@ report 406 "Purchase - Invoice"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 FormatAddressFields("Purch. Inv. Header");
@@ -942,6 +942,7 @@ report 406 "Purchase - Invoice"
 
     var
         GLSetup: Record "General Ledger Setup";
+        CompanyInfo: Record "Company Information";
         ShipmentMethod: Record "Shipment Method";
         PaymentTerms: Record "Payment Terms";
         SalesPurchPerson: Record "Salesperson/Purchaser";
@@ -952,7 +953,7 @@ report 406 "Purchase - Invoice"
         BuyFromContact: Record Contact;
         PayToContact: Record Contact;
         RemitAddressBuffer: Record "Remit Address Buffer";
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;
@@ -1054,7 +1055,6 @@ report 406 "Purchase - Invoice"
 #endif
 
     protected var
-        CompanyInfo: Record "Company Information";
         TempVATAmountLine: Record "VAT Amount Line" temporary;
 
     local procedure DocumentCaption(): Text[250]
@@ -1093,22 +1093,24 @@ report 406 "Purchase - Invoice"
 
     local procedure FormatDocumentFields(PurchInvHeader: Record "Purch. Inv. Header")
     begin
-        FormatDocument.SetTotalLabels(PurchInvHeader."Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
-        FormatDocument.SetPurchaser(SalesPurchPerson, PurchInvHeader."Purchaser Code", PurchaserText);
-        FormatDocument.SetPaymentTerms(PaymentTerms, PurchInvHeader."Payment Terms Code", PurchInvHeader."Language Code");
-        FormatDocument.SetShipmentMethod(ShipmentMethod, PurchInvHeader."Shipment Method Code", PurchInvHeader."Language Code");
+        with PurchInvHeader do begin
+            FormatDocument.SetTotalLabels("Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
+            FormatDocument.SetPurchaser(SalesPurchPerson, "Purchaser Code", PurchaserText);
+            FormatDocument.SetPaymentTerms(PaymentTerms, "Payment Terms Code", "Language Code");
+            FormatDocument.SetShipmentMethod(ShipmentMethod, "Shipment Method Code", "Language Code");
 
-        OrderNoText := FormatDocument.SetText(PurchInvHeader."Order No." <> '', PurchInvHeader.FieldCaption("Order No."));
-        ReferenceText := FormatDocument.SetText(PurchInvHeader."Your Reference" <> '', PurchInvHeader.FieldCaption("Your Reference"));
-        VATNoText := FormatDocument.SetText(PurchInvHeader."VAT Registration No." <> '', PurchInvHeader.FieldCaption("VAT Registration No."));
+            OrderNoText := FormatDocument.SetText("Order No." <> '', FieldCaption("Order No."));
+            ReferenceText := FormatDocument.SetText("Your Reference" <> '', FieldCaption("Your Reference"));
+            VATNoText := FormatDocument.SetText("VAT Registration No." <> '', FieldCaption("VAT Registration No."));
+        end;
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterInitReport()
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterPostDataItem(var PurchInvHeader: Record "Purch. Inv. Header")
     begin
     end;

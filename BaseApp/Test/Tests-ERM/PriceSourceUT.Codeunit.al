@@ -176,6 +176,8 @@ codeunit 134120 "Price Source UT"
     var
         PriceSource: Record "Price Source";
         NewPriceSource: Record "Price Source";
+        Job: Record Job;
+        JobTask: Record "Job Task";
         BlankGuid: Guid;
     begin
         // [FEATURE] [Job Task]
@@ -199,6 +201,7 @@ codeunit 134120 "Price Source UT"
     procedure T015_JobTask_BlankParentSourceNoValidation()
     var
         PriceSource: Record "Price Source";
+        Job: Record Job;
         JobTask: Record "Job Task";
     begin
         // [FEATURE] [Job Task]
@@ -224,6 +227,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Job Task";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Job Task]
         Initialize();
@@ -239,6 +243,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Job Task";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Job Task]
         Initialize();
@@ -266,6 +271,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Job Task";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Job Task]
         Initialize();
@@ -292,6 +298,7 @@ codeunit 134120 "Price Source UT"
         xPriceSource: Record "Price Source";
         NewPriceSource: Record "Price Source";
         IPriceSource: Codeunit "Price Source - Job Task";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Job Task]
         Initialize();
@@ -446,6 +453,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Job";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Job]
         Initialize();
@@ -461,6 +469,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Job";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Job]
         Initialize();
@@ -557,6 +566,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - All";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [All]
         // [SCENARIO] IsSourceNoAllowed() is false for "Price Source - All"
@@ -571,6 +581,7 @@ codeunit 134120 "Price Source UT"
         PriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - All";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [All]
         Initialize();
@@ -727,6 +738,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Customer";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Customer]
         Initialize();
@@ -742,6 +754,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Customer";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Customer]
         Initialize();
@@ -903,6 +916,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Cust. Disc. Gr.";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Customer Discount Group]
         Initialize();
@@ -918,6 +932,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Cust. Disc. Gr.";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Customer Discount Group]
         Initialize();
@@ -1097,6 +1112,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Cust. Disc. Gr.";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Customer Price Group]
         Initialize();
@@ -1112,6 +1128,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Cust. Price Gr.";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Customer Price Group]
         Initialize();
@@ -1294,6 +1311,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Vendor";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Vendor]
         Initialize();
@@ -1309,6 +1327,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Vendor";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Vendor]
         Initialize();
@@ -1473,6 +1492,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Campaign";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Campaign]
         Initialize();
@@ -1488,6 +1508,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Campaign";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Campaign]
         Initialize();
@@ -1649,6 +1670,7 @@ codeunit 134120 "Price Source UT"
     var
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Contact";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Contact]
         Initialize();
@@ -1664,6 +1686,7 @@ codeunit 134120 "Price Source UT"
         NewPriceSource: Record "Price Source";
         //IPriceSource: Interface "Price Source";
         IPriceSource: Codeunit "Price Source - Contact";
+        SourceType: Enum "Price Source Type";
     begin
         // [FEATURE] [Contact]
         Initialize();
@@ -2109,7 +2132,7 @@ codeunit 134120 "Price Source UT"
 
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"Price Source UT");
         isInitialized := true;
-        Commit();
+        Commit;
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"Price Source UT");
     end;
 

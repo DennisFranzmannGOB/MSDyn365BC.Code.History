@@ -401,36 +401,42 @@ report 121 "Customer - Balance to Date"
 
     local procedure FilterCustLedgerEntry(var CustLedgerEntry: Record "Cust. Ledger Entry")
     begin
-        CustLedgerEntry.SetCurrentKey("Customer No.", "Posting Date");
-        CustLedgerEntry.SetRange("Customer No.", Customer."No.");
-        CustLedgerEntry.SetRange("Posting Date", 0D, MaxDate);
+        with CustLedgerEntry do begin
+            SetCurrentKey("Customer No.", "Posting Date");
+            SetRange("Customer No.", Customer."No.");
+            SetRange("Posting Date", 0D, MaxDate);
+        end;
     end;
 
     local procedure AddCustomerDimensionFilter(var CustLedgerEntry: Record "Cust. Ledger Entry")
     begin
-        if Customer.GetFilter("Global Dimension 1 Filter") <> '' then
-            CustLedgerEntry.SetFilter("Global Dimension 1 Code", Customer.GetFilter("Global Dimension 1 Filter"));
-        if Customer.GetFilter("Global Dimension 2 Filter") <> '' then
-            CustLedgerEntry.SetFilter("Global Dimension 2 Code", Customer.GetFilter("Global Dimension 2 Filter"));
-        if Customer.GetFilter("Currency Filter") <> '' then
-            CustLedgerEntry.SetFilter("Currency Code", Customer.GetFilter("Currency Filter"));
+        with CustLedgerEntry do begin
+            if Customer.GetFilter("Global Dimension 1 Filter") <> '' then
+                SetFilter("Global Dimension 1 Code", Customer.GetFilter("Global Dimension 1 Filter"));
+            if Customer.GetFilter("Global Dimension 2 Filter") <> '' then
+                SetFilter("Global Dimension 2 Code", Customer.GetFilter("Global Dimension 2 Filter"));
+            if Customer.GetFilter("Currency Filter") <> '' then
+                SetFilter("Currency Code", Customer.GetFilter("Currency Filter"));
+        end;
     end;
 
     local procedure CalcCustomerTotalAmount(var TempCustLedgerEntry: Record "Cust. Ledger Entry" temporary)
     begin
-        TempCustLedgerEntry.SetCurrentKey("Entry No.");
-        TempCustLedgerEntry.SetRange("Date Filter", 0D, MaxDate);
-        AddCustomerDimensionFilter(TempCustLedgerEntry);
-        if TempCustLedgerEntry.FindSet() then
-            repeat
-                CalcRemainingAmount(TempCustLedgerEntry);
-                if (RemainingAmt <> 0) or ShowEntriesWithZeroBalance then
-                    TempCurrencyTotalBuffer.UpdateTotal(
-                      CurrencyCode,
-                      RemainingAmt,
-                      0,
-                      Counter1);
-            until TempCustLedgerEntry.Next() = 0;
+        with TempCustLedgerEntry do begin
+            SetCurrentKey("Entry No.");
+            SetRange("Date Filter", 0D, MaxDate);
+            AddCustomerDimensionFilter(TempCustLedgerEntry);
+            if FindSet() then
+                repeat
+                    CalcRemainingAmount(TempCustLedgerEntry);
+                    if (RemainingAmt <> 0) or ShowEntriesWithZeroBalance then
+                        TempCurrencyTotalBuffer.UpdateTotal(
+                          CurrencyCode,
+                          RemainingAmt,
+                          0,
+                          Counter1);
+                until Next() = 0;
+        end;
     end;
 
     local procedure CalcRemainingAmount(var TempCustLedgerEntry: Record "Cust. Ledger Entry" temporary);
@@ -485,12 +491,14 @@ report 121 "Customer - Balance to Date"
     var
         DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
     begin
-        DetailedCustLedgEntry.SetCurrentKey("Cust. Ledger Entry No.", "Entry Type", "Posting Date");
-        DetailedCustLedgEntry.SetRange("Cust. Ledger Entry No.", EntryNo);
-        DetailedCustLedgEntry.SetRange("Entry Type", DetailedCustLedgEntry."Entry Type"::Application);
-        DetailedCustLedgEntry.SetFilter("Posting Date", '>%1', MaxDate);
-        DetailedCustLedgEntry.SetRange(Unapplied, true);
-        exit(not DetailedCustLedgEntry.IsEmpty);
+        with DetailedCustLedgEntry do begin
+            SetCurrentKey("Cust. Ledger Entry No.", "Entry Type", "Posting Date");
+            SetRange("Cust. Ledger Entry No.", EntryNo);
+            SetRange("Entry Type", "Entry Type"::Application);
+            SetFilter("Posting Date", '>%1', MaxDate);
+            SetRange(Unapplied, true);
+            exit(not IsEmpty);
+        end;
     end;
 
     local procedure CheckCustEntryIncludedWhenShowEntriesWithZeroBalance(var ClosingCustLedgerEntry: Record "Cust. Ledger Entry"): Boolean

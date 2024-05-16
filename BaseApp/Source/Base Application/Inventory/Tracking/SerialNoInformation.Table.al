@@ -12,7 +12,6 @@ table 6504 "Serial No. Information"
     DataCaptionFields = "Item No.", "Variant Code", "Serial No.", Description;
     DrillDownPageID = "Serial No. Information List";
     LookupPageID = "Serial No. Information List";
-    DataClassification = CustomerContent;
 
     fields
     {

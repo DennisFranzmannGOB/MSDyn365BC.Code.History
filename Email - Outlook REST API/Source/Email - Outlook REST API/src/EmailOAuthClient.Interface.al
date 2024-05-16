@@ -1,4 +1,3 @@
-#if not CLEAN24
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
@@ -8,10 +7,6 @@ namespace System.Email;
 
 interface "Email - OAuth Client"
 {
-    ObsoleteReason = 'Replaced by "Email - OAuth Client v2".';
-    ObsoleteState = Pending;
-    ObsoleteTag = '24.0';
-
     /// <summary>
     /// Retrieves the Access token for the current user to connect to Outlook API.
     /// </summary>
@@ -26,4 +21,3 @@ interface "Email - OAuth Client"
     /// <returns>True, if the access token was acquired successfully, false otherwise.</returns>
     procedure TryGetAccessToken(var AccessToken: Text): Boolean;
 }
-#endif

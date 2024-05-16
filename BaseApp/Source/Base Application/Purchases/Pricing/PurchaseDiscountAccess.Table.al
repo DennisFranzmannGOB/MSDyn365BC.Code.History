@@ -10,8 +10,6 @@ namespace Microsoft.Purchases.Pricing;
 /// </summary>
 table 7018 "Purchase Discount Access"
 {
-    DataClassification = CustomerContent;
-
     fields
     {
         field(1; Code; Code[20])

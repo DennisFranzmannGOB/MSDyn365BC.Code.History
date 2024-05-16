@@ -18,7 +18,6 @@ table 9650 "Custom Report Layout"
     DrillDownPageID = "Custom Report Layouts";
     LookupPageID = "Custom Report Layouts";
     Permissions = TableData "Custom Report Layout" = rimd;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -34,7 +33,7 @@ table 9650 "Custom Report Layout"
 #pragma warning disable AS0086
         field(3; "Report Name"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Report ID")));
             Caption = 'Report Name';
             Editable = false;
@@ -225,8 +224,8 @@ table 9650 "Custom Report Layout"
             if ReportLayoutLookup.SelectedAddRdlcLayot() then
                 InitBuiltInLayout(ReportLayoutLookup.SelectedReportID(), Type::RDLC.AsInteger());
 
-            LayoutSelected := ReportLayoutLookup.SelectedAddWordLayot() or ReportLayoutLookup.SelectedAddRdlcLayot();
-            if (not LayoutSelected) and (not ReportLayoutLookup.InitCustomTypeLayouts()) then
+            LayoutSelected := ReportLayoutLookup.SelectedAddWordLayot() OR ReportLayoutLookup.SelectedAddRdlcLayot();
+            if (NOT LayoutSelected) AND (NOT ReportLayoutLookup.InitCustomTypeLayouts()) THEN
                 MESSAGE(NoLayoutSelectedMsg);
         end;
     end;
@@ -408,7 +407,7 @@ table 9650 "Custom Report Layout"
     begin
         IsHandled := false;
         OnBeforeUpdateLayout(LayoutUpdated, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(LayoutUpdated);
 
         ErrorMessage := TryUpdateLayout(IgnoreDelete);

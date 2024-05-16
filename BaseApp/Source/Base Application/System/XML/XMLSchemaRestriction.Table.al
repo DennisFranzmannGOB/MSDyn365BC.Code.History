@@ -3,7 +3,6 @@ namespace System.Xml;
 table 9611 "XML Schema Restriction"
 {
     Caption = 'XML Schema Restriction';
-    DataClassification = CustomerContent;
 
     fields
     {

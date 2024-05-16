@@ -17,7 +17,6 @@ using Microsoft.Warehouse.Worksheet;
 table 6550 "Whse. Item Tracking Line"
 {
     Caption = 'Whse. Item Tracking Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -300,8 +299,6 @@ table 6550 "Whse. Item Tracking Line"
 
     fieldgroups
     {
-        fieldgroup(Brick; "Lot No.", "Serial No.", "Quantity (Base)", "Package No.", "Expiration Date")
-        { }
     }
 
     trigger OnDelete()

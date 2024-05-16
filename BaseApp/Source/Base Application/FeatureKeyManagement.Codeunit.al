@@ -10,6 +10,9 @@ using System.Apps;
 using System.Environment;
 using System.Telemetry;
 using System.Reflection;
+#endif
+#if not CLEAN21
+using System.Feedback;
 using Microsoft.Pricing.Calculation;
 #endif
 
@@ -27,14 +30,11 @@ codeunit 265 "Feature Key Management"
 #endif
         AutomaticAccountCodesTxt: Label 'AutomaticAccountCodes', Locked = true;
         SIEAuditFileExportTxt: label 'SIEAuditFileExport', Locked = true;
+#if not CLEAN21
+        ModernActionBarLbl: Label 'ModernActionBar', Locked = true;
+#endif
 #if not CLEAN23
         EU3PartyTradePurchaseTxt: Label 'EU3PartyTradePurchase', Locked = true;
-#endif
-#if not CLEAN24
-        PhysInvtOrderPackageTrackingTxt: Label 'PhysInvtOrderPackageTracking', Locked = true;
-#endif
-#if not CLEAN24
-        GLCurrencyRevaluationTxt: Label 'GLCurrencyRevaluation', Locked = true;
 #endif
 
 #if not CLEAN23
@@ -59,17 +59,10 @@ codeunit 265 "Feature Key Management"
     end;
 #endif
 
-#if not CLEAN24
-    procedure IsPhysInvtOrderPackageTrackingEnabled(): Boolean
+#if not CLEAN21
+    internal procedure IsModernActionBarEnabled(): Boolean
     begin
-        exit(FeatureManagementFacade.IsEnabled(GetPhysInvtOrderPackageTrackingFeatureKey()));
-    end;
-#endif
-
-#if not CLEAN24
-    procedure IsGLCurrencyRevaluationEnabled(): Boolean
-    begin
-        exit(FeatureManagementFacade.IsEnabled(GetGLCurrencyRevaluationFeatureKey()));
+        exit(FeatureManagementFacade.IsEnabled(GetModernActionBarFeatureKey()));
     end;
 #endif
 
@@ -98,7 +91,7 @@ codeunit 265 "Feature Key Management"
 #endif
 
 #if not CLEAN23
-    internal procedure GetExtensibleExchangeRateAdjustmentFeatureKey(): Text[50]
+    local procedure GetExtensibleExchangeRateAdjustmentFeatureKey(): Text[50]
     begin
         exit(ExtensibleExchangeRateAdjustmentLbl);
     end;
@@ -110,21 +103,6 @@ codeunit 265 "Feature Key Management"
         exit(ExtensibleInvoicePostingEngineLbl);
     end;
 #endif
-
-#if not CLEAN24
-    local procedure GetPhysInvtOrderPackageTrackingFeatureKey(): Text[50]
-    begin
-        exit(PhysInvtOrderPackageTrackingTxt);
-    end;
-#endif
-
-#if not CLEAN24
-    local procedure GetGLCurrencyRevaluationFeatureKey(): Text[50]
-    begin
-        exit(GLCurrencyRevaluationTxt);
-    end;
-#endif
-
     local procedure GetAutomaticAccountCodesFeatureKey(): Text[50]
     begin
         exit(AutomaticAccountCodesTxt);
@@ -134,11 +112,17 @@ codeunit 265 "Feature Key Management"
     begin
         exit(SIEAuditFileExportTxt);
     end;
-
 #if not CLEAN23
     local procedure GetEU3PartyTradePurchaseFeatureKeyId(): Text[50]
     begin
         exit(EU3PartyTradePurchaseTxt);
+    end;
+#endif
+
+#if not CLEAN21
+    local procedure GetModernActionBarFeatureKey(): Text[50]
+    begin
+        exit(ModernActionBarLbl);
     end;
 #endif
 
@@ -159,6 +143,10 @@ codeunit 265 "Feature Key Management"
         end;
         // Log feature uptake
         case FeatureKey.ID of
+#if not CLEAN21
+            ModernActionBarLbl:
+                FeatureTelemetry.LogUptake('0000I8D', ModernActionBarLbl, Enum::"Feature Uptake Status"::Discovered);
+#endif
             ExtensibleExchangeRateAdjustmentLbl:
                 FeatureTelemetry.LogUptake('0000JR9', ExtensibleExchangeRateAdjustmentLbl, Enum::"Feature Uptake Status"::Discovered);
             ExtensibleInvoicePostingEngineLbl:
@@ -169,7 +157,26 @@ codeunit 265 "Feature Key Management"
 #endif
     end;
 
-#if not CLEAN23
+#if not CLEAN21
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Feature Management Facade", 'OnAfterFeatureDisableConfirmed', '', false, false)]
+    local procedure HandleOnAfterFeatureDisableConfirmed(FeatureKey: Record "Feature Key")
+    var
+        FeatureTelemetry: Codeunit "Feature Telemetry";
+        CustomerExperienceSurvey: Codeunit "Customer Experience Survey";
+        FormsProId: Text;
+        FormsProEligibilityId: Text;
+        IsEligible: Boolean;
+    begin
+        if FeatureKey.ID = ModernActionBarLbl then begin
+            FeatureTelemetry.LogUptake('0000I8E', ModernActionBarLbl, Enum::"Feature Uptake Status"::Undiscovered);
+            if CustomerExperienceSurvey.RegisterEventAndGetEligibility('modernactionbar_event', 'modernactionbar', FormsProId, FormsProEligibilityId, IsEligible) then
+                if IsEligible then
+                    CustomerExperienceSurvey.RenderSurvey('modernactionbar', FormsProId, FormsProEligibilityId);
+        end;
+    end;
+#endif
+
+#if not CLEAN21
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Feature Management Facade", 'OnAfterUpdateData', '', false, false)]
     local procedure HandleOnAfterUpdateData(var FeatureDataUpdateStatus: Record "Feature Data Update Status")
     var

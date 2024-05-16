@@ -7,7 +7,6 @@ namespace Microsoft.Finance.VAT.Reporting;
 table 362 "ECSL VAT Report Line"
 {
     Caption = 'ECSL VAT Report Line';
-    DataClassification = CustomerContent;
 
     fields
     {

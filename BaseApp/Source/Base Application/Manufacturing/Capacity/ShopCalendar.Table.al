@@ -6,7 +6,6 @@ table 99000751 "Shop Calendar"
     DataCaptionFields = "Code", Description;
     DrillDownPageID = "Shop Calendars";
     LookupPageID = "Shop Calendars";
-    DataClassification = CustomerContent;
 
     fields
     {

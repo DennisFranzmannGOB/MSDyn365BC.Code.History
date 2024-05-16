@@ -38,12 +38,14 @@ codeunit 139141 "Update Parent Register Mgt"
         if not Collecting then
             exit;
 
-        TempUpdateParentRegisterLine.ID := RunID;
-        TempUpdateParentRegisterLine.Sequence := RunSequence;
-        TempUpdateParentRegisterLine."Page Id" := LinePageId;
-        TempUpdateParentRegisterLine.Method := LineMethod;
-        TempUpdateParentRegisterLine.Operation := LineOperation;
-        TempUpdateParentRegisterLine.Insert();
+        with TempUpdateParentRegisterLine do begin
+            ID := RunID;
+            Sequence := RunSequence;
+            "Page Id" := LinePageId;
+            Method := LineMethod;
+            Operation := LineOperation;
+            Insert();
+        end;
         RunSequence := RunSequence + 1;
     end;
 

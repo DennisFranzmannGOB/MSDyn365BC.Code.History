@@ -6,7 +6,6 @@ table 130415 "Semi-Manual Test Wizard"
 {
     Caption = 'Semi-Manual Test Wizard';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

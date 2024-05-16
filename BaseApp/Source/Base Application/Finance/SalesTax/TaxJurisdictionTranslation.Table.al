@@ -5,7 +5,6 @@ using System.Globalization;
 table 327 "Tax Jurisdiction Translation"
 {
     Caption = 'Tax Jurisdiction Translation';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -2,25 +2,14 @@ namespace Microsoft.Bank.Reconciliation;
 
 using System.AI;
 using System.Environment;
+using System.Environment.Configuration;
 using System.Telemetry;
 
 pageextension 7254 BankAccReconciliationListExt extends "Bank Acc. Reconciliation List"
 {
     actions
     {
-#if not CLEAN24
-        addbefore(Category_Posting)
-        {
-            actionref("Reconcile With Copilot_Promoted"; "Reconcile With Copilot")
-            {
-                Visible = false;
-                ObsoleteReason = 'Action in the Prompting area.';
-                ObsoleteState = Pending;
-                ObsoleteTag = '24.0';
-            }
-        }
-#endif
-        addfirst(Prompting)
+        addbefore(ChangeStatementNo)
         {
             action("Reconcile With Copilot")
             {
@@ -52,15 +41,30 @@ pageextension 7254 BankAccReconciliationListExt extends "Bank Acc. Reconciliatio
                 end;
             }
         }
+        addbefore(Category_Posting)
+        {
+            actionref("Reconcile With Copilot_Promoted"; "Reconcile With Copilot")
+            {
+            }
+        }
     }
 
     trigger OnOpenPage()
     var
+        FeatureKey: Record "Feature Key";
+        FeatureManagementFacade: Codeunit "Feature Management Facade";
         EnvironmentInformation: Codeunit "Environment Information";
     begin
-        CopilotActionsVisible := EnvironmentInformation.IsSaaSInfrastructure();
+        if not FeatureKey.Get(BankAccRecWithAILbl) then
+            CopilotActionsVisible := true
+        else
+            CopilotActionsVisible := FeatureManagementFacade.IsEnabled(BankAccRecWithAILbl);
+
+        if CopilotActionsVisible then
+            CopilotActionsVisible := EnvironmentInformation.IsSaaSInfrastructure();
     end;
 
     var
         CopilotActionsVisible: Boolean;
+        BankAccRecWithAILbl: label 'BankAccRecWithAI', Locked = true;
 }

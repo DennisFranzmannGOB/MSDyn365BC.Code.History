@@ -308,6 +308,8 @@ report 5705 "Transfer Receipt"
     var
         DimSetEntry1: Record "Dimension Set Entry";
         DimSetEntry2: Record "Dimension Set Entry";
+        TransferFromAddr: array[8] of Text[100];
+        TransferToAddr: array[8] of Text[100];
         MoreLines: Boolean;
         CopyText: Text[30];
         DimText: Text[120];
@@ -323,8 +325,6 @@ report 5705 "Transfer Receipt"
 
     protected var
         FormatAddr: Codeunit "Format Address";
-        TransferFromAddr: array[8] of Text[100];
-        TransferToAddr: array[8] of Text[100];
         NoOfCopies: Integer;
         NoOfLoops: Integer;
         OutputNo: Integer;

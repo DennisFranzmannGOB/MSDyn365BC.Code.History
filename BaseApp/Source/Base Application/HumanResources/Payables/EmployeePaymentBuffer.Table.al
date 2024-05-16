@@ -9,7 +9,6 @@ table 5225 "Employee Payment Buffer"
 {
     Caption = 'Employee Payment Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

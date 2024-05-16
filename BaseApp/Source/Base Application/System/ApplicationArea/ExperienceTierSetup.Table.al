@@ -7,7 +7,6 @@ table 9176 "Experience Tier Setup"
     Caption = 'Experience Tier Setup';
     DataPerCompany = false;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

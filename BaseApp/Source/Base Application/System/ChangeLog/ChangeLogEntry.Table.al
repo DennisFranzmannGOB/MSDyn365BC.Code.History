@@ -11,7 +11,6 @@ table 405 "Change Log Entry"
     DrillDownPageID = "Change Log Entries";
     LookupPageID = "Change Log Entries";
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -41,7 +40,7 @@ table 405 "Change Log Entry"
         }
         field(6; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Table No.")));
             Caption = 'Table Caption';
             FieldClass = FlowField;
@@ -53,7 +52,7 @@ table 405 "Change Log Entry"
         }
         field(8; "Field Caption"; Text[80])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table No."),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table No."),
                                                               "No." = field("Field No.")));
             Caption = 'Field Caption';
             FieldClass = FlowField;
@@ -81,7 +80,7 @@ table 405 "Change Log Entry"
         }
         field(14; "Primary Key Field 1 Caption"; Text[80])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table No."),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table No."),
                                                               "No." = field("Primary Key Field 1 No.")));
             Caption = 'Primary Key Field 1 Caption';
             FieldClass = FlowField;
@@ -97,7 +96,7 @@ table 405 "Change Log Entry"
         }
         field(17; "Primary Key Field 2 Caption"; Text[80])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table No."),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table No."),
                                                               "No." = field("Primary Key Field 2 No.")));
             Caption = 'Primary Key Field 2 Caption';
             FieldClass = FlowField;
@@ -113,7 +112,7 @@ table 405 "Change Log Entry"
         }
         field(20; "Primary Key Field 3 Caption"; Text[80])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table No."),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table No."),
                                                               "No." = field("Primary Key Field 3 No.")));
             Caption = 'Primary Key Field 3 Caption';
             FieldClass = FlowField;
@@ -184,6 +183,34 @@ table 405 "Change Log Entry"
     trigger OnInsert()
     begin
         Protected := IsProtected();
+    end;
+
+    [Obsolete('Replaced by GetFullPrimaryKeyFriendlyName procedure.', '18.0')]
+    procedure GetPrimaryKeyFriendlyName(): Text[250]
+    var
+        RecRef: RecordRef;
+        FriendlyName: Text[250];
+        p: Integer;
+    begin
+        if "Primary Key" = '' then
+            exit('');
+
+        // Retain existing formatting of old data
+        if (StrPos("Primary Key", 'CONST(') = 0) and (StrPos("Primary Key", '0(') = 0) then
+            exit("Primary Key");
+
+        RecRef.Open("Table No.");
+        RecRef.SetPosition("Primary Key");
+        FriendlyName := RecRef.GetPosition(true);
+        RecRef.Close();
+
+        FriendlyName := DelChr(FriendlyName, '=', '()');
+        p := StrPos(FriendlyName, 'CONST');
+        while p > 0 do begin
+            FriendlyName := DelStr(FriendlyName, p, 5);
+            p := StrPos(FriendlyName, 'CONST');
+        end;
+        exit(FriendlyName);
     end;
 
     procedure GetFullPrimaryKeyFriendlyName(): Text

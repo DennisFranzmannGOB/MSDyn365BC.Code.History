@@ -17,7 +17,7 @@ page 710 "Activity Log"
     PageType = List;
     SourceTable = "Activity Log";
     SourceTableView = sorting("Activity Date")
-                      order(descending);
+                      order(Descending);
 
     layout
     {

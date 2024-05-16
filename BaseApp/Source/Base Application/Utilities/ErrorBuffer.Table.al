@@ -4,7 +4,6 @@ table 5890 "Error Buffer"
 {
     Caption = 'Error Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

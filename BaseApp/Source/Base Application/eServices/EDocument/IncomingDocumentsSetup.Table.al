@@ -11,7 +11,6 @@ table 131 "Incoming Documents Setup"
     Caption = 'Incoming Documents Setup';
     DrillDownPageID = "Incoming Documents Setup";
     LookupPageID = "Incoming Documents Setup";
-    DataClassification = CustomerContent;
 
     fields
     {

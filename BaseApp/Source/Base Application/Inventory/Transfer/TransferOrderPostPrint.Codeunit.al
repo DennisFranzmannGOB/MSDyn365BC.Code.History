@@ -34,59 +34,62 @@ codeunit 5707 "TransferOrder-Post + Print"
             exit;
 
         DefaultNumber := 0;
-        TransLine.SetRange("Document No.", TransHeader."No.");
-        if TransLine.Find('-') then
-            repeat
-                if (TransLine."Quantity Shipped" < TransLine.Quantity) and
-                   (DefaultNumber = 0)
-                then
-                    DefaultNumber := Selection::Shipment;
-                if (TransLine."Quantity Received" < TransLine.Quantity) and
-                   (DefaultNumber = 0)
-                then
-                    DefaultNumber := Selection::Receipt;
-            until (TransLine.Next() = 0) or (DefaultNumber > 0);
+        with TransHeader do begin
+            TransLine.SetRange("Document No.", "No.");
+            if TransLine.Find('-') then
+                repeat
+                    if (TransLine."Quantity Shipped" < TransLine.Quantity) and
+                       (DefaultNumber = 0)
+                    then
+                        DefaultNumber := Selection::Shipment;
+                    if (TransLine."Quantity Received" < TransLine.Quantity) and
+                       (DefaultNumber = 0)
+                    then
+                        DefaultNumber := Selection::Receipt;
+                until (TransLine.Next() = 0) or (DefaultNumber > 0);
 
-        IsHandled := false;
-        OnRunOnBeforePrepareAndPrintReport(TransHeader, DefaultNumber, Selection, IsHandled);
-        if not IsHandled then
-            if TransHeader."Direct Transfer" then begin
-                InventorySetup.Get();
-                if InventorySetup."Direct Transfer Posting" = InventorySetup."Direct Transfer Posting"::"Receipt and Shipment" then begin
-                    TransferPostShipment.Run(TransHeader);
-                    TransferPostReceipt.Run(TransHeader);
-                    PrintShipment(TransHeader."Last Shipment No.");
-                    PrintReceipt(TransHeader."Last Receipt No.");
-                end else begin
-                    TransferPostTransfer.Run(TransHeader);
-                    PrintDirectTransfer(TransHeader."Last Shipment No.");
-                end;
-            end else begin
-                if DefaultNumber = 0 then
-                    DefaultNumber := Selection::Shipment;
-                Selection := StrMenu(Text000, DefaultNumber);
-                case Selection of
-                    0:
-                        exit;
-                    Selection::Shipment:
+            IsHandled := false;
+            OnRunOnBeforePrepareAndPrintReport(TransHeader, DefaultNumber, Selection, IsHandled);
+            if not IsHandled then
+                if "Direct Transfer" then begin
+                    InventorySetup.Get();
+                    if InventorySetup."Direct Transfer Posting" = InventorySetup."Direct Transfer Posting"::"Receipt and Shipment" then begin
                         TransferPostShipment.Run(TransHeader);
-                    Selection::Receipt:
                         TransferPostReceipt.Run(TransHeader);
+                        PrintShipment(TransHeader."Last Shipment No.");
+                        PrintReceipt(TransHeader."Last Receipt No.");
+                    end else begin
+                        TransferPostTransfer.Run(TransHeader);
+                        PrintDirectTransfer(TransHeader."Last Shipment No.");
+                    end;
+                end else begin
+                    if DefaultNumber = 0 then
+                        DefaultNumber := Selection::Shipment;
+                    Selection := StrMenu(Text000, DefaultNumber);
+                    case Selection of
+                        0:
+                            exit;
+                        Selection::Shipment:
+                            TransferPostShipment.Run(TransHeader);
+                        Selection::Receipt:
+                            TransferPostReceipt.Run(TransHeader);
+                    end;
+                    PrintReport(TransHeader, Selection);
                 end;
-                PrintReport(TransHeader, Selection);
-            end;
+        end;
 
         OnAfterPost(TransHeader, Selection);
     end;
 
     procedure PrintReport(TransHeaderSource: Record "Transfer Header"; Selection: Option " ",Shipment,Receipt)
     begin
-        case Selection of
-            Selection::Shipment:
-                PrintShipment(TransHeaderSource."Last Shipment No.");
-            Selection::Receipt:
-                PrintReceipt(TransHeaderSource."Last Receipt No.");
-        end;
+        with TransHeaderSource do
+            case Selection of
+                Selection::Shipment:
+                    PrintShipment("Last Shipment No.");
+                Selection::Receipt:
+                    PrintReceipt("Last Receipt No.");
+            end;
     end;
 
     procedure PrintShipment(DocNo: Code[20])

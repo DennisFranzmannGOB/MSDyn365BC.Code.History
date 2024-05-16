@@ -640,8 +640,8 @@ report 5912 "Service - Credit Memo"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 FormatAddressFields("Service Cr.Memo Header");
@@ -723,7 +723,7 @@ report 5912 "Service - Credit Memo"
         DimSetEntry: Record "Dimension Set Entry";
         TempServiceShipmentBuffer: Record "Service Shipment Buffer" temporary;
         RespCenter: Record "Responsibility Center";
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         CustAddr: array[8] of Text[100];
@@ -869,16 +869,18 @@ report 5912 "Service - Credit Memo"
             exit;
         end;
 
-        TempServiceShipmentBuffer.Init();
-        TempServiceShipmentBuffer."Document No." := ServiceCrMemoLine."Document No.";
-        TempServiceShipmentBuffer."Line No." := ServiceCrMemoLine."Line No.";
-        TempServiceShipmentBuffer."Entry No." := NextEntryNo;
-        TempServiceShipmentBuffer.Type := ServiceCrMemoLine.Type;
-        TempServiceShipmentBuffer."No." := ServiceCrMemoLine."No.";
-        TempServiceShipmentBuffer.Quantity := -QtyOnShipment;
-        TempServiceShipmentBuffer."Posting Date" := PostingDate;
-        TempServiceShipmentBuffer.Insert();
-        NextEntryNo := NextEntryNo + 1
+        with TempServiceShipmentBuffer do begin
+            Init();
+            "Document No." := ServiceCrMemoLine."Document No.";
+            "Line No." := ServiceCrMemoLine."Line No.";
+            "Entry No." := NextEntryNo;
+            Type := ServiceCrMemoLine.Type;
+            "No." := ServiceCrMemoLine."No.";
+            Quantity := -QtyOnShipment;
+            "Posting Date" := PostingDate;
+            Insert();
+            NextEntryNo := NextEntryNo + 1
+        end;
     end;
 
     procedure FindDimTxt(DimSetID: Integer)
@@ -930,14 +932,16 @@ report 5912 "Service - Credit Memo"
 
     local procedure FormatDocumentFields(ServiceCrMemoHeader: Record "Service Cr.Memo Header")
     begin
-        FormatDocument.SetTotalLabels(ServiceCrMemoHeader."Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
-        FormatDocument.SetSalesPerson(SalesPurchPerson, ServiceCrMemoHeader."Salesperson Code", SalesPersonText);
+        with ServiceCrMemoHeader do begin
+            FormatDocument.SetTotalLabels("Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
+            FormatDocument.SetSalesPerson(SalesPurchPerson, "Salesperson Code", SalesPersonText);
 
-        ReferenceText := FormatDocument.SetText(ServiceCrMemoHeader."Your Reference" <> '', ServiceCrMemoHeader.FieldCaption("Your Reference"));
-        VATNoText := FormatDocument.SetText(ServiceCrMemoHeader."VAT Registration No." <> '', ServiceCrMemoHeader.FieldCaption("VAT Registration No."));
-        AppliedToText :=
-          FormatDocument.SetText(
-            ServiceCrMemoHeader."Applies-to Doc. No." <> '', Format(StrSubstNo(Text003, Format(ServiceCrMemoHeader."Applies-to Doc. Type"), ServiceCrMemoHeader."Applies-to Doc. No.")));
+            ReferenceText := FormatDocument.SetText("Your Reference" <> '', FieldCaption("Your Reference"));
+            VATNoText := FormatDocument.SetText("VAT Registration No." <> '', FieldCaption("VAT Registration No."));
+            AppliedToText :=
+              FormatDocument.SetText(
+                "Applies-to Doc. No." <> '', Format(StrSubstNo(Text003, Format("Applies-to Doc. Type"), "Applies-to Doc. No.")));
+        end;
     end;
 }
 

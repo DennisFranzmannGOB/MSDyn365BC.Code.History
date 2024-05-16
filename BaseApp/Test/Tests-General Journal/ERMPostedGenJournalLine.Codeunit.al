@@ -97,6 +97,7 @@ codeunit 134935 "ERM Posted Gen. Journal Line"
     var
         GenJournalTemplate: Record "Gen. Journal Template";
         GenJournalBatch: Record "Gen. Journal Batch";
+        i: Integer;
     begin
         // [SCENARIO 277244] Enable "Copy to Posted Jnl. Lines" on the Gen. Journal Batch when "Copy to Posted Jnl. Lines" is disabled on the Gen. Journal Template
         Initialize();
@@ -449,7 +450,7 @@ codeunit 134935 "ERM Posted Gen. Journal Line"
         LibraryERM.PostGeneralJnlLine(GenJournalLine);
 
         // [THEN] Reversal entries posted with "Posting Date" = Workdate + 5D
-        VerifyPostedRecurringGenJournalLine(GenJournalLine, 5);
+        VerifyPostedRecurringGenJournalLine(GenJournalLine);
     end;
 
 
@@ -469,73 +470,7 @@ codeunit 134935 "ERM Posted Gen. Journal Line"
         LibraryERM.PostGeneralJnlLine(GenJournalLine);
 
         // [THEN] Reversal entries posted with "Posting Date" = Workdate + 5D
-        VerifyPostedRecurringGenJournalLine(GenJournalLine, 5);
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
-    procedure PostRecurringGenJournalLineFixedWithAmountZeroLine()
-    var
-        GenJournalLine: Record "Gen. Journal Line";
-        GenJournalBatch: Record "Gen. Journal Batch";
-        DocNo: Code[20];
-    begin
-        // [SCENARIO] Post recurring journal with method Fixed and an amount zero line
-        Initialize();
-
-        // [GIVEN] Create recurring Gen. Journal Batch
-        CreateRecurringGenJnlBatch(GenJournalBatch);
-        // [GIVEN] Recurring Gen. Journal Line, "Recurring Method" = "F Fixed", "Reverse Date Calculation" = +5D, Amount = zero
-        CreateRecurringJournalLine(GenJournalLine, GenJournalBatch, GenJournalLine."Recurring Method"::"F  Fixed", 0);
-        DocNo := GenJournalLine."Document No.";
-        GenJournalLine.Modify(true);
-        // [GIVEN] Recurring Gen. Journal Line, "Recurring Method" = "F Fixed", "Reverse Date Calculation" = +5D, Amount = 500
-        CreateRecurringJournalLine(GenJournalLine, GenJournalBatch, GenJournalLine."Recurring Method"::"F  Fixed", 500);
-        GenJournalLine."Document No." := DocNo;
-        GenJournalLine.Modify(true);
-        // [GIVEN] Recurring Gen. Journal Line, "Recurring Method" = "F Fixed", "Reverse Date Calculation" = +5D, Amount = -500
-        CreateRecurringJournalLine(GenJournalLine, GenJournalBatch, GenJournalLine."Recurring Method"::"F  Fixed", -500);
-        GenJournalLine."Document No." := DocNo;
-        GenJournalLine.Modify(true);
-
-        // [WHEN] Post recurring Gen. Journal Lines
-        LibraryERM.PostGeneralJnlLine(GenJournalLine);
-
-        // [THEN] Only two entries posted
-        VerifyPostedRecurringGenJournalLine(GenJournalLine, 0);
-    end;
-
-    [Test]
-    [Scope('OnPrem')]
-    procedure PostRecurringGenJournalLineVariableWithAmountZeroLine()
-    var
-        GenJournalLine: Record "Gen. Journal Line";
-        GenJournalBatch: Record "Gen. Journal Batch";
-        DocNo: Code[20];
-    begin
-        // [SCENARIO] Post recurring journal with method Variable and an amount zero line
-        Initialize();
-
-        // [GIVEN] Create recurring Gen. Journal Batch
-        CreateRecurringGenJnlBatch(GenJournalBatch);
-        // [GIVEN] Recurring Gen. Journal Line, "Recurring Method" = "F Fixed", Amount = zero
-        CreateRecurringJournalLine(GenJournalLine, GenJournalBatch, GenJournalLine."Recurring Method"::"V  Variable", 0);
-        DocNo := GenJournalLine."Document No.";
-        GenJournalLine.Modify(true);
-        // [GIVEN] Recurring Gen. Journal Line, "Recurring Method" = "F Fixed", Amount = 500
-        CreateRecurringJournalLine(GenJournalLine, GenJournalBatch, GenJournalLine."Recurring Method"::"V  Variable", 500);
-        GenJournalLine."Document No." := DocNo;
-        GenJournalLine.Modify(true);
-        // [GIVEN] Recurring Gen. Journal Line, "Recurring Method" = "F Fixed", Amount = -500
-        CreateRecurringJournalLine(GenJournalLine, GenJournalBatch, GenJournalLine."Recurring Method"::"V  Variable", -500);
-        GenJournalLine."Document No." := DocNo;
-        GenJournalLine.Modify(true);
-
-        // [WHEN] Post recurring Gen. Journal Lines
-        LibraryERM.PostGeneralJnlLine(GenJournalLine);
-
-        // [THEN] Only two entries posted
-        VerifyPostedRecurringGenJournalLine(GenJournalLine, 0);
+        VerifyPostedRecurringGenJournalLine(GenJournalLine);
     end;
 
     [Test]
@@ -925,7 +860,7 @@ codeunit 134935 "ERM Posted Gen. Journal Line"
         LibraryERM.PostGeneralJnlLine(GenJournalLine);
 
         // [VERIFY] Verify Link on will be deleted after posting gen. journal line
-        VerifyGenJournalLineLinkNotFound(GenJournalLine.RecordId)
+        VerifyGenJournalLineLinkNotFound(GenJournalLine.RecordId, Link)
     end;
 
     local procedure Initialize()
@@ -1138,12 +1073,12 @@ codeunit 134935 "ERM Posted Gen. Journal Line"
         Assert.AreEqual(SrcGenJournalLine."Dimension Set ID", DstGenJournalLine."Dimension Set ID", GenJournalLineErr);
     end;
 
-    local procedure VerifyPostedRecurringGenJournalLine(GenJournalLine: Record "Gen. Journal Line"; Days: Integer)
+    local procedure VerifyPostedRecurringGenJournalLine(GenJournalLine: Record "Gen. Journal Line")
     var
         GLEntry: Record "G/L Entry";
     begin
         GLEntry.SetRange("Journal Batch Name", GenJournalLine."Journal Batch Name");
-        GLEntry.SetRange("Posting Date", WorkDate() + Days);
+        GLEntry.SetRange("Posting Date", WorkDate() + 5);
         Assert.RecordCount(GLEntry, 2);
     end;
 
@@ -1213,7 +1148,7 @@ codeunit 134935 "ERM Posted Gen. Journal Line"
         Assert.AreEqual(Link, RecordLink.URL1, PostedGenJournalLineLinkErr);
     end;
 
-    local procedure VerifyGenJournalLineLinkNotFound(RecordId: RecordId)
+    local procedure VerifyGenJournalLineLinkNotFound(RecordId: RecordId; Link: Text)
     var
         RecordLink: Record "Record Link";
     begin

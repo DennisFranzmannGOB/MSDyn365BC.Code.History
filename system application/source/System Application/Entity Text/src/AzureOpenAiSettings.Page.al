@@ -84,7 +84,6 @@ page 2010 "Azure OpenAi Settings"
     end;
 
     var
-        [NonDebuggable]
         Secret: Text;
         SecretPlaceholderLbl: Label '***', Locked = true;
 }

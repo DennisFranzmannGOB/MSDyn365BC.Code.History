@@ -8,7 +8,6 @@ table 412 "IC Dimension Value"
 {
     Caption = 'IC Dimension Value';
     LookupPageID = "IC Dimension Value List";
-    DataClassification = CustomerContent;
 
     fields
     {

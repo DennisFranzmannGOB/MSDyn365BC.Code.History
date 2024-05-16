@@ -24,7 +24,6 @@ codeunit 137908 "SCM Assembly Order"
         NotMatchingDimensionsMsg: Label 'Dimensions are not matching on header and line.';
         LibraryKitting: Codeunit "Library - Kitting";
         LibraryInventory: Codeunit "Library - Inventory";
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
         LibraryManufacturing: Codeunit "Library - Manufacturing";
         LibraryWarehouse: Codeunit "Library - Warehouse";
         LibraryRandom: Codeunit "Library - Random";
@@ -89,6 +88,7 @@ codeunit 137908 "SCM Assembly Order"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure BUG232108TwoUOM()
     var
@@ -109,11 +109,11 @@ codeunit 137908 "SCM Assembly Order"
         HeaderQty := 2;
         ParentQtyPerUOM := 15;
 
-        parent := MakeItemWithLot();
+        parent := MakeItemWithLot;
         Item.Get(parent);
         LibraryInventory.CreateUnitOfMeasureCode(NonBaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", NonBaseUOM.Code, ParentQtyPerUOM);
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", BOMQtyPer, childItem."Base Unit of Measure");
 
@@ -125,12 +125,12 @@ codeunit 137908 "SCM Assembly Order"
 
         AsmLineFindFirst(AssemblyHeader, AssemblyLine);
         ValidateQuantityPer(AssemblyLine, ParentQtyPerUOM * BOMQtyPer);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure BUG232108TwoUOMUOMbeforeQty()
     var
@@ -151,11 +151,11 @@ codeunit 137908 "SCM Assembly Order"
         HeaderQty := 2;
         ParentQtyPerUOM := 15;
 
-        parent := MakeItemWithLot();
+        parent := MakeItemWithLot;
         Item.Get(parent);
         LibraryInventory.CreateUnitOfMeasureCode(NonBaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", NonBaseUOM.Code, ParentQtyPerUOM);
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", BOMQtyPer, childItem."Base Unit of Measure");
 
@@ -168,7 +168,6 @@ codeunit 137908 "SCM Assembly Order"
 
         AsmLineFindFirst(AssemblyHeader, AssemblyLine);
         ValidateQuantityPer(AssemblyLine, ParentQtyPerUOM * BOMQtyPer);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
@@ -181,16 +180,17 @@ codeunit 137908 "SCM Assembly Order"
         Parent: Code[20];
     begin
         Initialize();
-        Parent := MakeItemWithLot();
+        Parent := MakeItemWithLot;
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, Parent, 1));
 
-        AssemblyHeader.RefreshBOM();
+        AssemblyHeader.RefreshBOM;
         validateCount(AssemblyHeader."No.", 0);
 
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure OneOrderAddOneLine()
     var
@@ -200,20 +200,20 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
+        parent := MakeItemWithLot;
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 1));
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
 
-        AssemblyHeader.RefreshBOM();
+        AssemblyHeader.RefreshBOM;
         validateCount(AssemblyHeader."No.", 1);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure OneOrderOneLine()
     var
@@ -223,19 +223,19 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
-        childItem.Get(MakeItem());
+        parent := MakeItemWithLot;
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
 
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 1));
         validateCount(AssemblyHeader."No.", 1);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure OneOrderTwoLine()
     var
@@ -245,23 +245,22 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
-        childItem.Get(MakeItem());
+        parent := MakeItemWithLot;
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
 
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 1));
         validateCount(AssemblyHeader."No.", 2);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmItemChange')]
+    [HandlerFunctions('ConfirmItemChange,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure OneOrderTwoLineChangeItem()
     var
@@ -272,25 +271,25 @@ codeunit 137908 "SCM Assembly Order"
         SecondParent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
-        childItem.Get(MakeItem());
+        parent := MakeItemWithLot;
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
 
-        SecondParent := MakeItemWithLot();
-        childItem.Get(MakeItem());
+        SecondParent := MakeItemWithLot;
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, SecondParent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, SecondParent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, SecondParent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, SecondParent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
 
@@ -299,12 +298,12 @@ codeunit 137908 "SCM Assembly Order"
 
         AssemblyHeader.Validate("Item No.", SecondParent);
         validateCount(AssemblyHeader."No.", 4);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure OneOrderOneItemOneResource()
     var
@@ -315,8 +314,8 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
-        childItem.Get(MakeItem());
+        parent := MakeItemWithLot;
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
         resource.Get(LibraryKitting.CreateResourceWithNewUOM(500, 700));
@@ -325,12 +324,12 @@ codeunit 137908 "SCM Assembly Order"
 
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 1));
         validateCount(AssemblyHeader."No.", 2);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure OneOrderOneItemandResourceandT()
     var
@@ -341,8 +340,8 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
-        childItem.Get(MakeItem());
+        parent := MakeItemWithLot;
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
         resource.Get(LibraryKitting.CreateResourceWithNewUOM(500, 700));
@@ -352,13 +351,12 @@ codeunit 137908 "SCM Assembly Order"
           BOMComp, parent, BOMComp.Type::" ", '', 0, '');
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 1));
         validateCount(AssemblyHeader."No.", 3);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmRefreshLines')]
+    [HandlerFunctions('AvailabilityWindowHandler,ConfirmRefreshLines')]
     [Scope('OnPrem')]
     procedure OneOrderTwoLineRefreshOneLine()
     var
@@ -369,8 +367,8 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
-        childItem.Get(MakeItem());
+        parent := MakeItemWithLot;
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
         resource.Get(LibraryKitting.CreateResourceWithNewUOM(500, 700));
@@ -378,12 +376,11 @@ codeunit 137908 "SCM Assembly Order"
           BOMComp, parent, BOMComp.Type::Resource, resource."No.", 1, resource."Base Unit of Measure");
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 1));
         validateCount(AssemblyHeader."No.", 2);
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
-        AssemblyHeader.RefreshBOM();
+        AssemblyHeader.RefreshBOM;
         validateCount(AssemblyHeader."No.", 3);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
@@ -404,6 +401,7 @@ codeunit 137908 "SCM Assembly Order"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure OneOrderTwoLineDelete()
     var
@@ -413,11 +411,11 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
-        childItem.Get(MakeItem());
+        parent := MakeItemWithLot;
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
 
@@ -425,12 +423,12 @@ codeunit 137908 "SCM Assembly Order"
         validateCount(AssemblyHeader."No.", 2);
         AssemblyHeader.Delete(true);
         validateDeleted(AssemblyHeader, 0);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure OneCompAverage()
     var
@@ -441,16 +439,15 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
+        parent := MakeItemWithLot;
         Item.Get(parent);
         Item.Validate("Costing Method", Item."Costing Method"::Average);
         childItem.Get(LibraryKitting.CreateItemWithNewUOM(10, 700));
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 10, childItem."Base Unit of Measure");
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 1));
-        AssemblyHeader.UpdateUnitCost();
+        AssemblyHeader.UpdateUnitCost;
         ValidateOrderUnitCost(AssemblyHeader, 100);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
@@ -466,7 +463,7 @@ codeunit 137908 "SCM Assembly Order"
         parent: Code[20];
     begin
         Initialize();
-        parent := MakeItemWithLot();
+        parent := MakeItemWithLot;
         resource.Get(LibraryKitting.CreateResourceWithNewUOM(500, 700));
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Resource, resource."No.", 1, resource."Base Unit of Measure");
@@ -502,7 +499,7 @@ codeunit 137908 "SCM Assembly Order"
         ParentQty := 5;
         BomQty := 2;
 
-        parent := MakeItemWithLot();
+        parent := MakeItemWithLot;
         resource.Get(LibraryKitting.CreateResourceWithNewUOM(500, 700));
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Resource, resource."No.", BomQty, resource."Base Unit of Measure");
@@ -564,6 +561,7 @@ codeunit 137908 "SCM Assembly Order"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ChangeUnitCost()
     var
@@ -586,7 +584,6 @@ codeunit 137908 "SCM Assembly Order"
         ValidateLineUnitCost(AssemblyLine, Costprice);
 
         asserterror AssemblyLine.Validate("Unit Cost", 100);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
@@ -661,10 +658,12 @@ codeunit 137908 "SCM Assembly Order"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ChangeUOMHeader()
     var
         AssemblyHeader: Record "Assembly Header";
+        AssemblyLine: Record "Assembly Line";
         Item: Record Item;
         childItem: Record Item;
         ItemUOM: Record "Item Unit of Measure";
@@ -683,14 +682,13 @@ codeunit 137908 "SCM Assembly Order"
         LibraryKitting.AddLine(
           AssemblyHeader, "BOM Component Type"::Item, childItem."No.", childItem."Base Unit of Measure", 20, 4, 'Test UOM Header');
 
-        AssemblyHeader.UpdateUnitCost();
+        AssemblyHeader.UpdateUnitCost;
         ValidateOrderUnitCost(AssemblyHeader, 400);
         LibraryInventory.CreateUnitOfMeasureCode(NonBaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", NonBaseUOM.Code, 6);
         AssemblyHeader.Validate("Unit of Measure Code", NonBaseUOM.Code);
-        AssemblyHeader.UpdateUnitCost();
+        AssemblyHeader.UpdateUnitCost;
         ValidateOrderUnitCost(AssemblyHeader, 2400);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
@@ -740,6 +738,7 @@ codeunit 137908 "SCM Assembly Order"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ValidateQuantityPerOrder()
     var
@@ -765,12 +764,12 @@ codeunit 137908 "SCM Assembly Order"
         AsmLineFindFirst(AssemblyHeader, AssemblyLine);
         ValidateQuantityPer(AssemblyLine, BomQuantity);
         validateQuantityonLines(AssemblyHeader."No.", OrderQuantity * BomQuantity);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure PartiallypostedRefresh()
     var
@@ -781,14 +780,13 @@ codeunit 137908 "SCM Assembly Order"
     begin
         Initialize();
         parent := LibraryKitting.CreateStdCostItemWithNewUOM(500, 700, 1);
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 4));
         validateCount(AssemblyHeader."No.", 1);
         AssemblyHeader."Remaining Quantity (Base)" := 3;
         AssemblyHeader.Validate(Quantity, 2);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
@@ -867,7 +865,7 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -902,7 +900,7 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -937,7 +935,7 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -965,12 +963,13 @@ codeunit 137908 "SCM Assembly Order"
         BaseUOM: Record "Unit of Measure";
         NonBaseQtyPerUOM: Decimal;
         BaseQtyPerUOM: Decimal;
+        QtyRoundingPrecision: Decimal;
     begin
         Initialize();
         NonBaseQtyPerUOM := 3;
         BaseQtyPerUOM := 1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         Item.Validate("Base Unit of Measure", ItemUOM.Code);
@@ -1003,7 +1002,7 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1038,7 +1037,7 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1074,7 +1073,7 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1110,7 +1109,7 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1146,7 +1145,7 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        Item.Get(MakeItemWithLot());
+        Item.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, Item."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1184,8 +1183,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1222,8 +1221,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1260,8 +1259,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1292,13 +1291,14 @@ codeunit 137908 "SCM Assembly Order"
         BaseUOM: Record "Unit of Measure";
         NonBaseQtyPerUOM: Decimal;
         BaseQtyPerUOM: Decimal;
+        QtyRoundingPrecision: Decimal;
     begin
         Initialize();
         NonBaseQtyPerUOM := 3;
         BaseQtyPerUOM := 1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ChildItem.Validate("Base Unit of Measure", ItemUOM.Code);
@@ -1334,8 +1334,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1373,8 +1373,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1413,8 +1413,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1453,8 +1453,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1493,8 +1493,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.1;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1533,8 +1533,8 @@ codeunit 137908 "SCM Assembly Order"
         BaseQtyPerUOM := 1;
         QtyRoundingPrecision := 0.00001;
 
-        ParentItem.Get(MakeItemWithLot());
-        ChildItem.Get(MakeItemWithLot());
+        ParentItem.Get(MakeItemWithLot);
+        ChildItem.Get(MakeItemWithLot);
         LibraryInventory.CreateUnitOfMeasureCode(BaseUOM);
         LibraryInventory.CreateItemUnitOfMeasure(ItemUOM, ChildItem."No.", BaseUOM.Code, BaseQtyPerUOM);
         ItemUOM."Qty. Rounding Precision" := QtyRoundingPrecision;
@@ -1563,10 +1563,10 @@ codeunit 137908 "SCM Assembly Order"
     local procedure CreatePostedAssemblyHeader(var PostedAsmHeader: Record "Posted Assembly Header"; AssemblyHeader: Record "Assembly Header")
     var
         AssemblySetup: Record "Assembly Setup";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         PostedAssemblyNos: Code[20];
     begin
-        PostedAssemblyNos := LibraryUtility.GetGlobalNoSeriesCode();
+        PostedAssemblyNos := LibraryUtility.GetGlobalNoSeriesCode;
         AssemblySetup.Get();
         if AssemblySetup."Posted Assembly Order Nos." <> PostedAssemblyNos then begin
             AssemblySetup."Posted Assembly Order Nos." := PostedAssemblyNos;
@@ -1574,13 +1574,14 @@ codeunit 137908 "SCM Assembly Order"
         end;
 
         Clear(PostedAsmHeader);
-        PostedAsmHeader."No." := NoSeries.GetNextNo(PostedAssemblyNos);
+        PostedAsmHeader."No." := NoSeriesManagement.GetNextNo(PostedAssemblyNos, 0D, true);
         PostedAsmHeader.TransferFields(AssemblyHeader);
         PostedAsmHeader."Order No." := AssemblyHeader."No.";
         PostedAsmHeader.Insert();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure ChangeQuantity()
     var
@@ -1591,7 +1592,7 @@ codeunit 137908 "SCM Assembly Order"
     begin
         Initialize();
         parent := LibraryKitting.CreateStdCostItemWithNewUOM(500, 700, 1);
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
         AssemblyHeader.Get(AssemblyHeader."Document Type"::Order, LibraryKitting.CreateOrder(WorkDate2, parent, 1));
@@ -1599,7 +1600,6 @@ codeunit 137908 "SCM Assembly Order"
         AssemblyHeader.Validate(Quantity, 2);
         validateCount(AssemblyHeader."No.", 1);
         validateQuantityonLines(AssemblyHeader."No.", 2);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         asserterror Error('') // roll back
     end;
@@ -1615,7 +1615,7 @@ codeunit 137908 "SCM Assembly Order"
     begin
         Initialize();
         parent := LibraryKitting.CreateStdCostItemWithNewUOM(500, 700, 1);
-        childItem.Get(MakeItem());
+        childItem.Get(MakeItem);
         LibraryManufacturing.CreateBOMComponent(
           BOMComp, parent, BOMComp.Type::Item, childItem."No.", 1, childItem."Base Unit of Measure");
         CreateAssemblyOrderWithoutLines(AssemblyHeader, WorkDate2, parent);
@@ -1732,7 +1732,7 @@ codeunit 137908 "SCM Assembly Order"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmLocationChange')]
+    [HandlerFunctions('ConfirmLocationChange,AvailabilityWindowHandler')]
     procedure VerifyDimensionsAreNotReInitializedIfDefaultDimensionDoesntExist()
     var
         AssemblyHeader: Record "Assembly Header";
@@ -1767,12 +1767,11 @@ codeunit 137908 "SCM Assembly Order"
         UpdateGlobalDimensionOnAssemblyLine(AssemblyLineItem, DimensionValue2);
 
         // [WHEN] Change Location on Assembly Line
-        // [HANDLERS] ConfirmLocationChange
+        // [HANDLERS] ConfirmLocationChange, AvailabilityWindowHandler
         UpdateLocationOnAssemblyOrderLine(AssemblyOrder, AssemblyHeader, Location.Code);
 
         // [THEN] Verify dimension is not changed on Line
         VerifyDimensionIsNotReInitializedOnLine(AssemblyLineItem, DimensionValue2);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
@@ -2013,6 +2012,13 @@ codeunit 137908 "SCM Assembly Order"
         AssemblyLine.Insert(true);
         AssemblyLine.Validate(Type, Type);
         AssemblyLine.Modify(true);
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure AvailabilityWindowHandler(var AsmAvailability: Page "Assembly Availability"; var Response: Action)
+    begin
+        Response := ACTION::Yes; // always confirm
     end;
 
     local procedure ValidateLineUnitCost(AssemblyLine: Record "Assembly Line"; ExpectedCost: Decimal)

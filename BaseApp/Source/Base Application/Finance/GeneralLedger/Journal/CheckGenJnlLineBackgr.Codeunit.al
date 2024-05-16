@@ -145,7 +145,7 @@ codeunit 9081 "Check Gen. Jnl. Line. Backgr."
     var
         ID: Integer;
     begin
-        if TempErrorMessage.FindLast() then;
+        If TempErrorMessage.FindLast() then;
         ID := TempErrorMessage.ID + 1;
 
         if TempLineErrorMessage.FindSet() then

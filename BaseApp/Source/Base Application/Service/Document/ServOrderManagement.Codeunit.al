@@ -5,7 +5,6 @@ using Microsoft.CRM.Contact;
 using Microsoft.Finance.Dimension;
 using Microsoft.Foundation.Calendar;
 using Microsoft.Foundation.NoSeries;
-using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Tracking;
 using Microsoft.Sales.Customer;
 using Microsoft.Sales.Pricing;
@@ -110,29 +109,31 @@ codeunit 5900 ServOrderManagement
         Cust: Record Customer;
         ConfirmManagement: Codeunit "Confirm Management";
     begin
-        if ServHeader."Customer No." <> '' then
-            Error(
-              Text000,
-              Cust.TableCaption(), ServHeader.FieldCaption("Customer No."));
-        if (ServHeader.Name = '') or (ServHeader.Address = '') or (ServHeader.City = '') then
-            Error(
-              Text001,
-              ServHeader.FieldCaption(Name), ServHeader.FieldCaption(Address), ServHeader.FieldCaption(City), ServHeader.TableCaption(), ServHeader."No.", Cust.TableCaption());
+        with ServHeader do begin
+            if "Customer No." <> '' then
+                Error(
+                  Text000,
+                  Cust.TableCaption(), FieldCaption("Customer No."));
+            if (Name = '') or (Address = '') or (City = '') then
+                Error(
+                  Text001,
+                  FieldCaption(Name), FieldCaption(Address), FieldCaption(City), TableCaption(), "No.", Cust.TableCaption());
 
-        Cust.Reset();
-        Cust.SetCurrentKey(Name, Address, City);
-        Cust.SetRange(Name, ServHeader.Name);
-        Cust.SetRange(Address, ServHeader.Address);
-        Cust.SetRange(City, ServHeader.City);
-        if Cust.FindFirst() then
-            if not ConfirmManagement.GetResponseOrDefault(
-                 StrSubstNo(NewCustomerQst, Cust.TableCaption()), false)
-            then begin
-                ServHeader.Validate("Customer No.", Cust."No.");
-                exit;
-            end;
-        if CreateCustFromTemplate(Cust, ServHeader) then
-            ServHeader.Validate("Customer No.", Cust."No.");
+            Cust.Reset();
+            Cust.SetCurrentKey(Name, Address, City);
+            Cust.SetRange(Name, Name);
+            Cust.SetRange(Address, Address);
+            Cust.SetRange(City, City);
+            if Cust.FindFirst() then
+                if not ConfirmManagement.GetResponseOrDefault(
+                     StrSubstNo(NewCustomerQst, Cust.TableCaption()), false)
+                then begin
+                    Validate("Customer No.", Cust."No.");
+                    exit;
+                end;
+            if CreateCustFromTemplate(Cust, ServHeader) then
+                Validate("Customer No.", Cust."No.");
+        end;
     end;
 
     procedure ReplacementCreateServItem(FromServItem: Record "Service Item"; ServiceLine: Record "Service Line"; ServShptDocNo: Code[20]; ServShptLineNo: Integer; var TempTrackingSpecification: Record "Tracking Specification" temporary)
@@ -141,11 +142,8 @@ codeunit 5900 ServOrderManagement
         NewServItem: Record "Service Item";
         ResSkill: Record "Resource Skill";
         ServLogMgt: Codeunit ServLogManagement;
-#if not CLEAN24
         NoSeriesMgt: Codeunit NoSeriesManagement;
-#endif
         ResSkillMgt: Codeunit "Resource Skill Mgt.";
-        NoSeries: Codeunit "No. Series";
         SerialNo: Code[50];
         IsHandled: Boolean;
     begin
@@ -186,16 +184,8 @@ codeunit 5900 ServOrderManagement
             ServMgtSetup.Get();
             NewServItem := FromServItem;
             NewServItem."No." := '';
-#if not CLEAN24
-            NoSeriesMgt.RaiseObsoleteOnBeforeInitSeries(ServMgtSetup."Service Item Nos.", NewServItem."No. Series", 0D, NewServItem."No.", NewServItem."No. Series", IsHandled);
-            if not IsHandled then begin
-#endif
-                NewServItem."No. Series" := ServMgtSetup."Service Item Nos.";
-                NewServItem."No." := NoSeries.GetNextNo(NewServItem."No. Series");
-#if not CLEAN24
-                NoSeriesMgt.RaiseObsoleteOnAfterInitSeries(NewServItem."No. Series", ServMgtSetup."Service Item Nos.", 0D, NewServItem."No.");
-            end;
-#endif
+            NoSeriesMgt.InitSeries(
+              ServMgtSetup."Service Item Nos.", NewServItem."No. Series", 0D, NewServItem."No.", NewServItem."No. Series");
             NewServItem."Serial No." := SerialNo;
             NewServItem."Variant Code" := ServiceLine."Variant Code";
             NewServItem."Shipment Type" := NewServItem."Shipment Type"::Service;
@@ -454,7 +444,6 @@ codeunit 5900 ServOrderManagement
             ServItem.SetCurrentKey("Customer No.", "Ship-to Code");
             ServItem.SetRange("Customer No.", ServHeader."Customer No.");
             ServItem.SetRange("Ship-to Code", ServHeader."Ship-to Code");
-            ServItem.SetFilter(Blocked, '<>%1', ServItem.Blocked::"All");
             OnLookupServItemNoOnAfterServItemSetFilters(ServItemLine, ServItem, ServHeader);
             ServItemList.SetTableView(ServItem);
             ServItemList.LookupMode(true);
@@ -740,94 +729,6 @@ codeunit 5900 ServOrderManagement
 
         exit(false);
     end;
-
-    internal procedure IsCreditDocumentType(ServiceDocumentType: Enum "Service Document Type"): Boolean
-    begin
-        exit(ServiceDocumentType in [ServiceDocumentType::"Credit Memo"]);
-    end;
-
-    # region Service Item Blocked checks
-    internal procedure CheckServiceItemBlockedForAll(var ServiceItemLine: Record "Service Item Line")
-    var
-        ServiceItem: Record "Service Item";
-    begin
-        if ServiceItemLine."Service Item No." = '' then
-            exit;
-
-        if IsCreditDocumentType(ServiceItemLine."Document Type") then
-            exit;
-
-        ServiceItem.SetLoadFields(Blocked);
-        ServiceItem.Get(ServiceItemLine."Service Item No.");
-        ServiceItem.ErrorIfBlockedForAll();
-    end;
-
-    internal procedure CheckServiceItemBlockedForAll(var ServiceLine: Record "Service Line")
-    var
-        ServiceItem: Record "Service Item";
-    begin
-        if ServiceLine."Service Item No." = '' then
-            exit;
-
-        if IsCreditDocumentType(ServiceLine."Document Type") then
-            exit;
-
-        ServiceItem.SetLoadFields(Blocked);
-        ServiceItem.Get(ServiceLine."Service Item No.");
-        ServiceItem.ErrorIfBlockedForAll();
-    end;
-    # endregion Service Item Blocked checks
-
-    # region Item Service Blocked checks
-    internal procedure CheckItemServiceBlocked(var ServiceItemLine: Record "Service Item Line")
-    var
-        Item: Record Item;
-        ItemVariant: Record "Item Variant";
-    begin
-        if ServiceItemLine."Item No." = '' then
-            exit;
-
-        Item.SetLoadFields(Blocked, "Service Blocked");
-        Item.Get(ServiceItemLine."Item No.");
-        Item.TestField(Blocked, false);
-        if not IsCreditDocumentType(ServiceItemLine."Document Type") then
-            Item.TestField("Service Blocked", false);
-
-        if ServiceItemLine."Variant Code" <> '' then begin
-            ItemVariant.SetLoadFields(Blocked, "Service Blocked");
-            ItemVariant.Get(ServiceItemLine."Item No.", ServiceItemLine."Variant Code");
-            ItemVariant.TestField(Blocked, false);
-            if not IsCreditDocumentType(ServiceItemLine."Document Type") then
-                ItemVariant.TestField("Service Blocked", false);
-        end;
-    end;
-
-    internal procedure CheckItemServiceBlocked(var ServiceLine: Record "Service Line")
-    var
-        Item: Record Item;
-        ItemVariant: Record "Item Variant";
-    begin
-        if ServiceLine.Type <> ServiceLine.Type::Item then
-            exit;
-
-        if ServiceLine."No." = '' then
-            exit;
-
-        Item.SetLoadFields(Blocked, "Service Blocked");
-        Item.Get(ServiceLine."No.");
-        Item.TestField(Blocked, false);
-        if not IsCreditDocumentType(ServiceLine."Document Type") then
-            Item.TestField("Service Blocked", false);
-
-        if ServiceLine."Variant Code" <> '' then begin
-            ItemVariant.SetLoadFields(Blocked, "Service Blocked");
-            ItemVariant.Get(ServiceLine."No.", ServiceLine."Variant Code");
-            ItemVariant.TestField(Blocked, false);
-            if not IsCreditDocumentType(ServiceLine."Document Type") then
-                ItemVariant.TestField("Service Blocked", false);
-        end;
-    end;
-    # endregion Item Service Blocked checks
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeCalcContractDates(var ServiceHeader: Record "Service Header"; var ServiceItemLine: Record "Service Item Line"; var IsHandled: Boolean)

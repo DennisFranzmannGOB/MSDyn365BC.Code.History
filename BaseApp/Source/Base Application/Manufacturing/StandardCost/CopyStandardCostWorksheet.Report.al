@@ -108,10 +108,12 @@ report 5853 "Copy Standard Cost Worksheet"
 
     local procedure InsertStdCostWksh()
     begin
-        ToStdCostWksh := "Standard Cost Worksheet";
-        ToStdCostWksh."Standard Cost Worksheet Name" := ToStdCostWkshName;
-        if not ToStdCostWksh.Insert(true) then
-            ToStdCostWksh.Modify(true);
+        with ToStdCostWksh do begin
+            ToStdCostWksh := "Standard Cost Worksheet";
+            "Standard Cost Worksheet Name" := ToStdCostWkshName;
+            if not Insert(true) then
+                Modify(true);
+        end;
     end;
 
     procedure SetCopyToWksh(ToStdCostWkshName2: Code[10])

@@ -109,9 +109,7 @@ page 9183 "Generic Chart Setup"
                         UpdateChartDefinition();
                     end;
                 }
-#pragma warning disable AA0100
                 field("TempGenericChartSetup.""Filter Text"""; TempGenericChartSetup."Filter Text")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Filters';
@@ -216,7 +214,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn2Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn2Enabled;
                             ShowCaption = false;
 
                             trigger OnLookup(var Text: Text): Boolean
@@ -262,7 +260,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn2Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn2Enabled;
                             ShowCaption = false;
 
                             trigger OnAssistEdit()
@@ -285,7 +283,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn3Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn3Enabled;
                             ShowCaption = false;
 
                             trigger OnLookup(var Text: Text): Boolean
@@ -331,7 +329,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn3Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn3Enabled;
                             ShowCaption = false;
 
                             trigger OnAssistEdit()
@@ -354,7 +352,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn4Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn4Enabled;
                             ShowCaption = false;
 
                             trigger OnLookup(var Text: Text): Boolean
@@ -400,7 +398,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn4Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn4Enabled;
                             ShowCaption = false;
 
                             trigger OnAssistEdit()
@@ -423,7 +421,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn5Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn5Enabled;
                             ShowCaption = false;
 
                             trigger OnLookup(var Text: Text): Boolean
@@ -469,7 +467,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn5Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn5Enabled;
                             ShowCaption = false;
 
                             trigger OnAssistEdit()
@@ -492,7 +490,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn6Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn6Enabled;
                             ShowCaption = false;
 
                             trigger OnLookup(var Text: Text): Boolean
@@ -538,7 +536,7 @@ page 9183 "Generic Chart Setup"
                         {
                             ApplicationArea = Basic, Suite;
                             Editable = OptionalMeasuresEnabled;
-                            Enabled = OptionalMeasuresEnabled and DataColumn6Enabled;
+                            Enabled = OptionalMeasuresEnabled AND DataColumn6Enabled;
                             ShowCaption = false;
 
                             trigger OnAssistEdit()
@@ -603,7 +601,8 @@ page 9183 "Generic Chart Setup"
                     var
                         GenericChartMgt: Codeunit "Generic Chart Mgt";
                     begin
-                        GenericChartMgt.RetrieveFieldColumn(TempGenericChartSetup, TempGenericChartSetup."X-Axis Field ID", TempGenericChartSetup."X-Axis Field Name", TempGenericChartSetup."X-Axis Title", 0, false);
+                        with TempGenericChartSetup do
+                            GenericChartMgt.RetrieveFieldColumn(TempGenericChartSetup, "X-Axis Field ID", "X-Axis Field Name", "X-Axis Title", 0, false);
                         TempGenericChartCaptionsBuf.SetCaption(GenericChartMgt.XAxisTitleCode(), GenericChartMgt.GetUserLanguage(),
                           TempGenericChartSetup."X-Axis Title");
                         ValidateDimension(1);
@@ -680,7 +679,8 @@ page 9183 "Generic Chart Setup"
                     var
                         GenericChartMgt: Codeunit "Generic Chart Mgt";
                     begin
-                        GenericChartMgt.RetrieveFieldColumn(TempGenericChartSetup, TempGenericChartSetup."Z-Axis Field ID", TempGenericChartSetup."Z-Axis Field Name", TempGenericChartSetup."Z-Axis Title", 0, false);
+                        with TempGenericChartSetup do
+                            GenericChartMgt.RetrieveFieldColumn(TempGenericChartSetup, "Z-Axis Field ID", "Z-Axis Field Name", "Z-Axis Title", 0, false);
                         ValidateDimension(2);
                     end;
 
@@ -910,16 +910,18 @@ page 9183 "Generic Chart Setup"
         DummyAggregation: Option "None","Count","Sum","Min","Max",Avg;
     begin
         GenericChartMgt.CheckSourceTypeID(TempGenericChartSetup, true);
-        if (TempGenericChartSetup."X-Axis Field Name" <> '') and (TempGenericChartSetup."Z-Axis Field Name" <> '') and (TempGenericChartSetup."X-Axis Field Name" = TempGenericChartSetup."Z-Axis Field Name") then
-            Error(Text002, DataColumn[Index]);
-        case Index of
-            1:
-                GenericChartMgt.ValidateFieldColumn(
-                  TempGenericChartSetup, TempGenericChartSetup."X-Axis Field ID", TempGenericChartSetup."X-Axis Field Name", TempGenericChartSetup."X-Axis Title", 0, false, DummyAggregation);
-            2:
-                GenericChartMgt.ValidateFieldColumn(
-                  TempGenericChartSetup, TempGenericChartSetup."Z-Axis Field ID", TempGenericChartSetup."Z-Axis Field Name", TempGenericChartSetup."Z-Axis Title", 0, false, DummyAggregation);
-        end;
+        with TempGenericChartSetup do
+            if ("X-Axis Field Name" <> '') and ("Z-Axis Field Name" <> '') and ("X-Axis Field Name" = "Z-Axis Field Name") then
+                Error(Text002, DataColumn[Index]);
+        with TempGenericChartSetup do
+            case Index of
+                1:
+                    GenericChartMgt.ValidateFieldColumn(
+                      TempGenericChartSetup, "X-Axis Field ID", "X-Axis Field Name", "X-Axis Title", 0, false, DummyAggregation);
+                2:
+                    GenericChartMgt.ValidateFieldColumn(
+                      TempGenericChartSetup, "Z-Axis Field ID", "Z-Axis Field Name", "Z-Axis Title", 0, false, DummyAggregation);
+            end;
         UpdateChartDefinition();
         EnableControls();
     end;
@@ -999,7 +1001,8 @@ page 9183 "Generic Chart Setup"
 
     local procedure ChartDefinitionCreationIsPossible(): Boolean
     begin
-        exit((TempGenericChartSetup."Source Type" <> TempGenericChartSetup."Source Type"::" ") and (TempGenericChartSetup."Source ID" <> 0));
+        with TempGenericChartSetup do
+            exit(("Source Type" <> "Source Type"::" ") and ("Source ID" <> 0));
     end;
 
     local procedure RefreshPreview()
@@ -1052,31 +1055,35 @@ page 9183 "Generic Chart Setup"
         SourceID: Integer;
     begin
         ID := TempGenericChartSetup.ID;
-        SourceType := TempGenericChartSetup."Source Type";
-        SourceID := TempGenericChartSetup."Source ID";
-        case CalledFrom of
-            CalledFrom::"Source Type":
-                begin
-                    if TempGenericChartSetup."Source Type" = xRecSourceType then
-                        exit;
-                    if xRecSourceType <> xRecSourceType::" " then
-                        if not Confirm(Text001, true, TempGenericChartSetup.FieldCaption("Source Type")) then
-                            Error('');
-                end;
-            CalledFrom::"Source ID":
-                begin
-                    if TempGenericChartSetup."Source ID" = xRecSourceID then
-                        exit;
-                    if xRecSourceID <> 0 then
-                        if not Confirm(Text001, true, TempGenericChartSetup.FieldCaption("Source ID")) then
-                            Error('');
-                end;
+        with TempGenericChartSetup do begin
+            SourceType := "Source Type";
+            SourceID := "Source ID";
+            case CalledFrom of
+                CalledFrom::"Source Type":
+                    begin
+                        if "Source Type" = xRecSourceType then
+                            exit;
+                        if xRecSourceType <> xRecSourceType::" " then
+                            if not Confirm(Text001, true, FieldCaption("Source Type")) then
+                                Error('');
+                    end;
+                CalledFrom::"Source ID":
+                    begin
+                        if "Source ID" = xRecSourceID then
+                            exit;
+                        if xRecSourceID <> 0 then
+                            if not Confirm(Text001, true, FieldCaption("Source ID")) then
+                                Error('');
+                    end;
+            end;
         end;
         ClearAllVariables();
         TempGenericChartSetup.ID := ID;
-        TempGenericChartSetup."Source Type" := SourceType;
-        if CalledFrom = CalledFrom::"Source ID" then
-            TempGenericChartSetup."Source ID" := SourceID;
+        with TempGenericChartSetup do begin
+            "Source Type" := SourceType;
+            if CalledFrom = CalledFrom::"Source ID" then
+                "Source ID" := SourceID;
+        end;
     end;
 
     local procedure ClearAllVariables()

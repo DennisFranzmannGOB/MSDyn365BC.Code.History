@@ -5,7 +5,6 @@ table 99000761 Stop
     Caption = 'Stop';
     DrillDownPageID = "Stop Codes";
     LookupPageID = "Stop Codes";
-    DataClassification = CustomerContent;
 
     fields
     {

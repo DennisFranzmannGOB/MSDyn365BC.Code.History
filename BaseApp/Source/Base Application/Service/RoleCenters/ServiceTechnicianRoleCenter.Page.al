@@ -19,12 +19,8 @@ page 9017 "Service Technician Role Center"
     {
         area(rolecenter)
         {
-#if not CLEAN24
             group(Control1900724808)
             {
-                ObsoleteReason = 'Group removed for better alignment of Role Centers parts';
-                ObsoleteState = Pending;
-                ObsoleteTag = '24.0';
                 ShowCaption = false;
                 part(Control1900744308; "Serv Outbound Technician Act.")
                 {
@@ -37,9 +33,6 @@ page 9017 "Service Technician Role Center"
             }
             group(Control1900724708)
             {
-                ObsoleteReason = 'Group removed for better alignment of Role Centers parts';
-                ObsoleteState = Pending;
-                ObsoleteTag = '24.0';
                 ShowCaption = false;
                 part(Control8; "My Job Queue")
                 {
@@ -60,34 +53,6 @@ page 9017 "Service Technician Role Center"
                     ApplicationArea = Service;
                 }
             }
-#else
-            part(Control1900744308; "Serv Outbound Technician Act.")
-            {
-                ApplicationArea = Service;
-            }
-            part("User Tasks Activities"; "User Tasks Activities")
-            {
-                ApplicationArea = Suite;
-            }
-            part(Control8; "My Job Queue")
-            {
-                ApplicationArea = Service;
-                Visible = false;
-            }
-            part(Control1907692008; "My Customers")
-            {
-                ApplicationArea = Service;
-            }
-            part(Control4; "Report Inbox Part")
-            {
-                ApplicationArea = Service;
-                Visible = false;
-            }
-            systempart(Control1901377608; MyNotes)
-            {
-                ApplicationArea = Service;
-            }
-#endif
         }
     }
 

@@ -9,7 +9,7 @@ report 39 "Copy Financial Report"
     {
         dataitem(SourceFinancialReport; "Financial Report")
         {
-            DataItemTableView = sorting(Name) order(ascending);
+            DataItemTableView = sorting(Name) order(Ascending);
 
             trigger OnAfterGetRecord()
             var

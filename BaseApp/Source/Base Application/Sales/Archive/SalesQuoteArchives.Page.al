@@ -2,7 +2,6 @@ namespace Microsoft.Sales.Archive;
 
 using Microsoft.Finance.Dimension;
 using System.Security.User;
-using Microsoft.EServices.EDocument;
 
 page 9348 "Sales Quote Archives"
 {
@@ -205,12 +204,6 @@ page 9348 "Sales Quote Archives"
         }
         area(factboxes)
         {
-            part(IncomingDocAttachFactBox; "Incoming Doc. Attach. FactBox")
-            {
-                ApplicationArea = Basic, Suite;
-                ShowFilter = false;
-                Visible = false;
-            }
             systempart(Control1900383207; Links)
             {
                 ApplicationArea = RecordLinks;
@@ -262,10 +255,5 @@ page 9348 "Sales Quote Archives"
             }
         }
     }
-
-    trigger OnAfterGetCurrRecord()
-    begin
-        CurrPage.IncomingDocAttachFactBox.Page.LoadDataFromRecord(Rec);
-    end;
 }
 

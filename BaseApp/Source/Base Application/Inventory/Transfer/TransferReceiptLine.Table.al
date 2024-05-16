@@ -13,7 +13,6 @@ table 5747 "Transfer Receipt Line"
 {
     Caption = 'Transfer Receipt Line';
     LookupPageID = "Posted Transfer Receipt Lines";
-    DataClassification = CustomerContent;
 
     fields
     {

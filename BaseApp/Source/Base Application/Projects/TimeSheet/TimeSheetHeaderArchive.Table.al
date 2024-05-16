@@ -10,7 +10,6 @@ using System.Security.User;
 table 954 "Time Sheet Header Archive"
 {
     Caption = 'Time Sheet Header Archive';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -50,7 +49,7 @@ table 954 "Time Sheet Header Archive"
         }
         field(11; "Unit of Measure"; Code[10])
         {
-            CalcFormula = lookup(Resource."Base Unit of Measure" where("No." = field("Resource No.")));
+            CalcFormula = Lookup(Resource."Base Unit of Measure" where("No." = field("Resource No.")));
             Caption = 'Unit of Measure';
             FieldClass = FlowField;
             Editable = false;
@@ -82,12 +81,12 @@ table 954 "Time Sheet Header Archive"
         }
         field(31; "Job No. Filter"; Code[20])
         {
-            Caption = 'Project No. Filter';
+            Caption = 'Job No. Filter';
             FieldClass = FlowFilter;
         }
         field(32; "Job Task No. Filter"; Code[20])
         {
-            Caption = 'Project Task No. Filter';
+            Caption = 'Job Task No. Filter';
             FieldClass = FlowFilter;
         }
         field(33; "Date Filter"; Date)

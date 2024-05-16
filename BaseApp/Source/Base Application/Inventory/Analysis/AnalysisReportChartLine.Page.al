@@ -54,9 +54,9 @@ page 777 "Analysis Report Chart Line"
                 {
                     ApplicationArea = All;
                     Caption = 'Show';
-                    Editable = not IsMeasure;
+                    Editable = NOT IsMeasure;
                     ToolTip = 'Specifies if the selected value is shown in the window.';
-                    Visible = not IsMeasure;
+                    Visible = NOT IsMeasure;
 
                     trigger OnValidate()
                     begin

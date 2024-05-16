@@ -12,7 +12,6 @@ table 1660 "Payroll Setup"
     Caption = 'Payroll Setup';
     DrillDownPageID = "Incoming Documents Setup";
     LookupPageID = "Incoming Documents Setup";
-    DataClassification = CustomerContent;
 
     fields
     {

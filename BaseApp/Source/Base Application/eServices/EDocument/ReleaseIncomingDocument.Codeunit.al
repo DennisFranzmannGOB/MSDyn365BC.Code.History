@@ -42,48 +42,60 @@ codeunit 132 "Release Incoming Document"
         CanReleasedIfStatusErr: Label 'It is only possible to release the document when the status is %1, %2 or %3.', Comment = '%1 = status released, %2 = status pending approval';
 
     procedure Reopen(var IncomingDocument: Record "Incoming Document")
+    var
+        RelatedRecord: Variant;
     begin
-        if IncomingDocument.Status = IncomingDocument.Status::New then
-            exit;
-        ClearReleaseFields(IncomingDocument);
-        IncomingDocument.Status := IncomingDocument.Status::New;
+        with IncomingDocument do begin
+            if Status = Status::New then
+                exit;
+            ClearReleaseFields(IncomingDocument);
 
-        IncomingDocument.Modify(true);
+        if not ((Status = Status::Created) and (GetRecord(RelatedRecord))) then
+                Status := Status::New;
+
+            Modify(true);
+        end;
     end;
 
     procedure Reject(var IncomingDocument: Record "Incoming Document")
     begin
-        IncomingDocument.TestField(Posted, false);
+        with IncomingDocument do begin
+            TestField(Posted, false);
 
-        ClearReleaseFields(IncomingDocument);
-        IncomingDocument.Status := IncomingDocument.Status::Rejected;
+            ClearReleaseFields(IncomingDocument);
+            Status := Status::Rejected;
 
-        IncomingDocument.Modify(true);
+            Modify(true);
+        end;
     end;
 
     procedure Fail(var IncomingDocument: Record "Incoming Document")
     begin
-        if IncomingDocument.Status = IncomingDocument.Status::Failed then
-            exit;
+        with IncomingDocument do begin
+            if Status = Status::Failed then
+                exit;
 
-        IncomingDocument.Status := IncomingDocument.Status::Failed;
+            Status := Status::Failed;
 
-        IncomingDocument.Modify(true);
-        Commit();
+            Modify(true);
+            Commit();
 
-        OnAfterCreateDocFromIncomingDocFail(IncomingDocument);
+            OnAfterCreateDocFromIncomingDocFail(IncomingDocument);
+        end;
     end;
 
     procedure Create(var IncomingDocument: Record "Incoming Document")
     begin
-        if IncomingDocument.Status = IncomingDocument.Status::Created then
-            exit;
+        with IncomingDocument do begin
+            if Status = Status::Created then
+                exit;
 
-        IncomingDocument.Status := IncomingDocument.Status::Created;
+            Status := Status::Created;
 
-        IncomingDocument.Modify(true);
-        Commit();
-        OnAfterCreateDocFromIncomingDocSuccess(IncomingDocument);
+            Modify(true);
+            Commit();
+            OnAfterCreateDocFromIncomingDocSuccess(IncomingDocument);
+        end;
     end;
 
     [Scope('OnPrem')]

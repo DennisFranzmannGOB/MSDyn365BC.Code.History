@@ -5,7 +5,6 @@ using System.Reflection;
 table 5099 "Saved Segment Criteria Line"
 {
     Caption = 'Saved Segment Criteria Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -70,7 +69,7 @@ table 5099 "Saved Segment Criteria Line"
         }
         field(13; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Table No.")));
             Caption = 'Table Caption';
             Editable = false;

@@ -915,8 +915,8 @@ report 1305 "Standard Sales - Order Conf."
 
                 OnHeaderOnAfterGetRecordOnAfterUpdateNoPrinted(IsReportInPreviewMode(), Header);
 
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 CalcFields("Work Description");
@@ -1121,12 +1121,13 @@ report 1305 "Standard Sales - Order Conf."
         AsmHeader: Record "Assembly Header";
         SellToContact: Record Contact;
         BillToContact: Record Contact;
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;
         AutoFormat: Codeunit "Auto Format";
         WorkDescriptionInstream: InStream;
+        LineDiscountPctText: Text;
         MoreLines: Boolean;
         CopyText: Text[30];
         TransHeaderAmount: Decimal;
@@ -1210,7 +1211,6 @@ report 1305 "Standard Sales - Order Conf."
         FormattedQuantity: Text;
         FormattedUnitPrice: Text;
         FormattedVATPct: Text;
-        LineDiscountPctText: Text;
         SalesPersonText: Text[50];
         ShowShippingAddr: Boolean;
         VATBaseLCY: Decimal;
@@ -1251,11 +1251,13 @@ report 1305 "Standard Sales - Order Conf."
 
     local procedure FormatDocumentFields(SalesHeader: Record "Sales Header")
     begin
-        FormatDocument.SetTotalLabels(SalesHeader."Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
-        FormatDocument.SetSalesPerson(SalespersonPurchaser, SalesHeader."Salesperson Code", SalesPersonText);
-        FormatDocument.SetPaymentTerms(PaymentTerms, SalesHeader."Payment Terms Code", SalesHeader."Language Code");
-        FormatDocument.SetPaymentMethod(PaymentMethod, SalesHeader."Payment Method Code", SalesHeader."Language Code");
-        FormatDocument.SetShipmentMethod(ShipmentMethod, SalesHeader."Shipment Method Code", SalesHeader."Language Code");
+        with SalesHeader do begin
+            FormatDocument.SetTotalLabels("Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
+            FormatDocument.SetSalesPerson(SalespersonPurchaser, "Salesperson Code", SalesPersonText);
+            FormatDocument.SetPaymentTerms(PaymentTerms, "Payment Terms Code", "Language Code");
+            FormatDocument.SetPaymentMethod(PaymentMethod, "Payment Method Code", "Language Code");
+            FormatDocument.SetShipmentMethod(ShipmentMethod, "Shipment Method Code", "Language Code");
+        end;
 
         OnAfterFormatDocumentFields(SalesHeader);
     end;
@@ -1273,14 +1275,14 @@ report 1305 "Standard Sales - Order Conf."
     begin
         ReportTotalsLine.DeleteAll();
         if (TotalInvDiscAmount <> 0) or (TotalAmountVAT <> 0) then
-            ReportTotalsLine.Add(SubtotalLbl, TotalSubTotal, true, false, false, Header."Currency Code");
+            ReportTotalsLine.Add(SubtotalLbl, TotalSubTotal, true, false, false);
         if TotalInvDiscAmount <> 0 then begin
-            ReportTotalsLine.Add(InvDiscountAmtLbl, TotalInvDiscAmount, false, false, false, Header."Currency Code");
+            ReportTotalsLine.Add(InvDiscountAmtLbl, TotalInvDiscAmount, false, false, false);
             if TotalAmountVAT <> 0 then
-                ReportTotalsLine.Add(TotalExclVATText, TotalAmount, true, false, false, Header."Currency Code");
+                ReportTotalsLine.Add(TotalExclVATText, TotalAmount, true, false, false);
         end;
         if TotalAmountVAT <> 0 then begin
-            ReportTotalsLine.Add(VATAmountLine.VATAmountText(), TotalAmountVAT, false, true, false, Header."Currency Code");
+            ReportTotalsLine.Add(VATAmountLine.VATAmountText(), TotalAmountVAT, false, true, false);
             if TotalVATAmountLCY <> TotalAmountVAT then
                 ReportTotalsLine.Add(VATAmountLine.VATAmountText() + LCYTxt, TotalVATAmountLCY, false, true, false);
         end;

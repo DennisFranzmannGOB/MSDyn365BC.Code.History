@@ -7,7 +7,6 @@ using Microsoft.Foundation.AuditCodes;
 table 1101 "Cost Journal Line"
 {
     Caption = 'Cost Journal Line';
-    DataClassification = CustomerContent;
 
     fields
     {

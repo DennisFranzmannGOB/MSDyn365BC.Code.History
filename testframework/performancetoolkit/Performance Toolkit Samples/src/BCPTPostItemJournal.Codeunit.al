@@ -11,6 +11,7 @@ codeunit 149120 "BCPT Post Item Journal"
     SingleInstance = true;
 
     trigger OnRun();
+    var
     begin
         PostItemJournal();
     end;
@@ -67,7 +68,7 @@ codeunit 149120 "BCPT Post Item Journal"
     procedure CreateItemJnlLineWithNoItem(var ItemJournalLine: Record "Item Journal Line"; ItemJournalBatch: Record "Item Journal Batch"; JournalTemplateName: Code[10]; JournalBatchName: Code[10]; EntryType: Enum "Item Ledger Entry Type")
     var
         NoSeries: Record "No. Series";
-        NoSeriesSingle: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         RecRef: RecordRef;
         DocumentNo: Code[20];
     begin
@@ -81,7 +82,7 @@ codeunit 149120 "BCPT Post Item Journal"
         ItemJournalLine.Validate("Posting Date", WorkDate());
         ItemJournalLine.Validate("Entry Type", EntryType);
         if NoSeries.Get(ItemJournalBatch."No. Series") then
-            DocumentNo := NoSeriesSingle.GetNextNo(ItemJournalBatch."No. Series", ItemJournalLine."Posting Date", false);
+            DocumentNo := NoSeriesManagement.GetNextNo(ItemJournalBatch."No. Series", ItemJournalLine."Posting Date", false);
         ItemJournalLine.Validate("Document No.", DocumentNo);
         ItemJournalLine.Modify(true);
     end;

@@ -8,7 +8,6 @@ table 1520 "Workflow Event"
     LookupPageID = "Workflow Events";
     Permissions = TableData "Workflow Step Argument" = rm;
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

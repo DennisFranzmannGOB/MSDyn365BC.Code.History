@@ -3,7 +3,6 @@ table 1307 "O365 Device Setup Instructions"
     Caption = 'O365 Device Setup Instructions';
     DataPerCompany = false;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

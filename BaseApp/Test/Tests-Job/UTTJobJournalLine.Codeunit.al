@@ -469,6 +469,7 @@ codeunit 136351 "UT T Job Journal Line"
         NonBaseUOM: Record "Unit of Measure";
         BaseUOM: Record "Unit of Measure";
         NonBaseQtyPerUOM: Decimal;
+        QtyRoundingPrecision: Decimal;
         QtyToSet: Decimal;
     begin
         // [FEATURE] [Job Journal Line - Rounding Precision]

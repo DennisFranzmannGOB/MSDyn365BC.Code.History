@@ -20,7 +20,6 @@ table 382 "CV Ledger Entry Buffer"
 {
     Caption = 'CV Ledger Entry Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -570,10 +569,8 @@ table 382 "CV Ledger Entry Buffer"
         "Bal. Account No." := EmplLedgEntry."Bal. Account No.";
         "Transaction No." := EmplLedgEntry."Transaction No.";
         "Closed by Amount (LCY)" := EmplLedgEntry."Closed by Amount (LCY)";
-        "Closed by Currency Code" := EmplLedgEntry."Closed by Currency Code";
-        "Closed by Currency Amount" := EmplLedgEntry."Closed by Currency Amount";
-        "Adjusted Currency Factor" := EmplLedgEntry."Adjusted Currency Factor";
-        "Original Currency Factor" := EmplLedgEntry."Original Currency Factor";
+        "Adjusted Currency Factor" := 1;
+        "Original Currency Factor" := 1;
         "Debit Amount" := EmplLedgEntry."Debit Amount";
         "Credit Amount" := EmplLedgEntry."Credit Amount";
         "Debit Amount (LCY)" := EmplLedgEntry."Debit Amount (LCY)";

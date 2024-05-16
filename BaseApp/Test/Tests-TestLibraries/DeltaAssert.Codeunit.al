@@ -23,9 +23,11 @@ codeunit 130001 "Delta Assert"
         FieldRef: FieldRef;
     begin
         // Computes the current value of the surveyed field
-        RecRef.Open(Watch.TableNo, false, CompanyName);
-        RecRef.SetPosition(Watch.PositionNo);
-        FieldRef := RecRef.Field(Watch.FieldNo);
+        with Watch do begin
+            RecRef.Open(TableNo, false, CompanyName);
+            RecRef.SetPosition(PositionNo);
+            FieldRef := RecRef.Field(FieldNo);
+        end;
 
         if FieldRef.Class = FieldClass::FlowField then
             FieldRef.CalcField();
@@ -49,7 +51,7 @@ codeunit 130001 "Delta Assert"
 
         // Initializes the delta assertion by setting table, view and field information
         Initialized := true;
-        ClearWatches();
+        ClearWatches;
     end;
 
     [Scope('OnPrem')]
@@ -97,8 +99,9 @@ codeunit 130001 "Delta Assert"
 
     local procedure AssertWatch(Watch: Record "Delta watch")
     begin
-        LibAssert.AreNearlyEqual(Watch.OriginalValue + Watch.Delta, GetValue(Watch), Tolerance,
-              StrSubstNo('Delta Assertion <Table: %1, Key: %2, Delta: %3>', GetTableName(Watch), Watch.PositionNo, Watch.Delta));
+        with Watch do
+            LibAssert.AreNearlyEqual(OriginalValue + Delta, GetValue(Watch), Tolerance,
+              StrSubstNo('Delta Assertion <Table: %1, Key: %2, Delta: %3>', GetTableName(Watch), PositionNo, Delta));
     end;
 
     [Scope('OnPrem')]

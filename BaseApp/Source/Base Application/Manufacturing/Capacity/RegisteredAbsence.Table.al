@@ -6,7 +6,6 @@ using Microsoft.Manufacturing.WorkCenter;
 table 99000848 "Registered Absence"
 {
     Caption = 'Registered Absence';
-    DataClassification = CustomerContent;
 
     fields
     {

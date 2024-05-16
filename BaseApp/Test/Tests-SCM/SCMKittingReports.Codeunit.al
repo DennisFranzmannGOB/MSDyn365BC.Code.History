@@ -25,7 +25,6 @@ codeunit 137390 "SCM Kitting -  Reports"
         LibraryReportDataset: Codeunit "Library - Report Dataset";
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
         LibrarySetupStorage: Codeunit "Library - Setup Storage";
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibrarySales: Codeunit "Library - Sales";
         Assert: Codeunit Assert;
@@ -57,7 +56,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         LibrarySetupStorage.Restore();
         ClearLastError();
         LibraryAssembly.UpdateAssemblySetup(AssemblySetup, '', AssemblySetup."Copy Component Dimensions from"::"Item/Resource Card",
-          LibraryUtility.GetGlobalNoSeriesCode());
+          LibraryUtility.GetGlobalNoSeriesCode);
         LibraryAssembly.UpdateInventorySetup(InventorySetup, false, true, InventorySetup."Automatic Cost Adjustment"::Never,
           InventorySetup."Average Cost Calc. Type"::"Item & Location & Variant", InventorySetup."Average Cost Period"::Day);
 
@@ -86,6 +85,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Normal]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     local procedure NormalPosting(var AssemblyHeader: Record "Assembly Header"; CostingMethod: Enum "Costing Method"; PartialPostFactor: Decimal; IndirectCost: Decimal; AdjustmentSource: Option; AssemblyPolicy: Enum "Assembly Policy"; MixedReplenishment: Option)
     var
         ItemJournalLine: Record "Item Journal Line";
@@ -136,12 +136,10 @@ codeunit 137390 "SCM Kitting -  Reports"
             LibraryAssembly.CreateAdjustmentSource(AssemblyHeader, WorkDate2, false, AdjustmentSource, ItemNo[1], '');
             LibraryCosting.AdjustCostItemEntries(ItemFilter, '');
         end;
-
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueFullPostingSTD()
     var
@@ -154,7 +152,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueFullPostingAVG()
     var
@@ -167,7 +165,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValuePartialPostingSTD()
     var
@@ -180,7 +178,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValuePartialPostingAVG()
     var
@@ -193,7 +191,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueRevalSTD()
     var
@@ -206,7 +204,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueRevalAVG()
     var
@@ -219,7 +217,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,ItemRegValueReqPageHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueFullPostingATOSTD()
     var
@@ -232,7 +230,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueIndCostAVG()
     var
@@ -245,7 +243,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueIndCostSTD()
     var
@@ -258,7 +256,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueTopItemProduced()
     var
@@ -271,7 +269,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ItemRegValueReqPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,ItemRegValueReqPageHandler')]
     [Scope('OnPrem')]
     procedure ItemRegValueTopItemAssembly()
     var
@@ -284,7 +282,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecFullPostingSTD()
     var
@@ -297,7 +295,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecFullPostingAVG()
     var
@@ -310,7 +308,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecPartialPostingSTD()
     var
@@ -323,7 +321,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecPartialPostingAVG()
     var
@@ -336,7 +334,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecRevalSTD()
     var
@@ -349,7 +347,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecRevalAVG()
     var
@@ -362,7 +360,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecFullPostingATOSTD()
     var
@@ -375,7 +373,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecFullPostingATOAvg()
     var
@@ -388,7 +386,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecIndCostAVG()
     var
@@ -401,7 +399,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecIndCostSTD()
     var
@@ -414,7 +412,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecTopItemProduced()
     var
@@ -427,7 +425,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationCostSpecRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationCostSpecRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValCostSpecTopItemAssembly()
     var
@@ -440,7 +438,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationFullPostingSTD()
     var
@@ -453,7 +451,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationFullPostingAVG()
     var
@@ -466,7 +464,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationPartialPostingSTD()
     var
@@ -479,7 +477,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationPartialPostingAVG()
     var
@@ -492,7 +490,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationRevalSTD()
     var
@@ -505,7 +503,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationRevalAVG()
     var
@@ -518,7 +516,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,InvtValuationRequestPageHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationFullPostingATOSTD()
     var
@@ -531,7 +529,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationIndCostAVG()
     var
@@ -544,7 +542,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationIndCostSTD()
     var
@@ -557,7 +555,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationTopItemProduced()
     var
@@ -570,7 +568,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtValuationRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,InvtValuationRequestPageHandler')]
     [Scope('OnPrem')]
     procedure InvtValuationTopItemAssembly()
     var
@@ -583,7 +581,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('CostSharesBreakdownRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,CostSharesBreakdownRequestPageHandler')]
     [Scope('OnPrem')]
     procedure CostSharesRevalSTD()
     var
@@ -596,7 +594,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('CostSharesBreakdownRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,CostSharesBreakdownRequestPageHandler')]
     [Scope('OnPrem')]
     procedure CostSharesRevalAVG()
     var
@@ -609,7 +607,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,CostSharesBreakdownRequestPageHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler,CostSharesBreakdownRequestPageHandler')]
     [Scope('OnPrem')]
     procedure CostSharesATOSTD()
     var
@@ -623,7 +621,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('CostSharesBreakdownRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,CostSharesBreakdownRequestPageHandler')]
     [Scope('OnPrem')]
     procedure CostSharesIndCostSTD()
     var
@@ -636,7 +634,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('CostSharesBreakdownRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,CostSharesBreakdownRequestPageHandler')]
     [Scope('OnPrem')]
     procedure CostSharesTopItemAssembly()
     var
@@ -649,7 +647,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestFullPostingSTD()
     var
@@ -662,7 +660,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestPartialAVG()
     var
@@ -675,7 +673,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestRevalAVG()
     var
@@ -688,7 +686,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestIndCostAVG()
     var
@@ -701,7 +699,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestRevalSTD()
     var
@@ -714,7 +712,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestIndCostSTD()
     var
@@ -727,7 +725,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestATOAVG()
     var
@@ -740,7 +738,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('ConfirmHandler,AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestATOSTD()
     var
@@ -753,7 +751,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestFullPostDimBlockCompSTD()
     var
@@ -768,7 +766,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestFullPostDimValBlockCompAVG()
     var
@@ -783,7 +781,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestFullPostDimBlockHeaderAVG()
     var
@@ -798,7 +796,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('PostInvtCostToGLTestRequestPageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,PostInvtCostToGLTestRequestPageHandler')]
     [Scope('OnPrem')]
     procedure PostInvtToGLTestFullPostDimValBlockHeaderSTD()
     var
@@ -813,7 +811,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtGLReconciliationHandler')]
+    [HandlerFunctions('InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecFullPostingAVG()
     var
@@ -826,7 +824,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtGLReconciliationHandler')]
+    [HandlerFunctions('InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecPartialSTD()
     var
@@ -839,7 +837,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtGLReconciliationHandler')]
+    [HandlerFunctions('InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecRevalAVG()
     var
@@ -852,7 +850,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtGLReconciliationHandler')]
+    [HandlerFunctions('InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecRevalSTD()
     var
@@ -865,7 +863,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtGLReconciliationHandler')]
+    [HandlerFunctions('InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecIndCostAVG()
     var
@@ -878,7 +876,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtGLReconciliationHandler')]
+    [HandlerFunctions('InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecIndCostSTD()
     var
@@ -891,7 +889,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,InvtGLReconciliationHandler')]
+    [HandlerFunctions('ConfirmHandler,InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecATOAVG()
     var
@@ -904,7 +902,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('ConfirmHandler,InvtGLReconciliationHandler')]
+    [HandlerFunctions('ConfirmHandler,InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecATOSTD()
     var
@@ -917,7 +915,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtGLReconciliationHandler')]
+    [HandlerFunctions('InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecTopItemProducedAVG()
     var
@@ -930,7 +928,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
-    [HandlerFunctions('InvtGLReconciliationHandler')]
+    [HandlerFunctions('InvtGLReconciliationHandler,AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure InvtGLRecTopItemAssemblySTD()
     var
@@ -943,6 +941,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DemandOverviewSunshine()
     var
@@ -955,6 +954,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DemandOverviewTopItemProduced()
     var
@@ -967,6 +967,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure DemandOverviewTopItemAssembly()
     var
@@ -1102,7 +1103,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownDirectCostApplActual(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1124,7 +1125,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Purchase, ValueEntry."Entry Type"::"Direct Cost");
 
         LibraryVariableStorage.Enqueue(1);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownDirectCostApplActual(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1147,7 +1148,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           ValueEntry."Order Type"::Assembly);
 
         LibraryVariableStorage.Enqueue(2);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownDirectCostApplActual(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1165,7 +1166,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownOverheadAppliedActual(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1187,7 +1188,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Purchase, ValueEntry."Entry Type"::"Indirect Cost");
 
         LibraryVariableStorage.Enqueue(1);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownOverheadAppliedActual(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1210,7 +1211,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           ValueEntry."Order Type"::Assembly);
 
         LibraryVariableStorage.Enqueue(2);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownOverheadAppliedActual(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1228,7 +1229,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownPurchaseVariance(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1247,7 +1248,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::Item);
         MockValueEntry(TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Purchase, ValueEntry."Entry Type"::Variance);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownPurchaseVariance(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1265,7 +1266,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownInventoryAdjmt(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1287,7 +1288,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::"Positive Adjmt.", ValueEntry."Entry Type"::"Direct Cost");
 
         LibraryVariableStorage.Enqueue(1);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownInventoryAdjmt(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1310,7 +1311,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           ValueEntry."Order Type"::Assembly);
 
         LibraryVariableStorage.Enqueue(2);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownInventoryAdjmt(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1331,7 +1332,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockValueEntry(TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::" ", ValueEntry."Entry Type"::Revaluation);
 
         LibraryVariableStorage.Enqueue(3);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownInventoryAdjmt(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1352,7 +1353,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockValueEntry(TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::" ", ValueEntry."Entry Type"::Rounding);
 
         LibraryVariableStorage.Enqueue(4);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownInventoryAdjmt(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1370,7 +1371,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownInvtAccrualInterim(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1390,7 +1391,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockValueEntry(
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Purchase, ValueEntry."Entry Type"::"Direct Cost");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownInvtAccrualInterim(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1408,7 +1409,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownCOGS(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1427,7 +1428,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::Item);
         MockValueEntry(TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Sale, ValueEntry."Entry Type"::"Direct Cost");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownCOGS(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1445,7 +1446,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownCOGSInterim(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1464,7 +1465,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::Item);
         MockValueEntry(TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Sale, ValueEntry."Entry Type"::"Direct Cost");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownCOGSInterim(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1482,7 +1483,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownWIPInventory(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1505,7 +1506,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           ValueEntry."Order Type"::Production);
 
         LibraryVariableStorage.Enqueue(1);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownWIPInventory(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1528,7 +1529,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           ValueEntry."Order Type"::Production);
 
         LibraryVariableStorage.Enqueue(2);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownWIPInventory(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1551,7 +1552,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           ValueEntry."Order Type"::Production);
 
         LibraryVariableStorage.Enqueue(3);
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownWIPInventory(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1569,7 +1570,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownMaterialVariance(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1590,7 +1591,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Output, ValueEntry."Entry Type"::Variance,
           ValueEntry."Variance Type"::Material);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownMaterialVariance(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1608,7 +1609,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownCapVariance(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1629,7 +1630,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Output, ValueEntry."Entry Type"::Variance,
           ValueEntry."Variance Type"::Capacity);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownCapVariance(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1647,7 +1648,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownSubcontractedVariance(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1668,7 +1669,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Output, ValueEntry."Entry Type"::Variance,
           ValueEntry."Variance Type"::Subcontracted);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownSubcontractedVariance(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1686,7 +1687,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownCapOverheadVariance(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1707,7 +1708,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Output, ValueEntry."Entry Type"::Variance,
           ValueEntry."Variance Type"::"Capacity Overhead");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownCapOverheadVariance(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1725,7 +1726,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownMfgOverheadVariance(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1746,7 +1747,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Output, ValueEntry."Entry Type"::Variance,
           ValueEntry."Variance Type"::"Manufacturing Overhead");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownMfgOverheadVariance(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1764,7 +1765,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownInventoryInterim(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1783,7 +1784,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::Item);
         MockValueEntry(TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Output, ValueEntry."Entry Type"::Revaluation);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownInventoryInterim(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1801,7 +1802,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownOverheadAppliedToWIP(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1822,7 +1823,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::" ", ValueEntry."Entry Type"::"Indirect Cost",
           ValueEntry."Order Type"::Production);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownOverheadAppliedToWIP(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1840,7 +1841,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownDirectCostApplToWIP(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1861,7 +1862,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::" ", ValueEntry."Entry Type"::"Direct Cost",
           ValueEntry."Order Type"::Production);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownDirectCostApplToWIP(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1879,7 +1880,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownWIPToInvtInterim(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1900,7 +1901,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Output, ValueEntry."Entry Type"::"Direct Cost",
           ValueEntry."Order Type"::Production);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownWIPToInvtInterim(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1918,7 +1919,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownInvtToWIP(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1939,7 +1940,7 @@ codeunit 137390 "SCM Kitting -  Reports"
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Output, ValueEntry."Entry Type"::"Direct Cost",
           ValueEntry."Order Type"::Production);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownInvtToWIP(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1957,7 +1958,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownInventory(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1977,7 +1978,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockValueEntry(
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Purchase, ValueEntry."Entry Type"::"Direct Cost");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownInventory(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -1995,7 +1996,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownDirectCostApplied(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -2015,7 +2016,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockValueEntry(
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Purchase, ValueEntry."Entry Type"::"Direct Cost");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownDirectCostApplied(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -2033,7 +2034,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockInventoryReportEntry(TempInventoryReportEntry, TempInventoryReportEntry.Type::"G/L Account");
         MockGLEntry(TempInventoryReportEntry."No.");
 
-        GLEntries.Trap();
+        GLEntries.Trap;
         GetInventoryReport.DrillDownOverheadApplied(TempInventoryReportEntry);
         GLEntries."G/L Account No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -2053,7 +2054,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         MockValueEntry(
           TempInventoryReportEntry."No.", ValueEntry."Item Ledger Entry Type"::Purchase, ValueEntry."Entry Type"::"Indirect Cost");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         GetInventoryReport.DrillDownOverheadApplied(TempInventoryReportEntry);
         ValueEntries."Item No.".AssertEquals(TempInventoryReportEntry."No.");
     end;
@@ -2250,7 +2251,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     [Normal]
     local procedure VerifyItemRegisterValue(var ValueEntry: Record "Value Entry")
     begin
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
 
         if ValueEntry.FindSet() then
             repeat
@@ -2290,7 +2291,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         ValueEntry.SetRange("Posting Date", 0D, ReportDate);
         ValueEntry.SetRange("Item No.", Item."No.");
 
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('No_Item', Item."No.");
         CheckInvtValCostSpecFields(ValueEntry, Item, ValueEntry."Entry Type"::"Direct Cost");
         CheckInvtValCostSpecFields(ValueEntry, Item, ValueEntry."Entry Type"::"Indirect Cost");
@@ -2312,12 +2313,12 @@ codeunit 137390 "SCM Kitting -  Reports"
 
         // Unit cost.
         UnitCost := LibraryReportDataset.Sum('UnitCost' + Format(EntryType.AsInteger() + 1));
-        Assert.AreNearlyEqual(ValueEntry."Cost Amount (Actual)" / Item.Inventory, UnitCost, LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(ValueEntry."Cost Amount (Actual)" / Item.Inventory, UnitCost, LibraryERM.GetAmountRoundingPrecision,
           StrSubstNo(ErrorCostShares, 'unit cost', Item."No."));
 
         // Cost amount.
         CostAmount := LibraryReportDataset.Sum('TotalCostTotal' + Format(EntryType.AsInteger() + 1));
-        Assert.AreNearlyEqual(ValueEntry."Cost Amount (Actual)", CostAmount, LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(ValueEntry."Cost Amount (Actual)", CostAmount, LibraryERM.GetAmountRoundingPrecision,
           StrSubstNo(ErrorCostShares, 'cost amount', Item."No."));
     end;
 
@@ -2459,7 +2460,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         LibraryVariableStorage.Enqueue(true);
         REPORT.Run(REPORT::"Inventory Valuation", true, false, Item);
 
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('ItemNo', ItemNo);
 
         // Beginning of period.
@@ -2487,10 +2488,10 @@ codeunit 137390 "SCM Kitting -  Reports"
 
         Assert.AreNearlyEqual(ValueEntryBOP."Invoiced Quantity" + ValueEntryIncr."Invoiced Quantity" +
           ValueEntryDecr."Invoiced Quantity",
-          QtyEOP, LibraryERM.GetUnitAmountRoundingPrecision(), 'Wrong end of period qty for item ' + ItemNo);
+          QtyEOP, LibraryERM.GetUnitAmountRoundingPrecision, 'Wrong end of period qty for item ' + ItemNo);
         Assert.AreNearlyEqual(ValueEntryBOP."Cost Amount (Actual)" + ValueEntryIncr."Cost Amount (Actual)" +
           ValueEntryDecr."Cost Amount (Actual)",
-          ValueEOP, LibraryERM.GetAmountRoundingPrecision(), 'Wrong end of period value for item ' + ItemNo);
+          ValueEOP, LibraryERM.GetAmountRoundingPrecision, 'Wrong end of period value for item ' + ItemNo);
     end;
 
     [Normal]
@@ -2506,9 +2507,9 @@ codeunit 137390 "SCM Kitting -  Reports"
         LibraryReportDataset.Reset();
         Value := LibraryReportDataset.Sum(ValueElement);
         LibraryReportDataset.Reset();
-        Assert.AreNearlyEqual(Abs(ValueEntry."Invoiced Quantity"), Qty, LibraryERM.GetUnitAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(Abs(ValueEntry."Invoiced Quantity"), Qty, LibraryERM.GetUnitAmountRoundingPrecision,
           'Wrong ' + QtyElement + ' for item ' + ItemNo);
-        Assert.AreNearlyEqual(Abs(ValueEntry."Cost Amount (Actual)"), Value, LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(Abs(ValueEntry."Cost Amount (Actual)"), Value, LibraryERM.GetAmountRoundingPrecision,
           'Wrong ' + ValueElement + ' for item ' + ItemNo);
     end;
 
@@ -2561,7 +2562,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         LibraryVariableStorage.Enqueue(false);
         REPORT.Run(REPORT::"Post Invt. Cost to G/L - Test", true, false, PostValueEntryToGL);
 
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         if PostValueEntryToGL.FindSet() then begin
             repeat
                 ValueEntry.Get(PostValueEntryToGL."Value Entry No.");
@@ -2570,7 +2571,7 @@ codeunit 137390 "SCM Kitting -  Reports"
 
                 // Verify: Account and amount.
                 LibraryReportDataset.SetRange('TempInvtPostToGLTestBuf__Value_Entry_No__', ValueEntry."Entry No.");
-                LibraryReportDataset.GetNextRow();
+                LibraryReportDataset.GetNextRow;
                 LibraryReportDataset.AssertCurrentRowValueEquals('TempInvtPostToGLTestBuf_Amount', ValueEntry."Cost Amount (Actual)");
 
                 // Verify debiting and crediting accounts.
@@ -2640,10 +2641,10 @@ codeunit 137390 "SCM Kitting -  Reports"
             ValueEntry."Item Ledger Entry Type"::Sale, ValueEntry."Item Ledger Entry Type"::Sale,
             ValueEntry."Variance Type"::" ");
 
-        InventoryGLReconciliation.OpenEdit();
+        InventoryGLReconciliation.OpenEdit;
         InventoryGLReconciliation.ItemFilter.SetValue(ItemNo);
-        InventoryGLReconciliation."&Show Matrix".Invoke();
-        InventoryGLReconciliation.OK().Invoke();
+        InventoryGLReconciliation."&Show Matrix".Invoke;
+        InventoryGLReconciliation.OK.Invoke;
     end;
 
     [Normal]
@@ -2657,14 +2658,14 @@ codeunit 137390 "SCM Kitting -  Reports"
     begin
         LibraryAssembly.GetCompsToAdjust(ItemNo, ResourceNo, AssemblyHeader);
 
-        DemandOverview.OpenEdit();
+        DemandOverview.OpenEdit;
         DemandOverview.StartDate.SetValue(AssemblyHeader."Starting Date");
         DemandOverview.EndDate.SetValue(AssemblyHeader."Ending Date");
         DemandOverview.DemandType.SetValue(AssemblyLabel);
         DemandOverview.DemandNoCtrl.SetValue(AssemblyHeader."No.");
-        DemandOverview.Calculate.Invoke();
+        DemandOverview.Calculate.Invoke;
 
-        DemandOverview.First();
+        DemandOverview.First;
         count := 1;
         while ItemNo[count] <> '' do begin
             Item.Get(ItemNo[count]);
@@ -2674,28 +2675,28 @@ codeunit 137390 "SCM Kitting -  Reports"
 
             DemandOverview.Expand(true);
             DemandOverview.Next();
-            Assert.AreEqual(AssemblyHeader."Starting Date", DemandOverview.Date.AsDate(), 'Wrong as of date in demand overview.');
+            Assert.AreEqual(AssemblyHeader."Starting Date", DemandOverview.Date.AsDate, 'Wrong as of date in demand overview.');
 
             DemandOverview.Expand(true);
             DemandOverview.Next();
             Assert.AreEqual(Format(DemandLabel), Format(DemandOverview.Type.Value), 'Wrong demand type.');
-            Assert.AreEqual(AssemblyHeader."Starting Date", DemandOverview.Date.AsDate(), 'Wrong as of date in demand overview.');
+            Assert.AreEqual(AssemblyHeader."Starting Date", DemandOverview.Date.AsDate, 'Wrong as of date in demand overview.');
             Assert.AreEqual(Format(AssemblyLabel), DemandOverview.SourceTypeText.Value, 'Wrong source type.');
             Assert.AreEqual(
-              -Item."Qty. on Asm. Component", DemandOverview.QuantityText.AsDecimal(), 'Wrong demanded qty for item ' + Item."No.");
+              -Item."Qty. on Asm. Component", DemandOverview.QuantityText.AsDEcimal, 'Wrong demanded qty for item ' + Item."No.");
             Assert.AreEqual(
               Item.Inventory +
               Item."Qty. on Assembly Order" +
               Item."Qty. on Prod. Order" - Item."Qty. on Asm. Component" - Item."Reserved Qty. on Inventory",
-              DemandOverview."Running Total".AsDecimal(), 'Wrong total for item ' + Item."No.");
+              DemandOverview."Running Total".AsDEcimal, 'Wrong total for item ' + Item."No.");
 
             count += 1;
             if ItemNo[count] <> '' then
                 DemandOverview.Next();
         end;
 
-        Assert.IsFalse(DemandOverview.Next(), 'More rows than expected for assembly demand ' + AssemblyHeader."No.");
-        DemandOverview.OK().Invoke();
+        Assert.IsFalse(DemandOverview.Next, 'More rows than expected for assembly demand ' + AssemblyHeader."No.");
+        DemandOverview.OK.Invoke;
     end;
 
     [Normal]
@@ -2732,28 +2733,28 @@ codeunit 137390 "SCM Kitting -  Reports"
             Sign := -1
         end;
 
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('CostShareBufItemNo', Item."No.");
 
         // Verify: Material cost, Capacity cost, Capacity Overhead and Material overhead.
         Qty := LibraryReportDataset.Sum('CostShareBufNewQuantity');
-        Assert.AreNearlyEqual(AssemblyHeader."Quantity to Assemble", Sign * Qty, LibraryERM.GetUnitAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(AssemblyHeader."Quantity to Assemble", Sign * Qty, LibraryERM.GetUnitAmountRoundingPrecision,
           StrSubstNo(ErrorCostShares, 'quantity', Item."No."));
 
         RepMaterialCost := LibraryReportDataset.Sum('CostShareBufNewMaterial');
-        Assert.AreNearlyEqual(MaterialCost, Sign * RepMaterialCost, LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(MaterialCost, Sign * RepMaterialCost, LibraryERM.GetAmountRoundingPrecision,
           StrSubstNo(ErrorCostShares, 'material cost', Item."No."));
 
         RepCapacityCost := LibraryReportDataset.Sum('CostShareBufNewCapacity');
-        Assert.AreNearlyEqual(ResourceCost, Sign * RepCapacityCost, LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(ResourceCost, Sign * RepCapacityCost, LibraryERM.GetAmountRoundingPrecision,
           StrSubstNo(ErrorCostShares, 'capacity cost', Item."No."));
 
         RepResOvhd := LibraryReportDataset.Sum('CostShareBufNewCapOverhd');
-        Assert.AreNearlyEqual(ResourceOvhd, Sign * RepResOvhd, LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(ResourceOvhd, Sign * RepResOvhd, LibraryERM.GetAmountRoundingPrecision,
           StrSubstNo(ErrorCostShares, 'capacity overhead', Item."No."));
 
         RepMatOvhd := LibraryReportDataset.Sum('CostShareBufNewMatrlOverhd');
-        Assert.AreNearlyEqual(AssemblyOvhd, Sign * RepMatOvhd, LibraryERM.GetAmountRoundingPrecision(),
+        Assert.AreNearlyEqual(AssemblyOvhd, Sign * RepMatOvhd, LibraryERM.GetAmountRoundingPrecision,
           StrSubstNo(ErrorCostShares, 'material overhead', Item."No."));
     end;
 
@@ -2802,7 +2803,7 @@ codeunit 137390 "SCM Kitting -  Reports"
               (Item."Standard Cost" * (100 + Item."Indirect Cost %") / 100 + Item."Overhead Rate") *
               PostedAssemblyHeader.Quantity * PostedAssemblyHeader."Qty. per Unit of Measure");
 
-        exit(Round(ExpectedCost, LibraryERM.GetAmountRoundingPrecision()));
+        exit(Round(ExpectedCost, LibraryERM.GetAmountRoundingPrecision));
     end;
 
     [Normal]
@@ -2829,11 +2830,18 @@ codeunit 137390 "SCM Kitting -  Reports"
 
     [ModalPageHandler]
     [Scope('OnPrem')]
+    procedure AvailabilityWindowHandler(var AsmAvailability: Page "Assembly Availability"; var Response: Action)
+    begin
+        Response := ACTION::Yes; // always confirm
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
     procedure InvtGLReconciliationHandler(var InventoryGLReconMatrix: TestPage "Inventory - G/L Recon Matrix")
     var
         InventoryReportEntry: Record "Inventory Report Entry";
     begin
-        InventoryGLReconMatrix.First();
+        InventoryGLReconMatrix.First;
 
         repeat
             if GlobalInventoryAdjmt <> 0 then
@@ -2875,23 +2883,23 @@ codeunit 137390 "SCM Kitting -  Reports"
         case InventoryGLReconMatrix.Name.Value of
             CheckedValue:
                 begin
-                    Assert.AreEqual(ExpAmount, -InventoryGLReconMatrix.Field1.AsDecimal(), StrSubstNo(ErrorGLRecon, ErrorMessage, ''));
-                    Assert.AreEqual(ExpAmount, -InventoryGLReconMatrix.Field4.AsDecimal(), StrSubstNo(ErrorGLRecon, ErrorMessage, ' - total '));
+                    Assert.AreEqual(ExpAmount, -InventoryGLReconMatrix.Field1.AsDEcimal, StrSubstNo(ErrorGLRecon, ErrorMessage, ''));
+                    Assert.AreEqual(ExpAmount, -InventoryGLReconMatrix.Field4.AsDEcimal, StrSubstNo(ErrorGLRecon, ErrorMessage, ' - total '));
                 end;
             InventoryReportEntry.FieldCaption(Total):
                 begin
                     if ExpTotalAmount <> 0 then
-                        Assert.AreEqual(ExpTotalAmount, InventoryGLReconMatrix.Field1.AsDecimal(), StrSubstNo(ErrorGLRecon, '', ' - total '))
+                        Assert.AreEqual(ExpTotalAmount, InventoryGLReconMatrix.Field1.AsDEcimal, StrSubstNo(ErrorGLRecon, '', ' - total '))
                     else
-                        asserterror ExpAmount := InventoryGLReconMatrix.Field1.AsDecimal();
-                    asserterror ExpAmount := InventoryGLReconMatrix.Field4.AsDecimal();
+                        asserterror ExpAmount := InventoryGLReconMatrix.Field1.AsDEcimal;
+                    asserterror ExpAmount := InventoryGLReconMatrix.Field4.AsDEcimal;
                 end;
             SkipValue1, SkipValue2, SkipValue3:
                 ;
             else begin
-                asserterror ExpAmount := InventoryGLReconMatrix.Field1.AsDecimal();
-                asserterror ExpAmount := InventoryGLReconMatrix.Field4.AsDecimal();
-            end;
+                    asserterror ExpAmount := InventoryGLReconMatrix.Field1.AsDEcimal;
+                    asserterror ExpAmount := InventoryGLReconMatrix.Field4.AsDEcimal;
+                end;
         end;
     end;
 
@@ -2899,7 +2907,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     [Scope('OnPrem')]
     procedure ItemRegValueReqPageHandler(var ItemRegisterValue: TestRequestPage "Item Register - Value")
     begin
-        ItemRegisterValue.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        ItemRegisterValue.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
@@ -2910,7 +2918,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     begin
         LibraryVariableStorage.Dequeue(ReportDate);
         InvtValuationCostSpec.ValuationDate.SetValue(ReportDate);
-        InvtValuationCostSpec.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        InvtValuationCostSpec.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
@@ -2928,7 +2936,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         InventoryValuation.StartingDate.SetValue(StartDate);
         InventoryValuation.EndingDate.SetValue(EndingDate);
         InventoryValuation.IncludeExpectedCost.SetValue(IncludeExpectedCost);
-        InventoryValuation.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        InventoryValuation.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
@@ -2949,7 +2957,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         CostSharesBreakdown.EndDate.SetValue(EndingDate);
         CostSharesBreakdown.CostSharePrint.SetValue(CostSharePrint);
         CostSharesBreakdown.ShowDetails.SetValue(ShowDetails);
-        CostSharesBreakdown.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        CostSharesBreakdown.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
@@ -2970,7 +2978,7 @@ codeunit 137390 "SCM Kitting -  Reports"
         PostInvtCostToGLTest.DocumentNo.SetValue(DocNo); // Doc No. required when posting per Posting Group.
         PostInvtCostToGLTest.ShowDimensions.SetValue(ShowDim);
         PostInvtCostToGLTest.ShowOnlyWarnings.SetValue(ShowOnlyWarnings);
-        PostInvtCostToGLTest.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        PostInvtCostToGLTest.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [ConfirmHandler]
@@ -2984,7 +2992,7 @@ codeunit 137390 "SCM Kitting -  Reports"
     [Scope('OnPrem')]
     procedure StrMenuHandler(Options: Text[1024]; var Choice: Integer; Instruction: Text[1024])
     begin
-        Choice := LibraryVariableStorage.DequeueInteger();
+        Choice := LibraryVariableStorage.DequeueInteger;
     end;
 }
 

@@ -4,7 +4,6 @@ table 983 "Document Search Result"
 {
     Caption = 'Document Search Result';
     DataCaptionFields = "Doc. No.", Description;
-    DataClassification = CustomerContent;
 
     fields
     {

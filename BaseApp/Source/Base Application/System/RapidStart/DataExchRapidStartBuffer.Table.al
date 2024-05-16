@@ -4,7 +4,6 @@ table 8650 "DataExch-RapidStart Buffer"
 {
     Caption = 'DataExch-RapidStart Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

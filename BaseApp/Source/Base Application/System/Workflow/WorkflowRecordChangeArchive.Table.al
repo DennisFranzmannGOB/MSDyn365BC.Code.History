@@ -4,7 +4,6 @@ table 1526 "Workflow Record Change Archive"
 {
     Caption = 'Workflow Record Change Archive';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

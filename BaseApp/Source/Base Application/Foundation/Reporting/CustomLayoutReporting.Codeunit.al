@@ -1248,12 +1248,18 @@ codeunit 8800 "Custom Layout Reporting"
     end;
 
     local procedure CleanupTempFiles()
+    var
+        DeleteError: Boolean;
     begin
         // Sometimes file handles are kept by .NET - we try to delete what we can.
         if TempEraseFileNameValueBuffer.FindSet() then
             repeat
-                if TryDeleteFile(TempEraseFileNameValueBuffer.Name) then; // ignore errors
+                if not TryDeleteFile(TempEraseFileNameValueBuffer.Name) then
+                    DeleteError := true;
             until TempEraseFileNameValueBuffer.Next() = 0;
+
+        if DeleteError then
+            Error('');
     end;
 
     [TryFunction]
@@ -1264,6 +1270,8 @@ codeunit 8800 "Custom Layout Reporting"
 
     [TryFunction]
     local procedure TryCreateFileStream(var File: File; ReportID: Integer; var TempFilePath: Text[250]; var FileName: Text[250]; var FileStream: OutStream; Extension: Text; DataRecRef: RecordRef)
+    var
+        FileManagement: Codeunit "File Management";
     begin
         TempFilePath := CopyStr(FileManagement.ServerTempFileName(Extension), 1, 250);
 
@@ -1472,7 +1480,7 @@ codeunit 8800 "Custom Layout Reporting"
                 else
                     OutputTxt := OutputTxt + CustomerNo[I];
             end;
-        exit(OutputTxt);
+        Exit(OutputTxt);
     end;
 
     procedure GetReportRequestPageParameters(ReportID: Integer) XMLTxt: Text
@@ -1482,7 +1490,7 @@ codeunit 8800 "Custom Layout Reporting"
     begin
         if IgnoreRequestParameters then
             exit('');
-        if ReportId = TableFilterForReportID then
+        If ReportId = TableFilterForReportID then
             exit(TableFilterTxt);
         if not ObjectOptions.Get(LastUsedTxt, ReportID, ObjectOptions."Object Type"::Report, UserId, CompanyName) then
             exit('');
@@ -1506,18 +1514,20 @@ codeunit 8800 "Custom Layout Reporting"
         if XMLText = '' then
             exit;
 
-        if ObjectOptions.Get(LastUsedTxt, ReportID, ObjectOptions."Object Type"::Report, UserId, CompanyName) then
-            ObjectOptions.Delete();
-        ObjectOptions.Init();
-        ObjectOptions."Parameter Name" := LastUsedTxt;
-        ObjectOptions."Object Type" := ObjectOptions."Object Type"::Report;
-        ObjectOptions."Object ID" := ReportID;
-        ObjectOptions."User Name" := UserId();
-        ObjectOptions."Company Name" := CompanyName;
-        ObjectOptions."Created By" := UserId();
-        ObjectOptions."Option Data".CreateOutStream(OutStr);
-        OutStr.WriteText(XMLText);
-        ObjectOptions.Insert();
+        with ObjectOptions do begin
+            if Get(LastUsedTxt, ReportID, "Object Type"::Report, UserId, CompanyName) then
+                Delete();
+            Init();
+            "Parameter Name" := LastUsedTxt;
+            "Object Type" := "Object Type"::Report;
+            "Object ID" := ReportID;
+            "User Name" := UserId;
+            "Company Name" := CompanyName;
+            "Created By" := UserId;
+            "Option Data".CreateOutStream(OutStr);
+            OutStr.WriteText(XMLText);
+            Insert();
+        end;
     end;
 
     procedure CheckForCustomLayoutReportingJob()

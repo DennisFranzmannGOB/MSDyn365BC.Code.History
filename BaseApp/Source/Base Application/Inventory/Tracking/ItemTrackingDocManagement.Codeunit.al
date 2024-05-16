@@ -28,10 +28,10 @@ codeunit 6503 "Item Tracking Doc. Management"
         RetrieveAsmItemTracking: Boolean;
 
         CountingRecordsMsg: Label 'Counting records...';
-        TableNotSupportedErr: Label 'Table %1 is not supported.', Comment = '%1 - table number';
+        TableNotSupportedErr: Label 'Table %1 is not supported.';
         CreateTrackingSpecQst: Label 'This function create tracking specification from reservation entries. Continue?';
 
-    procedure AddTempRecordToSet(var TempItemLedgEntry: Record "Item Ledger Entry" temporary; SignFactor: Integer)
+    local procedure AddTempRecordToSet(var TempItemLedgEntry: Record "Item Ledger Entry" temporary; SignFactor: Integer)
     var
         TempItemLedgEntry2: Record "Item Ledger Entry" temporary;
     begin
@@ -69,25 +69,27 @@ codeunit 6503 "Item Tracking Doc. Management"
         TempItemLedgEntry.Reset();
         TempItemLedgEntry.DeleteAll();
 
-        TempReservEntry.Reset();
-        TempReservEntry.SetCurrentKey("Source ID", "Source Ref. No.");
-        TempReservEntry.SetRange("Source ID", DocNo);
-        TempReservEntry.SetRange("Source Ref. No.", LineNo);
-        if TempReservEntry.FindSet() then
-            repeat
-                ItemLedgEntry.Get(TempReservEntry."Item Ledger Entry No.");
-                TempItemLedgEntry := ItemLedgEntry;
-                if TempReservEntry."Reservation Status" = "Reservation Status"::Prospect then
-                    TempItemLedgEntry."Entry No." := -TempItemLedgEntry."Entry No.";
-                if FromPurchase then
-                    TempItemLedgEntry."Remaining Quantity" := TempReservEntry."Quantity (Base)"
-                else
-                    TempItemLedgEntry."Shipped Qty. Not Returned" := TempReservEntry."Quantity (Base)";
-                TempItemLedgEntry."Document No." := TempReservEntry."Source ID";
-                TempItemLedgEntry."Document Line No." := TempReservEntry."Source Ref. No.";
-                OnCollectItemTrkgPerPostedDocLineOnBeforeTempItemLedgEntryInsert(TempItemLedgEntry, TempReservEntry, ItemLedgEntry, FromPurchase);
-                TempItemLedgEntry.Insert();
-            until TempReservEntry.Next() = 0;
+        with TempReservEntry do begin
+            Reset();
+            SetCurrentKey("Source ID", "Source Ref. No.");
+            SetRange("Source ID", DocNo);
+            SetRange("Source Ref. No.", LineNo);
+            if FindSet() then
+                repeat
+                    ItemLedgEntry.Get("Item Ledger Entry No.");
+                    TempItemLedgEntry := ItemLedgEntry;
+                    if "Reservation Status" = "Reservation Status"::Prospect then
+                        TempItemLedgEntry."Entry No." := -TempItemLedgEntry."Entry No.";
+                    if FromPurchase then
+                        TempItemLedgEntry."Remaining Quantity" := "Quantity (Base)"
+                    else
+                        TempItemLedgEntry."Shipped Qty. Not Returned" := "Quantity (Base)";
+                    TempItemLedgEntry."Document No." := "Source ID";
+                    TempItemLedgEntry."Document Line No." := "Source Ref. No.";
+                    OnCollectItemTrkgPerPostedDocLineOnBeforeTempItemLedgEntryInsert(TempItemLedgEntry, TempReservEntry, ItemLedgEntry, FromPurchase);
+                    TempItemLedgEntry.Insert();
+                until Next() = 0;
+        end;
     end;
 
     procedure CopyItemLedgerEntriesToTemp(var TempItemLedgEntry: Record "Item Ledger Entry" temporary; var FromItemLedgEntry: Record "Item Ledger Entry")
@@ -746,7 +748,7 @@ codeunit 6503 "Item Tracking Doc. Management"
         Window: Dialog;
     begin
         Window.Open(CountingRecordsMsg);
-        ItemLedgEntry.SetLoadFields("Serial No.", "Lot No.");
+        ItemLedgEntry.SetLoadFields("Serial No.", "Lot No.", "Package No.");
         ItemLedgEntry.SetCurrentKey("Order Type", "Job No.", "Order Line No.", "Entry Type");
         ItemLedgEntry.SetRange("Order Type", ItemLedgEntry."Order Type"::" ");
         ItemLedgEntry.SetRange("Job No.", ID);
@@ -784,7 +786,7 @@ codeunit 6503 "Item Tracking Doc. Management"
         exit(false);
     end;
 
-    procedure TableSignFactor(TableNo: Integer): Integer
+    local procedure TableSignFactor(TableNo: Integer): Integer
     begin
         if TableNo in [
                        Database::"Sales Line",
@@ -830,32 +832,33 @@ codeunit 6503 "Item Tracking Doc. Management"
         RetrieveDocumentItemTracking(TempTrackingSpecification, DocumentNo, TableID, DocumentType);
 
         Inbound := TableSignFactor(DocumentType) > 0;
-        if TempTrackingSpecification.FindSet() then
-            repeat
-                Item.Get(TempTrackingSpecification."Item No.");
-                ItemTrackingCode.Get(Item."Item Tracking Code");
-                if ((Inbound and ItemTrackingCode."SN Info. Inbound Must Exist") or
-                    (not Inbound and ItemTrackingCode."SN Info. Outbound Must Exist")) and (TempTrackingSpecification."Serial No." <> '')
-                then
-                    if not SerialNoInfo.Get(TempTrackingSpecification."Item No.", TempTrackingSpecification."Variant Code", TempTrackingSpecification."Serial No.") then begin
-                        SerialNoInfo.Init();
-                        SerialNoInfo."Item No." := TempTrackingSpecification."Item No.";
-                        SerialNoInfo."Variant Code" := TempTrackingSpecification."Variant Code";
-                        SerialNoInfo."Serial No." := TempTrackingSpecification."Serial No.";
-                        SerialNoInfo.Insert();
-                    end;
-                if ((Inbound and ItemTrackingCode."Lot Info. Inbound Must Exist") or
-                    (not Inbound and ItemTrackingCode."Lot Info. Outbound Must Exist")) and (TempTrackingSpecification."Lot No." <> '')
-                then
-                    if not LotNoInfo.Get(TempTrackingSpecification."Item No.", TempTrackingSpecification."Variant Code", TempTrackingSpecification."Lot No.") then begin
-                        LotNoInfo.Init();
-                        LotNoInfo."Item No." := TempTrackingSpecification."Item No.";
-                        LotNoInfo."Variant Code" := TempTrackingSpecification."Variant Code";
-                        LotNoInfo."Lot No." := TempTrackingSpecification."Lot No.";
-                        LotNoInfo.Insert();
-                    end;
-                OnCreateTrackingInformationOnAfterTrackingSpecLoop(TempTrackingSpecification, ItemTrackingCode, Inbound);
-            until TempTrackingSpecification.Next() = 0;
+        with TempTrackingSpecification do
+            if FindSet() then
+                repeat
+                    Item.Get("Item No.");
+                    ItemTrackingCode.Get(Item."Item Tracking Code");
+                    if ((Inbound and ItemTrackingCode."SN Info. Inbound Must Exist") or
+                        (not Inbound and ItemTrackingCode."SN Info. Outbound Must Exist")) and ("Serial No." <> '')
+                    then
+                        if not SerialNoInfo.Get("Item No.", "Variant Code", "Serial No.") then begin
+                            SerialNoInfo.Init();
+                            SerialNoInfo."Item No." := "Item No.";
+                            SerialNoInfo."Variant Code" := "Variant Code";
+                            SerialNoInfo."Serial No." := "Serial No.";
+                            SerialNoInfo.Insert();
+                        end;
+                    if ((Inbound and ItemTrackingCode."Lot Info. Inbound Must Exist") or
+                        (not Inbound and ItemTrackingCode."Lot Info. Outbound Must Exist")) and ("Lot No." <> '')
+                    then
+                        if not LotNoInfo.Get("Item No.", "Variant Code", "Lot No.") then begin
+                            LotNoInfo.Init();
+                            LotNoInfo."Item No." := "Item No.";
+                            LotNoInfo."Variant Code" := "Variant Code";
+                            LotNoInfo."Lot No." := "Lot No.";
+                            LotNoInfo.Insert();
+                        end;
+                    OnCreateTrackingInformationOnAfterTrackingSpecLoop(TempTrackingSpecification, ItemTrackingCode, Inbound);
+                until Next() = 0;
     end;
 
     local procedure CreateLineTrkgFromReservation(ItemNo: Code[20]; Type: Integer; Subtype: Integer; DocNo: Code[20]; LineNo: Integer)

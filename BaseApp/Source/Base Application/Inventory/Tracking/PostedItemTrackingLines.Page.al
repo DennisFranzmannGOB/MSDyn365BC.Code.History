@@ -30,6 +30,7 @@ page 6511 "Posted Item Tracking Lines"
                 {
                     ApplicationArea = ItemTracking;
                     ToolTip = 'Specifies a package number if the posted item carries such a number.';
+                    Visible = PackageTrackingVisible;
                 }
                 field(Quantity; Rec.Quantity)
                 {
@@ -83,9 +84,19 @@ page 6511 "Posted Item Tracking Lines"
             CaptionText2 := CurrPage.Caption;
             CurrPage.Caption := StrSubstNo(Text001, CaptionText1, CaptionText2);
         end;
+
+        SetPackageTrackingVisibility();
     end;
 
     var
         Text001: Label '%1 - %2', Locked = true;
+        PackageTrackingVisible: Boolean;
+
+    local procedure SetPackageTrackingVisibility()
+    var
+        PackageMgt: Codeunit "Package Management";
+    begin
+        PackageTrackingVisible := PackageMgt.IsEnabled();
+    end;
 }
 

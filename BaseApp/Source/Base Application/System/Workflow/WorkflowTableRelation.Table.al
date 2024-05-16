@@ -6,7 +6,6 @@ table 1505 "Workflow - Table Relation"
 {
     Caption = 'Workflow - Table Relation';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -32,7 +31,7 @@ table 1505 "Workflow - Table Relation"
         }
         field(5; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Table ID")));
             Caption = 'Table Caption';
             Editable = false;
@@ -40,7 +39,7 @@ table 1505 "Workflow - Table Relation"
         }
         field(6; "Field Caption"; Text[250])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table ID"),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table ID"),
                                                               "No." = field("Field ID")));
             Caption = 'Field Caption';
             Editable = false;
@@ -48,7 +47,7 @@ table 1505 "Workflow - Table Relation"
         }
         field(7; "Related Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Related Table ID")));
             Caption = 'Related Table Caption';
             Editable = false;
@@ -56,7 +55,7 @@ table 1505 "Workflow - Table Relation"
         }
         field(8; "Related Field Caption"; Text[250])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Related Table ID"),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Related Table ID"),
                                                               "No." = field("Related Field ID")));
             Caption = 'Related Field Caption';
             Editable = false;

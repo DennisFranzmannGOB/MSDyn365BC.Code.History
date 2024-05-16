@@ -5,7 +5,6 @@ table 1830 "Consolidation Process"
     Caption = 'Consolidation Process';
     ReplicateData = false;
     Extensible = false;
-    DataClassification = CustomerContent;
 
     fields
     {

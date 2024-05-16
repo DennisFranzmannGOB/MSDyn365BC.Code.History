@@ -19,7 +19,7 @@ page 702 "Merge Duplicate"
             group(Records)
             {
                 Caption = 'Records';
-                Visible = not ShowRecID;
+                Visible = NOT ShowRecID;
                 group(Control15)
                 {
                     InstructionalText = 'When merging, two records are combined into one.';
@@ -83,7 +83,7 @@ page 702 "Merge Duplicate"
                     Editable = false;
                     ShowCaption = false;
                     Style = Unfavorable;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies the number of conflicts that prevent the merge.';
 
                     trigger OnDrillDown()
@@ -105,7 +105,7 @@ page 702 "Merge Duplicate"
                 Caption = 'Related Tables';
                 Editable = false;
                 ShowFilter = false;
-                Visible = not ShowRecID;
+                Visible = NOT ShowRecID;
             }
         }
     }
@@ -120,7 +120,7 @@ page 702 "Merge Duplicate"
                 Caption = 'Merge';
                 Image = ItemSubstitution;
                 ToolTip = 'Remove the duplicate record and reassign the related records to the current record.';
-                Visible = not ShowRecID;
+                Visible = NOT ShowRecID;
 
                 trigger OnAction()
                 begin

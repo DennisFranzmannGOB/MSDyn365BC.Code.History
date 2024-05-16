@@ -72,9 +72,7 @@ page 7377 "Inventory Pick"
                     Editable = false;
                     ToolTip = 'Specifies the number or the code of the customer or vendor that the line is linked to.';
                 }
-#pragma warning disable AA0100
                 field("WMSMgt.GetDestinationName(""Destination Type"",""Destination No."")"; WMSMgt.GetDestinationEntityName(Rec."Destination Type", Rec."Destination No."))
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Warehouse;
                     CaptionClass = Format(WMSMgt.GetCaptionClass(Rec."Destination Type", Rec."Source Document", 1));
@@ -109,20 +107,7 @@ page 7377 "Inventory Pick"
                 {
                     ApplicationArea = Warehouse;
                     ToolTip = 'Specifies the ID of the user who is responsible for the document.';
-                }
-                field("Assignment Date"; Rec."Assignment Date")
-                {
-                    ApplicationArea = Warehouse;
-                    Editable = false;
-                    Importance = Additional;
-                    ToolTip = 'Specifies the date when the user was assigned the activity.';
-                }
-                field("Assignment Time"; Rec."Assignment Time")
-                {
-                    ApplicationArea = Warehouse;
-                    Editable = false;
-                    Importance = Additional;
-                    ToolTip = 'Specifies the time when the user was assigned the activity.';
+                    Visible = false;
                 }
             }
             part(WhseActivityLines; "Invt. Pick Subform")

@@ -313,11 +313,6 @@ table 346 "Reservation Wksh. Line"
         }
     }
 
-    fieldgroups
-    {
-        fieldgroup(Brick; "Item No.", Description, "Remaining Qty. to Reserve", "Source ID", "Demand Date")
-        { }
-    }
     var
         Item: Record Item;
         ItemUnitOfMeasure: Record "Item Unit of Measure";

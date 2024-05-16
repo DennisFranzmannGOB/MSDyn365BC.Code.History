@@ -98,9 +98,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total quantity of G/L account entries, fixed assets, and/or items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[1].""Units per Parcel"""; TotalPurchLine[1]."Units per Parcel")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Parcels';
@@ -108,9 +106,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total number of parcels in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[1].""Net Weight"""; TotalPurchLine[1]."Net Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Net Weight';
@@ -118,9 +114,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total net weight of the items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[1].""Gross Weight"""; TotalPurchLine[1]."Gross Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Gross Weight';
@@ -128,9 +122,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total gross weight of the items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[1].""Unit Volume"""; TotalPurchLine[1]."Unit Volume")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Volume';
@@ -155,9 +147,7 @@ page 403 "Purchase Order Statistics"
             group(Invoicing)
             {
                 Caption = 'Invoicing';
-#pragma warning disable AA0100
                 field("TotalPurchLine[2].""Line Amount"""; TotalPurchLine[2]."Line Amount")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatExpression = Rec."Currency Code";
@@ -232,9 +222,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total quantity of G/L account entries, fixed assets, and/or items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[2].""Units per Parcel"""; TotalPurchLine[2]."Units per Parcel")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Parcels';
@@ -242,9 +230,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total number of parcels in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[2].""Net Weight"""; TotalPurchLine[2]."Net Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Net Weight';
@@ -252,9 +238,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total net weight of the items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[2].""Gross Weight"""; TotalPurchLine[2]."Gross Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Gross Weight';
@@ -262,9 +246,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total gross weight of the items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[2].""Unit Volume"""; TotalPurchLine[2]."Unit Volume")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Volume';
@@ -295,9 +277,7 @@ page 403 "Purchase Order Statistics"
             group(Shipping)
             {
                 Caption = 'Shipping';
-#pragma warning disable AA0100
                 field("TotalPurchLine[3].""Line Amount"""; TotalPurchLine[3]."Line Amount")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatExpression = Rec."Currency Code";
@@ -307,9 +287,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the net amount of all the lines in the purchase order. This amount does not include VAT or any invoice discount, but does include line discounts.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[3].""Inv. Discount Amount"""; TotalPurchLine[3]."Inv. Discount Amount")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatExpression = Rec."Currency Code";
@@ -364,9 +342,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total quantity of G/L account entries, fixed assets, and/or items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[3].""Units per Parcel"""; TotalPurchLine[3]."Units per Parcel")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Parcels';
@@ -374,9 +350,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total number of parcels in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[3].""Net Weight"""; TotalPurchLine[3]."Net Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Net Weight';
@@ -384,9 +358,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total net weight of the items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[3].""Gross Weight"""; TotalPurchLine[3]."Gross Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Gross Weight';
@@ -394,9 +366,7 @@ page 403 "Purchase Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the total gross weight of the items in the purchase order.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[3].""Unit Volume"""; TotalPurchLine[3]."Unit Volume")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Volume';
@@ -459,9 +429,7 @@ page 403 "Purchase Order Statistics"
                         UpdatePrepmtAmount();
                     end;
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[1].""Prepmt. Amt. Inv."""; TotalPurchLine[1]."Prepmt. Amt. Inv.")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Prepayments;
                     AutoFormatExpression = Rec."Currency Code";
@@ -476,9 +444,7 @@ page 403 "Purchase Order Statistics"
                     ExtendedDatatype = Ratio;
                     ToolTip = 'Specifies the invoiced percentage of the prepayment amount.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[1].""Prepmt Amt Deducted"""; TotalPurchLine[1]."Prepmt Amt Deducted")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Prepayments;
                     AutoFormatExpression = Rec."Currency Code";
@@ -493,9 +459,7 @@ page 403 "Purchase Order Statistics"
                     ExtendedDatatype = Ratio;
                     ToolTip = 'Specifies the deducted percentage of the prepayment amount to deduct.';
                 }
-#pragma warning disable AA0100
                 field("TotalPurchLine[1].""Prepmt Amt to Deduct"""; TotalPurchLine[1]."Prepmt Amt to Deduct")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Prepayments;
                     AutoFormatExpression = Rec."Currency Code";
@@ -519,9 +483,7 @@ page 403 "Purchase Order Statistics"
             group(Vendor)
             {
                 Caption = 'Vendor';
-#pragma warning disable AA0100
                 field("Vend.""Balance (LCY)"""; Vend."Balance (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     AutoFormatType = 1;
@@ -651,7 +613,7 @@ page 403 "Purchase Order Statistics"
 
             IsHandled := false;
             OnRefreshOnAfterGetRecordAfterSumPurchLinesTemp(TempPurchLine, IsHandled);
-            if not IsHandled then
+            If not IsHandled then
                 if Rec."Prices Including VAT" then begin
                     TotalAmount2[i] := TotalPurchLine[i].Amount;
                     TotalAmount1[i] := TotalAmount2[i] + VATAmount[i];
@@ -755,7 +717,8 @@ page 403 "Purchase Order Statistics"
             UpdateInvDiscAmount(IndexNo);
             TotalAmount1[IndexNo] := SaveTotalAmount;
         end;
-        TotalPurchLine[IndexNo]."Inv. Discount Amount" := TotalPurchLine[IndexNo]."Line Amount" - TotalAmount1[IndexNo];
+        with TotalPurchLine[IndexNo] do
+            "Inv. Discount Amount" := "Line Amount" - TotalAmount1[IndexNo];
         UpdateInvDiscAmount(IndexNo);
     end;
 
@@ -805,36 +768,37 @@ page 403 "Purchase Order Statistics"
             else
                 TotalPurchLine[1]."Inv. Discount Amount" := TotalPurchLine[2]."Inv. Discount Amount";
 
-        for i := 1 to MaxIndexNo do begin
-            if (i = 1) or not PartialInvoicing then
-                if IndexNo[i] = 1 then
-                    TempVATAmountLine1.SetInvoiceDiscountAmount(
-                      TotalPurchLine[IndexNo[i]]."Inv. Discount Amount", TotalPurchLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %")
-                else
-                    TempVATAmountLine2.SetInvoiceDiscountAmount(
-                      TotalPurchLine[IndexNo[i]]."Inv. Discount Amount", TotalPurchLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %");
+        for i := 1 to MaxIndexNo do
+            with TotalPurchLine[IndexNo[i]] do begin
+                if (i = 1) or not PartialInvoicing then
+                    if IndexNo[i] = 1 then
+                        TempVATAmountLine1.SetInvoiceDiscountAmount(
+                          "Inv. Discount Amount", "Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %")
+                    else
+                        TempVATAmountLine2.SetInvoiceDiscountAmount(
+                          "Inv. Discount Amount", "Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %");
 
-            if (i = 2) and PartialInvoicing then
-                if IndexNo[i] = 1 then begin
-                    InvDiscBaseAmount := TempVATAmountLine2.GetTotalInvDiscBaseAmount(false, TotalPurchLine[IndexNo[i]]."Currency Code");
-                    if InvDiscBaseAmount = 0 then
-                        TempVATAmountLine1.SetInvoiceDiscountPercent(
-                          0, TotalPurchLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
-                    else
-                        TempVATAmountLine1.SetInvoiceDiscountPercent(
-                          100 * TempVATAmountLine2.GetTotalInvDiscAmount() / InvDiscBaseAmount,
-                          TotalPurchLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
-                end else begin
-                    InvDiscBaseAmount := TempVATAmountLine1.GetTotalInvDiscBaseAmount(false, TotalPurchLine[IndexNo[i]]."Currency Code");
-                    if InvDiscBaseAmount = 0 then
-                        TempVATAmountLine2.SetInvoiceDiscountPercent(
-                          0, TotalPurchLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
-                    else
-                        TempVATAmountLine2.SetInvoiceDiscountPercent(
-                          100 * TempVATAmountLine1.GetTotalInvDiscAmount() / InvDiscBaseAmount,
-                          TotalPurchLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
-                end;
-        end;
+                if (i = 2) and PartialInvoicing then
+                    if IndexNo[i] = 1 then begin
+                        InvDiscBaseAmount := TempVATAmountLine2.GetTotalInvDiscBaseAmount(false, "Currency Code");
+                        if InvDiscBaseAmount = 0 then
+                            TempVATAmountLine1.SetInvoiceDiscountPercent(
+                              0, "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
+                        else
+                            TempVATAmountLine1.SetInvoiceDiscountPercent(
+                              100 * TempVATAmountLine2.GetTotalInvDiscAmount() / InvDiscBaseAmount,
+                              "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
+                    end else begin
+                        InvDiscBaseAmount := TempVATAmountLine1.GetTotalInvDiscBaseAmount(false, "Currency Code");
+                        if InvDiscBaseAmount = 0 then
+                            TempVATAmountLine2.SetInvoiceDiscountPercent(
+                              0, "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
+                        else
+                            TempVATAmountLine2.SetInvoiceDiscountPercent(
+                              100 * TempVATAmountLine1.GetTotalInvDiscAmount() / InvDiscBaseAmount,
+                              "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
+                    end;
+            end;
 
         UpdateHeaderInfo(1, TempVATAmountLine1);
         UpdateHeaderInfo(2, TempVATAmountLine2);

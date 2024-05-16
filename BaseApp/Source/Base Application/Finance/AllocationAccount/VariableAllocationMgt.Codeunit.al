@@ -15,16 +15,16 @@ codeunit 2670 "Variable Allocation Mgt."
         AmountDistribution: Decimal;
         TotalDistributedAmount: Decimal;
         FixedShareDistributions: Dictionary of [Guid, Decimal];
-        AmountRoundingPrecision: Decimal;
+        AmountRoundingPercision: Decimal;
     begin
         CalculateVariableBalance(AllocationAccount, ShareDistributions, TotalBalance, PostingDate);
         FixBalances(ShareDistributions, FixedShareDistributions, TotalBalance);
 
-        AmountRoundingPrecision := AllocationAccountMgt.GetCurrencyRoundingPrecision(CurrencyCode);
+        AmountRoundingPercision := AllocationAccountMgt.GetCurrencyRoundingPrecision(CurrencyCode);
         foreach AccountSystemID in FixedShareDistributions.Keys() do begin
             FixedShareDistributions.Get(AccountSystemID, AccountBalance);
             if TotalBalance <> 0 then
-                AmountDistribution := Round(AmountToDistribute * AccountBalance / TotalBalance, AmountRoundingPrecision);
+                AmountDistribution := Round(AmountToDistribute * AccountBalance / TotalBalance, AmountRoundingPercision);
             AmountDistributions.Add(AccountSystemID, AmountDistribution);
             TotalDistributedAmount += AmountDistribution;
         end;

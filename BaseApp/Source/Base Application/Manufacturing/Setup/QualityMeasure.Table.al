@@ -12,7 +12,6 @@ table 99000785 "Quality Measure"
     Caption = 'Quality Measure';
     DrillDownPageID = "Quality Measures";
     LookupPageID = "Quality Measures";
-    DataClassification = CustomerContent;
 
     fields
     {

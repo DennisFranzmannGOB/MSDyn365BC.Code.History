@@ -14,6 +14,7 @@ codeunit 131106 "Library - File Mgt Handler"
         DownloadFromSreamToFileName: Text;
         TempBlob: Codeunit "Temp Blob";
         SaveFileActivated: Boolean;
+        DisableSending: Boolean;
 
     [Scope('OnPrem')]
     procedure SetDownloadSubscriberActivated(NewBeforeDownloadHandlerActivated: Boolean)

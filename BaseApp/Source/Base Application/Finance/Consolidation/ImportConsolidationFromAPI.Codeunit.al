@@ -14,13 +14,15 @@ using System.Security.Authentication;
 using System.Telemetry;
 using System.Utilities;
 
-codeunit 102 "Import Consolidation from API" implements "Import Consolidation Data"
+codeunit 102 "Import Consolidation from API"
 {
+    Access = Internal;
     Permissions = tabledata "General Ledger Setup" = R,
                   tabledata "Gen. Journal Batch" = R;
 
     var
         ConsolidationSetup: Record "Consolidation Setup";
+        Consolidate: Codeunit "Consolidate";
         CurrentAADTenantId: Text;
         BusinessUnitAPIBaseUrl: Text;
         UrlNotBCMsg: Label 'The URL provided is not in the businesscentral.dynamics.com domain. Do you want to continue?';
@@ -173,7 +175,7 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
             Error(SelectOnlyOneCompanyErr);
         TempCompany.FindFirst();
         BusinessUnit."External Company Id" := TempCompany.Id;
-        BusinessUnit.Validate("External Company Name", TempCompany.Name);
+        BusinessUnit."External Company Name" := TempCompany.Name;
         SetBusinessUnitAPIBaseUrl(BusinessUnit);
         if not VerifySubsidiaryConsent() then
             Error(BusinessUnitConsentErr, BusinessUnit.Code);
@@ -353,12 +355,11 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
         Error(APITooManyRequestsErr);
     end;
 
-    procedure ImportConsolidationDataForBusinessUnit(ConsolidationProcess: Record "Consolidation Process"; BusinessUnit: Record "Business Unit"; var BusUnitConsolidationData: Record "Bus. Unit Consolidation Data")
+    internal procedure ImportConsolidationForBusinessUnit(var ConsolidationProcess: Record "Consolidation Process"; var BusinessUnit: Record "Business Unit" temporary)
     var
         GeneralLedgerSetup: Record "General Ledger Setup";
         GenJournalBatch: Record "Gen. Journal Batch";
         SelectedDimension: Record "Selected Dimension";
-        Consolidate: Codeunit Consolidate;
         GLSetupJsonObject: JsonObject;
         ValidateNoPostingsAtClosingDates: Boolean;
         AdditionalReportingCurrencyCode: Code[10];
@@ -366,7 +367,6 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
     begin
         GeneralLedgerSetup.Get();
         ConsolidationSetup.GetOrCreateWithDefaults();
-        BusUnitConsolidationData.GetConsolidate(Consolidate);
         Clear(Consolidate);
         if BusinessUnit."Default Data Import Method" <> BusinessUnit."Default Data Import Method"::API then
             Error(BusinessUnitNotConfiguredForAPIErr, BusinessUnit.Code);
@@ -391,14 +391,14 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
         ValidateNoPostingsAtClosingDates := ConsolidationProcess."Starting Date" = NormalDate(ConsolidationProcess."Starting Date");
         if not VerifySubsidiaryConsent(GLSetupJsonObject) then
             Error(BusinessUnitConsentErr, BusinessUnit.Code);
-        GetAndSetPostingGLAccounts(ValidateNoPostingsAtClosingDates, ConsolidationProcess."Starting Date", ConsolidationProcess."Ending Date", Consolidate);
-        GetAndSetGLEntriesForGLAccountsToConsolidate(ConsolidationProcess."Starting Date", ConsolidationProcess."Ending Date", ConsolidationProcess."Dimensions to Transfer", Consolidate);
+        GetAndSetPostingGLAccounts(ValidateNoPostingsAtClosingDates, ConsolidationProcess."Starting Date", ConsolidationProcess."Ending Date");
+        GetAndSetGLEntriesForGLAccountsToConsolidate(ConsolidationProcess."Starting Date", ConsolidationProcess."Ending Date", ConsolidationProcess."Dimensions to Transfer");
         if (BusinessUnit."Currency Code" <> '') and (BusinessUnit."Currency Exchange Rate Table" = BusinessUnit."Currency Exchange Rate Table"::"Business Unit") then
-            CurrencyCode := GetAndSetCurrencyExchangeRates(GLSetupJsonObject, ConsolidationProcess."Parent Currency Code", BusinessUnit."Currency Code", ConsolidationProcess."Ending Date", BusinessUnit."Currency Exchange Rate Table", AdditionalReportingCurrencyCode, Consolidate);
+            CurrencyCode := GetAndSetCurrencyExchangeRates(GLSetupJsonObject, ConsolidationProcess."Parent Currency Code", BusinessUnit."Currency Code", ConsolidationProcess."Ending Date", BusinessUnit."Currency Exchange Rate Table", AdditionalReportingCurrencyCode);
 
         Consolidate.SetGlobals('', '', CopyStr(BusinessUnit."External Company Name", 1, 30), CurrencyCode, AdditionalReportingCurrencyCode, ConsolidationProcess."Parent Currency Code", 0, ConsolidationProcess."Starting Date", ConsolidationProcess."Ending Date");
         Consolidate.UpdateGLEntryDimSetID();
-        BusUnitConsolidationData.SetConsolidate(Consolidate);
+        Consolidate.Run(BusinessUnit);
     end;
 
     local procedure VerifySubsidiaryConsent(): Boolean
@@ -422,7 +422,7 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
         exit(Format(Date, 10, '<Year4>-<Month,2>-<Day,2>'));
     end;
 
-    local procedure GetAndSetCurrencyExchangeRates(var GLSetupJsonObject: JsonObject; ParentCurrencyCode: Code[10]; BusinessUnitCurrencyCode: Code[10]; EndingDate: Date; CurrencyExchangeRateTable: Option; var AdditionalReportingCurrencyCode: Code[10]; var Consolidate: Codeunit Consolidate): Code[10]
+    local procedure GetAndSetCurrencyExchangeRates(var GLSetupJsonObject: JsonObject; ParentCurrencyCode: Code[10]; BusinessUnitCurrencyCode: Code[10]; EndingDate: Date; CurrencyExchangeRateTable: Option; var AdditionalReportingCurrencyCode: Code[10]): Code[10]
     var
         BusinessUnit: Record "Business Unit";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
@@ -472,7 +472,7 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
         exit(CurrencyCode);
     end;
 
-    local procedure GetAndSetGLEntriesForGLAccountsToConsolidate(StartingDate: Date; EndingDate: Date; DimensionsToTransfer: Text; var Consolidate: Codeunit Consolidate)
+    local procedure GetAndSetGLEntriesForGLAccountsToConsolidate(StartingDate: Date; EndingDate: Date; DimensionsToTransfer: Text)
     var
         TempGLAccount: Record "G/L Account" temporary;
         AccountNoFilter: Text;
@@ -497,17 +497,17 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
             AccountNoFilter += GLAccountToFilter(TempGLAccount);
             BatchCount += 1;
             if BatchCount >= GLAccountBatchLimit then begin
-                GetAndSetGLEntries(AccountNoFilter, DateFilter, DimensionsToTransfer, Consolidate);
+                GetAndSetGLEntries(AccountNoFilter, DateFilter, DimensionsToTransfer);
                 AccountNoFilter := '';
                 First := true;
                 BatchCount := 0;
             end;
         until TempGLAccount.Next() = 0;
         if BatchCount > 0 then
-            GetAndSetGLEntries(AccountNoFilter, DateFilter, DimensionsToTransfer, Consolidate);
+            GetAndSetGLEntries(AccountNoFilter, DateFilter, DimensionsToTransfer);
     end;
 
-    local procedure GetAndSetGLEntries(AccountNoFilter: Text; DateFilter: Text; DimensionsToTransfer: Text; var Consolidate: Codeunit Consolidate)
+    local procedure GetAndSetGLEntries(AccountNoFilter: Text; DateFilter: Text; DimensionsToTransfer: Text)
     var
         TempDimensionInOtherCompany: Record Dimension temporary;
         GLEntry: Record "G/L Entry";
@@ -613,15 +613,22 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
     end;
 
     local procedure GLAccountToFilter(GLAccountNo: Code[20]): Text
+    var
+        TypeHelper: Codeunit "Type Helper";
+        URLEncodedGLAccountNo: Text;
     begin
-        exit(StrSubstNo(GLAccountFilterTok, GLAccountNo));
+        URLEncodedGLAccountNo := GLAccountNo;
+        TypeHelper.UrlEncode(URLEncodedGLAccountNo);
+        exit(StrSubstNo(GLAccountFilterTok, URLEncodedGLAccountNo));
     end;
 
-    local procedure GetAndSetPostingGLAccounts(ValidateNoPostingsAtClosingDates: Boolean; StartingDate: Date; EndingDate: Date; var Consolidate: Codeunit Consolidate)
+    local procedure GetAndSetPostingGLAccounts(ValidateNoPostingsAtClosingDates: Boolean; StartingDate: Date; EndingDate: Date)
     var
         GLAccount: Record "G/L Account";
         TempAccountingPeriod: Record "Accounting Period" temporary;
         TypeHelper: Codeunit "Type Helper";
+        RecordRef: RecordRef;
+        FieldRef: FieldRef;
         JsonToken: JsonToken;
         PropertyJsonToken: JsonToken;
     begin
@@ -638,7 +645,9 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
             if ValidateNoPostingsAtClosingDates then
                 CheckNoPostingsAtClosingDates(GLAccount."No.", TempAccountingPeriod);
             JsonToken.AsObject().Get('consolidationTranslationMethod', PropertyJsonToken);
-            GLAccount."Consol. Translation Method" := TypeHelper.GetOptionNoFromTableField(PropertyJsonToken.AsValue().AsText(), Database::"G/L Account", GLAccount.FieldNo("Consol. Translation Method"));
+            RecordRef.Open(Database::"G/L Account");
+            FieldRef := RecordRef.Field(GLAccount.FieldNo("Consol. Translation Method"));
+            GLAccount."Consol. Translation Method" := TypeHelper.GetOptionNo(PropertyJsonToken.AsValue().AsText(), FieldRef.OptionMembers);
             JsonToken.AsObject().Get('consolidationDebitAccount', PropertyJsonToken);
             GLAccount."Consol. Debit Acc." := CopyStr(PropertyJsonToken.AsValue().AsCode(), 1, MaxStrLen(GLAccount."Consol. Debit Acc."));
             JsonToken.AsObject().Get('consolidationCreditAccount', PropertyJsonToken);
@@ -725,7 +734,7 @@ codeunit 102 "Import Consolidation from API" implements "Import Consolidation Da
         OnBeforeGetPostingGLAccounts(IsHandled, Response);
         if IsHandled then
             exit(ParseData(Response));
-        exit(HttpGet(BusinessUnitAPIBaseUrl + '/accounts?$filter=accountType eq ''Posting'' and excludeFromConsolidation eq false'));
+        exit(HttpGet(BusinessUnitAPIBaseUrl + '/accounts?$filter=accountType eq ''Posting'''));
     end;
 
     local procedure GetAccountingPeriods(StartingDate: Date; EndingDate: Date): JsonArray

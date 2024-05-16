@@ -39,6 +39,7 @@ pageextension 20103 "AMC Bank Bank Account Card" extends "Bank Account Card"
         IsAMCFundamentalsEnabled: Boolean;
 
     trigger OnOpenPage()
+    var
     begin
         IsAMCFundamentalsEnabled := AMCBankingMgt.IsAMCFundamentalsEnabled();
     end;

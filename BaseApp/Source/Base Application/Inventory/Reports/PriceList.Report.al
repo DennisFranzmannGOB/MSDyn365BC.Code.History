@@ -1,4 +1,4 @@
-﻿#if not CLEAN23
+﻿#if not CLEAN21
 namespace Microsoft.Inventory.Reports;
 
 using Microsoft.CRM.BusinessRelation;
@@ -564,9 +564,10 @@ report 715 "Price List"
     var
         PriceCalculationSetup: record "Price Calculation Setup";
     begin
-        if PriceCalculationSetup.FindDefault(PriceCalculationSetup.Method::"Lowest Price", PriceCalculationSetup.Type::Sale) then
-            if PriceCalculationSetup.Implementation <> PriceCalculationSetup.Implementation::"Business Central (Version 15.0)" then
-                Error(NativeCalculationErr);
+        with PriceCalculationSetup do
+            if FindDefault(Method::"Lowest Price", Type::Sale) then
+                if Implementation <> Implementation::"Business Central (Version 15.0)" then
+                    Error(NativeCalculationErr);
     end;
 
     local procedure SetCurrency()
@@ -611,19 +612,21 @@ report 715 "Price List"
 
     local procedure PreparePrintSalesPrice(IsVariant: Boolean)
     begin
-        if PricesInCurrency then begin
-            TempSalesPrice.SetRange("Currency Code", Currency.Code);
-            if TempSalesPrice.Find('-') then begin
-                TempSalesPrice.SetRange("Currency Code", '');
-                TempSalesPrice.DeleteAll();
+        with TempSalesPrice do begin
+            if PricesInCurrency then begin
+                SetRange("Currency Code", Currency.Code);
+                if Find('-') then begin
+                    SetRange("Currency Code", '');
+                    DeleteAll();
+                end;
+                SetRange("Currency Code");
             end;
-            TempSalesPrice.SetRange("Currency Code");
-        end;
 
-        if IsVariant then begin
-            TempSalesPrice.SetRange("Variant Code", '');
-            TempSalesPrice.DeleteAll();
-            TempSalesPrice.SetRange("Variant Code");
+            if IsVariant then begin
+                SetRange("Variant Code", '');
+                DeleteAll();
+                SetRange("Variant Code");
+            end;
         end;
 
         IsFirstSalesPrice := true;
@@ -631,51 +634,55 @@ report 715 "Price List"
 
     local procedure PrintSalesPrice(IsVariant: Boolean)
     begin
-        if IsFirstSalesPrice then begin
-            IsFirstSalesPrice := false;
-            if not TempSalesPrice.Find('-') then
-                if not IsVariant then begin
-                    if SalesPriceType = SalesPriceType::Campaign then
+        with TempSalesPrice do begin
+            if IsFirstSalesPrice then begin
+                IsFirstSalesPrice := false;
+                if not Find('-') then
+                    if not IsVariant then begin
+                        if SalesPriceType = SalesPriceType::Campaign then
+                            CurrReport.Skip();
+
+                        "Currency Code" := '';
+                        "Price Includes VAT" := Item."Price Includes VAT";
+                        "Unit Price" := Item."Unit Price";
+                        "Unit of Measure Code" := Item."Base Unit of Measure";
+                        "Minimum Quantity" := 0;
+                    end else
                         CurrReport.Skip();
+            end else
+                if Next() = 0 then
+                    CurrReport.Break();
 
-                    TempSalesPrice."Currency Code" := '';
-                    TempSalesPrice."Price Includes VAT" := Item."Price Includes VAT";
-                    TempSalesPrice."Unit Price" := Item."Unit Price";
-                    TempSalesPrice."Unit of Measure Code" := Item."Base Unit of Measure";
-                    TempSalesPrice."Minimum Quantity" := 0;
-                end else
-                    CurrReport.Skip();
-        end else
-            if TempSalesPrice.Next() = 0 then
-                CurrReport.Break();
+            if (SalesPriceType = SalesPriceType::Campaign) and ("Sales Type" <> "Sales Type"::Campaign) then
+                CurrReport.Skip();
 
-        if (SalesPriceType = SalesPriceType::Campaign) and (TempSalesPrice."Sales Type" <> TempSalesPrice."Sales Type"::Campaign) then
-            CurrReport.Skip();
-
-        if TempSalesPrice."Price Includes VAT" then
-            VATText := Text000Txt
-        else
-            VATText := Text001Txt;
-        UnitOfMeasure := TempSalesPrice."Unit of Measure Code";
-        ConvertPricetoUoM(UnitOfMeasure, TempSalesPrice."Unit Price");
-        ConvertPriceLCYToFCY(TempSalesPrice."Currency Code", TempSalesPrice."Unit Price");
+            if "Price Includes VAT" then
+                VATText := Text000Txt
+            else
+                VATText := Text001Txt;
+            UnitOfMeasure := "Unit of Measure Code";
+            ConvertPricetoUoM(UnitOfMeasure, "Unit Price");
+            ConvertPriceLCYToFCY("Currency Code", "Unit Price");
+        end;
     end;
 
     local procedure PreparePrintSalesDisc(IsVariant: Boolean)
     begin
-        if PricesInCurrency then begin
-            TempSalesLineDisc.SetRange("Currency Code", Currency.Code);
-            if TempSalesLineDisc.Find('-') then begin
-                TempSalesLineDisc.SetRange("Currency Code", '');
-                TempSalesLineDisc.DeleteAll();
+        with TempSalesLineDisc do begin
+            if PricesInCurrency then begin
+                SetRange("Currency Code", Currency.Code);
+                if Find('-') then begin
+                    SetRange("Currency Code", '');
+                    DeleteAll();
+                end;
+                SetRange("Currency Code");
             end;
-            TempSalesLineDisc.SetRange("Currency Code");
-        end;
 
-        if IsVariant then begin
-            TempSalesLineDisc.SetRange("Variant Code", '');
-            TempSalesLineDisc.DeleteAll();
-            TempSalesLineDisc.SetRange("Variant Code");
+            if IsVariant then begin
+                SetRange("Variant Code", '');
+                DeleteAll();
+                SetRange("Variant Code");
+            end;
         end;
 
         IsFirstSalesLineDisc := true;
@@ -683,21 +690,23 @@ report 715 "Price List"
 
     local procedure PrintSalesDisc()
     begin
-        if IsFirstSalesLineDisc then begin
-            IsFirstSalesLineDisc := false;
-            if not TempSalesLineDisc.Find('-') then
-                CurrReport.Break();
-        end else
-            if TempSalesLineDisc.Next() = 0 then
-                CurrReport.Break();
+        with TempSalesLineDisc do begin
+            if IsFirstSalesLineDisc then begin
+                IsFirstSalesLineDisc := false;
+                if not Find('-') then
+                    CurrReport.Break();
+            end else
+                if Next() = 0 then
+                    CurrReport.Break();
 
-        if (SalesPriceType = SalesPriceType::Campaign) and (TempSalesLineDisc."Sales Type" <> TempSalesLineDisc."Sales Type"::Campaign) then
-            CurrReport.Skip();
+            if (SalesPriceType = SalesPriceType::Campaign) and ("Sales Type" <> "Sales Type"::Campaign) then
+                CurrReport.Skip();
 
-        if TempSalesLineDisc."Unit of Measure Code" = '' then
-            UnitOfMeasure := Item."Base Unit of Measure"
-        else
-            UnitOfMeasure := TempSalesLineDisc."Unit of Measure Code";
+            if "Unit of Measure Code" = '' then
+                UnitOfMeasure := Item."Base Unit of Measure"
+            else
+                UnitOfMeasure := "Unit of Measure Code";
+        end;
     end;
 
     local procedure SetCurrencyFactorInHeader(var SalesHeader: Record "Sales Header")
@@ -710,7 +719,7 @@ report 715 "Price List"
     procedure InitializeRequest(NewDateReq: Date; NewSalesPriceType: Option; NewSalesCode: Code[20]; NewCurrencyCode: Code[10])
     begin
         DateReq := NewDateReq;
-        SalesPriceType := "Sales Price Type".FromInteger(NewSalesPriceType);
+        SalesPriceType := NewSalesPriceType;
         SalesCode := NewSalesCode;
         Currency.Code := NewCurrencyCode;
     end;

@@ -15,7 +15,6 @@ table 281 "Phys. Inventory Ledger Entry"
     Caption = 'Phys. Inventory Ledger Entry';
     DrillDownPageID = "Phys. Inventory Ledger Entries";
     LookupPageID = "Phys. Inventory Ledger Entries";
-    DataClassification = CustomerContent;
 
     fields
     {

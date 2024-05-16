@@ -4,7 +4,6 @@ table 5081 Activity
 {
     Caption = 'Activity';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Activity List";
 
     fields
@@ -44,10 +43,12 @@ table 5081 Activity
     var
         ActivityStep: Record "Activity Step";
     begin
-        ActivityStep.SetCurrentKey("Activity Code", ActivityStep.Type);
-        ActivityStep.SetRange("Activity Code", ActivityCode);
-        ActivityStep.SetRange(Type, ActivityStep.Type::Meeting);
-        exit(not ActivityStep.IsEmpty());
+        with ActivityStep do begin
+            SetCurrentKey("Activity Code", Type);
+            SetRange("Activity Code", ActivityCode);
+            SetRange(Type, Type::Meeting);
+            exit(FindFirst());
+        end;
     end;
 }
 

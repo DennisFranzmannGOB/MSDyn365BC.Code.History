@@ -165,11 +165,12 @@ codeunit 134314 "WF Notification Schedule Tests"
         NotificationEntry: Record "Notification Entry";
         JobQueueEntry: Record "Job Queue Entry";
         ApprovalEntry: Record "Approval Entry";
+        UserSetup: Record "User Setup";
         UserName: Code[50];
     begin
         // [SCENARIO] All notification of the same type are reusing the same job.
         // [GIVEN] Monthly schedule exist.
-        Initialize();
+        Initialize;
 
         UserName := 'SomeUser';
         AddUserSetup(UserName);
@@ -213,7 +214,7 @@ codeunit 134314 "WF Notification Schedule Tests"
         // [SCENARIO] Modifying the schedule is reflected in the job queue.
 
         // [GIVEN] A schedule and an event already exist
-        Initialize();
+        Initialize;
 
         EarliestDateTimeOfExecution := CurrentDateTime + 3600000;
         CreateMonthlyScheduleForApproval(NotificationSchedule);
@@ -250,7 +251,7 @@ codeunit 134314 "WF Notification Schedule Tests"
         ApprovalEntry: Record "Approval Entry";
     begin
         // [GIVEN] A schedule and an event already exist
-        Initialize();
+        Initialize;
 
         CreateMonthlyScheduleForApproval(NotificationSchedule);
         NotificationEntry.CreateNotificationEntry(
@@ -363,7 +364,7 @@ codeunit 134314 "WF Notification Schedule Tests"
         // [GIVEN] An existing weekly schedule set to workday
         Initialize();
         with NotificationSchedule do begin
-            CreateNewRecord(LibraryUtility.GenerateGUID(), "Notification Type"::Approval);
+            CreateNewRecord(LibraryUtility.GenerateGUID, "Notification Type"::Approval);
             Validate(Recurrence, Recurrence::Weekly);
             Validate(Time, 120000T);
 
@@ -390,7 +391,7 @@ codeunit 134314 "WF Notification Schedule Tests"
         // [GIVEN] An existing daily schedule set to weekday (workday)
         Initialize();
         with NotificationSchedule do begin
-            CreateNewRecord(LibraryUtility.GenerateGUID(), "Notification Type"::Approval);
+            CreateNewRecord(LibraryUtility.GenerateGUID, "Notification Type"::Approval);
             Validate(Recurrence, Recurrence::Daily);
             Validate("Daily Frequency", "Daily Frequency"::Weekday);
             Validate(Time, 120000T);

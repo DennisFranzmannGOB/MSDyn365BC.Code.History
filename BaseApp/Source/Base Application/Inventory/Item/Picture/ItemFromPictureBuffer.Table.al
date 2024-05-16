@@ -3,7 +3,6 @@ namespace Microsoft.Inventory.Item.Picture;
 table 7499 "Item From Picture Buffer"
 {
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

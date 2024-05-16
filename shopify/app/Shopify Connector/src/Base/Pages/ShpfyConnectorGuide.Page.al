@@ -1,9 +1,7 @@
 namespace Microsoft.Integration.Shopify;
 
 using System.Environment;
-#if not CLEAN22
 using System.IO;
-#endif
 using Microsoft.Inventory.Item;
 using Microsoft.Sales.Customer;
 using Microsoft.Finance.GeneralLedger.Account;
@@ -963,6 +961,7 @@ page 30136 "Shpfy Connector Guide"
 #endif
         Shop.Validate("Auto Create Unknown Customers", true);
         Shop.Validate("Customer Import From Shopify", Shop."Customer Import From Shopify"::AllCustomers);
+        Shop.Validate("Export Customer To Shopify", false);
 
         // Order synchronization
         if IsDemoCompany then begin

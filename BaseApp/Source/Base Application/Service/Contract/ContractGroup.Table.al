@@ -5,7 +5,6 @@ table 5966 "Contract Group"
     Caption = 'Contract Group';
     DrillDownPageID = "Service Contract Groups";
     LookupPageID = "Service Contract Groups";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -30,7 +29,7 @@ table 5966 "Contract Group"
         field(5; "Contract Gain/Loss Amount"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = sum ("Contract Gain/Loss Entry".Amount where("Contract Group Code" = field(Code),
+            CalcFormula = Sum ("Contract Gain/Loss Entry".Amount where("Contract Group Code" = field(Code),
                                                                        "Change Date" = field("Date Filter")));
             Caption = 'Contract Gain/Loss Amount';
             Editable = false;

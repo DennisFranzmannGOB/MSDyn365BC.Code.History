@@ -6,9 +6,8 @@ using Microsoft.Projects.Project.Reports;
 
 page 1027 "Job WIP Cockpit"
 {
-    AdditionalSearchTerms = 'Job WIP Cockpit';
     ApplicationArea = Jobs;
-    Caption = 'Project WIP';
+    Caption = 'Job WIP';
     DeleteAllowed = false;
     Editable = false;
     InsertAllowed = false;
@@ -29,87 +28,87 @@ page 1027 "Job WIP Cockpit"
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number for the project. You can use one of the following methods to fill in the number:';
+                    ToolTip = 'Specifies the number for the job. You can use one of the following methods to fill in the number:';
                 }
                 field(Description; Rec.Description)
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies a short description of the project.';
+                    ToolTip = 'Specifies a short description of the job.';
                 }
                 field("WIP Warnings"; Rec."WIP Warnings")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies whether or not there are WIP warnings associated with a project.';
+                    ToolTip = 'Specifies whether or not there are WIP warnings associated with a job.';
                 }
                 field("Recog. Costs Amount"; Rec."Recog. Costs Amount")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the Recognized Cost amount that was last calculated for the project. The Recognized Cost Amount for the project is the sum of the Recognized Cost Project WIP Entries.';
+                    ToolTip = 'Specifies the Recognized Cost amount that was last calculated for the job. The Recognized Cost Amount for the job is the sum of the Recognized Cost Job WIP Entries.';
                 }
                 field("Recog. Costs G/L Amount"; Rec."Recog. Costs G/L Amount")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the total Recognized Cost amount that was last posted to the general ledger for the project. The Recognized Cost G/L amount for the project is the sum of the Recognized Cost Project WIP G/L Entries.';
+                    ToolTip = 'Specifies the total Recognized Cost amount that was last posted to the general ledger for the job. The Recognized Cost G/L amount for the job is the sum of the Recognized Cost Job WIP G/L Entries.';
                 }
                 field("Recog. Sales Amount"; Rec."Recog. Sales Amount")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the recognized sales amount that was last calculated for the project, which is the sum of the Recognized Sales Project WIP Entries.';
+                    ToolTip = 'Specifies the recognized sales amount that was last calculated for the job, which is the sum of the Recognized Sales Job WIP Entries.';
                 }
                 field("Recog. Sales G/L Amount"; Rec."Recog. Sales G/L Amount")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the total Recognized Sales amount that was last posted to the general ledger for the project. The Recognized Sales G/L amount for the project is the sum of the Recognized Sales Project WIP G/L Entries.';
+                    ToolTip = 'Specifies the total Recognized Sales amount that was last posted to the general ledger for the job. The Recognized Sales G/L amount for the job is the sum of the Recognized Sales Job WIP G/L Entries.';
                 }
                 field("Recog. Costs Amount Difference"; Rec."Recog. Costs Amount" - Rec."Recog. Costs G/L Amount")
                 {
                     ApplicationArea = Jobs;
                     Caption = 'Recog. Costs Amount Difference';
-                    ToolTip = 'Specifies the difference in recognized costs for the project.';
+                    ToolTip = 'Specifies the difference in recognized costs for the job.';
                 }
                 field("Recog. Sales Amount Difference"; Rec."Recog. Sales Amount" - Rec."Recog. Sales G/L Amount")
                 {
                     ApplicationArea = Jobs;
                     Caption = 'Recog. Sales Amount Difference';
-                    ToolTip = 'Specifies the difference in recognized sales for the project.';
+                    ToolTip = 'Specifies the difference in recognized sales for the job.';
                 }
                 field("Recog. Profit Amount"; Rec.CalcRecognizedProfitAmount())
                 {
                     ApplicationArea = Jobs;
                     Caption = 'Recog. Profit Amount';
-                    ToolTip = 'Specifies the recognized profit amount for the project.';
+                    ToolTip = 'Specifies the recognized profit amount for the job.';
                 }
                 field("Recog. Profit G/L Amount"; Rec.CalcRecognizedProfitGLAmount())
                 {
                     ApplicationArea = Jobs;
                     Caption = 'Recog. Profit G/L Amount';
-                    ToolTip = 'Specifies the total recognized profit G/L amount for this project.';
+                    ToolTip = 'Specifies the total recognized profit G/L amount for this job.';
                 }
                 field("Recog. Profit Amount Difference"; Rec.CalcRecognizedProfitAmount() - Rec.CalcRecognizedProfitGLAmount())
                 {
                     ApplicationArea = Jobs;
                     Caption = 'Recog. Profit Amount Difference';
-                    ToolTip = 'Specifies the difference in recognized profit for the project.';
+                    ToolTip = 'Specifies the difference in recognized profit for the job.';
                 }
                 field("WIP Posting Date"; Rec."WIP Posting Date")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the posting date that was entered when the Project Calculate WIP batch job was last run.';
+                    ToolTip = 'Specifies the posting date that was entered when the Job Calculate WIP batch job was last run.';
                 }
                 field("WIP G/L Posting Date"; Rec."WIP G/L Posting Date")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the posting date that was entered when the Project Post WIP to general ledger batch job was last run.';
+                    ToolTip = 'Specifies the posting date that was entered when the Job Post WIP to general ledger batch job was last run.';
                 }
                 field("Total WIP Cost Amount"; Rec."Total WIP Cost Amount")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the total WIP cost amount that was last calculated for the project. The WIP Cost Amount for the project is the value WIP Cost Project WIP Entries less the value of the Recognized Cost Project WIP Entries. For projects with WIP Methods of Sales Value or Percentage of Completion, the WIP Cost Amount is normally 0.';
+                    ToolTip = 'Specifies the total WIP cost amount that was last calculated for the job. The WIP Cost Amount for the job is the value WIP Cost Job WIP Entries less the value of the Recognized Cost Job WIP Entries. For jobs with WIP Methods of Sales Value or Percentage of Completion, the WIP Cost Amount is normally 0.';
                 }
                 field("Total WIP Cost G/L Amount"; Rec."Total WIP Cost G/L Amount")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the total WIP Cost amount that was last posted to the G/L for the project. The WIP Cost Amount for the project is the value WIP Cost Project WIP G/L Entries less the value of the Recognized Cost Project WIP G/L Entries. For projects with WIP Methods of Sales Value or Percentage of Completion, the WIP Cost Amount is normally 0.';
+                    ToolTip = 'Specifies the total WIP Cost amount that was last posted to the G/L for the job. The WIP Cost Amount for the job is the value WIP Cost Job WIP G/L Entries less the value of the Recognized Cost Job WIP G/L Entries. For jobs with WIP Methods of Sales Value or Percentage of Completion, the WIP Cost Amount is normally 0.';
                 }
                 field("Total WIP Cost Difference"; Rec."Total WIP Cost Amount" - Rec."Total WIP Cost G/L Amount")
                 {
@@ -120,12 +119,12 @@ page 1027 "Job WIP Cockpit"
                 field("Total WIP Sales Amount"; Rec."Total WIP Sales Amount")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the total WIP sales amount that was last calculated for the project. It is calculated as the value in the WIP Sales field minus the value in the Recognized Sales field in the Project WIP Entries window. For projects that use the Cost Value or Cost of Sales WIP methods, the WIP sales amount is normally 0. ';
+                    ToolTip = 'Specifies the total WIP sales amount that was last calculated for the job. It is calculated as the value in the WIP Sales field minus the value in the Recognized Sales field in the Job WIP Entries window. For jobs that use the Cost Value or Cost of Sales WIP methods, the WIP sales amount is normally 0. ';
                 }
                 field("Total WIP Sales G/L Amount"; Rec."Total WIP Sales G/L Amount")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the total WIP sales amount that was last calculated for the project. It is calculated as the value in the WIP Sales field minus the value in the Recognized Sales field in the Project G/L WIP Entries window. For projects that use the Cost Value or Cost of Sales WIP methods, the WIP sales amount is normally 0. ';
+                    ToolTip = 'Specifies the total WIP sales amount that was last calculated for the job. It is calculated as the value in the WIP Sales field minus the value in the Recognized Sales field in the Job G/L WIP Entries window. For jobs that use the Cost Value or Cost of Sales WIP methods, the WIP sales amount is normally 0. ';
                 }
                 field("Total WIP Sales Difference"; Rec."Total WIP Sales Amount" - Rec."Total WIP Sales G/L Amount")
                 {
@@ -176,25 +175,25 @@ page 1027 "Job WIP Cockpit"
         {
             group("<Action34>")
             {
-                Caption = 'Project';
+                Caption = 'Job';
                 Image = Job;
                 action(Job)
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Project';
+                    Caption = 'Job';
                     Image = JobLedger;
                     RunObject = Page "Job Card";
                     RunPageOnRec = true;
-                    ToolTip = 'View or edit detailed information about the project.';
+                    ToolTip = 'View or edit detailed information about the job.';
                 }
                 action("Job Task Lines")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Project Task Lines';
+                    Caption = 'Job Task Lines';
                     Image = TaskList;
                     RunObject = Page "Job Task Lines";
                     RunPageLink = "Job No." = field("No.");
-                    ToolTip = 'Plan how you want to set up your planning information. In this window you can specify the tasks involved in a project. To start planning a project or to post usage for a project, you must set up at least one project task.';
+                    ToolTip = 'Plan how you want to set up your planning information. In this window you can specify the tasks involved in a job. To start planning a job or to post usage for a job, you must set up at least one job task.';
                 }
                 action("<Action31>")
                 {
@@ -257,7 +256,7 @@ page 1027 "Job WIP Cockpit"
                     RunObject = Page "Job WIP Entries";
                     RunPageLink = "Job No." = field("No.");
                     RunPageView = sorting("Job No.", "Job Posting Group", "WIP Posting Date");
-                    ToolTip = 'View the project''s WIP entries.';
+                    ToolTip = 'View the job''s WIP entries.';
                 }
                 action("WIP G/L Entries")
                 {
@@ -268,7 +267,7 @@ page 1027 "Job WIP Cockpit"
                     RunPageLink = "Job No." = field("No."),
                                   Reversed = const(false);
                     RunPageView = sorting("Job No.");
-                    ToolTip = 'View the project''s WIP G/L entries.';
+                    ToolTip = 'View the job''s WIP G/L entries.';
                 }
             }
         }
@@ -284,7 +283,7 @@ page 1027 "Job WIP Cockpit"
                     Caption = 'Calculate WIP';
                     Ellipsis = true;
                     Image = CalculateWIP;
-                    ToolTip = 'Use a batch job to help you calculate the value of work in process (WIP) on your projects.';
+                    ToolTip = 'Use a batch job to help you calculate the value of work in process (WIP) on your jobs.';
 
                     trigger OnAction()
                     var
@@ -302,7 +301,7 @@ page 1027 "Job WIP Cockpit"
                     Caption = 'Post WIP to G/L';
                     Ellipsis = true;
                     Image = PostOrder;
-                    ToolTip = 'Post the project WIP totals to the general ledger.';
+                    ToolTip = 'Post the job WIP totals to the general ledger.';
 
                     trigger OnAction()
                     var
@@ -319,7 +318,7 @@ page 1027 "Job WIP Cockpit"
                     ApplicationArea = Jobs;
                     Caption = 'Delete WIP Entries';
                     Image = Delete;
-                    ToolTip = 'Delete all WIP entries for the selected projects.';
+                    ToolTip = 'Delete all WIP entries for the selected jobs.';
 
                     trigger OnAction()
                     var
@@ -343,7 +342,7 @@ page 1027 "Job WIP Cockpit"
                     ApplicationArea = Jobs;
                     Caption = 'Recalculate WIP';
                     Image = CalculateWIP;
-                    ToolTip = 'Calculate the work in process again. Every time WIP is calculated, an entry is created in the Project WIP Entries window.';
+                    ToolTip = 'Calculate the work in process again. Every time WIP is calculated, an entry is created in the Job WIP Entries window.';
 
                     trigger OnAction()
                     var
@@ -378,9 +377,9 @@ page 1027 "Job WIP Cockpit"
             action("<Action32>")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Project WIP To G/L';
+                Caption = 'Job WIP To G/L';
                 Image = "Report";
-                ToolTip = 'View the value of work in process on the projects that you select compared to the amount that has been posted in the general ledger.';
+                ToolTip = 'View the value of work in process on the jobs that you select compared to the amount that has been posted in the general ledger.';
 
                 trigger OnAction()
                 var
@@ -455,10 +454,10 @@ page 1027 "Job WIP Cockpit"
     }
 
     var
-        Text001: Label 'Are you sure that you want to delete the WIP entries for all selected projects?';
+        Text001: Label 'Are you sure that you want to delete the WIP entries for all selected jobs?';
         Text002: Label 'WIP Entries were deleted successfully.';
-        Text003: Label 'Are you sure that you want to recalculate the WIP entries for all selected projects?';
+        Text003: Label 'Are you sure that you want to recalculate the WIP entries for all selected jobs?';
         Text004: Label 'WIP Entries were recalculated successfully.';
-        Text005: Label 'The recalculation for the following projects failed because no WIP entries were found: %1.';
+        Text005: Label 'The recalculation for the following jobs failed because no WIP entries were found: %1.';
 }
 

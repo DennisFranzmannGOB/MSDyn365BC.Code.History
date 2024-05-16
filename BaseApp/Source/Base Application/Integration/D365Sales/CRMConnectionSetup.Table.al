@@ -27,7 +27,6 @@ table 5330 "CRM Connection Setup"
     Permissions = tabledata "CRM Connection Setup" = r;
     InherentEntitlements = rX;
     InherentPermissions = rX;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -129,7 +128,7 @@ table 5330 "CRM Connection Setup"
             ObsoleteTag = '20.0';
             ObsoleteState = Pending;
 #else
-            ObsoleteTag = '26.0';
+            ObsoleteTag = '23.0';
             ObsoleteState = Removed;
 #endif
             Caption = 'Business Central Users Must Map to Dynamics 365 Sales Users';
@@ -141,7 +140,7 @@ table 5330 "CRM Connection Setup"
             ObsoleteTag = '20.0';
             ObsoleteState = Pending;
 #else
-            ObsoleteTag = '26.0';
+            ObsoleteTag = '23.0';
             ObsoleteState = Removed;
 #endif
             ObsoleteReason = 'This functionality is not in use and not supported';
@@ -201,7 +200,7 @@ table 5330 "CRM Connection Setup"
             ObsoleteTag = '20.0';
             ObsoleteState = Pending;
 #else
-            ObsoleteTag = '26.0';
+            ObsoleteTag = '23.0';
             ObsoleteState = Removed;
 #endif
             ObsoleteReason = 'Use field "Is Enabled" instead.';
@@ -472,7 +471,6 @@ table 5330 "CRM Connection Setup"
         BCIntegrationAdministratorRoleIdTxt: Label '{8c8d4f51-a72b-e511-80d9-3863bb349780}', Locked = true;
         BCIntegrationUserRoleIdTxt: Label '{6f960e32-a72b-e511-80d9-3863bb349780}', Locked = true;
         CDSConnectionMustBeEnabledErr: Label 'You must enable the connection to Dataverse before you can set up the connection to %1.\\Choose ''Set up Dataverse connection'' in %2 page.', Comment = '%1 = CRM product name, %2 = Assisted Setup page caption.';
-        ShowDataverseConnectionSetupLbl: Label 'Show Dataverse Connection Setup';
         DeploySucceedMsg: Label 'The solution, user roles, and entities have been deployed.';
         DeployFailedMsg: Label 'The deployment of the solution, user roles, and entities failed.';
         CategoryTok: Label 'AL Dataverse Integration', Locked = true;
@@ -487,6 +485,7 @@ table 5330 "CRM Connection Setup"
     procedure EnsureCDSConnectionIsEnabled();
     var
         CDSConnectionSetup: Record "CDS Connection Setup";
+        AssistedSetupPage: Page "Assisted Setup";
     begin
         if Get() then
             if "Is Enabled" then
@@ -496,13 +495,14 @@ table 5330 "CRM Connection Setup"
             if CDSConnectionSetup."Is Enabled" then
                 exit;
 
-        CDSConnectionNotEnabledError();
+        Error(CDSConnectionMustBeEnabledErr, CRMProductName.SHORT(), AssistedSetupPage.Caption());
     end;
 
     [Scope('OnPrem')]
     procedure LoadConnectionStringElementsFromCDSConnectionSetup();
     var
         CDSConnectionSetup: Record "CDS Connection Setup";
+        AssistedSetupPage: Page "Assisted Setup";
     begin
         if Get() then
             if "Is Enabled" then
@@ -521,7 +521,7 @@ table 5330 "CRM Connection Setup"
                 exit;
             end;
 
-        CDSConnectionNotEnabledError();
+        Error(CDSConnectionMustBeEnabledErr, CRMProductName.SHORT(), AssistedSetupPage.Caption());
     end;
 
     [Scope('OnPrem')]
@@ -1443,7 +1443,7 @@ table 5330 "CRM Connection Setup"
 
     procedure IsBidirectionalSalesOrderIntEnabled(): Boolean
     begin
-        if not Get() then
+        if not Get then
             exit(false);
         exit("Bidirectional Sales Order Int." and "Is Enabled");
     end;
@@ -1485,20 +1485,6 @@ table 5330 "CRM Connection Setup"
 
         Session.LogMessage('0000K7P', DefaultingToDataverseServiceClientTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
         exit(100);
-    end;
-
-    local procedure CDSConnectionNotEnabledError()
-    var
-        AssistedSetup: Page "Assisted Setup";
-        CDSConnectionNotEnabledErrorInfo: ErrorInfo;
-    begin
-        CDSConnectionNotEnabledErrorInfo.DataClassification := CDSConnectionNotEnabledErrorInfo.DataClassification::SystemMetadata;
-        CDSConnectionNotEnabledErrorInfo.ErrorType := CDSConnectionNotEnabledErrorInfo.ErrorType::Client;
-        CDSConnectionNotEnabledErrorInfo.Verbosity := CDSConnectionNotEnabledErrorInfo.Verbosity::Error;
-        CDSConnectionNotEnabledErrorInfo.Message := StrSubstNo(CDSConnectionMustBeEnabledErr, CRMProductName.SHORT(), AssistedSetup.Caption());
-        CDSConnectionNotEnabledErrorInfo.AddNavigationAction(ShowDataverseConnectionSetupLbl);
-        CDSConnectionNotEnabledErrorInfo.PageNo(Page::"CDS Connection Setup Wizard");
-        Error(CDSConnectionNotEnabledErrorInfo);
     end;
 
     [IntegrationEvent(false, false)]

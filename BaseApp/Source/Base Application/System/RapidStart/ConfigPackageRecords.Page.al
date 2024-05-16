@@ -1,7 +1,6 @@
 namespace System.IO;
 
 using Microsoft.Finance.Dimension;
-using System.Utilities;
 
 page 8626 "Config. Package Records"
 {
@@ -1235,8 +1234,6 @@ page 8626 "Config. Package Records"
     trigger OnAfterGetRecord()
     var
         ConfigPackageField: Record "Config. Package Field";
-        ConfigPackageManagement: Codeunit "Config. Package Management";
-        InStream: InStream;
     begin
         MatrixColumnOrdinal := 0;
         Clear(MatrixCellData);
@@ -1244,12 +1241,7 @@ page 8626 "Config. Package Records"
             repeat
                 MatrixColumnOrdinal := MatrixColumnOrdinal + 1;
                 if ConfigPackageData.Get(Rec."Package Code", Rec."Table ID", Rec."No.", ConfigPackageField."Field ID") then begin
-                    if ConfigPackageManagement.IsBLOBField(ConfigPackageData."Table ID", ConfigPackageData."Field ID") then begin
-                        ConfigPackageData.CalcFields("BLOB Value");
-                        ConfigPackageData."BLOB Value".CreateInStream(InStream);
-                        InStream.ReadText(MatrixCellData[MatrixColumnOrdinal]);
-                    end else
-                        MatrixCellData[MatrixColumnOrdinal] := ConfigPackageData.Value;
+                    MatrixCellData[MatrixColumnOrdinal] := ConfigPackageData.Value;
                     PackageColumnField[MatrixColumnOrdinal] := ConfigPackageData."Field ID";
                     MatrixDimension[MatrixColumnOrdinal] := ConfigPackageField.Dimension;
                 end;
@@ -1276,7 +1268,7 @@ page 8626 "Config. Package Records"
 
     var
         ConfigPackageData: Record "Config. Package Data";
-        MatrixCellData: array[1000] of Text;
+        MatrixCellData: array[1000] of Text[2048];
         MatrixColumnCaptions: array[1000] of Text[100];
         MatrixDimension: array[1000] of Boolean;
         FormCaption: Text[1024];
@@ -1286,7 +1278,6 @@ page 8626 "Config. Package Records"
         TableNo: Integer;
         Text001: Label '%1 value ''%2'' does not exist.';
         Text002: Label 'There are no data migration errors in this record.';
-        ValueIsTooLong: Label 'Max length of %1 with value ''%2'' is %3.', Comment = '%1 - Table caption, %2 - Value, %3 - Max length';
         ErrorFieldNo: Integer;
         Field1Visible: Boolean;
         Field2Visible: Boolean;
@@ -1533,12 +1524,10 @@ page 8626 "Config. Package Records"
         DimValue: Record "Dimension Value";
         ConfigValidateMgt: Codeunit "Config. Validate Management";
         ConfigPackageMgt: Codeunit "Config. Package Management";
-        TempBlob: Codeunit "Temp Blob";
         RecRef: RecordRef;
         FieldRef: FieldRef;
-        InStream: InStream;
         ErrorText: Text;
-        IsHandled, IsBlobField : Boolean;
+        IsHandled: Boolean;
     begin
         IsHandled := false;
         OnBeforeValidatePackageData(Rec, MatrixCellData, PackageColumnField, ColumnID, IsHandled);
@@ -1547,12 +1536,9 @@ page 8626 "Config. Package Records"
 
         MatrixCellData[ColumnID] := DelChr(MatrixCellData[ColumnID], '<>', ' ');
         if MatrixDimension[ColumnID] then begin
-            if MatrixCellData[ColumnID] <> '' then begin
-                if StrLen(MatrixCellData[ColumnID]) > MaxStrLen(DimValue.Code) then
-                    Error(ValueIsTooLong, Dimension.TableCaption(), MatrixCellData[ColumnID], MaxStrLen(DimValue.Code));
+            if MatrixCellData[ColumnID] <> '' then
                 if not DimValue.Get(MatrixColumnCaptions[ColumnID], MatrixCellData[ColumnID]) then
                     Error(Text001, Dimension.TableCaption(), MatrixCellData[ColumnID]);
-            end;
             ConfigPackageData.Get(Rec."Package Code", Rec."Table ID", Rec."No.", PackageColumnField[ColumnID]);
             ConfigPackageData.Validate(Value, MatrixCellData[ColumnID]);
             ConfigPackageData.Modify();
@@ -1562,27 +1548,15 @@ page 8626 "Config. Package Records"
             ConfigPackageField.Get(Rec."Package Code", Rec."Table ID", PackageColumnField[ColumnID]);
             ConfigPackageField.TestField(Dimension, false);
 
-            IsBlobField := ConfigPackageMgt.IsBLOBField(ConfigPackageData."Table ID", ConfigPackageData."Field ID");
-            if not IsBlobField then
-                if StrLen(MatrixCellData[ColumnID]) > MaxStrLen(ConfigPackageData.Value) then
-                    Error(ValueIsTooLong, ConfigPackageField."Field Caption", MatrixCellData[ColumnID], MaxStrLen(ConfigPackageData.Value));
-
             ConfigPackageData.Get(Rec."Package Code", Rec."Table ID", Rec."No.", PackageColumnField[ColumnID]);
             ConfigPackageMgt.CleanFieldError(ConfigPackageData);
             ErrorText := ConfigValidateMgt.EvaluateValue(FieldRef, MatrixCellData[ColumnID], false);
             if ErrorText <> '' then
                 Error(ErrorText);
 
-            if IsBlobField then begin
-                TempBlob.FromFieldRef(FieldRef);
-                TempBlob.CreateInStream(InStream);
-                InStream.ReadText(MatrixCellData[ColumnID]);
-                ConfigPackageData."BLOB Value" := FieldRef.Value();
-            end else begin
-                MatrixCellData[ColumnID] := Format(FieldRef.Value);
-                ConfigPackageData.Validate(Value, MatrixCellData[ColumnID]);
-            end;
+            MatrixCellData[ColumnID] := Format(FieldRef.Value);
 
+            ConfigPackageData.Validate(Value, MatrixCellData[ColumnID]);
             if ConfigPackageField."Validate Field" and not ConfigPackageMgt.ValidateSinglePackageDataRelation(ConfigPackageData) then
                 Error(Text001, FieldRef.Caption, FieldRef.Value);
 
@@ -1607,7 +1581,7 @@ page 8626 "Config. Package Records"
     end;
 
     [IntegrationEvent(true, false)]
-    local procedure OnBeforeValidatePackageData(var ConfigPackageRecord: record "Config. Package Record"; var MatrixCellData: array[1000] of Text; PackageColumnField: array[1000] of Integer; ColumnID: Integer; var IsHandled: Boolean)
+    local procedure OnBeforeValidatePackageData(var ConfigPackageRecord: record "Config. Package Record"; var MatrixCellData: array[1000] of Text[250]; PackageColumnField: array[1000] of Integer; ColumnID: Integer; var IsHandled: Boolean)
     begin
     end;
 }

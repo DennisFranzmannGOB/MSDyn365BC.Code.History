@@ -114,12 +114,13 @@ codeunit 1850 "Sales Forecast Handler"
         exit(true);
     end;
 
+    [NonDebuggable]
     procedure InitializeTimeseries(var TimeSeriesManagement: Codeunit "Time Series Management"; MSSalesForecastSetupRec: Record "MS - Sales Forecast Setup"): Boolean
     var
         AzureAIUsage: Codeunit "Azure AI Usage";
         AzureAIService: Enum "Azure AI Service";
         APIURI: Text[250];
-        APIKey: SecretText;
+        APIKey: Text[200];
         LimitType: Option;
         Limit: Decimal;
     begin
@@ -139,7 +140,7 @@ codeunit 1850 "Sales Forecast Handler"
         end else
             if not TimeSeriesManagement.Initialize(
               MSSalesForecastSetupRec.GetAPIUri(),
-              MSSalesForecastSetupRec.GetAPIKeyAsSecret(),
+              MSSalesForecastSetupRec.GetAPIKey(),
               MSSalesForecastSetupRec."Timeout (seconds)",
               false) then begin
                 Status := Status::"Failed Time Series initialization";
@@ -166,7 +167,7 @@ codeunit 1850 "Sales Forecast Handler"
             Status::"Out of limit":
                 Error(OutOfLimitErr);
             Status::"Failed Time Series initialization":
-                Session.LogMessage('0000M0U', FailedTimeSeriesInitializationErr, Verbosity::Error, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', 'Sales & Inventory Forecast');
+                LogInternalError(FailedTimeSeriesInitializationErr, DataClassification::SystemMetadata, Verbosity::Error);
         end;
     end;
 

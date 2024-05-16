@@ -261,6 +261,7 @@ codeunit 139595 "Report Layouts Test"
 
     [ModalPageHandler]
     procedure NewLayoutModalHandler(var ReportLayoutNewDialog: TestPage "Report Layout New Dialog")
+    var
     begin
         ReportLayoutNewDialog.LayoutName.Value := NewLayoutNameTxt;
         ReportLayoutNewDialog.Description.Value := NewLayoutNameTxt;
@@ -274,6 +275,7 @@ codeunit 139595 "Report Layouts Test"
 
     [ModalPageHandler]
     procedure NewLayoutModalHandlerCurrentCompany(var ReportLayoutNewDialog: TestPage "Report Layout New Dialog")
+    var
     begin
         ReportLayoutNewDialog.LayoutName.Value := NewLayoutNameTxt;
         ReportLayoutNewDialog.Description.Value := NewLayoutNameTxt;
@@ -288,6 +290,7 @@ codeunit 139595 "Report Layouts Test"
 
     [ModalPageHandler]
     procedure EditLayoutModalHandlerNoCopyMakeAvailableAll(var ReportLayoutEditDialog: TestPage "Report Layout Edit Dialog")
+    var
     begin
         ReportLayoutEditDialog.LayoutName.Value := EditedLayoutNameTxt;
         ReportLayoutEditDialog.Description.Value := EditedLayoutNameTxt;
@@ -297,6 +300,7 @@ codeunit 139595 "Report Layouts Test"
 
     [ModalPageHandler]
     procedure EditLayoutModalHandlerCopyMakeAvailableAll(var ReportLayoutEditDialog: TestPage "Report Layout Edit Dialog")
+    var
     begin
         ReportLayoutEditDialog.LayoutName.Value := EditedLayoutNameTxt;
         ReportLayoutEditDialog.Description.Value := EditedLayoutNameTxt;
@@ -307,6 +311,7 @@ codeunit 139595 "Report Layouts Test"
 
     [ModalPageHandler]
     procedure EditLayoutModalHandlerNoCopyMakePrivate(var ReportLayoutEditDialog: TestPage "Report Layout Edit Dialog")
+    var
     begin
         ReportLayoutEditDialog.LayoutName.Value := EditedLayoutNameTxt;
         ReportLayoutEditDialog.Description.Value := EditedLayoutNameTxt;
@@ -317,6 +322,7 @@ codeunit 139595 "Report Layouts Test"
 
     [ModalPageHandler]
     procedure EditLayoutModalHandlerCopyMakePrivate(var ReportLayoutEditDialog: TestPage "Report Layout Edit Dialog")
+    var
     begin
         ReportLayoutEditDialog.LayoutName.Value := EditedLayoutNameTxt;
         ReportLayoutEditDialog.Description.Value := EditedLayoutNameTxt;
@@ -327,6 +333,7 @@ codeunit 139595 "Report Layouts Test"
 
     [ModalPageHandler]
     procedure EditLayoutModalHandler(var ReportLayoutEditDialog: TestPage "Report Layout Edit Dialog")
+    var
     begin
         ReportLayoutEditDialog.LayoutName.Value := EditedLayoutNameTxt;
         ReportLayoutEditDialog.Description.Value := EditedLayoutNameTxt;
@@ -335,6 +342,7 @@ codeunit 139595 "Report Layouts Test"
 
     [ConfirmHandler]
     procedure ConfirmHandler(Question: Text[1024]; var Reply: Boolean)
+    var
     begin
         Reply := true;
     end;

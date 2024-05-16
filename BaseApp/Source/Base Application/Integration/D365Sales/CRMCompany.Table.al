@@ -9,7 +9,6 @@ table 7206 "CRM Company"
     ExternalName = 'cdm_company';
     TableType = CRM;
     Description = 'A legal entity formed to carry on a business.';
-    DataClassification = CustomerContent;
 
     fields
     {

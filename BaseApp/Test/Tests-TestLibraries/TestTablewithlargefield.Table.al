@@ -1,15 +1,16 @@
 table 139173 "Test Table with large field"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
         field(1; PK; Integer)
         {
+            DataClassification = ToBeClassified;
         }
         field(2; Description; Text[2048])
         {
+            DataClassification = ToBeClassified;
         }
     }
 

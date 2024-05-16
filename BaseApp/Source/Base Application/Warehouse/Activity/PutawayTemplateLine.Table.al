@@ -8,7 +8,6 @@ table 7308 "Put-away Template Line"
 {
     Caption = 'Put-away Template Line';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

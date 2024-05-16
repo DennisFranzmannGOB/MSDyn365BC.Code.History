@@ -6,7 +6,6 @@ table 1524 "Workflow Rule"
 {
     Caption = 'Workflow Rule';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -44,7 +43,7 @@ table 1524 "Workflow Rule"
         }
         field(10; "Field Caption"; Text[250])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table ID"),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table ID"),
                                                               "No." = field("Field No.")));
             Caption = 'Field Caption';
             FieldClass = FlowField;
@@ -83,8 +82,8 @@ table 1524 "Workflow Rule"
         FieldRef := RecRef.Field("Field No.");
         xFieldRef := xRecRef.Field("Field No.");
 
-        Value := FieldRef.Value();
-        xValue := xFieldRef.Value();
+        Value := FieldRef.Value;
+        xValue := xFieldRef.Value;
 
         exit(CompareValues(xValue, Value));
     end;

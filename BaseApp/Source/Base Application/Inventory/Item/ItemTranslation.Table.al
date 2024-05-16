@@ -7,7 +7,6 @@ table 30 "Item Translation"
     Caption = 'Item Translation';
     DataCaptionFields = "Item No.", "Variant Code", "Language Code", Description;
     LookupPageID = "Item Translations";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -16,7 +16,6 @@ table 5333 "Coupling Field Buffer"
     ObsoleteTag = '25.0';
 #endif 
     ObsoleteReason = 'This table is no longer used. Use Coupling Field Buffer table instead.';
-    DataClassification = CustomerContent;
 
     fields
     {

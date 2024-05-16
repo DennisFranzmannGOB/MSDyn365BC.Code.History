@@ -20,7 +20,7 @@ codeunit 4616 "OAuth2 SMTP Auth" implements "SMTP Auth"
         DotNetSaslMechanismOAuth2: DotNet SaslMechanismOAuth2;
         CancellationToken: DotNet CancellationToken;
         Handled: Boolean;
-        AccessToken: SecretText;
+        AccessToken: Text;
         UserName: Text;
     begin
         // Get authentication from subscriber
@@ -32,7 +32,7 @@ codeunit 4616 "OAuth2 SMTP Auth" implements "SMTP Auth"
         UserName := SMTPAuthentication.GetUserName();
         AccessToken := SMTPAuthentication.GetAccessToken();
 
-        DotNetSaslMechanismOAuth2 := DotNetSaslMechanismOAuth2.SaslMechanismOAuth2(UserName, AccessToken.Unwrap());
+        DotNetSaslMechanismOAuth2 := DotNetSaslMechanismOAuth2.SaslMechanismOAuth2(UserName, AccessToken);
         SmtpClient.Authenticate(DotNetSaslMechanismOAuth2, CancellationToken);
     end;
 }

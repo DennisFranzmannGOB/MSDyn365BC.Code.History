@@ -6,7 +6,6 @@ using System.Reflection;
 table 5095 "Duplicate Search String Setup"
 {
     Caption = 'Duplicate Search String Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

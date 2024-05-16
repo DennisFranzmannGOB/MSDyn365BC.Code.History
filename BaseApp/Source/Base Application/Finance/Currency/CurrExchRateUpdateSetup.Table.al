@@ -13,7 +13,6 @@ table 1650 "Curr. Exch. Rate Update Setup"
 {
     Caption = 'Curr. Exch. Rate Update Setup';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
 
     fields
     {

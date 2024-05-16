@@ -6,17 +6,16 @@ using Microsoft.Utilities;
 table 335 "Resource Price Change"
 {
     Caption = 'Resource Price Change';
-#if not CLEAN23
+#if not CLEAN21
     DrillDownPageID = "Resource Price Changes";
     LookupPageID = "Resource Price Changes";
     ObsoleteState = Pending;
     ObsoleteTag = '16.0';
 #else
     ObsoleteState = Removed;
-    ObsoleteTag = '26.0';
+    ObsoleteTag = '24.0';
 #endif    
     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation: table Price Worksheet Line';
-    DataClassification = CustomerContent;
 
     fields
     {

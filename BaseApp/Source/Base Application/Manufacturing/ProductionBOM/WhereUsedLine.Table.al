@@ -5,7 +5,6 @@ using Microsoft.Inventory.Item;
 table 99000790 "Where-Used Line"
 {
     Caption = 'Where-Used Line';
-    DataClassification = CustomerContent;
 
     fields
     {

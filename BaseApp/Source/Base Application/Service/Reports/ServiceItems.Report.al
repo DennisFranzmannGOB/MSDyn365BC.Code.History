@@ -16,7 +16,7 @@ report 5935 "Service Items"
         {
             CalcFields = "No. of Active Contracts";
             DataItemTableView = sorting("Customer No.", "Ship-to Code", "Item No.", "Serial No.");
-            RequestFilterFields = "Customer No.", "Ship-to Code", Blocked;
+            RequestFilterFields = "Customer No.", "Ship-to Code";
             column(TodayFormatted; Format(Today, 0, 4))
             {
             }

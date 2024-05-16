@@ -6,8 +6,9 @@ using Microsoft.Utilities;
 table 338 "Entry Summary"
 {
     Caption = 'Entry Summary';
+#pragma warning disable AS0034
     TableType = Temporary;
-    DataClassification = CustomerContent;
+#pragma warning restore AS0034
 
     fields
     {

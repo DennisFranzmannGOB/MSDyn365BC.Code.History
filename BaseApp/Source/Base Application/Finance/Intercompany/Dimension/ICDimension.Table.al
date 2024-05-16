@@ -7,7 +7,6 @@ table 411 "IC Dimension"
     Caption = 'IC Dimension';
     DataCaptionFields = "Code", Name;
     LookupPageID = "IC Dimension List";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -7,7 +7,6 @@ using System.Security.AccessControl;
 table 5075 "Logged Segment"
 {
     Caption = 'Logged Segment';
-    DataClassification = CustomerContent;
     LookupPageID = "Logged Segments";
     ReplicateData = true;
 

@@ -22,7 +22,7 @@ permissionset 5679 "Jobs - View"
 {
     Access = Public;
     Assignable = false;
-    Caption = 'Project periodic activities';
+    Caption = 'Job periodic activities';
 
     Permissions = tabledata "Accounting Period" = R,
                   tabledata "Analysis View" = rimd,

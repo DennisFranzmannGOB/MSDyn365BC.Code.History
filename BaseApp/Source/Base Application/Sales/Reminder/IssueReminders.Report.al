@@ -123,7 +123,7 @@ report 190 "Issue Reminders"
                         ApplicationArea = Suite;
                         Caption = 'Print';
                         OptionCaption = ' ,Print,Email';
-                        Enabled = not IsOfficeAddin;
+                        Enabled = NOT IsOfficeAddin;
                         ToolTip = 'Specifies it you want to print or email the reminders when they are issued.';
                     }
                     field(ReplacePostingDate; ReplacePostingDate)

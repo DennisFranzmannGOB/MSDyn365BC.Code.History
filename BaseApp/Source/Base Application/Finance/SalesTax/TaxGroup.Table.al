@@ -5,7 +5,6 @@ table 321 "Tax Group"
     Caption = 'Tax Group';
     DataCaptionFields = "Code", Description;
     LookupPageID = "Tax Groups";
-    DataClassification = CustomerContent;
 
     fields
     {

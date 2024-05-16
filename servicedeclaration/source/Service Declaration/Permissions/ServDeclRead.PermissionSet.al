@@ -4,6 +4,8 @@
 // ------------------------------------------------------------------------------------------------
 namespace Microsoft.Service.Reports;
 
+using Microsoft.Service.Reports;
+
 permissionset 5010 "Serv. Decl. - Read"
 {
     Access = Public;

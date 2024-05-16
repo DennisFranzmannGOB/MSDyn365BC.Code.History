@@ -25,7 +25,6 @@ table 413 "IC Partner"
     Caption = 'IC Partner';
     LookupPageID = "IC Partner List";
     Permissions = TableData "G/L Entry" = rm;
-    DataClassification = CustomerContent;
 
     fields
     {

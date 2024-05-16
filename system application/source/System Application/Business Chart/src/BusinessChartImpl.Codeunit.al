@@ -7,7 +7,6 @@ namespace System.Visualization;
 
 using System;
 using System.Utilities;
-using System.Integration;
 
 codeunit 478 "Business Chart Impl."
 {
@@ -131,24 +130,10 @@ codeunit 478 "Business Chart Impl."
         exit(MaximumNumberOfColoursInChart);
     end;
 
-#if not CLEAN24
     procedure Update(DotNetBusinessChartAddIn: DotNet BusinessChartAddIn)
     begin
         DotNetBusinessChartData.DataTable := DotNetDataTable;
         DotNetBusinessChartAddIn.Update(DotNetBusinessChartData);
-    end;
-#endif
-
-    procedure Update(BusinessChartAddIn: ControlAddIn BusinessChart)
-    var
-        JsonConvert: DotNet JsonConvert;
-        BusinessChartAsJson: JsonObject;
-        BusinessChartText: Text;
-    begin
-        DotNetBusinessChartData.DataTable := DotNetDataTable;
-        BusinessChartText := JsonConvert.SerializeObject(DotNetBusinessChartData);
-        BusinessChartAsJson.ReadFrom(BusinessChartText);
-        BusinessChartAddIn.Update(BusinessChartAsJson);
     end;
 
     procedure GetMeasureNameToValueMap(): Dictionary of [Text, Text];

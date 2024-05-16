@@ -5,7 +5,6 @@ using Microsoft.FixedAssets.Depreciation;
 table 5604 "FA Posting Type Setup"
 {
     Caption = 'FA Posting Type Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

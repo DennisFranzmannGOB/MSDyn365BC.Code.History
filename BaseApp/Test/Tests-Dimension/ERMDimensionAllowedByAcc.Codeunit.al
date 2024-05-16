@@ -78,6 +78,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: array[2] of Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [SCENARIO 356543] Delete default dimension leads to delete apropriate allowed dimension by account
         Initialize();
@@ -141,6 +142,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: array[2] of Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [SCENARIO 356543] Delete dimension value which makes allowed values filter empyt leads to delete all allowed dimension values by account
         Initialize();
@@ -172,6 +174,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: array[2] of Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [SCENARIO 356543] Change default dimension posting type from "Code Mandatory" leads to delete apropriate allowed dimension by account
         Initialize();
@@ -202,6 +205,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [SCENARIO 356543] Change default dimension "Allowed Values Filter" for posting type " " leads to error
         Initialize();
@@ -229,6 +233,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [SCENARIO 356543] New dimension value for default dimension which has all values allowed does not create record "Dim. Value per Account"
         Initialize();
@@ -316,6 +321,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: array[2] of Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [SCENARIO 356543] New dimension value became allowed for default dimension with code mandatory
         Initialize();
@@ -347,6 +353,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: array[2] of Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [SCENARIO 356543] User get error when already defined default dimension value is out of allowed values filter
         Initialize();
@@ -449,6 +456,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: array[2] of Record "G/L Account";
         DimensionValue: array[2] of Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [FEATURE] [UI]
         // [SCENARIO 356543] Page "Default Dimension Multiple" shows several dimension values per account created before 
@@ -535,6 +543,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: array[2] of Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
     begin
         // [SCENARIO 356543] Manual update "Allowed Values Filter" to '' deletes all "Dim. Value per Account" records for current default dimension
         Initialize();
@@ -599,6 +608,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
         DefaultDimension: Record "Default Dimension";
         GLAccount: Record "G/L Account";
         DimensionValue: array[2] of Record "Dimension Value";
+        DimValuePerAccount: Record "Dim. Value per Account";
         InvalidFilter: Text;
     begin
         // [SCENARIO 356543] User enters manually incorrect "Allowed Values Filter" and don't confirm change
@@ -1260,7 +1270,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
     begin
         LibraryTestInitialize.OnTestInitialize(Codeunit::"ERM Dimension Allowed by Acc.");
         LibraryVariableStorage.Clear();
-        LibraryDimension.InitGlobalDimChange();
+        LibraryDimension.InitGlobalDimChange;
 
         if IsInitialized then
             exit;
@@ -1331,6 +1341,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
 
     local procedure MockGLAccountsDimensionMultiple(SelectedGLAccount: array[2] of Record "G/L Account")
     var
+        GLAccount: Record "G/L Account";
         ChartOfAccounts: TestPage "Chart of Accounts";
         ERMDimensionAllowedByAcc: Codeunit "ERM Dimension Allowed by Acc.";
     begin
@@ -1361,6 +1372,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
 
     local procedure MockGLAccountDimensionMultiple(SelectedGLAccount: Text)
     var
+        GLAccount: Record "G/L Account";
         ChartOfAccounts: TestPage "Chart of Accounts";
         ERMDimensionAllowedByAcc: Codeunit "ERM Dimension Allowed by Acc.";
     begin
@@ -1413,7 +1425,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
     procedure DefaultDimensionsMultipleModalPageHandlerCreateNew(var DefaultDimensionsMultiple: TestPage "Default Dimensions-Multiple")
     begin
         DefaultDimensionsMultiple.New();
-        DefaultDimensionsMultiple."Dimension Code".SetValue(LibraryVariableStorage.DequeueText());
+        DefaultDimensionsMultiple."Dimension Code".SetValue(LibraryVariableStorage.DequeueText);
         DefaultDimensionsMultiple."Value Posting".SetValue("Default Dimension Value Posting Type"::"Code Mandatory");
         DefaultDimensionsMultiple.OK().Invoke();
     end;
@@ -1422,7 +1434,7 @@ codeunit 134234 "ERM Dimension Allowed by Acc."
     [Scope('OnPrem')]
     procedure DefaultDimensionsMultipleModalPageHandlerAssistEdit(var DefaultDimensionsMultiple: TestPage "Default Dimensions-Multiple")
     begin
-        DefaultDimensionsMultiple."Dimension Code".SetValue(LibraryVariableStorage.DequeueText());
+        DefaultDimensionsMultiple."Dimension Code".SetValue(LibraryVariableStorage.DequeueText);
         DefaultDimensionsMultiple."Value Posting".SetValue(1);
         DefaultDimensionsMultiple.AllowedValuesFilter.AssistEdit();
         DefaultDimensionsMultiple.OK().Invoke();

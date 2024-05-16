@@ -5,8 +5,7 @@ using Microsoft.Utilities;
 
 table 278 "Job Journal Quantity"
 {
-    Caption = 'Project Journal Quantity';
-    DataClassification = CustomerContent;
+    Caption = 'Job Journal Quantity';
 
     fields
     {

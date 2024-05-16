@@ -24,7 +24,6 @@ using System.Telemetry;
 table 7000 "Price List Header"
 {
     Caption = 'Price List';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -33,13 +32,11 @@ table 7000 "Price List Header"
             Caption = 'Code';
             DataClassification = CustomerContent;
             trigger OnValidate()
-            var
-                NoSeries: Codeunit "No. Series";
             begin
                 if Code <> xRec.Code then begin
                     if xRec.Code <> '' then
                         Error(CanotRenameErr, Rec.TableCaption());
-                    NoSeries.TestManual(GetNoSeries());
+                    NoSeriesMgt.TestManual(GetNoSeries());
                     "No. Series" := '';
                 end;
             end;
@@ -102,7 +99,7 @@ table 7000 "Price List Header"
         field(6; "Parent Source No."; Code[20])
         {
             DataClassification = CustomerContent;
-            Caption = 'Assign-to Parent No. (projects)';
+            Caption = 'Assign-to Parent No. (jobs)';
             trigger OnValidate()
             begin
                 if xRec."Parent Source No." = "Parent Source No." then
@@ -346,29 +343,11 @@ table 7000 "Price List Header"
     }
 
     trigger OnInsert()
-    var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesMgt: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         if "Source Group" = "Source Group"::All then
             TestField(Code);
-        if Code = '' then begin
-            "No. Series" := GetNoSeries();
-#if not CLEAN24
-            NoSeriesMgt.RaiseObsoleteOnBeforeInitSeries("No. Series", xRec."No. Series", 0D, Code, "No. Series", IsHandled);
-            if not IsHandled then begin
-#endif
-                if NoSeries.AreRelated("No. Series", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series";
-                Code := NoSeries.GetNextNo("No. Series");
-#if not CLEAN24
-                NoSeriesMgt.RaiseObsoleteOnAfterInitSeries("No. Series", GetNoSeries(), 0D, Code);
-            end;
-#endif
-        end;
+        if Code = '' then
+            NoSeriesMgt.InitSeries(GetNoSeries(), xRec."No. Series", 0D, Code, "No. Series");
         if "Amount Type" = "Amount Type"::Any then begin
             CopyTo(PriceSource);
             "Amount Type" := PriceSource.GetDefaultAmountType();
@@ -393,6 +372,7 @@ table 7000 "Price List Header"
 
     var
         PriceSource: Record "Price Source";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         PriceCalculationMgt: Codeunit "Price Calculation Mgt.";
         ConfirmUpdateQst: Label 'Do you want to update %1 in the price list lines?', Comment = '%1 - the field caption';
         LinesExistErr: Label 'You cannot change %1 because one or more lines exist.', Comment = '%1 - the field caption';
@@ -433,14 +413,13 @@ table 7000 "Price List Header"
     procedure AssistEditCode(xPriceListHeader: Record "Price List Header"): Boolean
     var
         PriceListHeader: Record "Price List Header";
-        NoSeries: Codeunit "No. Series";
     begin
         if "Source Group" = "Source Group"::All then
             exit(false);
 
         PriceListHeader := Rec;
-        if NoSeries.LookupRelatedNoSeries(GetNoSeries(), xPriceListHeader."No. Series", PriceListHeader."No. Series") then begin
-            PriceListHeader.Code := NoSeries.GetNextNo(PriceListHeader."No. Series");
+        if NoSeriesMgt.SelectSeries(GetNoSeries(), xPriceListHeader."No. Series", PriceListHeader."No. Series") then begin
+            NoSeriesMgt.SetSeries(PriceListHeader.Code);
             Rec := PriceListHeader;
             exit(true);
         end;

@@ -9,7 +9,6 @@ using Microsoft.Finance.Dimension;
 table 357 "Gen. Jnl. Dim. Filter"
 {
     Caption = 'Gen. Jnl. Dim. Filter';
-    DataClassification = CustomerContent;
 
     fields
     {

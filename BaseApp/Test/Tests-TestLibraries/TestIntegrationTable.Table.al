@@ -1,7 +1,6 @@
 table 139165 "Test Integration Table"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

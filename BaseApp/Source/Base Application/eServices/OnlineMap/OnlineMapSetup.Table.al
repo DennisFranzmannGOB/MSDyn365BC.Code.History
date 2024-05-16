@@ -9,7 +9,6 @@ using System.Privacy;
 table 800 "Online Map Setup"
 {
     Caption = 'Online Map Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

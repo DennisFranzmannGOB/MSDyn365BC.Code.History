@@ -311,11 +311,13 @@ page 120 "G/L Budget Entries"
     var
         GLAcc: Record "G/L Account";
     begin
-        GLAcc.SetFilter("No.", GLAccFilter);
-        if GLAcc.FindFirst() then
-            exit(GLAcc."No.");
+        with GLAcc do begin
+            SetFilter("No.", GLAccFilter);
+            if FindFirst() then
+                exit("No.");
 
-        exit('');
+            exit('');
+        end;
     end;
 
     local procedure GetFirstDate(DateFilter: Text[250]): Date
@@ -324,12 +326,14 @@ page 120 "G/L Budget Entries"
     begin
         if DateFilter = '' then
             exit(0D);
-        Period.SetRange("Period Type", Period."Period Type"::Date);
-        Period.SetFilter("Period Start", DateFilter);
-        if Period.FindFirst() then
-            exit(Period."Period Start");
+        with Period do begin
+            SetRange("Period Type", "Period Type"::Date);
+            SetFilter("Period Start", DateFilter);
+            if FindFirst() then
+                exit("Period Start");
 
-        exit(0D);
+            exit(0D);
+        end;
     end;
 
     local procedure GetFirstDimValue(DimCode: Code[20]; DimValFilter: Text[250]): Code[20]
@@ -338,23 +342,27 @@ page 120 "G/L Budget Entries"
     begin
         if (DimCode = '') or (DimValFilter = '') then
             exit('');
-        DimVal.SetRange("Dimension Code", DimCode);
-        DimVal.SetFilter(Code, DimValFilter);
-        if DimVal.FindFirst() then
-            exit(DimVal.Code);
+        with DimVal do begin
+            SetRange("Dimension Code", DimCode);
+            SetFilter(Code, DimValFilter);
+            if FindFirst() then
+                exit(Code);
 
-        exit('');
+            exit('');
+        end;
     end;
 
     local procedure GetFirstBusUnit(BusUnitFilter: Text[250]): Code[20]
     var
         BusUnit: Record "Business Unit";
     begin
-        BusUnit.SetFilter(Code, BusUnitFilter);
-        if BusUnit.FindFirst() then
-            exit(BusUnit.Code);
+        with BusUnit do begin
+            SetFilter(Code, BusUnitFilter);
+            if FindFirst() then
+                exit(Code);
 
-        exit('');
+            exit('');
+        end;
     end;
 }
 

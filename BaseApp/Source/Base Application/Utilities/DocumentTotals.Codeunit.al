@@ -103,23 +103,24 @@ codeunit 57 "Document Totals"
             InvoiceDiscountPct := 0;
             TotalSalesHeader."Invoice Discount Value" := 0;
         end else
-            case TotalSalesHeader."Invoice Discount Calculation" of
-                TotalSalesHeader."Invoice Discount Calculation"::"%":
-                    begin
-                        SalesHeader.Get(TotalSalesHeader."Document Type", TotalSalesHeader."No.");
-                        TotalSalesHeader.Get(SalesHeader."Document Type", SalesHeader."No.");
-                        InvoiceDiscountPct := TotalSalesHeader."Invoice Discount Value";
-                    end;
-                TotalSalesHeader."Invoice Discount Calculation"::None,
-                TotalSalesHeader."Invoice Discount Calculation"::Amount:
-                    begin
-                        SalesLine2.CopyFilters(TotalSalesLine2);
-                        SalesLine2.SetRange("Allow Invoice Disc.", true);
-                        SalesLine2.CalcSums("Line Amount");
-                        InvoiceDiscountPct := Round(InvoiceDiscountAmount / SalesLine2."Line Amount" * 100, 0.00001);
-                        TotalSalesHeader."Invoice Discount Value" := InvoiceDiscountAmount;
-                    end;
-            end;
+            with TotalSalesHeader do
+                case "Invoice Discount Calculation" of
+                    "Invoice Discount Calculation"::"%":
+                        begin
+                            SalesHeader.Get(TotalSalesHeader."Document Type", TotalSalesHeader."No.");
+                            TotalSalesHeader.Get(SalesHeader."Document Type", SalesHeader."No.");
+                            InvoiceDiscountPct := TotalSalesHeader."Invoice Discount Value";
+                        end;
+                    "Invoice Discount Calculation"::None,
+                    "Invoice Discount Calculation"::Amount:
+                        begin
+                            SalesLine2.CopyFilters(TotalSalesLine2);
+                            SalesLine2.SetRange("Allow Invoice Disc.", true);
+                            SalesLine2.CalcSums("Line Amount");
+                            InvoiceDiscountPct := Round(InvoiceDiscountAmount / SalesLine2."Line Amount" * 100, 0.00001);
+                            TotalSalesHeader."Invoice Discount Value" := InvoiceDiscountAmount;
+                        end;
+                end;
 
         OnAfterCalculateSalesSubPageTotals(
           TotalSalesHeader, TotalSalesLine, VATAmount, InvoiceDiscountAmount, InvoiceDiscountPct, TotalSalesLine2);
@@ -133,7 +134,7 @@ codeunit 57 "Document Totals"
     begin
         IsHandled := false;
         OnBeforeCalculatePostedSalesInvoiceTotals(SalesInvoiceHeader, VATAmount, SalesInvoiceLine, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit;
 
         if SalesInvoiceHeader.Get(SalesInvoiceLine."Document No.") then begin
@@ -150,7 +151,7 @@ codeunit 57 "Document Totals"
     begin
         IsHandled := false;
         OnBeforeCalculatePostedSalesCreditMemoTotals(SalesCrMemoHeader, VATAmount, SalesCrMemoLine, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit;
 
         if SalesCrMemoHeader.Get(SalesCrMemoLine."Document No.") then begin
@@ -165,42 +166,50 @@ codeunit 57 "Document Totals"
     var
         TotalPurchLine: Record "Purchase Line";
     begin
-        TotalPurchLine.SetRange("Document Type", PurchLine."Document Type");
-        TotalPurchLine.SetRange("Document No.", PurchLine."Document No.");
-        TotalPurchLine.SetRange("Allow Invoice Disc.", true);
-        TotalPurchLine.CalcSums("Line Amount");
-        exit(TotalPurchLine."Line Amount");
+        with TotalPurchLine do begin
+            SetRange("Document Type", PurchLine."Document Type");
+            SetRange("Document No.", PurchLine."Document No.");
+            SetRange("Allow Invoice Disc.", true);
+            CalcSums("Line Amount");
+            exit("Line Amount");
+        end;
     end;
 
     procedure CalcTotalSalesAmountOnlyDiscountAllowed(SalesLine: Record "Sales Line"): Decimal
     var
         TotalSalesLine: Record "Sales Line";
     begin
-        TotalSalesLine.SetRange("Document Type", SalesLine."Document Type");
-        TotalSalesLine.SetRange("Document No.", SalesLine."Document No.");
-        TotalSalesLine.SetRange("Allow Invoice Disc.", true);
-        TotalSalesLine.CalcSums("Line Amount");
-        exit(TotalSalesLine."Line Amount");
+        with TotalSalesLine do begin
+            SetRange("Document Type", SalesLine."Document Type");
+            SetRange("Document No.", SalesLine."Document No.");
+            SetRange("Allow Invoice Disc.", true);
+            CalcSums("Line Amount");
+            exit("Line Amount");
+        end;
     end;
 
     local procedure CalcTotalPurchVATDifference(PurchHeader: Record "Purchase Header"): Decimal
     var
         PurchLine: Record "Purchase Line";
     begin
-        PurchLine.SetRange("Document Type", PurchHeader."Document Type");
-        PurchLine.SetRange("Document No.", PurchHeader."No.");
-        PurchLine.CalcSums("VAT Difference");
-        exit(PurchLine."VAT Difference");
+        with PurchLine do begin
+            SetRange("Document Type", PurchHeader."Document Type");
+            SetRange("Document No.", PurchHeader."No.");
+            CalcSums("VAT Difference");
+            exit("VAT Difference");
+        end;
     end;
 
     local procedure CalcTotalSalesVATDifference(SalesHeader: Record "Sales Header"): Decimal
     var
         SalesLine: Record "Sales Line";
     begin
-        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
-        SalesLine.SetRange("Document No.", SalesHeader."No.");
-        SalesLine.CalcSums("VAT Difference");
-        exit(SalesLine."VAT Difference");
+        with SalesLine do begin
+            SetRange("Document Type", SalesHeader."Document Type");
+            SetRange("Document No.", SalesHeader."No.");
+            CalcSums("VAT Difference");
+            exit("VAT Difference");
+        end;
     end;
 
     local procedure CalculateTotalSalesLineAndVATAmount(SalesHeader: Record "Sales Header"; var VATAmount: Decimal; var TempTotalSalesLine: Record "Sales Line" temporary)
@@ -256,7 +265,7 @@ codeunit 57 "Document Totals"
     begin
         IsHandled := false;
         OnSalesUpdateTotalsControlsOnBeforeCheckDocumentNo(CurrentSalesLine, TotalSalesHeader, TotalsSalesLine, RefreshMessageEnabled, ControlStyle, RefreshMessageText, InvDiscAmountEditable, CurrPageEditable, VATAmount, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit;
 
         if CurrentSalesLine."Document No." = '' then
@@ -340,13 +349,14 @@ codeunit 57 "Document Totals"
         if IsHandled then
             exit;
 
-        if SalesHeader.Get(TempSalesLine."Document Type", TempSalesLine."Document No.") then begin
-            SalesHeader.CalcFields("Recalculate Invoice Disc.");
-            if SalesHeader."Recalculate Invoice Disc." then
-                CODEUNIT.Run(CODEUNIT::"Sales - Calc Discount By Type", TempSalesLine);
+        with SalesHeader do
+            if Get(TempSalesLine."Document Type", TempSalesLine."Document No.") then begin
+                CalcFields("Recalculate Invoice Disc.");
+                if "Recalculate Invoice Disc." then
+                    CODEUNIT.Run(CODEUNIT::"Sales - Calc Discount By Type", TempSalesLine);
 
-            SalesCalculateTotalsWithInvoiceRounding(TempSalesLine, VATAmount, TempTotalSalesLine);
-        end;
+                SalesCalculateTotalsWithInvoiceRounding(TempSalesLine, VATAmount, TempTotalSalesLine);
+            end;
 
         OnAfterSalesRedistributeInvoiceDiscountAmounts(TempSalesLine, TempTotalSalesLine, VATAmount);
     end;
@@ -512,16 +522,17 @@ codeunit 57 "Document Totals"
     begin
         IsHandled := false;
         OnBeforePurchaseRedistributeInvoiceDiscountAmounts(TempPurchaseLine, VATAmount, TempTotalPurchaseLine, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit;
 
-        if PurchaseHeader.Get(TempPurchaseLine."Document Type", TempPurchaseLine."Document No.") then begin
-            PurchaseHeader.CalcFields("Recalculate Invoice Disc.");
-            if PurchaseHeader."Recalculate Invoice Disc." then
-                CODEUNIT.Run(CODEUNIT::"Purch - Calc Disc. By Type", TempPurchaseLine);
+        with PurchaseHeader do
+            if Get(TempPurchaseLine."Document Type", TempPurchaseLine."Document No.") then begin
+                CalcFields("Recalculate Invoice Disc.");
+                if "Recalculate Invoice Disc." then
+                    CODEUNIT.Run(CODEUNIT::"Purch - Calc Disc. By Type", TempPurchaseLine);
 
-            PurchaseCalculateTotalsWithInvoiceRounding(TempPurchaseLine, VATAmount, TempTotalPurchaseLine);
-        end;
+                PurchaseCalculateTotalsWithInvoiceRounding(TempPurchaseLine, VATAmount, TempTotalPurchaseLine);
+            end;
 
         OnAfterPurchaseRedistributeInvoiceDiscountAmounts(TempPurchaseLine, TempTotalPurchaseLine, VATAmount);
     end;
@@ -661,23 +672,24 @@ codeunit 57 "Document Totals"
             InvoiceDiscountPct := 0;
             TotalPurchaseHeader."Invoice Discount Value" := 0;
         end else
-            case TotalPurchaseHeader."Invoice Discount Calculation" of
-                TotalPurchaseHeader."Invoice Discount Calculation"::"%":
-                    begin
-                        PurchaseHeader.Get(TotalPurchaseHeader."Document Type", TotalPurchaseHeader."No.");
-                        TotalPurchaseHeader.Get(PurchaseHeader."Document Type", PurchaseHeader."No.");
-                        InvoiceDiscountPct := TotalPurchaseHeader."Invoice Discount Value";
-                    end;
-                TotalPurchaseHeader."Invoice Discount Calculation"::None,
-                TotalPurchaseHeader."Invoice Discount Calculation"::Amount:
-                    begin
-                        PurchaseLine2.CopyFilters(TotalPurchaseLine2);
-                        PurchaseLine2.SetRange("Allow Invoice Disc.", true);
-                        PurchaseLine2.CalcSums("Line Amount");
-                        InvoiceDiscountPct := Round(InvoiceDiscountAmount / PurchaseLine2."Line Amount" * 100, 0.00001);
-                        TotalPurchaseHeader."Invoice Discount Value" := InvoiceDiscountAmount;
-                    end;
-            end;
+            with TotalPurchaseHeader do
+                case "Invoice Discount Calculation" of
+                    "Invoice Discount Calculation"::"%":
+                        begin
+                            PurchaseHeader.Get(TotalPurchaseHeader."Document Type", TotalPurchaseHeader."No.");
+                            TotalPurchaseHeader.Get(PurchaseHeader."Document Type", PurchaseHeader."No.");
+                            InvoiceDiscountPct := TotalPurchaseHeader."Invoice Discount Value";
+                        end;
+                    "Invoice Discount Calculation"::None,
+                    "Invoice Discount Calculation"::Amount:
+                        begin
+                            PurchaseLine2.CopyFilters(TotalPurchaseLine2);
+                            PurchaseLine2.SetRange("Allow Invoice Disc.", true);
+                            PurchaseLine2.CalcSums("Line Amount");
+                            InvoiceDiscountPct := Round(InvoiceDiscountAmount / PurchaseLine2."Line Amount" * 100, 0.00001);
+                            TotalPurchaseHeader."Invoice Discount Value" := InvoiceDiscountAmount;
+                        end;
+                end;
 
         OnAfterCalculatePurchaseSubPageTotals(
           TotalPurchaseHeader, TotalPurchaseLine, VATAmount, InvoiceDiscountAmount, InvoiceDiscountPct, TotalPurchaseLine2);

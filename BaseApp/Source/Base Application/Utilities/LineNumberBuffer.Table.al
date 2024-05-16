@@ -8,7 +8,6 @@ table 283 "Line Number Buffer"
 {
     Caption = 'Line Number Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

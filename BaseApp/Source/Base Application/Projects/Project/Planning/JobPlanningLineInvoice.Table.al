@@ -6,28 +6,27 @@ using Microsoft.Sales.Document;
 
 table 1022 "Job Planning Line Invoice"
 {
-    Caption = 'Project Planning Line Invoice';
+    Caption = 'Job Planning Line Invoice';
     DrillDownPageID = "Job Invoices";
     LookupPageID = "Job Invoices";
-    DataClassification = CustomerContent;
 
     fields
     {
         field(1; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             Editable = false;
             TableRelation = Job;
         }
         field(2; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             Editable = false;
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
         }
         field(3; "Job Planning Line No."; Integer)
         {
-            Caption = 'Project Planning Line No.';
+            Caption = 'Job Planning Line No.';
             Editable = false;
             TableRelation = "Job Planning Line"."Line No." where("Job No." = field("Job No."),
                                                                   "Job Task No." = field("Job Task No."));
@@ -74,7 +73,7 @@ table 1022 "Job Planning Line Invoice"
         field(12; "Job Ledger Entry No."; Integer)
         {
             BlankZero = true;
-            Caption = 'Project Ledger Entry No.';
+            Caption = 'Job Ledger Entry No.';
             Editable = false;
             TableRelation = "Job Ledger Entry";
         }

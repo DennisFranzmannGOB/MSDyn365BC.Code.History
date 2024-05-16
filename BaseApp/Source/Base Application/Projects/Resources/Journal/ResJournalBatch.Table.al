@@ -8,7 +8,6 @@ table 236 "Res. Journal Batch"
     Caption = 'Res. Journal Batch';
     DataCaptionFields = Name, Description;
     LookupPageID = "Resource Jnl. Batches";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -76,7 +75,7 @@ table 236 "Res. Journal Batch"
         }
         field(22; Recurring; Boolean)
         {
-            CalcFormula = lookup("Res. Journal Template".Recurring where(Name = field("Journal Template Name")));
+            CalcFormula = Lookup("Res. Journal Template".Recurring where(Name = field("Journal Template Name")));
             Caption = 'Recurring';
             Editable = false;
             FieldClass = FlowField;

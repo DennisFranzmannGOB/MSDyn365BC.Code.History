@@ -8,7 +8,6 @@ table 906 "Assembly Comment Line"
     Caption = 'Assembly Comment Line';
     DrillDownPageID = "Assembly Comment Sheet";
     LookupPageID = "Assembly Comment Sheet";
-    DataClassification = CustomerContent;
 
     fields
     {

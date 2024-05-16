@@ -16,7 +16,6 @@ table 7354 Bin
     Caption = 'Bin';
     DataCaptionFields = "Location Code", "Zone Code", "Code";
     LookupPageID = "Bin List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -40,7 +39,7 @@ table 7354 Bin
         {
             Caption = 'Zone Code';
             Editable = false;
-            TableRelation = Zone.Code where("Location Code" = field("Location Code"));
+            TableRelation = Zone.Code WHERE("Location Code" = FIELD("Location Code"));
 
             trigger OnValidate()
             begin
@@ -57,8 +56,8 @@ table 7354 Bin
         }
         field(5; "Adjustment Bin"; Boolean)
         {
-            CalcFormula = exist(Location where(Code = field("Location Code"),
-                                                "Adjustment Bin Code" = field(Code)));
+            CalcFormula = Exist(Location WHERE(Code = FIELD("Location Code"),
+                                                "Adjustment Bin Code" = FIELD(Code)));
             Caption = 'Adjustment Bin';
             Editable = false;
             FieldClass = FlowField;
@@ -177,16 +176,16 @@ table 7354 Bin
         {
             Caption = 'Variant Filter';
             FieldClass = FlowFilter;
-            TableRelation = "Stockkeeping Unit"."Variant Code" where("Location Code" = field("Location Code"),
-                                                                      "Item No." = field("Item Filter"));
+            TableRelation = "Stockkeeping Unit"."Variant Code" WHERE("Location Code" = FIELD("Location Code"),
+                                                                      "Item No." = FIELD("Item Filter"));
         }
         field(34; Default; Boolean)
         {
-            CalcFormula = exist("Bin Content" where("Location Code" = field("Location Code"),
-                                                     "Bin Code" = field(Code),
-                                                     "Item No." = field("Item Filter"),
-                                                     "Variant Code" = field("Variant Filter"),
-                                                     Default = const(true)));
+            CalcFormula = Exist("Bin Content" WHERE("Location Code" = FIELD("Location Code"),
+                                                     "Bin Code" = FIELD(Code),
+                                                     "Item No." = FIELD("Item Filter"),
+                                                     "Variant Code" = FIELD("Variant Filter"),
+                                                     Default = CONST(true)));
             Caption = 'Default';
             Editable = false;
             FieldClass = FlowField;

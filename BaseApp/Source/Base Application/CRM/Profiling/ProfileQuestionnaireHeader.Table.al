@@ -6,7 +6,6 @@ table 5087 "Profile Questionnaire Header"
 {
     Caption = 'Profile Questionnaire Header';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     DrillDownPageID = "Profile Questionnaire List";
     LookupPageID = "Profile Questionnaires";
 

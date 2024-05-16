@@ -8,7 +8,6 @@ table 5742 "Transfer Route"
 {
     Caption = 'Transfer Route';
     DataCaptionFields = "Transfer-from Code", "Transfer-to Code";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -74,7 +73,7 @@ table 5742 "Transfer Route"
     begin
         IsHandled := false;
         OnBeforeGetTransferRoute(Rec, TransferFromCode, TransferToCode, InTransitCode, ShippingAgentCode, ShippingAgentServiceCode, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit;
 
         if ("Transfer-from Code" <> TransferFromCode) or

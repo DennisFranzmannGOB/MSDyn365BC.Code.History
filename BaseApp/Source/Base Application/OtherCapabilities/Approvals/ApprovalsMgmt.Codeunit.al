@@ -455,8 +455,17 @@ codeunit 1535 "Approvals Mgmt."
         exit(ApprovalEntry.FindFirst());
     end;
 
+    procedure FindLastApprovalEntryForCurrUser(var ApprovalEntry: Record "Approval Entry"; RecordID: RecordID): Boolean
+    begin
+        ApprovalEntry.SetRange("Table ID", RecordID.TableNo);
+        ApprovalEntry.SetRange("Record ID to Approve", RecordID);
+        ApprovalEntry.SetRange("Approver ID", UserId);
+        exit(ApprovalEntry.FindLast());
+    end;
+
     procedure FindApprovalEntryByRecordId(var ApprovalEntry: Record "Approval Entry"; RecordID: RecordID): Boolean
     begin
+        ApprovalEntry.Reset();
         ApprovalEntry.SetRange("Table ID", RecordID.TableNo);
         ApprovalEntry.SetRange("Record ID to Approve", RecordID);
         exit(ApprovalEntry.FindLast());
@@ -615,12 +624,13 @@ codeunit 1535 "Approvals Mgmt."
                     ApprovalEntry2.Modify(true);
                     CreateApprovalEntryNotification(ApprovalEntry2, WorkflowStepInstance);
                 until ApprovalEntry2.Next() = 0;
+
             IsHandled := false;
             OnSendApprovalRequestFromRecordOnBeforeFindApprovedApprovalEntryForWorkflowUserGroup(ApprovalEntry, IsHandled);
             if not IsHandled then
                 if FindApprovedApprovalEntryForWorkflowUserGroup(ApprovalEntry, WorkflowStepInstance) then
                     if (ApprovalEntry."Sender ID" <> ApprovalEntry."Approver ID") or
-                    FindOpenApprovalEntryForSequenceNo(RecRef, WorkflowStepInstance, ApprovalEntry."Sequence No.")
+                       FindOpenApprovalEntryForSequenceNo(RecRef, WorkflowStepInstance, ApprovalEntry."Sequence No.")
                     then
                         OnApproveApprovalRequest(ApprovalEntry);
             exit;
@@ -778,21 +788,23 @@ codeunit 1535 "Approvals Mgmt."
                 Error(UserIdNotInSetupErr, UserId);
             SequenceNo := GetLastSequenceNo(ApprovalEntryArgument);
 
-            WorkflowUserGroupMember.SetCurrentKey("Workflow User Group Code", "Sequence No.");
-            WorkflowUserGroupMember.SetRange("Workflow User Group Code", WorkflowStepArgument."Workflow User Group Code");
+            with WorkflowUserGroupMember do begin
+                SetCurrentKey("Workflow User Group Code", "Sequence No.");
+                SetRange("Workflow User Group Code", WorkflowStepArgument."Workflow User Group Code");
 
-            if not WorkflowUserGroupMember.FindSet() then
-                Error(NoWFUserGroupMembersErr);
+                if not FindSet() then
+                    Error(NoWFUserGroupMembersErr);
 
-            repeat
-                ApproverId := WorkflowUserGroupMember."User Name";
-                if not UserSetup.Get(ApproverId) then
-                    Error(WFUserGroupNotInSetupErr, ApproverId);
-                IsHandled := false;
-                OnCreateApprReqForApprTypeWorkflowUserGroupOnBeforeMakeApprovalEntry(WorkflowUserGroupMember, ApprovalEntryArgument, WorkflowStepArgument, ApproverId, IsHandled);
-                if not IsHandled then
-                    MakeApprovalEntry(ApprovalEntryArgument, SequenceNo + WorkflowUserGroupMember."Sequence No.", ApproverId, WorkflowStepArgument);
-            until WorkflowUserGroupMember.Next() = 0;
+                repeat
+                    ApproverId := "User Name";
+                    if not UserSetup.Get(ApproverId) then
+                        Error(WFUserGroupNotInSetupErr, ApproverId);
+                    IsHandled := false;
+                    OnCreateApprReqForApprTypeWorkflowUserGroupOnBeforeMakeApprovalEntry(WorkflowUserGroupMember, ApprovalEntryArgument, WorkflowStepArgument, ApproverId, IsHandled);
+                    if not IsHandled then
+                        MakeApprovalEntry(ApprovalEntryArgument, SequenceNo + "Sequence No.", ApproverId, WorkflowStepArgument);
+                until Next() = 0;
+            end;
         end;
         OnAfterCreateApprReqForApprTypeWorkflowUserGroup(WorkflowStepArgument, ApprovalEntryArgument);
     end;
@@ -822,23 +834,25 @@ codeunit 1535 "Approvals Mgmt."
         if IsHandled then
             exit;
 
-        ApproverId := CopyStr(UserId(), 1, MaxStrLen(ApproverId));
+        ApproverId := UserId;
 
-        ApprovalEntry.SetCurrentKey("Record ID to Approve", "Workflow Step Instance ID", "Sequence No.");
-        ApprovalEntry.SetRange("Table ID", ApprovalEntryArgument."Table ID");
-        ApprovalEntry.SetRange("Record ID to Approve", ApprovalEntryArgument."Record ID to Approve");
-        ApprovalEntry.SetRange("Workflow Step Instance ID", ApprovalEntryArgument."Workflow Step Instance ID");
-        ApprovalEntry.SetRange(Status, ApprovalEntry.Status::Created);
-        OnCreateApprovalRequestForApproverChainOnAfterSetApprovalEntryFilters(ApprovalEntry, ApprovalEntryArgument);
-        if ApprovalEntry.FindLast() then
-            ApproverId := ApprovalEntry."Approver ID"
-        else
-            if (WorkflowStepArgument."Approver Type" = WorkflowStepArgument."Approver Type"::"Salesperson/Purchaser") and
-                (WorkflowStepArgument."Approver Limit Type" = WorkflowStepArgument."Approver Limit Type"::"First Qualified Approver")
-            then begin
-                FindUserSetupBySalesPurchCode(UserSetup, ApprovalEntryArgument);
-                ApproverId := UserSetup."User ID";
-            end;
+        with ApprovalEntry do begin
+            SetCurrentKey("Record ID to Approve", "Workflow Step Instance ID", "Sequence No.");
+            SetRange("Table ID", ApprovalEntryArgument."Table ID");
+            SetRange("Record ID to Approve", ApprovalEntryArgument."Record ID to Approve");
+            SetRange("Workflow Step Instance ID", ApprovalEntryArgument."Workflow Step Instance ID");
+            SetRange(Status, Status::Created);
+            OnCreateApprovalRequestForApproverChainOnAfterSetApprovalEntryFilters(ApprovalEntry, ApprovalEntryArgument);
+            if FindLast() then
+                ApproverId := "Approver ID"
+            else
+                if (WorkflowStepArgument."Approver Type" = WorkflowStepArgument."Approver Type"::"Salesperson/Purchaser") and
+                   (WorkflowStepArgument."Approver Limit Type" = WorkflowStepArgument."Approver Limit Type"::"First Qualified Approver")
+                then begin
+                    FindUserSetupBySalesPurchCode(UserSetup, ApprovalEntryArgument);
+                    ApproverId := UserSetup."User ID";
+                end;
+        end;
 
         UserSetup.Reset();
         MaxCount := UserSetup.Count();
@@ -975,48 +989,50 @@ codeunit 1535 "Approvals Mgmt."
         if IsHandled then
             exit;
 
-        ApprovalEntry."Table ID" := ApprovalEntryArgument."Table ID";
-        ApprovalEntry."Document Type" := ApprovalEntryArgument."Document Type";
-        ApprovalEntry."Document No." := ApprovalEntryArgument."Document No.";
-        ApprovalEntry."Salespers./Purch. Code" := ApprovalEntryArgument."Salespers./Purch. Code";
-        ApprovalEntry."Sequence No." := SequenceNo;
-        ApprovalEntry."Sender ID" := CopyStr(UserId(), 1, 50);
-        ApprovalEntry.Amount := ApprovalEntryArgument.Amount;
-        ApprovalEntry."Amount (LCY)" := ApprovalEntryArgument."Amount (LCY)";
-        ApprovalEntry."Currency Code" := ApprovalEntryArgument."Currency Code";
-        ApprovalEntry."Approver ID" := ApproverId;
-        ApprovalEntry."Workflow Step Instance ID" := ApprovalEntryArgument."Workflow Step Instance ID";
-        if ApproverId = UserId then
-            ApprovalEntry.Status := ApprovalEntry.Status::Approved
-        else
-            ApprovalEntry.Status := ApprovalEntry.Status::Created;
-        ApprovalEntry."Date-Time Sent for Approval" := CreateDateTime(Today, Time);
-        ApprovalEntry."Last Date-Time Modified" := CreateDateTime(Today, Time);
-        ApprovalEntry."Last Modified By User ID" := CopyStr(UserId(), 1, 50);
-        ApprovalEntry."Due Date" := CalcDate(WorkflowStepArgument."Due Date Formula", Today);
-
-        case WorkflowStepArgument."Delegate After" of
-            WorkflowStepArgument."Delegate After"::Never:
-                Evaluate(ApprovalEntry."Delegation Date Formula", '');
-            WorkflowStepArgument."Delegate After"::"1 day":
-                Evaluate(ApprovalEntry."Delegation Date Formula", '<1D>');
-            WorkflowStepArgument."Delegate After"::"2 days":
-                Evaluate(ApprovalEntry."Delegation Date Formula", '<2D>');
-            WorkflowStepArgument."Delegate After"::"5 days":
-                Evaluate(ApprovalEntry."Delegation Date Formula", '<5D>');
+        with ApprovalEntry do begin
+            "Table ID" := ApprovalEntryArgument."Table ID";
+            "Document Type" := ApprovalEntryArgument."Document Type";
+            "Document No." := ApprovalEntryArgument."Document No.";
+            "Salespers./Purch. Code" := ApprovalEntryArgument."Salespers./Purch. Code";
+            "Sequence No." := SequenceNo;
+            "Sender ID" := UserId;
+            Amount := ApprovalEntryArgument.Amount;
+            "Amount (LCY)" := ApprovalEntryArgument."Amount (LCY)";
+            "Currency Code" := ApprovalEntryArgument."Currency Code";
+            "Approver ID" := ApproverId;
+            "Workflow Step Instance ID" := ApprovalEntryArgument."Workflow Step Instance ID";
+            if ApproverId = UserId then
+                Status := Status::Approved
             else
-                Evaluate(ApprovalEntry."Delegation Date Formula", '');
+                Status := Status::Created;
+            "Date-Time Sent for Approval" := CreateDateTime(Today, Time);
+            "Last Date-Time Modified" := CreateDateTime(Today, Time);
+            "Last Modified By User ID" := UserId;
+            "Due Date" := CalcDate(WorkflowStepArgument."Due Date Formula", Today);
+
+            case WorkflowStepArgument."Delegate After" of
+                WorkflowStepArgument."Delegate After"::Never:
+                    Evaluate("Delegation Date Formula", '');
+                WorkflowStepArgument."Delegate After"::"1 day":
+                    Evaluate("Delegation Date Formula", '<1D>');
+                WorkflowStepArgument."Delegate After"::"2 days":
+                    Evaluate("Delegation Date Formula", '<2D>');
+                WorkflowStepArgument."Delegate After"::"5 days":
+                    Evaluate("Delegation Date Formula", '<5D>');
+                else
+                    Evaluate("Delegation Date Formula", '');
+            end;
+            "Available Credit Limit (LCY)" := ApprovalEntryArgument."Available Credit Limit (LCY)";
+            SetApproverType(WorkflowStepArgument, ApprovalEntry);
+            SetLimitType(WorkflowStepArgument, ApprovalEntry);
+            "Record ID to Approve" := ApprovalEntryArgument."Record ID to Approve";
+            "Approval Code" := ApprovalEntryArgument."Approval Code";
+            IsHandled := false;
+            OnBeforeApprovalEntryInsert(ApprovalEntry, ApprovalEntryArgument, WorkflowStepArgument, ApproverId, IsHandled);
+            if IsHandled then
+                exit;
+            Insert(true);
         end;
-        ApprovalEntry."Available Credit Limit (LCY)" := ApprovalEntryArgument."Available Credit Limit (LCY)";
-        SetApproverType(WorkflowStepArgument, ApprovalEntry);
-        SetLimitType(WorkflowStepArgument, ApprovalEntry);
-        ApprovalEntry."Record ID to Approve" := ApprovalEntryArgument."Record ID to Approve";
-        ApprovalEntry."Approval Code" := ApprovalEntryArgument."Approval Code";
-        IsHandled := false;
-        OnBeforeApprovalEntryInsert(ApprovalEntry, ApprovalEntryArgument, WorkflowStepArgument, ApproverId, IsHandled);
-        if IsHandled then
-            exit;
-        ApprovalEntry.Insert(true);
     end;
 
     procedure CalcPurchaseDocAmount(PurchaseHeader: Record "Purchase Header"; var ApprovalAmount: Decimal; var ApprovalAmountLCY: Decimal)
@@ -2168,13 +2184,15 @@ codeunit 1535 "Approvals Mgmt."
     var
         ApprovalEntry: Record "Approval Entry";
     begin
-        ApprovalEntry.SetCurrentKey("Record ID to Approve", "Workflow Step Instance ID", "Sequence No.");
-        ApprovalEntry.SetRange("Table ID", ApprovalEntryArgument."Table ID");
-        ApprovalEntry.SetRange("Record ID to Approve", ApprovalEntryArgument."Record ID to Approve");
-        ApprovalEntry.SetRange("Workflow Step Instance ID", ApprovalEntryArgument."Workflow Step Instance ID");
-        OnGetLastSequenceNoOnAfterSetApprovalEntryFilters(ApprovalEntry, ApprovalEntryArgument);
-        if ApprovalEntry.FindLast() then
-            exit(ApprovalEntry."Sequence No.");
+        with ApprovalEntry do begin
+            SetCurrentKey("Record ID to Approve", "Workflow Step Instance ID", "Sequence No.");
+            SetRange("Table ID", ApprovalEntryArgument."Table ID");
+            SetRange("Record ID to Approve", ApprovalEntryArgument."Record ID to Approve");
+            SetRange("Workflow Step Instance ID", ApprovalEntryArgument."Workflow Step Instance ID");
+            OnGetLastSequenceNoOnAfterSetApprovalEntryFilters(ApprovalEntry, ApprovalEntryArgument);
+            if FindLast() then
+                exit("Sequence No.");
+        end;
         exit(0);
     end;
 
@@ -2475,8 +2493,11 @@ codeunit 1535 "Approvals Mgmt."
         if not GenJournalBatch.Get(GenJournalLine."Journal Template Name", GenJournalLine."Journal Batch Name") then
             exit;
 
-        if FindApprovalEntryByRecordId(ApprovalEntry, GenJournalBatch.RecordId) then
-            GenJnlBatchApprovalStatus := GetApprovalStatusFromApprovalEntry(ApprovalEntry, GenJournalBatch);
+        if FindLastApprovalEntryForCurrUser(ApprovalEntry, GenJournalBatch.RecordId) then
+            GenJnlBatchApprovalStatus := GetApprovalStatusFromApprovalEntry(ApprovalEntry, GenJournalBatch)
+        else
+            if FindApprovalEntryByRecordId(ApprovalEntry, GenJournalBatch.RecordId) then
+                GenJnlBatchApprovalStatus := GetApprovalStatusFromApprovalEntry(ApprovalEntry, GenJournalBatch);
     end;
 
     procedure GetGenJnlLineApprovalStatus(GenJournalLine: Record "Gen. Journal Line"; var GenJnlLineApprovalStatus: Text[20]; EnabledGenJnlLineWorkflowsExist: Boolean)
@@ -2487,8 +2508,11 @@ codeunit 1535 "Approvals Mgmt."
         if not EnabledGenJnlLineWorkflowsExist then
             exit;
 
-        if FindApprovalEntryByRecordId(ApprovalEntry, GenJournalLine.RecordId) then
-            GenJnlLineApprovalStatus := GetApprovalStatusFromApprovalEntry(ApprovalEntry, GenJournalLine);
+        if FindLastApprovalEntryForCurrUser(ApprovalEntry, GenJournalLine.RecordId) then
+            GenJnlLineApprovalStatus := GetApprovalStatusFromApprovalEntry(ApprovalEntry, GenJournalLine)
+        else
+            if FindApprovalEntryByRecordId(ApprovalEntry, GenJournalLine.RecordId) then
+                GenJnlLineApprovalStatus := GetApprovalStatusFromApprovalEntry(ApprovalEntry, GenJournalLine);
     end;
 
     local procedure GetApprovalStatusFromApprovalEntry(var ApprovalEntry: Record "Approval Entry"; GenJournalBatch: Record "Gen. Journal Batch"): Text[20]
@@ -2564,12 +2588,18 @@ codeunit 1535 "Approvals Mgmt."
     begin
         if GenJournalBatch.Get(GenJournalLine."Journal Template Name", GenJournalLine."Journal Batch Name") then
             if IsGeneralJournalBatchApprovalsWorkflowEnabled(GenJournalBatch) then
-                if FindApprovalEntryByRecordId(ApprovalEntry, GenJournalBatch.RecordId) and (ApprovalEntry.Status = ApprovalEntry.Status::Approved) then
-                    GenJnlBatchApprovalStatus := CopyStr(ImposedRestrictionLbl, 1, 20);
+                if FindLastApprovalEntryForCurrUser(ApprovalEntry, GenJournalBatch.RecordId) and (ApprovalEntry.Status = ApprovalEntry.Status::Approved) then
+                    GenJnlBatchApprovalStatus := CopyStr(ImposedRestrictionLbl, 1, 20)
+                else
+                    if FindApprovalEntryByRecordId(ApprovalEntry, GenJournalBatch.RecordId) and (ApprovalEntry.Status = ApprovalEntry.Status::Approved) then
+                        GenJnlBatchApprovalStatus := CopyStr(ImposedRestrictionLbl, 1, 20);
 
         if IsGeneralJournalLineApprovalsWorkflowEnabled(GenJournalLine) then
-            if FindApprovalEntryByRecordId(ApprovalEntry, GenJournalLine.RecordId) and (ApprovalEntry.Status = ApprovalEntry.Status::Approved) then
-                GenJnlLineApprovalStatus := CopyStr(ImposedRestrictionLbl, 1, 20);
+            if FindLastApprovalEntryForCurrUser(ApprovalEntry, GenJournalLine.RecordId) and (ApprovalEntry.Status = ApprovalEntry.Status::Approved) then
+                GenJnlLineApprovalStatus := CopyStr(ImposedRestrictionLbl, 1, 20)
+            else
+                if FindApprovalEntryByRecordId(ApprovalEntry, GenJournalLine.RecordId) and (ApprovalEntry.Status = ApprovalEntry.Status::Approved) then
+                    GenJnlLineApprovalStatus := CopyStr(ImposedRestrictionLbl, 1, 20);
     end;
 
     local procedure FindOpenApprovalEntryForSequenceNo(RecRef: RecordRef; WorkflowStepInstance: Record "Workflow Step Instance"; SequenceNo: Integer): Boolean

@@ -12,7 +12,6 @@ table 5502 "Tax Rate Buffer"
 {
     Caption = 'Tax Rate Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

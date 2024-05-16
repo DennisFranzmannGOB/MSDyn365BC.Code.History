@@ -15,7 +15,7 @@ page 7333 "Posted Whse. Receipt List"
     PageType = List;
     SourceTable = "Posted Whse. Receipt Header";
     SourceTableView = sorting("Posting Date")
-                      order(descending);
+                      order(Descending);
     UsageCategory = History;
 
     layout

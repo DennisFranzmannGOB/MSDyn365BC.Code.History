@@ -4,19 +4,18 @@ using Microsoft.Projects.Resources.Resource;
 
 table 1034 "Job Planning Line - Calendar"
 {
-    Caption = 'Project Planning Line - Calendar';
-    DataClassification = CustomerContent;
+    Caption = 'Job Planning Line - Calendar';
 
     fields
     {
         field(1; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = "Job Planning Line"."Job No.";
         }
         field(2; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Planning Line"."Job Task No.";
         }
         field(3; "Planning Line No."; Integer)

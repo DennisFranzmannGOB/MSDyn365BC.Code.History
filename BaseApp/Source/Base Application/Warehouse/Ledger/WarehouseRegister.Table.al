@@ -9,7 +9,6 @@ table 7313 "Warehouse Register"
 {
     Caption = 'Warehouse Register';
     LookupPageID = "Warehouse Registers";
-    DataClassification = CustomerContent;
 
     fields
     {

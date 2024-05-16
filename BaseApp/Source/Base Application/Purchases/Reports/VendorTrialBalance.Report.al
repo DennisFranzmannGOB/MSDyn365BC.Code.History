@@ -154,19 +154,21 @@ report 329 "Vendor - Trial Balance"
 
     trigger OnPreReport()
     begin
-        PeriodFilter := Vendor.GetFilter("Date Filter");
-        PeriodStartDate := Vendor.GetRangeMin("Date Filter");
-        PeriodEndDate := Vendor.GetRangeMax("Date Filter");
-        Vendor.SetRange("Date Filter");
-        VendFilter := Vendor.GetFilters();
-        Vendor.SetRange("Date Filter", PeriodStartDate, PeriodEndDate);
-        AccountingPeriod.SetRange("Starting Date", 0D, PeriodEndDate);
-        AccountingPeriod.SetRange("New Fiscal Year", true);
-        if AccountingPeriod.FindLast() then
-            FiscalYearStartDate := AccountingPeriod."Starting Date"
-        else
-            Error(Text000, AccountingPeriod.FieldCaption("Starting Date"), AccountingPeriod.TableCaption());
-        FiscalYearFilter := Format(FiscalYearStartDate) + '..' + Format(PeriodEndDate);
+        with Vendor do begin
+            PeriodFilter := GetFilter("Date Filter");
+            PeriodStartDate := GetRangeMin("Date Filter");
+            PeriodEndDate := GetRangeMax("Date Filter");
+            SetRange("Date Filter");
+            VendFilter := GetFilters();
+            SetRange("Date Filter", PeriodStartDate, PeriodEndDate);
+            AccountingPeriod.SetRange("Starting Date", 0D, PeriodEndDate);
+            AccountingPeriod.SetRange("New Fiscal Year", true);
+            if AccountingPeriod.FindLast() then
+                FiscalYearStartDate := AccountingPeriod."Starting Date"
+            else
+                Error(Text000, AccountingPeriod.FieldCaption("Starting Date"), AccountingPeriod.TableCaption());
+            FiscalYearFilter := Format(FiscalYearStartDate) + '..' + Format(PeriodEndDate);
+        end;
     end;
 
     var

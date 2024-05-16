@@ -7,7 +7,6 @@ table 5721 Purchasing
     Caption = 'Purchasing';
     DrillDownPageID = "Purchasing Code List";
     LookupPageID = "Purchasing Code List";
-    DataClassification = CustomerContent;
 
     fields
     {

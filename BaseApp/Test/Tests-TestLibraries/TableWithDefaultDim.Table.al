@@ -1,7 +1,6 @@
 table 134482 "Table With Default Dim"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

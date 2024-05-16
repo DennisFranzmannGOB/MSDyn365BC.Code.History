@@ -6,7 +6,6 @@ table 8619 "Config. Template Line"
 {
     Caption = 'Config. Template Line';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -75,7 +74,7 @@ table 8619 "Config. Template Line"
         }
         field(7; "Table Name"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Name" where("Object Type" = filter(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Name" where("Object Type" = filter(Table),
                                                                         "Object ID" = field("Table ID")));
             Caption = 'Table Name';
             Editable = false;
@@ -127,7 +126,7 @@ table 8619 "Config. Template Line"
 #pragma warning disable AS0086
         field(9; "Template Description"; Text[100])
         {
-            CalcFormula = lookup("Config. Template Header".Description where(Code = field("Data Template Code")));
+            CalcFormula = Lookup("Config. Template Header".Description where(Code = field("Data Template Code")));
             Caption = 'Template Description';
             Editable = false;
             FieldClass = FlowField;
@@ -195,7 +194,7 @@ table 8619 "Config. Template Line"
         }
         field(13; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = filter(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = filter(Table),
                                                                            "Object ID" = field("Table ID")));
             Caption = 'Table Caption';
             Editable = false;
@@ -203,7 +202,7 @@ table 8619 "Config. Template Line"
         }
         field(14; "Field Caption"; Text[250])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table ID"),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table ID"),
                                                               "No." = field("Field ID")));
             Caption = 'Field Caption';
             Editable = false;

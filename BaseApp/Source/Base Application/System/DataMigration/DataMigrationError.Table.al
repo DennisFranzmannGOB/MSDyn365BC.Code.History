@@ -4,7 +4,6 @@ table 1797 "Data Migration Error"
 {
     Caption = 'Data Migration Error';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

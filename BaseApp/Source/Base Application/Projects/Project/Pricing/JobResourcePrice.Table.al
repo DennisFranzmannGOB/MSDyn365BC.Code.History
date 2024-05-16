@@ -11,24 +11,23 @@ using Microsoft.Utilities;
 
 table 1012 "Job Resource Price"
 {
-    Caption = 'Project Resource Price';
-#if not CLEAN23
+    Caption = 'Job Resource Price';
+#if not CLEAN21
     DrillDownPageID = "Job Resource Prices";
     LookupPageID = "Job Resource Prices";
     ObsoleteState = Pending;
     ObsoleteTag = '16.0';
 #else
     ObsoleteState = Removed;
-    ObsoleteTag = '26.0';
+    ObsoleteTag = '24.0';
 #endif    
     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation: table Price List Line';
-    DataClassification = CustomerContent;
 
     fields
     {
         field(1; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             NotBlank = true;
             TableRelation = Job;
 
@@ -40,7 +39,7 @@ table 1012 "Job Resource Price"
         }
         field(2; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
 
             trigger OnValidate()
@@ -153,12 +152,12 @@ table 1012 "Job Resource Price"
         }
         field(11; "Apply Job Price"; Boolean)
         {
-            Caption = 'Apply Project Price';
+            Caption = 'Apply Job Price';
             InitValue = true;
         }
         field(12; "Apply Job Discount"; Boolean)
         {
-            Caption = 'Apply Project Discount';
+            Caption = 'Apply Job Discount';
             InitValue = true;
         }
     }

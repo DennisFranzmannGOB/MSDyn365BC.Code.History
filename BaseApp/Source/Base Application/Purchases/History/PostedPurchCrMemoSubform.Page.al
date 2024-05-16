@@ -166,13 +166,13 @@ page 141 "Posted Purch. Cr. Memo Subform"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Job Task No."; Rec."Job Task No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project task.';
+                    ToolTip = 'Specifies the number of the related job task.';
                     Visible = false;
                 }
                 field("Prod. Order No."; Rec."Prod. Order No.")
@@ -371,7 +371,7 @@ page 141 "Posted Purch. Cr. Memo Subform"
                         Caption = 'Total Amount Incl. VAT';
                         Editable = false;
                         Style = Strong;
-                        StyleExpr = true;
+                        StyleExpr = TRUE;
                         ToolTip = 'Specifies the sum of the value in the Line Amount Incl. VAT field on all lines in the document minus any discount amount in the Invoice Discount Amount field.';
                     }
                 }
@@ -526,12 +526,12 @@ page 141 "Posted Purch. Cr. Memo Subform"
 
     procedure ShowDocumentLineTracking()
     var
-        DocumentLineTrackingPage: Page "Document Line Tracking";
+        DocumentLineTracking: Page "Document Line Tracking";
     begin
-        Clear(DocumentLineTrackingPage);
-        DocumentLineTrackingPage.SetSourceDoc(
-            "Document Line Source Type"::"Purchase Credit Memo", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", Rec."Order No.", Rec."Order Line No.");
-        DocumentLineTrackingPage.RunModal();
+        Clear(DocumentLineTracking);
+        DocumentLineTracking.SetDoc(
+          11, Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", Rec."Order No.", Rec."Order Line No.");
+        DocumentLineTracking.RunModal();
     end;
 
     local procedure SetDimensionsVisibility()

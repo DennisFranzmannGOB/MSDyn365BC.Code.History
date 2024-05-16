@@ -1,6 +1,7 @@
 namespace Microsoft.API.V1;
 
 using System.Apps;
+using System.Environment.Configuration;
 
 page 20007 "APIV1 - Aut. Extension Depl."
 {

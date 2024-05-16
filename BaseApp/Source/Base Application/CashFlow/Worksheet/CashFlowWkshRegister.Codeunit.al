@@ -20,19 +20,21 @@ codeunit 843 "Cash Flow Wksh. - Register"
 
     local procedure "Code"()
     begin
-        if not Confirm(Text1001) then
-            exit;
+        with CFWkshLine do begin
+            if not Confirm(Text1001) then
+                exit;
 
-        CODEUNIT.Run(CODEUNIT::"Cash Flow Wksh.-Register Batch", CFWkshLine);
+            CODEUNIT.Run(CODEUNIT::"Cash Flow Wksh.-Register Batch", CFWkshLine);
 
-        if CFWkshLine."Line No." = 0 then
-            Message(Text1002)
-        else
-            Message(Text1003);
+            if "Line No." = 0 then
+                Message(Text1002)
+            else
+                Message(Text1003);
 
-        if not CFWkshLine.Find('=><') then begin
-            CFWkshLine.Reset();
-            CFWkshLine."Line No." := 1;
+            if not Find('=><') then begin
+                Reset();
+                "Line No." := 1;
+            end;
         end;
     end;
 }

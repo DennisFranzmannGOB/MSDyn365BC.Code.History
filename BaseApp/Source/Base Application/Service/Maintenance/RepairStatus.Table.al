@@ -7,7 +7,6 @@ table 5927 "Repair Status"
     Caption = 'Repair Status';
     DrillDownPageID = "Repair Status";
     LookupPageID = "Repair Status";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -25,7 +25,6 @@ table 5773 "Registered Whse. Activity Line"
     Caption = 'Registered Whse. Activity Line';
     DrillDownPageID = "Registered Whse. Act.-Lines";
     LookupPageID = "Registered Whse. Act.-Lines";
-    DataClassification = CustomerContent;
 
     fields
     {

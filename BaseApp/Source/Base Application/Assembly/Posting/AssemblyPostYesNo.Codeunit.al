@@ -21,10 +21,12 @@ codeunit 901 "Assembly-Post (Yes/No)"
 
     local procedure "Code"()
     begin
-        if not Confirm(Text000, false, AssemblyHeader."Document Type") then
-            exit;
+        with AssemblyHeader do begin
+            if not Confirm(Text000, false, "Document Type") then
+                exit;
 
-        CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
+            CODEUNIT.Run(CODEUNIT::"Assembly-Post", AssemblyHeader);
+        end;
     end;
 
     procedure Preview(var AssemblyHeaderToPreview: Record "Assembly Header")
@@ -34,17 +36,6 @@ codeunit 901 "Assembly-Post (Yes/No)"
     begin
         BindSubscription(AssemblyPostYesNo);
         GenJnlPostPreview.Preview(AssemblyPostYesNo, AssemblyHeaderToPreview);
-    end;
-
-    procedure MessageIfPostingPreviewMultipleDocuments(var AssemblyHeaderToPreview: Record "Assembly Header"; DocumentNo: Code[20])
-    var
-        GenJnlPostPreview: Codeunit "Gen. Jnl.-Post Preview";
-        RecordRefToPreview: RecordRef;
-    begin
-        RecordRefToPreview.Open(Database::"Assembly Header");
-        RecordRefToPreview.Copy(AssemblyHeaderToPreview);
-
-        GenJnlPostPreview.MessageIfPostingPreviewMultipleDocuments(RecordRefToPreview, DocumentNo);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Preview", 'OnRunPreview', '', false, false)]

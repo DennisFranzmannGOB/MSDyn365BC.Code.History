@@ -15,6 +15,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         LibraryRandom: Codeunit "Library - Random";
         LibraryUtility: Codeunit "Library - Utility";
         LibrarySetupStorage: Codeunit "Library - Setup Storage";
+        LibraryERMCountryData: Codeunit "Library - ERM Country Data";
         LibraryWarehouse: Codeunit "Library - Warehouse";
         LibraryPurchase: Codeunit "Library - Purchase";
         LibraryManufacturing: Codeunit "Library - Manufacturing";
@@ -45,7 +46,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         CreateLocationWMSWithWhseEmployee(Location, false, true, false, false, false);
 
         // [GIVEN] Purchase Order created with Posting Date = WORKDATE
-        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, Location.Code, '', '');
+        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, PurchaseHeader."Document Type"::Order, Location.Code, '', '');
 
         // [WHEN] Inventory PutAway created
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
@@ -54,23 +55,23 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         FindAndUpdateWhseActivityPostingDate(
           WarehouseActivityHeader, WarehouseActivityLine,
           DATABASE::"Purchase Line", PurchaseHeader."No.",
-          WarehouseActivityHeader.Type::"Invt. Put-away", WorkDate() + 1);
+          WarehouseActivityHeader.Type::"Invt. Put-away", WorkDate + 1);
         LibraryWarehouse.SetQtyToHandleWhseActivity(WarehouseActivityHeader, WarehouseActivityLine.Quantity);
 
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhseActivityPost.Preview(WarehouseActivityLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the put away is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 1);
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -97,7 +98,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         CreateLocationWMSWithWhseEmployee(Location, false, true, false, false, false);
 
         // [GIVEN] Purchase Order created with Posting Date = WORKDATE
-        //CreatePurchaseDocumentWithLineLocation(PurchaseHeader, Location.Code, '', CreateTrackedItem());
+        //CreatePurchaseDocumentWithLineLocation(PurchaseHeader, PurchaseHeader."Document Type"::Order, Location.Code, '', CreateTrackedItem());
         LibraryPurchase.CreatePurchaseOrder(PurchaseHeader);
         PurchaseHeader.Validate("Location Code", Location.Code);
         PurchaseHeader.Modify(true);
@@ -110,7 +111,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         FindAndUpdateWhseActivityPostingDate(
           WarehouseActivityHeader, WarehouseActivityLine,
           DATABASE::"Purchase Line", PurchaseHeader."No.",
-          WarehouseActivityHeader.Type::"Invt. Put-away", WorkDate() + 1);
+          WarehouseActivityHeader.Type::"Invt. Put-away", WorkDate + 1);
         LibraryWarehouse.SetQtyToHandleWhseActivity(WarehouseActivityHeader, WarehouseActivityLine.Quantity);
         WarehouseActivityLine.Find();
         WarehouseActivityLine.Validate("Serial No.", 'SL-001');
@@ -119,17 +120,17 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhseActivityPost.Preview(WarehouseActivityLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the put away is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 1);
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -140,6 +141,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         PurchaseHeader: Record "Purchase Header";
         WarehouseActivityHeader: Record "Warehouse Activity Header";
         WarehouseActivityLine: Record "Warehouse Activity Line";
+        Item: Record Item;
         Location: Record Location;
         Bin: Record Bin;
         ItemLedgerEntry: Record "Item Ledger Entry";
@@ -164,7 +166,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         Location.Modify(true);
 
         // [GIVEN] Purchase Order created
-        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, Location.Code, Bin.Code, '');
+        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, PurchaseHeader."Document Type"::Order, Location.Code, Bin.Code, '');
 
         // [WHEN] Inventory PutAway created
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
@@ -173,18 +175,18 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         FindAndUpdateWhseActivityPostingDate(
           WarehouseActivityHeader, WarehouseActivityLine,
           DATABASE::"Purchase Line", PurchaseHeader."No.",
-          WarehouseActivityHeader.Type::"Invt. Put-away", WorkDate() + 1);
+          WarehouseActivityHeader.Type::"Invt. Put-away", WorkDate + 1);
         LibraryWarehouse.SetQtyToHandleWhseActivity(WarehouseActivityHeader, WarehouseActivityLine.Quantity);
 
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhseActivityPost.Preview(WarehouseActivityLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the put away is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
@@ -193,7 +195,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, WarehouseEntry.TableCaption(), 1);
 
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -239,23 +241,23 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         FindAndUpdateWhseActivityPostingDate(
           WarehouseActivityHeader, WarehouseActivityLine,
          Database::"Prod. Order Line", ProductionOrder."No.",
-          WarehouseActivityHeader.Type::"Invt. Put-away", WorkDate() + 1);
+          WarehouseActivityHeader.Type::"Invt. Put-away", WorkDate + 1);
         LibraryWarehouse.SetQtyToHandleWhseActivity(WarehouseActivityHeader, WarehouseActivityLine.Quantity);
 
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhseActivityPost.Preview(WarehouseActivityLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the PutAway is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 1);
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     local procedure Initialize()
@@ -316,7 +318,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
     var
         Item: Record Item;
     begin
-        LibraryInventory.CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode());
+        LibraryInventory.CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode());
         exit(Item."No.");
     end;
 
@@ -340,13 +342,13 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         LibraryInventory.PostItemJournalLine(ItemJournalLine."Journal Template Name", ItemJournalLine."Journal Batch Name");
     end;
 
-    local procedure CreatePurchaseDocumentWithItem(var PurchaseHeader: Record "Purchase Header"; var PurchaseLine: Record "Purchase Line"; ItemNo: Code[20])
+    local procedure CreatePurchaseDocumentWithItem(var PurchaseHeader: Record "Purchase Header"; var PurchaseLine: Record "Purchase Line"; DocumentType: Enum "Purchase Document Type"; ItemNo: Code[20])
     begin
         LibraryPurchase.CreatePurchaseOrder(PurchaseHeader);
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, ItemNo, LibraryRandom.RandInt(10));
     end;
 
-    local procedure CreatePurchaseDocumentWithLineLocation(var PurchaseHeader: Record "Purchase Header"; LocationCode: Code[10]; BinCode: Code[10]; ItemCode: Code[20])
+    local procedure CreatePurchaseDocumentWithLineLocation(var PurchaseHeader: Record "Purchase Header"; DocumentType: Enum "Purchase Document Type"; LocationCode: Code[10]; BinCode: Code[10]; ItemCode: Code[20])
     var
         PurchaseLine: Record "Purchase Line";
         Item: Record Item;
@@ -356,7 +358,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
         else
             Item.Get(ItemCode);
 
-        CreatePurchaseDocumentWithItem(PurchaseHeader, PurchaseLine, Item."No.");
+        CreatePurchaseDocumentWithItem(PurchaseHeader, PurchaseLine, DocumentType, Item."No.");
         PurchaseHeader.Validate("Location Code", LocationCode);
         PurchaseHeader.Modify(true);
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
@@ -387,7 +389,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
     local procedure VerifyGLPostingPreviewLine(GLPostingPreview: TestPage "G/L Posting Preview"; TableName: Text; ExpectedEntryCount: Integer)
     begin
         Assert.AreEqual(TableName, GLPostingPreview."Table Name".Value, StrSubstNo('A record for Table Name %1 was not found.', TableName));
-        Assert.AreEqual(ExpectedEntryCount, GLPostingPreview."No. of Records".AsInteger(),
+        Assert.AreEqual(ExpectedEntryCount, GLPostingPreview."No. of Records".AsInteger,
           StrSubstNo('Table Name %1 Unexpected number of records.', TableName));
     end;
 
@@ -396,7 +398,7 @@ codeunit 134779 "Test Invt. PutAway Post Prev."
     procedure CreateInvtPutAwayRequestPageHandler(var CreateInvtPutawayPickMvmt: TestRequestPage "Create Invt Put-away/Pick/Mvmt")
     begin
         CreateInvtPutawayPickMvmt.CreateInventorytPutAway.SetValue(true);
-        CreateInvtPutawayPickMvmt.OK().Invoke();
+        CreateInvtPutawayPickMvmt.OK.Invoke;
     end;
 
     [MessageHandler]

@@ -13,7 +13,6 @@ table 9144 "Approvals Activities Cue"
     DrillDownPageID = "Job Queue Entries";
     LookupPageID = "Job Queue Entries";
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

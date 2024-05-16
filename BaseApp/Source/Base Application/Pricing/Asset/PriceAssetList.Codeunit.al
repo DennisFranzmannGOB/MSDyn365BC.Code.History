@@ -120,7 +120,7 @@ codeunit 7007 "Price Asset List"
         TempPriceAssetLocal.Copy(TempPriceAsset, true);
         TempPriceAssetLocal.Reset();
         TempPriceAssetLocal.SetRange("Asset Type", AssetType);
-        if TempPriceAssetLocal.FindFirst() then begin
+        If TempPriceAssetLocal.FindFirst() then begin
             PriceAssetInterface := TempPriceAssetLocal."Asset Type";
             Result := TempPriceAssetLocal."Asset No.";
         end;
@@ -137,7 +137,7 @@ codeunit 7007 "Price Asset List"
     var
         TempPriceAssetFrom: Record "Price Asset" temporary;
         TempPriceAssetTo: Record "Price Asset" temporary;
-        Level: array[2] of Integer;
+        Level: Array[2] of Integer;
         CurrLevel: Integer;
     begin
         TempPriceAssetTo.Copy(TempPriceAsset, true);

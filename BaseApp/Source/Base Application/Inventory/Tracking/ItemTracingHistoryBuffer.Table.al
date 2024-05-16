@@ -4,7 +4,6 @@ table 6521 "Item Tracing History Buffer"
 {
     Caption = 'Item Tracing History Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

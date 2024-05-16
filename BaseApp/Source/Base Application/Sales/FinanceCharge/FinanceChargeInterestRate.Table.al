@@ -5,7 +5,6 @@ table 572 "Finance Charge Interest Rate"
     Caption = 'Fin. Charge Interest Rate';
     DataCaptionFields = "Fin. Charge Terms Code", "Start Date";
     LookupPageID = "Finance Charge Interest Rates";
-    DataClassification = CustomerContent;
 
     fields
     {

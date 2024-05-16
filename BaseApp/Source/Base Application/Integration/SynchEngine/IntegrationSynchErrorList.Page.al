@@ -19,7 +19,7 @@ page 5339 "Integration Synch. Error List"
     PageType = List;
     SourceTable = "Integration Synch. Job Errors";
     SourceTableView = sorting("Date/Time", "Integration Synch. Job ID")
-                      order(descending);
+                      order(Descending);
     UsageCategory = Lists;
 
     layout

@@ -3,7 +3,6 @@ namespace Microsoft.CRM.Contact;
 table 5052 "Contact Alt. Addr. Date Range"
 {
     Caption = 'Contact Alt. Addr. Date Range';
-    DataClassification = CustomerContent;
 
     fields
     {

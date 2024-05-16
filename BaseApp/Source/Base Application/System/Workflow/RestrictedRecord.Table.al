@@ -6,7 +6,6 @@ table 1550 "Restricted Record"
 {
     Caption = 'Restricted Record';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

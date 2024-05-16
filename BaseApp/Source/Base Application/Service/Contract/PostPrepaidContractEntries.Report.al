@@ -229,8 +229,6 @@ report 6032 "Post Prepaid Contract Entries"
     end;
 
     trigger OnPreReport()
-    var
-        NoSeries: Codeunit "No. Series";
     begin
         if PostPrepaidContracts = PostPrepaidContracts::"Post Prepaid Transactions" then begin
             GLSetup.GetRecordOnce();
@@ -242,10 +240,11 @@ report 6032 "Post Prepaid Contract Entries"
             if GenJnlLineReq."Journal Batch Name" = '' then
                 Error(PleaseEnterErr, GenJnlLineReq.FieldCaption("Journal Batch Name"));
 
+            Clear(NoSeriesMgt);
             Clear(DocNo);
             GenJnlBatch.Get(GenJnlLineReq."Journal Template Name", GenJnlLineReq."Journal Batch Name");
             GenJnlBatch.TestField("No. Series");
-            DocNo := NoSeries.GetNextNo(GenJnlBatch."No. Series", WorkDate());
+            DocNo := NoSeriesMgt.GetNextNo(GenJnlBatch."No. Series", WorkDate(), true);
         end;
     end;
 
@@ -267,6 +266,7 @@ report 6032 "Post Prepaid Contract Entries"
         GenJnlLineReq: Record "Gen. Journal Line";
         GenJnlBatch: Record "Gen. Journal Batch";
         PrepaidContractEntriesTest: Report "Prepaid Contr. Entries - Test";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
         Window: Dialog;
         PostPrepaidContracts: Option "Post Prepaid Transactions","Print Only";
@@ -286,7 +286,6 @@ report 6032 "Post Prepaid Contract Entries"
 
     local procedure PostGenJnlLine()
     var
-        NoSeries: Codeunit "No. Series";
         IsPrepaidAccountPostingHandled: Boolean;
         IsNonPrepaidAccountPostingHandled: Boolean;
     begin
@@ -296,7 +295,7 @@ report 6032 "Post Prepaid Contract Entries"
 
         GLSetup.GetRecordOnce();
         if not GLSetup."Journal Templ. Name Mandatory" then
-            DocNo := NoSeries.GetNextNo(ServMgtSetup."Prepaid Posting Document Nos.", WorkDate());
+            DocNo := NoSeriesMgt.GetNextNo(ServMgtSetup."Prepaid Posting Document Nos.", WorkDate(), true);
 
         repeat
             IsNonPrepaidAccountPostingHandled := false;

@@ -15,7 +15,6 @@ table 5629 "Ins. Coverage Ledger Entry"
     Caption = 'Ins. Coverage Ledger Entry';
     DrillDownPageID = "Ins. Coverage Ledger Entries";
     LookupPageID = "Ins. Coverage Ledger Entries";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -1,10 +1,13 @@
 namespace System.Diagnostics;
 
+# if not CLEAN22
 codeunit 510 "Change Log Entry - Delete"
 {
-    Access = Internal;
     Permissions = TableData "Change Log Entry" = rd;
     TableNo = "Change Log Entry";
+    ObsoleteState = Pending;
+    ObsoleteReason = 'The functionality has been replaced with the retention policy module in system application.';
+    ObsoleteTag = '17.0';
 
     trigger OnRun()
     begin
@@ -13,3 +16,4 @@ codeunit 510 "Change Log Entry - Delete"
         Rec.Delete(); // do not call trigger as that will fail for protected entries
     end;
 }
+#endif

@@ -10,6 +10,9 @@ using Microsoft.CRM.Setup;
 using Microsoft.EServices.EDocument;
 using Microsoft.Foundation.Address;
 using Microsoft.Integration.D365Sales;
+#if not CLEAN21
+using Microsoft.Integration.Graph;
+#endif
 using System.AI;
 using System.Azure.Identity;
 using System.EMail;
@@ -32,6 +35,9 @@ codeunit 104020 "Upg Secrets to Isol. Storage"
             exit;
 
         MoveServicePasswordToIsolatedStorage();
+#if not CLEAN21
+        MoveGraphMailRefreshCodeToIsolatedStorage();
+#endif
         MoveAzureADAppSetupSecretToIsolatedStorage();
         FixAzureADAppSetup();
     end;
@@ -41,8 +47,8 @@ codeunit 104020 "Upg Secrets to Isol. Storage"
         UpgradeTag: Codeunit "Upgrade Tag";
         UpgradeTagDefinitions: Codeunit "Upgrade Tag Definitions";
     begin
-        if UpgradeTag.HasUpgradeTag(UpgradeTagDefinitions.GetServicePasswordToIsolatedStorageTag()) then
-            exit;
+        IF UpgradeTag.HasUpgradeTag(UpgradeTagDefinitions.GetServicePasswordToIsolatedStorageTag()) THEN
+            EXIT;
 
         // changed to only move secrets that are in use for known baseapp features.
         // if a secret cannot be decrypted with the current keys on the nst then upgrade should fail
@@ -84,7 +90,30 @@ codeunit 104020 "Upg Secrets to Isol. Storage"
 
         UpgradeTag.SetUpgradeTag(UpgradeTagDefinitions.GetAzureADSetupFixTag());
     end;
+#if not CLEAN21
+    local procedure MoveGraphMailRefreshCodeToIsolatedStorage()
+    var
+        GraphMailSetup: Record "Graph Mail Setup";
+        UpgradeTag: Codeunit "Upgrade Tag";
+        UpgradeTagDefinitions: Codeunit "Upgrade Tag Definitions";
+        InStr: InStream;
+        RefreshCodeValue: Text;
+    begin
+        IF UpgradeTag.HasUpgradeTag(UpgradeTagDefinitions.GetGraphMailRefreshCodeToIsolatedStorageTag()) THEN
+            EXIT;
 
+        IF GraphMailSetup.GET() THEN
+            IF GraphMailSetup."Refresh Code".HasValue() then BEGIN
+                GraphMailSetup.CALCFIELDS("Refresh Code");
+                GraphMailSetup."Refresh Code".CREATEINSTREAM(InStr);
+                InStr.READTEXT(RefreshCodeValue);
+
+                ISOLATEDSTORAGE.SET('RefreshTokenKey', RefreshCodeValue, DATASCOPE::Company)
+            END;
+
+        UpgradeTag.SetUpgradeTag(UpgradeTagDefinitions.GetGraphMailRefreshCodeToIsolatedStorageTag());
+    end;
+#endif
     local procedure MoveAzureADAppSetupSecretToIsolatedStorage()
     var
         AzureADAppSetup: Record "Azure AD App Setup";
@@ -134,7 +163,7 @@ codeunit 104020 "Upg Secrets to Isol. Storage"
         if not TryGetServicePasswordValue(ServicePassword, ServicePasswordValue) then
             exit;
 
-        if not ENCRYPTIONENABLED() then
+        IF NOT ENCRYPTIONENABLED() THEN
             ISOLATEDSTORAGE.SET(ServicePassword.Key, ServicePasswordValue, DATASCOPE::Company)
         else
             ISOLATEDSTORAGE.SETENCRYPTED(ServicePassword.Key, ServicePasswordValue, DATASCOPE::Company);

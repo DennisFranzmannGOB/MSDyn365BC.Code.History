@@ -74,6 +74,7 @@ codeunit 135952 "Reten. Pol. Upgrade Test"
     procedure TestRegisteredWhseActivityHdrRetentionPolicyUpdated()
     var
         RetentionPolicySetup: Record "Retention Policy Setup";
+        RetentionPolicySetupLine: Record "Retention Policy Setup Line";
         RegisteredWhseActivityHdr: Record "Registered Whse. Activity Hdr.";
     begin
         // Init

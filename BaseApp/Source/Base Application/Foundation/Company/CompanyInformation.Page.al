@@ -509,10 +509,10 @@ page 1 "Company Information"
                     action("Jobs Setup")
                     {
                         ApplicationArea = Advanced;
-                        Caption = 'Projects Setup';
+                        Caption = 'Jobs Setup';
                         Image = Job;
                         RunObject = Page "Jobs Setup";
-                        ToolTip = 'Define your accounting policies for projects, such as which WIP method to use and whether to update project item costs automatically.';
+                        ToolTip = 'Define your accounting policies for jobs, such as which WIP method to use and whether to update job item costs automatically.';
                     }
                 }
                 action("No. Series")

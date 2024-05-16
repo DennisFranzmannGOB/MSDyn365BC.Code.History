@@ -9,7 +9,6 @@ table 9040 "Date Compr. Settings Buffer"
     TableType = Temporary;
     Access = Public;
     Extensible = true;
-    DataClassification = CustomerContent;
 
     fields
     {

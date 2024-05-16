@@ -511,8 +511,8 @@ report 1309 "Standard Sales - Return Rcpt."
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 if not IsReportInPreviewMode() then
@@ -676,7 +676,7 @@ report 1309 "Standard Sales - Return Rcpt."
         RespCenter: Record "Responsibility Center";
         SellToContact: Record Contact;
         BillToContact: Record Contact;
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;
@@ -809,8 +809,10 @@ report 1309 "Standard Sales - Return Rcpt."
 
     local procedure FormatDocumentFields(ReturnReceiptHeader: Record "Return Receipt Header")
     begin
-        FormatDocument.SetSalesPerson(SalespersonPurchaser, ReturnReceiptHeader."Salesperson Code", SalesPersonText);
-        FormatDocument.SetShipmentMethod(ShipmentMethod, ReturnReceiptHeader."Shipment Method Code", ReturnReceiptHeader."Language Code");
+        with ReturnReceiptHeader do begin
+            FormatDocument.SetSalesPerson(SalespersonPurchaser, "Salesperson Code", SalesPersonText);
+            FormatDocument.SetShipmentMethod(ShipmentMethod, "Shipment Method Code", "Language Code");
+        end;
     end;
 
     [IntegrationEvent(false, false)]
@@ -828,7 +830,7 @@ report 1309 "Standard Sales - Return Rcpt."
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, FALSE)]
     local procedure OnAfterGetSalesHeader(ReturnReceiptHeader: Record "Return Receipt Header")
     begin
     end;

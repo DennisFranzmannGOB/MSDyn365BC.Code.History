@@ -7,7 +7,6 @@ table 5815 "Inventory Period Entry"
 {
     Caption = 'Inventory Period Entry';
     DrillDownPageID = "Inventory Period Entries";
-    DataClassification = CustomerContent;
 
     fields
     {

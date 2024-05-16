@@ -8,7 +8,6 @@ table 5934 "Service Register"
 {
     Caption = 'Service Register';
     LookupPageID = "Service Register";
-    DataClassification = CustomerContent;
 
     fields
     {

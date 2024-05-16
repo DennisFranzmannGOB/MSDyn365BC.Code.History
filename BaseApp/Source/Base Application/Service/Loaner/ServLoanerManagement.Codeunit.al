@@ -104,8 +104,9 @@ codeunit 5901 ServLoanerManagement
         ServLogMgt: Codeunit ServLogManagement;
         ConfirmManagement: Codeunit "Confirm Management";
     begin
-        if ServShipmentItemLine."Loaner No." = '' then
-            Error(Text004, ServShipmentItemLine."No.", ServShipmentItemLine."Line No.");
+        with ServShipmentItemLine do
+            if "Loaner No." = '' then
+                Error(Text004, "No.", "Line No.");
 
         if not ConfirmManagement.GetResponseOrDefault(StrSubstNo(Text005, ServShipmentItemLine."Loaner No."), true) then
             exit;

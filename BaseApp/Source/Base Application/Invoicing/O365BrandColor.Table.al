@@ -2,7 +2,6 @@ table 2121 "O365 Brand Color"
 {
     Caption = 'O365 Brand Color';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

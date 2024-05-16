@@ -25,7 +25,6 @@ table 901 "Assembly Line"
     Caption = 'Assembly Line';
     DrillDownPageID = "Assembly Lines";
     LookupPageID = "Assembly Lines";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -139,7 +138,6 @@ table 901 "Assembly Line"
                 end else begin
                     ItemVariant.SetLoadFields(Description, "Description 2", Blocked);
                     ItemVariant.Get("No.", "Variant Code");
-                    ItemVariant.TestField(Blocked, false);
                     Description := ItemVariant.Description;
                     "Description 2" := ItemVariant."Description 2";
                 end;
@@ -264,8 +262,10 @@ table 901 "Assembly Line"
                     Item.Get("No.");
                     Item.TestField(Type, Item.Type::Inventory);
                     WMSManagement.FindBin("Location Code", "Bin Code", '');
-                    WhseIntegrationMgt.CheckBinTypeAndCode(
-                        DATABASE::"Assembly Line", FieldCaption("Bin Code"), "Location Code", "Bin Code", 0);
+                    WhseIntegrationMgt.CheckBinTypeCode(DATABASE::"Assembly Line",
+                      FieldCaption("Bin Code"),
+                      "Location Code",
+                      "Bin Code", 0);
                     CheckBin();
                 end;
             end;
@@ -742,8 +742,6 @@ table 901 "Assembly Line"
 
     fieldgroups
     {
-        fieldgroup(Brick; "No.", Description, Quantity, Type, "Unit of Measure Code")
-        { }
     }
 
     trigger OnDelete()
@@ -752,6 +750,8 @@ table 901 "Assembly Line"
         ItemTrackingMgt: Codeunit "Item Tracking Management";
     begin
         TestStatusOpen();
+        ConfirmDeletion();
+
         AssemblyWarehouseMgt.AssemblyLineDelete(Rec);
         WhseAssemblyRelease.DeleteLine(Rec);
         AssemblyLineReserve.DeleteLine(Rec);
@@ -791,6 +791,7 @@ table 901 "Assembly Line"
         GLSetupRead: Boolean;
         TestReservationDateConflict: Boolean;
         SkipVerificationsThatChangeDatabase: Boolean;
+        CalledFromHeader: Boolean;
 
         Text001: Label 'Automatic reservation is not possible.\Do you want to reserve items manually?';
         Text002: Label 'You cannot rename an %1.';
@@ -801,6 +802,7 @@ table 901 "Assembly Line"
         Text050: Label 'Due Date %1 is before work date %2.';
         Text99000002: Label 'You cannot change %1 when %2 is ''%3''.';
         AvailabilityPageTitleLbl: Label 'The available inventory for item %1 is lower than the entered quantity at this location.', Comment = '%1=Item No.';
+        ConfirmDeleteQst: Label '%1 = %2 is greater than %3 = %4. If you delete the %5, the items will remain in the operation area until you put them away.\Related Item Tracking information defined during pick will be deleted.\Do you still want to delete the %5?', Comment = '%1 = FieldCaption("Qty. Picked"), %2 = "Qty. Picked", %3 = FieldCaption(Consumed Quantity), %4 = Consumed Quantity, %5 = TableCaption';
 
     protected var
         StatusCheckSuspended: Boolean;
@@ -986,6 +988,7 @@ table 901 "Assembly Line"
         ItemCheckAvail.AssemblyLineCheck(Rec);
     end;
 
+    [Scope('OnPrem')]
     procedure ShowAvailabilityWarningPage()
     var
         ItemCheckAvail: Codeunit "Item-Check Avail.";
@@ -1889,7 +1892,6 @@ table 901 "Assembly Line"
             Item.TestField("Inventory Posting Group");
         end;
 
-        Item.TestField(Blocked, false);
         "Gen. Prod. Posting Group" := Item."Gen. Prod. Posting Group";
         "Inventory Posting Group" := Item."Inventory Posting Group";
         GetDefaultBin();
@@ -2008,6 +2010,30 @@ table 901 "Assembly Line"
         end;
 
         exit(Result);
+    end;
+
+    local procedure ConfirmDeletion()
+    begin
+        if CalledFromHeader then
+            exit;
+
+        if "Consumed Quantity" < "Qty. Picked" then
+            if not Confirm(
+                StrSubstNo(
+                    ConfirmDeleteQst,
+                    FieldCaption("Qty. Picked"),
+                    "Qty. Picked",
+                    FieldCaption("Consumed Quantity"),
+                    "Consumed Quantity",
+                    TableCaption),
+                false)
+            then
+                Error('');
+    end;
+
+    procedure SuspendDeletionCheck(Suspend: Boolean)
+    begin
+        CalledFromHeader := Suspend;
     end;
 
     [IntegrationEvent(false, false)]

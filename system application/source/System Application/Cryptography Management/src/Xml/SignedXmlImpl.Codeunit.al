@@ -157,18 +157,17 @@ codeunit 1461 "SignedXml Impl."
         DotNetSignedXml.LoadXml(DotNetXmlElement);
     end;
 
-    procedure SetSigningKey(XmlString: SecretText)
+    procedure SetSigningKey(XmlString: Text)
     begin
         SetSigningKey(XmlString, Enum::SignatureAlgorithm::RSA);
     end;
 
-    [NonDebuggable]
-    procedure SetSigningKey(XmlString: SecretText; SignatureAlgorithm: Enum SignatureAlgorithm)
+    procedure SetSigningKey(XmlString: Text; SignatureAlgorithm: Enum SignatureAlgorithm)
     var
-        ISignatureAlgorithm: Interface "Signature Algorithm v2";
+        ISignatureAlgorithm: Interface SignatureAlgorithm;
     begin
         ISignatureAlgorithm := SignatureAlgorithm;
-        ISignatureAlgorithm.FromSecretXmlString(XmlString);
+        ISignatureAlgorithm.FromXmlString(XmlString);
         ISignatureAlgorithm.GetInstance(DotNetAsymmetricAlgorithm);
         DotNetSignedXml.SigningKey := DotNetAsymmetricAlgorithm;
     end;
@@ -199,17 +198,17 @@ codeunit 1461 "SignedXml Impl."
         exit(DotNetSignedXml.CheckSignature());
     end;
 
-    procedure CheckSignature(XmlString: SecretText): Boolean
+    procedure CheckSignature(XmlString: Text): Boolean
     var
-        ISignatureAlgorithm: Interface "Signature Algorithm v2";
+        ISignatureAlgorithm: Interface SignatureAlgorithm;
     begin
         ISignatureAlgorithm := Enum::SignatureAlgorithm::RSA;
-        ISignatureAlgorithm.FromSecretXmlString(XmlString);
+        ISignatureAlgorithm.FromXmlString(XmlString);
         ISignatureAlgorithm.GetInstance(DotNetAsymmetricAlgorithm);
         exit(DotNetSignedXml.CheckSignature(DotNetAsymmetricAlgorithm));
     end;
 
-    procedure CheckSignature(X509CertBase64Value: Text; X509CertPassword: SecretText; VerifySignatureOnly: Boolean): Boolean
+    procedure CheckSignature(X509CertBase64Value: Text; X509CertPassword: Text; VerifySignatureOnly: Boolean): Boolean
     var
         X509Certificate2Impl: Codeunit "X509Certificate2 Impl.";
         X509Certificate2: DotNet X509Certificate2;

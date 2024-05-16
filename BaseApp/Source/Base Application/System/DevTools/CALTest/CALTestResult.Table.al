@@ -7,7 +7,6 @@ table 130405 "CAL Test Result"
 {
     Caption = 'CAL Test Result';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

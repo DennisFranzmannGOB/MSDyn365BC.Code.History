@@ -43,18 +43,20 @@ codeunit 5652 "Insurance Jnl.-Post Line"
 
     local procedure "Code"(CheckLine: Boolean)
     begin
-        if InsuranceJnlLine."Insurance No." = '' then
-            exit;
-        if CheckLine then
-            InsuranceJnlCheckLine.RunCheck(InsuranceJnlLine);
-        Insurance.Get(InsuranceJnlLine."Insurance No.");
-        Insurance.TestField(Blocked, false);
-        FA.Get(InsuranceJnlLine."FA No.");
-        FA.TestField("Budgeted Asset", false);
-        FA.TestField(Blocked, false);
-        FA.TestField(Inactive, false);
-        MakeInsCoverageLedgEntry.CopyFromJnlLine(InsCoverageLedgEntry, InsuranceJnlLine);
-        MakeInsCoverageLedgEntry.CopyFromInsuranceCard(InsCoverageLedgEntry, Insurance);
+        with InsuranceJnlLine do begin
+            if "Insurance No." = '' then
+                exit;
+            if CheckLine then
+                InsuranceJnlCheckLine.RunCheck(InsuranceJnlLine);
+            Insurance.Get("Insurance No.");
+            Insurance.TestField(Blocked, false);
+            FA.Get("FA No.");
+            FA.TestField("Budgeted Asset", false);
+            FA.TestField(Blocked, false);
+            FA.TestField(Inactive, false);
+            MakeInsCoverageLedgEntry.CopyFromJnlLine(InsCoverageLedgEntry, InsuranceJnlLine);
+            MakeInsCoverageLedgEntry.CopyFromInsuranceCard(InsCoverageLedgEntry, Insurance);
+        end;
         if NextEntryNo = 0 then begin
             InsCoverageLedgEntry.LockTable();
             NextEntryNo := InsCoverageLedgEntry2.GetLastEntryNo() + 1;

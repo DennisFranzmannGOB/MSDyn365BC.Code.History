@@ -7,7 +7,6 @@ namespace Microsoft.Utilities;
 table 1431 "Named Forward Link"
 {
     Caption = 'Named Forward Link';
-    DataClassification = CustomerContent;
 
     fields
     {

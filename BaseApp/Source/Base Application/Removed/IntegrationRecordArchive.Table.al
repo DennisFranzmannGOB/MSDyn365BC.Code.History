@@ -4,7 +4,6 @@
     ObsoleteState = Removed;
     ObsoleteReason = 'This functionality will be replaced by the systemID field';
     ObsoleteTag = '22.0';
-    DataClassification = CustomerContent;
 
     fields
     {

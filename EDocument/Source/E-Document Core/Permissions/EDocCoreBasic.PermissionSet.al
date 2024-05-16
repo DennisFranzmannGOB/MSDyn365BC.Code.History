@@ -5,7 +5,6 @@
 namespace Microsoft.eServices.EDocument;
 
 using Microsoft.eServices.EDocument.IO.Peppol;
-using Microsoft.EServices.EDocument.OrderMatch;
 
 permissionset 6103 "E-Doc. Core - Basic"
 {
@@ -25,7 +24,5 @@ permissionset 6103 "E-Doc. Core - Basic"
         tabledata "E-Document Service Status" = im,
         tabledata "E-Document Integration Log" = im,
         tabledata "E-Doc. Service Data Exch. Def." = im,
-        tabledata "E-Doc. Service Supported Type" = im,
-        tabledata "E-Doc. Imported Line" = imd,
-        tabledata "E-Doc. Order Match" = imd;
+        tabledata "E-Doc. Service Supported Type" = im;
 }

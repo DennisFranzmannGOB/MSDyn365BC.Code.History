@@ -214,46 +214,52 @@ codeunit 1235 "XML Buffer Writer"
 
     local procedure InsertXmlElement(var XMLBuffer: Record "XML Buffer"; ParentXMLBuffer: Record "XML Buffer"; ElementNumber: Integer)
     begin
-        if OnlyGenerateStructure then begin
-            XMLBuffer.Reset();
-            XMLBuffer.SetRange("Parent Entry No.", ParentXMLBuffer."Entry No.");
-            XMLBuffer.SetRange(Type, XMLBuffer.Type::Element);
-            XMLBuffer.SetRange(Name, XmlReader.Name);
-            if XMLBuffer.FindFirst() then
-                exit;
-        end;
+        with XMLBuffer do begin
+            if OnlyGenerateStructure then begin
+                Reset();
+                SetRange("Parent Entry No.", ParentXMLBuffer."Entry No.");
+                SetRange(Type, Type::Element);
+                SetRange(Name, XmlReader.Name);
+                if FindFirst() then
+                    exit;
+            end;
 
-        InsertElement(XMLBuffer, ParentXMLBuffer, ElementNumber, XmlReader.Depth + 1, XmlReader.Name, '');
+            InsertElement(XMLBuffer, ParentXMLBuffer, ElementNumber, XmlReader.Depth + 1, XmlReader.Name, '');
+        end;
     end;
 
     local procedure InsertXmlAttribute(var XMLBuffer: Record "XML Buffer"; ParentXMLBuffer: Record "XML Buffer"; AttributeNumber: Integer)
     begin
-        if OnlyGenerateStructure then begin
-            XMLBuffer.Reset();
-            XMLBuffer.SetRange("Parent Entry No.", ParentXMLBuffer."Entry No.");
-            XMLBuffer.SetRange(Type, XMLBuffer.Type::Attribute);
-            XMLBuffer.SetRange(Name, XmlReader.Name);
-            if XMLBuffer.FindFirst() then
-                exit;
-        end;
+        with XMLBuffer do begin
+            if OnlyGenerateStructure then begin
+                Reset();
+                SetRange("Parent Entry No.", ParentXMLBuffer."Entry No.");
+                SetRange(Type, Type::Attribute);
+                SetRange(Name, XmlReader.Name);
+                if FindFirst() then
+                    exit;
+            end;
 
-        if CanPassValue(XmlReader.Name, XmlReader.Value) then
-            InsertAttribute(XMLBuffer, ParentXMLBuffer, AttributeNumber, XmlReader.Depth + 1, XmlReader.Name, XmlReader.Value);
+            if CanPassValue(XmlReader.Name, XmlReader.Value) then
+                InsertAttribute(XMLBuffer, ParentXMLBuffer, AttributeNumber, XmlReader.Depth + 1, XmlReader.Name, XmlReader.Value);
+        end;
     end;
 
     local procedure InsertXmlProcessingInstruction(var XMLBuffer: Record "XML Buffer"; ParentXMLBuffer: Record "XML Buffer"; ProcessingInstructionNumber: Integer)
     begin
-        if OnlyGenerateStructure then begin
-            XMLBuffer.Reset();
-            XMLBuffer.SetRange("Parent Entry No.", ParentXMLBuffer."Entry No.");
-            XMLBuffer.SetRange(Type, XMLBuffer.Type::"Processing Instruction");
-            XMLBuffer.SetRange(Name, XmlReader.Name);
-            if XMLBuffer.FindFirst() then
-                exit;
-        end;
+        with XMLBuffer do begin
+            if OnlyGenerateStructure then begin
+                Reset();
+                SetRange("Parent Entry No.", ParentXMLBuffer."Entry No.");
+                SetRange(Type, Type::"Processing Instruction");
+                SetRange(Name, XmlReader.Name);
+                if FindFirst() then
+                    exit;
+            end;
 
-        InsertProcessingInstruction(XMLBuffer, ParentXMLBuffer, ProcessingInstructionNumber, XmlReader.Depth + 1
-          , XmlReader.Name, XmlReader.Value);
+            InsertProcessingInstruction(XMLBuffer, ParentXMLBuffer, ProcessingInstructionNumber, XmlReader.Depth + 1
+              , XmlReader.Name, XmlReader.Value);
+        end;
     end;
 
     local procedure GetType(Value: Text): Integer
@@ -286,24 +292,26 @@ codeunit 1235 "XML Buffer Writer"
     begin
         IsHandled := false;
         OnBeforeInsertAttribute(XMLBuffer, ParentXMLBuffer, NodeNumber, NodeDepth, AttributeName, AttributeValue, IsHandled);
-        if IsHandled then
+        IF IsHandled then
             exit;
 
-        XMLBuffer.Reset();
-        if XMLBuffer.FindLast() then;
-        XMLBuffer.Init();
-        XMLBuffer."Entry No." += 1;
-        XMLBuffer."Parent Entry No." := ParentXMLBuffer."Entry No.";
-        XMLBuffer.Path := CopyStr(ParentXMLBuffer.Path + '/@' + AttributeName, 1, MaxStrLen(XMLBuffer.Path));
-        XMLBuffer."Node Number" := NodeNumber;
-        XMLBuffer.Name := AttributeName;
-        XMLBuffer.Value := CopyStr(AttributeValue, 1, MaxStrLen(XMLBuffer.Value));
-        XMLBuffer.Depth := NodeDepth;
-        XMLBuffer."Data Type" := GetType(XMLBuffer.Value);
-        XMLBuffer.Type := XMLBuffer.Type::Attribute;
-        XMLBuffer."Import ID" := ParentXMLBuffer."Import ID";
+        with XMLBuffer do begin
+            Reset();
+            if FindLast() then;
+            Init();
+            "Entry No." += 1;
+            "Parent Entry No." := ParentXMLBuffer."Entry No.";
+            Path := CopyStr(ParentXMLBuffer.Path + '/@' + AttributeName, 1, MaxStrLen(Path));
+            "Node Number" := NodeNumber;
+            Name := AttributeName;
+            Value := CopyStr(AttributeValue, 1, MaxStrLen(Value));
+            Depth := NodeDepth;
+            "Data Type" := GetType(Value);
+            Type := Type::Attribute;
+            "Import ID" := ParentXMLBuffer."Import ID";
 
-        XMLBuffer.Insert();
+            Insert();
+        end;
     end;
 
     procedure InsertAttributeWithNamespace(var XMLBuffer: Record "XML Buffer"; ParentXMLBuffer: Record "XML Buffer"; NodeNumber: Integer; NodeDepth: Integer; AttributeNameWithNamespace: Text; AttributeValue: Text)
@@ -314,27 +322,29 @@ codeunit 1235 "XML Buffer Writer"
     begin
         IsHandled := false;
         OnBeforeInsertAttributeWithNamespace(XMLBuffer, ParentXMLBuffer, NodeNumber, NodeDepth, AttributeNameWithNamespace, AttributeValue, IsHandled);
-        if IsHandled then
+        IF IsHandled then
             exit;
 
         SplitXmlElementName(AttributeNameWithNamespace, AttributeName, AttributeNamespace);
 
-        XMLBuffer.Reset();
-        if XMLBuffer.FindLast() then;
-        XMLBuffer.Init();
-        XMLBuffer."Entry No." += 1;
-        XMLBuffer."Parent Entry No." := ParentXMLBuffer."Entry No.";
-        XMLBuffer.Path := CopyStr(ParentXMLBuffer.Path + '/@' + AttributeNameWithNamespace, 1, MaxStrLen(XMLBuffer.Path));
-        XMLBuffer."Node Number" := NodeNumber;
-        XMLBuffer.Name := CopyStr(AttributeName, 1, MaxStrLen(XMLBuffer.Name));
-        XMLBuffer.Namespace := CopyStr(AttributeNamespace, 1, MaxStrLen(XMLBuffer.Namespace));
-        XMLBuffer.Value := CopyStr(AttributeValue, 1, MaxStrLen(XMLBuffer.Value));
-        XMLBuffer.Depth := NodeDepth;
-        XMLBuffer."Data Type" := GetType(XMLBuffer.Value);
-        XMLBuffer.Type := XMLBuffer.Type::Attribute;
-        XMLBuffer."Import ID" := ParentXMLBuffer."Import ID";
+        with XMLBuffer do begin
+            Reset();
+            if FindLast() then;
+            Init();
+            "Entry No." += 1;
+            "Parent Entry No." := ParentXMLBuffer."Entry No.";
+            Path := CopyStr(ParentXMLBuffer.Path + '/@' + AttributeNameWithNamespace, 1, MaxStrLen(Path));
+            "Node Number" := NodeNumber;
+            Name := CopyStr(AttributeName, 1, MaxStrLen(Name));
+            Namespace := CopyStr(AttributeNamespace, 1, MaxStrLen(Namespace));
+            Value := CopyStr(AttributeValue, 1, MaxStrLen(Value));
+            Depth := NodeDepth;
+            "Data Type" := GetType(Value);
+            Type := Type::Attribute;
+            "Import ID" := ParentXMLBuffer."Import ID";
 
-        XMLBuffer.Insert();
+            Insert();
+        end;
     end;
 
     procedure InsertElement(var XMLBuffer: Record "XML Buffer"; ParentXMLBuffer: Record "XML Buffer"; ElementNumber: Integer; ElementDepth: Integer; ElementNameAndNamespace: Text; ElementValue: Text)
@@ -345,7 +355,7 @@ codeunit 1235 "XML Buffer Writer"
     begin
         IsHandled := false;
         OnBeforeInsertElement(XMLBuffer, ParentXMLBuffer, ElementNumber, ElementDepth, ElementNameAndNamespace, ElementValue, IsHandled);
-        if IsHandled then
+        IF IsHandled then
             exit;
 
         SplitXmlElementName(ElementNameAndNamespace, ElementName, ElementNamespace);
@@ -353,40 +363,44 @@ codeunit 1235 "XML Buffer Writer"
         if IsNullGuid(ParentXMLBuffer."Import ID") then
             ParentXMLBuffer."Import ID" := CreateGuid();
 
-        XMLBuffer.Reset();
-        if XMLBuffer.FindLast() then;
-        XMLBuffer.Init();
-        XMLBuffer."Entry No." += 1;
-        XMLBuffer."Parent Entry No." := ParentXMLBuffer."Entry No.";
-        XMLBuffer.Path := CopyStr(StrSubstNo('%1/%2', ParentXMLBuffer.Path, ElementNameAndNamespace), 1, MaxStrLen(XMLBuffer.Path));
-        XMLBuffer."Node Number" := ElementNumber;
-        XMLBuffer.Depth := ElementDepth;
-        XMLBuffer.Name := CopyStr(ElementName, 1, MaxStrLen(XMLBuffer.Name));
-        XMLBuffer.SetValueWithoutModifying(ElementValue);
-        XMLBuffer.Type := XMLBuffer.Type::Element;
-        XMLBuffer.Namespace := CopyStr(ElementNamespace, 1, MaxStrLen(XMLBuffer.Namespace));
-        XMLBuffer."Import ID" := ParentXMLBuffer."Import ID";
+        with XMLBuffer do begin
+            Reset();
+            if FindLast() then;
+            Init();
+            "Entry No." += 1;
+            "Parent Entry No." := ParentXMLBuffer."Entry No.";
+            Path := CopyStr(StrSubstNo('%1/%2', ParentXMLBuffer.Path, ElementNameAndNamespace), 1, MaxStrLen(Path));
+            "Node Number" := ElementNumber;
+            Depth := ElementDepth;
+            Name := CopyStr(ElementName, 1, MaxStrLen(Name));
+            SetValueWithoutModifying(ElementValue);
+            Type := Type::Element;
+            Namespace := CopyStr(ElementNamespace, 1, MaxStrLen(Namespace));
+            "Import ID" := ParentXMLBuffer."Import ID";
 
-        OnInsertElementOnBeforeInsertXMLBuffer(XMLBuffer, ParentXMLBuffer, ElementNumber, ElementDepth, ElementNameAndNamespace, ElementValue);
-        XMLBuffer.Insert();
+            OnInsertElementOnBeforeInsertXMLBuffer(XMLBuffer, ParentXMLBuffer, ElementNumber, ElementDepth, ElementNameAndNamespace, ElementValue);
+            Insert();
+        end;
     end;
 
     procedure InsertProcessingInstruction(var XMLBuffer: Record "XML Buffer"; ParentXMLBuffer: Record "XML Buffer"; NodeNumber: Integer; NodeDepth: Integer; InstructionName: Text; InstructionValue: Text)
     begin
-        XMLBuffer.Reset();
-        if XMLBuffer.FindLast() then;
-        XMLBuffer.Init();
-        XMLBuffer."Entry No." += 1;
-        XMLBuffer."Parent Entry No." := ParentXMLBuffer."Entry No.";
-        XMLBuffer.Path := CopyStr(ParentXMLBuffer.Path + '/processing-instruction(''' + InstructionName + ''')', 1, MaxStrLen(XMLBuffer.Path));
-        XMLBuffer."Node Number" := NodeNumber;
-        XMLBuffer.Depth := NodeDepth;
-        XMLBuffer.Name := CopyStr(InstructionName, 1, MaxStrLen(XMLBuffer.Name));
-        XMLBuffer.SetValueWithoutModifying(InstructionValue);
-        XMLBuffer.Type := XMLBuffer.Type::"Processing Instruction";
-        XMLBuffer."Import ID" := ParentXMLBuffer."Import ID";
+        with XMLBuffer do begin
+            Reset();
+            if FindLast() then;
+            Init();
+            "Entry No." += 1;
+            "Parent Entry No." := ParentXMLBuffer."Entry No.";
+            Path := CopyStr(ParentXMLBuffer.Path + '/processing-instruction(''' + InstructionName + ''')', 1, MaxStrLen(Path));
+            "Node Number" := NodeNumber;
+            Depth := NodeDepth;
+            Name := CopyStr(InstructionName, 1, MaxStrLen(Name));
+            SetValueWithoutModifying(InstructionValue);
+            Type := Type::"Processing Instruction";
+            "Import ID" := ParentXMLBuffer."Import ID";
 
-        XMLBuffer.Insert();
+            Insert();
+        end;
     end;
 
     local procedure SplitXmlElementName(RawXmlElementName: Text; var ElementName: Text; var ElementNamespace: Text)
@@ -417,7 +431,7 @@ codeunit 1235 "XML Buffer Writer"
     begin
         IsHandled := false;
         OnBeforeCanPassValue(Name, Value, ReturnValue, IsHandled);
-        if IsHandled then
+        IF IsHandled then
             exit(ReturnValue);
 
         if StrLen(Value) <= MaxStrLen(XMLBuffer.Value) then

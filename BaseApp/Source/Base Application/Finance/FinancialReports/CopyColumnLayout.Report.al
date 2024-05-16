@@ -9,7 +9,7 @@ report 960 "Copy Column Layout"
     {
         dataitem(SourceColumnLayoutName; "Column Layout Name")
         {
-            DataItemTableView = sorting(Name) order(ascending);
+            DataItemTableView = sorting(Name) order(Ascending);
 
             trigger OnAfterGetRecord()
             var

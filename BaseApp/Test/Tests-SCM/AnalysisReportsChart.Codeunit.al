@@ -17,9 +17,7 @@ codeunit 137409 "Analysis Reports Chart"
         LibraryRandom: Codeunit "Library - Random";
         LibraryUtility: Codeunit "Library - Utility";
         LibraryInventory: Codeunit "Library - Inventory";
-#if not CLEAN23
         LibrarySales: Codeunit "Library - Sales";
-#endif
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
@@ -485,7 +483,7 @@ codeunit 137409 "Analysis Reports Chart"
         SetupAnalysisReportWithItemEntries(
           AnalysisLine, AnalysisColumn, ItemLedgerEntry, ValueEntry, AnalysisColumn."Value Type"::Quantity, true);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         CalcAnalysisReportCellValue(AnalysisLine, AnalysisColumn, true);
 
         ValueEntry.SetRange("Item No.", AnalysisLine.Range);
@@ -510,7 +508,7 @@ codeunit 137409 "Analysis Reports Chart"
         SetupAnalysisReportWithItemEntries(
           AnalysisLine, AnalysisColumn, ItemLedgerEntry, ValueEntry, AnalysisColumn."Value Type"::Quantity, false);
 
-        ItemLedgerEntries.Trap();
+        ItemLedgerEntries.Trap;
         CalcAnalysisReportCellValue(AnalysisLine, AnalysisColumn, true);
 
         ItemLedgerEntry.SetRange("Item No.", AnalysisLine.Range);
@@ -518,7 +516,7 @@ codeunit 137409 "Analysis Reports Chart"
         ItemLedgerEntries.Quantity.AssertEquals(ItemLedgerEntry.Quantity);
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     [Test]
     [HandlerFunctions('GetSalesPriceHandler')]
     [Scope('OnPrem')]
@@ -553,6 +551,7 @@ codeunit 137409 "Analysis Reports Chart"
         AnalysisColumn: Record "Analysis Column";
         Item: Record Item;
         PriceListLine: Record "Price List Line";
+        CopyFromToPriceListLine: Codeunit CopyFromToPriceListLine;
     begin
         // [FEATURE] [Inventory Analysis Reports]
         Initialize();
@@ -641,7 +640,7 @@ codeunit 137409 "Analysis Reports Chart"
         ValueEntry.SetRange("Item No.", AnalysisLine.Range);
         ValueEntry.CalcSums("Sales Amount (Actual)");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         CalcAnalysisReportCellValue(AnalysisLine, AnalysisColumn, true);
 
         ValueEntries."Sales Amount (Actual)".AssertEquals(ValueEntry."Sales Amount (Actual)");
@@ -663,7 +662,7 @@ codeunit 137409 "Analysis Reports Chart"
         SetupAnalysisReportWithItemEntries(
           AnalysisLine, AnalysisColumn, ItemLedgerEntry, ValueEntry, AnalysisColumn."Value Type"::"Sales Amount", false);
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         CalcAnalysisReportCellValue(AnalysisLine, AnalysisColumn, true);
         // Field "Sales Amount (Expected)" is hidden
         ValueEntries."Item No.".AssertEquals(AnalysisLine.Range);
@@ -688,7 +687,7 @@ codeunit 137409 "Analysis Reports Chart"
         ValueEntry.SetRange("Item No.", AnalysisLine.Range);
         ValueEntry.CalcSums("Cost Amount (Actual)");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         CalcAnalysisReportCellValue(AnalysisLine, AnalysisColumn, true);
         ValueEntries."Cost Amount (Actual)".AssertEquals(ValueEntry."Cost Amount (Actual)");
     end;
@@ -712,7 +711,7 @@ codeunit 137409 "Analysis Reports Chart"
         ValueEntry.SetRange("Item No.", AnalysisLine.Range);
         ValueEntry.CalcSums("Cost Amount (Expected)");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         CalcAnalysisReportCellValue(AnalysisLine, AnalysisColumn, true);
 
         ValueEntries."Cost Amount (Expected)".AssertEquals(ValueEntry."Cost Amount (Expected)");
@@ -737,7 +736,7 @@ codeunit 137409 "Analysis Reports Chart"
         ValueEntry.SetRange("Item No.", AnalysisLine.Range);
         ValueEntry.CalcSums("Cost Amount (Non-Invtbl.)");
 
-        ValueEntries.Trap();
+        ValueEntries.Trap;
         CalcAnalysisReportCellValue(AnalysisLine, AnalysisColumn, true);
 
         ValueEntries."Cost Amount (Non-Invtbl.)".AssertEquals(ValueEntry."Cost Amount (Non-Invtbl.)");
@@ -999,7 +998,7 @@ codeunit 137409 "Analysis Reports Chart"
 
         // [WHEN] Open Analysis Report Chart Matrix on created Analysis Report Chart Setup
         AnalysisReportChartMatrix.SetFilters(AnalysisReportChartSetup);
-        AnalysisReportChartMatrixTestPage.Trap();
+        AnalysisReportChartMatrixTestPage.Trap;
         AnalysisReportChartMatrix.Run();
 
         // [THEN] Last matrix column shows 12th Analysis Column
@@ -1018,7 +1017,7 @@ codeunit 137409 "Analysis Reports Chart"
         if IsInitialized then
             exit;
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"Analysis Reports Chart");
-#if not CLEAN23
+#if not CLEAN21
         LibraryPriceCalculation.SetupDefaultHandler("Price Calculation Handler"::"Business Central (Version 15.0)");
 #else
         LibraryPriceCalculation.SetupDefaultHandler("Price Calculation Handler"::"Business Central (Version 16.0)");
@@ -1159,7 +1158,7 @@ codeunit 137409 "Analysis Reports Chart"
                             Assert.AreEqual(PeriodEnd, DT2Date(ActualChartValue), StrSubstNo(DimensionValueNotEqualERR, RowIndex + 1))
                         else
                             Assert.AreEqual(
-                              PeriodPageManagement.CreatePeriodFormat("Analysis Period Type".FromInteger(BusinessChartBuffer."Period Length"), PeriodEnd), ActualChartValue,
+                              PeriodPageManagement.CreatePeriodFormat(BusinessChartBuffer."Period Length", PeriodEnd), ActualChartValue,
                               StrSubstNo(DimensionValueNotEqualERR, RowIndex + 1));
 
                         AnalysisLine.FindSet();
@@ -1360,7 +1359,7 @@ codeunit 137409 "Analysis Reports Chart"
           AnalysisLine, AnalysisColumn, AnalysisLine."Analysis Area"::Inventory, ValueType, Invoiced);
         Item.Get(AnalysisLine.Range);
         SetupItemEntries(
-          ItemLedgerEntry, ValueEntry, Item."No.", WorkDate(), WorkDate(), 0, ItemLedgerEntry."Entry Type"::Sale);
+          ItemLedgerEntry, ValueEntry, Item."No.", WorkDate(), WorkDate, 0, ItemLedgerEntry."Entry Type"::Sale);
     end;
 
     local procedure CreateAnalysisLineTempl2ItemAndTotal(var AnalysisLine: Record "Analysis Line"; AnalysisArea: Enum "Analysis Area Type")
@@ -1398,7 +1397,7 @@ codeunit 137409 "Analysis Reports Chart"
           Description, CopyStr(LibraryUtility.GenerateRandomCode(AnalysisLine.FieldNo(Description), DATABASE::"Analysis Line"),
             1, LibraryUtility.GetFieldLength(DATABASE::"Analysis Line", AnalysisLine.FieldNo(Description))));
         AnalysisLine.Validate(Type, AnalysisLine.Type::Item);
-        AnalysisLine.Validate(Range, LibraryInventory.CreateItemNo());
+        AnalysisLine.Validate(Range, LibraryInventory.CreateItemNo);
         AnalysisLine.Modify(true);
     end;
 
@@ -1699,9 +1698,9 @@ codeunit 137409 "Analysis Reports Chart"
     begin
         DrillDownValueEntry.CalcSums(DrillDownValueEntry."Sales Amount (Actual)");
 
-        if ValueEntriesPage.First() then
+        if ValueEntriesPage.First then
             repeat
-                TotalSales += ValueEntriesPage."Sales Amount (Actual)".AsDecimal();
+                TotalSales += ValueEntriesPage."Sales Amount (Actual)".AsDEcimal;
             until not ValueEntriesPage.Next();
         Assert.AreEqual(
           DrillDownValueEntry."Sales Amount (Actual)", TotalSales,
@@ -1711,12 +1710,12 @@ codeunit 137409 "Analysis Reports Chart"
               DrillDownAnalysisLine.GetFilter("Date Filter")), 1, 250));
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure GetSalesPriceHandler(var GetSalesPrice: TestPage "Get Sales Price")
     begin
-        GetSalesPrice."Unit Price".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+        GetSalesPrice."Unit Price".AssertEquals(LibraryVariableStorage.DequeueDecimal);
     end;
 #endif
 
@@ -1724,7 +1723,7 @@ codeunit 137409 "Analysis Reports Chart"
     [Scope('OnPrem')]
     procedure GetPriceLineHandler(var GetPriceLine: TestPage "Get Price Line")
     begin
-        GetPriceLine."Unit Price".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+        GetPriceLine."Unit Price".AssertEquals(LibraryVariableStorage.DequeueDecimal);
     end;
 
     [ModalPageHandler]
@@ -1733,15 +1732,15 @@ codeunit 137409 "Analysis Reports Chart"
     var
         AnalysisColumn: Record "Analysis Column";
     begin
-        case LibraryVariableStorage.DequeueInteger() of
+        case LibraryVariableStorage.DequeueInteger of
             AnalysisColumn."Value Type"::"Unit Price".AsInteger():
-                ItemCard."Unit Price".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+                ItemCard."Unit Price".AssertEquals(LibraryVariableStorage.DequeueDecimal);
             AnalysisColumn."Value Type"::"Standard Cost".AsInteger():
-                ItemCard."Standard Cost".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+                ItemCard."Standard Cost".AssertEquals(LibraryVariableStorage.DequeueDecimal);
             AnalysisColumn."Value Type"::"Indirect Cost".AsInteger():
-                ItemCard."Indirect Cost %".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+                ItemCard."Indirect Cost %".AssertEquals(LibraryVariableStorage.DequeueDecimal);
             AnalysisColumn."Value Type"::"Unit Cost".AsInteger():
-                ItemCard."Unit Cost".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+                ItemCard."Unit Cost".AssertEquals(LibraryVariableStorage.DequeueDecimal);
         end;
     end;
 }

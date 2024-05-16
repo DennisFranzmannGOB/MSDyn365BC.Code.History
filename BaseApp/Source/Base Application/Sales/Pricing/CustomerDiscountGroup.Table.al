@@ -11,7 +11,6 @@ table 340 "Customer Discount Group"
 {
     Caption = 'Customer Discount Group';
     LookupPageID = "Customer Disc. Groups";
-    DataClassification = CustomerContent;
 
     fields
     {

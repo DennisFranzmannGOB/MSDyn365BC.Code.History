@@ -114,7 +114,7 @@ page 2020 "Image Analysis Setup"
         AzureAIService: Enum "Azure AI Service";
     begin
         Rec.GetSingleInstance();
-        if not Rec.GetApiKeyAsSecret().IsEmpty() then
+        if Rec.GetApiKey() <> '' then
             ApiKey := '***';
         if (Rec."Api Uri" <> '') and (ApiKey <> '') then
             AzureAIUsage.SetImageAnalysisIsSetup(true)
@@ -129,7 +129,6 @@ page 2020 "Image Analysis Setup"
     end;
 
     var
-        [NonDebuggable]
         ApiKey: Text;
         LimitType: Option Year,Month,Day,Hour;
         LimitValue: Integer;

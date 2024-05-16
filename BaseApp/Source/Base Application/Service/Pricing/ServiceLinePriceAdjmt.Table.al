@@ -9,7 +9,6 @@ using Microsoft.Service.Item;
 table 6084 "Service Line Price Adjmt."
 {
     Caption = 'Service Line Price Adjmt.';
-    DataClassification = CustomerContent;
 
     fields
     {

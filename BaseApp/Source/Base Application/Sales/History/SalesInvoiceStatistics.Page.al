@@ -153,7 +153,7 @@ page 397 "Sales Invoice Statistics"
                     Caption = 'Cost Adjmt. Amount (LCY)';
                     ToolTip = 'Specifies the difference between the original cost and the total adjusted cost of the items in the posted sales invoice.';
 
-                    trigger OnLookup(var Text: Text): Boolean
+                    trigger OnDrillDown()
                     begin
                         Rec.LookupAdjmtValueEntries();
                     end;
@@ -167,18 +167,14 @@ page 397 "Sales Invoice Statistics"
             group(Customer)
             {
                 Caption = 'Customer';
-#pragma warning disable AA0100
                 field("Cust.""Balance (LCY)"""; Cust."Balance (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
                     Caption = 'Balance (LCY)';
                     ToolTip = 'Specifies the balance in LCY on the customer''s account.';
                 }
-#pragma warning disable AA0100
                 field("Cust.""Credit Limit (LCY)"""; Cust."Credit Limit (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
@@ -296,7 +292,6 @@ page 397 "Sales Invoice Statistics"
         CostLCY: Decimal;
         CustAmount: Decimal;
         InvDiscAmount: Decimal;
-
     local procedure CalculateTotals()
     var
         CostCalcMgt: Codeunit "Cost Calculation Management";

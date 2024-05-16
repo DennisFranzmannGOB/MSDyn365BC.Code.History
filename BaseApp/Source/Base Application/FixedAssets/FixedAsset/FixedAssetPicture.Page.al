@@ -34,6 +34,9 @@ page 5620 "Fixed Asset Picture"
                 ApplicationArea = Basic, Suite;
                 Caption = 'Take';
                 Image = Camera;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
                 ToolTip = 'Activate the camera on the device.';
                 Visible = CameraAvailable;
 

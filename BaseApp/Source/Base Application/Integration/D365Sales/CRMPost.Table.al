@@ -12,7 +12,6 @@ table 5344 "CRM Post"
     Description = 'An activity feed post.';
     ExternalName = 'post';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -27,7 +26,7 @@ table 5344 "CRM Post"
         }
         field(2; CreatedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
             Caption = 'CreatedByName';
             ExternalAccess = Read;
             ExternalName = 'createdbyname';
@@ -53,7 +52,7 @@ table 5344 "CRM Post"
         }
         field(5; CreatedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
             Caption = 'CreatedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'createdonbehalfbyname';
@@ -71,7 +70,7 @@ table 5344 "CRM Post"
         }
         field(7; OrganizationIdName; Text[160])
         {
-            CalcFormula = lookup("CRM Organization".Name where(OrganizationId = field(OrganizationId)));
+            CalcFormula = Lookup("CRM Organization".Name where(OrganizationId = field(OrganizationId)));
             Caption = 'OrganizationIdName';
             ExternalAccess = Read;
             ExternalName = 'organizationidname';
@@ -244,7 +243,7 @@ table 5344 "CRM Post"
         }
         field(20; ModifiedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
             Caption = 'ModifiedByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedbyname';
@@ -262,7 +261,7 @@ table 5344 "CRM Post"
         }
         field(22; ModifiedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
             Caption = 'ModifiedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedonbehalfbyname';

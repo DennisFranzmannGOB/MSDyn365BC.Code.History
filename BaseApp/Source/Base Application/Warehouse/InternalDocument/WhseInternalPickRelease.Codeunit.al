@@ -23,47 +23,49 @@ codeunit 7315 "Whse. Internal Pick Release"
         WhsePickRqst: Record "Whse. Pick Request";
         WhsePickLine: Record "Whse. Internal Pick Line";
     begin
-        if WhsePickHeader.Status = WhsePickHeader.Status::Released then
-            exit;
+        with WhsePickHeader do begin
+            if Status = Status::Released then
+                exit;
 
-        OnBeforeRelease(WhsePickHeader);
+            OnBeforeRelease(WhsePickHeader);
 
-        WhsePickLine.SetRange("No.", WhsePickHeader."No.");
-        WhsePickLine.SetFilter(Quantity, '<>0');
-        if not WhsePickLine.Find('-') then
-            Error(Text000, WhsePickHeader.TableCaption(), WhsePickHeader."No.");
+            WhsePickLine.SetRange("No.", "No.");
+            WhsePickLine.SetFilter(Quantity, '<>0');
+            if not WhsePickLine.Find('-') then
+                Error(Text000, TableCaption(), "No.");
 
-        if WhsePickHeader."Location Code" <> '' then begin
-            Location.Get(WhsePickHeader."Location Code");
-            Location.TestField("Require Pick");
-        end else
-            WhsePickHeader.CheckPickRequired(WhsePickHeader."Location Code");
+            if "Location Code" <> '' then begin
+                Location.Get("Location Code");
+                Location.TestField("Require Pick");
+            end else
+                CheckPickRequired("Location Code");
 
-        repeat
-            WhsePickLine.TestField("Item No.");
-            WhsePickLine.TestField("Unit of Measure Code");
-            if Location."Directed Put-away and Pick" then
-                WhsePickLine.TestField("To Zone Code");
-            if Location."Bin Mandatory" then
-                WhsePickLine.TestField("To Bin Code");
-        until WhsePickLine.Next() = 0;
+            repeat
+                WhsePickLine.TestField("Item No.");
+                WhsePickLine.TestField("Unit of Measure Code");
+                if Location."Directed Put-away and Pick" then
+                    WhsePickLine.TestField("To Zone Code");
+                if Location."Bin Mandatory" then
+                    WhsePickLine.TestField("To Bin Code");
+            until WhsePickLine.Next() = 0;
 
-        OnAfterTestWhsePickLine(WhsePickHeader, WhsePickLine);
+            OnAfterTestWhsePickLine(WhsePickHeader, WhsePickLine);
 
-        WhsePickHeader.Status := WhsePickHeader.Status::Released;
-        WhsePickHeader.Modify();
+            Status := Status::Released;
+            Modify();
 
-        OnAfterReleaseWarehousePick(WhsePickHeader);
+            OnAfterReleaseWarehousePick(WhsePickHeader);
 
-        CreateWhsePickRqst(WhsePickHeader);
+            CreateWhsePickRqst(WhsePickHeader);
 
-        WhsePickRqst.SetRange("Document Type", WhsePickRqst."Document Type"::"Internal Pick");
-        WhsePickRqst.SetRange("Document No.", WhsePickHeader."No.");
-        WhsePickRqst.SetRange(Status, WhsePickHeader.Status::Open);
-        if not WhsePickRqst.IsEmpty() then
-            WhsePickRqst.DeleteAll(true);
+            WhsePickRqst.SetRange("Document Type", WhsePickRqst."Document Type"::"Internal Pick");
+            WhsePickRqst.SetRange("Document No.", "No.");
+            WhsePickRqst.SetRange(Status, Status::Open);
+            if not WhsePickRqst.IsEmpty() then
+                WhsePickRqst.DeleteAll(true);
 
-        Commit();
+            Commit();
+        end;
 
         OnAfterRelease(WhsePickHeader, WhsePickLine);
     end;
@@ -75,35 +77,37 @@ codeunit 7315 "Whse. Internal Pick Release"
         WhseActivLine: Record "Warehouse Activity Line";
         IsHandled: Boolean;
     begin
-        if WhsePickHeader.Status = WhsePickHeader.Status::Open then
-            exit;
+        with WhsePickHeader do begin
+            if Status = Status::Open then
+                exit;
 
-        IsHandled := false;
-        OnBeforeReopen(WhsePickHeader, IsHandled);
-        if IsHandled then
-            exit;
+            IsHandled := false;
+            OnBeforeReopen(WhsePickHeader, IsHandled);
+            if IsHandled then
+                exit;
 
-        PickWkshLine.SetCurrentKey("Whse. Document Type", "Whse. Document No.");
-        PickWkshLine.SetRange("Whse. Document Type", PickWkshLine."Whse. Document Type"::"Internal Pick");
-        PickWkshLine.SetRange("Whse. Document No.", WhsePickHeader."No.");
-        if not PickWkshLine.IsEmpty() then
-            Error(Text001);
+            PickWkshLine.SetCurrentKey("Whse. Document Type", "Whse. Document No.");
+            PickWkshLine.SetRange("Whse. Document Type", PickWkshLine."Whse. Document Type"::"Internal Pick");
+            PickWkshLine.SetRange("Whse. Document No.", "No.");
+            if not PickWkshLine.IsEmpty() then
+                Error(Text001);
 
-        WhseActivLine.SetCurrentKey("Whse. Document No.", "Whse. Document Type", "Activity Type");
-        WhseActivLine.SetRange("Whse. Document No.", WhsePickHeader."No.");
-        WhseActivLine.SetRange("Whse. Document Type", WhseActivLine."Whse. Document Type"::"Internal Pick");
-        WhseActivLine.SetRange("Activity Type", WhseActivLine."Activity Type"::Pick);
-        if not WhseActivLine.IsEmpty() then
-            Error(Text002);
+            WhseActivLine.SetCurrentKey("Whse. Document No.", "Whse. Document Type", "Activity Type");
+            WhseActivLine.SetRange("Whse. Document No.", "No.");
+            WhseActivLine.SetRange("Whse. Document Type", WhseActivLine."Whse. Document Type"::"Internal Pick");
+            WhseActivLine.SetRange("Activity Type", WhseActivLine."Activity Type"::Pick);
+            if not WhseActivLine.IsEmpty() then
+                Error(Text002);
 
-        WhsePickRqst.SetRange("Document Type", WhsePickRqst."Document Type"::"Internal Pick");
-        WhsePickRqst.SetRange("Document No.", WhsePickHeader."No.");
-        WhsePickRqst.SetRange(Status, WhsePickHeader.Status::Released);
-        if not WhsePickRqst.IsEmpty() then
-            WhsePickRqst.ModifyAll(Status, WhsePickRqst.Status::Open);
+            WhsePickRqst.SetRange("Document Type", WhsePickRqst."Document Type"::"Internal Pick");
+            WhsePickRqst.SetRange("Document No.", "No.");
+            WhsePickRqst.SetRange(Status, Status::Released);
+            if not WhsePickRqst.IsEmpty() then
+                WhsePickRqst.ModifyAll(Status, WhsePickRqst.Status::Open);
 
-        WhsePickHeader.Status := WhsePickHeader.Status::Open;
-        WhsePickHeader.Modify();
+            Status := Status::Open;
+            Modify();
+        end;
 
         OnAfterReopen(WhsePickHeader);
     end;
@@ -113,19 +117,20 @@ codeunit 7315 "Whse. Internal Pick Release"
         WhsePickRqst: Record "Whse. Pick Request";
         Location: Record Location;
     begin
-        if Location.RequirePicking(WhsePickHeader."Location Code") then begin
-            WhsePickRqst."Document Type" := WhsePickRqst."Document Type"::"Internal Pick";
-            WhsePickRqst."Document No." := WhsePickHeader."No.";
-            WhsePickRqst.Status := WhsePickHeader.Status;
-            WhsePickRqst."Location Code" := WhsePickHeader."Location Code";
-            WhsePickRqst."Zone Code" := WhsePickHeader."To Zone Code";
-            WhsePickRqst."Bin Code" := WhsePickHeader."To Bin Code";
-            WhsePickHeader."Document Status" := WhsePickHeader.GetDocumentStatus(0);
-            WhsePickRqst."Completely Picked" :=
-              WhsePickHeader."Document Status" = WhsePickHeader."Document Status"::"Completely Picked";
-            if not WhsePickRqst.Insert() then
-                WhsePickRqst.Modify();
-        end;
+        with WhsePickHeader do
+            if Location.RequirePicking("Location Code") then begin
+                WhsePickRqst."Document Type" := WhsePickRqst."Document Type"::"Internal Pick";
+                WhsePickRqst."Document No." := "No.";
+                WhsePickRqst.Status := Status;
+                WhsePickRqst."Location Code" := "Location Code";
+                WhsePickRqst."Zone Code" := "To Zone Code";
+                WhsePickRqst."Bin Code" := "To Bin Code";
+                "Document Status" := GetDocumentStatus(0);
+                WhsePickRqst."Completely Picked" :=
+                  "Document Status" = "Document Status"::"Completely Picked";
+                if not WhsePickRqst.Insert() then
+                    WhsePickRqst.Modify();
+            end;
     end;
 
     [IntegrationEvent(false, false)]

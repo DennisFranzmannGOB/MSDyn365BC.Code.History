@@ -9,7 +9,6 @@ table 7501 "Item Attribute Value"
     Caption = 'Item Attribute Value';
     DataCaptionFields = Value;
     LookupPageID = "Item Attribute Values";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -89,7 +88,7 @@ table 7501 "Item Attribute Value"
         }
         field(10; "Attribute Name"; Text[250])
         {
-            CalcFormula = lookup("Item Attribute".Name where(ID = field("Attribute ID")));
+            CalcFormula = Lookup("Item Attribute".Name where(ID = field("Attribute ID")));
             Caption = 'Attribute Name';
             FieldClass = FlowField;
         }

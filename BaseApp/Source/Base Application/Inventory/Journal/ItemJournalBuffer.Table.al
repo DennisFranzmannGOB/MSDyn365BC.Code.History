@@ -7,7 +7,6 @@ table 5803 "Item Journal Buffer"
 {
     Caption = 'Item Journal Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

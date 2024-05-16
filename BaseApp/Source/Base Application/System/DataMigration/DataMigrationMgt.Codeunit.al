@@ -293,7 +293,7 @@ codeunit 1798 "Data Migration Mgt."
             until DataMigrationStatus.Next() = 0;
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     [Scope('OnPrem')]
     procedure OnBeforeMigrationStarted(var DataMigrationStatus: Record "Data Migration Status"; Retry: Boolean)
     begin

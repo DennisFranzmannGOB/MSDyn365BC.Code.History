@@ -11,7 +11,6 @@ table 1502 "Workflow Step"
                   TableData "Workflow Step Argument" = ri,
                   TableData "Workflow Rule" = rimd;
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

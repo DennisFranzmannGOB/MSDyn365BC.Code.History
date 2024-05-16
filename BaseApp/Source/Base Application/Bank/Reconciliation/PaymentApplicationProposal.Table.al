@@ -19,7 +19,6 @@ using Microsoft.Sales.Receivables;
 table 1293 "Payment Application Proposal"
 {
     Caption = 'Payment Application Proposal';
-    DataClassification = CustomerContent;
 
     fields
     {

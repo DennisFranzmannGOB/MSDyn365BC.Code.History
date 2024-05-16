@@ -65,9 +65,7 @@ codeunit 2614 "Feature Data Update Mgt."
         FeatureToUpdate: Enum "Feature To Update";
     begin
         if FeatureToUpdate.Names.Contains(FeatureDataUpdateStatus."Feature Key") then begin
-            FeatureToUpdate :=
-                "Feature To Update".FromInteger(
-                    FeatureToUpdate.Ordinals.Get(FeatureToUpdate.Names.IndexOf(FeatureDataUpdateStatus."Feature Key")));
+            FeatureToUpdate := FeatureToUpdate.Ordinals.Get(FeatureToUpdate.Names.IndexOf(FeatureDataUpdateStatus."Feature Key"));
             FeatureDataUpdate := FeatureToUpdate;
             ImplementedId := FeatureDataUpdateStatus."Feature Key";
         end else

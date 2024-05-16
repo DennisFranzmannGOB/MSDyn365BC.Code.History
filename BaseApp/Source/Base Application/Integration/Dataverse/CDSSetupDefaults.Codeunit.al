@@ -1177,33 +1177,37 @@ codeunit 7204 "CDS Setup Defaults"
         "Field": Record "Field";
         IntegrationTableMapping: Record "Integration Table Mapping";
     begin
-        IntegrationTableMapping.Reset();
-        IntegrationTableMapping.SetRange("Delete After Synchronization", false);
-        if TableID > 0 then
-            IntegrationTableMapping.SetRange("Table ID", TableID);
-        if IntegrationTableID > 0 then
-            IntegrationTableMapping.SetRange("Integration Table ID", IntegrationTableID);
-        IntegrationTableMapping.SetRange("Int. Table UID Field Type", Field.Type::GUID);
-        if IntegrationTableMapping.FindSet() then
-            repeat
-                AddPrioritizedMappingToList(NameValueBuffer, Priority, IntegrationTableMapping.Name);
-            until IntegrationTableMapping.Next() = 0;
+        with IntegrationTableMapping do begin
+            Reset();
+            SetRange("Delete After Synchronization", false);
+            if TableID > 0 then
+                SetRange("Table ID", TableID);
+            if IntegrationTableID > 0 then
+                SetRange("Integration Table ID", IntegrationTableID);
+            SetRange("Int. Table UID Field Type", Field.Type::GUID);
+            if FindSet() then
+                repeat
+                    AddPrioritizedMappingToList(NameValueBuffer, Priority, Name);
+                until Next() = 0;
+        end;
     end;
 
     local procedure AddPrioritizedMappingToList(var NameValueBuffer: Record "Name/Value Buffer"; var Priority: Integer; MappingName: Code[20])
     begin
-        NameValueBuffer.SetRange(Value, MappingName);
+        with NameValueBuffer do begin
+            SetRange(Value, MappingName);
 
-        if not NameValueBuffer.FindFirst() then begin
-            NameValueBuffer.Init();
-            NameValueBuffer.ID := Priority;
-            NameValueBuffer.Name := Format(Priority);
-            NameValueBuffer.Value := MappingName;
-            NameValueBuffer.Insert();
-            Priority := Priority + 1;
+            if not FindFirst() then begin
+                Init();
+                ID := Priority;
+                Name := Format(Priority);
+                Value := MappingName;
+                Insert();
+                Priority := Priority + 1;
+            end;
+
+            Reset();
         end;
-
-        NameValueBuffer.Reset();
     end;
 
     local procedure ResetCDSAccountConfigTemplate(TableNo: Integer): Code[10]

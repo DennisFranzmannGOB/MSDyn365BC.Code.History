@@ -26,7 +26,7 @@ page 1837 "Automate Environment Picker"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and not FinishStepVisible;
+                Visible = TopBannerVisible AND NOT FinishStepVisible;
                 field(MediaResourcesStandard; MediaResourcesStandard."Media Reference")
                 {
                     ApplicationArea = Basic, Suite;
@@ -38,7 +38,7 @@ page 1837 "Automate Environment Picker"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and FinishStepVisible;
+                Visible = TopBannerVisible AND FinishStepVisible;
                 field(MediaResourcesDone; MediaResourcesDone."Media Reference")
                 {
                     ApplicationArea = Basic, Suite;
@@ -161,7 +161,7 @@ page 1837 "Automate Environment Picker"
                     group("Para4.1.1.Me")
                     {
                         Caption = '';
-                        Visible = not HasChangedForAll;
+                        Visible = NOT HasChangedForAll;
                         InstructionalText = 'You selected just for you: ';
                     }
                     label(EnvironmentName)
@@ -227,14 +227,14 @@ page 1837 "Automate Environment Picker"
                 ApplicationArea = Basic, Suite;
                 Caption = 'Choose for your organization';
                 ToolTip = 'Choose the Power Platform environment for all users in your organization.';
-                Visible = ChooseActionVisible and CanApproveForAll;
+                Visible = ChooseActionVisible AND CanApproveForAll;
 
                 Image = NextRecord;
                 InFooterBar = true;
 
                 trigger OnAction()
                 begin
-                    if Confirm(ConfirmSelectionForAllTxt, false) then begin
+                    If Confirm(ConfirmSelectionForAllTxt, false) then begin
                         HasChangedForAll := true;
                         FlowServiceManagement.SaveFlowEnvironmentSelectionForAll(Rec);
                         EnvironmentDisplayNameText := FlowServiceManagement.GetSelectedFlowEnvironmentName();

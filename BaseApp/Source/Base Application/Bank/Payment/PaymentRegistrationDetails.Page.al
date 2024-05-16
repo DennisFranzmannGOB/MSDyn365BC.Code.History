@@ -6,7 +6,7 @@ using Microsoft.Sales.FinanceCharge;
 page 983 "Payment Registration Details"
 {
     Caption = 'Payment Registration Details';
-    DataCaptionExpression = PageCaptionVariable;
+    DataCaptionExpression = PageCaption;
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = ListPlus;
@@ -23,7 +23,7 @@ page 983 "Payment Registration Details"
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies the name of the customer or vendor that the payment relates to.';
 
                     trigger OnDrillDown()
@@ -112,7 +112,7 @@ page 983 "Payment Registration Details"
                             Editable = false;
                             ShowCaption = false;
                             Style = Unfavorable;
-                            StyleExpr = true;
+                            StyleExpr = TRUE;
                             ToolTip = 'Specifies a warning about the payment, such as past due date.';
                         }
                     }
@@ -189,14 +189,14 @@ page 983 "Payment Registration Details"
 
     trigger OnOpenPage()
     begin
-        PageCaptionVariable := '';
+        PageCaption := '';
     end;
 
     var
         PmtDiscStyle: Text;
         DueDateStyle: Text;
         Warning: Text;
-        PageCaptionVariable: Text;
+        PageCaption: Text;
 
     local procedure SetUserInteractions()
     begin

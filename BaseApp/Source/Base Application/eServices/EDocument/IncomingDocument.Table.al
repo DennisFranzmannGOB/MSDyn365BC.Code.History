@@ -14,8 +14,6 @@ using Microsoft.Purchases.History;
 using Microsoft.Purchases.Vendor;
 using Microsoft.Sales.Document;
 using Microsoft.Sales.History;
-using Microsoft.Sales.Archive;
-using Microsoft.Purchases.Archive;
 using Microsoft.Utilities;
 using System;
 using System.Automation;
@@ -32,7 +30,6 @@ table 130 "Incoming Document"
     DataCaptionFields = "Vendor Name", "Vendor Invoice No.", Description;
     DrillDownPageID = "Incoming Documents";
     LookupPageID = "Incoming Documents";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -59,7 +56,7 @@ table 130 "Incoming Document"
         }
         field(5; "Created By User Name"; Code[50])
         {
-            CalcFormula = lookup(User."User Name" where("User Security ID" = field("Created By User ID")));
+            CalcFormula = Lookup(User."User Name" where("User Security ID" = field("Created By User ID")));
             Caption = 'Created By User Name';
             Editable = false;
             FieldClass = FlowField;
@@ -83,7 +80,7 @@ table 130 "Incoming Document"
         }
         field(9; "Released By User Name"; Code[50])
         {
-            CalcFormula = lookup(User."User Name" where("User Security ID" = field("Released By User ID")));
+            CalcFormula = Lookup(User."User Name" where("User Security ID" = field("Released By User ID")));
             Caption = 'Released By User Name';
             Editable = false;
             FieldClass = FlowField;
@@ -102,7 +99,7 @@ table 130 "Incoming Document"
         }
         field(12; "Last Modified By User Name"; Code[50])
         {
-            CalcFormula = lookup(User."User Name" where("User Security ID" = field("Last Modified By User ID")));
+            CalcFormula = Lookup(User."User Name" where("User Security ID" = field("Last Modified By User ID")));
             Caption = 'Last Modified By User Name';
             Editable = false;
             FieldClass = FlowField;
@@ -242,7 +239,7 @@ table 130 "Incoming Document"
         }
         field(39; "OCR Service Doc. Template Name"; Text[50])
         {
-            CalcFormula = lookup("OCR Service Document Template".Name where(Code = field("OCR Service Doc. Template Code")));
+            CalcFormula = Lookup("OCR Service Document Template".Name where(Code = field("OCR Service Doc. Template Code")));
             Caption = 'OCR Service Doc. Template Name';
             Editable = false;
             FieldClass = FlowField;
@@ -324,10 +321,12 @@ table 130 "Incoming Document"
             Caption = 'Related Record ID';
             DataClassification = CustomerContent;
         }
-        field(160; "Job Queue Status"; Enum "Inc. Doc. Job Queue Status")
+        field(160; "Job Queue Status"; Option)
         {
             Caption = 'Job Queue Status';
             Editable = false;
+            OptionCaption = ' ,Scheduled,Error,Processing';
+            OptionMembers = " ",Scheduled,Error,Processing;
 
             trigger OnLookup()
             var
@@ -945,11 +944,18 @@ table 130 "Incoming Document"
 
     procedure SetPostedDocFieldsForcePosted(PostingDate: Date; DocNo: Code[20]; ForcePosted: Boolean)
     var
+        CurrIncomingDocument: Record "Incoming Document";
         IncomingDocumentAttachment: Record "Incoming Document Attachment";
+        IncomingDocumentAttachmentCopy: Record "Incoming Document Attachment";
         RelatedRecordRef: RecordRef;
         RelatedRecord: Variant;
     begin
         TestReadyForProcessingForcePosted(ForcePosted);
+        if Posted then begin
+            CurrIncomingDocument.CreateIncomingDocument('', '');
+            CurrIncomingDocument.TransferFields(Rec, false);
+            CurrIncomingDocument.Modify();
+        end;
         Posted := true;
         Status := Status::Posted;
         Processed := true;
@@ -963,8 +969,19 @@ table 130 "Incoming Document"
         ClearErrorMessages();
         Modify(true);
         IncomingDocumentAttachment.SetRange("Incoming Document Entry No.", "Entry No.");
-        IncomingDocumentAttachment.ModifyAll("Document No.", "Document No.");
-        IncomingDocumentAttachment.ModifyAll("Posting Date", "Posting Date");
+        if not IncomingDocumentAttachment.Findset() then
+            exit;
+
+        repeat
+            if CurrIncomingDocument."Entry No." <> 0 then begin
+                IncomingDocumentAttachmentCopy := IncomingDocumentAttachment;
+                IncomingDocumentAttachmentCopy."Incoming Document Entry No." := CurrIncomingDocument."Entry No.";
+                IncomingDocumentAttachmentCopy.Insert();
+            end;
+            IncomingDocumentAttachment."Document No." := "Document No.";
+            IncomingDocumentAttachment."Posting Date" := "Posting Date";
+            IncomingDocumentAttachment.Modify();
+        until IncomingDocumentAttachment.Next() = 0;
     end;
 
     procedure UndoPostedDocFields()
@@ -1026,8 +1043,6 @@ table 130 "Incoming Document"
         GenJnlLine: Record "Gen. Journal Line";
         SalesHeader: Record "Sales Header";
         PurchaseHeader: Record "Purchase Header";
-        SalesHeaderArchive: Record "Sales Header Archive";
-        PurchaseHeaderArchive: Record "Purchase Header Archive";
     begin
         case "Document Type" of
             "Document Type"::Journal:
@@ -1039,19 +1054,11 @@ table 130 "Incoming Document"
                 begin
                     SalesHeader.SetRange("Incoming Document Entry No.", "Entry No.");
                     SalesHeader.ModifyAll("Incoming Document Entry No.", 0, true);
-
-                    SalesHeaderArchive.SetRange("Incoming Document Entry No.", "Entry No.");
-                    if not SalesHeaderArchive.IsEmpty() then
-                        SalesHeaderArchive.ModifyAll("Incoming Document Entry No.", 0, true);
                 end;
             "Document Type"::"Purchase Invoice", "Document Type"::"Purchase Credit Memo":
                 begin
                     PurchaseHeader.SetRange("Incoming Document Entry No.", "Entry No.");
                     PurchaseHeader.ModifyAll("Incoming Document Entry No.", 0, true);
-
-                    PurchaseHeaderArchive.SetRange("Incoming Document Entry No.", "Entry No.");
-                    if not PurchaseHeaderArchive.IsEmpty() then
-                        PurchaseHeaderArchive.ModifyAll("Incoming Document Entry No.", 0, true);
                 end;
             else
                 OnAfterClearRelatedRecords("Document Type", "Entry No.");
@@ -2129,19 +2136,19 @@ table 130 "Incoming Document"
         end;
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     [Scope('OnPrem')]
     procedure OnCheckIncomingDocReleaseRestrictions()
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     [Scope('OnPrem')]
     procedure OnCheckIncomingDocCreateDocRestrictions()
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     [Scope('OnPrem')]
     procedure OnCheckIncomingDocSetForOCRRestrictions()
     begin
@@ -2220,12 +2227,12 @@ table 130 "Incoming Document"
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterCreateSalesHeaderFromIncomingDoc(var SalesHeader: Record "Sales Header")
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterCreatePurchHeaderFromIncomingDoc(var PurchHeader: Record "Purchase Header")
     begin
     end;
@@ -2250,22 +2257,22 @@ table 130 "Incoming Document"
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnBeforeCreateManually(var IncomingDocument: Record "Incoming Document"; var IsHandled: Boolean)
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnBeforeCreateSalesHeaderFromIncomingDoc(var SalesHeader: Record "Sales Header")
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnBeforeDeleteApprovalEntries(var IncomingDocument: Record "Incoming Document"; var IsHandled: Boolean)
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnBeforeShowResultMessage(var IncomingDocument: Record "Incoming Document"; var ErrorMessage: Record "Error Message"; var IsHandled: Boolean)
     begin
     end;
@@ -2275,12 +2282,12 @@ table 130 "Incoming Document"
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnCreatePurchDocOnBeforePurchHeaderInsert(var PurchHeader: Record "Purchase Header")
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnCreateGenJnlLineOnBeforeGenJnlLineInsert(var GenJnlLine: Record "Gen. Journal Line"; LastGenJnlLine: Record "Gen. Journal Line")
     begin
     end;

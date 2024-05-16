@@ -13,7 +13,6 @@ using Microsoft.Service.Document;
 table 952 "Time Sheet Detail"
 {
     Caption = 'Time Sheet Detail';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -41,12 +40,12 @@ table 952 "Time Sheet Detail"
         }
         field(6; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = Job;
         }
         field(7; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
         }
         field(9; "Cause of Absence Code"; Code[10])
@@ -108,7 +107,7 @@ table 952 "Time Sheet Detail"
         }
         field(8002; "Job Id"; Guid)
         {
-            Caption = 'Project Id';
+            Caption = 'Job Id';
             DataClassification = SystemMetadata;
             TableRelation = Job.SystemId;
         }

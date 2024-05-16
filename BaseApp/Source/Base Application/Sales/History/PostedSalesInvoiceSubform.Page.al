@@ -191,19 +191,19 @@ page 133 "Posted Sales Invoice Subform"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Job Task No."; Rec."Job Task No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project task.';
+                    ToolTip = 'Specifies the number of the related job task.';
                     Visible = false;
                 }
                 field("Job Contract Entry No."; Rec."Job Contract Entry No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the entry number of the project planning line that the sales line is linked to.';
+                    ToolTip = 'Specifies the entry number of the job planning line that the sales line is linked to.';
                     Visible = false;
                 }
                 field("Appl.-to Item Entry"; Rec."Appl.-to Item Entry")
@@ -360,7 +360,7 @@ page 133 "Posted Sales Invoice Subform"
                         Caption = 'Total Amount Incl. VAT';
                         Editable = false;
                         Style = Strong;
-                        StyleExpr = true;
+                        StyleExpr = TRUE;
                         ToolTip = 'Specifies the sum of the value in the Line Amount Incl. VAT field on all lines in the document minus any discount amount in the Invoice Discount Amount field.';
                     }
                 }
@@ -515,12 +515,12 @@ page 133 "Posted Sales Invoice Subform"
 
     procedure ShowDocumentLineTracking()
     var
-        DocumentLineTrackingPage: Page "Document Line Tracking";
+        DocumentLineTracking: Page "Document Line Tracking";
     begin
-        Clear(DocumentLineTrackingPage);
-        DocumentLineTrackingPage.SetSourceDoc(
-          "Document Line Source Type"::"Sales Invoice", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", Rec."Order No.", Rec."Order Line No.");
-        DocumentLineTrackingPage.RunModal();
+        Clear(DocumentLineTracking);
+        DocumentLineTracking.SetDoc(
+          6, Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", Rec."Order No.", Rec."Order Line No.");
+        DocumentLineTracking.RunModal();
     end;
 
     local procedure SetDimensionsVisibility()

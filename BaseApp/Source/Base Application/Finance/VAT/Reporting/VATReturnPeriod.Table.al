@@ -11,7 +11,6 @@ table 737 "VAT Return Period"
 {
     Caption = 'VAT Return Period';
     LookupPageID = "VAT Return Period List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -64,7 +63,7 @@ table 737 "VAT Return Period"
         }
         field(21; "VAT Return Status"; Option)
         {
-            CalcFormula = lookup("VAT Report Header".Status where("VAT Report Config. Code" = const("VAT Return"),
+            CalcFormula = Lookup("VAT Report Header".Status where("VAT Report Config. Code" = const("VAT Return"),
                                                                    "No." = field("VAT Return No.")));
             Caption = 'VAT Return Status';
             Editable = false;
@@ -96,33 +95,10 @@ table 737 "VAT Return Period"
 
     trigger OnInsert()
     var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        DefaultNoSeriesCode: Code[20];
-        IsHandled: Boolean;
-#endif
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
-        if "No." = '' then begin
-#if not CLEAN24
-            DefaultNoSeriesCode := GetNoSeriesCode();
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(DefaultNoSeriesCode, xRec."No. Series", WorkDate(), "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(DefaultNoSeriesCode, xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := DefaultNoSeriesCode;
-                "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", DefaultNoSeriesCode, WorkDate(), "No.");
-            end;
-#else
-			if NoSeries.AreRelated(GetNoSeriesCode(), xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := GetNoSeriesCode();
-            "No." := NoSeries.GetNextNo("No. Series");
-#endif
-        end;
+        if "No." = '' then
+            NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", WorkDate(), "No.", "No. Series");
     end;
 
     var

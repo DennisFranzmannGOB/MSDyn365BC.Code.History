@@ -17,7 +17,6 @@ table 5746 "Transfer Receipt Header"
     Caption = 'Transfer Receipt Header';
     DataCaptionFields = "No.";
     LookupPageID = "Posted Transfer Receipts";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -301,9 +300,11 @@ table 5746 "Transfer Receipt Header"
         if IsHandled then
             exit;
 
-        TransRcptHeader.Copy(Rec);
-        ReportSelection.PrintWithDialogForCust(
-            ReportSelection.Usage::Inv3, TransRcptHeader, ShowRequestForm, 0);
+        with TransRcptHeader do begin
+            Copy(Rec);
+            ReportSelection.PrintWithDialogForCust(
+                ReportSelection.Usage::Inv3, TransRcptHeader, ShowRequestForm, 0);
+        end;
     end;
 
     procedure ShowDimensions()

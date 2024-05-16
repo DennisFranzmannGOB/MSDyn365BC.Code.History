@@ -4,7 +4,6 @@ table 5094 "Close Opportunity Code"
 {
     Caption = 'Close Opportunity Code';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Close Opportunity Codes";
 
     fields
@@ -20,7 +19,7 @@ table 5094 "Close Opportunity Code"
         }
         field(3; "No. of Opportunities"; Integer)
         {
-            CalcFormula = count ("Opportunity Entry" where("Close Opportunity Code" = field(Code)));
+            CalcFormula = Count ("Opportunity Entry" where("Close Opportunity Code" = field(Code)));
             Caption = 'No. of Opportunities';
             Editable = false;
             FieldClass = FlowField;

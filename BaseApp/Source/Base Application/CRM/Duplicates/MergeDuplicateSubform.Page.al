@@ -54,7 +54,7 @@ page 703 "Merge Duplicate Subform"
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the data type of the field.';
-                    Visible = not IsTableLine;
+                    Visible = NOT IsTableLine;
                 }
                 field("In Primary Key"; Rec."In Primary Key")
                 {
@@ -67,7 +67,7 @@ page 703 "Merge Duplicate Subform"
                     ApplicationArea = Basic, Suite;
                     Editable = false;
                     ToolTip = 'Specifies the value of the field in the current record.';
-                    Visible = not IsTableLine;
+                    Visible = NOT IsTableLine;
                 }
                 field("Current Count"; Rec."Current Count")
                 {
@@ -81,7 +81,7 @@ page 703 "Merge Duplicate Subform"
                     ApplicationArea = Basic, Suite;
                     Editable = IsOverrideEnabled;
                     ToolTip = 'Specifies if the field value of the current record should be overridden by the value of the duplicate record. ';
-                    Visible = not IsTableLine;
+                    Visible = NOT IsTableLine;
 
                     trigger OnValidate()
                     begin
@@ -97,7 +97,7 @@ page 703 "Merge Duplicate Subform"
                     Style = Strong;
                     StyleExpr = Rec.Override or Rec.Modified;
                     ToolTip = 'Specifies the value of the field in the duplicate record.';
-                    Visible = not IsTableLine;
+                    Visible = NOT IsTableLine;
 
                     trigger OnValidate()
                     begin

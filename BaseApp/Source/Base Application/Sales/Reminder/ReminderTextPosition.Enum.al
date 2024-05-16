@@ -7,5 +7,4 @@ enum 298 "Reminder Text Position"
 
     value(0; "Beginning") { Caption = 'Beginning'; }
     value(1; "Ending") { Caption = 'Ending'; }
-    value(2; "Email Body") { Caption = 'Email Body'; }
 }

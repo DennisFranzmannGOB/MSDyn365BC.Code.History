@@ -235,7 +235,7 @@ page 8903 "Manufacturing Manager RC"
                 action("Jobs")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Projects';
+                    Caption = 'Jobs';
                     RunObject = page "Job List";
                 }
                 group("Group8")

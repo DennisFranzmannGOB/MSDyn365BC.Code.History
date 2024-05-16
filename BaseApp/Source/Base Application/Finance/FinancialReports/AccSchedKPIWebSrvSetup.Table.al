@@ -10,7 +10,6 @@ using System.Integration;
 table 135 "Acc. Sched. KPI Web Srv. Setup"
 {
     Caption = 'Acc. Sched. KPI Web Srv. Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

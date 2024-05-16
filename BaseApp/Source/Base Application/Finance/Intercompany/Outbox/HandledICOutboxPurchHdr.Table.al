@@ -10,7 +10,6 @@ using Microsoft.Purchases.Vendor;
 table 432 "Handled IC Outbox Purch. Hdr"
 {
     Caption = 'Handled IC Outbox Purch. Hdr';
-    DataClassification = CustomerContent;
 
     fields
     {

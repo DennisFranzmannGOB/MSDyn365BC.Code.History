@@ -5,8 +5,7 @@ using System.Reflection;
 
 page 307 "Report Selection - Job"
 {
-    AdditionalSearchTerms = 'Report Selection - Job';
-    Caption = 'Report Selection - Project';
+    Caption = 'Report Selection - Job';
     PageType = Worksheet;
     SaveValues = true;
     SourceTable = "Report Selections";
@@ -75,11 +74,13 @@ page 307 "Report Selection - Job"
                 field(ReportLayoutName; Rec."Report Layout Name")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the name of the report layout that is used.';
                     Visible = false;
                 }
                 field(EmailLayoutCaption; Rec."Email Body Layout Caption")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the Name of the report layout that is used.';
 
                     trigger OnDrillDown()
                     begin
@@ -90,6 +91,7 @@ page 307 "Report Selection - Job"
                 field(ReportLayoutCaption; Rec."Report Layout Caption")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the publisher of the email Attachment layout that is used.';
 
                     trigger OnDrillDown()
                     begin
@@ -100,6 +102,7 @@ page 307 "Report Selection - Job"
                 field(ReportLayoutPublisher; Rec."Report Layout Publisher")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the publisher of the email Attachment layout that is used.';
                     Visible = false;
                 }
                 field("Email Body Layout Code"; Rec."Email Body Layout Code")
@@ -112,7 +115,7 @@ page 307 "Report Selection - Job"
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies a description of the email body custom layout that is used.';
-                    Visible = false;
+                    Visible = not PlatformSelectionEnabled;
 
                     trigger OnDrillDown()
                     var
@@ -152,10 +155,12 @@ page 307 "Report Selection - Job"
     begin
         InitUsageFilter();
         SetUsageFilter(false);
+        PlatformSelectionEnabled := Rec.UsePlatformLayoutSelection()
     end;
 
     var
         ReportUsage2: Enum "Report Selection Usage Job";
+        PlatformSelectionEnabled: Boolean;
 
     local procedure SetUsageFilter(ModifyRec: Boolean)
     begin
@@ -165,8 +170,6 @@ page 307 "Report Selection - Job"
         case ReportUsage2 of
             ReportUsage2::Quote:
                 Rec.SetRange(Usage, Rec.Usage::JQ);
-            ReportUsage2::"Task Quote":
-                Rec.SetRange(Usage, Rec.Usage::"Job Task Quote");
         end;
         OnSetUsageFilterOnAfterSetFiltersByReportUsage(Rec, ReportUsage2);
         Rec.FilterGroup(0);
@@ -182,8 +185,6 @@ page 307 "Report Selection - Job"
                 case ReportUsage of
                     ReportUsage::JQ:
                         ReportUsage2 := ReportUsage2::Quote;
-                    ReportUsage::"Job Task Quote":
-                        ReportUsage2 := ReportUsage2::"Task Quote";
                     else
                         OnInitUsageFilterOnElseCase(ReportUsage, ReportUsage2);
                 end;

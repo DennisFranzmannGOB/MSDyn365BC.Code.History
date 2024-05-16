@@ -3,7 +3,6 @@ namespace Microsoft.Booking;
 table 6706 "Booking Service Mapping"
 {
     Caption = 'Booking Service Mapping';
-    DataClassification = CustomerContent;
 
     fields
     {

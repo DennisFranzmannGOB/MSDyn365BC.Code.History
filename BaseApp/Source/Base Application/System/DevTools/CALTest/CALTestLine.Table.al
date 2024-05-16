@@ -6,7 +6,6 @@ table 130401 "CAL Test Line"
 {
     Caption = 'CAL Test Line';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -206,20 +205,22 @@ table 130401 "CAL Test Line"
             exit;
 
         CopyOfCALTestLine.Copy(CALTestLine);
-        CALTestLine.Reset();
-        CALTestLine.SetRange("Test Suite", CALTestLine."Test Suite");
-        repeat
-            OutOfGroup :=
-              (CALTestLine.Next(-1) = 0) or
-              (CALTestLine."Test Codeunit" <> CopyOfCALTestLine."Test Codeunit");
+        with CALTestLine do begin
+            Reset();
+            SetRange("Test Suite", "Test Suite");
+            repeat
+                OutOfGroup :=
+                  (Next(-1) = 0) or
+                  ("Test Codeunit" <> CopyOfCALTestLine."Test Codeunit");
 
-            if ((CALTestLine."Line Type" in [CALTestLine."Line Type"::Group, CALTestLine."Line Type"::Codeunit]) or (CALTestLine."Function" = 'OnRun')) and
-               not CALTestLine.Run
-            then begin
-                CALTestLine.Run := true;
-                CALTestLine.Modify();
-            end;
-        until OutOfGroup;
+                if (("Line Type" in ["Line Type"::Group, "Line Type"::Codeunit]) or ("Function" = 'OnRun')) and
+                   not Run
+                then begin
+                    Run := true;
+                    Modify();
+                end;
+            until OutOfGroup;
+        end;
         CALTestLine.Copy(CopyOfCALTestLine);
     end;
 
@@ -231,11 +232,13 @@ table 130401 "CAL Test Line"
             exit;
 
         CopyOfCALTestLine.Copy(CALTestLine);
-        CALTestLine.Reset();
-        CALTestLine.SetRange("Test Suite", CALTestLine."Test Suite");
-        while (CALTestLine.Next() <> 0) and not (CALTestLine."Line Type" in [CALTestLine."Line Type"::Group, CopyOfCALTestLine."Line Type"]) do begin
-            CALTestLine.Run := CopyOfCALTestLine.Run;
-            CALTestLine.Modify();
+        with CALTestLine do begin
+            Reset();
+            SetRange("Test Suite", "Test Suite");
+            while (Next() <> 0) and not ("Line Type" in ["Line Type"::Group, CopyOfCALTestLine."Line Type"]) do begin
+                Run := CopyOfCALTestLine.Run;
+                Modify();
+            end;
         end;
         CALTestLine.Copy(CopyOfCALTestLine);
     end;
@@ -244,27 +247,31 @@ table 130401 "CAL Test Line"
     var
         CALTestLine: Record "CAL Test Line";
     begin
-        CALTestLine.Copy(Rec);
-        CALTestLine.Reset();
-        CALTestLine.SetRange("Test Suite", CALTestLine."Test Suite");
+        with CALTestLine do begin
+            Copy(Rec);
+            Reset();
+            SetRange("Test Suite", "Test Suite");
 
-        MinLineNo := CALTestLine."Line No.";
-        repeat
-            MinLineNo := CALTestLine."Line No.";
-        until (CALTestLine.Level < 2) or (CALTestLine.Next(-1) = 0);
+            MinLineNo := "Line No.";
+            repeat
+                MinLineNo := "Line No.";
+            until (Level < 2) or (Next(-1) = 0);
+        end;
     end;
 
     procedure GetMaxGroupLineNo() MaxLineNo: Integer
     var
         CALTestLine: Record "CAL Test Line";
     begin
-        CALTestLine.Copy(Rec);
-        CALTestLine.Reset();
-        CALTestLine.SetRange("Test Suite", CALTestLine."Test Suite");
+        with CALTestLine do begin
+            Copy(Rec);
+            Reset();
+            SetRange("Test Suite", "Test Suite");
 
-        MaxLineNo := CALTestLine."Line No.";
-        while (CALTestLine.Next() <> 0) and (CALTestLine.Level >= Rec.Level) do
-            MaxLineNo := CALTestLine."Line No.";
+            MaxLineNo := "Line No.";
+            while (Next() <> 0) and (Level >= Rec.Level) do
+                MaxLineNo := "Line No.";
+        end;
     end;
 
     procedure GetMaxCodeunitLineNo(var NoOfFunctions: Integer) MaxLineNo: Integer
@@ -274,14 +281,16 @@ table 130401 "CAL Test Line"
         TestField("Test Codeunit");
         NoOfFunctions := 0;
 
-        CALTestLine.Copy(Rec);
-        CALTestLine.Reset();
-        CALTestLine.SetRange("Test Suite", CALTestLine."Test Suite");
-        MaxLineNo := CALTestLine."Line No.";
-        while (CALTestLine.Next() <> 0) and (CALTestLine."Line Type" = CALTestLine."Line Type"::"Function") do begin
-            MaxLineNo := CALTestLine."Line No.";
-            if CALTestLine.Run then
-                NoOfFunctions += 1;
+        with CALTestLine do begin
+            Copy(Rec);
+            Reset();
+            SetRange("Test Suite", "Test Suite");
+            MaxLineNo := "Line No.";
+            while (Next() <> 0) and ("Line Type" = "Line Type"::"Function") do begin
+                MaxLineNo := "Line No.";
+                if Run then
+                    NoOfFunctions += 1;
+            end;
         end;
     end;
 

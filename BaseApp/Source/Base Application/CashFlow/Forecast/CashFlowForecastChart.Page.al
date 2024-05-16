@@ -1,7 +1,7 @@
 namespace Microsoft.CashFlow.Forecast;
 
 using Microsoft.CashFlow.Setup;
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 869 "Cash Flow Forecast Chart"
@@ -24,18 +24,18 @@ page 869 "Cash Flow Forecast Chart"
                 ToolTip = 'Specifies the status of the cash flow forecast.';
                 Visible = IsCashFlowSetUp;
             }
-            usercontrol(BusinessChart; BusinessChart)
+            usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = Basic, Suite;
                 Visible = IsCashFlowSetUp;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
-                    Rec.SetDrillDownIndexes(Point);
+                    Rec.SetDrillDownIndexes(point);
                     CashFlowChartMgt.DrillDown(Rec);
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -59,7 +59,7 @@ page 869 "Cash Flow Forecast Chart"
                 ApplicationArea = Basic, Suite;
                 Editable = false;
                 ShowCaption = false;
-                Visible = not IsCashFlowSetUp;
+                Visible = NOT IsCashFlowSetUp;
             }
         }
     }
@@ -290,7 +290,7 @@ page 869 "Cash Flow Forecast Chart"
                 Caption = 'Open Assisted Setup';
                 Image = Setup;
                 ToolTip = 'Opens the assisted cash flow forecast setup';
-                Visible = not IsCashFlowSetUp;
+                Visible = NOT IsCashFlowSetUp;
 
                 trigger OnAction()
                 begin
@@ -363,7 +363,7 @@ page 869 "Cash Flow Forecast Chart"
             exit;
 
         if CashFlowChartMgt.UpdateData(Rec) then
-            Rec.UpdateChart(CurrPage.BusinessChart);
+            Rec.Update(CurrPage.BusinessChart);
         UpdateStatus();
 
         NeedsUpdate := false;

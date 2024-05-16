@@ -9,7 +9,6 @@ table 7600 "Base Calendar"
     Caption = 'Base Calendar';
     DataCaptionFields = "Code", Name;
     LookupPageID = "Base Calendar List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -24,7 +23,7 @@ table 7600 "Base Calendar"
         }
         field(3; "Customized Changes Exist"; Boolean)
         {
-            CalcFormula = exist ("Customized Calendar Change" where("Base Calendar Code" = field(Code)));
+            CalcFormula = Exist ("Customized Calendar Change" where("Base Calendar Code" = field(Code)));
             Caption = 'Customized Changes Exist';
             Editable = false;
             FieldClass = FlowField;

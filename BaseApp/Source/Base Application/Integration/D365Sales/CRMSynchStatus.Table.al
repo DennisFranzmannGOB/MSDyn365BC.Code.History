@@ -9,7 +9,6 @@ using Microsoft.Sales.Receivables;
 table 5328 "CRM Synch Status"
 {
     Caption = 'Microsoft Dynamics 365 Invoice Synch Status';
-    DataClassification = CustomerContent;
 
     fields
     {

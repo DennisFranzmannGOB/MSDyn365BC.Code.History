@@ -3,7 +3,6 @@ namespace Microsoft.CostAccounting.Budget;
 table 1110 "Cost Budget Name"
 {
     Caption = 'Cost Budget Name';
-    DataClassification = CustomerContent;
     LookupPageID = "Cost Budget Names";
 
     fields

@@ -1,7 +1,6 @@
 namespace System.Visualization;
 
 using System;
-using System.Integration;
 
 page 9184 "Generic Chart Type Preview"
 {
@@ -15,15 +14,15 @@ page 9184 "Generic Chart Type Preview"
     {
         area(content)
         {
-            usercontrol(Chart; BusinessChart)
+            usercontrol(Chart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = Basic, Suite;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -54,64 +53,58 @@ page 9184 "Generic Chart Type Preview"
         ChartAddInInitialized: Boolean;
 
     [Scope('OnPrem')]
-    procedure SetChartDefinition(ChartBuilder: DotNet BusinessChartBuilder)
+    procedure SetChartDefinition(chartBuilder: DotNet BusinessChartBuilder)
     var
         GenericChartYAxis: Record "Generic Chart Y-Axis";
-        ChartDefinition: DotNet BusinessChartData;
-        ChartDataTable: DotNet DataTable;
-        ChartDataRow: DotNet DataRow;
-        DataType: DotNet Type;
-        JsonConvert: DotNet JsonConvert;
-        BusinessChartAsJson: JsonObject;
+        chartDefinition: DotNet BusinessChartData;
+        chartDataTable: DotNet DataTable;
+        chartDataRow: DotNet DataRow;
+        dataType: DotNet Type;
         i: Integer;
         j: Integer;
-        BusinessChartText: Text;
-        MeasureName: Text;
+        measureName: Text;
     begin
         if not ChartAddInInitialized then
             exit;
 
-        ChartDefinition := ChartDefinition.BusinessChartData();
-        ChartDataTable := ChartDataTable.DataTable(Text000);
+        chartDefinition := chartDefinition.BusinessChartData();
+        chartDataTable := chartDataTable.DataTable(Text000);
         // chartBuilder -> chartDef
-        if ChartBuilder.HasXDimension then begin
-            ChartDataTable.Columns.Add(ChartBuilder.XDimensionName, DataType.GetType('System.String'));
-            ChartDefinition.XDimension := ChartBuilder.XDimensionName;
+        if chartBuilder.HasXDimension then begin
+            chartDataTable.Columns.Add(chartBuilder.XDimensionName, dataType.GetType('System.String'));
+            chartDefinition.XDimension := chartBuilder.XDimensionName;
         end;
 
-        if ChartBuilder.HasZDimension then begin
-            ChartDataTable.Columns.Add(ChartBuilder.ZDimensionName, DataType.GetType('System.String'));
-            ChartDefinition.ZDimension := ChartBuilder.ZDimensionName;
+        if chartBuilder.HasZDimension then begin
+            chartDataTable.Columns.Add(chartBuilder.ZDimensionName, dataType.GetType('System.String'));
+            chartDefinition.ZDimension := chartBuilder.ZDimensionName;
         end;
 
-        for i := 0 to ChartBuilder.MeasureCount - 1 do begin
-            MeasureName := ChartBuilder.GetMeasureName(i);
-            if MeasureName = '' then
-                MeasureName := Format(GenericChartYAxis.Aggregation::Count);
-            ChartDataTable.Columns.Add(MeasureName, DataType.GetType('System.Decimal'));
-            ChartDefinition.AddMeasure(MeasureName, ChartBuilder.GetMeasureChartType(i));
+        for i := 0 to chartBuilder.MeasureCount - 1 do begin
+            measureName := chartBuilder.GetMeasureName(i);
+            if measureName = '' then
+                measureName := Format(GenericChartYAxis.Aggregation::Count);
+            chartDataTable.Columns.Add(measureName, dataType.GetType('System.Decimal'));
+            chartDefinition.AddMeasure(measureName, chartBuilder.GetMeasureChartType(i));
         end;
 
         for i := 0 to 10 do begin
-            ChartDataRow := ChartDataTable.NewRow();
-            if ChartBuilder.HasXDimension and (ChartBuilder.XDimensionName <> '') then
-                ChartDataRow.Item(ChartBuilder.XDimensionName, Text003 + Format(i));
-            if ChartBuilder.HasZDimension and (ChartBuilder.ZDimensionName <> '') then
-                ChartDataRow.Item(ChartBuilder.ZDimensionName, Text003 + Format(i));
-            for j := 0 to ChartBuilder.MeasureCount - 1 do begin
-                MeasureName := ChartBuilder.GetMeasureName(j);
-                if MeasureName = '' then
-                    MeasureName := Format(GenericChartYAxis.Aggregation::Count);
-                ChartDataRow.Item(MeasureName, Random(100));
+            chartDataRow := chartDataTable.NewRow();
+            if chartBuilder.HasXDimension and (chartBuilder.XDimensionName <> '') then
+                chartDataRow.Item(chartBuilder.XDimensionName, Text003 + Format(i));
+            if chartBuilder.HasZDimension and (chartBuilder.ZDimensionName <> '') then
+                chartDataRow.Item(chartBuilder.ZDimensionName, Text003 + Format(i));
+            for j := 0 to chartBuilder.MeasureCount - 1 do begin
+                measureName := chartBuilder.GetMeasureName(j);
+                if measureName = '' then
+                    measureName := Format(GenericChartYAxis.Aggregation::Count);
+                chartDataRow.Item(measureName, Random(100));
             end;
-            ChartDataTable.Rows.Add(ChartDataRow);
+            chartDataTable.Rows.Add(chartDataRow);
         end;
 
-        ChartDefinition.DataTable := ChartDataTable;
-        BusinessChartText := JsonConvert.SerializeObject(ChartDefinition);
-        BusinessChartAsJson.ReadFrom(BusinessChartText);
-
-        CurrPage.Chart.Update(BusinessChartAsJson)
+        chartDefinition.DataTable := chartDataTable;
+        CurrPage.Chart.Update(chartDefinition)
     end;
 }
 

@@ -7,7 +7,6 @@ namespace Microsoft.eServices.OnlineMap;
 table 806 Geolocation
 {
     Caption = 'Geolocation';
-    DataClassification = CustomerContent;
 
     fields
     {

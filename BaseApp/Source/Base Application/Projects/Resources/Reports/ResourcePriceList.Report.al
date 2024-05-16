@@ -1,4 +1,4 @@
-#if not CLEAN23
+#if not CLEAN21
 namespace Microsoft.Projects.Resources.Resource;
 
 using Microsoft.Finance.Currency;

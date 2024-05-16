@@ -632,11 +632,29 @@ page 99000846 "Consumption Journal"
                 actionref(Dimensions_Promoted; Dimensions)
                 {
                 }
+#if not CLEAN21
+                actionref("Bin Contents_Promoted"; "Bin Contents")
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category7)
             {
                 Caption = 'Prod. Order', Comment = 'Generated from the PromotedActionCategories property index 6.';
 
+#if not CLEAN21
+                actionref(Card_Promoted; Card)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
                 actionref("Item Ledger E&ntries_Promoted"; "Item Ledger E&ntries")
                 {
                 }

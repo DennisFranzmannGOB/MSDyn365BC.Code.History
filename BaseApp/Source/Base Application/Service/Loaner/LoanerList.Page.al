@@ -94,7 +94,7 @@ page 5923 "Loaner List"
                     RunObject = Page "Loaner Entries";
                     RunPageLink = "Loaner No." = field("No.");
                     RunPageView = sorting("Loaner No.")
-                                  order(ascending);
+                                  order(Ascending);
                     ShortCutKey = 'Ctrl+F7';
                     ToolTip = 'View the history of the loaner.';
                 }

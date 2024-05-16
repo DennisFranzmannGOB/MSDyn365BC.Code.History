@@ -6,7 +6,6 @@ using System.Security.AccessControl;
 table 9153 "My Account"
 {
     Caption = 'My Account';
-    DataClassification = CustomerContent;
 
     fields
     {

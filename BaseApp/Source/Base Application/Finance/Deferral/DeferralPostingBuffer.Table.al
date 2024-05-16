@@ -17,7 +17,6 @@ using Microsoft.Utilities;
 table 1706 "Deferral Posting Buffer"
 {
     Caption = 'Deferral Posting Buffer';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -89,7 +88,7 @@ table 1706 "Deferral Posting Buffer"
         }
         field(12; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             DataClassification = SystemMetadata;
             TableRelation = Job;
         }

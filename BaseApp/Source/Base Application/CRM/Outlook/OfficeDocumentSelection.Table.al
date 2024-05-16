@@ -5,7 +5,6 @@ using Microsoft.EServices.EDocument;
 table 1620 "Office Document Selection"
 {
     Caption = 'Office Document Selection';
-    DataClassification = CustomerContent;
 
     fields
     {

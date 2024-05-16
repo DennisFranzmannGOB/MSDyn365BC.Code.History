@@ -42,44 +42,46 @@ codeunit 241 "Item Jnl.-Post"
         if IsHandled then
             exit;
 
-        ItemJnlTemplate.Get(ItemJnlLine."Journal Template Name");
-        ItemJnlTemplate.TestField("Force Posting Report", false);
-        if ItemJnlTemplate.Recurring and (ItemJnlLine.GetFilter(ItemJnlLine."Posting Date") <> '') then
-            ItemJnlLine.FieldError("Posting Date", Text000);
+        with ItemJnlLine do begin
+            ItemJnlTemplate.Get("Journal Template Name");
+            ItemJnlTemplate.TestField("Force Posting Report", false);
+            if ItemJnlTemplate.Recurring and (GetFilter("Posting Date") <> '') then
+                FieldError("Posting Date", Text000);
 
-        if not HideDialog then
-            if not PreviewMode then
-                if not Confirm(Text001, false) then
-                    exit;
+            if not HideDialog then
+                if not PreviewMode then
+                    if not Confirm(Text001, false) then
+                        exit;
 
-        TempJnlBatchName := ItemJnlLine."Journal Batch Name";
+            TempJnlBatchName := "Journal Batch Name";
 
-        ItemJnlPostBatch.SetSuppressCommit(SuppressCommit or PreviewMode);
-        OnCodeOnBeforeItemJnlPostBatchRun(ItemJnlLine);
-        ItemJnlPostBatch.Run(ItemJnlLine);
+            ItemJnlPostBatch.SetSuppressCommit(SuppressCommit or PreviewMode);
+            OnCodeOnBeforeItemJnlPostBatchRun(ItemJnlLine);
+            ItemJnlPostBatch.Run(ItemJnlLine);
 
-        OnCodeOnAfterItemJnlPostBatchRun(ItemJnlLine, HideDialog, SuppressCommit);
+            OnCodeOnAfterItemJnlPostBatchRun(ItemJnlLine, HideDialog, SuppressCommit);
 
-        if not HideDialog then
-            if not PreviewMode then
-                if ItemJnlLine."Line No." = 0 then
-                    Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
-                else
-                    if TempJnlBatchName = ItemJnlLine."Journal Batch Name" then
-                        Message(Text003)
+            if not HideDialog then
+                if not PreviewMode then
+                    if "Line No." = 0 then
+                        Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
                     else
-                        Message(
-                          Text004 +
-                          Text005,
-                          ItemJnlLine."Journal Batch Name");
+                        if TempJnlBatchName = "Journal Batch Name" then
+                            Message(Text003)
+                        else
+                            Message(
+                              Text004 +
+                              Text005,
+                              "Journal Batch Name");
 
-        if not ItemJnlLine.Find('=><') or (TempJnlBatchName <> ItemJnlLine."Journal Batch Name") then begin
-            ItemJnlLine.Reset();
-            ItemJnlLine.FilterGroup(2);
-            ItemJnlLine.SetRange("Journal Template Name", ItemJnlLine."Journal Template Name");
-            ItemJnlLine.SetRange("Journal Batch Name", ItemJnlLine."Journal Batch Name");
-            ItemJnlLine.FilterGroup(0);
-            ItemJnlLine."Line No." := 1;
+            if not Find('=><') or (TempJnlBatchName <> "Journal Batch Name") then begin
+                Reset();
+                FilterGroup(2);
+                SetRange("Journal Template Name", "Journal Template Name");
+                SetRange("Journal Batch Name", "Journal Batch Name");
+                FilterGroup(0);
+                "Line No." := 1;
+            end;
         end;
         if PreviewMode then
             GenJnlPostPreview.ThrowError();

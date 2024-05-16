@@ -22,6 +22,7 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyRecordsSetupWithNonDemoDataCompany()
     var
+        CompanyInformation: Record "Company Information";
         MyCustomer: Record "My Customer";
     begin
         // [GIVEN] The current company is a demo company, but not an evaluation company
@@ -31,7 +32,7 @@ codeunit 138090 "My Records Demo Setup Test"
         MyCustomer.DeleteAll();
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleted
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -44,6 +45,7 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyCustomerSetupWhenMyCustomerIsNotEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyCustomer: Record "My Customer";
     begin
         // [GIVEN] The current company is a demo company, but not an evaluation company
@@ -51,10 +53,10 @@ codeunit 138090 "My Records Demo Setup Test"
 
         // [GIVEN] The My Customer table is not empty for the current user
         MyCustomer.DeleteAll();
-        CreateMyCustomerForCurrentUser();
+        CreateMyCustomerForCurrentUser;
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleted
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -68,6 +70,7 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyCustomerSetupWhenMyCustomerIsEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyCustomer: Record "My Customer";
         Customer: Record Customer;
     begin
@@ -109,19 +112,20 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyItemSetupWhenMyCustomerIsNotEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyItem: Record "My Item";
     begin
         // [GIVEN] The current company is a demo company, but not an evaluation company
         Initialize(true);
 
         // [GIVEN] The My Customer table is not empty for the current user
-        CreateMyCustomerForCurrentUser();
+        CreateMyCustomerForCurrentUser;
 
         // [GIVEN] The My Item table is empty
         MyItem.DeleteAll();
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleted
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -134,19 +138,20 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyItemSetupWhenMyItemIsNotEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyItem: Record "My Item";
     begin
         // [GIVEN] The current company is a demo company, but not an evaluation company
         Initialize(true);
 
         // [GIVEN] The My Customer and My Item tables are not empty for the current user
-        CreateMyCustomerForCurrentUser();
+        CreateMyCustomerForCurrentUser;
 
         MyItem.DeleteAll();
-        CreateMyItemForCurrentUser();
+        CreateMyItemForCurrentUser;
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleted
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -160,6 +165,7 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyItemSetupWhenMyItemIsEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyCustomer: Record "My Customer";
         Customer: Record Customer;
         MyItem: Record "My Item";
@@ -214,19 +220,21 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyVendorSetupWhenMyItemIsNotEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyVendor: Record "My Vendor";
+        MyItem: Record "My Item";
     begin
         // [GIVEN] The current company is a demo company, but not an evaluation company
         Initialize(true);
 
         // [GIVEN] The My Item table is not empty for the current user
-        CreateMyItemForCurrentUser();
+        CreateMyItemForCurrentUser;
 
         // [GIVEN] The My Vendor table is empty
         MyVendor.DeleteAll();
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleted
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -239,20 +247,21 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyVendorSetupWhenMyVendorIsNotEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyVendor: Record "My Vendor";
     begin
         // [GIVEN] The current company is a demo company, but not an evaluation company
         Initialize(true);
 
         // [GIVEN] The My Customer, My Item and My Vendor tables are not empty for the current user
-        CreateMyCustomerForCurrentUser();
-        CreateMyItemForCurrentUser();
+        CreateMyCustomerForCurrentUser;
+        CreateMyItemForCurrentUser;
 
         MyVendor.DeleteAll();
-        CreateMyVendorForCurrentUser();
+        CreateMyVendorForCurrentUser;
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleted
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -266,6 +275,7 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyVendorSetupWhenMyVendorIsEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyCustomer: Record "My Customer";
         Customer: Record Customer;
         MyItem: Record "My Item";
@@ -296,7 +306,7 @@ codeunit 138090 "My Records Demo Setup Test"
         CreateVendorWithBalance(120);
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleteds
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -316,19 +326,20 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyAccountSetupWhenMyVendorIsNotEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyAccount: Record "My Account";
     begin
         // [GIVEN] The current company is a demo company, but not an evaluation company
         Initialize(true);
 
         // [GIVEN] The My Vendor table is not empty for the current user
-        CreateMyVendorForCurrentUser();
+        CreateMyVendorForCurrentUser;
 
         // [GIVEN] The My Account table is empty
         MyAccount.DeleteAll();
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleted
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -341,21 +352,22 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyAccountSetupWhenMyAccountIsNotEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyAccount: Record "My Account";
     begin
         // [GIVEN] The current company is a demo company, but not an evaluation company
         Initialize(true);
 
         // [GIVEN] The My Customer, My Item, My Vendor and My Account tables are not empty for the current user
-        CreateMyCustomerForCurrentUser();
-        CreateMyItemForCurrentUser();
-        CreateMyVendorForCurrentUser();
+        CreateMyCustomerForCurrentUser;
+        CreateMyItemForCurrentUser;
+        CreateMyVendorForCurrentUser;
 
         MyAccount.DeleteAll();
-        CreateMyAccountForCurrentUser();
+        CreateMyAccountForCurrentUser;
 
         // [WHEN] Calling CompanyOpen
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
         Commit(); // Need to commit before calling isolated event OnCompanyOpenCompleted
         CompanyTriggers.OnCompanyOpenCompleted();
 
@@ -369,6 +381,7 @@ codeunit 138090 "My Records Demo Setup Test"
     [Scope('OnPrem')]
     procedure TestMyAccountSetupWhenMyAccountIsEmpty()
     var
+        CompanyInformation: Record "Company Information";
         MyCustomer: Record "My Customer";
         Customer: Record Customer;
         MyItem: Record "My Item";
@@ -429,9 +442,10 @@ codeunit 138090 "My Records Demo Setup Test"
     local procedure Initialize(IsDemoCompany: Boolean)
     var
         LibraryLowerPermissions: Codeunit "Library - Lower Permissions";
+        Company: Record Company;
         CompanyInformation: Record "Company Information";
     begin
-        LibraryLowerPermissions.SetO365BusFull();
+        LibraryLowerPermissions.SetO365BusFull;
 
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 

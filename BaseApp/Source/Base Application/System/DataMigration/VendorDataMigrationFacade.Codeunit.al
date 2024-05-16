@@ -38,12 +38,12 @@ codeunit 6111 "Vendor Data Migration Facade"
         InternalGenJournalLineNotSetErr: Label 'Internal Gen. Journal Line is not set. Create it first.';
         InternalVendorPostingSetupNotSetErr: Label 'Internal Vendor Posting Setup is not set. Create it first.';
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnMigrateVendor(RecordIdToMigrate: RecordID)
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnMigrateVendorDimensions(RecordIdToMigrate: RecordID)
     begin
     end;
@@ -496,12 +496,12 @@ codeunit 6111 "Vendor Data Migration Facade"
         exit(DataMigrationFacadeHelper.SearchLanguage(AbbreviatedNameToSearch, CodeToGet));
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnMigrateVendorPostingGroups(RecordIdToMigrate: RecordID; ChartOfAccountsMigrated: Boolean)
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnMigrateVendorTransactions(RecordIdToMigrate: RecordID; ChartOfAccountsMigrated: Boolean)
     begin
     end;

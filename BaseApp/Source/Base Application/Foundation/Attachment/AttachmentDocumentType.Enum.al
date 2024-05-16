@@ -41,12 +41,4 @@ enum 1173 "Attachment Document Type"
     {
         Caption = 'VAT Return Response';
     }
-    value(20; "Service Contract Quote")
-    {
-        Caption = 'Service Contract Quote';
-    }
-    value(21; "Service Contract")
-    {
-        Caption = 'Service Contract';
-    }
 }

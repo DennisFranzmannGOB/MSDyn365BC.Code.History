@@ -148,11 +148,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounts - Control displayName - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3262323309 - Control 191975078 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Exclude from Consolidation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Accounts - Control excludeFromConsolidation - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3262323309 - Control 2686962215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Id</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1658,11 +1653,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Contacts - Control id - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 79567422 - Control 2025750209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Job Title</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Contacts - Control jobTitle - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 79567422 - Control 2348551448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Date of Last Interaction</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2607,36 +2597,6 @@
           <source>Last Modified Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dimensions - Control lastModifiedDateTime - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 254023161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>APIV2 - Dispute Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 254023161 - Property 3446740159" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dispute Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Property EntityCaption</note>
-        </trans-unit>
-        <trans-unit id="Page 254023161 - Property 631549417" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dispute Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Property EntitySetCaption</note>
-        </trans-unit>
-        <trans-unit id="Page 254023161 - Control 707985127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Code</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Control code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 254023161 - Control 460507951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Control displayName - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 254023161 - Control 2686962215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Id</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Control id - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3008374136 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Document Attachments</source>
@@ -6983,11 +6943,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType CouldNotFindBillToCustomerErr</note>
         </trans-unit>
-        <trans-unit id="Page 3783002405 - NamedType 713441942" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The dispute status cannot be found.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType CouldNotFindDisputeStatusErr</note>
-        </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 491074039" size-unit="char" translate="yes" xml:space="preserve">
           <source>The sell-to customer cannot be found.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7007,11 +6962,6 @@
           <source>The currency values do not match to a specific Currency.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType CurrencyValuesDontMatchErr</note>
-        </trans-unit>
-        <trans-unit id="Page 3783002405 - NamedType 89448550" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The "disputeStatusId" does not match to a Dispute Status.</source>
-          <note from="Developer" annotates="general" priority="2">disputeStatusId is a field name and should not be translated.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType DisputeStatusIdDoesNotMatchADisputeStatusErr</note>
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 4291081697" size-unit="char" translate="yes" xml:space="preserve">
           <source>The action can be applied to a draft invoice only.</source>
@@ -7153,16 +7103,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control discountAppliedBeforeTax - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3783002405 - Control 3532448994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dispute Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control disputeStatus - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3783002405 - Control 1832008717 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dispute Status Id</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control disputeStatusId - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3783002405 - Control 750067815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Attachments</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7237,11 +7177,6 @@
           <source>Prices Include Tax</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control pricesIncludeTax - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3783002405 - Control 770537161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Promised Pay Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control promisedPayDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 2641327068 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Remaining Amount</source>
@@ -8618,11 +8553,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control billToCountry - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3546002718 - Control 2913482491 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bill-to Customer Id</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control billToCustomerId - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3546002718 - Control 3592631193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-To Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8647,11 +8577,6 @@
           <source>Currency Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control currencyCode - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3546002718 - Control 38468747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer Id</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipments - Control customerId - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3546002718 - Control 3234347301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Name</source>

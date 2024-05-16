@@ -31,7 +31,6 @@ table 900 "Assembly Header"
     DataCaptionFields = "No.", Description;
     DrillDownPageID = "Assembly List";
     LookupPageID = "Assembly List";
-    DataClassification = CustomerContent;
     Permissions = TableData "Assembly Line" = d;
 
     fields
@@ -53,12 +52,12 @@ table 900 "Assembly Header"
 
             trigger OnValidate()
             var
-                NoSeries: Codeunit "No. Series";
+                NoSeriesMgt: Codeunit NoSeriesManagement;
             begin
                 TestStatusOpen();
                 if "No." <> xRec."No." then begin
                     AssemblySetup.Get();
-                    NoSeries.TestManual(GetNoSeriesCode());
+                    NoSeriesMgt.TestManual(GetNoSeriesCode());
                     "No. Series" := '';
                 end;
             end;
@@ -611,25 +610,25 @@ table 900 "Assembly Header"
             trigger OnLookup()
             var
                 AsmHeader: Record "Assembly Header";
-                NoSeries: Codeunit "No. Series";
+                NoSeriesMgt: Codeunit NoSeriesManagement;
             begin
                 AsmHeader := Rec;
                 AssemblySetup.Get();
                 TestNoSeries();
-                if NoSeries.LookupRelatedNoSeries(GetPostingNoSeriesCode(), AsmHeader."Posting No. Series", AsmHeader."Posting No. Series") then
+                if NoSeriesMgt.LookupSeries(GetPostingNoSeriesCode(), AsmHeader."Posting No. Series") then
                     AsmHeader.Validate("Posting No. Series");
                 Rec := AsmHeader;
             end;
 
             trigger OnValidate()
             var
-                NoSeries: Codeunit "No. Series";
+                NoSeriesMgt: Codeunit NoSeriesManagement;
             begin
                 TestStatusOpen();
                 if "Posting No. Series" <> '' then begin
                     AssemblySetup.Get();
                     TestNoSeries();
-                    NoSeries.TestAreRelated(GetPostingNoSeriesCode(), "Posting No. Series");
+                    NoSeriesMgt.TestSeries(GetPostingNoSeriesCode(), "Posting No. Series");
                 end;
                 TestField("Posting No.", '');
             end;
@@ -692,6 +691,7 @@ table 900 "Assembly Header"
     trigger OnDelete()
     begin
         CheckIsNotAsmToOrder();
+        ConfirmDeletion();
 
         AssemblyHeaderReserve.DeleteLine(Rec);
         CalcFields("Reserved Qty. (Base)");
@@ -703,12 +703,7 @@ table 900 "Assembly Header"
     trigger OnInsert()
     var
         InvtAdjmtEntryOrder: Record "Inventory Adjmt. Entry (Order)";
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        DefaultNoSeriesCode: Code[20];
-        IsHandled: Boolean;
-#endif
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
         CheckIsNotAsmToOrder();
 
@@ -716,24 +711,7 @@ table 900 "Assembly Header"
 
         if "No." = '' then begin
             TestNoSeries();
-#if not CLEAN24
-            DefaultNoSeriesCode := GetNoSeriesCode();
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(DefaultNoSeriesCode, xRec."No. Series", "Posting Date", "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(DefaultNoSeriesCode, xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := DefaultNoSeriesCode;
-                "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", DefaultNoSeriesCode, "Posting Date", "No.");
-            end;
-#else
-			if NoSeries.AreRelated(GetNoSeriesCode(), xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := GetNoSeriesCode();
-            "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
-#endif
+            NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", "Posting Date", "No.", "No. Series");
         end;
 
         if "Document Type" = "Document Type"::Order then begin
@@ -786,6 +764,7 @@ table 900 "Assembly Header"
         Text014: Label '%1 and %2';
         Text015: Label '%1 %2 is before %3 %4.', Comment = '%1 and %3 = Date Captions, %2 and %4 = Date Values';
         UpdateDimensionLineMsg: Label 'You may have changed a dimension.\\Do you want to update the lines?';
+        ConfirmDeleteQst: Label 'The items have been picked. If you delete the Assembly Header, then the items will remain in the operation area until you put them away.\Related item tracking information that is defined during the pick will be deleted.\Are you sure that you want to delete the Assembly Header?';
 
     protected var
         StatusCheckSuspended: Boolean;
@@ -801,20 +780,18 @@ table 900 "Assembly Header"
 
     procedure InitRecord()
     var
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
         case "Document Type" of
             "Document Type"::Quote, "Document Type"::"Blanket Order":
-                if NoSeries.IsAutomatic(AssemblySetup."Posted Assembly Order Nos.") then
-                    "Posting No. Series" := AssemblySetup."Posted Assembly Order Nos.";
+                NoSeriesMgt.SetDefaultSeries("Posting No. Series", AssemblySetup."Posted Assembly Order Nos.");
             "Document Type"::Order:
                 if ("No. Series" <> '') and
                     (AssemblySetup."Assembly Order Nos." = AssemblySetup."Posted Assembly Order Nos.")
                 then
                     "Posting No. Series" := "No. Series"
                 else
-                    if NoSeries.IsAutomatic(AssemblySetup."Posted Assembly Order Nos.") then
-                        "Posting No. Series" := AssemblySetup."Posted Assembly Order Nos.";
+                    NoSeriesMgt.SetDefaultSeries("Posting No. Series", AssemblySetup."Posted Assembly Order Nos.");
         end;
 
         "Creation Date" := WorkDate();
@@ -853,20 +830,20 @@ table 900 "Assembly Header"
     procedure AssistEdit(OldAssemblyHeader: Record "Assembly Header"): Boolean
     var
         AssemblyHeader: Record "Assembly Header";
-        NoSeries: Codeunit "No. Series";
-        DefaultSelectedNoSeries: Code[20];
+        AssemblyHeader2: Record "Assembly Header";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
-        TestNoSeries();
-        if "No. Series" <> '' then
-            DefaultSelectedNoSeries := "No. Series"
-        else
-            DefaultSelectedNoSeries := OldAssemblyHeader."No. Series";
-
-        if NoSeries.LookupRelatedNoSeries(GetNoSeriesCode(), DefaultSelectedNoSeries, "No. Series") then begin
-            "No." := NoSeries.GetNextNo("No. Series");
-            if AssemblyHeader.Get("Document Type", "No.") then
-                Error(Text001, Format("Document Type"), "No.");
-            exit(true);
+        with AssemblyHeader do begin
+            Copy(Rec);
+            AssemblySetup.Get();
+            TestNoSeries();
+            if NoSeriesMgt.SelectSeries(GetNoSeriesCode(), OldAssemblyHeader."No. Series", "No. Series") then begin
+                NoSeriesMgt.SetSeries("No.");
+                if AssemblyHeader2.Get("Document Type", "No.") then
+                    Error(Text001, Format("Document Type"), "No.");
+                Rec := AssemblyHeader;
+                exit(true);
+            end;
         end;
     end;
 
@@ -921,6 +898,7 @@ table 900 "Assembly Header"
                 DATABASE::"Assembly Line", "Document Type".AsInteger(), "No.", HideValidationDialog);
             repeat
                 AssemblyLine.SuspendStatusCheck(true);
+                AssemblyLine.SuspendDeletionCheck(true);
                 AssemblyLine.Delete(true);
             until AssemblyLine.Next() = 0;
         end;
@@ -970,13 +948,7 @@ table 900 "Assembly Header"
     var
         SourceCodeSetup: Record "Source Code Setup";
         DimMgt: Codeunit DimensionManagement;
-        IsHandled: Boolean;
     begin
-        IsHandled := false;
-        OnBeforeCreateDim(Rec, CurrFieldNo, DefaultDimSource, IsHandled);
-        if IsHandled then
-            exit;
-
         SourceCodeSetup.Get();
 
         "Shortcut Dimension 1 Code" := '';
@@ -1628,8 +1600,10 @@ table 900 "Assembly Header"
                 WMSManagement.FindBin("Location Code", "Bin Code", '');
             CalcFields("Assemble to Order");
             if not "Assemble to Order" then
-                WhseIntegrationMgt.CheckBinTypeAndCode(
-                    DATABASE::"Assembly Header", FieldCaption("Bin Code"), "Location Code", "Bin Code", 0);
+                WhseIntegrationMgt.CheckBinTypeCode(DATABASE::"Assembly Header",
+                  FieldCaption("Bin Code"),
+                  "Location Code",
+                  "Bin Code", 0);
             CheckBin();
         end;
     end;
@@ -1769,10 +1743,7 @@ table 900 "Assembly Header"
     var
         ATOLink: Record "Assemble-to-Order Link";
     begin
-        if ATOLink.Get(Rec."Document Type", Rec."No.") and (ATOLink.Type = ATOLink.Type::Job) then
-            ATOLink.ShowJobPlanningLines()
-        else
-            ATOLink.ShowSales(Rec);
+        ATOLink.ShowSales(Rec);
     end;
 
     procedure IsAsmToOrder(): Boolean
@@ -1983,6 +1954,22 @@ table 900 "Assembly Header"
         end;
     end;
 
+    local procedure ConfirmDeletion()
+    var
+        AssemblyLine: Record "Assembly Line";
+        Confirmed: Boolean;
+    begin
+        AssemblyLine.SetRange("Document No.", "No.");
+        if AssemblyLine.FindSet() then
+            repeat
+                if AssemblyLine."Consumed Quantity" < AssemblyLine."Qty. Picked" then begin
+                    if not Confirm(ConfirmDeleteQst) then
+                        Error('');
+                    Confirmed := true;
+                end;
+            until (AssemblyLine.Next() = 0) or Confirmed;
+    end;
+
     [IntegrationEvent(false, false)]
     local procedure OnAfterInitDefaultDimensionSources(var AssemblyHeader: Record "Assembly Header"; var DefaultDimSource: List of [Dictionary of [Integer, Code[20]]]; CallingFieldNo: Integer)
     begin
@@ -2185,11 +2172,6 @@ table 900 "Assembly Header"
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterRunWhseSourceCreateDocument(var AssemblyHeader: Record "Assembly Header"; ShowRequestPage: Boolean; AssignedUserID: Code[50]; SortingMethod: Option; SetBreakBulkFilter: Boolean; DoNotFillQtyToHandle: Boolean; PrintDocument: Boolean)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeCreateDim(var AssemblyHeader: Record "Assembly Header"; CurrentFieldNo: Integer; DefaultDimSource: List of [Dictionary of [Integer, Code[20]]]; var IsHandled: Boolean)
     begin
     end;
 }

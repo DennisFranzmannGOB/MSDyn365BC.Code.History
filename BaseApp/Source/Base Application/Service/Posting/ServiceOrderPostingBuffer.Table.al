@@ -9,7 +9,6 @@ table 5933 "Service Order Posting Buffer"
 {
     Caption = 'Service Order Posting Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

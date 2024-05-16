@@ -7,7 +7,6 @@ table 1530 "Workflow Step Instance Archive"
     Caption = 'Workflow Step Instance Archive';
     Permissions = TableData "Workflow Step Argument Archive" = md;
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

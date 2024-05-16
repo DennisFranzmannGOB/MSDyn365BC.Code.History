@@ -1,7 +1,6 @@
 table 131321 "Watch Vendor Ledger Entry"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

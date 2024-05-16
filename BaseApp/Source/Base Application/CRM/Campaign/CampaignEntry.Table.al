@@ -9,7 +9,6 @@ table 5072 "Campaign Entry"
 {
     Caption = 'Campaign Entry';
     DataCaptionFields = "Campaign No.";
-    DataClassification = CustomerContent;
     DrillDownPageID = "Campaign Entries";
     LookupPageID = "Campaign Entries";
 

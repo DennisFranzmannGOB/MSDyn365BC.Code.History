@@ -4,9 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 namespace Microsoft.Purchases.Document;
 
-#pragma warning disable AL0659
 enum 5805 "Purchase Applies-to Document Type"
-#pragma warning restore AL0659
 {
     Extensible = true;
     AssignmentCompatibility = true;

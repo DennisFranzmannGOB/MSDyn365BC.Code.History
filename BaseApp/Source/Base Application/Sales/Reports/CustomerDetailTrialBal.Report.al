@@ -317,13 +317,14 @@ report 104 "Customer - Detail Trial Bal."
         PrintDebitCredit := GeneralLedgerSetup."Show Amounts" = GeneralLedgerSetup."Show Amounts"::"Debit/Credit Only";
         CustFilter := FormatDocument.GetRecordFiltersWithCaptions(Customer);
         CustDateFilter := Customer.GetFilter("Date Filter");
-        if PrintAmountsInLCY then begin
-            AmountCaption := "Cust. Ledger Entry".FieldCaption("Amount (LCY)");
-            RemainingAmtCaption := "Cust. Ledger Entry".FieldCaption("Remaining Amt. (LCY)");
-        end else begin
-            AmountCaption := "Cust. Ledger Entry".FieldCaption(Amount);
-            RemainingAmtCaption := "Cust. Ledger Entry".FieldCaption("Remaining Amount");
-        end;
+        with "Cust. Ledger Entry" do
+            if PrintAmountsInLCY then begin
+                AmountCaption := FieldCaption("Amount (LCY)");
+                RemainingAmtCaption := FieldCaption("Remaining Amt. (LCY)");
+            end else begin
+                AmountCaption := FieldCaption(Amount);
+                RemainingAmtCaption := FieldCaption("Remaining Amount");
+            end;
     end;
 
     var

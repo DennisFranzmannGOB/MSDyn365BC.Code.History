@@ -7,7 +7,6 @@ namespace Microsoft.Inventory.Reconciliation;
 table 5845 "Inventory Report Header"
 {
     Caption = 'Inventory Report Header';
-    DataClassification = CustomerContent;
 
     fields
     {

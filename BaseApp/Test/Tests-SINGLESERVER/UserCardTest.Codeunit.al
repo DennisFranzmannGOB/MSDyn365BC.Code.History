@@ -19,9 +19,7 @@ codeunit 132903 UserCardTest
         ErrorStringCom001Err: Label 'Missing Expected error message: %1. \ Actual error recieved: %2.', Comment = '%1 = Expected exception error message, %2 = Actual exception error message';
         Assert: Codeunit Assert;
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
-#if not CLEAN22
         LibraryPermissions: Codeunit "Library - Permissions";
-#endif
         ValidationError: Text;
         isInitialized: Boolean;
         PasswordsError001Err: Label 'The passwords that you entered do not match.';
@@ -193,11 +191,11 @@ codeunit 132903 UserCardTest
         // Generate web key with no expires date. Validate key is generated and not date is not set
         WebServiceAccessHelper(CreateDateTime(Today, 0T), true, false, User001Msg);
 
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", User001Msg);
         UserCardPage."User Name".AssertEquals(User001Msg);
         UserCardPage.WebServiceExpiryDate.AssertEquals('');
-        WsCompareKey := UserCardPage.WebServiceID.Value();
+        WsCompareKey := UserCardPage.WebServiceID.Value;
         UserCardPage.Close();
         if WsCompareKey = '' then
             Error(ErrorKeyNotSetErr);
@@ -218,12 +216,12 @@ codeunit 132903 UserCardTest
 
         // Generate web key with expire date. Validate key is generated and date i set
         WebServiceAccessHelper(CreateDateTime(Today, 0T), false, false, User001Msg);
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", User001Msg);
         UserCardPage."User Name".AssertEquals(User001Msg);
 
         UserCardPage.WebServiceExpiryDate.AssertEquals(CreateDateTime(Today, 0T));
-        WsCompareKey := UserCardPage.WebServiceID.Value();
+        WsCompareKey := UserCardPage.WebServiceID.Value;
         UserCardPage.Close();
         if WsCompareKey = '' then
             Error(ErrorKeyNotSetErr);
@@ -243,15 +241,15 @@ codeunit 132903 UserCardTest
         BindSubscription(TestUserPermissionsSubs);
 
         // Generate web key. Answer no if we should generate key. Ensure key and date is not changed
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", User001Msg);
         UserCardPage."User Name".AssertEquals(User001Msg);
-        WsCompareKey := UserCardPage.WebServiceID.Value();
+        WsCompareKey := UserCardPage.WebServiceID.Value;
         UserCardPage.Close();
 
         WebServiceAccessHelper(CreateDateTime(Today, 0T), true, true, User001Msg);
 
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", User001Msg);
         UserCardPage."User Name".AssertEquals(User001Msg);
         UserCardPage.WebServiceID.AssertEquals(WsCompareKey);
@@ -267,12 +265,12 @@ codeunit 132903 UserCardTest
         Initialize();
         UserCardPage.OpenNew();
         asserterror UserCardPage."User Name".Value := User001Msg;
-        if UserCardPage.GetValidationError() <> UserAlReadyExist001Err then begin
-            ValidationError := UserCardPage.GetValidationError();
+        if UserCardPage.GetValidationError <> UserAlReadyExist001Err then begin
+            ValidationError := UserCardPage.GetValidationError;
             UserCardPage.Close();
             Error(ErrorStringCom001Err, UserAlReadyExist001Err, ValidationError);
         end;
-        UserCardPage.Close();
+        UserCardPage.Close
     end;
 
     [Test]
@@ -439,7 +437,7 @@ codeunit 132903 UserCardTest
         UserCardPage."User Name".Value := User002Msg;
 
         asserterror UserCardPage."Authentication Email".Value := ValidTestAuthenticationEmailTok;
-        ValidationError := UserCardPage.GetValidationError();
+        ValidationError := UserCardPage.GetValidationError;
 
         if ValidationError <> StrSubstNo(AuthenticationEmail002Err, ValidTestAuthenticationEmailTok) then begin
             UserCardPage.Close();
@@ -480,7 +478,7 @@ codeunit 132903 UserCardTest
             User.Modify(true);
         end;
         // [WHEN] Opening the User card
-        UserCard.OpenEdit();
+        UserCard.OpenEdit;
         UserCard.FindFirstField("User Name", User001Msg);
         UserCard."User Name".AssertEquals(User001Msg);
         // [THEN] Mapped To Exchange Identifier is not checked
@@ -496,7 +494,7 @@ codeunit 132903 UserCardTest
         User."Exchange Identifier" := 'Something @ somewhere';
         User.Modify(true);
         // [WHEN] Opening the User card
-        UserCard.OpenEdit();
+        UserCard.OpenEdit;
         UserCard.FindFirstField("User Name", User001Msg);
         UserCard."User Name".AssertEquals(User001Msg);
         // [THEN] Mapped To Exchange Identifier is checked
@@ -526,26 +524,26 @@ codeunit 132903 UserCardTest
         end;
 
         // [WHEN] Opening the User card
-        UserCard.OpenEdit();
+        UserCard.OpenEdit;
         UserCard.FindFirstField("User Name", User001Msg);
         UserCard."User Name".AssertEquals(User001Msg);
         // [THEN] The Delete Exchange Identifier Mapping is not enabled
         Assert.IsFalse(
-          UserCard.DeleteExchangeIdentifier.Enabled(), 'Did not expect the action to be enabled if Exchange Identifier is not set');
+          UserCard.DeleteExchangeIdentifier.Enabled, 'Did not expect the action to be enabled if Exchange Identifier is not set');
         UserCard.Close();
 
         // [GIVEN] A User with Exchange Identifier set
         User."Exchange Identifier" := 'blbla';
         User.Modify(true);
         // [WHEN] Opening the User card
-        UserCard.OpenEdit();
+        UserCard.OpenEdit;
         UserCard.FindFirstField("User Name", User001Msg);
         UserCard."User Name".AssertEquals(User001Msg);
         // [THEN] The Delete Exchange Identifier Mapping is enabled
-        Assert.IsTrue(UserCard.DeleteExchangeIdentifier.Enabled(), 'Expected the action to be enabled when the Exchange Identifier is set');
+        Assert.IsTrue(UserCard.DeleteExchangeIdentifier.Enabled, 'Expected the action to be enabled when the Exchange Identifier is set');
 
         // [WHEN] Clicking the action
-        UserCard.DeleteExchangeIdentifier.Invoke();
+        UserCard.DeleteExchangeIdentifier.Invoke;
         // [THEN] The Exchange Identifier is deleted
         User.SetRange("User Name", User001Msg);
         User.FindFirst();
@@ -568,12 +566,12 @@ codeunit 132903 UserCardTest
         LibraryPermissions.CreateUserGroup(UserGroup, '');
 
         // [GIVEN] Opened User Card
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", User001Msg);
 
         // [WHEN] Lookup User Group Code and select User Group "UserGroup"
         LibraryVariableStorage.Enqueue(UserGroup.Code);
-        UserCardPage.UserGroups.UserGroupCode.Lookup();
+        UserCardPage.UserGroups.UserGroupCode.Lookup;
 
         // [THEN] Created user group code "UserGroup" passed to the User Group Code field
         UserCardPage.UserGroups.UserGroupCode.AssertEquals(UserGroup.Code);
@@ -594,7 +592,7 @@ codeunit 132903 UserCardTest
         if EnvironmentInfo.IsSaaS() then
             exit;
 
-        EnsureNoUsers();
+        EnsureNoUsers;
 
         // [WHEN] A new user card is opened, create new super user dialog
         // opens (for logged in user) and answered yes
@@ -619,7 +617,7 @@ codeunit 132903 UserCardTest
         if EnvironmentInfo.IsSaaS() then
             exit;
 
-        EnsureNoUsers();
+        EnsureNoUsers;
 
         // [WHEN] A new user card is opened, create new super user dialog
         // opens (for logged in user) and answered no
@@ -702,12 +700,12 @@ codeunit 132903 UserCardTest
         LibraryPermissions.CreateUser(User, User002Msg, false);
 
         // [GIVEN] "User Group Members" page of "X" with "U2" added
-        UserGroupMembers.Trap();
-        UserGroups.OpenEdit();
+        UserGroupMembers.Trap;
+        UserGroups.OpenEdit;
         UserGroups.FILTER.SetFilter(Code, UserGroup.Code);
-        UserGroups.UserGroupMembers.Invoke();
+        UserGroups.UserGroupMembers.Invoke;
         LibraryVariableStorage.Enqueue(User002Msg);
-        UserGroupMembers.AddUsers.Invoke();
+        UserGroupMembers.AddUsers.Invoke;
 
         // [WHEN] Validate "User Name" with "U1"
         UserGroupMembers.UserName.SetValue(User001Msg);
@@ -717,7 +715,7 @@ codeunit 132903 UserCardTest
         VerifyUserGroupMemberAdded(UserGroup.Code);
 
         User.Delete(true);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -740,23 +738,23 @@ codeunit 132903 UserCardTest
         LibraryPermissions.CreateUser(User, User002Msg, false);
 
         // [GIVEN] "User Group Members" page of "X" with "U2" added
-        UserGroupMembers.Trap();
-        UserGroups.OpenEdit();
+        UserGroupMembers.Trap;
+        UserGroups.OpenEdit;
         UserGroups.FILTER.SetFilter(Code, UserGroup.Code);
-        UserGroups.UserGroupMembers.Invoke();
+        UserGroups.UserGroupMembers.Invoke;
         LibraryVariableStorage.Enqueue(User002Msg);
-        UserGroupMembers.AddUsers.Invoke();
+        UserGroupMembers.AddUsers.Invoke;
 
         // [WHEN] Validate "User Name" with "U1"
         LibraryVariableStorage.Enqueue(User001Msg);
-        UserGroupMembers.UserName.Lookup();
+        UserGroupMembers.UserName.Lookup;
         UserGroupMembers.Close();
 
         // [THEN] New entry "User Group Member" with "User Group Code" = "X" and user "U1" has been added.
         VerifyUserGroupMemberAdded(UserGroup.Code);
 
         User.Delete(true);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 #endif
 
@@ -786,15 +784,16 @@ codeunit 132903 UserCardTest
 
     [Test]
     [HandlerFunctions('ConfirmHandlerAnsYes')]
-    procedure PlansNotVisibleInUserCardWhenNotSuperTest()
+    procedure PlansVisibleInUserCardTest()
     var
-        User: Record User;
-        AzureADPlanTestLibrary: Codeunit "Azure AD Plan Test Library";
         EnvironmentInfoTestLibrary: Codeunit "Environment Info Test Library";
         PlanIds: Codeunit "Plan Ids";
         UserCard: TestPage "User Card";
+        AzureADPlan: Codeunit "Azure AD Plan";
+        AzureADPlanTestLibrary: Codeunit "Azure AD Plan Test Library";
+        User: Record User;
     begin
-        // [SCENARIO] User plans and permission are not visible on user card when user does not have super
+        // [SCENARIO] User plans are visible on user card
         Initialize();
         AddUserHelper(User002Msg);
 
@@ -817,8 +816,10 @@ codeunit 132903 UserCardTest
         UserCard.OpenView();
         UserCard.GoToRecord(User);
 
-        Assert.IsTrue(UserCard.Plans.First(), 'There is no plans for the user.');
-        Assert.IsFalse(UserCard.Plans.Name.Visible(), 'The plans in User card are visible.');
+        Assert.IsTrue(UserCard.Plans.First(), 'The plans in User card are not visible.');
+        Assert.IsTrue(UserCard.Plans.Name.Visible(), 'The plans in User card are not visible.');
+        Assert.IsTrue(UserCard.Plans.Next(), 'The plans in User card are not visible.');
+        Assert.IsFalse(UserCard.Plans.Next(), 'More plans than expected are visible in User card.');
 
         UserCard.Close();
 
@@ -840,7 +841,7 @@ codeunit 132903 UserCardTest
         LibraryPermissions.CreateUserGroup(UserGroup, 'TEST');
 
         // [WHEN] UserGroup's Default Profile ID set to 'ACCOUNTANT' (valid profile)
-        UserGroups.OpenEdit();
+        UserGroups.OpenEdit;
         UserGroups.filter.SetFilter(Code, UserGroup.Code);
         UserGroups.YourProfileID.Value := 'ACCOUNTANT';
         UserGroups.Close();
@@ -848,7 +849,7 @@ codeunit 132903 UserCardTest
         // [THEN] No error thrown (validation succeeds)
 
         // [WHEN] UserGroup's Default Profile ID set to empty ('')
-        UserGroups.OpenEdit();
+        UserGroups.OpenEdit;
         UserGroups.filter.SetFilter(Code, UserGroup.Code);
         UserGroups.YourProfileID.Value := '';
         UserGroups.Close();
@@ -873,11 +874,11 @@ codeunit 132903 UserCardTest
         LastError := '';
         PwToEnter := Password;
         RepPwToEnter := RepeatedPassword;
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", User001Msg);
         UserCardPage."User Name".AssertEquals(User001Msg);
         Commit();
-        UserCardPage.Password.AssistEdit();
+        UserCardPage.Password.AssistEdit;
         UserCardPage.Close();
         if LastError <> ExpectedError then
             Error(ErrorStringCom002Err, ExpectedError, LastError, LastValidation);
@@ -897,8 +898,8 @@ codeunit 132903 UserCardTest
         if PwErrorInMain then begin
             asserterror PasswordDialog.Password.Value := PwToEnter;
             LastValidation := GetLastErrorText;
-            PasswordDialog.OK().Invoke();
-            PasswordDialog.Cancel().Invoke();
+            PasswordDialog.OK.Invoke;
+            PasswordDialog.Cancel.Invoke;
             exit;
         end;
         PasswordDialog.Password.Value := PwToEnter;
@@ -906,13 +907,13 @@ codeunit 132903 UserCardTest
         if PwErrorInRepeat then begin
             asserterror PasswordDialog.ConfirmPassword.Value := RepPwToEnter;
             LastValidation := GetLastErrorText;
-            PasswordDialog.OK().Invoke();
-            PasswordDialog.Cancel().Invoke();
+            PasswordDialog.OK.Invoke;
+            PasswordDialog.Cancel.Invoke;
             exit;
         end;
         PasswordDialog.ConfirmPassword.Value := RepPwToEnter;
 
-        PasswordDialog.OK().Invoke();
+        PasswordDialog.OK.Invoke;
     end;
 
     [Normal]
@@ -923,11 +924,11 @@ codeunit 132903 UserCardTest
         WsNeverExpiresToenter := KeyNeverExpires;
         WsExpirationDateToEnter := KeyExpirationDate;
         WsInvokeCancelToEnter := InvokeCancel;
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", UserName);
         UserCardPage."User Name".AssertEquals(UserName);
 
-        UserCardPage.WebServiceID.AssistEdit();
+        UserCardPage.WebServiceID.AssistEdit;
 
         UserCardPage.Close();
     end;
@@ -942,9 +943,9 @@ codeunit 132903 UserCardTest
             SetWebServiceAccess.ExpirationDate.SetValue(WsExpirationDateToEnter);
 
         if WsInvokeCancelToEnter then
-            SetWebServiceAccess.Cancel().Invoke()
+            SetWebServiceAccess.Cancel.Invoke
         else
-            SetWebServiceAccess.OK().Invoke();
+            SetWebServiceAccess.OK.Invoke;
     end;
 
     [Normal]
@@ -957,12 +958,12 @@ codeunit 132903 UserCardTest
         AcsAuthKeyToEnter := AcsAuthKey;
         AcsErrorExpected := ErrorExpected;
         AcsGenerateKey := GenerateKey;
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", AcsUserNameToEnter);
         UserCardPage."User Name".AssertEquals(AcsUserNameToEnter);
 
-        UserCardPage.ACSStatus.AssistEdit();
-        WsCompareAcsStatus := UserCardPage.ACSStatus.Value();
+        UserCardPage.ACSStatus.AssistEdit;
+        WsCompareAcsStatus := UserCardPage.ACSStatus.Value;
         UserCardPage.Close();
         if WsCompareAcsStatus <> AcsStatus then
             Error(ErrorStatusUnexpectedErr);
@@ -974,21 +975,21 @@ codeunit 132903 UserCardTest
     begin
         if AcsGenerateKey then begin
             SetAcsAuthentication.AuthenticationID.Value := '';
-            SetAcsAuthentication."Generate Auth Key".Invoke();
+            SetAcsAuthentication."Generate Auth Key".Invoke;
             if SetAcsAuthentication.AuthenticationID.Value = '' then
                 Error(ErrorAcsKeyNotGeneratedErr);
-            SetAcsAuthentication.OK().Invoke();
+            SetAcsAuthentication.OK.Invoke;
             exit;
         end;
 
         if AcsErrorExpected then begin
             asserterror SetAcsAuthentication.AuthenticationID.Value := AcsAuthKeyToEnter;
-            SetAcsAuthentication.OK().Invoke();
+            SetAcsAuthentication.OK.Invoke;
             exit;
         end;
         SetAcsAuthentication.AuthenticationID.Value := AcsAuthKeyToEnter;
 
-        SetAcsAuthentication.OK().Invoke();
+        SetAcsAuthentication.OK.Invoke;
     end;
 
     [Normal]
@@ -996,7 +997,7 @@ codeunit 132903 UserCardTest
     var
         UserCardPage: TestPage "User Card";
     begin
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", User001Msg);
         UserCardPage."User Name".AssertEquals(User001Msg);
 
@@ -1005,7 +1006,7 @@ codeunit 132903 UserCardTest
         UserCardPage."Authentication Email".AssertEquals(ExpectedEmail);
         UserCardPage.Close();
 
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         // Validate field after reopening card.
         UserCardPage.FindFirstField("User Name", User001Msg);
         UserCardPage."User Name".AssertEquals(User001Msg);
@@ -1019,12 +1020,12 @@ codeunit 132903 UserCardTest
         UserCardPage: TestPage "User Card";
         ValidationError: Text;
     begin
-        UserCardPage.OpenEdit();
+        UserCardPage.OpenEdit;
         UserCardPage.FindFirstField("User Name", User001Msg);
         UserCardPage."User Name".AssertEquals(User001Msg);
 
         asserterror UserCardPage."Authentication Email".Value := Email;
-        ValidationError := UserCardPage.GetValidationError();
+        ValidationError := UserCardPage.GetValidationError;
         if (ValidationError <> ExpectedValidationError) and (StrPos(ValidationError, ExpectedValidationError) <= 0) then begin
             UserCardPage.Close();
             ValidationError := 'Unexpected validation error: ' + ValidationError + ' Email address: ' + Email;
@@ -1066,8 +1067,8 @@ codeunit 132903 UserCardTest
     [Scope('OnPrem')]
     procedure UserGroupsPageHandler(var UserGroups: TestPage "User Groups")
     begin
-        UserGroups.FILTER.SetFilter(Code, LibraryVariableStorage.DequeueText());
-        UserGroups.OK().Invoke();
+        UserGroups.FILTER.SetFilter(Code, LibraryVariableStorage.DequeueText);
+        UserGroups.OK.Invoke;
     end;
 #endif
 
@@ -1097,8 +1098,8 @@ codeunit 132903 UserCardTest
     procedure UserLookupHandler(var UserLookup: TestPage "User Lookup")
     begin
         // Selects user and clicks OK
-        UserLookup.FILTER.SetFilter("User Name", LibraryVariableStorage.DequeueText());
-        UserLookup.OK().Invoke();
+        UserLookup.FILTER.SetFilter("User Name", LibraryVariableStorage.DequeueText);
+        UserLookup.OK.Invoke;
     end;
 }
 

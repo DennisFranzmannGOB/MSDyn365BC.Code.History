@@ -10,11 +10,10 @@ using System.Utilities;
 
 report 1009 "Job Actual To Budget"
 {
-    AdditionalSearchTerms = 'Job Actual To Budget';
     DefaultLayout = RDLC;
     RDLCLayout = './Projects/Project/Reports/JobActualToBudget.rdlc';
     ApplicationArea = Jobs;
-    Caption = 'Project Actual To Budget';
+    Caption = 'Job Actual To Budget';
     UsageCategory = ReportsAndAnalysis;
 
     dataset
@@ -390,12 +389,12 @@ report 1009 "Job Actual To Budget"
         ShowFirstBuffer: Integer;
         ShowSecondBuffer: Integer;
         CurrReportPageNoCaptionLbl: Label 'Page';
-        JobActualToBudgetCaptionLbl: Label 'Project Actual To Budget';
+        JobActualToBudgetCaptionLbl: Label 'Job Actual To Budget';
         QuantityCaptionLbl: Label 'Quantity';
         ScheduleCaptionLbl: Label 'Budget';
         UsageCaptionLbl: Label 'Usage';
         DifferenceCaptionLbl: Label 'Difference';
-        JobTaskNoCaptionLbl: Label 'Project Task No.';
+        JobTaskNoCaptionLbl: Label 'Job Task No.';
 
     procedure InitializeRequest(NewCurrencyField: Option "Local Currency","Foreign Currency")
     begin

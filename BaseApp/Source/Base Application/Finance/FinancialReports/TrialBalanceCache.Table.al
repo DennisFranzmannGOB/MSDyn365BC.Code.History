@@ -3,7 +3,6 @@ namespace Microsoft.Finance.FinancialReports;
 table 1318 "Trial Balance Cache"
 {
     Caption = 'Trial Balance Cache';
-    DataClassification = CustomerContent;
 
     fields
     {

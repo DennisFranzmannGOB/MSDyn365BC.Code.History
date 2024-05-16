@@ -3,7 +3,6 @@ namespace Microsoft.CRM.Team;
 table 5084 "Team Salesperson"
 {
     Caption = 'Team Salesperson';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -21,14 +20,14 @@ table 5084 "Team Salesperson"
         }
         field(3; "Team Name"; Text[50])
         {
-            CalcFormula = lookup(Team.Name where(Code = field("Team Code")));
+            CalcFormula = Lookup (Team.Name where(Code = field("Team Code")));
             Caption = 'Team Name';
             Editable = false;
             FieldClass = FlowField;
         }
         field(4; "Salesperson Name"; Text[50])
         {
-            CalcFormula = lookup("Salesperson/Purchaser".Name where(Code = field("Salesperson Code")));
+            CalcFormula = Lookup ("Salesperson/Purchaser".Name where(Code = field("Salesperson Code")));
             Caption = 'Salesperson Name';
             Editable = false;
             FieldClass = FlowField;

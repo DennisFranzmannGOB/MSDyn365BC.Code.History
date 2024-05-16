@@ -11,7 +11,6 @@ table 475 "Vendor Payment Buffer"
     Caption = 'Vendor Payment Buffer';
     ReplicateData = false;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -76,6 +75,11 @@ table 475 "Vendor Payment Buffer"
         field(11; "Vendor Posting Group"; Code[20])
         {
             Caption = 'Vendor Posting Group';
+            DataClassification = SystemMetadata;
+        }
+        field(20; "Ledg. Entry System Id"; Guid)
+        {
+            Caption = 'Ledg. Entry System Id';
             DataClassification = SystemMetadata;
         }
         field(170; "Creditor No."; Code[20])

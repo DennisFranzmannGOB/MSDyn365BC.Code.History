@@ -10,7 +10,7 @@ pageextension 9204 "User Settings" extends "User Settings"
 {
     layout
     {
-        addbefore("Teaching Tips")
+        addBefore("Teaching Tips")
         {
             field(MyNotificationsLbl; MyNotificationsLbl)
             {

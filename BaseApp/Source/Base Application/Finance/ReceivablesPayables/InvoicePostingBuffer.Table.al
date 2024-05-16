@@ -28,7 +28,6 @@ table 55 "Invoice Posting Buffer"
     Caption = 'Invoice Posting Buffer';
     ReplicateData = false;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -64,7 +63,7 @@ table 55 "Invoice Posting Buffer"
         }
         field(6; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             DataClassification = SystemMetadata;
             TableRelation = Job;
         }

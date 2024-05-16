@@ -1216,7 +1216,7 @@ page 6640 "Purchase Return Order"
                 {
                     ApplicationArea = PurchReturnOrder;
                     Caption = 'Send A&pproval Request';
-                    Enabled = not OpenApprovalEntriesExist;
+                    Enabled = NOT OpenApprovalEntriesExist;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval of the document.';
 

@@ -5,7 +5,6 @@
 namespace Microsoft.Sales.Reminder;
 
 using Microsoft.Finance.Currency;
-using System.Integration;
 using System.Visualization;
 
 page 1051 "Additional Fee Chart"
@@ -62,7 +61,7 @@ page 1051 "Additional Fee Chart"
             group(Graph)
             {
                 Caption = 'Graph';
-                usercontrol(BusinessChart; BusinessChart)
+                usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
                 {
                     ApplicationArea = Suite;
 
@@ -87,7 +86,7 @@ page 1051 "Additional Fee Chart"
 
     trigger OnAfterGetRecord()
     begin
-        Rec.UpdateChart(CurrPage.BusinessChart);
+        Rec.Update(CurrPage.BusinessChart);
     end;
 
     var
@@ -114,7 +113,7 @@ page 1051 "Additional Fee Chart"
             exit;
 
         TempSortingTable.UpdateData(Rec, ReminderLevel, ChargePerLine, Currency, RemAmountTxt, MaxRemAmount);
-        Rec.UpdateChart(CurrPage.BusinessChart);
+        Rec.Update(CurrPage.BusinessChart);
     end;
 }
 

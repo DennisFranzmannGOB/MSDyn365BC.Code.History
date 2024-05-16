@@ -18,7 +18,6 @@ table 249 "VAT Registration Log"
 {
     Caption = 'VAT Registration Log';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -11,7 +11,6 @@ using System.Security.User;
 table 950 "Time Sheet Header"
 {
     Caption = 'Time Sheet Header';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -58,7 +57,7 @@ table 950 "Time Sheet Header"
         {
             Caption = 'Resource Name';
             FieldClass = FlowField;
-            CalcFormula = lookup(Resource.Name where("No." = field("Resource No.")));
+            CalcFormula = Lookup(Resource.Name where("No." = field("Resource No.")));
             Editable = false;
         }
         field(7; "Owner User ID"; Code[50])
@@ -80,7 +79,7 @@ table 950 "Time Sheet Header"
         }
         field(11; "Unit of Measure"; Code[10])
         {
-            CalcFormula = lookup(Resource."Base Unit of Measure" where("No." = field("Resource No.")));
+            CalcFormula = Lookup(Resource."Base Unit of Measure" where("No." = field("Resource No.")));
             Caption = 'Unit of Measure';
             FieldClass = FlowField;
             Editable = false;
@@ -124,13 +123,6 @@ table 950 "Time Sheet Header"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(18; "Lines Exist"; Boolean)
-        {
-            CalcFormula = exist("Time Sheet Line" where("Time Sheet No." = field("No.")));
-            Caption = 'Lines Exist';
-            Editable = false;
-            FieldClass = FlowField;
-        }
         field(20; Quantity; Decimal)
         {
             CalcFormula = sum("Time Sheet Detail".Quantity where("Time Sheet No." = field("No."),
@@ -164,12 +156,12 @@ table 950 "Time Sheet Header"
         }
         field(31; "Job No. Filter"; Code[20])
         {
-            Caption = 'Project No. Filter';
+            Caption = 'Job No. Filter';
             FieldClass = FlowFilter;
         }
         field(32; "Job Task No. Filter"; Code[20])
         {
-            Caption = 'Project Task No. Filter';
+            Caption = 'Job Task No. Filter';
             FieldClass = FlowFilter;
         }
         field(33; "Date Filter"; Date)

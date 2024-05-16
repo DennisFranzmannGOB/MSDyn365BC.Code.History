@@ -16,7 +16,6 @@ using System.Text;
 table 1226 "Payment Export Data"
 {
     Caption = 'Payment Export Data';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -107,7 +106,6 @@ table 1226 "Payment Export Data"
         field(40; "Recipient Name"; Text[100])
         {
             Caption = 'Recipient Name';
-            DataClassification = EndUserIdentifiableInformation;
         }
         field(41; "Recipient Address"; Text[100])
         {
@@ -128,7 +126,6 @@ table 1226 "Payment Export Data"
         field(45; "Recipient Email Address"; Text[80])
         {
             Caption = 'Recipient Email Address';
-            DataClassification = EndUserIdentifiableInformation;
         }
         field(46; "Recipient ID"; Code[20])
         {
@@ -264,11 +261,6 @@ table 1226 "Payment Export Data"
         {
             CaptionClass = '5,9,' + "Sender Bank Country/Region";
             Caption = 'Sender Bank County';
-        }
-        field(94; "Sender Reg. No."; Text[50])
-        {
-            Caption = 'Sender Registration No.';
-            DataClassification = CustomerContent;
         }
         field(100; "Payment Information ID"; Text[50])
         {

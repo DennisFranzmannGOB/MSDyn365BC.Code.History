@@ -16,8 +16,10 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         LibraryRandom: Codeunit "Library - Random";
         LibraryUtility: Codeunit "Library - Utility";
         LibrarySetupStorage: Codeunit "Library - Setup Storage";
+        LibraryERMCountryData: Codeunit "Library - ERM Country Data";
         LibraryWarehouse: Codeunit "Library - Warehouse";
         LibraryPurchase: Codeunit "Library - Purchase";
+        LibraryManufacturing: Codeunit "Library - Manufacturing";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         IsInitialized: Boolean;
         Step: Integer;
@@ -45,7 +47,7 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         CreateLocationWMSWithWhseEmployee(Location, false, false, false, true, false);
 
         // [GIVEN] Purchase Order created with Posting Date = WORKDATE
-        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, Location.Code, '');
+        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, PurchaseHeader."Document Type"::Order, Location.Code, '');
 
         // [WHEN] Warehouse Receipt created
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
@@ -54,17 +56,17 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhsePostReceiptYesNo.Preview(WarehouseReceiptLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the put away is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 1);
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -98,7 +100,7 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         Location.Modify(true);
 
         // [GIVEN] Purchase Order created
-        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, Location.Code, Bin.Code);
+        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, PurchaseHeader."Document Type"::Order, Location.Code, Bin.Code);
 
         // [WHEN] Warehouse Receipt created
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
@@ -107,12 +109,12 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhsePostReceiptYesNo.Preview(WarehouseReceiptLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the put away is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
@@ -121,7 +123,7 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, WarehouseEntry.TableCaption(), 1);
 
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -131,6 +133,7 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         TransferHeader: Record "Transfer Header";
         TransferLine: Record "Transfer Line";
         WarehouseReceiptLine: Record "Warehouse Receipt Line";
+        Item: Record Item;
         FromLocation: Record Location;
         ToLocation: Record Location;
         ItemLedgerEntry: Record "Item Ledger Entry";
@@ -158,17 +161,17 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhsePostReceiptYesNo.Preview(WarehouseReceiptLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the Receipt is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 2);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 2);
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -312,7 +315,7 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         CreateLocationWMSWithWhseEmployee(Location, false, true, true, true, true);
 
         // [GIVEN] Purchase Order created with Posting Date = WORKDATE
-        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, Location.Code, '');
+        CreatePurchaseDocumentWithLineLocation(PurchaseHeader, PurchaseHeader."Document Type"::Order, Location.Code, '');
 
         // [WHEN] Warehouse Receipt created
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
@@ -321,17 +324,17 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhsePostReceiptYesNo.Preview(WarehouseReceiptLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the put away is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 1);
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -381,7 +384,7 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         Commit();
 
         // [WHEN] Run posting preview for the warehouse receipt.
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror WhsePostReceiptYesNo.Preview(WarehouseReceiptLine);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
@@ -428,20 +431,20 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
         LibraryWarehouse.CreateWarehouseEmployee(WarehouseEmployee, Location.Code, true);
     end;
 
-    local procedure CreatePurchaseDocumentWithItem(var PurchaseHeader: Record "Purchase Header"; var PurchaseLine: Record "Purchase Line"; ItemNo: Code[20])
+    local procedure CreatePurchaseDocumentWithItem(var PurchaseHeader: Record "Purchase Header"; var PurchaseLine: Record "Purchase Line"; DocumentType: Enum "Purchase Document Type"; ItemNo: Code[20])
     begin
         LibraryPurchase.CreatePurchaseOrder(PurchaseHeader);
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, ItemNo, LibraryRandom.RandInt(10));
     end;
 
-    local procedure CreatePurchaseDocumentWithLineLocation(var PurchaseHeader: Record "Purchase Header"; LocationCode: Code[10]; BinCode: Code[10])
+    local procedure CreatePurchaseDocumentWithLineLocation(var PurchaseHeader: Record "Purchase Header"; DocumentType: Enum "Purchase Document Type"; LocationCode: Code[10]; BinCode: Code[10])
     var
         PurchaseLine: Record "Purchase Line";
         Item: Record Item;
     begin
         LibraryInventory.CreateItem(Item);
 
-        CreatePurchaseDocumentWithItem(PurchaseHeader, PurchaseLine, Item."No.");
+        CreatePurchaseDocumentWithItem(PurchaseHeader, PurchaseLine, DocumentType, Item."No.");
         PurchaseHeader.Validate("Location Code", LocationCode);
         PurchaseHeader.Modify(true);
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
@@ -479,7 +482,7 @@ codeunit 134783 "Test Whse. Rcpt. Post Prev."
     local procedure VerifyGLPostingPreviewLine(GLPostingPreview: TestPage "G/L Posting Preview"; TableName: Text; ExpectedEntryCount: Integer)
     begin
         Assert.AreEqual(TableName, GLPostingPreview."Table Name".Value, StrSubstNo('A record for Table Name %1 was not found.', TableName));
-        Assert.AreEqual(ExpectedEntryCount, GLPostingPreview."No. of Records".AsInteger(),
+        Assert.AreEqual(ExpectedEntryCount, GLPostingPreview."No. of Records".AsInteger,
           StrSubstNo('Table Name %1 Unexpected number of records.', TableName));
     end;
 

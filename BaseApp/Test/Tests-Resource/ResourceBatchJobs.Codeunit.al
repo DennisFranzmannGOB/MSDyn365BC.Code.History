@@ -18,7 +18,10 @@ codeunit 136402 "Resource Batch Jobs"
         IsInitialized: Boolean;
         StartDate: Date;
         EndDate: Date;
+        EndingDateError: Label 'Ending Date must be specified.';
         ResourceRegisterError: Label 'Resource Register must be deleted for %1 %2 .';
+        UnknownError: Label 'Unknown Error';
+        DateCompressionEndingDateErr: Label 'The end date %1 is not valid. You must keep at least %2 years uncompressed.', Comment = '%1 is a date in short date format, %2 is an integer';
         EndingDateMissingErr: Label 'You must specify an ending date.';
 
     local procedure Initialize()
@@ -43,7 +46,7 @@ codeunit 136402 "Resource Batch Jobs"
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"Resource Batch Jobs");
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     [Test]
     [Scope('OnPrem')]
     procedure SuggestPriceChangeResource()
@@ -204,7 +207,7 @@ codeunit 136402 "Resource Batch Jobs"
         DateCompressResourceJournal(Resource."No.");
 
         // 2. Exercise: Run Delete Empty Resource Registers Batch job.
-        RunDeleteEmptyResourceRegisters();
+        RunDeleteEmptyResourceRegisters;
 
         // 3. Verify: Resource Register must be deleted after run Delete Empty Resource Ledger report.
         Assert.IsFalse(
@@ -252,7 +255,7 @@ codeunit 136402 "Resource Batch Jobs"
             Resource2.TestField("Unit Price", Round(Resource."Unit Price" * UnitPriceFactor, Precision));
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure CreateResourcePrice(ResourceNo: Code[20]): Decimal
     var
         ResourcePrice: Record "Resource Price";
@@ -319,7 +322,7 @@ codeunit 136402 "Resource Batch Jobs"
         DeleteEmptyResRegisters.Run();
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure RunSuggestResPriceChgPrice("Code": Code[20]; UnitPriceFactor: Decimal)
     var
         ResourcePrice: Record "Resource Price";
@@ -346,7 +349,7 @@ codeunit 136402 "Resource Batch Jobs"
         ResLedgerEntry.FindFirst();
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure VerifyResourcePrice("Code": Code[20]; UnitPrice: Decimal)
     var
         ResourcePrice: Record "Resource Price";
@@ -381,8 +384,8 @@ codeunit 136402 "Resource Batch Jobs"
     begin
         DateCompressResourceLedger.StartingDate.SetValue(StartDate);
         DateCompressResourceLedger.EndingDate.SetValue(EndDate);
-        DateCompressResourceLedger.RetainDimensions.AssistEdit();
-        DateCompressResourceLedger.OK().Invoke();
+        DateCompressResourceLedger.RetainDimensions.AssistEdit;
+        DateCompressResourceLedger.OK.Invoke;
     end;
 
     [ConfirmHandler]
@@ -403,11 +406,11 @@ codeunit 136402 "Resource Batch Jobs"
     procedure DimensionSelectionHandler(var DimensionSelectionMultiple: TestPage "Dimension Selection-Multiple")
     begin
         // Set Dimension Selection Multiple for all the rows.
-        DimensionSelectionMultiple.First();
+        DimensionSelectionMultiple.First;
         repeat
             DimensionSelectionMultiple.Selected.SetValue(true);
         until not DimensionSelectionMultiple.Next();
-        DimensionSelectionMultiple.OK().Invoke();
+        DimensionSelectionMultiple.OK.Invoke;
     end;
 }
 

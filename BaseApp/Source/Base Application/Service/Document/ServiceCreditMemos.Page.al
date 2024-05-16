@@ -1,7 +1,6 @@
 namespace Microsoft.Service.Document;
 
 using Microsoft.Finance.Dimension;
-using Microsoft.Foundation.Attachment;
 using Microsoft.Sales.Customer;
 using Microsoft.Service.Comment;
 using Microsoft.Service.Posting;
@@ -115,14 +114,6 @@ page 9320 "Service Credit Memos"
         }
         area(factboxes)
         {
-            part("Attached Documents"; "Document Attachment Factbox")
-            {
-                ApplicationArea = Service;
-                Caption = 'Attachments';
-                SubPageLink = "Table ID" = const(Database::"Service Header"),
-                              "No." = field("No."),
-                              "Document Type" = field("Document Type");
-            }
             part(Control1902018507; "Customer Statistics FactBox")
             {
                 ApplicationArea = Service;
@@ -251,11 +242,8 @@ page 9320 "Service Credit Memos"
 
                     trigger OnAction()
                     var
-                        SelectedServiceHeader: Record "Service Header";
                         ServPostYesNo: Codeunit "Service-Post (Yes/No)";
                     begin
-                        CurrPage.SetSelectionFilter(SelectedServiceHeader);
-                        ServPostYesNo.MessageIfPostingPreviewMultipleDocuments(SelectedServiceHeader, Rec."No.");
                         ServPostYesNo.PreviewDocument(Rec);
                     end;
                 }

@@ -154,7 +154,7 @@ page 5853 "Get Pst.Doc-RtrnRcptLn Subform"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = SalesReturnOrder;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Blanket Order No."; Rec."Blanket Order No.")

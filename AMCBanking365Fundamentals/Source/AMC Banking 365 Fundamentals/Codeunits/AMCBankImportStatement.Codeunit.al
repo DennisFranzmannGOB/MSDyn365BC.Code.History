@@ -12,6 +12,7 @@ codeunit 20125 "AMC Bank Import Statement"
     TableNo = "Data Exch.";
 
     trigger OnRun()
+    var
     begin
 
     end;

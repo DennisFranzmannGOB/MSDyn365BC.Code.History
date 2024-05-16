@@ -11,7 +11,6 @@ using Microsoft.Foundation.Enums;
 table 334 "Column Layout"
 {
     Caption = 'Column Layout';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -1,7 +1,7 @@
 ﻿#if not CLEAN22
 namespace System.Security.AccessControl;
 
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 773 "Users in User Groups Chart"
@@ -24,22 +24,22 @@ page 773 "Users in User Groups Chart"
                 ShowCaption = false;
                 ToolTip = 'Specifies the status of the chart.';
             }
-            usercontrol(BusinessChart; BusinessChart)
+            usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = Basic, Suite;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 var
                     UserGroupMember: Record "User Group Member";
                 begin
-                    UserGroupMember.SetRange("User Group Code", GetUserGroupCode(Point));
+                    UserGroupMember.SetRange("User Group Code", point.XValueString);
                     if not UserGroupMember.FindFirst() then
                         exit;
                     PAGE.RunModal(PAGE::"User Group Members", UserGroupMember);
                     CurrPage.Update(); // refresh the charts with the eventual changes
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -73,22 +73,11 @@ page 773 "Users in User Groups Chart"
         IsChartDataReady: Boolean;
         UsersTxt: Label 'Users';
         UserGroupTxt: Label 'User Group';
-        XValueStringLbl: Label 'XValueString';
-
-    local procedure GetUserGroupCode(Point: JsonObject): Text[249]
-    var
-        Token: JsonToken;
-        XValueString: Text[249];
-    begin
-        Point.Get(XValueStringLbl, Token);
-        XValueString := CopyStr(Token.AsValue().AsText(), 1, 249);
-        exit(XValueString);
-    end;
 
     local procedure UpdateChart()
     begin
         UpdateData();
-        Rec.UpdateChart(CurrPage.BusinessChart);
+        Rec.Update(CurrPage.BusinessChart);
     end;
 
     local procedure UpdateData()

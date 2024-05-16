@@ -17,6 +17,7 @@ codeunit 139131 "Test Change Log Extensions"
         RecRef: RecordRef;
         ChangeLogMgtSubscriber2: codeunit "Change Log Mgt. Subscriber2";
         ChangeLogManagement: codeunit "Change Log Management";
+        Assert: codeunit Assert;
     begin
         //[WHEN][There are no change log entries and no subscriber]
         ChangeLogEntry.DeleteAll();
@@ -42,6 +43,7 @@ codeunit 139131 "Test Change Log Extensions"
         ChangeLogMgtSubscriber: codeunit "Change Log Mgt. Subscriber";
         ChangeLogMgtSubscriber2: codeunit "Change Log Mgt. Subscriber2";
         ChangeLogManagement: codeunit "Change Log Management";
+        Assert: codeunit Assert;
     begin
         //[WHEN][There are no change log entries and no subscriber]
         ChangeLogEntry.DeleteAll();

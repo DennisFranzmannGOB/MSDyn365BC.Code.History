@@ -191,34 +191,34 @@ report 96 "Copy G/L Budget"
 
         case FromSource of
             FromSource::"G/L Entry":
-                begin
-                    FromGLEntry.SetCurrentKey("G/L Account No.", "Posting Date");
+                with FromGLEntry do begin
+                    SetCurrentKey("G/L Account No.", "Posting Date");
                     if FromGLAccountNo <> '' then
-                        FromGLEntry.SetFilter("G/L Account No.", FromGLAccountNo);
-                    FromGLEntry.SetFilter("Posting Date", FromDate);
-                    if FromGLEntry.Find('-') then
+                        SetFilter("G/L Account No.", FromGLAccountNo);
+                    SetFilter("Posting Date", FromDate);
+                    if Find('-') then
                         repeat
                             ProcessRecord(
-                              FromGLEntry."G/L Account No.", FromGLEntry."Business Unit Code", FromGLEntry."Posting Date", FromGLEntry.Description,
-                              FromGLEntry."Dimension Set ID", FromGLEntry.Amount);
-                        until FromGLEntry.Next() = 0;
+                              "G/L Account No.", "Business Unit Code", "Posting Date", Description,
+                              "Dimension Set ID", Amount);
+                        until Next() = 0;
                 end;
             FromSource::"G/L Budget Entry":
-                begin
-                    FromGLBudgetEntry.SetRange("Budget Name", FromGLBudgetName);
+                with FromGLBudgetEntry do begin
+                    SetRange("Budget Name", FromGLBudgetName);
                     if FromGLAccountNo <> '' then
-                        FromGLBudgetEntry.SetFilter("G/L Account No.", FromGLAccountNo);
+                        SetFilter("G/L Account No.", FromGLAccountNo);
                     if FromDate <> '' then
-                        FromGLBudgetEntry.SetFilter(Date, FromDate);
-                    if FromGLBudgetEntry.FindLast() then
-                        FromGLBudgetEntry.SetFilter("Entry No.", '<=%1', FromGLBudgetEntry."Entry No.");
-                    FromGLBudgetEntry.SetCurrentKey("Budget Name", "G/L Account No.", Description, Date);
-                    if FromGLBudgetEntry.FindSet() then
+                        SetFilter(Date, FromDate);
+                    if FindLast() then
+                        SetFilter("Entry No.", '<=%1', "Entry No.");
+                    SetCurrentKey("Budget Name", "G/L Account No.", Description, Date);
+                    if FindSet() then
                         repeat
                             ProcessRecord(
-                              FromGLBudgetEntry."G/L Account No.", FromGLBudgetEntry."Business Unit Code", FromGLBudgetEntry.Date, FromGLBudgetEntry.Description,
-                              FromGLBudgetEntry."Dimension Set ID", FromGLBudgetEntry.Amount);
-                        until FromGLBudgetEntry.Next() = 0;
+                              "G/L Account No.", "Business Unit Code", Date, Description,
+                              "Dimension Set ID", Amount);
+                        until Next() = 0;
                 end;
         end;
         InsertGLBudgetEntry();
@@ -543,11 +543,13 @@ report 96 "Copy G/L Budget"
     var
         TempDimBuf2: Record "Dimension Buffer" temporary;
     begin
-        TempDimBuf2.DeleteAll(); // Necessary because of C/SIDE error
-        TempDimBuf2.Init();
-        TempDimBuf2.Insert();
-        TempDimBuf2.SetFilter("Dimension Code", TheFilter);
-        exit(TempDimBuf2.FindFirst());
+        with TempDimBuf2 do begin
+            DeleteAll(); // Necessary because of C/SIDE error
+            Init();
+            Insert();
+            SetFilter("Dimension Code", TheFilter);
+            exit(FindFirst());
+        end;
     end;
 
     local procedure IncludeFromEntry(var DimSetID: Integer): Boolean

@@ -9,7 +9,6 @@ using System.Utilities;
 table 5769 "Warehouse Setup"
 {
     Caption = 'Warehouse Setup';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -132,19 +131,6 @@ table 5769 "Warehouse Setup"
         {
             Caption = 'Last Whse. Posting Ref. Seq.';
             Editable = false;
-        }
-        field(51; "Copy Item Descr. to Entries"; Boolean)
-        {
-            Caption = 'Copy Item Descr. to Entries';
-            DataClassification = SystemMetadata;
-
-            trigger OnValidate()
-            var
-                UpdateNameInLedgerEntries: Codeunit Microsoft.Upgrade."Update Name In Ledger Entries";
-            begin
-                if Rec."Copy Item Descr. to Entries" then
-                    UpdateNameInLedgerEntries.NotifyAboutBlankNamesInLedgerEntries(RecordId);
-            end;
         }
         field(7301; "Posted Whse. Receipt Nos."; Code[20])
         {

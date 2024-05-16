@@ -3,6 +3,7 @@
 using Microsoft.CRM.BusinessRelation;
 using Microsoft.Foundation.Reporting;
 using Microsoft.Sales.Customer;
+using System.Environment.Configuration;
 using System.Reflection;
 
 page 9657 "Customer Report Selections"
@@ -71,7 +72,8 @@ page 9657 "Customer Report Selections"
                     DrillDown = true;
                     Lookup = true;
                     ToolTip = 'Specifies a description of the custom report layout.';
-                    Visible = false;
+                    Visible = not PlatformSelectionEnabled;
+
                     trigger OnDrillDown()
                     begin
                         Rec.LookupCustomReportDescription();
@@ -263,14 +265,27 @@ page 9657 "Customer Report Selections"
         MapTableUsageValueToPageValue();
     end;
 
+    trigger OnOpenPage()
+    begin
+        PlatformSelectionEnabled := FeatureManagement.IsEnabled(PlatformSelectionEnabledLbl);
+    end;
+
     var
+        FeatureManagement: Codeunit "Feature Management Facade";
         ReportSelectionsImpl: Codeunit "Report Selections Impl";
+        PlatformSelectionEnabledLbl: Label 'EnablePlatformBasedReportSelection', Locked = true;
         CouldNotFindCustomReportLayoutErr: Label 'There is no custom report layout with %1 in the description.', Comment = '%1 Description of custom report layout';
+        PlatformSelectionEnabled: Boolean;
 
     protected var
         Usage2: Enum "Custom Report Selection Sales";
 
     local procedure MapTableUsageValueToPageValue()
+#if not CLEAN21
+    var
+        CustomReportSelection: Record "Custom Report Selection";
+        UsageOpt: Option;
+#endif
     begin
         case Rec.Usage of
             "Report Selection Usage"::"S.Quote":
@@ -291,6 +306,13 @@ page 9657 "Customer Report Selections"
                 Usage2 := "Custom Report Selection Sales"::Shipment;
             "Report Selection Usage"::"Pro Forma S. Invoice":
                 Usage2 := "Custom Report Selection Sales"::"Pro Forma Invoice";
+#if not CLEAN21
+            else begin
+                UsageOpt := Usage2.AsInteger();
+                OnMapTableUsageValueToPageValueOnCaseElse(CustomReportSelection, UsageOpt, Rec);
+                Usage2 := "Custom Report Selection Sales".FromInteger(UsageOpt);
+            end;
+#endif
         end;
 
         OnAfterOnMapTableUsageValueToPageValue(Rec, Usage2);
@@ -317,6 +339,14 @@ page 9657 "Customer Report Selections"
     local procedure OnAfterOnMapTableUsageValueToPageValue(CustomReportSelection: Record "Custom Report Selection"; var Usage2: Enum "Custom Report Selection Sales")
     begin
     end;
+
+#if not CLEAN21
+    [Obsolete('Replaced by event OnAfterOnMapTableUsageValueToPageValue() with enum parameter', '21.0')]
+    [IntegrationEvent(false, false)]
+    local procedure OnMapTableUsageValueToPageValueOnCaseElse(CustomReportSelection: Record "Custom Report Selection"; var ReportUsage: Option; Rec: Record "Custom Report Selection")
+    begin
+    end;
+#endif
 
     [IntegrationEvent(false, false)]
     local procedure OnValidateUsage2OnCaseElse(var CustomReportSelection: Record "Custom Report Selection"; ReportUsage: Option)

@@ -990,8 +990,8 @@ report 405 "Order"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 FormatAddressFields("Purchase Header");
@@ -1135,6 +1135,7 @@ report 405 "Order"
     var
         Text004: Label 'Order %1', Comment = '%1 = Document No.';
         GLSetup: Record "General Ledger Setup";
+        CompanyInfo: Record "Company Information";
         ShipmentMethod: Record "Shipment Method";
         PaymentTerms: Record "Payment Terms";
         PrepmtPaymentTerms: Record "Payment Terms";
@@ -1152,7 +1153,7 @@ report 405 "Order"
         PurchSetup: Record "Purchases & Payables Setup";
         BuyFromContact: Record Contact;
         PayToContact: Record Contact;
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         PurchPost: Codeunit "Purch.-Post";
@@ -1244,7 +1245,6 @@ report 405 "Order"
         TotalPrepmtLineAmount: Decimal;
 
     protected var
-        CompanyInfo: Record "Company Information";
 #if not CLEAN24
         [Obsolete('The code has been moved to the Iceland Core App.', '24.0')]
         ISCoreAppSetup: Record "IS Core App Setup";
@@ -1294,22 +1294,24 @@ report 405 "Order"
 
     local procedure FormatDocumentFields(PurchaseHeader: Record "Purchase Header")
     begin
-        FormatDocument.SetTotalLabels(PurchaseHeader."Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
-        FormatDocument.SetPurchaser(SalesPurchPerson, PurchaseHeader."Purchaser Code", PurchaserText);
-        FormatDocument.SetPaymentTerms(PaymentTerms, PurchaseHeader."Payment Terms Code", PurchaseHeader."Language Code");
-        FormatDocument.SetPaymentTerms(PrepmtPaymentTerms, PurchaseHeader."Prepmt. Payment Terms Code", PurchaseHeader."Language Code");
-        FormatDocument.SetShipmentMethod(ShipmentMethod, PurchaseHeader."Shipment Method Code", PurchaseHeader."Language Code");
+        with PurchaseHeader do begin
+            FormatDocument.SetTotalLabels("Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
+            FormatDocument.SetPurchaser(SalesPurchPerson, "Purchaser Code", PurchaserText);
+            FormatDocument.SetPaymentTerms(PaymentTerms, "Payment Terms Code", "Language Code");
+            FormatDocument.SetPaymentTerms(PrepmtPaymentTerms, "Prepmt. Payment Terms Code", "Language Code");
+            FormatDocument.SetShipmentMethod(ShipmentMethod, "Shipment Method Code", "Language Code");
 
-        ReferenceText := FormatDocument.SetText(PurchaseHeader."Your Reference" <> '', PurchaseHeader.FieldCaption("Your Reference"));
-        VATNoText := FormatDocument.SetText(PurchaseHeader."VAT Registration No." <> '', PurchaseHeader.FieldCaption("VAT Registration No."));
+            ReferenceText := FormatDocument.SetText("Your Reference" <> '', FieldCaption("Your Reference"));
+            VATNoText := FormatDocument.SetText("VAT Registration No." <> '', FieldCaption("VAT Registration No."));
+        end;
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterInitReport()
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterPostDataItem(var PurchaseHeader: Record "Purchase Header")
     begin
     end;

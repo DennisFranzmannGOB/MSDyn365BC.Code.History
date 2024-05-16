@@ -13,7 +13,6 @@ table 7322 "Posted Whse. Shipment Header"
     Caption = 'Posted Whse. Shipment Header';
     LookupPageID = "Posted Whse. Shipment List";
     Permissions = TableData "Posted Whse. Shipment Line" = rd;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -49,7 +48,7 @@ table 7322 "Posted Whse. Shipment Header"
         }
         field(11; Comment; Boolean)
         {
-            CalcFormula = exist("Warehouse Comment Line" where("Table Name" = const("Posted Whse. Shipment"),
+            CalcFormula = Exist("Warehouse Comment Line" where("Table Name" = const("Posted Whse. Shipment"),
                                                                 Type = const(" "),
                                                                 "No." = field("No.")));
             Caption = 'Comment';
@@ -143,10 +142,6 @@ table 7322 "Posted Whse. Shipment Header"
 
     trigger OnInsert()
     var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesMgt: Codeunit NoSeriesManagement;
-#endif
         IsHandled: Boolean;
     begin
         WhseSetup.Get();
@@ -155,23 +150,14 @@ table 7322 "Posted Whse. Shipment Header"
             OnInsertOnBeforeTestWhseShipmentNos(WhseSetup, IsHandled);
             if not IsHandled then
                 WhseSetup.TestField("Posted Whse. Shipment Nos.");
-#if not CLEAN24
-            NoSeriesMgt.RaiseObsoleteOnBeforeInitSeries(WhseSetup."Posted Whse. Shipment Nos.", xRec."No. Series", "Posting Date", "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-#endif
-                "No. Series" := WhseSetup."Posted Whse. Shipment Nos.";
-                if NoSeries.AreRelated("No. Series", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series";
-                "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
-#if not CLEAN24
-                NoSeriesMgt.RaiseObsoleteOnAfterInitSeries("No. Series", WhseSetup."Posted Whse. Shipment Nos.", "Posting Date", "No.");
-            end;
-#endif
+            NoSeriesMgt.InitSeries(
+              WhseSetup."Posted Whse. Shipment Nos.", xRec."No. Series", "Posting Date", "No.", "No. Series");
         end;
     end;
 
     var
         WhseSetup: Record "Warehouse Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
 
     procedure LookupPostedWhseShptHeader(var PostedWhseShptHeader: Record "Posted Whse. Shipment Header")
     begin

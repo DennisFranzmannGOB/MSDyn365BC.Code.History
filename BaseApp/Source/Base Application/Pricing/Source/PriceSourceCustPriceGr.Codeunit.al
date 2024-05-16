@@ -15,20 +15,22 @@ codeunit 7033 "Price Source - Cust. Price Gr." implements "Price Source"
 
     procedure GetNo(var PriceSource: Record "Price Source")
     begin
-        if CustomerPriceGroup.GetBySystemId(PriceSource."Source ID") then begin
-            PriceSource."Source No." := CustomerPriceGroup.Code;
-            FillAdditionalFields(PriceSource);
-        end else
-            PriceSource.InitSource();
+        with PriceSource do
+            if CustomerPriceGroup.GetBySystemId("Source ID") then begin
+                "Source No." := CustomerPriceGroup.Code;
+                FillAdditionalFields(PriceSource);
+            end else
+                InitSource();
     end;
 
     procedure GetId(var PriceSource: Record "Price Source")
     begin
-        if CustomerPriceGroup.Get(PriceSource."Source No.") then begin
-            PriceSource."Source ID" := CustomerPriceGroup.SystemId;
-            FillAdditionalFields(PriceSource);
-        end else
-            PriceSource.InitSource();
+        with PriceSource do
+            if CustomerPriceGroup.Get("Source No.") then begin
+                "Source ID" := CustomerPriceGroup.SystemId;
+                FillAdditionalFields(PriceSource);
+            end else
+                InitSource();
     end;
 
     procedure IsForAmountType(AmountType: Enum "Price Amount Type"): Boolean

@@ -6,7 +6,6 @@ table 5090 "Sales Cycle"
 {
     Caption = 'Sales Cycle';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Sales Cycles";
 
     fields
@@ -32,7 +31,7 @@ table 5090 "Sales Cycle"
         }
         field(5; "No. of Opportunities"; Integer)
         {
-            CalcFormula = count("Opportunity Entry" where(Active = const(true),
+            CalcFormula = Count("Opportunity Entry" where(Active = const(true),
                                                            "Sales Cycle Code" = field(Code),
                                                            "Action Taken" = filter(<> Won & <> Lost),
                                                            "Estimated Close Date" = field("Date Filter")));
@@ -43,7 +42,7 @@ table 5090 "Sales Cycle"
         field(6; "Estimated Value (LCY)"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = sum("Opportunity Entry"."Estimated Value (LCY)" where(Active = const(true),
+            CalcFormula = Sum("Opportunity Entry"."Estimated Value (LCY)" where(Active = const(true),
                                                                                  "Sales Cycle Code" = field(Code),
                                                                                  "Action Taken" = filter(<> Won & <> Lost),
                                                                                  "Estimated Close Date" = field("Date Filter")));
@@ -54,7 +53,7 @@ table 5090 "Sales Cycle"
         field(7; "Calcd. Current Value (LCY)"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = sum("Opportunity Entry"."Calcd. Current Value (LCY)" where(Active = const(true),
+            CalcFormula = Sum("Opportunity Entry"."Calcd. Current Value (LCY)" where(Active = const(true),
                                                                                       "Sales Cycle Code" = field(Code),
                                                                                       "Action Taken" = filter(<> Won & <> Lost),
                                                                                       "Estimated Close Date" = field("Date Filter")));
@@ -64,7 +63,7 @@ table 5090 "Sales Cycle"
         }
         field(8; Comment; Boolean)
         {
-            CalcFormula = exist("Rlshp. Mgt. Comment Line" where("Table Name" = const("Sales Cycle"),
+            CalcFormula = Exist("Rlshp. Mgt. Comment Line" where("Table Name" = const("Sales Cycle"),
                                                                   "No." = field(Code),
                                                                   "Sub No." = const(0)));
             Caption = 'Comment';

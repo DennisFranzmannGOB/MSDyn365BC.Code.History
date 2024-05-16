@@ -10,7 +10,6 @@ table 9 "Country/Region"
 {
     Caption = 'Country/Region';
     LookupPageID = "Countries/Regions";
-    DataClassification = CustomerContent;
 
     fields
     {

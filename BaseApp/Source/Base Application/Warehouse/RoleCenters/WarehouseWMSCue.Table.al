@@ -15,7 +15,6 @@ using System.Text;
 table 9051 "Warehouse WMS Cue"
 {
     Caption = 'Warehouse WMS Cue';
-    DataClassification = CustomerContent;
 
     fields
     {

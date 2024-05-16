@@ -6,7 +6,6 @@ using Microsoft.Manufacturing.Setup;
 table 5413 "Prod. Order Rtng Qlty Meas."
 {
     Caption = 'Prod. Order Rtng Qlty Meas.';
-    DataClassification = CustomerContent;
 
     fields
     {

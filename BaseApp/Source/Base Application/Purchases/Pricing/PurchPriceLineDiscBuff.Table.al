@@ -6,15 +6,14 @@ using Microsoft.Inventory.Item;
 table 1315 "Purch. Price Line Disc. Buff."
 {
     Caption = 'Purch. Price Line Disc. Buff.';
-#if not CLEAN23
+#if not CLEAN21
     ObsoleteState = Pending;
     ObsoleteTag = '16.0';
 #else
     ObsoleteState = Removed;
-    ObsoleteTag = '26.0';
+    ObsoleteTag = '24.0';
 #endif    
     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation: table Price Worksheet Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -101,7 +100,7 @@ table 1315 "Purch. Price Line Disc. Buff."
     {
     }
 
-#if not CLEAN23
+#if not CLEAN21
     procedure LoadDataForItem(Item: Record Item)
     var
         PurchasePrice: Record "Purchase Price";

@@ -28,10 +28,8 @@ page 1180 "Data Privacy Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and not (CurrentPage = 5);
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND NOT (CurrentPage = 5);
                 field("MediaResourcesStandard.""Media Reference"""; MediaResourcesStandard."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -42,10 +40,8 @@ page 1180 "Data Privacy Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and (CurrentPage = 5);
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND (CurrentPage = 5);
                 field("MediaResourcesDone.""Media Reference"""; MediaResourcesDone."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -325,13 +321,13 @@ page 1180 "Data Privacy Wizard"
                 {
                     Caption = '';
                     InstructionalText = 'Choose to generate and preview the data that will be exported. Note that this can take a while, depending on the size of the dataset.';
-                    Visible = (CurrentPage = 3) and (ActionType < 1);
+                    Visible = (CurrentPage = 3) AND (ActionType < 1);
                 }
                 group("Para3.2")
                 {
                     Caption = '';
                     InstructionalText = 'Choose Next to export the data.';
-                    Visible = (CurrentPage = 3) and (ActionType = 0);
+                    Visible = (CurrentPage = 3) AND (ActionType = 0);
                 }
                 group("Para3.4")
                 {
@@ -357,7 +353,7 @@ page 1180 "Data Privacy Wizard"
                 {
                     Caption = '';
                     InstructionalText = 'Choose Next to export the data.';
-                    Visible = (CurrentPage = 4) and (ActionType = 0);
+                    Visible = (CurrentPage = 4) AND (ActionType = 0);
                 }
             }
             group(SuccessPage)
@@ -373,19 +369,19 @@ page 1180 "Data Privacy Wizard"
                     {
                         Caption = '';
                         InstructionalText = 'The data is being exported. The Excel workbook will show up in the Report Inbox on your home page.';
-                        Visible = (CurrentPage = 5) and (ActionType = 0);
+                        Visible = (CurrentPage = 5) AND (ActionType = 0);
                         group("Para5.1.1.1")
                         {
                             Caption = '';
                             InstructionalText = 'We recommend that you verify the data that is exported to Excel. Please also verify the filters in the configuration package to make sure that you are getting the data that you want.';
-                            Visible = (CurrentPage = 5) and (ActionType = 0);
+                            Visible = (CurrentPage = 5) AND (ActionType = 0);
                         }
                     }
                     group("Para5.1.3")
                     {
                         Caption = '';
                         InstructionalText = 'Your configuration package has been successfully created.';
-                        Visible = (CurrentPage = 5) and (ActionType = 1);
+                        Visible = (CurrentPage = 5) AND (ActionType = 1);
                         field(EditConfigPackage; EditConfigPackage)
                         {
                             ApplicationArea = Basic, Suite;
@@ -395,7 +391,7 @@ page 1180 "Data Privacy Wizard"
                         {
                             Caption = '';
                             InstructionalText = 'Please verify the filters in the configuration package to make sure that you will get the data that you want.';
-                            Visible = (CurrentPage = 5) and (ActionType = 1);
+                            Visible = (CurrentPage = 5) AND (ActionType = 1);
                         }
                     }
                 }
@@ -413,13 +409,13 @@ page 1180 "Data Privacy Wizard"
                     {
                         Caption = '';
                         InstructionalText = 'No data was found that could be generated, so no export file was created.';
-                        Visible = (CurrentPage = 6) and (ActionType = 0);
+                        Visible = (CurrentPage = 6) AND (ActionType = 0);
                     }
                     group("Para6.1.2")
                     {
                         Caption = '';
                         InstructionalText = 'No data was found that could be generated, so no configuration package was created.';
-                        Visible = (CurrentPage = 6) and (ActionType = 1);
+                        Visible = (CurrentPage = 6) AND (ActionType = 1);
                     }
                 }
             }
@@ -450,9 +446,10 @@ page 1180 "Data Privacy Wizard"
             {
                 ApplicationArea = Basic, Suite;
                 Caption = '&Back';
-                Enabled = (CurrentPage > 1) and (CurrentPage < 5);
+                Enabled = (CurrentPage > 1) AND (CurrentPage < 5);
                 Image = PreviousRecord;
                 InFooterBar = true;
+                Promoted = true;
 
                 trigger OnAction()
                 var
@@ -483,6 +480,7 @@ page 1180 "Data Privacy Wizard"
                 Enabled = NextActionEnabled;
                 Image = NextRecord;
                 InFooterBar = true;
+                Promoted = true;
 
                 trigger OnAction()
                 var
@@ -569,6 +567,7 @@ page 1180 "Data Privacy Wizard"
                 Enabled = CurrentPage >= 5;
                 Image = Approve;
                 InFooterBar = true;
+                Promoted = true;
 
                 trigger OnAction()
                 var

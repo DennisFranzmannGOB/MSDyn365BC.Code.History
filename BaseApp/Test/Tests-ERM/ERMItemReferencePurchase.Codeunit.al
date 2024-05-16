@@ -20,6 +20,8 @@ codeunit 134464 "ERM Item Reference Purchase"
         ItemReferenceMgt: Codeunit "Item Reference Management";
         ItemRefNotExistsErr: Label 'There are no items with reference %1.';
         DialogCodeErr: Label 'Dialog';
+        ConfirmCopyTxt: Label 'There are %1 filtered records in Item Cross Reference table. Do you want to copy them?', Comment = '%1 - a number';
+        FinalMessageTxt: Label '%1 of %2 records were copied.', Comment = '%1 and %2 - numbers';
         isInitialized: Boolean;
 
     [Test]
@@ -59,7 +61,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Reference for Item 1100 with No = 1234, Type = Bar Code
         LibraryItemReference.CreateItemReferenceWithNo(
-          ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo(), ItemReference[2]."Reference Type"::"Bar Code",
+          ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo, ItemReference[2]."Reference Type"::"Bar Code",
           LibraryUtility.GenerateGUID());
         EnqueueItemReferenceFields(ItemReference[2]);
 
@@ -78,7 +80,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [THEN] ICRLookupPurchaseItem returns Item Reference with Item No = 1100
         ItemReference[1].TestField("Item No.", ItemReference[2]."Item No.");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -131,7 +133,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [THEN] ICRLookupPurchaseItem returns Item Reference with Item No = 1001
         ItemReference[1].TestField("Item No.", ItemReference[2]."Item No.");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -155,12 +157,12 @@ codeunit 134464 "ERM Item Reference Purchase"
         LibraryVariableStorage.Enqueue(ItemRefNo);
 
         // [GIVEN] Item Item References for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[1]."Reference Type"::Vendor, VendorNo);
         EnqueueItemReferenceFields(ItemReference[1]);
 
         // [GIVEN] Item Item References for Item 1001 with same No and Type = Bar Code
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[2]."Reference Type"::"Bar Code", LibraryUtility.GenerateGUID());
         EnqueueItemReferenceFields(ItemReference[2]);
 
@@ -179,7 +181,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [THEN] ICRLookupPurchaseItem returns Item Reference with Item No = 1001
         ItemReference[1].TestField("Item No.", ItemReference[2]."Item No.");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -203,11 +205,11 @@ codeunit 134464 "ERM Item Reference Purchase"
         LibraryVariableStorage.Enqueue(ItemRefNo);
 
         // [GIVEN] Item Item References for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[1]."Reference Type"::Vendor, VendorNo);
 
         // [GIVEN] Item Item References for Item 1001 with No = 1234 and Type = <blank>
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[2]."Reference Type"::" ", '');
         EnqueueItemReferenceFields(ItemReference[2]); // <blank> type record is to be displayed first
         EnqueueItemReferenceFields(ItemReference[1]);
@@ -227,7 +229,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [THEN] ICRLookupPurchaseItem returns Item Reference with Item No = 1000
         ItemReference[2].TestField("Item No.", ItemReference[1]."Item No.");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -253,7 +255,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Item References for Items 1000 and 1001 with same No = 1234, Type = Vendor and Type No = 10000
         for Index := 1 to ArrayLen(ItemReference) do begin
-            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo(),
+            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo,
               ItemReference[Index]."Reference Type"::Vendor, VendorNo);
             EnqueueItemReferenceFields(ItemReference[Index]);
         end;
@@ -273,7 +275,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [THEN] ICRLookupPurchaseItem returns Item Reference with Item No = 1001
         ItemReference[1].TestField("Item No.", ItemReference[2]."Item No.");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -297,13 +299,13 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Item References for Items 1000 and 1001, both with No = 1234 and Type = Bar Code
         for Index := 1 to ArrayLen(ItemReference) do begin
-            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo(),
+            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo,
               ItemReference[Index]."Reference Type"::"Bar Code", LibraryUtility.GenerateGUID());
             EnqueueItemReferenceFields(ItemReference[Index]);
         end;
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [GIVEN] Ran ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = TRUE
         ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference[1], true);
@@ -317,7 +319,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [THEN] ICRLookupPurchaseItem returns Item Reference with Item No = 1001
         ItemReference[1].TestField("Item No.", ItemReference[2]."Item No.");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -339,7 +341,7 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference[1].FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Item References for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[1]."Reference Type"::Vendor, VendorNo);
 
         // [GIVEN] Item Item References for same Item with same No and Type = Bar Code
@@ -375,7 +377,7 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference[1].FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Item References for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[1]."Reference Type"::Vendor, VendorNo);
 
         // [GIVEN] Item Item References for same Item with same No and Type = <blank>
@@ -417,7 +419,7 @@ codeunit 134464 "ERM Item Reference Purchase"
               ItemReference[Index]."Reference Type"::"Bar Code", LibraryUtility.GenerateGUID());
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = TRUE
         ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference[2], true);
@@ -448,7 +450,7 @@ codeunit 134464 "ERM Item Reference Purchase"
         // [GIVEN] Two Item Item References for Item 1000 with same No = 1234, Type = Vendor, first has Type No = 10000, second has Type No = 20000
         for Index := 1 to ArrayLen(ItemReference) do
             LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, ItemNo,
-              ItemReference[Index]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+              ItemReference[Index]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
         MockPurchaseLineForICRLookupPurchaseItem(
@@ -481,8 +483,8 @@ codeunit 134464 "ERM Item Reference Purchase"
         // [GIVEN] Item Reference for Item 1000 with No = 1234, Type = Vendor, Type No = 10000
         // [GIVEN] Item Reference for Item 1001 with No = 1234, Type = Vendor, Type No = 20000
         for Index := 1 to ArrayLen(ItemReference) do
-            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo(),
-              ItemReference[Index]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo,
+              ItemReference[Index]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
         MockPurchaseLineForICRLookupPurchaseItem(
@@ -513,15 +515,15 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference[1].FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Reference for Item 1000 with No = 1234, Type = Vendor and Type No = 20000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
-          ItemReference[1]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
+          ItemReference[1]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Item Item References for Item 1001 with same No and Type = Bar Code
         LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, ItemReference[1]."Item No.",
           ItemReference[2]."Reference Type"::"Bar Code", LibraryUtility.GenerateGUID());
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Ran ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = TRUE
         ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference[1], true);
@@ -546,11 +548,11 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference.FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Reference for Item with No = 1234, Type = Vendor and Type No = 20000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo(),
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo,
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = TRUE
         asserterror ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference, true);
@@ -576,13 +578,13 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference.FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Two Item Item References with same No = 1234, same Type = Vendor and Type No 20000 and 30000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo(),
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo(),
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo,
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo,
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = TRUE
         asserterror ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference, true);
@@ -611,7 +613,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Reference for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
         LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, ItemNo,
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
         MockPurchaseLineForICRLookupPurchaseItem(
@@ -641,7 +643,7 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(DummyItemReference.FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = TRUE
         asserterror ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, DummyItemReference, true);
@@ -684,7 +686,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Reference for Item 1100 with No = 1234, Type = Bar Code
         LibraryItemReference.CreateItemReferenceWithNo(
-          ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo(), ItemReference[2]."Reference Type"::"Bar Code",
+          ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo, ItemReference[2]."Reference Type"::"Bar Code",
           LibraryUtility.GenerateGUID());
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
@@ -759,11 +761,11 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference[1].FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Item References for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[1]."Reference Type"::Vendor, VendorNo);
 
         // [GIVEN] Item Item References for Item 1001 with same No and Type = Bar Code
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[2]."Reference Type"::"Bar Code", LibraryUtility.GenerateGUID());
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
@@ -795,11 +797,11 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference[1].FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Item References for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[1]."Reference Type"::Vendor, VendorNo);
 
         // [GIVEN] Item Item References for Item 1001 with No = 1234 and Type = <blank>
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[2]."Reference Type"::" ", '');
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
@@ -833,7 +835,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Item References for Items 1000 and 1001 with same No = 1234, Type = Vendor and Type No = 10000
         for Index := 1 to ArrayLen(ItemReference) do
-            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo(),
+            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo,
               ItemReference[Index]."Reference Type"::Vendor, VendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
@@ -865,11 +867,11 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Item References for Items 1000 and 1001, both with No = 1234 and Type = Bar Code
         for Index := 1 to ArrayLen(ItemReference) do
-            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo(),
+            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo,
               ItemReference[Index]."Reference Type"::"Bar Code", LibraryUtility.GenerateGUID());
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = FALSE
         ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference[2], false);
@@ -897,7 +899,7 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference[1].FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Item References for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[1]."Reference Type"::Vendor, VendorNo);
 
         // [GIVEN] Item Item References for same Item with same No and Type = Bar Code
@@ -933,7 +935,7 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference[1].FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Item References for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
           ItemReference[1]."Reference Type"::Vendor, VendorNo);
 
         // [GIVEN] Item Item References for same Item with same No and Type = <blank>
@@ -975,7 +977,7 @@ codeunit 134464 "ERM Item Reference Purchase"
               ItemReference[Index]."Reference Type"::"Bar Code", LibraryUtility.GenerateGUID());
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = FALSE
         ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference[2], false);
@@ -1007,7 +1009,7 @@ codeunit 134464 "ERM Item Reference Purchase"
         // [GIVEN] Two Item Item References for Item 1000 with same No = 1234, Type = Vendor, first has Type No = 10000, second has Type No = 20000
         for Index := 1 to ArrayLen(ItemReference) do
             LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, ItemNo,
-              ItemReference[Index]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+              ItemReference[Index]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
         MockPurchaseLineForICRLookupPurchaseItem(
@@ -1041,8 +1043,8 @@ codeunit 134464 "ERM Item Reference Purchase"
         // [GIVEN] Item Reference for Item 1000 with No = 1234, Type = Vendor, Type No = 10000
         // [GIVEN] Item Reference for Item 1001 with No = 1234, Type = Vendor, Type No = 20000
         for Index := 1 to ArrayLen(ItemReference) do
-            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo(),
-              ItemReference[Index]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo,
+              ItemReference[Index]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
         MockPurchaseLineForICRLookupPurchaseItem(
@@ -1073,15 +1075,15 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference[1].FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Reference for Item 1000 with No = 1234, Type = Vendor and Type No = 20000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo(),
-          ItemReference[1]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference[1], ItemRefNo, LibraryInventory.CreateItemNo,
+          ItemReference[1]."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Item Item References for Item 1001 with same No and Type = Bar Code
         LibraryItemReference.CreateItemReferenceWithNo(ItemReference[2], ItemRefNo, ItemReference[1]."Item No.",
           ItemReference[2]."Reference Type"::"Bar Code", LibraryUtility.GenerateGUID());
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Ran ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = FALSE
         ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference[1], false);
@@ -1107,11 +1109,11 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference.FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Item Reference for Item with No = 1234, Type = Vendor and Type No = 20000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo(),
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo,
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = FALSE
         asserterror ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference, false);
@@ -1138,13 +1140,13 @@ codeunit 134464 "ERM Item Reference Purchase"
           LibraryUtility.GenerateRandomCode(ItemReference.FieldNo("Reference No."), DATABASE::"Item Reference");
 
         // [GIVEN] Two Item Item References with same No = 1234, same Type = Vendor and Type No 20000 and 30000
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo(),
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
-        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo(),
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo,
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
+        LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, LibraryInventory.CreateItemNo,
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
-        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+        MockPurchaseLineForICRLookupPurchaseItem(PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = FALSE
         asserterror ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, ItemReference, false);
@@ -1174,7 +1176,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Reference for Item 1000 with No = 1234, Type = Vendor and Type No = 10000
         LibraryItemReference.CreateItemReferenceWithNo(ItemReference, ItemRefNo, ItemNo,
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
         MockPurchaseLineForICRLookupPurchaseItem(
@@ -1206,7 +1208,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
         MockPurchaseLineForICRLookupPurchaseItem(
-          PurchaseLine, LibraryPurchase.CreateVendorNo(), ItemRefNo);
+          PurchaseLine, LibraryPurchase.CreateVendorNo, ItemRefNo);
 
         // [WHEN] Run ICRLookupPurchaseItem from codeunit Dist. Integration for the Purchase Line with ShowDialog = FALSE
         asserterror ItemReferenceMgt.ReferenceLookupPurchaseItem(PurchaseLine, DummyItemReference, false);
@@ -1250,7 +1252,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Reference for Item 1100 with No = 1234, Type = Bar Code
         LibraryItemReference.CreateItemReferenceWithNo(
-          ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo(), ItemReference[2]."Reference Type"::"Bar Code",
+          ItemReference[2], ItemRefNo, LibraryInventory.CreateItemNo, ItemReference[2]."Reference Type"::"Bar Code",
           LibraryUtility.GenerateGUID());
 
         // [GIVEN] Purchase Line had Type = Item, "Buy-from Vendor No." = 10000 and Reference No. = 1234
@@ -1287,7 +1289,7 @@ codeunit 134464 "ERM Item Reference Purchase"
         LibraryInventory.CreateItemVariant(ItemVariant, Item."No.");
         CreateItemReference(
           ItemReference, Item."No.", ItemVariant.Code,
-          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo());
+          ItemReference."Reference Type"::Vendor, LibraryPurchase.CreateVendorNo);
         SavedItemReferenceDescription := ItemReference.Description;
 
         // [WHEN] "Lead Time Calculation" field of Item Vendor record "VEND", "ITEM", "VARIANT" is being updated
@@ -1324,7 +1326,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [GIVEN] Item Item References for Items 1000 and 1001 with same No = 1234, Type = Vendor and Type No = 10000
         for Index := 1 to ArrayLen(ItemReference) do begin
-            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo(),
+            LibraryItemReference.CreateItemReferenceWithNo(ItemReference[Index], ItemRefNo, LibraryInventory.CreateItemNo,
               ItemReference[Index]."Reference Type"::Vendor, VendorNo);
             EnqueueItemReferenceFields(ItemReference[Index]);
         end;
@@ -1345,7 +1347,7 @@ codeunit 134464 "ERM Item Reference Purchase"
 
         // [THEN] Purchase Line has No = 1001
         PurchaseLine.TestField("No.", ItemReference[2]."Item No.");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1703,20 +1705,20 @@ codeunit 134464 "ERM Item Reference Purchase"
     [Scope('OnPrem')]
     procedure ItemReferenceListModalPageHandler(var ItemReferenceList: TestPage "Item Reference List")
     begin
-        ItemReferenceList.FILTER.SetFilter("Reference No.", LibraryVariableStorage.DequeueText());
+        ItemReferenceList.FILTER.SetFilter("Reference No.", LibraryVariableStorage.DequeueText);
         repeat
-            ItemReferenceList."Reference Type".AssertEquals(LibraryVariableStorage.DequeueInteger());
-            ItemReferenceList."Reference Type No.".AssertEquals(LibraryVariableStorage.DequeueText());
-            ItemReferenceList."Item No.".AssertEquals(LibraryVariableStorage.DequeueText());
+            ItemReferenceList."Reference Type".AssertEquals(LibraryVariableStorage.DequeueInteger);
+            ItemReferenceList."Reference Type No.".AssertEquals(LibraryVariableStorage.DequeueText);
+            ItemReferenceList."Item No.".AssertEquals(LibraryVariableStorage.DequeueText);
         until ItemReferenceList.Next() = false;
-        ItemReferenceList.OK().Invoke();
+        ItemReferenceList.OK.Invoke;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure ItemReferenceListCancelModalPageHandler(var ItemReferenceList: TestPage "Item Reference List")
     begin
-        ItemReferenceList.Cancel().Invoke();
+        ItemReferenceList.Cancel.Invoke;
     end;
 
 }

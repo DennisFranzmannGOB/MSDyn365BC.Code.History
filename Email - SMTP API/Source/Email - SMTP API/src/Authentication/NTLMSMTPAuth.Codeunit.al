@@ -17,7 +17,7 @@ codeunit 4619 "NTLM SMTP Auth" implements "SMTP Auth"
         CancellationToken: DotNet CancellationToken;
         SaslMechanismNtlm: DotNet SaslMechanismNtlm;
     begin
-        SaslMechanismNtlm := SaslMechanismNtlm.SaslMechanismNtlm(SMTPAuthentication.GetUserName(), SMTPAuthentication.GetPassword().Unwrap());
+        SaslMechanismNtlm := SaslMechanismNtlm.SaslMechanismNtlm(SMTPAuthentication.GetUserName(), SMTPAuthentication.GetPassword());
         SmtpClient.Authenticate(SaslMechanismNtlm, CancellationToken);
     end;
 }

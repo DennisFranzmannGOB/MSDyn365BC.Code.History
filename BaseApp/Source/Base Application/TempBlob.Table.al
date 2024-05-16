@@ -7,7 +7,6 @@ table 99008535 TempBlob
     ObsoleteReason = 'Replaced by BLOB Storage Module.';
     ObsoleteTag = '19.0';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -7,7 +7,6 @@ namespace Microsoft.Integration.D365Sales;
 table 5391 "CRM Annotation Buffer"
 {
     Caption = 'CRM Annotation Buffer';
-    DataClassification = CustomerContent;
 
     fields
     {

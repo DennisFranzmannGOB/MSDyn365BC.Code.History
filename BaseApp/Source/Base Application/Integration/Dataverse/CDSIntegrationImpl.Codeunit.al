@@ -1,4 +1,4 @@
-﻿// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
@@ -332,7 +332,6 @@ codeunit 7201 "CDS Integration Impl."
         EnableCDSVirtualTablesJobQueueDescriptionTxt: Label 'Enabling %1 Dataverse virtual table', Comment = '%1 - virtual table name';
         EnableCDSVirtualTablesJobQueueCategoryTxt: Label 'VIRTUAL T';
         VirtualTableAppNameTxt: Label 'dyn365bc_BusinessCentralConfiguration', Locked = true;
-        SyntheticRelationEntityNameTxt: Label 'dyn365bc_syntheticrelation', Locked = true;
 
     [Scope('OnPrem')]
     procedure GetBaseSolutionUniqueName(): Text
@@ -536,7 +535,6 @@ codeunit 7201 "CDS Integration Impl."
     end;
 
     [TryFunction]
-    [NonDebuggable]
     local procedure TryRegisterTableConnection(ConnectionName: Text; ConnectionString: Text)
     begin
         RegisterTableConnection(TABLECONNECTIONTYPE::CRM, ConnectionName, ConnectionString);
@@ -819,8 +817,8 @@ codeunit 7201 "CDS Integration Impl."
         EnableAADApp(AADApplicationSetup.GetD365BCForVEAppId());
         EnableAADApp(AADApplicationSetup.GetPowerPagesAnonymousAppId());
         EnableAADApp(AADApplicationSetup.GetPowerPagesAuthenticatedAppId());
-
-        // for at an plugin in Dataverse can connect to BC with the VT app, configure the VT config        
+        
+        // for at an plugin in Dataverse can connect to BC with the VT app, configure the VT config
         ConfigureVirtualTables(TempAdminCDSConnectionSetup, ConfigId);
     end;
 
@@ -3924,7 +3922,7 @@ codeunit 7201 "CDS Integration Impl."
         end;
         CheckTeamHasIntegrationRole(OwningCRMTeam);
         if not SkipBusinessUnitCheck then
-            if OwningCRMTeam.BusinessUnitId <> GetCachedOwningBusinessUnitId() then begin
+            If OwningCRMTeam.BusinessUnitId <> GetCachedOwningBusinessUnitId() then begin
                 Session.LogMessage('0000AUI', TeamBusinessUnitDiffersFromSelectedTxt, Verbosity::Warning, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
                 Error(TeamBusinessUnitDiffersFromSelectedErr);
             end;
@@ -3941,7 +3939,7 @@ codeunit 7201 "CDS Integration Impl."
             Error(UserNotFoundErr, UserId);
 
         if not SkipBusinessUnitCheck then
-            if CRMSystemuser.BusinessUnitId <> GetCachedOwningBusinessUnitId() then
+            If CRMSystemuser.BusinessUnitId <> GetCachedOwningBusinessUnitId() then
                 Error(UserBusinessUnitDiffersFromSelectedErr);
 
         SetCachedOwningUserCheck(UserId, SkipBusinessUnitCheck);
@@ -4194,8 +4192,6 @@ codeunit 7201 "CDS Integration Impl."
             exit;
 
         ServerAddress := DelChr(ServerAddress, '<>');
-        if ServerAddress.EndsWith('/') then
-            ServerAddress := ServerAddress.TrimEnd('/');
 
         if not UriHelper.TryCreate(ServerAddress, UriKindHelper.Absolute, UriHelper2) then
             if not UriHelper.TryCreate('https://' + ServerAddress, UriKindHelper.Absolute, UriHelper2) then
@@ -4835,16 +4831,6 @@ codeunit 7201 "CDS Integration Impl."
         Hyperlink(CRMIntegrationManagement.GetCRMEntityUrlFromCRMID(Database::"CRM Team", OwningTeamId));
     end;
 
-    internal procedure ShowSyntheticRelationsConfig()
-    var
-        CDSConnectionSetup: Record "CDS Connection Setup";
-    begin
-        if not CDSConnectionSetup.Get() then
-            exit;
-        if not IsNullGuid(CDSConnectionSetup."Virtual Tables Config Id") then
-            Hyperlink(GetCRMEntityListUrl(CDSConnectionSetup, SyntheticRelationEntityNameTxt, VirtualTableAppNameTxt));
-    end;
-
     internal procedure ShowVirtualTablesConfig(CDSConnectionSetup: Record "CDS Connection Setup")
     begin
         if not IsNullGuid(CDSConnectionSetup."Virtual Tables Config Id") then
@@ -4975,55 +4961,8 @@ codeunit 7201 "CDS Integration Impl."
             end;
     end;
 
-
     [NonDebuggable]
-    internal procedure RegisterConfiguredConnection(var CrmHelper: DotNet CrmHelper): Text
-    var
-        CDSConnectionSetup: Record "CDS Connection Setup";
-        TempAdminCDSConnectionSetup: Record "CDS Connection Setup" temporary;
-        TempConnectionName, TempConnectionString, AccessToken : Text;
-    begin
-        if not CDSConnectionSetup.FindFirst() then
-            exit;
-        if not CDSConnectionSetupConfiguredForVirtualTables(CDSConnectionSetup) then
-            exit;
-
-        GetTempConnectionSetup(TempAdminCDSConnectionSetup, CDSConnectionSetup, AccessToken);
-        TempConnectionName := GetTempConnectionName();
-
-        GetAccessToken(CDSConnectionSetup."Server Address", true, AccessToken);
-        TempConnectionString := StrSubstNo(OAuthConnectionStringFormatTxt, CDSConnectionSetup."Server Address", AccessToken, CDSConnectionSetup.GetProxyVersion(), GetAuthenticationTypeToken(CDSConnectionSetup));
-        if not InitializeConnection(CrmHelper, TempConnectionString) then begin
-            Session.LogMessage('0000KN7', ConnectionNotRegisteredTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
-            ProcessConnectionFailures();
-        end;
-
-        GetTempConnectionSetup(TempAdminCDSConnectionSetup, CDSConnectionSetup, AccessToken);
-        TempConnectionName := GetTempConnectionName();
-        RegisterConnection(TempAdminCDSConnectionSetup, TempConnectionName);
-        SetDefaultTableConnection(TableConnectionType::CRM, TempConnectionName, false);
-        exit(TempConnectionName);
-    end;
-
-    local procedure CDSConnectionSetupConfiguredForVirtualTables(CDSConnectionSetup: Record "CDS Connection Setup"): Boolean
-    begin
-        if not CDSConnectionSetup."Business Events Enabled" then
-            exit(false);
-
-        if CDSConnectionSetup."Authentication Type" <> CDSConnectionSetup."Authentication Type"::Office365 then begin
-            Session.LogMessage('0000LKE', VTCannotConfigureTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
-            CDSConnectionSetup.TestField("Authentication Type", CDSConnectionSetup."Authentication Type"::Office365);
-        end;
-
-        if not CheckConnectionRequiredFields(CDSConnectionSetup, true) then begin
-            Session.LogMessage('0000LKF', VTCannotConfigureTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CategoryTok);
-            Error(GetLastErrorText());
-        end;
-        exit(true);
-    end;
-
-    [NonDebuggable]
-    internal procedure LoadAvailableVirtualTables(var CDSAvVirtualTableBuffer: Record "CDS Av. Virtual Table Buffer"; LoadOnlyVisible: Boolean)
+    internal procedure LoadAvailableVirtualTables(var CDSAvVirtualTableBuffer: Record "CDS Av. Virtual Table Buffer")
     var
         CDSAvailableVirtualTable: Record "CDS Available Virtual Table";
         CDSConnectionSetup: Record "CDS Connection Setup";
@@ -5060,19 +4999,17 @@ codeunit 7201 "CDS Integration Impl."
 
                 if CDSAvailableVirtualTable.FindSet() then
                     repeat
-                        if CDSAvailableVirtualTable.mserp_hasbeengenerated or (not LoadOnlyVisible) then begin
-                            CDSAvVirtualTableBuffer.TransferFields(CDSAvailableVirtualTable);
+                        CDSAvVirtualTableBuffer.TransferFields(CDSAvailableVirtualTable);
 
-                            JobQueueEntry.SetRange("Object ID to Run", Codeunit::"Enable CDS Virtual Tables");
-                            JobQueueEntry.SetRange("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
-                            JobQueueEntry.SetRange("Job Queue Category Code", CopyStr(EnableCDSVirtualTablesJobQueueCategoryTxt, 1, MaxStrLen(JobQueueEntry."Job Queue Category Code")));
-                            JobQueueEntry.SetRange(Description, StrSubstNo(EnableCDSVirtualTablesJobQueueDescriptionTxt, CDSAvailableVirtualTable.mserp_cdsentitylogicalname));
-                            if JobQueueEntry.FindFirst() then
-                                if JobQueueEntry.Status in [JobQueueEntry.Status::"In Process", JobQueueEntry.Status::Ready] then
-                                    CDSAvVirtualTableBuffer."In Process" := true;
+                        JobQueueEntry.SetRange("Object ID to Run", Codeunit::"Enable CDS Virtual Tables");
+                        JobQueueEntry.SetRange("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
+                        JobQueueEntry.SetRange("Job Queue Category Code", CopyStr(EnableCDSVirtualTablesJobQueueCategoryTxt, 1, MaxStrLen(JobQueueEntry."Job Queue Category Code")));
+                        JobQueueEntry.SetRange(Description, StrSubstNo(EnableCDSVirtualTablesJobQueueDescriptionTxt, CDSAvailableVirtualTable.mserp_cdsentitylogicalname));
+                        if JobQueueEntry.FindFirst() then
+                            if JobQueueEntry.Status in [JobQueueEntry.Status::"In Process", JobQueueEntry.Status::Ready] then
+                                CDSAvVirtualTableBuffer."In Process" := true;
 
-                            CDSAvVirtualTableBuffer.Insert();
-                        end;
+                        CDSAvVirtualTableBuffer.Insert();
                     until CDSAvailableVirtualTable.Next() = 0;
 
                 UnregisterTableConnection(TableConnectionType::CRM, TempConnectionName);

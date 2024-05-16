@@ -11,7 +11,6 @@ table 5410 "Prod. Order Capacity Need"
     Caption = 'Prod. Order Capacity Need';
     DrillDownPageID = "Prod. Order Capacity Need";
     LookupPageID = "Prod. Order Capacity Need";
-    DataClassification = CustomerContent;
 
     fields
     {

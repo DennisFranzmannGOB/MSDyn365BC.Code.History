@@ -11,16 +11,9 @@ codeunit 132458 "Library - Job Queue"
         DoNotHandleCodeunitJobQueueEnqueueEvent: Boolean;
         DoNotHandleTableJobQueueEntryEvent: Boolean;
         DoNotHandleSendNotificationEvent: Boolean;
-        DoNotHandleJobsNeedToBeRunEvent: Boolean;
         TrackingJobQueueEntryID: Guid;
         MultipleTrackJobQueueEntryErr: Label 'Can''t track multiple job queue entries';
         DoNotSkipProcessBatchInBackground: Boolean;
-
-    [Scope('OnPrem')]
-    procedure SetDoNotHandleJobsNeedToBeRunEvent(NewDoNotHandleJobsNeedToBeRunEvent: Boolean)
-    begin
-        DoNotHandleJobsNeedToBeRunEvent := NewDoNotHandleJobsNeedToBeRunEvent;
-    end;
 
     [Scope('OnPrem')]
     procedure SetDoNotHandleCodeunitJobQueueEnqueueEvent(NewDoNotHandleCodeunitJobQueueEnqueueEvent: Boolean)
@@ -146,7 +139,7 @@ codeunit 132458 "Library - Job Queue"
         IsRecRegistered := TempJobQueueEntry.Get(Rec.ID);
         TempJobQueueEntry.TransferFields(Rec);
         if IsRecRegistered then
-            TempJobQueueEntry.Modify()
+            TempJobQueueEntry.Modify
         else
             TempJobQueueEntry.Insert();
     end;
@@ -199,15 +192,6 @@ codeunit 132458 "Library - Job Queue"
 
         IsHandled := true;
         RunSendNotification(JobQueueEntry);
-    end;
-
-    [EventSubscriber(ObjectType::Table, Database::"Job Queue Entry", 'OnFindingIfJobNeedsToBeRun', '', false, false)]
-    local procedure OnFindingIfJobNeedsToBeRun(var Result: Boolean)
-    begin
-        if DoNotHandleJobsNeedToBeRunEvent then
-            exit;
-
-        Result := true;
     end;
 }
 

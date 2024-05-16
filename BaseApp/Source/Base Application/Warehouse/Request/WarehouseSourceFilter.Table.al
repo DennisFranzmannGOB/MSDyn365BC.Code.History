@@ -25,7 +25,6 @@ using Microsoft.Service.Document;
 table 5771 "Warehouse Source Filter"
 {
     Caption = 'Warehouse Source Filter';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -159,7 +158,7 @@ table 5771 "Warehouse Source Filter"
         }
         field(45; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = Job;
         }
         field(96; "Reserved From Stock"; Enum "Reservation From Stock")
@@ -302,7 +301,7 @@ table 5771 "Warehouse Source Filter"
         }
         field(1001; "Job Task No. Filter"; Code[100])
         {
-            Caption = 'Project Task No. Filter';
+            Caption = 'Job Task No. Filter';
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
             ValidateTableRelation = false;
         }

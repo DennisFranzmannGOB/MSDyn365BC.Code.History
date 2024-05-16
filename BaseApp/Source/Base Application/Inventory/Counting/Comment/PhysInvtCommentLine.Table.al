@@ -9,7 +9,6 @@ table 5883 "Phys. Invt. Comment Line"
     Caption = 'Phys. Invt. Comment Line';
     DrillDownPageID = "Phys. Inventory Comment List";
     LookupPageID = "Phys. Inventory Comment List";
-    DataClassification = CustomerContent;
 
     fields
     {

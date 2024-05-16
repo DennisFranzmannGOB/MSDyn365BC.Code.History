@@ -31,7 +31,7 @@ codeunit 300 "Reservation Worksheet Mgt."
         SalesTok: Label 'Sales';
         TransferTok: Label 'Transfer';
         ServiceTok: Label 'Service';
-        JobTok: Label 'Project';
+        JobTok: Label 'Job';
         AssemblyTok: Label 'Assembly';
         ReleasedTok: Label 'Released';
         ProductionTok: Label 'Prod. Order';

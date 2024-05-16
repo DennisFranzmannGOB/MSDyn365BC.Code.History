@@ -10,7 +10,6 @@ table 226 "VAT Reg. No. Srv. Template"
 {
     Caption = 'VAT Reg. No. Validation Template';
     LookupPageId = "VAT Reg. No. Srv. Templates";
-    DataClassification = CustomerContent;
 
     fields
     {

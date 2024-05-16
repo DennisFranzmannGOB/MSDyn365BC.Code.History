@@ -9,9 +9,7 @@ using Microsoft.CRM.Interaction;
 using System.Globalization;
 using System.Media;
 using System;
-#if not CLEAN22
 using System.EMail;
-#endif
 using System.Utilities;
 using System.Security.Encryption;
 using Microsoft.Utilities;

@@ -21,40 +21,44 @@ codeunit 7380 "Phys. Invt. Count.-Management"
     begin
         OnBeforeRun(WhseJnlLine, SourceJnl);
 
-        Item.SetFilter("Phys Invt Counting Period Code", '<>''''');
-        Item.SetFilter("Next Counting Start Date", '<>%1', 0D);
-        Item.SetFilter("Next Counting End Date", '<>%1', 0D);
-        OnRunOnAfterSetItemFilters(Item, SourceJnl);
-        if Item.Find('-') then
-            repeat
-                if (Item."Last Counting Period Update" < Item."Next Counting Start Date") and
-                   (WorkDate() >= Item."Next Counting Start Date")
-                then
-                    InsertTempPhysCountBuffer(
-                      Item."No.", '', '', Item."Shelf No.", Item."Phys Invt Counting Period Code",
-                      Item.Description, Item."Next Counting Start Date", Item."Next Counting End Date", Item."Last Counting Period Update", 1);
-            until Item.Next() = 0;
-
-        SKU.SetFilter("Phys Invt Counting Period Code", '<>''''');
-        SKU.SetFilter("Next Counting Start Date", '<>%1', 0D);
-        SKU.SetFilter("Next Counting End Date", '<>%1', 0D);
-        if SourceJnl = SourceJnl::WhseJnl then
-            SKU.SetRange("Location Code", WhseJnlLine."Location Code");
-        OnRunOnAfterSetSKUFilters(SKU, SourceJnl);
-        if SKU.Find('-') then
-            repeat
-                if (SKU."Last Counting Period Update" < SKU."Next Counting Start Date") and
-                   (WorkDate() >= SKU."Next Counting Start Date")
-                then begin
-                    IsHandled := false;
-                    OnRunOnSKUOnBeforeInsertTempPhysCountBuffer(Item, SKU, IsHandled);
-                    if not IsHandled then
+        with Item do begin
+            SetFilter("Phys Invt Counting Period Code", '<>''''');
+            SetFilter("Next Counting Start Date", '<>%1', 0D);
+            SetFilter("Next Counting End Date", '<>%1', 0D);
+            OnRunOnAfterSetItemFilters(Item, SourceJnl);
+            if Find('-') then
+                repeat
+                    if ("Last Counting Period Update" < "Next Counting Start Date") and
+                       (WorkDate() >= "Next Counting Start Date")
+                    then
                         InsertTempPhysCountBuffer(
-                          SKU."Item No.", SKU."Variant Code", SKU."Location Code",
-                          SKU."Shelf No.", SKU."Phys Invt Counting Period Code", SKU.Description,
-                          SKU."Next Counting Start Date", SKU."Next Counting End Date", SKU."Last Counting Period Update", 2);
-                end;
-            until SKU.Next() = 0;
+                          "No.", '', '', "Shelf No.", "Phys Invt Counting Period Code",
+                          Description, "Next Counting Start Date", "Next Counting End Date", "Last Counting Period Update", 1);
+                until Next() = 0;
+        end;
+
+        with SKU do begin
+            SetFilter("Phys Invt Counting Period Code", '<>''''');
+            SetFilter("Next Counting Start Date", '<>%1', 0D);
+            SetFilter("Next Counting End Date", '<>%1', 0D);
+            if SourceJnl = SourceJnl::WhseJnl then
+                SetRange("Location Code", WhseJnlLine."Location Code");
+            OnRunOnAfterSetSKUFilters(SKU, SourceJnl);
+            if Find('-') then
+                repeat
+                    if ("Last Counting Period Update" < "Next Counting Start Date") and
+                       (WorkDate() >= "Next Counting Start Date")
+                    then begin
+                        IsHandled := false;
+                        OnRunOnSKUOnBeforeInsertTempPhysCountBuffer(Item, SKU, IsHandled);
+                        if not IsHandled then
+                            InsertTempPhysCountBuffer(
+                              "Item No.", "Variant Code", "Location Code",
+                              "Shelf No.", "Phys Invt Counting Period Code", Description,
+                              "Next Counting Start Date", "Next Counting End Date", "Last Counting Period Update", 2);
+                    end;
+                until Next() = 0;
+        end;
 
         IsHandled := false;
         OnRunOnBeforeRunModalPhysInvtItemSelection(TempPhysInvtItemSelection, IsHandled);
@@ -454,56 +458,60 @@ codeunit 7380 "Phys. Invt. Count.-Management"
     begin
         OnBeforeUpdateSKUPhysInvtCount(SKU);
 
-        if (not SKU.MarkedOnly) and (SKU.GetFilters = '') then
-            SKU.SetRecFilter();
+        with SKU do begin
+            if (not MarkedOnly) and (GetFilters = '') then
+                SetRecFilter();
 
-        SKU.FindSet();
-        repeat
-            SKU.TestField(SKU."Phys Invt Counting Period Code");
-        until SKU.Next() = 0;
+            FindSet();
+            repeat
+                TestField("Phys Invt Counting Period Code");
+            until Next() = 0;
 
-        if not HideValidationDialog then
-            if not Confirm(Text001, false, SKU.TableCaption) then
-                Error(Text002);
+            if not HideValidationDialog then
+                if not Confirm(Text001, false, TableCaption) then
+                    Error(Text002);
 
-        SKU.FindSet();
-        repeat
-            GetPhysInvtCount(SKU."Phys Invt Counting Period Code");
-            PhysInvtCount.TestField("Count Frequency per Year");
-            SKU."Last Counting Period Update" := WorkDate();
-            CalcPeriod(
-              SKU."Last Counting Period Update", SKU."Next Counting Start Date", SKU."Next Counting End Date",
-              PhysInvtCount."Count Frequency per Year");
-            SKU.Modify();
-        until SKU.Next() = 0;
+            FindSet();
+            repeat
+                GetPhysInvtCount("Phys Invt Counting Period Code");
+                PhysInvtCount.TestField("Count Frequency per Year");
+                "Last Counting Period Update" := WorkDate();
+                CalcPeriod(
+                  "Last Counting Period Update", "Next Counting Start Date", "Next Counting End Date",
+                  PhysInvtCount."Count Frequency per Year");
+                Modify();
+            until Next() = 0;
+        end;
 
         OnAfterUpdateSKUPhysInvtCount(SKU);
     end;
 
     procedure UpdateItemPhysInvtCount(var Item: Record Item)
     begin
-        if (not Item.MarkedOnly) and (Item.GetFilters = '') then
-            Item.SetRecFilter();
+        with Item do begin
+            if (not MarkedOnly) and (GetFilters = '') then
+                SetRecFilter();
 
-        Item.FindSet();
-        repeat
-            Item.TestField(Item."Phys Invt Counting Period Code");
-        until Item.Next() = 0;
+            FindSet();
+            repeat
+                TestField("Phys Invt Counting Period Code");
+            until Next() = 0;
 
-        if not HideValidationDialog then
-            if not Confirm(Text001, false, Item.TableCaption) then
-                Error(Text002);
+            if not HideValidationDialog then
+                if not Confirm(Text001, false, TableCaption) then
+                    Error(Text002);
 
-        Item.FindSet();
-        repeat
-            GetPhysInvtCount(Item."Phys Invt Counting Period Code");
-            PhysInvtCount.TestField("Count Frequency per Year");
-            Item."Last Counting Period Update" := WorkDate();
-            CalcPeriod(
-              Item."Last Counting Period Update", Item."Next Counting Start Date", Item."Next Counting End Date",
-              PhysInvtCount."Count Frequency per Year");
-            Item.Modify();
-        until Item.Next() = 0;
+            FindSet();
+            repeat
+                GetPhysInvtCount("Phys Invt Counting Period Code");
+                PhysInvtCount.TestField("Count Frequency per Year");
+                "Last Counting Period Update" := WorkDate();
+                CalcPeriod(
+                  "Last Counting Period Update", "Next Counting Start Date", "Next Counting End Date",
+                  PhysInvtCount."Count Frequency per Year");
+                Modify();
+            until Next() = 0;
+        end;
     end;
 
     procedure UpdateItemSKUListPhysInvtCount()
@@ -511,19 +519,21 @@ codeunit 7380 "Phys. Invt. Count.-Management"
         Item: Record Item;
         SKU: Record "Stockkeeping Unit";
     begin
-        if TempItem.FindSet() then
-            repeat
-                Item.Reset();
-                Item.Get(TempItem."No.");
-                UpdateItemPhysInvtCount(Item);
-            until TempItem.Next() = 0;
+        with TempItem do
+            if FindSet() then
+                repeat
+                    Item.Reset();
+                    Item.Get("No.");
+                    UpdateItemPhysInvtCount(Item);
+                until Next() = 0;
 
-        if TempSKU.FindSet() then
-            repeat
-                SKU.Reset();
-                SKU.Get(TempSKU."Location Code", TempSKU."Item No.", TempSKU."Variant Code");
-                UpdateSKUPhysInvtCount(SKU);
-            until TempSKU.Next() = 0;
+        with TempSKU do
+            if FindSet() then
+                repeat
+                    SKU.Reset();
+                    SKU.Get("Location Code", "Item No.", "Variant Code");
+                    UpdateSKUPhysInvtCount(SKU);
+                until Next() = 0;
     end;
 
     procedure AddToTempItemSKUList(ItemNo: Code[20]; LocationCode: Code[10]; VariantCode: Code[10]; PhysInvtCountingPeriodType: Option " ",Item,SKU)
@@ -538,24 +548,28 @@ codeunit 7380 "Phys. Invt. Count.-Management"
 
     local procedure InsertTempItem(ItemNo: Code[20])
     begin
-        if TempItem.Get(ItemNo) then
-            exit;
+        with TempItem do begin
+            if Get(ItemNo) then
+                exit;
 
-        TempItem.Init();
-        TempItem."No." := ItemNo;
-        TempItem.Insert();
+            Init();
+            "No." := ItemNo;
+            Insert();
+        end;
     end;
 
     local procedure InsertTempSKU(ItemNo: Code[20]; LocationCode: Code[10]; VariantCode: Code[10])
     begin
-        if TempSKU.Get(LocationCode, ItemNo, VariantCode) then
-            exit;
+        with TempSKU do begin
+            if Get(LocationCode, ItemNo, VariantCode) then
+                exit;
 
-        TempSKU.Init();
-        TempSKU."Location Code" := LocationCode;
-        TempSKU."Item No." := ItemNo;
-        TempSKU."Variant Code" := VariantCode;
-        TempSKU.Insert();
+            Init();
+            "Location Code" := LocationCode;
+            "Item No." := ItemNo;
+            "Variant Code" := VariantCode;
+            Insert();
+        end;
     end;
 
     procedure InitTempItemSKUList()

@@ -3,7 +3,6 @@ namespace Microsoft.Manufacturing.Routing;
 table 99000782 "Standard Task Personnel"
 {
     Caption = 'Standard Task Personnel';
-    DataClassification = CustomerContent;
 
     fields
     {

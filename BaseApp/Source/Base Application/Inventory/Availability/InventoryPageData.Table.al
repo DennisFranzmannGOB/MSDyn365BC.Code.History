@@ -7,7 +7,6 @@ using Microsoft.Inventory.Tracking;
 table 5531 "Inventory Page Data"
 {
     Caption = 'Inventory Page Data';
-    DataClassification = CustomerContent;
 
     fields
     {

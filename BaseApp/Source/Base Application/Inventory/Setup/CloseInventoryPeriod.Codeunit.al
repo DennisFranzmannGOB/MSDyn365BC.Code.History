@@ -112,21 +112,23 @@ codeunit 5820 "Close Inventory Period"
         InvtPeriod2: Record "Inventory Period";
         InvtPeriod3: Record "Inventory Period";
     begin
-        InvtPeriod2.SetRange(Closed, ReOpen);
-        if ReOpen then
-            InvtPeriod2.SetFilter("Ending Date", '>%1', TheInvtPeriod."Ending Date")
-        else
-            InvtPeriod2.SetFilter("Ending Date", '<%1', TheInvtPeriod."Ending Date");
-        if InvtPeriod2.FindSet(true) then
-            repeat
-                InvtPeriod3 := InvtPeriod2;
-                InvtPeriod3.Closed := not ReOpen;
-                InvtPeriod3.Modify();
-                CreateInvtPeriodEntry(InvtPeriod3);
-            until InvtPeriod2.Next() = 0;
+        with TheInvtPeriod do begin
+            InvtPeriod2.SetRange(Closed, ReOpen);
+            if ReOpen then
+                InvtPeriod2.SetFilter("Ending Date", '>%1', "Ending Date")
+            else
+                InvtPeriod2.SetFilter("Ending Date", '<%1', "Ending Date");
+            if InvtPeriod2.FindSet(true, true) then
+                repeat
+                    InvtPeriod3 := InvtPeriod2;
+                    InvtPeriod3.Closed := not ReOpen;
+                    InvtPeriod3.Modify();
+                    CreateInvtPeriodEntry(InvtPeriod3);
+                until InvtPeriod2.Next() = 0;
 
-        TheInvtPeriod.Closed := not ReOpen;
-        TheInvtPeriod.Modify();
+            Closed := not ReOpen;
+            Modify();
+        end;
     end;
 
     local procedure CreateInvtPeriodEntry(InvtPeriod: Record "Inventory Period")
@@ -135,26 +137,28 @@ codeunit 5820 "Close Inventory Period"
         ItemRegister: Record "Item Register";
         EntryNo: Integer;
     begin
-        InvtPeriodEntry.SetRange("Ending Date", InvtPeriod."Ending Date");
-        if InvtPeriodEntry.FindLast() then
-            EntryNo := InvtPeriodEntry."Entry No." + 1
-        else
-            EntryNo := 1;
+        with InvtPeriod do begin
+            InvtPeriodEntry.SetRange("Ending Date", "Ending Date");
+            if InvtPeriodEntry.FindLast() then
+                EntryNo := InvtPeriodEntry."Entry No." + 1
+            else
+                EntryNo := 1;
 
-        InvtPeriodEntry.Init();
-        InvtPeriodEntry."Entry No." := EntryNo;
-        InvtPeriodEntry."Ending Date" := InvtPeriod."Ending Date";
-        InvtPeriodEntry."User ID" := CopyStr(UserId(), 1, MaxStrLen(InvtPeriodEntry."User ID"));
-        InvtPeriodEntry."Creation Date" := WorkDate();
-        InvtPeriodEntry."Creation Time" := Time;
-        if InvtPeriod.Closed then begin
-            InvtPeriodEntry."Entry Type" := InvtPeriodEntry."Entry Type"::Close;
-            if ItemRegister.FindLast() then
-                InvtPeriodEntry."Closing Item Register No." := ItemRegister."No.";
-        end else
-            InvtPeriodEntry."Entry Type" := InvtPeriodEntry."Entry Type"::"Re-open";
+            InvtPeriodEntry.Init();
+            InvtPeriodEntry."Entry No." := EntryNo;
+            InvtPeriodEntry."Ending Date" := "Ending Date";
+            InvtPeriodEntry."User ID" := CopyStr(UserId(), 1, MaxStrLen(InvtPeriodEntry."User ID"));
+            InvtPeriodEntry."Creation Date" := WorkDate();
+            InvtPeriodEntry."Creation Time" := Time;
+            if Closed then begin
+                InvtPeriodEntry."Entry Type" := InvtPeriodEntry."Entry Type"::Close;
+                if ItemRegister.FindLast() then
+                    InvtPeriodEntry."Closing Item Register No." := ItemRegister."No.";
+            end else
+                InvtPeriodEntry."Entry Type" := InvtPeriodEntry."Entry Type"::"Re-open";
 
-        InvtPeriodEntry.Insert();
+            InvtPeriodEntry.Insert();
+        end;
     end;
 
     procedure SetReOpen(NewReOpen: Boolean)

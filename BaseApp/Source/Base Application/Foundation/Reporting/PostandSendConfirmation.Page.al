@@ -18,7 +18,7 @@ page 365 "Post and Send Confirmation"
                 Editable = false;
                 MultiLine = true;
                 Style = Strong;
-                StyleExpr = true;
+                StyleExpr = TRUE;
                 ToolTip = 'Specifies how the document is sent when you choose the Post and Send action.';
 
                 trigger OnAssistEdit()

@@ -4,9 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 namespace Microsoft.Finance.VAT.Registration;
 
-#pragma warning disable AL0659
 enum 240 "VAT Registration Log Account Type"
-#pragma warning restore AL0659
 {
     Extensible = true;
     AssignmentCompatibility = true;

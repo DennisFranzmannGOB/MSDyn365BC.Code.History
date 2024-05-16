@@ -1,8 +1,6 @@
 ﻿namespace Microsoft.FixedAssets.Journal;
 
-#pragma warning disable AL0659
 enum 5602 "FA Journal Line FA Posting Type"
-#pragma warning restore AL0659
 {
     Extensible = true;
     AssignmentCompatibility = true;

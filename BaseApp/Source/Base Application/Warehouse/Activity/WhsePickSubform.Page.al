@@ -2,6 +2,7 @@
 
 using Microsoft.Inventory.Availability;
 using Microsoft.Inventory.Location;
+using Microsoft.Inventory.Tracking;
 using Microsoft.Warehouse.Journal;
 using Microsoft.Warehouse.Structure;
 
@@ -29,6 +30,17 @@ page 5780 "Whse. Pick Subform"
                     ApplicationArea = Warehouse;
                     ToolTip = 'Specifies the action type for the warehouse activity line.';
                     Visible = not HideBinFields;
+                }
+                field("Source Document"; Rec."Source Document")
+                {
+                    ApplicationArea = Warehouse;
+                    BlankZero = true;
+                    ToolTip = 'Specifies the type of document that the line relates to.';
+                }
+                field("Source No."; Rec."Source No.")
+                {
+                    ApplicationArea = Warehouse;
+                    ToolTip = 'Specifies the number of the source document that the entry originates from.';
                 }
                 field("Item No."; Rec."Item No.")
                 {
@@ -84,7 +96,7 @@ page 5780 "Whse. Pick Subform"
                 {
                     ApplicationArea = ItemTracking;
                     ToolTip = 'Specifies the package number to handle in the document.';
-                    Visible = false;
+                    Visible = PackageTrackingVisible;
                 }
                 field("Expiration Date"; Rec."Expiration Date")
                 {
@@ -201,17 +213,6 @@ page 5780 "Whse. Pick Subform"
                     ApplicationArea = Warehouse;
                     ToolTip = 'Specifies information about the type of destination, such as customer or vendor, associated with the warehouse activity line.';
                 }
-                field("Source Document"; Rec."Source Document")
-                {
-                    ApplicationArea = Warehouse;
-                    BlankZero = true;
-                    ToolTip = 'Specifies the type of document that the line relates to.';
-                }
-                field("Source No."; Rec."Source No.")
-                {
-                    ApplicationArea = Warehouse;
-                    ToolTip = 'Specifies the number of the source document that the entry originates from.';
-                }
                 field("Destination No."; Rec."Destination No.")
                 {
                     ApplicationArea = Warehouse;
@@ -295,37 +296,9 @@ page 5780 "Whse. Pick Subform"
                         CurrPage.Update(false);
                     end;
                 }
-                action(FillQtyToHandle)
-                {
-                    ApplicationArea = Warehouse;
-                    Caption = 'Autofill Qty. To Handle';
-                    Image = AutofillQtyToHandle;
-                    Gesture = LeftSwipe;
-                    ToolTip = 'Have the system enter the outstanding quantity in the Qty. to Handle field.';
-                    Scope = Repeater;
-
-                    trigger OnAction()
-                    begin
-                        Rec.AutofillQtyToHandleOnLine(Rec);
-                    end;
-                }
-                action(ResetQtyToHandle)
-                {
-                    ApplicationArea = Warehouse;
-                    Caption = 'Reset Qty. To Handle';
-                    Image = UndoFluent;
-                    Gesture = RightSwipe;
-                    ToolTip = 'Have the system clear the value in the Qty. To Handle field.';
-                    Scope = Repeater;
-
-                    trigger OnAction()
-                    begin
-                        Rec.DeleteQtyToHandleOnLine(Rec);
-                    end;
-                }
                 action(ChangeUnitOfMeasure)
                 {
-                    ApplicationArea = Warehouse;
+                    ApplicationArea = Suite;
                     Caption = '&Change Unit Of Measure';
                     Ellipsis = true;
                     Image = UnitConversions;
@@ -335,18 +308,6 @@ page 5780 "Whse. Pick Subform"
                     begin
                         ChangeUOM();
                     end;
-                }
-                action(Scan)
-                {
-                    ApplicationArea = Warehouse;
-                    Caption = 'Scan';
-                    Ellipsis = true;
-                    Image = BarCode;
-                    Scope = Repeater;
-                    ToolTip = 'Scan the items on this line.';
-                    RunObject = Page "Scan Warehouse Activity Line";
-                    RunPageLink = "No." = field("No.");
-                    RunPageView = sorting("No.", "Line No.", "Activity Type");
                 }
             }
             group("&Line")
@@ -482,6 +443,7 @@ page 5780 "Whse. Pick Subform"
 
     trigger OnOpenPage()
     begin
+        SetPackageTrackingVisibility();
     end;
 
     var
@@ -489,6 +451,7 @@ page 5780 "Whse. Pick Subform"
         WMSMgt: Codeunit "WMS Management";
         ZoneCodeEditable: Boolean;
         BinCodeEditable: Boolean;
+        PackageTrackingVisible: Boolean;
         HideBinFields: Boolean;
 
     local procedure ShowSourceLine()
@@ -630,6 +593,13 @@ page 5780 "Whse. Pick Subform"
     protected procedure QtytoHandleOnAfterValidate()
     begin
         CurrPage.SaveRecord();
+    end;
+
+    local procedure SetPackageTrackingVisibility()
+    var
+        PackageMgt: Codeunit "Package Management";
+    begin
+        PackageTrackingVisible := PackageMgt.IsEnabled();
     end;
 
     [IntegrationEvent(false, false)]

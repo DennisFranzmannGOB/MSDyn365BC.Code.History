@@ -21,7 +21,7 @@ codeunit 1106 CostJnlManagement
         CostJnlTemplate: Record "Cost Journal Template";
         IsHandled: Boolean;
     begin
-        IsHandled := false;
+        IsHandled := FALSE;
         OnBeforeTemplateSelection(CostJnlLine, JnlSelected, IsHandled);
         if IsHandled then
             exit;
@@ -93,7 +93,7 @@ codeunit 1106 CostJnlManagement
         JnlSelected: Boolean;
         IsHandled: Boolean;
     begin
-        IsHandled := false;
+        IsHandled := FALSE;
         OnBeforeOpenJnlBatch(CostJnlBatch, IsHandled);
         if IsHandled then
             exit;

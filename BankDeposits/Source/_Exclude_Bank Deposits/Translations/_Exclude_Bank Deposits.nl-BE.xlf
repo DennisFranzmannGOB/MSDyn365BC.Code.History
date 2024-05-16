@@ -69,12 +69,6 @@
           <note from="Developer" annotates="general" priority="2">%1 - bank deposit</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType CannotRenameErr</note>
         </trans-unit>
-        <trans-unit id="Table 26680403 - NamedType 3476475007" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The bank deposit lines have different Document Types. When posting as lump sum all the document types must be the same, please update them before posting.</source>
-          <target state="translated">De bankstortingsregels hebben verschillende documenttypen. Wanneer u als lump-sum boekt, moeten alle documenttypen hetzelfde zijn. Werk ze bij voordat u boekt.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType InconsistentDocTypesMsg</note>
-        </trans-unit>
         <trans-unit id="Table 26680403 - NamedType 1000037039" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Only one %1 is allowed for each %2. Choose Change Batch action if you want to create a new bank deposit.</source>
           <target state="translated">Voor elke %2 is slechts één %1 toegestaan. Kies de actie Batch wijzigen als u een nieuwe bankstorting wilt maken.</target>
@@ -92,12 +86,6 @@
           <target state="translated">Wilt u de bankstortingsdimensies toevoegen aan alle bankstortingsregels?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType UpdateDimensionsOnExistingLinesQst</note>
-        </trans-unit>
-        <trans-unit id="Table 26680403 - NamedType 4078863216" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>When posting as lump sum all the lines must have the same Document No. as the bank deposit. Do you want to update the Document No. on all lines?</source>
-          <target state="translated">Wanneer u als lump-sum boekt, moeten alle regels hetzelfde documentnr. hebben. als de bankstorting. Wilt u het documentnr. bijwerken op alle regels?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Bank Deposit Header - NamedType UpdateDocumentNosTxt</note>
         </trans-unit>
         <trans-unit id="Table 26680403 - Field 2850626594 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Acc. Posting Group</source>
@@ -483,23 +471,17 @@
           <note from="Developer" annotates="general" priority="2">#2- a number (progress indicator)</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType BankDepositLineTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 3915934517 - NamedType 4190105612" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The deposit must have lines.</source>
-          <target state="translated">De storting moet regels bevatten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType EmptyDepositErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3915934517 - NamedType 390372311" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The lines of the deposit must belong to the same transaction when posting as lump sum. Please verify that %1, %2 and %3 are the same for every line or modify the template used to allow unbalanced documents.</source>
-          <target state="translated">De regels van de storting moeten tot dezelfde transactie behoren wanneer u als lump-sum boekt. Controleer of %1, %2 en %3 voor elke regel hetzelfde zijn of wijzig de sjabloon die wordt gebruikt om documenten in onbalans toe te staan.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - posting date field caption, %2 - document type field caption, %3 - document number field caption</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType LinesInSameTransactionForLumpSumErr</note>
-        </trans-unit>
         <trans-unit id="Codeunit 3915934517 - NamedType 1620158295" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Moving Bank Deposit to History</source>
           <target state="translated">Bankstorting naar historiek verplaatsen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType MovingToHistoryTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3915934517 - NamedType 633933862" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Bank Account Ledger Entry</source>
+          <target state="translated">Bankrekeningpost boeken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType PostingBankEntryTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3915934517 - NamedType 2001638188" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Bank Deposit No. %1...\\</source>
@@ -512,6 +494,12 @@
           <target state="translated">Regels naar grootboeken boeken</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType PostingLinesToLedgersTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3915934517 - NamedType 957299935" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Removing Bank Deposit</source>
+          <target state="translated">Bankstorting verwijderen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Deposit-Post - NamedType RemovingBankDepositTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 3915934517 - NamedType 2444345320" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status        #4###################\</source>
@@ -706,8 +694,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit - Control No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3073362426 - Control 298083911 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if the bank deposit should be posted as a single bank account ledger entry with the total amount. When posting as lump sum, all entries wil be posted in the same transaction with the document number of the bank deposit.</source>
-          <target state="translated">Hiermee wordt opgegeven of de bankstorting moet worden geboekt als één bankrekeningpost met het totaalbedrag. Wanneer u als lump-sum boekt, worden alle posten in dezelfde transactie geboekt met het documentnummer van de bankstorting.</target>
+          <source>Specifies if the bank deposit should be posted as a single bank account ledger entry with the total amount.</source>
+          <target state="translated">Hiermee wordt opgegeven of de bankstorting als een enkele bankrekeningpost met het totaalbedrag moet worden geboekt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit - Control Post as Lump Sum - Property ToolTip</note>
         </trans-unit>
@@ -1667,7 +1655,7 @@
         </trans-unit>
         <trans-unit id="Page 641808831 - Action 669369698 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.</source>
-          <target state="translated">Het afdrukken van het document voorbereiden. Er wordt een rapportaanvraagvenster voor het document geopend waarin u kunt opgeven wat er in de afdruk moet worden opgenomen.</target>
+          <target state="translated">Het afdrukken van het document voorbereiden. Er wordt een rapportaanvraagvenster geopend waarin u kunt opgeven wat er in de afdruk moet worden opgenomen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Bank Deposit List - Action BankDeposit - Property ToolTip</note>
         </trans-unit>

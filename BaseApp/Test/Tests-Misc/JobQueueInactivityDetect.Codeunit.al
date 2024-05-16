@@ -11,7 +11,6 @@ codeunit 139032 "Job Queue - Inactivity Detect"
     var
         Assert: Codeunit Assert;
         LibraryCRMIntegration: Codeunit "Library - CRM Integration";
-        LibraryJobQueue: Codeunit "Library - Job Queue";
         LibraryUtility: Codeunit "Library - Utility";
         LibraryPermissions: Codeunit "Library - Permissions";
 
@@ -36,7 +35,7 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         CODEUNIT.Run(CODEUNIT::"Job Queue Dispatcher", JobQueueEntry);
 
         // [THEN] Job should be deleted
-        Assert.IsFalse(JobQueueEntry.Find(), 'Job should be deleted');
+        Assert.IsFalse(JobQueueEntry.Find, 'Job should be deleted');
     end;
 
     [Test]
@@ -50,7 +49,7 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         // [FEATURE] [UT]
         // [SCENARIO] Active job becomes inactive for a period of time if the run didn't change anything and Inactivity Timeout Period > 0
         Initialize();
-        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask();
+        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask;
         // [GIVEN] Active recurring job 'X' is executed, Inactivity Timeout Period = 10
         CreateJobQueueEntry(JobQueueEntry, DATABASE::Item, JobQueueEntry.Status::Ready);
 
@@ -100,13 +99,13 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         // [FEATURE] [UT]
         // [SCENARIO] Active job stays active if the run resulted in some activity.
         Initialize();
-        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask();
+        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask;
 
         // [GIVEN] Active recurring job 'X' is executed
         CreateJobQueueEntry(JobQueueEntry, DATABASE::Item, JobQueueEntry.Status::Ready);
 
         // [WHEN] Job is done and changes were done
-        MockSynchJobRunner.SetJobWasActive();
+        MockSynchJobRunner.SetJobWasActive;
         BindSubscription(MockSynchJobRunner);
         CODEUNIT.Run(CODEUNIT::"Job Queue Dispatcher", JobQueueEntry);
 
@@ -125,7 +124,7 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         // [FEATURE] [UT]
         // [SCENARIO] Inactive job becomes active on manual record modification.
         Initialize();
-        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask();
+        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask;
 
         // [GIVEN] Integration Table Mapping 'ITEM', where "Table ID" = 'Item'
         // [GIVEN] Job 'ITEM1', where Status "On Hold with Inactivity period"
@@ -175,7 +174,7 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         // [FEATURE] [UT] [Upgrade]
         // [SCENARIO] Inactive job stays inactive on manual record modification during upgrade.
         Initialize();
-        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask();
+        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask;
 
         // [GIVEN] Integration Table Mapping 'ITEM', where "Table ID" = 'Item'
         // [GIVEN] Job 'ITEM', where Status "On Hold with Inactivity period"
@@ -184,7 +183,7 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         JobQueueEntry.Modify();
 
         // [GIVEN] Upgrade is in progress
-        DataUpgradeMgt.SetUpgradeInProgress();
+        DataUpgradeMgt.SetUpgradeInProgress;
 
         // [WHEN] Item 'X' has been inserted
         Item."No." := LibraryUtility.GenerateGUID();
@@ -205,7 +204,7 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         // [FEATURE] [UT]
         // [SCENARIO] SetStatus "On Hold with Inactivity period" with Inactivity Timeout Period > 0
         Initialize();
-        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask();
+        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask;
 
         // [GIVEN] Active recurring job 'X' is executed, "Inactivity Timeout Period" = 10
         CreateJobQueueEntry(JobQueueEntry, DATABASE::Item, JobQueueEntry.Status::Ready);
@@ -230,7 +229,7 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         // [FEATURE] [UT]
         // [SCENARIO] SetStatus "On Hold with Inactivity period" with Inactivity Timeout Period = 0
         Initialize();
-        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask();
+        LibraryCRMIntegration.DisableTaskOnBeforeJobQueueScheduleTask;
 
         // [GIVEN] Active recurring job 'X' is executed, Inactivity Timeout Period = 0s
         CreateJobQueueEntry(JobQueueEntry, DATABASE::Item, JobQueueEntry.Status::Ready);
@@ -303,8 +302,6 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         // [SCENARIO] Reschedule Job Queue on login with for Jobs with status On Hold with Inactivity Timeout and no scheduled task
         Initialize();
         LibraryCRMIntegration.UnbindLibraryJobQueue();
-        LibraryJobQueue.SetDoNotHandleCodeunitJobQueueEnqueueEvent(true);
-        BindSubscription(LibraryJobQueue);
 
         // [GIVEN] Active recurring job 'X' is executed
         CreateJobQueueEntry(JobQueueEntry, DATABASE::Item, JobQueueEntry.Status::"On Hold with Inactivity Timeout");
@@ -317,7 +314,6 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         JobQueueEntry.FindFirst();
         JobQueueEntry.TestField(Status, JobQueueEntry.Status::"Ready");
         Assert.AreNotEqual(ScheduledTask, JobQueueEntry."System Task ID", 'Scheduled Task ID was not updated.');
-        UnbindSubscription(LibraryJobQueue);
     end;
 
     [Test]
@@ -347,13 +343,9 @@ codeunit 139032 "Job Queue - Inactivity Detect"
     var
         JobQueueEntry: Record "Job Queue Entry";
         JobQueueLogEntry: Record "Job Queue Log Entry";
-        User: Record User;
     begin
         JobQueueEntry.DeleteAll();
         JobQueueLogEntry.DeleteAll();
-        User.SetRange("User Name", UserId());
-        if User.IsEmpty() then
-            LibraryPermissions.CreateUser(User, CopyStr(UserId(), 1, 50), true);
     end;
 
     local procedure CreateJobQueueEntry(var JobQueueEntry: Record "Job Queue Entry"; TableNo: Integer; JobStatus: Option)
@@ -390,7 +382,7 @@ codeunit 139032 "Job Queue - Inactivity Detect"
     local procedure CreateJobQueueEntryWithDeletedUserID(var JobQueueEntry: Record "Job Queue Entry"; TableNo: Integer; JobStatus: Option)
     begin
         CreateJobQueueEntry(JobQueueEntry, TableNo, JobStatus);
-        JobQueueEntry."User ID" := LibraryPermissions.GetNonExistingUserID();
+        JobQueueEntry."User ID" := LibraryPermissions.GetNonExistingUserID;
         JobQueueEntry.Modify();
     end;
 
@@ -410,6 +402,5 @@ codeunit 139032 "Job Queue - Inactivity Detect"
         DiffInMilliseconds := DateTime2 - DateTime1;
         Assert.AreEqual(ExpectedDiffInSeconds, Round(DiffInMilliseconds / 1000, 1), 'Expected shift in time.');
     end;
-
 }
 

@@ -96,7 +96,7 @@ page 6653 "Posted Return Shipment Lines"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = PurchReturnOrder;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Prod. Order No."; Rec."Prod. Order No.")

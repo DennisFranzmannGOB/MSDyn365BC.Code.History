@@ -106,7 +106,7 @@ codeunit 9655 "Init. Server Printer Table"
         PrinterSelection.SetRange("Report ID", ReportID);
         if not PrinterSelection.FindFirst() then begin
             PrinterSelection.SetRange("Report ID", 0);
-            if PrinterSelection.FindFirst() then
+            IF PrinterSelection.FindFirst() THEN
                 exit(PrinterSelection."Printer Name");
             PrinterSelection.SetRange("Report ID", ReportID);
             PrinterSelection.SetRange("User ID");

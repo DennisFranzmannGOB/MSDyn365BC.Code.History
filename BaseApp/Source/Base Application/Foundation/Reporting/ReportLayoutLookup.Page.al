@@ -99,7 +99,7 @@ page 9651 "Report Layout Lookup"
         OnInitCustomTypeLayouts(ReportID, LayoutCreated);
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     procedure OnInitCustomTypeLayouts(ReportID: Integer; var LayoutCreated: Boolean)
     begin
     end;

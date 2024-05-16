@@ -5,7 +5,6 @@ using System.Visualization;
 table 771 "Analysis Report Chart Line"
 {
     Caption = 'Analysis Report Chart Line';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -9,7 +9,6 @@ using System.IO;
 table 138 "Unlinked Attachment"
 {
     Caption = 'Unlinked Attachment';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -5,6 +5,7 @@
 namespace Microsoft.Sales.History;
 
 using Microsoft.eServices.EDocument;
+
 pageextension 6144 "E-Doc. Posted Sales Inv." extends "Posted Sales Invoice"
 {
     actions

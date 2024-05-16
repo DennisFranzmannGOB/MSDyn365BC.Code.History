@@ -5,7 +5,6 @@ table 97 "Comment Line"
     Caption = 'Comment Line';
     DrillDownPageID = "Comment List";
     LookupPageID = "Comment List";
-    DataClassification = CustomerContent;
 
     fields
     {

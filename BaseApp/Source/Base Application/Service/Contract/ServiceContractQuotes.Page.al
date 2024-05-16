@@ -1,7 +1,6 @@
 namespace Microsoft.Service.Contract;
 
 using Microsoft.Finance.Dimension;
-using Microsoft.Foundation.Attachment;
 using Microsoft.Foundation.Reporting;
 using Microsoft.Sales.Customer;
 using Microsoft.Service.Comment;
@@ -75,14 +74,6 @@ page 9322 "Service Contract Quotes"
         }
         area(factboxes)
         {
-            part("Attached Documents"; "Document Attachment Factbox")
-            {
-                ApplicationArea = Service;
-                Caption = 'Attachments';
-                SubPageLink = "Table ID" = const(Database::"Service Contract Header"),
-                              "Document Type" = const("Service Contract Quote"),
-                              "No." = field("Contract No.");
-            }
             part(Control1902018507; "Customer Statistics FactBox")
             {
                 ApplicationArea = Service;
@@ -174,7 +165,7 @@ page 9322 "Service Contract Quotes"
                     RunPageLink = "Contract Type Relation" = field("Contract Type"),
                                   "Contract No. Relation" = field("Contract No.");
                     RunPageView = sorting("Contract Type Relation", "Contract No. Relation", "File Date", "File Time")
-                                  order(descending);
+                                  order(Descending);
                     ToolTip = 'View filed contract quotes.';
                 }
             }
@@ -206,27 +197,9 @@ page 9322 "Service Contract Quotes"
 
                 trigger OnAction()
                 var
-                    DocumentPrint: Codeunit "Document-Print";
+                    DocPrint: Codeunit "Document-Print";
                 begin
-                    DocumentPrint.PrintServiceContract(Rec);
-                end;
-            }
-            action(AttachAsPDF)
-            {
-                ApplicationArea = Service;
-                Caption = 'Attach as PDF';
-                Ellipsis = true;
-                Image = PrintAttachment;
-                ToolTip = 'Create a PDF file and attach it to the document.';
-
-                trigger OnAction()
-                var
-                    ServiceContractHeader: Record "Service Contract Header";
-                    DocumentPrint: Codeunit "Document-Print";
-                begin
-                    ServiceContractHeader := Rec;
-                    ServiceContractHeader.SetRecFilter();
-                    DocumentPrint.PrintServiceContractToDocumentAttachment(ServiceContractHeader);
+                    DocPrint.PrintServiceContract(Rec);
                 end;
             }
         }
@@ -236,16 +209,8 @@ page 9322 "Service Contract Quotes"
             {
                 Caption = 'Process';
 
-                group(Category_CategoryPrint)
+                actionref("&Print_Promoted"; "&Print")
                 {
-                    ShowAs = SplitButton;
-
-                    actionref("&Print_Promoted"; "&Print")
-                    {
-                    }
-                    actionref(AttachAsPDF_Promoted; AttachAsPDF)
-                    {
-                    }
                 }
                 actionref("&Make Contract_Promoted"; "&Make Contract")
                 {

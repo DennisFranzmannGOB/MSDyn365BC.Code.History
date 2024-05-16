@@ -33,6 +33,7 @@ page 5839 "Modify Marketing Text"
                     ApplicationArea = All;
                     ExtendedDatatype = RichContent;
                     Caption = 'Marketing Text';
+                    ToolTip = 'Specifies the rich text content of the text.';
                     StyleExpr = false;
                 }
             }
@@ -41,41 +42,40 @@ page 5839 "Modify Marketing Text"
             {
                 group(CopilotLink)
                 {
-                    Visible = CanCopilotSuggest;
+                    Visible = IsCopilotEnabled;
                     InstructionalText = 'Get help writing engaging texts based on the item''s attributes';
                     ShowCaption = false;
                     field(CopilotPrompt; DraftWithCopilotTxt)
                     {
-                        Visible = false;
+                        Visible = IsCopilotEnabled;
                         Editable = false;
                         ShowCaption = false;
                         ApplicationArea = All;
 
                         trigger OnDrillDown()
+                        var
+                            MarketingText: Codeunit "Marketing Text";
+                            Action: Action;
+                            ConfirmReplace: Boolean;
+
                         begin
-                            SuggestWithCopilot();
+                            if not EntityText.IsEnabled(false) then
+                                exit;
+
+                            if not (EntityTextContent = '') then begin
+                                ConfirmReplace := Confirm(ConfirmTxt, false);
+                                if not ConfirmReplace then exit;
+                            end;
+
+                            MarketingText.CreateWithCopilot(Rec, PromptMode::Prompt, Action);
+                            if Action = Action::OK then begin
+                                EntityTextContent := EntityText.GetText(Rec);
+                                CurrPage.Update(false);
+                            end;
                         end;
                     }
                 }
             }
-        }
-    }
-    actions
-    {
-        area(Prompting)
-        {
-            action(SuggestMarketingText)
-            {
-                ApplicationArea = All;
-                Caption = 'Suggest marketing text';
-                Tooltip = 'Let Copilot create a new draft.';
-                Visible = CanCopilotSuggest;
-                trigger OnAction()
-                begin
-                    SuggestWithCopilot();
-                end;
-            }
-
         }
     }
 
@@ -83,7 +83,7 @@ page 5839 "Modify Marketing Text"
     var
         MarketingText: Codeunit "Marketing Text";
     begin
-        CanCopilotSuggest := MarketingText.IsMarketingTextVisible() and EntityText.CanSuggest();
+        IsCopilotEnabled := MarketingText.IsMarketingTextVisible() and EntityText.CanSuggest();
     end;
 
     trigger OnAfterGetCurrRecord()
@@ -111,29 +111,8 @@ page 5839 "Modify Marketing Text"
         EntityText: Codeunit "Entity Text";
         ItemDescription: Text;
         EntityTextContent: Text;
-        CanCopilotSuggest: Boolean;
+        IsCopilotEnabled: Boolean;
         HasLoaded: Boolean;
         ConfirmTxt: Label 'If you generate a new text and keep it, the current text is replaced. Do you want to continue?';
         DraftWithCopilotTxt: Label 'Draft with Copilot';
-
-    local procedure SuggestWithCopilot()
-    var
-        MarketingText: Codeunit "Marketing Text";
-        Action: Action;
-        ConfirmReplace: Boolean;
-    begin
-        if not EntityText.IsEnabled(false) then
-            exit;
-
-        if not (EntityTextContent = '') then begin
-            ConfirmReplace := Confirm(ConfirmTxt, false);
-            if not ConfirmReplace then exit;
-        end;
-
-        MarketingText.CreateWithCopilot(Rec, PromptMode::Prompt, Action);
-        if Action = Action::OK then begin
-            EntityTextContent := EntityText.GetText(Rec);
-            CurrPage.Update(false);
-        end;
-    end;
 }

@@ -8,7 +8,6 @@ table 5219 "HR Confidential Comment Line"
     DataCaptionFields = "No.";
     DrillDownPageID = "HR Confidential Comment List";
     LookupPageID = "HR Confidential Comment List";
-    DataClassification = CustomerContent;
 
     fields
     {

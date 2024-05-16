@@ -37,57 +37,59 @@ codeunit 242 "Item Jnl.-Post+Print"
         SuppressCommit: Boolean;
         IsHandled: Boolean;
     begin
-        ItemJnlTemplate.Get(ItemJnlLine."Journal Template Name");
-        ItemJnlTemplate.TestField("Posting Report ID");
-        if ItemJnlTemplate.Recurring and (ItemJnlLine.GetFilter(ItemJnlLine."Posting Date") <> '') then
-            ItemJnlLine.FieldError("Posting Date", Text000);
+        with ItemJnlLine do begin
+            ItemJnlTemplate.Get("Journal Template Name");
+            ItemJnlTemplate.TestField("Posting Report ID");
+            if ItemJnlTemplate.Recurring and (GetFilter("Posting Date") <> '') then
+                FieldError("Posting Date", Text000);
 
-        HideDialog := false;
-        SuppressCommit := false;
-        IsHandled := false;
-        OnBeforePostJournalBatch(ItemJnlLine, HideDialog, SuppressCommit, IsHandled);
-        if IsHandled then
-            exit;
-
-        if not HideDialog then
-            if not Confirm(Text001, false) then
+            HideDialog := false;
+            SuppressCommit := false;
+            IsHandled := false;
+            OnBeforePostJournalBatch(ItemJnlLine, HideDialog, SuppressCommit, IsHandled);
+            if IsHandled then
                 exit;
 
-        TempJnlBatchName := ItemJnlLine."Journal Batch Name";
+            if not HideDialog then
+                if not Confirm(Text001, false) then
+                    exit;
 
-        ItemJnlPostBatch.SetSuppressCommit(SuppressCommit);
-        OnCodeOnBeforeItemJnlPostBatchRun(ItemJnlLine);
-        ItemJnlPostBatch.Run(ItemJnlLine);
+            TempJnlBatchName := "Journal Batch Name";
 
-        OnAfterPostJournalBatch(ItemJnlLine);
+            ItemJnlPostBatch.SetSuppressCommit(SuppressCommit);
+            OnCodeOnBeforeItemJnlPostBatchRun(ItemJnlLine);
+            ItemJnlPostBatch.Run(ItemJnlLine);
 
-        if ItemReg.Get(ItemJnlPostBatch.GetItemRegNo()) then
-            PrintItemRegister();
+            OnAfterPostJournalBatch(ItemJnlLine);
 
-        if WhseReg.Get(ItemJnlPostBatch.GetWhseRegNo()) then
-            PrintWhseRegister();
+            if ItemReg.Get(ItemJnlPostBatch.GetItemRegNo()) then
+                PrintItemRegister();
 
-        if not HideDialog then
-            if (ItemJnlPostBatch.GetItemRegNo() = 0) and
-               (ItemJnlPostBatch.GetWhseRegNo() = 0)
-            then
-                Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
-            else
-                if TempJnlBatchName = ItemJnlLine."Journal Batch Name" then
-                    Message(Text003)
+            if WhseReg.Get(ItemJnlPostBatch.GetWhseRegNo()) then
+                PrintWhseRegister();
+
+            if not HideDialog then
+                if (ItemJnlPostBatch.GetItemRegNo() = 0) and
+                   (ItemJnlPostBatch.GetWhseRegNo() = 0)
+                then
+                    Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
                 else
-                    Message(
-                      Text004 +
-                      Text005,
-                      ItemJnlLine."Journal Batch Name");
+                    if TempJnlBatchName = "Journal Batch Name" then
+                        Message(Text003)
+                    else
+                        Message(
+                          Text004 +
+                          Text005,
+                          "Journal Batch Name");
 
-        if not ItemJnlLine.Find('=><') or (TempJnlBatchName <> ItemJnlLine."Journal Batch Name") then begin
-            ItemJnlLine.Reset();
-            ItemJnlLine.FilterGroup(2);
-            ItemJnlLine.SetRange("Journal Template Name", ItemJnlLine."Journal Template Name");
-            ItemJnlLine.SetRange("Journal Batch Name", ItemJnlLine."Journal Batch Name");
-            ItemJnlLine.FilterGroup(0);
-            ItemJnlLine."Line No." := 1;
+            if not Find('=><') or (TempJnlBatchName <> "Journal Batch Name") then begin
+                Reset();
+                FilterGroup(2);
+                SetRange("Journal Template Name", "Journal Template Name");
+                SetRange("Journal Batch Name", "Journal Batch Name");
+                FilterGroup(0);
+                "Line No." := 1;
+            end;
         end;
     end;
 

@@ -491,16 +491,25 @@ report 94 "Close Income Statement"
         SourceCodeSetup: Record "Source Code Setup";
         GenJnlTemplate: Record "Gen. Journal Template";
         GenJnlBatch: Record "Gen. Journal Batch";
+        GenJnlLine: Record "Gen. Journal Line";
+        RetainedEarningsGLAcc: Record "G/L Account";
         GLSetup: Record "General Ledger Setup";
         DimSelectionBuf: Record "Dimension Selection Buffer";
         ObjTransl: Record "Object Translation";
         SelectedDim: Record "Selected Dimension";
         TempSelectedDim: Record "Selected Dimension" temporary;
         TempEntryNoAmountBuffer: Record "Entry No. Amount Buffer" temporary;
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
         DimMgt: Codeunit DimensionManagement;
         DimBufMgt: Codeunit "Dimension Buffer Management";
         Window: Dialog;
+        FiscalYearStartDate: Date;
+        FiscYearClosingDate: Date;
+        EndDateReq: Date;
+        DocNo: Code[20];
+        PostingDescription: Text[100];
+        ClosePerBusUnit: Boolean;
         ClosePerGlobalDim1: Boolean;
         ClosePerGlobalDim2: Boolean;
         ClosePerGlobalDimOnly: Boolean;
@@ -535,16 +544,6 @@ report 94 "Close Income Statement"
         NoFiscalYearsErr: Label 'No closed fiscal year exists.';
         PostToRetainedEarningsAcc: Option Balance,Details;
 
-    protected var
-        GenJnlLine: Record "Gen. Journal Line";
-        RetainedEarningsGLAcc: Record "G/L Account";
-        FiscalYearStartDate: Date;
-        FiscYearClosingDate: Date;
-        EndDateReq: Date;
-        DocNo: Code[20];
-        PostingDescription: Text[100];
-        ClosePerBusUnit: Boolean;
-
     local procedure ValidateEndDate(RealMode: Boolean): Boolean
     var
         OK: Boolean;
@@ -575,18 +574,14 @@ report 94 "Close Income Statement"
     end;
 
     local procedure ValidateJnl()
-    var
-        NoSeries: Codeunit "No. Series";
     begin
         DocNo := '';
         if GenJnlBatch.Get(GenJnlLine."Journal Template Name", GenJnlLine."Journal Batch Name") then
             if GenJnlBatch."No. Series" <> '' then
-                DocNo := NoSeries.PeekNextNo(GenJnlBatch."No. Series", EndDateReq);
+                DocNo := NoSeriesMgt.TryGetNextNo(GenJnlBatch."No. Series", EndDateReq);
     end;
 
     local procedure HandleGenJnlLine()
-    var
-        NoSeries: Codeunit "No. Series";
     begin
         OnBeforeHandleGenJnlLine(GenJnlLine);
 
@@ -602,8 +597,8 @@ report 94 "Close Income Statement"
             end;
             if GenJnlLine.Amount <> 0 then begin
                 GenJnlPostLine.Run(GenJnlLine);
-                if DocNo = NoSeries.PeekNextNo(GenJnlBatch."No. Series", EndDateReq) then
-                    NoSeries.GetNextNo(GenJnlBatch."No. Series", EndDateReq);
+                if DocNo = NoSeriesMgt.GetNextNo(GenJnlBatch."No. Series", EndDateReq, false) then
+                    NoSeriesMgt.SaveNoSeries();
             end;
         end else
             if not ZeroGenJnlAmount() then

@@ -10,7 +10,6 @@ table 6707 "Booking Item"
     Caption = 'Booking Item';
     ExternalName = 'appointments';
     TableType = MicrosoftGraph;
-    DataClassification = CustomerContent;
 
     fields
     {

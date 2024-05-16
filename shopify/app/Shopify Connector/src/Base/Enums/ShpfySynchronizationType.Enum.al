@@ -24,8 +24,5 @@ enum 30103 "Shpfy Synchronization Type"
     {
         Caption = 'Customers';
     }
-    value(4; Companies)
-    {
-        Caption = 'Companies';
-    }
+
 }

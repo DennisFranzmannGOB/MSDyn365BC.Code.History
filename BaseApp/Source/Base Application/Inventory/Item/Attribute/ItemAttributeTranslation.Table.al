@@ -5,7 +5,6 @@ using System.Globalization;
 table 7502 "Item Attribute Translation"
 {
     Caption = 'Item Attribute Translation';
-    DataClassification = CustomerContent;
 
     fields
     {

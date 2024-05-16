@@ -2,7 +2,6 @@ namespace System.Azure.Identity;
 
 using System.Environment;
 using System.Environment.Configuration;
-using System.Security.Authentication;
 using System.Utilities;
 
 page 6300 "Azure AD App Setup Wizard"
@@ -18,7 +17,7 @@ page 6300 "Azure AD App Setup Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and not DoneVisible;
+                Visible = TopBannerVisible AND NOT DoneVisible;
                 field("<MediaRepositoryStandard>"; MediaResourcesStandard."Media Reference")
                 {
                     ApplicationArea = Basic, Suite;
@@ -112,7 +111,7 @@ page 6300 "Azure AD App Setup Wizard"
                         Caption = ' ', Locked = true;
                         ShowFilter = false;
                     }
-                    usercontrol(OAuthIntegration; OAuthIntegration)
+                    usercontrol(OAuthIntegration; "Microsoft.Dynamics.Nav.Client.OAuthIntegration")
                     {
                         ApplicationArea = Basic, Suite;
                         Visible = false;

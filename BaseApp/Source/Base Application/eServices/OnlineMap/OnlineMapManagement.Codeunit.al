@@ -479,11 +479,13 @@ codeunit 802 "Online Map Management"
         RecRef.GetTable(OnlineMapSetup);
 
         ServiceConnection.Status := ServiceConnection.Status::Enabled;
-        ServiceConnection.Status := ServiceConnection.Status::Disabled;
-        if OnlineMapSetup.Enabled then
-            ServiceConnection.Status := ServiceConnection.Status::Enabled;
-        ServiceConnection.InsertServiceConnection(
-          ServiceConnection, RecRef.RecordId, OnlineMapSetup.TableCaption(), '', PAGE::"Online Map Setup");
+        with OnlineMapSetup do begin
+            ServiceConnection.Status := ServiceConnection.Status::Disabled;
+            if OnlineMapSetup.Enabled then
+                ServiceConnection.Status := ServiceConnection.Status::Enabled;
+            ServiceConnection.InsertServiceConnection(
+              ServiceConnection, RecRef.RecordId, TableCaption(), '', PAGE::"Online Map Setup");
+        end;
     end;
 
     local procedure GetSetup()

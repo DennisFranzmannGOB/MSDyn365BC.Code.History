@@ -178,7 +178,7 @@ page 5871 "Item Availability by BOM Level"
                     ApplicationArea = Assembly;
                     Editable = false;
                     Style = Strong;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies which item in the BOM structure restricts you from making a larger quantity than what is shown in the Able to Make Top Item field.';
                 }
                 field("Variant Code"; Rec."Variant Code")
@@ -579,26 +579,28 @@ page 5871 "Item Availability by BOM Level"
         Item.Get(Rec."No.");
         Item.SetFilter("No.", Rec."No.");
 
-        if Rec.Indentation = 0 then
-            case ShowBy of
-                ShowBy::Item:
-                    begin
-                        Item.SetFilter("Location Filter", LocationFilter);
-                        Item.SetFilter("Variant Filter", VariantFilter);
-                    end;
-                ShowBy::Assembly:
-                    ItemAbleToMakeTimeline.InitAsmOrder(AsmHeader);
-                ShowBy::Production:
-                    ItemAbleToMakeTimeline.InitProdOrder(ProdOrderLine);
-            end
-        else begin
-            Item.SetFilter("Location Filter", LocationFilter);
-            Item.SetFilter("Variant Filter", VariantFilter);
-        end;
+        with ItemAbleToMakeTimeline do begin
+            if Rec.Indentation = 0 then
+                case ShowBy of
+                    ShowBy::Item:
+                        begin
+                            Item.SetFilter("Location Filter", LocationFilter);
+                            Item.SetFilter("Variant Filter", VariantFilter);
+                        end;
+                    ShowBy::Assembly:
+                        InitAsmOrder(AsmHeader);
+                    ShowBy::Production:
+                        InitProdOrder(ProdOrderLine);
+                end
+            else begin
+                Item.SetFilter("Location Filter", LocationFilter);
+                Item.SetFilter("Variant Filter", VariantFilter);
+            end;
 
-        ItemAbleToMakeTimeline.SetTableView(Item);
-        ItemAbleToMakeTimeline.Initialize(Rec."Needed by Date", 0, 7, true);
-        ItemAbleToMakeTimeline.Run();
+            SetTableView(Item);
+            Initialize(Rec."Needed by Date", 0, 7, true);
+            Run();
+        end;
     end;
 
     local procedure ShowWarnings()

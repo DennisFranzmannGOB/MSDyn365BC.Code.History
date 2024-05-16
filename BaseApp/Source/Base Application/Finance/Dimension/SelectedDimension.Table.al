@@ -6,7 +6,6 @@ using System.Security.AccessControl;
 table 369 "Selected Dimension"
 {
     Caption = 'Selected Dimension';
-    DataClassification = CustomerContent;
 
     fields
     {

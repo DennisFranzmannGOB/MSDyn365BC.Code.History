@@ -4,7 +4,6 @@ table 880 "Excel Template Storage"
 {
     Caption = 'Excel Template Storage';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

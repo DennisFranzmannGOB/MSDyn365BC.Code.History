@@ -25,27 +25,29 @@ codeunit 1108 "CA Jnl.-Post"
     var
         TempJnlBatchName: Code[10];
     begin
-        if not Confirm(Text001) then
-            exit;
+        with CostJnlLine do begin
+            if not Confirm(Text001) then
+                exit;
 
-        TempJnlBatchName := CostJnlLine."Journal Batch Name";
-        CODEUNIT.Run(CODEUNIT::"CA Jnl.-Post Batch", CostJnlLine);
+            TempJnlBatchName := "Journal Batch Name";
+            CODEUNIT.Run(CODEUNIT::"CA Jnl.-Post Batch", CostJnlLine);
 
-        if CostJnlLine."Line No." = 0 then
-            Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
-        else
-            if TempJnlBatchName = CostJnlLine."Journal Batch Name" then
-                Message(Text003)
+            if "Line No." = 0 then
+                Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
             else
-                Message(Text004, CostJnlLine."Journal Batch Name");
+                if TempJnlBatchName = "Journal Batch Name" then
+                    Message(Text003)
+                else
+                    Message(Text004, "Journal Batch Name");
 
-        if not CostJnlLine.Find('=><') or (TempJnlBatchName <> CostJnlLine."Journal Batch Name") then begin
-            CostJnlLine.Reset();
-            CostJnlLine.FilterGroup(2);
-            CostJnlLine.SetRange("Journal Template Name", CostJnlLine."Journal Template Name");
-            CostJnlLine.SetRange("Journal Batch Name", CostJnlLine."Journal Batch Name");
-            CostJnlLine.FilterGroup(0);
-            CostJnlLine."Line No." := 1;
+            if not Find('=><') or (TempJnlBatchName <> "Journal Batch Name") then begin
+                Reset();
+                FilterGroup(2);
+                SetRange("Journal Template Name", "Journal Template Name");
+                SetRange("Journal Batch Name", "Journal Batch Name");
+                FilterGroup(0);
+                "Line No." := 1;
+            end;
         end;
     end;
 }

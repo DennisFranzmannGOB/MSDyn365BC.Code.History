@@ -11,7 +11,6 @@ table 5396 "CDS Teamroles"
     ExternalName = 'teamroles';
     ExternalSchema = 'teamroles_association';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {

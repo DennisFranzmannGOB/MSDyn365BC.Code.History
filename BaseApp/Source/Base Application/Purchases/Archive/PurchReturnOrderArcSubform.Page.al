@@ -249,7 +249,7 @@ page 6645 "Purch Return Order Arc Subform"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Planning Flexibility"; Rec."Planning Flexibility")
@@ -514,8 +514,7 @@ page 6645 "Purch Return Order Arc Subform"
         DocumentLineTracking: Page "Document Line Tracking";
     begin
         Clear(DocumentLineTracking);
-        DocumentLineTracking.SetSourceDoc(
-            "Document Line Source Type"::"Purchase Return Order", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
+        DocumentLineTracking.SetDoc(9, Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
         DocumentLineTracking.RunModal();
     end;
 

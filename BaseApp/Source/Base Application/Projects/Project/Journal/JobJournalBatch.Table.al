@@ -5,10 +5,9 @@ using Microsoft.Foundation.NoSeries;
 
 table 237 "Job Journal Batch"
 {
-    Caption = 'Project Journal Batch';
+    Caption = 'Job Journal Batch';
     DataCaptionFields = Name, Description;
     LookupPageID = "Job Journal Batches";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -77,7 +76,7 @@ table 237 "Job Journal Batch"
         }
         field(22; Recurring; Boolean)
         {
-            CalcFormula = lookup("Job Journal Template".Recurring where(Name = field("Journal Template Name")));
+            CalcFormula = Lookup("Job Journal Template".Recurring where(Name = field("Journal Template Name")));
             Caption = 'Recurring';
             Editable = false;
             FieldClass = FlowField;

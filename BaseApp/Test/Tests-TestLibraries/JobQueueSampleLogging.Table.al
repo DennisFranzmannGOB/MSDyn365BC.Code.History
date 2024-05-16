@@ -1,7 +1,6 @@
 table 132450 "Job Queue Sample Logging"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -49,7 +48,7 @@ table 132450 "Job Queue Sample Logging"
         Init();
         "No." := nextKey;
         "User ID" := UserId;
-        "Session ID" := ServiceInstanceId();
+        "Session ID" := ServiceInstanceId;
         MessageToLog := '[' + Format(DT2Time(CurrentDateTime), 0, '<Hours24>:<Minutes>:<Seconds>.<Thousands>') + '] ' + Msg;
 
         Insert();

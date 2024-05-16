@@ -9,7 +9,6 @@ table 5503 "Acc. Schedule Line Entity"
     Caption = 'Acc. Schedule Line Entity';
     TableType = Temporary;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -108,7 +108,7 @@ codeunit 134444 "ERM Test Account Categories"
         GLAccountCardPage.OpenNew();
 
         // [WHEN] Lookup is invoked for Account Subcategory
-        GLAccountCardPage.SubCategoryDescription.Lookup();
+        GLAccountCardPage.SubCategoryDescription.Lookup;
         // Handled by GLAccountCategoriesLookupHandler
 
         // [THEN] G/L Account with blank "No." wasn't inserted
@@ -298,6 +298,7 @@ codeunit 134444 "ERM Test Account Categories"
         AccScheduleLine: Record "Acc. Schedule Line";
         GLAccountCategory: Record "G/L Account Category";
         GLAccountCategories: TestPage "G/L Account Categories";
+        GLAccountNo: Code[20];
     begin
         // [SCENARIO 469362] Creating Financial Report Row definition from G/L account categories the system does not set the right Totaling Type.
         Initialize();
@@ -447,8 +448,8 @@ codeunit 134444 "ERM Test Account Categories"
     [Scope('OnPrem')]
     procedure GLAccountCategoriesLookupHandler(var GLAccountCategoriesPage: TestPage "G/L Account Categories")
     begin
-        GLAccountCategoriesPage.First();
-        GLAccountCategoriesPage.OK().Invoke();
+        GLAccountCategoriesPage.First;
+        GLAccountCategoriesPage.OK.Invoke;
     end;
 
     [RequestPageHandler]
@@ -462,7 +463,7 @@ codeunit 134444 "ERM Test Account Categories"
     [Scope('OnPrem')]
     procedure OptionDialogForGenerateAccountSchedules(Options: Text; var Choice: Integer; Instruction: Text)
     begin
-        Choice := LibraryVariableStorage.DequeueInteger();
+        Choice := LibraryVariableStorage.DequeueInteger;
     end;
 }
 

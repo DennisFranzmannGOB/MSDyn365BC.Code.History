@@ -2,8 +2,7 @@ namespace Microsoft.Projects.Project.Journal;
 
 table 1015 "Job Entry No."
 {
-    Caption = 'Project Entry No.';
-    DataClassification = CustomerContent;
+    Caption = 'Job Entry No.';
 
     fields
     {

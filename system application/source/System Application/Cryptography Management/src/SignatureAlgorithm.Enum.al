@@ -8,13 +8,7 @@ namespace System.Security.Encryption;
 /// <summary>
 /// Specifies the types of asymmetric algorithms.
 /// </summary>
-#if not CLEAN24
-#pragma warning disable AL0432
-enum 1446 SignatureAlgorithm implements SignatureAlgorithm, "Signature Algorithm v2"
-#pragma warning restore AL0432
-#else
-enum 1446 SignatureAlgorithm implements "Signature Algorithm v2"
-#endif
+enum 1446 SignatureAlgorithm implements SignatureAlgorithm
 {
     Extensible = false;
 
@@ -23,12 +17,7 @@ enum 1446 SignatureAlgorithm implements "Signature Algorithm v2"
     /// </summary>
     value(0; RSA)
     {
-#if not CLEAN24
-        Implementation = SignatureAlgorithm = "RSACryptoServiceProvider Impl.",
-                            "Signature Algorithm v2" = "RSACryptoServiceProvider Impl.";
-#else
-        Implementation = "Signature Algorithm v2" = "RSACryptoServiceProvider Impl.";
-#endif
+        Implementation = SignatureAlgorithm = "RSACryptoServiceProvider Impl.";
     }
 
     /// <summary>
@@ -36,12 +25,6 @@ enum 1446 SignatureAlgorithm implements "Signature Algorithm v2"
     /// </summary>
     value(1; DSA)
     {
-
-#if not CLEAN24
-        Implementation = SignatureAlgorithm = "DSACryptoServiceProvider Impl.",
-                            "Signature Algorithm v2" = "DSACryptoServiceProvider Impl.";
-#else
-        Implementation = "Signature Algorithm v2" = "DSACryptoServiceProvider Impl.";
-#endif
+        Implementation = SignatureAlgorithm = "DSACryptoServiceProvider Impl.";
     }
 }

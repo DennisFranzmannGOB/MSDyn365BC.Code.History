@@ -13,7 +13,6 @@ table 7204 "CRM Freight Terms"
     Description = 'Shipment method';
     Access = Internal;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

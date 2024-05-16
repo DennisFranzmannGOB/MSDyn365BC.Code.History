@@ -11,7 +11,6 @@ table 46 "Item Register"
 {
     Caption = 'Item Register';
     LookupPageID = "Item Registers";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -83,11 +82,6 @@ table 46 "Item Register"
             Caption = 'To Capacity Entry No.';
             TableRelation = "Capacity Ledger Entry";
         }
-        field(5895; "Cost Adjustment Run Guid"; Guid)
-        {
-            Caption = 'Cost Adjustment Run Guid';
-            DataClassification = CustomerContent;
-        }
     }
 
     keys
@@ -101,10 +95,6 @@ table 46 "Item Register"
         }
         key(Key3; "Source Code", "Journal Batch Name", "Creation Date")
         {
-        }
-        key(Key4; "Cost Adjustment Run Guid")
-        {
-
         }
     }
 

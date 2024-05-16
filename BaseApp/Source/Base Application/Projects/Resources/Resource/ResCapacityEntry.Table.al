@@ -5,7 +5,6 @@ table 160 "Res. Capacity Entry"
     Caption = 'Res. Capacity Entry';
     DrillDownPageID = "Res. Capacity Entries";
     LookupPageID = "Res. Capacity Entries";
-    DataClassification = CustomerContent;
 
     fields
     {

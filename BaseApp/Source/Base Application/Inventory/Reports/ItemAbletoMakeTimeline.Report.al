@@ -198,7 +198,7 @@ report 5871 "Item - Able to Make (Timeline)"
                 begin
                     IsHandled := false;
                     OnGenerateAvailTrendOnBeforeGenerateTreeForItem(Item, TempBOMBuffer, CurrDate, IsHandled);
-                    if not IsHandled then
+                    If not IsHandled then
                         CalcBOMTree.GenerateTreeForItem(Item, TempBOMBuffer, CurrDate, 1);
                 end;
             ShowBy::Assembly:

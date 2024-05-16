@@ -1,6 +1,6 @@
 namespace Microsoft.Sales.Pricing;
 
-#if not CLEAN23
+#if not CLEAN21
 using Microsoft.CRM.BusinessRelation;
 using Microsoft.CRM.Campaign;
 using Microsoft.CRM.Contact;
@@ -14,15 +14,14 @@ using Microsoft.Sales.Customer;
 table 1304 "Sales Price and Line Disc Buff"
 {
     Caption = 'Sales Price and Line Disc Buff';
-#if not CLEAN23
+#if not CLEAN21
     ObsoleteState = Pending;
     ObsoleteTag = '16.0';
 #else
     ObsoleteState = Removed;
-    ObsoleteTag = '26.0';
+    ObsoleteTag = '24.0';
 #endif    
     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation: table Price Worksheet Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -30,7 +29,7 @@ table 1304 "Sales Price and Line Disc Buff"
         {
             Caption = 'Code';
             DataClassification = SystemMetadata;
-#if not CLEAN23
+#if not CLEAN21
             NotBlank = true;
             TableRelation = if (Type = const(Item)) Item
             else
@@ -225,7 +224,7 @@ table 1304 "Sales Price and Line Disc Buff"
             Caption = 'Type';
             DataClassification = SystemMetadata;
 
-#if not CLEAN23
+#if not CLEAN21
             trigger OnValidate()
             begin
                 case Type of
@@ -337,7 +336,7 @@ table 1304 "Sales Price and Line Disc Buff"
     {
     }
 
-#if not CLEAN23
+#if not CLEAN21
     trigger OnDelete()
     begin
         DeleteOldRecordVersion();
@@ -377,7 +376,7 @@ table 1304 "Sales Price and Line Disc Buff"
         MustBeBlankErr: Label '%1 must be blank.';
         CustNotInPriceGrErr: Label 'This customer is not assigned to any price group, therefore a price group could not be used in context of this customer.';
         CustNotInDiscGrErr: Label 'This customer is not assigned to any discount group, therefore a discount group could not be used in context of this customer.';
-#if not CLEAN23
+#if not CLEAN21
         ItemNotInDiscGrErr: Label 'This item is not assigned to any discount group, therefore a discount group could not be used in context of this item.';
         IncludeVATQst: Label 'One or more of the sales prices do not include VAT.\Do you want to update all sales prices to include VAT?';
         ExcludeVATQst: Label 'One or more of the sales prices include VAT.\Do you want to update all sales prices to exclude VAT?';
@@ -401,7 +400,7 @@ table 1304 "Sales Price and Line Disc Buff"
         end;
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     procedure LoadDataForItem(Item: Record Item)
     var
         SalesPrice: Record "Sales Price";
@@ -473,7 +472,7 @@ table 1304 "Sales Price and Line Disc Buff"
         exit(LoadedLines);
     end;
 
-    local procedure EnoughLoaded(LoadedLines: Integer; MaxNoOfLines: Integer; var RemainingLinesToLoad: Integer): Boolean
+    Local procedure EnoughLoaded(LoadedLines: Integer; MaxNoOfLines: Integer; var RemainingLinesToLoad: Integer): Boolean
     begin
         if MaxNoOfLines > 0 then begin
             RemainingLinesToLoad := MaxNoOfLines - LoadedLines;
@@ -784,32 +783,32 @@ table 1304 "Sales Price and Line Disc Buff"
         "Loaded Price Group" := Cust."Customer Price Group";
 
         SetFiltersForSalesLineDiscForAllCustomers(SalesLineDiscount);
-        if not SalesLineDiscount.IsEmpty() then
+        if SalesLineDiscount.Count > 0 then
             exit(true);
         Clear(SalesLineDiscount);
 
         SetFiltersForSalesPriceForAllCustomers(SalesPrice);
-        if not SalesPrice.IsEmpty() then
+        if SalesPrice.Count > 0 then
             exit(true);
         Clear(SalesPrice);
 
         SetFiltersForSalesLineDiscForCustDiscGr(SalesLineDiscount);
-        if not SalesLineDiscount.IsEmpty() then
+        if SalesLineDiscount.Count > 0 then
             exit(true);
         Clear(SalesLineDiscount);
 
         SetFiltersForSalesPriceForCustPriceGr(SalesPrice);
-        if not SalesPrice.IsEmpty() then
+        if SalesPrice.Count > 0 then
             exit(true);
         Clear(SalesPrice);
 
         SetFiltersForSalesLineDiscForCustomer(SalesLineDiscount);
-        if not SalesLineDiscount.IsEmpty() then
+        if SalesLineDiscount.Count > 0 then
             exit(true);
         Clear(SalesLineDiscount);
 
         SetFiltersForSalesPriceForCustomer(SalesPrice);
-        if not SalesPrice.IsEmpty() then
+        if SalesPrice.Count > 0 then
             exit(true);
 
         exit(false);

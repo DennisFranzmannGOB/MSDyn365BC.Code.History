@@ -10,7 +10,6 @@ table 5402 "Unit of Measure Translation"
 {
     Caption = 'Unit of Measure Translation';
     LookupPageID = "Unit of Measure Translation";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -5,7 +5,6 @@ using System.Security.AccessControl;
 table 7159 "Analysis Selected Dimension"
 {
     Caption = 'Analysis Selected Dimension';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -25,10 +25,8 @@ page 1804 "Approval Workflow Setup Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and not DoneVisible;
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND NOT DoneVisible;
                 field("MediaResourcesStandard.""Media Reference"""; MediaResourcesStandard."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Editable = false;
@@ -39,10 +37,8 @@ page 1804 "Approval Workflow Setup Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and DoneVisible;
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND DoneVisible;
                 field("MediaResourcesDone.""Media Reference"""; MediaResourcesDone."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Editable = false;
@@ -134,12 +130,12 @@ page 1804 "Approval Workflow Setup Wizard"
                 group("Para4.1")
                 {
                     Caption = 'To set up the approval users, answer the following questions.';
-                    Visible = PurchInvoiceApprovalDetailsVisible or SalesInvoiceApprovalDetailsVisible;
+                    Visible = PurchInvoiceApprovalDetailsVisible OR SalesInvoiceApprovalDetailsVisible;
                     field("Who is the approver?"; Rec."Approver ID")
                     {
                         ApplicationArea = Suite;
                         Caption = 'Who is the approver?';
-                        Enabled = Rec."Purch Invoice App. Workflow" or Rec."Sales Invoice App. Workflow";
+                        Enabled = Rec."Purch Invoice App. Workflow" OR Rec."Sales Invoice App. Workflow";
                         TableRelation = User."User Name";
                     }
                 }

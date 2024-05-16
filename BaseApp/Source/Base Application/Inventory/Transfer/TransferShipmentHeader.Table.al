@@ -17,7 +17,6 @@ table 5744 "Transfer Shipment Header"
     Caption = 'Transfer Shipment Header';
     DataCaptionFields = "No.";
     LookupPageID = "Posted Transfer Shipments";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -301,8 +300,10 @@ table 5744 "Transfer Shipment Header"
         if IsHandled then
             exit;
 
-        TransShptHeader.Copy(Rec);
-        ReportSelection.PrintWithDialogForCust(ReportSelection.Usage::Inv2, TransShptHeader, ShowRequestForm, 0);
+        with TransShptHeader do begin
+            Copy(Rec);
+            ReportSelection.PrintWithDialogForCust(ReportSelection.Usage::Inv2, TransShptHeader, ShowRequestForm, 0);
+        end;
     end;
 
     procedure ShowDimensions()

@@ -132,7 +132,7 @@ page 5741 "Transfer Order Subform"
                 {
                     ApplicationArea = Location;
                     BlankZero = true;
-                    Editable = not Rec."Direct Transfer";
+                    Editable = NOT Rec."Direct Transfer";
                     ToolTip = 'Specifies the quantity of items that remains to be received.';
                 }
                 field("Quantity Received"; Rec."Quantity Received")

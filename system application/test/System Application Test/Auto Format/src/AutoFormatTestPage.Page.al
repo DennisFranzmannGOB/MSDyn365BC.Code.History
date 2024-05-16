@@ -27,19 +27,19 @@ page 132584 "AutoFormat Test Page"
                 ToolTip = 'Specifies Case 11';
                 Caption = 'Case 11';
             }
-            field("Case132585"; Amount)
+            field("Case1000"; Amount)
             {
                 ApplicationArea = All;
                 AutoFormatExpression = '';
-                AutoFormatType = 132585;
-                ToolTip = 'Specifies Case 132585';
-                Caption = 'Case 132585';
+                AutoFormatType = 1000;
+                ToolTip = 'Specifies Case 1000';
+                Caption = 'Case 1000';
             }
             field("CaseNoMatch"; Amount)
             {
                 ApplicationArea = All;
                 AutoFormatExpression = '';
-                AutoFormatType = 132584;
+                AutoFormatType = 100;
                 ToolTip = 'Specifies Case No Match';
                 Caption = 'Case No Match';
             }

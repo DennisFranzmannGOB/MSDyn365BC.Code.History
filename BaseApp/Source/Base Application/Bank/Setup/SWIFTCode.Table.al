@@ -4,7 +4,6 @@ table 1210 "SWIFT Code"
 {
     Caption = 'SWIFT Code';
     LookupPageID = "SWIFT Codes";
-    DataClassification = CustomerContent;
 
     fields
     {

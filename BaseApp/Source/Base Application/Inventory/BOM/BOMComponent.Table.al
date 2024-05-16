@@ -9,7 +9,6 @@ table 90 "BOM Component"
     Caption = 'BOM Component';
     DrillDownPageID = "Assembly BOM";
     LookupPageID = "Assembly BOM";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -107,7 +106,7 @@ table 90 "BOM Component"
         }
         field(14; "BOM Description"; Text[100])
         {
-            CalcFormula = lookup(Item.Description where("No." = field("Parent Item No.")));
+            CalcFormula = Lookup(Item.Description where("No." = field("Parent Item No.")));
             Caption = 'BOM Description';
             Editable = false;
             FieldClass = FlowField;

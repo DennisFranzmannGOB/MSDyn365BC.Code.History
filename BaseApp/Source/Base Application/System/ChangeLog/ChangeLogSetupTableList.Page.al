@@ -45,7 +45,8 @@ page 593 "Change Log Setup (Table) List"
 
                     trigger OnAssistEdit()
                     begin
-                        ChangeLogSetupTable.TestField("Log Insertion", ChangeLogSetupTable."Log Insertion"::"Some Fields");
+                        with ChangeLogSetupTable do
+                            TestField("Log Insertion", "Log Insertion"::"Some Fields");
                         AssistEdit();
                     end;
 
@@ -83,7 +84,8 @@ page 593 "Change Log Setup (Table) List"
 
                     trigger OnAssistEdit()
                     begin
-                        ChangeLogSetupTable.TestField("Log Modification", ChangeLogSetupTable."Log Modification"::"Some Fields");
+                        with ChangeLogSetupTable do
+                            TestField("Log Modification", "Log Modification"::"Some Fields");
                         AssistEdit();
                     end;
 
@@ -120,7 +122,8 @@ page 593 "Change Log Setup (Table) List"
 
                     trigger OnAssistEdit()
                     begin
-                        ChangeLogSetupTable.TestField("Log Deletion", ChangeLogSetupTable."Log Deletion"::"Some Fields");
+                        with ChangeLogSetupTable do
+                            TestField("Log Deletion", "Log Deletion"::"Some Fields");
                         AssistEdit();
                     end;
 
@@ -191,10 +194,11 @@ page 593 "Change Log Setup (Table) List"
         Field.SetRange(TableNo, Rec."Object ID");
         Field.SetFilter(ObsoleteState, '<>%1', Field.ObsoleteState::Removed);
         Field.FilterGroup(0);
-        ChangeLogSetupFieldList.SelectColumn(
-              ChangeLogSetupTable."Log Insertion" = ChangeLogSetupTable."Log Insertion"::"Some Fields",
-              ChangeLogSetupTable."Log Modification" = ChangeLogSetupTable."Log Modification"::"Some Fields",
-              ChangeLogSetupTable."Log Deletion" = ChangeLogSetupTable."Log Deletion"::"Some Fields");
+        with ChangeLogSetupTable do
+            ChangeLogSetupFieldList.SelectColumn(
+              "Log Insertion" = "Log Insertion"::"Some Fields",
+              "Log Modification" = "Log Modification"::"Some Fields",
+              "Log Deletion" = "Log Deletion"::"Some Fields");
         ChangeLogSetupFieldList.SetTableView(Field);
         ChangeLogSetupFieldList.Run();
     end;

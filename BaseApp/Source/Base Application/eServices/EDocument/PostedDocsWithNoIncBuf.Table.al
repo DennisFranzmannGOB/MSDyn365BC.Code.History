@@ -12,7 +12,6 @@ using Microsoft.Sales.Document;
 table 134 "Posted Docs. With No Inc. Buf."
 {
     Caption = 'Posted Docs. With No Inc. Buf.';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -38,7 +37,7 @@ table 134 "Posted Docs. With No Inc. Buf."
         }
         field(5; "Incoming Document No."; Integer)
         {
-            CalcFormula = lookup("Incoming Document"."Entry No." where("Document No." = field("Document No."),
+            CalcFormula = Lookup("Incoming Document"."Entry No." where("Document No." = field("Document No."),
                                                                         "Posting Date" = field("Posting Date")));
             Caption = 'Incoming Document No.';
             FieldClass = FlowField;

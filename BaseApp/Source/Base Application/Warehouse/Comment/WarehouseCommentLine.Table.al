@@ -7,7 +7,6 @@ table 5770 "Warehouse Comment Line"
     Caption = 'Warehouse Comment Line';
     DrillDownPageID = "Warehouse Comment List";
     LookupPageID = "Warehouse Comment List";
-    DataClassification = CustomerContent;
 
     fields
     {

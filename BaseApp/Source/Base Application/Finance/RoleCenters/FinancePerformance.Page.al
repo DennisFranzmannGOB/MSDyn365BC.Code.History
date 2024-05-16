@@ -1,7 +1,7 @@
 namespace Microsoft.Finance.RoleCenters;
 
 using Microsoft.Finance.FinancialReports;
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 762 "Finance Performance"
@@ -21,20 +21,20 @@ page 762 "Finance Performance"
                 Enabled = false;
                 ShowCaption = false;
                 Style = StrongAccent;
-                StyleExpr = true;
+                StyleExpr = TRUE;
                 ToolTip = 'Specifies the status of the chart.';
             }
-            usercontrol(BusinessChart; BusinessChart)
+            usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = Basic, Suite;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
-                    Rec.SetDrillDownIndexes(Point);
+                    Rec.SetDrillDownIndexes(point);
                     AccSchedChartManagement.DrillDown(Rec, AccountSchedulesChartSetup);
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -241,19 +241,20 @@ page 762 "Finance Performance"
             exit;
         AccSchedChartManagement.GetSetupRecordset(AccountSchedulesChartSetup, AccountSchedulesChartSetup.Name, Move);
         AccSchedChartManagement.UpdateData(Rec, Period, AccountSchedulesChartSetup);
-        Rec.UpdateChart(CurrPage.BusinessChart);
+        Rec.Update(CurrPage.BusinessChart);
         StatusText := GetCurrentSelectionText(Rec."Period Filter Start Date", Rec."Period Filter End Date");
     end;
 
     local procedure GetCurrentSelectionText(FromDate: Date; ToDate: Date): Text[100]
     begin
-        case AccountSchedulesChartSetup."Base X-Axis on" of
-            AccountSchedulesChartSetup."Base X-Axis on"::Period:
-                exit(StrSubstNo(Text001, AccountSchedulesChartSetup.Name, AccountSchedulesChartSetup."Period Length", Time));
-            AccountSchedulesChartSetup."Base X-Axis on"::"Acc. Sched. Line",
-              AccountSchedulesChartSetup."Base X-Axis on"::"Acc. Sched. Column":
-                exit(StrSubstNo(Text002, AccountSchedulesChartSetup.Name, FromDate, ToDate, AccountSchedulesChartSetup."Period Length", Time));
-        end;
+        with AccountSchedulesChartSetup do
+            case "Base X-Axis on" of
+                "Base X-Axis on"::Period:
+                    exit(StrSubstNo(Text001, Name, "Period Length", Time));
+                "Base X-Axis on"::"Acc. Sched. Line",
+              "Base X-Axis on"::"Acc. Sched. Column":
+                    exit(StrSubstNo(Text002, Name, FromDate, ToDate, "Period Length", Time));
+            end;
     end;
 }
 

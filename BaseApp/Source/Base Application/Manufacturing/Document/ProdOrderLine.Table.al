@@ -9,7 +9,6 @@ using Microsoft.Inventory.Location;
 using Microsoft.Inventory.Tracking;
 using Microsoft.Manufacturing.Capacity;
 using Microsoft.Manufacturing.MachineCenter;
-using Microsoft.Manufacturing.Setup;
 using Microsoft.Manufacturing.ProductionBOM;
 using Microsoft.Manufacturing.Routing;
 using Microsoft.Manufacturing.WorkCenter;
@@ -24,7 +23,6 @@ table 5406 "Prod. Order Line"
     DrillDownPageID = "Prod. Order Line List";
     LookupPageID = "Prod. Order Line List";
     Permissions = TableData "Prod. Order Line" = rimd;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -72,7 +70,6 @@ table 5406 "Prod. Order Line"
                     "Bin Code" := ProdOrder."Bin Code";
 
                     GetItem();
-                    Item.TestField(Blocked, false);
                     Item.TestField("Inventory Posting Group");
                     "Inventory Posting Group" := Item."Inventory Posting Group";
 
@@ -131,9 +128,7 @@ table 5406 "Prod. Order Line"
                 TestField("Reserved Quantity", 0);
                 ProdOrderWarehouseMgt.ProdOrderLineVerifyChange(Rec, xRec);
 
-                ItemVariant.SetLoadFields(Blocked, Description, "Description 2");
                 if ItemVariant.Get("Item No.", "Variant Code") then begin
-                    ItemVariant.TestField(Blocked, false);
                     Description := ItemVariant.Description;
                     "Description 2" := ItemVariant."Description 2";
                 end else begin
@@ -225,8 +220,10 @@ table 5406 "Prod. Order Line"
                         WMSManagement.FindBinContent("Location Code", "Bin Code", "Item No.", "Variant Code", '')
                     else
                         WMSManagement.FindBin("Location Code", "Bin Code", '');
-                    WhseIntegrationMgt.CheckBinTypeAndCode(
-                        Database::"Prod. Order Line", FieldCaption("Bin Code"), "Location Code", "Bin Code", 0);
+                    WhseIntegrationMgt.CheckBinTypeCode(Database::"Prod. Order Line",
+                      FieldCaption("Bin Code"),
+                      "Location Code",
+                      "Bin Code", 0);
                     CheckBin();
                 end;
             end;
@@ -938,6 +935,7 @@ table 5406 "Prod. Order Line"
         IgnoreErrors: Boolean;
         ErrorOccured: Boolean;
         CalledFromComponent: Boolean;
+        CalledFromHeader: Boolean;
 
     procedure DeleteRelations()
     var
@@ -974,8 +972,11 @@ table 5406 "Prod. Order Line"
         ProdOrderComp.SetRange("Prod. Order Line No.", "Line No.");
         IsHandled := false;
         OnDeleteRelationsOnBeforeProdOrderCompDeleteAll(ProdOrderComp, Blocked, IsHandled);
-        if not IsHandled then
+        if not IsHandled then begin
+            if CalledFromHeader then
+                ProdOrderComp.SuspendDeletionCheck(true);
             ProdOrderComp.DeleteAll(true);
+        end;
 
         if not CalledFromComponent then begin
             ProdOrderComp.SetRange("Prod. Order Line No.");
@@ -1237,9 +1238,7 @@ table 5406 "Prod. Order Line"
 
         "Bin Code" := '';
         if ("Location Code" <> '') and ("Item No." <> '') then begin
-            "Bin Code" :=
-                ProdOrderWarehouseMgt.GetLastOperationFromBinCode(
-                    "Routing No.", "Routing Version Code", "Location Code", false, Enum::"Flushing Method"::Manual);
+            "Bin Code" := ProdOrderWarehouseMgt.GetLastOperationFromBinCode("Routing No.", "Routing Version Code", "Location Code", false, 0);
             GetLocation("Location Code");
             if "Bin Code" = '' then
                 "Bin Code" := Location."From-Production Bin Code";
@@ -1562,6 +1561,11 @@ table 5406 "Prod. Order Line"
         DimMgt.AddDimSource(DefaultDimSource, Database::Location, Rec."Location Code");
 
         OnAfterInitDefaultDimensionSources(Rec, DefaultDimSource, CurrFieldNo);
+    end;
+
+    procedure SuspendDeletionCheck(Suspend: Boolean)
+    begin
+        CalledFromHeader := Suspend;
     end;
 
     [IntegrationEvent(false, false)]

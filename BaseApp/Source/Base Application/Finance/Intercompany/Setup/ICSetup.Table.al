@@ -6,7 +6,6 @@ using Microsoft.Intercompany.Partner;
 table 443 "IC Setup"
 {
     Caption = 'IC Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

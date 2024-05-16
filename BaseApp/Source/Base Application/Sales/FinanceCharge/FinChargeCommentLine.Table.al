@@ -5,7 +5,6 @@ table 306 "Fin. Charge Comment Line"
     Caption = 'Fin. Charge Comment Line';
     DrillDownPageID = "Fin. Charge Comment List";
     LookupPageID = "Fin. Charge Comment List";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -15,7 +15,6 @@ table 152 "Resource Group"
     DataCaptionFields = "No.", Name;
     DrillDownPageID = "Resource Groups";
     LookupPageID = "Resource Groups";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -48,7 +47,7 @@ table 152 "Resource Group"
                                                                            Type = const(Resource),
                                                                            "Resource Group No." = field("No."),
                                                                            "Planning Date" = field("Date Filter")));
-            Caption = 'Qty. on Order (Project)';
+            Caption = 'Qty. on Order (Job)';
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
@@ -60,7 +59,7 @@ table 152 "Resource Group"
                                                                            Type = const(Resource),
                                                                            "Resource Group No." = field("No."),
                                                                            "Planning Date" = field("Date Filter")));
-            Caption = 'Qty. Quoted (Project)';
+            Caption = 'Qty. Quoted (Job)';
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;

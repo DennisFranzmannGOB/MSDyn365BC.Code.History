@@ -4,9 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 namespace Microsoft.Integration.Entity;
 
-#pragma warning disable AL0659
 enum 5495 "Sales Order Entity Buffer Status"
-#pragma warning restore AL0659
 {
     Extensible = false;
     AssignmentCompatibility = true;

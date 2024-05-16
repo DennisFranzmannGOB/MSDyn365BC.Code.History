@@ -7,7 +7,7 @@ namespace Microsoft.Inventory.BOM.Tree;
 using Microsoft.Inventory.Item;
 using Microsoft.Manufacturing.ProductionBOM;
 
-codeunit 3688 "BOM Node"
+Codeunit 3688 "BOM Node"
 {
     var
         LowLevelCodeParam: Codeunit "Low-Level Code Parameter";

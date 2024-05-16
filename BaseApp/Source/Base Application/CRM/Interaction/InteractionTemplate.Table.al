@@ -6,7 +6,6 @@ using System.Integration.Word;
 table 5064 "Interaction Template"
 {
     Caption = 'Interaction Template';
-    DataClassification = CustomerContent;
     LookupPageID = "Interaction Templates";
     ReplicateData = true;
 
@@ -53,7 +52,7 @@ table 5064 "Interaction Template"
         }
         field(8; "Attachment No."; Integer)
         {
-            CalcFormula = lookup("Interaction Tmpl. Language"."Attachment No." where("Interaction Template Code" = field(Code),
+            CalcFormula = Lookup("Interaction Tmpl. Language"."Attachment No." where("Interaction Template Code" = field(Code),
                                                                                       "Language Code" = field("Language Code (Default)")));
             Caption = 'Attachment No.';
             Editable = false;
@@ -207,6 +206,7 @@ table 5064 "Interaction Template"
         }
         field(20; "Word Template Code"; Code[30])
         {
+            DataClassification = CustomerContent;
             TableRelation = "Word Template".Code where("Table ID" = const(Database::"Interaction Merge Data"));
 
             trigger OnValidate()

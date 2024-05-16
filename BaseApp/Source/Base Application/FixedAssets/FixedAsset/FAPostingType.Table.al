@@ -6,7 +6,6 @@ table 5644 "FA Posting Type"
 {
     Caption = 'FA Posting Type';
     LookupPageID = "FA Posting Types";
-    DataClassification = CustomerContent;
 
     fields
     {

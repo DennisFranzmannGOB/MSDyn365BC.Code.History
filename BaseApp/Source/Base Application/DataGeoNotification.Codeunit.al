@@ -47,7 +47,7 @@ codeunit 1760 "Data Geo. Notification"
     var
         MyNotifications: Record "My Notifications";
     begin
-        if MyNotifications.WritePermission then
+        If MyNotifications.WritePermission then
             if not MyNotifications.Disable(Notification.Id) then
                 MyNotifications.InsertDefault(Notification.Id, GeoNotificationTxt,
                               GeoNotificationDescTxt, false);

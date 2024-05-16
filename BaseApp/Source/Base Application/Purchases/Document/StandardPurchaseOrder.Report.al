@@ -935,8 +935,8 @@ report 1322 "Standard Purchase - Order"
                 TotalAmount := 0;
                 TotalSubTotal := 0;
                 TotalInvoiceDiscountAmount := 0;
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 FormatAddressFields("Purchase Header");
@@ -999,6 +999,13 @@ report 1322 "Standard Purchase - Order"
 
     rendering
     {
+        layout("StandardPurchaseOrder.rdlc")
+        {
+            Type = RDLC;
+            LayoutFile = './Purchases/Document/StandardPurchaseOrder.rdlc';
+            Caption = 'Standard Purchase Order (RDLC)';
+            Summary = 'The Standard Purchase Order (RDLC) provides a detailed layout.';
+        }
         layout("StandardPurchaseOrder.docx")
         {
             Type = Word;
@@ -1061,7 +1068,7 @@ report 1322 "Standard Purchase - Order"
         GLSetup: Record "General Ledger Setup";
         TempPurchLine: Record "Purchase Line" temporary;
         CurrExchRate: Record "Currency Exchange Rate";
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         PurchPost: Codeunit "Purch.-Post";
@@ -1220,14 +1227,16 @@ report 1322 "Standard Purchase - Order"
 
     local procedure FormatDocumentFields(PurchaseHeader: Record "Purchase Header")
     begin
-        FormatDocument.SetTotalLabels(PurchaseHeader."Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
-        FormatDocument.SetPurchaser(SalespersonPurchaser, PurchaseHeader."Purchaser Code", PurchaserText);
-        FormatDocument.SetPaymentTerms(PaymentTerms, PurchaseHeader."Payment Terms Code", PurchaseHeader."Language Code");
-        FormatDocument.SetPaymentTerms(PrepmtPaymentTerms, PurchaseHeader."Prepmt. Payment Terms Code", PurchaseHeader."Language Code");
-        FormatDocument.SetShipmentMethod(ShipmentMethod, PurchaseHeader."Shipment Method Code", PurchaseHeader."Language Code");
+        with PurchaseHeader do begin
+            FormatDocument.SetTotalLabels("Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
+            FormatDocument.SetPurchaser(SalespersonPurchaser, "Purchaser Code", PurchaserText);
+            FormatDocument.SetPaymentTerms(PaymentTerms, "Payment Terms Code", "Language Code");
+            FormatDocument.SetPaymentTerms(PrepmtPaymentTerms, "Prepmt. Payment Terms Code", "Language Code");
+            FormatDocument.SetShipmentMethod(ShipmentMethod, "Shipment Method Code", "Language Code");
 
-        ReferenceText := FormatDocument.SetText(PurchaseHeader."Your Reference" <> '', PurchaseHeader.FieldCaption("Your Reference"));
-        VATNoText := FormatDocument.SetText(PurchaseHeader."VAT Registration No." <> '', PurchaseHeader.FieldCaption("VAT Registration No."));
+            ReferenceText := FormatDocument.SetText("Your Reference" <> '', FieldCaption("Your Reference"));
+            VATNoText := FormatDocument.SetText("VAT Registration No." <> '', FieldCaption("VAT Registration No."));
+        end;
 
         OnAfterFormatDocumentFields(PurchaseHeader);
     end;

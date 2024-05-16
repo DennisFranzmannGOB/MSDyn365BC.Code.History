@@ -512,6 +512,16 @@ codeunit 826 "Purch. Post Invoice Events"
     begin
     end;
 
+#if not CLEAN21
+    [Obsolete('Replaced by RunOnPrepareLineOnBeforePreparePurchase() with extended parameters', '21.0')]
+    procedure RunOnPrepareLineOnBeforePreparePurchase(PurchHeader: Record "Purchase Header"; PurchLine: Record "Purchase Line")
+    var
+        DummyGeneralPostingSetup: Record "General Posting Setup";
+    begin
+        OnPrepareLineOnBeforePreparePurchase(PurchHeader, PurchLine, DummyGeneralPostingSetup);
+    end;
+#endif
+
     procedure RunOnPrepareLineOnBeforePreparePurchase(PurchHeader: Record "Purchase Header"; PurchLine: Record "Purchase Line"; var GeneralPostingSetup: Record "General Posting Setup")
     begin
         OnPrepareLineOnBeforePreparePurchase(PurchHeader, PurchLine, GeneralPostingSetup);

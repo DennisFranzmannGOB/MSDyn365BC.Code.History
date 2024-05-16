@@ -77,10 +77,12 @@ codeunit 5058 "BankCont-Update"
     var
         ContBusRel: Record "Contact Business Relation";
     begin
-        ContBusRel.SetCurrentKey("Link to Table", "No.");
-        ContBusRel.SetRange("Link to Table", ContBusRel."Link to Table"::"Bank Account");
-        ContBusRel.SetRange("No.", BankAcc."No.");
-        ContBusRel.DeleteAll(true);
+        with ContBusRel do begin
+            SetCurrentKey("Link to Table", "No.");
+            SetRange("Link to Table", "Link to Table"::"Bank Account");
+            SetRange("No.", BankAcc."No.");
+            DeleteAll(true);
+        end;
     end;
 
     procedure InsertNewContact(var BankAcc: Record "Bank Account"; LocalCall: Boolean)
@@ -99,24 +101,25 @@ codeunit 5058 "BankCont-Update"
             RMSetup.TestField("Bus. Rel. Code for Bank Accs.");
         end;
 
-        InitContactFromBankAccount(Cont, BankAcc);
-        OnBeforeContactInsert(Cont, BankAcc);
-        Cont.Insert(true);
+        with Cont do begin
+            InitContactFromBankAccount(Cont, BankAcc);
+            OnBeforeContactInsert(Cont, BankAcc);
+            Insert(true);
+        end;
 
-        ContBusRel.Init();
-        ContBusRel."Contact No." := Cont."No.";
-        ContBusRel."Business Relation Code" := RMSetup."Bus. Rel. Code for Bank Accs.";
-        ContBusRel."Link to Table" := ContBusRel."Link to Table"::"Bank Account";
-        ContBusRel."No." := BankAcc."No.";
-        ContBusRel.Insert(true);
+        with ContBusRel do begin
+            Init();
+            "Contact No." := Cont."No.";
+            "Business Relation Code" := RMSetup."Bus. Rel. Code for Bank Accs.";
+            "Link to Table" := "Link to Table"::"Bank Account";
+            "No." := BankAcc."No.";
+            Insert(true);
+        end;
     end;
 
     local procedure InitContactFromBankAccount(var Contact: Record Contact; BankAcc: Record "Bank Account")
     var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-#endif
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -124,30 +127,23 @@ codeunit 5058 "BankCont-Update"
         if IsHandled then
             exit;
 
-        Contact.Init();
-        Contact.TransferFields(BankAcc);
-        Contact.Validate(Contact.Name);
-        Contact.Validate(Contact."E-Mail");
-        IsHandled := false;
-        OnInitContactFromBankAccountOnBeforeAssignNo(Contact, BankAcc, RMSetup, IsHandled);
-        if not IsHandled then begin
-            Contact."No." := '';
-            Contact."No. Series" := '';
-            RMSetup.TestField("Contact Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(RMSetup."Contact Nos.", '', 0D, Contact."No.", Contact."No. Series", IsHandled);
+        with Contact do begin
+            Init();
+            TransferFields(BankAcc);
+            Validate(Name);
+            Validate("E-Mail");
+            IsHandled := false;
+            OnInitContactFromBankAccountOnBeforeAssignNo(Contact, BankAcc, RMSetup, IsHandled);
             if not IsHandled then begin
-#endif
-                Contact."No. Series" := RMSetup."Contact Nos.";
-                Contact."No." := NoSeries.GetNextNo(Contact."No. Series");
-#if not CLEAN24
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries(Contact."No. Series", RMSetup."Contact Nos.", 0D, Contact."No.");
+                "No." := '';
+                "No. Series" := '';
+                RMSetup.TestField("Contact Nos.");
+                NoSeriesMgt.InitSeries(RMSetup."Contact Nos.", '', 0D, "No.", "No. Series");
             end;
-#endif
+            Type := Type::Company;
+            TypeChange();
+            SetSkipDefault();
         end;
-        Contact.Type := Contact.Type::Company;
-        Contact.TypeChange();
-        Contact.SetSkipDefault();
     end;
 
     procedure ContactNameIsBlank(BankAccountNo: Code[20]): Boolean
@@ -155,14 +151,16 @@ codeunit 5058 "BankCont-Update"
         Contact: Record Contact;
         ContactBusinessRelation: Record "Contact Business Relation";
     begin
-        ContactBusinessRelation.SetCurrentKey("Link to Table", ContactBusinessRelation."No.");
-        ContactBusinessRelation.SetRange("Link to Table", ContactBusinessRelation."Link to Table"::"Bank Account");
-        ContactBusinessRelation.SetRange("No.", BankAccountNo);
-        if not ContactBusinessRelation.FindFirst() then
-            exit(false);
-        if not Contact.Get(ContactBusinessRelation."Contact No.") then
-            exit(true);
-        exit(Contact.Name = '');
+        with ContactBusinessRelation do begin
+            SetCurrentKey("Link to Table", "No.");
+            SetRange("Link to Table", "Link to Table"::"Bank Account");
+            SetRange("No.", BankAccountNo);
+            if not FindFirst() then
+                exit(false);
+            if not Contact.Get("Contact No.") then
+                exit(true);
+            exit(Contact.Name = '');
+        end;
     end;
 
     [IntegrationEvent(false, false)]

@@ -10,8 +10,6 @@ page 3300 "EE Subscription List"
     PageType = List;
     PopulateAllFields = true;
     Editable = false;
-    InsertAllowed = false;
-    ModifyAllowed = false;
     SourceTable = "External Event Subscription";
 
     layout
@@ -29,15 +27,13 @@ page 3300 "EE Subscription List"
                 field(SubscriptionType; Rec."Subscription Type")
                 {
                     ApplicationArea = Basic, Suite;
-                    OptionCaption = 'Dataverse, Non-Dataverse';
                     Caption = 'Subscription Type';
                     ToolTip = 'Specifies the Subscription Type of the subscription.';
-
                 }
                 field(SubscriptionState; Rec."Subscription State")
                 {
                     ApplicationArea = Basic, Suite;
-                    Caption = 'Subscription State';
+                    Caption = 'Subscription StateState';
                     ToolTip = 'Specifies the Subscription State of the subscription.';
                 }
                 field(AppId; Rec."App Id")
@@ -81,13 +77,13 @@ page 3300 "EE Subscription List"
     }
     actions
     {
-        area(processing)
+        area(Processing)
         {
             action(Notification)
             {
                 ApplicationArea = Basic, Suite;
-                Caption = '&Notifications';
-                Image = Interaction;
+                Caption = 'Notifications';
+                Image = Log;
                 RunObject = Page "EE Notification List";
                 RunPageLink = "Subscription Id" = field(ID);
                 ToolTip = 'View the history of Notification sent for the selected record.';
@@ -95,25 +91,11 @@ page 3300 "EE Subscription List"
             action(ActivityLogs)
             {
                 ApplicationArea = Basic, Suite;
-                Caption = '&Activity Log';
-                Image = InteractionLog;
+                Caption = 'Activity Logs';
+                Image = Log;
                 RunObject = Page "EE Activity Logs";
                 RunPageLink = "Subscription Id" = field(ID);
                 ToolTip = 'View the log history for the selected record.';
-            }
-        }
-        area(Promoted)
-        {
-            group(Category_Process)
-            {
-                Caption = 'Related';
-
-                actionref(Notification_Promoted; Notification)
-                {
-                }
-                actionref(ActivityLogs_Promoted; ActivityLogs)
-                {
-                }
             }
         }
     }

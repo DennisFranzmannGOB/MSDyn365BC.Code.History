@@ -142,7 +142,7 @@ codeunit 2580 "Dimension Correction Mgt"
         GLEntry.SetFilter("Entry No.", '>=%1&<=%2', StartEntryNo, EndEntryNo);
 
         GLEntry.SetLoadFields("Entry No.", "Dimension Set ID", "G/L Account No.");
-        if GLEntry.IsEmpty() then
+        IF GLEntry.IsEmpty() then
             exit;
         if DimensionCorrection.Status = DimensionCorrection.Status::"Validaton in Process" then
             DimensionManagement.SetCollectErrorsMode();
@@ -262,7 +262,7 @@ codeunit 2580 "Dimension Correction Mgt"
                 if GLEntry.FindSet() then
                     repeat
                         TempExcludedEntriesInteger.Number := GLEntry."Entry No.";
-                        if TempExcludedEntriesInteger.Insert() then;
+                        IF TempExcludedEntriesInteger.Insert() then;
                     until GLEntry.Next() = 0;
         until ExlcudedDimCorrectSelectionCriteria.Next() = 0;
     end;
@@ -391,7 +391,7 @@ codeunit 2580 "Dimension Correction Mgt"
 
             AddedEntries := LastEntryNo - PrevoiusDimCorrectionEntryLog."End Entry No.";
             PrevoiusDimCorrectionEntryLog.Rename(PrevoiusDimCorrectionEntryLog."Dimension Correction Entry No.", PrevoiusDimCorrectionEntryLog."Start Entry No.", LastEntryNo);
-            exit(AddedEntries);
+            Exit(AddedEntries);
         end;
 
         if NextExists then begin

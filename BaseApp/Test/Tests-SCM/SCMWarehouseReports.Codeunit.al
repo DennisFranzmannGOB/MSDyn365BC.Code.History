@@ -15,17 +15,13 @@ codeunit 137305 "SCM Warehouse Reports"
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryAssembly: Codeunit "Library - Assembly";
-#if not CLEAN23
         LibraryCosting: Codeunit "Library - Costing";
-#endif
         LibraryWarehouse: Codeunit "Library - Warehouse";
         LibraryInventory: Codeunit "Library - Inventory";
         LibraryManufacturing: Codeunit "Library - Manufacturing";
         LibraryReportDataset: Codeunit "Library - Report Dataset";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
-#if not CLEAN23
         LibraryPriceCalculation: Codeunit "Library - Price Calculation";
-#endif
         LibraryPurchase: Codeunit "Library - Purchase";
         LibrarySales: Codeunit "Library - Sales";
         LibraryUtility: Codeunit "Library - Utility";
@@ -61,8 +57,8 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseActivityHeader: Record "Warehouse Activity Header";
         WarehouseActivityLine: Record "Warehouse Activity Line";
         WarehouseEmployee: Record "Warehouse Employee";
-        ReportSelectionWarehouse: Record "Report Selection Warehouse";
         WarehouseShipmentNo: Code[20];
+        ReportSelectionWarehouse: Record "Report Selection Warehouse";
     begin
         // Setup : Create Setup to generate Pick for a Item.
         Initialize();
@@ -81,10 +77,10 @@ codeunit 137305 "SCM Warehouse Reports"
         // Verify: Source No shown in Picking List Report is equal to the Source No shown in Warehouse Activity Line Table.
         FindWarehouseActivityLine(WarehouseActivityLine, WarehouseActivityLine."Source Document"::"Sales Order", SalesHeader."No.",
           WarehouseActivityLine."Activity Type"::Pick);
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.AssertElementWithValueExists('No_WhseActivHeader', WarehouseActivityLine."No.");
         LibraryReportDataset.SetRange('SourceNo_WhseActLine', SalesHeader."No.");
-        LibraryReportDataset.GetNextRow();
+        LibraryReportDataset.GetNextRow;
         LibraryReportDataset.AssertCurrentRowValueEquals('ItemNo_WhseActLine', WarehouseActivityLine."Item No.");
         LibraryReportDataset.AssertCurrentRowValueEquals('QtyBase_WhseActLine', WarehouseActivityLine."Qty. (Base)");
 
@@ -156,10 +152,10 @@ codeunit 137305 "SCM Warehouse Reports"
         // Verify.
         FindWarehouseActivityLine(WarehouseActivityLine, WarehouseActivityLine."Source Document"::"Purchase Order", PurchaseHeader."No.",
           WarehouseActivityLine."Activity Type"::"Put-away");
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.AssertElementWithValueExists('No_WhseActivHeader', WarehouseActivityLine."No.");
         LibraryReportDataset.SetRange('ItemNo1_WhseActivLine', WarehouseActivityLine."Item No.");
-        LibraryReportDataset.GetNextRow();
+        LibraryReportDataset.GetNextRow;
         LibraryReportDataset.AssertCurrentRowValueEquals('SrcNo_WhseActivLine', PurchaseHeader."No.");
         LibraryReportDataset.AssertCurrentRowValueEquals('QtyBase_WhseActivLine', WarehouseActivityLine."Qty. (Base)");
 
@@ -193,9 +189,9 @@ codeunit 137305 "SCM Warehouse Reports"
         PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
         PurchaseLine.FindFirst();
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('DocumentNo_PurchLine', PurchaseHeader."No.");
-        LibraryReportDataset.GetNextRow();
+        LibraryReportDataset.GetNextRow;
         LibraryReportDataset.AssertCurrentRowValueEquals('No_Item', Item."No.");
         LibraryReportDataset.AssertCurrentRowValueEquals('QtytoReceive_PurchLine', PurchaseLine."Qty. to Receive");
         LibraryReportDataset.AssertCurrentRowValueEquals('LocationCode_PurchLine', PurchaseLine."Location Code");
@@ -214,9 +210,9 @@ codeunit 137305 "SCM Warehouse Reports"
         Item: Record Item;
         PurchaseHeader: Record "Purchase Header";
         WarehouseReceiptHeader: Record "Warehouse Receipt Header";
-        ReportSelectionWarehouse: Record "Report Selection Warehouse";
         WarehouseReceiptNo: Code[20];
         PurchaseQuantity: Decimal;
+        ReportSelectionWarehouse: Record "Report Selection Warehouse";
     begin
         // Setup: Create Warehouse Setup, Create and Release Purchase Order, Create Warehouse Receipt From Purchase Order.
         Initialize();
@@ -224,7 +220,7 @@ codeunit 137305 "SCM Warehouse Reports"
         CreateItem(Item);
         PurchaseQuantity := LibraryRandom.RandDec(10, 2);
         CreateAndReleasePurchaseOrder(PurchaseHeader, Location.Code, Item."No.", PurchaseQuantity);
-        WarehouseReceiptNo := FindWarehouseReceiptNo();
+        WarehouseReceiptNo := FindWarehouseReceiptNo;
         LibraryWarehouse.CreateWhseReceiptFromPO(PurchaseHeader);
 
         // Exercise: Run Whse. - Receipt report.
@@ -233,9 +229,9 @@ codeunit 137305 "SCM Warehouse Reports"
         ReportSelectionWarehouse.PrintWhseReceiptHeader(WarehouseReceiptHeader, false);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('SourceNo_WhseRcptLine', PurchaseHeader."No.");
-        LibraryReportDataset.GetNextRow();
+        LibraryReportDataset.GetNextRow;
         LibraryReportDataset.AssertCurrentRowValueEquals('Quantity_WhseRcptLine', PurchaseQuantity);
         LibraryReportDataset.AssertCurrentRowValueEquals('BinCode_WhseRcptLine', WarehouseReceiptHeader."Bin Code");
 
@@ -254,6 +250,7 @@ codeunit 137305 "SCM Warehouse Reports"
         BinContent: Record "Bin Content";
         Item: Record Item;
         WhseWorksheetTemplate: Record "Whse. Worksheet Template";
+        WarehouseJournalBatch: Record "Warehouse Journal Batch";
         WhseWorksheetName: Record "Whse. Worksheet Name";
         WhseWorksheetLine: Record "Whse. Worksheet Line";
         WarehouseJournalLine: Record "Warehouse Journal Line";
@@ -327,9 +324,9 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Whse. Adjustment Bin", true, false, WarehouseEntry);
 
         // Verify: Check Item No. Exit On the report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.SetRange('WarehouseEntryItemNo', Item."No.");
-        LibraryReportDataset.GetNextRow();
+        LibraryReportDataset.GetNextRow;
         LibraryReportDataset.AssertCurrentRowValueEquals('WarehouseEntryLocCode', Location.Code);
         Bin.Get(Location.Code, Location."Adjustment Bin Code");
         LibraryReportDataset.AssertCurrentRowValueEquals('WarehouseEntryBinCode', Bin.Code);
@@ -361,14 +358,14 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Warehouse Bin List", true, false, Bin);
 
         // Verify: Check Bin Ranking with generated report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         Bin.SetRange("Location Code", Location.Code);
         Bin.SetRange("Adjustment Bin", false);
         Bin.FindSet();
         repeat
             LibraryReportDataset.Reset();
             LibraryReportDataset.SetRange('Code_Bin', Bin.Code);
-            LibraryReportDataset.GetNextRow();
+            LibraryReportDataset.GetNextRow;
             LibraryReportDataset.AssertCurrentRowValueEquals('LocationCode_Bin', Location.Code);
             LibraryReportDataset.AssertCurrentRowValueEquals('BinRanking_Bin', Bin."Bin Ranking");
             LibraryReportDataset.AssertCurrentRowValueEquals('BinTypeCode_Code', Bin."Bin Type Code");
@@ -452,7 +449,7 @@ codeunit 137305 "SCM Warehouse Reports"
         ReportSelectionWarehouse.PrintWhseActivityHeader(WarehouseActivityHeader, ReportSelectionWarehouse.Usage::Movement, false);
 
         // Verify: Check Bin Code with Generated report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyWarehouseActivityLine(Item."No.", Location.Code, WarehouseActivityLine."Action Type"::Take);
         VerifyWarehouseActivityLine(Item."No.", Location.Code, WarehouseActivityLine."Action Type"::Place);
 
@@ -521,7 +518,7 @@ codeunit 137305 "SCM Warehouse Reports"
 
         // Verify: Check Transfer Order Quantity equals Quantity in report.
         // [THEN] "Transfer Order No." is printed
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_TransLine', Item."No.", 'Qty_TransLine', TransferQuantity);
         LibraryReportDataset.AssertElementTagWithValueExists('No_TransferHdr', TransferHeader."No.");
         LibraryReportDataset.AssertElementTagWithValueExists('TransferOrderNoCaption', TransferOrderCaptionLbl);
@@ -560,7 +557,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Transfer Shipment", true, false, TransferShipmentHeader);
 
         // Verify: Check Transfer Shipment Quantity equals Quantity in report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_TransShptLine', Item."No.", 'Qty_TransShptLine', TransferQuantity);
     end;
 
@@ -596,7 +593,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Transfer Receipt", true, false, TransferReceiptHeader);
 
         // Verify: Check Transfer Receipt Quantity equals Quantity in report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_TransRcpLine', Item."No.", 'Qty_TransRcpLine', TransferQuantity);
     end;
 
@@ -610,9 +607,9 @@ codeunit 137305 "SCM Warehouse Reports"
         PurchaseHeader: Record "Purchase Header";
         WarehouseEmployee: Record "Warehouse Employee";
         PostedWhseReceiptHeader: Record "Posted Whse. Receipt Header";
-        ReportSelectionWarehouse: Record "Report Selection Warehouse";
         WarehouseReceiptNo: Code[20];
         Quantity: Decimal;
+        ReportSelectionWarehouse: Record "Report Selection Warehouse";
     begin
         // Setup : Create Setup to generate Warehouse receipt;
         Initialize();
@@ -620,7 +617,7 @@ codeunit 137305 "SCM Warehouse Reports"
         CreateItem(Item);
         Quantity := LibraryRandom.RandDec(100, 2);
         CreateAndReleasePurchaseOrder(PurchaseHeader, Location.Code, Item."No.", Quantity);
-        WarehouseReceiptNo := FindWarehouseReceiptNo();
+        WarehouseReceiptNo := FindWarehouseReceiptNo;
         LibraryWarehouse.CreateWhseReceiptFromPO(PurchaseHeader);
         FindAndUpdateWarehouseReceipt(WarehouseReceiptNo, Item."No.", Quantity / 2);
         PostWarehouseReceipt(WarehouseReceiptNo);
@@ -631,7 +628,7 @@ codeunit 137305 "SCM Warehouse Reports"
         ReportSelectionWarehouse.PrintPostedWhseReceiptHeader(PostedWhseReceiptHeader, false);
 
         // Verify: Check Quantity To Receive, Item No. Quantity exist in Warehouse Posted Receipt Report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_PostedWhseRcpLine', Item."No.", 'Qty_PostedWhseRcpLine', Quantity / 2);
 
         // Tear down.
@@ -667,7 +664,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Inventory Picking List", true, false, Item);
 
         // Verify: Source No ,ItemNo and Location shown in Inventory Picking List Report is equal to the Sales Order.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('No_Item', Item."No.", 'DocumentNo_SalesLine', SalesHeader."No.");
         LibraryReportDataset.AssertCurrentRowValueEquals('LocationCode_SalesLine', Location.Code);
 
@@ -685,9 +682,9 @@ codeunit 137305 "SCM Warehouse Reports"
         SalesHeader: Record "Sales Header";
         WarehouseShipmentHeader: Record "Warehouse Shipment Header";
         WarehouseEmployee: Record "Warehouse Employee";
-        ReportSelectionWarehouse: Record "Report Selection Warehouse";
         WarehouseShipmentHeaderNo: Code[20];
         Quantity: Decimal;
+        ReportSelectionWarehouse: Record "Report Selection Warehouse";
     begin
         // Setup : Create Setup to generate Pick for a Item.
         Initialize();
@@ -695,7 +692,7 @@ codeunit 137305 "SCM Warehouse Reports"
         CreateItem(Item);
         Quantity := LibraryRandom.RandDec(10, 2) + 5;
         CreateAndReleaseSalesOrder(SalesHeader, Location.Code, Item."No.", Quantity);
-        WarehouseShipmentHeaderNo := FindWarehouseShipmentNo();
+        WarehouseShipmentHeaderNo := FindWarehouseShipmentNo;
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
 
         // Exercise: Generate the Picking List. Value used is important for test.
@@ -704,7 +701,7 @@ codeunit 137305 "SCM Warehouse Reports"
         ReportSelectionWarehouse.PrintWhseShipmentHeader(WarehouseShipmentHeader, false);
 
         // Verify: Item No, Quantity and Location shown in Warehouse Shipment Report is equal to the Sales Order.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_WhseShptLine', Item."No.", 'Qty_WhseShptLine', Quantity);
         LibraryReportDataset.AssertCurrentRowValueEquals('LocCode_WhseShptLine', Location.Code);
 
@@ -731,7 +728,7 @@ codeunit 137305 "SCM Warehouse Reports"
         CreateItem(Item);
         Quantity := LibraryRandom.RandDec(10, 2) + 5;
         CreateAndReleaseSalesOrder(SalesHeader, Location.Code, Item."No.", Quantity);
-        WarehouseShipmentNo := FindWarehouseShipmentNo();
+        WarehouseShipmentNo := FindWarehouseShipmentNo;
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
 
         // Exercise: Generate the Picking List. Value used is important for test.
@@ -740,7 +737,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Whse. Shipment Status", true, false, WarehouseShipmentHeader);
 
         // Verify: Source No, Item No and Location shown in Warehouse Shipment Status Report is equal to the Sales Order.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_WhseShipmentLine', Item."No.", 'SourceNo_WhseShipmentLine', SalesHeader."No.");
         LibraryReportDataset.AssertCurrentRowValueEquals('LocCode_WhseShipmentLine', Location.Code);
 
@@ -831,7 +828,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Whse. Phys. Inventory List", true, false, WarehouseJournalLine);
 
         // Verify: Verify Warehouse Physical Inventory List report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_WarehouseJournlLin', Item."No.", 'QtyCalculated_WhseJnlLine', Quantity);
     end;
 
@@ -856,7 +853,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Warehouse Register - Quantity", true, false, WarehouseRegister);
 
         // Verify: Verify Warehouse Register Quantity report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_WarehouseEntry', Item."No.", 'Quantity_WarehouseEntry', -Quantity);
     end;
 
@@ -883,7 +880,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Inventory Posting - Test", true, false, ItemJournalLine);
 
         // Verify: Quantity and Invoiced Quantity on Inventory Posting Test report.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('Item_Journal_Line__Item_No__', Item."No.", 'Item_Journal_Line_Quantity', Quantity / 2);
     end;
 
@@ -916,7 +913,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Customer - Order Detail", true, false, Customer);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('No_SalesLine', Item."No.", 'Quantity_SalesLine', Quantity);
         LibraryReportDataset.AssertCurrentRowValueEquals('SalesHeaderNo', SalesHeader."No.");
 
@@ -948,7 +945,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Sales - Return Receipt", true, false, ReturnReceiptHeader);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('No_ReturnReceiptLine', Item."No.", 'Qty_ReturnReceiptLine', Quantity);
     end;
 
@@ -978,7 +975,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Work Order", true, false, SalesHeader);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('No_SalesLine', Item."No.", 'Quantity_SalesLine', Quantity);
         LibraryReportDataset.Reset();
         LibraryReportDataset.AssertElementWithValueExists('Comment_SalesCommentLine', SalesCommentLine.Comment);
@@ -1007,7 +1004,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Inventory - Availability Plan", true, false, Item);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('No_Item', ProductionOrder."Source No.", 'ScheduledReceipt', 0);
         // Regardless of the period length, last period always includes the prod. order
         // in the projected available balance.
@@ -1036,7 +1033,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Warehouse Bin List", true, false, Bin);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_BinContent', Item."No.", 'Quantity_BinContent', Quantity);
         LibraryReportDataset.AssertCurrentRowValueEquals('Code_Bin', Bin.Code);
         LibraryReportDataset.AssertCurrentRowValueEquals('BinTypeCode_Code', Bin."Bin Type Code");
@@ -1053,9 +1050,9 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseActivityHeader: Record "Warehouse Activity Header";
         ItemUnitOfMeasure: Record "Item Unit of Measure";
         Bin: Record Bin;
-        ReportSelectionWarehouse: Record "Report Selection Warehouse";
         Quantity: Decimal;
         WarehouseShipmentNo: Code[20];
+        ReportSelectionWarehouse: Record "Report Selection Warehouse";
     begin
         // Create and Register Pur away from Purchase Order. Create Pick from Warehouse Shipment.
         Initialize();
@@ -1078,7 +1075,7 @@ codeunit 137305 "SCM Warehouse Reports"
         ReportSelectionWarehouse.PrintWhseActivityHeader(WarehouseActivityHeader, ReportSelectionWarehouse.Usage::Pick, false);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ItemNo_WhseActLine', WarehouseActivityLine."Item No.",
           'QtyBase_WhseActLine', WarehouseActivityLine."Qty. (Base)");
     end;
@@ -1098,7 +1095,7 @@ codeunit 137305 "SCM Warehouse Reports"
         Initialize();
         CreateItem(Item);
         CreateLocation(Location, WarehouseEmployee, true);  // TRUE for Bin Mandatory.
-        LibraryWarehouse.CreateBin(Bin, Location.Code, LibraryUtility.GenerateGUID(), '', '');
+        LibraryWarehouse.CreateBin(Bin, Location.Code, LibraryUtility.GenerateGUID, '', '');
         LibraryWarehouse.CreateBinContent(BinContent, Location.Code, '', Bin.Code, Item."No.", '', Item."Base Unit of Measure");
         CreateInventoryPutAwayFromPurchaseOrder(Location.Code, Item."No.");
 
@@ -1107,14 +1104,14 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Inventory Put-away List", true, false, Item);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('No_Item', Item."No.", 'LocationCode_PurchLine', Location.Code);
 
         // Tear down.
         WarehouseEmployee.Delete(true);
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     [Test]
     [HandlerFunctions('PriceListRequestPageHandler')]
     [Scope('OnPrem')]
@@ -1137,7 +1134,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Price List", true, false, Item);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('No_Item', SalesPrice."Item No.", 'MinimumQty_SalesPrices', SalesPrice."Minimum Quantity");
     end;
 #endif
@@ -1160,7 +1157,7 @@ codeunit 137305 "SCM Warehouse Reports"
         REPORT.Run(REPORT::"Where-Used List", true, false, ComponentItem);
 
         // Verify.
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('ParentItemNo_BOMComponent', AssemblyItem."No.", 'Quantityper_BOMComponent', Quantity);
     end;
 
@@ -1173,9 +1170,9 @@ codeunit 137305 "SCM Warehouse Reports"
         Item: Record Item;
         Location: Record Location;
         WarehouseEmployee: Record "Warehouse Employee";
-        ReportSelectionWarehouse: Record "Report Selection Warehouse";
         BinCode: Code[20];
         PurchaseHeaderNo: Code[20];
+        ReportSelectionWarehouse: Record "Report Selection Warehouse";
     begin
         // Setup: Create Location with Bin Content and Inventory Put-away from Purchase.
         Initialize();
@@ -1191,7 +1188,7 @@ codeunit 137305 "SCM Warehouse Reports"
         ReportSelectionWarehouse.PrintWhseActivityHeader(WarehouseActivityHeader, ReportSelectionWarehouse.Usage::"Put-away", false);
 
         // Verify: verify that Bin code is presented on report Put-away List
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         VerifyReportData('SrcNo_WhseActivLine', PurchaseHeaderNo, 'BinCode_WhseActivLine', BinCode);
     end;
 
@@ -1253,11 +1250,13 @@ codeunit 137305 "SCM Warehouse Reports"
 
         // [GIVEN] Overwrite Sales Line "L2" with "Type" = "Item", "No." = "X"
         LibrarySales.ReopenSalesDocument(SalesHeader);
-        SalesLine.Find();
-        SalesLine.Validate(Type, SalesLine.Type::Item);
-        SalesLine.Validate("No.", Item."No.");
-        SalesLine.Validate(Quantity, Quantity2);
-        SalesLine.Modify(true);
+        with SalesLine do begin
+            Find();
+            Validate(Type, Type::Item);
+            Validate("No.", Item."No.");
+            Validate(Quantity, Quantity2);
+            Modify(true);
+        end;
 
         // [GIVEN] Ship the Sales Order
         LibrarySales.PostSalesDocument(SalesHeader, true, false);
@@ -1396,7 +1395,7 @@ codeunit 137305 "SCM Warehouse Reports"
         Location.Validate("Require Put-away", true);
         Location.Validate("Always Create Put-away Line", true);
         Location.Modify(true);
-        CreateInventoryPutAwayFromPurchaseOrder(Location.Code, LibraryInventory.CreateItemNo());
+        CreateInventoryPutAwayFromPurchaseOrder(Location.Code, LibraryInventory.CreateItemNo);
         PurchaseHeader.SetRange("Location Code", Location.Code);
         PurchaseHeader.FindFirst();
         WarehouseActivityHeader.SetRange("Location Code", Location.Code);
@@ -1409,10 +1408,10 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseDocumentPrint.PrintInvtPutAwayHeader(WarehouseActivityHeader, false);
 
         // [THEN] Report "Put-away List" is printed
-        LibraryReportDataset.LoadDataSetFile();
+        LibraryReportDataset.LoadDataSetFile;
         LibraryReportDataset.AssertElementWithValueExists('No_WhseActivHeader', WarehouseActivityLine."No.");
         LibraryReportDataset.SetRange('ItemNo1_WhseActivLine', WarehouseActivityLine."Item No.");
-        LibraryReportDataset.GetNextRow();
+        LibraryReportDataset.GetNextRow;
         LibraryReportDataset.AssertCurrentRowValueEquals('SrcNo_WhseActivLine', PurchaseHeader."No.");
         LibraryReportDataset.AssertCurrentRowValueEquals('QtyBase_WhseActivLine', WarehouseActivityLine."Qty. (Base)");
     end;
@@ -1438,14 +1437,14 @@ codeunit 137305 "SCM Warehouse Reports"
 
         // [GIVEN] Two sales orders "SO1", "SO2".
         // [GIVEN] Ship both sales orders.
-        CreateSalesOrder(SalesHeader[1], '', LibraryInventory.CreateItemNo(), Customer."No.", LibraryRandom.RandInt(10));
+        CreateSalesOrder(SalesHeader[1], '', LibraryInventory.CreateItemNo, Customer."No.", LibraryRandom.RandInt(10));
         SalesShipmentNo[1] := LibrarySales.PostSalesDocument(SalesHeader[1], true, false);
-        CreateSalesOrder(SalesHeader[2], '', LibraryInventory.CreateItemNo(), Customer."No.", LibraryRandom.RandInt(10));
+        CreateSalesOrder(SalesHeader[2], '', LibraryInventory.CreateItemNo, Customer."No.", LibraryRandom.RandInt(10));
         SalesShipmentNo[2] := LibrarySales.PostSalesDocument(SalesHeader[2], true, false);
 
         // [GIVEN] Open sales order page positioned on sales order "SO1".
         // [GIVEN] Uncheck "Combine Shipments".
-        SalesOrder.OpenEdit();
+        SalesOrder.OpenEdit;
         SalesOrder.FILTER.SetFilter("No.", SalesHeader[1]."No.");
         SalesOrder."Combine Shipments".SetValue(false);
         SalesOrder.Close();
@@ -1454,7 +1453,7 @@ codeunit 137305 "SCM Warehouse Reports"
         SalesHeader[1].SetFilter("No.", '%1|%2', SalesHeader[1]."No.", SalesHeader[2]."No.");
         SalesShipmentHeader.SetFilter("No.", '%1|%2', SalesShipmentNo[1], SalesShipmentNo[2]);
         LibraryVariableStorage.Enqueue(CombineShipmentMsg);
-        LibrarySales.CombineShipments(SalesHeader[1], SalesShipmentHeader, WorkDate(), WorkDate(), false, false, false, false);
+        LibrarySales.CombineShipments(SalesHeader[1], SalesShipmentHeader, WorkDate(), WorkDate, false, false, false, false);
 
         // [THEN] One sales invoice is created.
         SalesHeaderInvoice.SetRange("Document Type", SalesHeaderInvoice."Document Type"::Invoice);
@@ -1468,7 +1467,7 @@ codeunit 137305 "SCM Warehouse Reports"
         SalesHeaderInvoice.CalcFields(Amount);
         SalesHeaderInvoice.TestField(Amount, SalesHeader[2].Amount);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1956,10 +1955,10 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseShipmentLine: Record "Warehouse Shipment Line";
         WarehouseSourceFilter: Record "Warehouse Source Filter";
         WarehouseActivityHeader: Record "Warehouse Activity Header";
+        ReportSelectionUsage: Enum "Report Selection Usage";
         WhsePostShipment: Codeunit "Whse.-Post Shipment";
         FileManagement: Codeunit "File Management";
         SCMWarehouseReports: Codeunit "SCM Warehouse Reports";
-        ReportSelectionUsage: Enum "Report Selection Usage";
         ItemNo: array[3] of Code[20];
         SourceNo: array[3] of Code[20];
         SourceNoFilter: Code[100];
@@ -2266,7 +2265,10 @@ codeunit 137305 "SCM Warehouse Reports"
         Item: Record Item;
         PurchaseHeader: Record "Purchase Header";
         Location: Record Location;
+        WarehouseActivityHeader: Record "Warehouse Activity Header";
+        WarehouseActivityLine: Record "Warehouse Activity Line";
         WhseRcptLine: Record "Warehouse Receipt Line";
+        ReportSelectionWarehouse: Record "Report Selection Warehouse";
         ReportExecuted: Boolean;
     begin
         // [SCENARIO 432367] To check if system using report selection warehouse to print put away when using post and print Put-away option
@@ -2300,7 +2302,10 @@ codeunit 137305 "SCM Warehouse Reports"
         Item: Record Item;
         PurchaseHeader: Record "Purchase Header";
         Location: Record Location;
+        WarehouseActivityHeader: Record "Warehouse Activity Header";
+        WarehouseActivityLine: Record "Warehouse Activity Line";
         WhseRcptLine: Record "Warehouse Receipt Line";
+        ReportSelectionWarehouse: Record "Report Selection Warehouse";
         AnalysisView: Record "Analysis View";
         ReportExecuted: Boolean;
     begin
@@ -2477,7 +2482,7 @@ codeunit 137305 "SCM Warehouse Reports"
         LibraryERMCountryData.CreateGeneralPostingSetupData();
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         NoSeriesSetup();
-        CreateLocationSetup();
+        CreateLocationSetup;
 
         isInitialized := true;
         Commit();
@@ -2489,8 +2494,8 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseSetup: Record "Warehouse Setup";
     begin
         LibraryWarehouse.NoSeriesSetup(WarehouseSetup);
-        LibrarySales.SetOrderNoSeriesInSetup();
-        LibraryPurchase.SetOrderNoSeriesInSetup();
+        LibrarySales.SetOrderNoSeriesInSetup;
+        LibraryPurchase.SetOrderNoSeriesInSetup;
     end;
 
     local procedure CreateLocationSetup()
@@ -2558,7 +2563,7 @@ codeunit 137305 "SCM Warehouse Reports"
         Bin: Record Bin;
         BinContent: Record "Bin Content";
     begin
-        LibraryWarehouse.CreateBin(Bin, LocationCode, LibraryUtility.GenerateGUID(), '', '');
+        LibraryWarehouse.CreateBin(Bin, LocationCode, LibraryUtility.GenerateGUID, '', '');
         LibraryWarehouse.CreateBinContent(BinContent, LocationCode, '', Bin.Code, Item."No.", '', Item."Base Unit of Measure");
         BinContent.Validate(Fixed, true);
         BinContent.Validate(Default, true);
@@ -2592,14 +2597,16 @@ codeunit 137305 "SCM Warehouse Reports"
     var
         RecRef: RecordRef;
     begin
-        SalesLine.Init();
-        SalesLine."Document Type" := SalesHeader."Document Type";
-        SalesLine."Document No." := SalesHeader."No.";
-        RecRef.GetTable(SalesLine);
-        SalesLine.Validate("Line No.", LibraryUtility.GetNewLineNo(RecRef, SalesLine.FieldNo("Line No.")));
-        SalesLine.Type := SalesLine.Type::" ";
-        SalesLine.Description := LibraryUtility.GenerateGUID();
-        SalesLine.Insert(true);
+        with SalesLine do begin
+            Init();
+            "Document Type" := SalesHeader."Document Type";
+            "Document No." := SalesHeader."No.";
+            RecRef.GetTable(SalesLine);
+            Validate("Line No.", LibraryUtility.GetNewLineNo(RecRef, FieldNo("Line No.")));
+            Type := Type::" ";
+            Description := LibraryUtility.GenerateGUID();
+            Insert(true);
+        end;
     end;
 
     local procedure CreatePurchaseOrder(var PurchaseHeader: Record "Purchase Header"; LocationCode: Code[10]; ItemNo: Code[20]; Quantity: Decimal; DirectUnitCost: Decimal)
@@ -2638,7 +2645,7 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseShipmentHeader: Record "Warehouse Shipment Header";
     begin
         // Create Warehouse Shipment. Run Create Pick.
-        WarehouseShipmentNo := FindWarehouseShipmentNo();
+        WarehouseShipmentNo := FindWarehouseShipmentNo;
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
         WarehouseShipmentHeader.Get(WarehouseShipmentNo);
         LibraryWarehouse.CreatePick(WarehouseShipmentHeader);
@@ -2679,7 +2686,7 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseReceiptNo: Code[20];
     begin
         CreateAndReleasePurchaseOrder(PurchaseHeader, LocationCode, ItemNo, Quantity);
-        WarehouseReceiptNo := FindWarehouseReceiptNo();
+        WarehouseReceiptNo := FindWarehouseReceiptNo;
         LibraryWarehouse.CreateWhseReceiptFromPO(PurchaseHeader);
         PostWarehouseReceipt(WarehouseReceiptNo);
     end;
@@ -2704,7 +2711,7 @@ codeunit 137305 "SCM Warehouse Reports"
         LibraryVariableStorage.Enqueue(InvtPutAwayCreated);  // Enqueue for MessageHandler.
         LibraryWarehouse.CreateInvtPutPickMovement(
           WhseRequest."Source Document"::"Purchase Order", PurchaseHeader."No.", true, false, false);  // TRUE for PutAway.
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
         exit(PurchaseHeader."No.");
     end;
 
@@ -2767,7 +2774,7 @@ codeunit 137305 "SCM Warehouse Reports"
         SalesLineItemCharge.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLineItemCharge.Modify(true);
         LibrarySales.CreateSalesLine(
-          SalesLineItem, SalesHeader, SalesLineItem.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandInt(10));
+          SalesLineItem, SalesHeader, SalesLineItem.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandInt(10));
         LibraryInventory.CreateItemChargeAssignment(
           ItemChargeAssignmentSales, SalesLineItemCharge, SalesLineItem."Document Type",
           SalesLineItem."Document No.", SalesLineItem."Line No.", SalesLineItem."No.");
@@ -2785,7 +2792,7 @@ codeunit 137305 "SCM Warehouse Reports"
         PostedDocumentNo := LibrarySales.PostSalesDocument(SalesHeader, true, false);
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure CreateItemWithSalesPrice(var SalesPrice: Record "Sales Price")
     var
         Item: Record Item;
@@ -2874,10 +2881,10 @@ codeunit 137305 "SCM Warehouse Reports"
     local procedure FindWarehouseShipmentNo(): Code[20]
     var
         WarehouseSetup: Record "Warehouse Setup";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
     begin
         WarehouseSetup.Get();
-        exit(NoSeries.PeekNextNo(WarehouseSetup."Whse. Ship Nos."));
+        exit(NoSeriesManagement.GetNextNo(WarehouseSetup."Whse. Ship Nos.", WorkDate(), false));
     end;
 
     local procedure FindWarehouseEntryNo(ItemNo: Code[20]) FromEntryNo: Integer
@@ -2892,10 +2899,10 @@ codeunit 137305 "SCM Warehouse Reports"
     local procedure FindWarehouseReceiptNo(): Code[20]
     var
         WarehouseSetup: Record "Warehouse Setup";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
     begin
         WarehouseSetup.Get();
-        exit(NoSeries.PeekNextNo(WarehouseSetup."Whse. Receipt Nos."));
+        exit(NoSeriesManagement.GetNextNo(WarehouseSetup."Whse. Receipt Nos.", WorkDate(), false));
     end;
 
     local procedure FindWhseWorkSheetLine(var WhseWorksheetLine: Record "Whse. Worksheet Line"; WhseWorksheetName: Record "Whse. Worksheet Name")
@@ -2983,7 +2990,7 @@ codeunit 137305 "SCM Warehouse Reports"
         BinContent.SetRange("Location Code", LocationCode);
         BinContent.SetRange("Item No.", ItemNo);
         BinContent.FindFirst();
-        LibraryWarehouse.WhseCalculateInventory(WarehouseJournalLine, BinContent, WorkDate(), LibraryUtility.GenerateGUID(), false);
+        LibraryWarehouse.WhseCalculateInventory(WarehouseJournalLine, BinContent, WorkDate(), LibraryUtility.GenerateGUID, false);
     end;
 
     local procedure RunWhseCalculateInventoryReportWithBatchAndRequestPage(var WarehouseJournalBatch: Record "Warehouse Journal Batch"; LocationCode: Code[10])
@@ -2997,7 +3004,7 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseJournalLine.Validate("Location Code", LocationCode);
         WhseCalculateInventory.SetWhseJnlLine(WarehouseJournalLine);
         WhseCalculateInventory.UseRequestPage(true);
-        EnqueueValuesForWhseCalculateInventoryRequestPage(WorkDate(), LibraryUtility.GenerateGUID(), false);
+        EnqueueValuesForWhseCalculateInventoryRequestPage(WorkDate(), LibraryUtility.GenerateGUID, false);
 
         Commit();
 
@@ -3028,7 +3035,7 @@ codeunit 137305 "SCM Warehouse Reports"
         SalesShipmentHeader.SetFilter("Sell-to Customer No.", CustomerNoFilter);
         LibraryVariableStorage.Enqueue(CombineShipmentMsg);  // Enqueue for MessageHandler.
         LibrarySales.CombineShipments(
-          SalesHeader, SalesShipmentHeader, WorkDate(), WorkDate(), CalcInvDisc, PostInvoices, OnlyStdPmtTerms, CopyTextLines);
+          SalesHeader, SalesShipmentHeader, WorkDate(), WorkDate, CalcInvDisc, PostInvoices, OnlyStdPmtTerms, CopyTextLines);
     end;
 
     local procedure RunCombineShipmentsByBillToCustomer(CustomerNo: Code[20]; CalcInvDisc: Boolean; PostInvoices: Boolean; OnlyStdPmtTerms: Boolean; CopyTextLines: Boolean)
@@ -3040,7 +3047,7 @@ codeunit 137305 "SCM Warehouse Reports"
         SalesShipmentHeader.SetRange("Bill-to Customer No.", CustomerNo);
         LibraryVariableStorage.Enqueue(CombineShipmentMsg);  // Enqueue for MessageHandler.
         LibrarySales.CombineShipments(
-          SalesHeader, SalesShipmentHeader, WorkDate(), WorkDate(), CalcInvDisc, PostInvoices, OnlyStdPmtTerms, CopyTextLines);
+          SalesHeader, SalesShipmentHeader, WorkDate(), WorkDate, CalcInvDisc, PostInvoices, OnlyStdPmtTerms, CopyTextLines);
     end;
 
     local procedure CreateTransferOrderLocations(var FromLocation: Record Location; var ToLocation: Record Location; var IntransitLocation: Record Location)
@@ -3057,7 +3064,10 @@ codeunit 137305 "SCM Warehouse Reports"
         LibraryWarehouse.ReleaseTransferOrder(TransferHeader);
     end;
 
+    [Normal]
     local procedure CreateAndRegisterWhseJnlLine(Location: Record Location; ItemNo: Code[20]; Quantity: Decimal)
+    var
+        WarehouseJournalBatch: Record "Warehouse Journal Batch";
     begin
         CreateAndRegisterWhseJnlLine2(Location, ItemNo, Quantity, "Warehouse Journal Template Type"::Item);
     end;
@@ -3081,6 +3091,7 @@ codeunit 137305 "SCM Warehouse Reports"
           WarehouseJournalLine."Journal Template Name", WarehouseJournalLine."Journal Batch Name", Location.Code, false);
     end;
 
+    [Normal]
     local procedure CreateWhseJnlLine(var WarehouseJournalLine: Record "Warehouse Journal Line"; LocationCode: Code[10]; ZoneCode: Code[10]; BinCode: Code[20]; ItemNo: Code[20]; Quantity: Decimal; TemplateType: Enum "Warehouse Journal Template Type")
     var
         WarehouseJournalBatch: Record "Warehouse Journal Batch";
@@ -3105,6 +3116,7 @@ codeunit 137305 "SCM Warehouse Reports"
         LibraryVariableStorage.Enqueue(ItemNotOnInventory);
     end;
 
+    [Normal]
     local procedure FindBinContent(var BinContent: Record "Bin Content"; LocationCode: Code[10]; ItemNo: Code[20])
     begin
         BinContent.SetRange("Location Code", LocationCode);
@@ -3113,6 +3125,7 @@ codeunit 137305 "SCM Warehouse Reports"
         BinContent.FindFirst();
     end;
 
+    [Normal]
     local procedure UpdateRankingOnAllBins(LocationCode: Code[10])
     var
         Bin: Record Bin;
@@ -3253,10 +3266,11 @@ codeunit 137305 "SCM Warehouse Reports"
     local procedure VerifyReportData(RowCaption: Text; RowValue: Variant; ColumnCaption: Text; ColumnValue: Variant)
     begin
         LibraryReportDataset.SetRange(RowCaption, RowValue);
-        if LibraryReportDataset.GetNextRow() then
+        if LibraryReportDataset.GetNextRow then
             LibraryReportDataset.AssertCurrentRowValueEquals(ColumnCaption, ColumnValue);
     end;
 
+    [Normal]
     local procedure VerifyWarehouseActivityLine(ItemNo: Code[20]; LocationCode: Code[10]; ActionType: Enum "Warehouse Action Type")
     var
         WarehouseActivityLine: Record "Warehouse Activity Line";
@@ -3268,7 +3282,7 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseActivityLine.FindFirst();
 
         LibraryReportDataset.SetRange('ActionType_WhseActivLine', Format(WarehouseActivityLine."Action Type"));
-        LibraryReportDataset.GetNextRow();
+        LibraryReportDataset.GetNextRow;
         LibraryReportDataset.AssertCurrentRowValueEquals('ItemNo_WhseActivLine', WarehouseActivityLine."Item No.");
         LibraryReportDataset.AssertCurrentRowValueEquals('LocCode_WhseActivHeader', WarehouseActivityLine."Location Code");
         LibraryReportDataset.AssertCurrentRowValueEquals('BinCode_WhseActivLine', WarehouseActivityLine."Bin Code");
@@ -3279,28 +3293,32 @@ codeunit 137305 "SCM Warehouse Reports"
     var
         ItemJournalLine: Record "Item Journal Line";
     begin
-        ItemJournalLine.SetRange("Item No.", ItemNo);
-        ItemJournalLine.FindFirst();
-        ItemJournalLine.TestField("Qty. (Calculated)", CalculatedQty);
-        ItemJournalLine.TestField("Qty. (Phys. Inventory)", PhysInvtQty);
-        ItemJournalLine.TestField(Quantity, Qty);
+        with ItemJournalLine do begin
+            SetRange("Item No.", ItemNo);
+            FindFirst();
+            TestField("Qty. (Calculated)", CalculatedQty);
+            TestField("Qty. (Phys. Inventory)", PhysInvtQty);
+            TestField(Quantity, Qty);
+        end;
     end;
 
     local procedure VerifyPostedSalesInvoice(ItemNo: Code[20]; Quantity1: Decimal; Quantity2: Decimal; SalesLineDescription: Text[100])
     var
         SalesInvoiceLine: Record "Sales Invoice Line";
     begin
-        SalesInvoiceLine.SetRange("No.", ItemNo);
-        SalesInvoiceLine.SetRange(Quantity, Quantity1);
-        SalesInvoiceLine.FindFirst();
-        Assert.AreEqual(SalesInvoiceLine.Type::Item, SalesInvoiceLine.Type, CombineShipmentErr);
-        SalesInvoiceLine.SetRange(Quantity, Quantity2);
-        SalesInvoiceLine.FindFirst();
-        Assert.AreEqual(SalesInvoiceLine.Type::Item, SalesInvoiceLine.Type, CombineShipmentErr);
-        SalesInvoiceLine.Reset();
-        SalesInvoiceLine.SetRange(Description, SalesLineDescription);
-        SalesInvoiceLine.FindFirst();
-        Assert.AreEqual(SalesInvoiceLine.Type::" ", SalesInvoiceLine.Type, CombineShipmentErr);
+        with SalesInvoiceLine do begin
+            SetRange("No.", ItemNo);
+            SetRange(Quantity, Quantity1);
+            FindFirst();
+            Assert.AreEqual(Type::Item, Type, CombineShipmentErr);
+            SetRange(Quantity, Quantity2);
+            FindFirst();
+            Assert.AreEqual(Type::Item, Type, CombineShipmentErr);
+            Reset();
+            SetRange(Description, SalesLineDescription);
+            FindFirst();
+            Assert.AreEqual(Type::" ", Type, CombineShipmentErr);
+        end;
     end;
 
     local procedure VerifySalesInvoice(SellToCustomerNo: Code[20]; BillToCustomerNo: Code[20]; ExpectedCount: Integer)
@@ -3323,7 +3341,7 @@ codeunit 137305 "SCM Warehouse Reports"
         WarehouseReceiptNo: Code[20];
     begin
         CreateAndReleasePurchaseOrder(PurchaseHeader, LocationCode, ItemNo, Quantity);
-        WarehouseReceiptNo := FindWarehouseReceiptNo();
+        WarehouseReceiptNo := FindWarehouseReceiptNo;
         LibraryWarehouse.CreateWhseReceiptFromPO(PurchaseHeader);
 
         WhseRcptLine.SetRange("No.", WarehouseReceiptNo);
@@ -3335,7 +3353,7 @@ codeunit 137305 "SCM Warehouse Reports"
         CODEUNIT.Run(CODEUNIT::"Whse.-Post Receipt + Print", WhseRcptLine);
     end;
 
-    local procedure CreateAnalysisViewWithDimensions(var AnalysisView: Record "Analysis View"; AccountSource: Enum "Analysis Source Type")
+    procedure CreateAnalysisViewWithDimensions(var AnalysisView: Record "Analysis View"; AccountSource: Integer)
     var
         Dimension: Record Dimension;
         i: Integer;
@@ -3360,7 +3378,7 @@ codeunit 137305 "SCM Warehouse Reports"
         CODEUNIT.Run(CODEUNIT::"Update Analysis View", AnalysisView);
     end;
 
-    local procedure CreateAnalysisView(var AnalysisView: Record "Analysis View"; AccountSource: Enum "Analysis Source Type")
+    local procedure CreateAnalysisView(var AnalysisView: Record "Analysis View"; AccountSource: Integer)
     begin
         AnalysisView.Init();
         AnalysisView.Code := Format(LibraryRandom.RandIntInRange(1, 10000));
@@ -3431,7 +3449,7 @@ codeunit 137305 "SCM Warehouse Reports"
         Reply := true;
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure PriceListRequestPageHandler(var PriceList: TestRequestPage "Price List")
@@ -3444,7 +3462,7 @@ codeunit 137305 "SCM Warehouse Reports"
 
         PriceList.Date.SetValue(DateReq);
         PriceList.SalesType.SetValue(SalesType);
-        PriceList.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        PriceList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 #endif
 
@@ -3462,109 +3480,109 @@ codeunit 137305 "SCM Warehouse Reports"
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure WarehouseBinListReportHandler(var WarehouseBinListPage: TestRequestPage "Warehouse Bin List")
+    procedure WarehouseBinListReportHandler(var WarehouseBinList: TestRequestPage "Warehouse Bin List")
     begin
-        WarehouseBinListPage.ShowBinContents.SetValue(true);
-        WarehouseBinListPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WarehouseBinList.ShowBinContents.SetValue(true);
+        WarehouseBinList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure WhereUsedListRequestPageHandler(var WhereUsedList: TestRequestPage "Where-Used List")
     begin
-        WhereUsedList.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WhereUsedList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure PickingListRequestPageHandler(var PickingListPage: TestRequestPage "Picking List")
+    procedure PickingListRequestPageHandler(var PickingList: TestRequestPage "Picking List")
     begin
-        PickingListPage.Breakbulk.SetValue(true);
-        PickingListPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        PickingList.Breakbulk.SetValue(true);
+        PickingList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure PutAwayListRequestPageHandler(var PutawayListPage: TestRequestPage "Put-away List")
+    procedure PutAwayListRequestPageHandler(var PutawayList: TestRequestPage "Put-away List")
     begin
-        PutawayListPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        PutawayList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure InventoryPutAwayListRequestPageHandler(var InventoryPutawayListPage: TestRequestPage "Inventory Put-away List")
+    procedure InventoryPutAwayListRequestPageHandler(var InventoryPutawayList: TestRequestPage "Inventory Put-away List")
     begin
-        InventoryPutawayListPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        InventoryPutawayList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure WhseReceiptListRequestPageHandler(var WhseReceiptPage: TestRequestPage "Whse. - Receipt")
+    procedure WhseReceiptListRequestPageHandler(var WhseReceipt: TestRequestPage "Whse. - Receipt")
     begin
-        WhseReceiptPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WhseReceipt.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure WhseAdjustmentBinRequestPageHandler(var WhseAdjustmentBinPage: TestRequestPage "Whse. Adjustment Bin")
+    procedure WhseAdjustmentBinRequestPageHandler(var WhseAdjustmentBin: TestRequestPage "Whse. Adjustment Bin")
     begin
-        WhseAdjustmentBinPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WhseAdjustmentBin.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure MovementListRequestPageHandler(var MovementListPage: TestRequestPage "Movement List")
+    procedure MovementListRequestPageHandler(var MovementList: TestRequestPage "Movement List")
     begin
-        MovementListPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        MovementList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure TransferOrderRequestPageHandler(var TransferOrderPage: TestRequestPage "Transfer Order")
+    procedure TransferOrderRequestPageHandler(var TransferOrder: TestRequestPage "Transfer Order")
     begin
-        TransferOrderPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        TransferOrder.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure TransferShipmentRequestPageHandler(var TransferShipmentPage: TestRequestPage "Transfer Shipment")
+    procedure TransferShipmentRequestPageHandler(var TransferShipment: TestRequestPage "Transfer Shipment")
     begin
-        TransferShipmentPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        TransferShipment.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure TransferReceiptRequestPageHandler(var TransferReceiptPage: TestRequestPage "Transfer Receipt")
+    procedure TransferReceiptRequestPageHandler(var TransferReceipt: TestRequestPage "Transfer Receipt")
     begin
-        TransferReceiptPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        TransferReceipt.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure WhsePostedReceiptRequestPageHandler(var WhsePostedReceipt: TestRequestPage "Whse. - Posted Receipt")
     begin
-        WhsePostedReceipt.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WhsePostedReceipt.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure InventoryPickingListRequestPageHandler(var InventoryPickingListPage: TestRequestPage "Inventory Picking List")
+    procedure InventoryPickingListRequestPageHandler(var InventoryPickingList: TestRequestPage "Inventory Picking List")
     begin
-        InventoryPickingListPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        InventoryPickingList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure WhseShipmentRequestPageHandler(var WhseShipmentPage: TestRequestPage "Whse. - Shipment")
+    procedure WhseShipmentRequestPageHandler(var WhseShipment: TestRequestPage "Whse. - Shipment")
     begin
-        WhseShipmentPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WhseShipment.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure WhseShipmentStatusRequestPageHandler(var WhseShipmentStatusPage: TestRequestPage "Whse. Shipment Status")
+    procedure WhseShipmentStatusRequestPageHandler(var WhseShipmentStatus: TestRequestPage "Whse. Shipment Status")
     begin
-        WhseShipmentStatusPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WhseShipmentStatus.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
@@ -3575,21 +3593,21 @@ codeunit 137305 "SCM Warehouse Reports"
     begin
         LibraryVariableStorage.Dequeue(ShowCalculatedQty);
         WhsePhysInventoryList.ShowCalculatedQty.SetValue(ShowCalculatedQty);
-        WhsePhysInventoryList.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WhsePhysInventoryList.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure WhseRegisterQuantityRequestPageHandler(var WarehouseRegisterQuantityPage: TestRequestPage "Warehouse Register - Quantity")
+    procedure WhseRegisterQuantityRequestPageHandler(var WarehouseRegisterQuantity: TestRequestPage "Warehouse Register - Quantity")
     begin
-        WarehouseRegisterQuantityPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WarehouseRegisterQuantity.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
-    procedure InventoryPostingTestRequestPageHandler(var InventoryPostingTestPage: TestRequestPage "Inventory Posting - Test")
+    procedure InventoryPostingTestRequestPageHandler(var InventoryPostingTest: TestRequestPage "Inventory Posting - Test")
     begin
-        InventoryPostingTestPage.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        InventoryPostingTest.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
@@ -3604,21 +3622,21 @@ codeunit 137305 "SCM Warehouse Reports"
 
         CustomerOrderDetail.ShowAmountsInLCY.SetValue(ShowAmountInLCY);
         CustomerOrderDetail.NewPagePerCustomer.SetValue(NewPagePerCustomer);
-        CustomerOrderDetail.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        CustomerOrderDetail.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure SalesReturnReceiptRequestPageHandler(var SalesReturnReceipt: TestRequestPage "Sales - Return Receipt")
     begin
-        SalesReturnReceipt.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        SalesReturnReceipt.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure WorkOrderRequestPageHandler(var WorkOrder: TestRequestPage "Work Order")
     begin
-        WorkOrder.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        WorkOrder.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
@@ -3636,17 +3654,17 @@ codeunit 137305 "SCM Warehouse Reports"
         InventoryAvailabilityPlan.StartingDate.SetValue(StartingDate);
         InventoryAvailabilityPlan.PeriodLength.SetValue(PeriodLength);
         InventoryAvailabilityPlan.UseStockkeepUnit.SetValue(UseStockkeepingUnit);
-        InventoryAvailabilityPlan.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        InventoryAvailabilityPlan.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure WhseCalculateInventoryRequestPageHandler(var WhseCalculateInventoryPage: TestRequestPage "Whse. Calculate Inventory")
     begin
-        WhseCalculateInventoryPage.RegisteringDate.SetValue(LibraryVariableStorage.DequeueDate());
-        WhseCalculateInventoryPage.WhseDocumentNo.SetValue(LibraryVariableStorage.DequeueText());
-        WhseCalculateInventoryPage.ZeroQty.SetValue(LibraryVariableStorage.DequeueBoolean());
-        WhseCalculateInventoryPage.OK().Invoke();
+        WhseCalculateInventoryPage.RegisteringDate.SetValue(LibraryVariableStorage.DequeueDate);
+        WhseCalculateInventoryPage.WhseDocumentNo.SetValue(LibraryVariableStorage.DequeueText);
+        WhseCalculateInventoryPage.ZeroQty.SetValue(LibraryVariableStorage.DequeueBoolean);
+        WhseCalculateInventoryPage.OK.Invoke;
     end;
 
     [RequestPageHandler]
@@ -3654,12 +3672,14 @@ codeunit 137305 "SCM Warehouse Reports"
     procedure CreatePickFromWhseShptRequestPageHandler(var WhseShipmentCreatePick: TestRequestPage "Whse.-Shipment - Create Pick")
     begin
         WhseShipmentCreatePick.PrintDoc.SetValue(true);
-        WhseShipmentCreatePick.OK().Invoke();
+        WhseShipmentCreatePick.OK.Invoke;
     end;
 
     [RequestPageHandler]
     [Scope('OnPrem')]
     procedure SalesShipmentXmlRequestPageHandler(var SalesShipment: TestRequestPage "Sales - Shipment")
+    var
+        SalesShipmentHeader: Record "Sales Shipment Header";
     begin
         LibraryReportDataset.SetFileName(LibraryVariableStorage.DequeueText());
         SalesShipment.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
@@ -3669,16 +3689,16 @@ codeunit 137305 "SCM Warehouse Reports"
     procedure WhsePostedShipmentRequestPageHandler(var WhsePostedShipment: TestRequestPage "Whse. - Posted Shipment")
     begin
         LibraryVariableStorage.Enqueue(LibraryVariableStorage.DequeueInteger() + 1);
-        WhsePostedShipment.Cancel().Invoke();
+        WhsePostedShipment.Cancel.Invoke();
     end;
 
     [ReportHandler]
     [Scope('OnPrem')]
-    procedure PutAwayListReportHandler(var PutAwayListPage: Report "Put-away List")
+    procedure PutAwayListReportHandler(var PutAwayList: Report "Put-away List")
     var
         ReportExecuted: Boolean;
     begin
-        PutAwayListPage.SaveAsXml(LibraryReportDataset.GetFileName());
+        PutAwayList.SaveAsXml(LibraryReportDataset.GetFileName());
         ReportExecuted := true;
         LibraryVariableStorage.Enqueue(ReportExecuted);
     end;

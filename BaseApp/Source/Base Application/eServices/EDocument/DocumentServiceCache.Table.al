@@ -17,7 +17,6 @@ table 9551 "Document Service Cache"
     ObsoleteState = Removed;
     ObsoleteTag = '26.0';
 #endif
-    DataClassification = CustomerContent;
 
     fields
     {

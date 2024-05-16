@@ -195,6 +195,8 @@ page 6503 "Avail. - Item Tracking Lines"
     begin
         FunctionButton1Visible := EnableReservations;
         FunctionButton2Visible := not EnableReservations;
+
+        SetPackageTrackingVisibility();
     end;
 
     var
@@ -207,6 +209,7 @@ page 6503 "Avail. - Item Tracking Lines"
         EnableReservations: Boolean;
         FunctionButton1Visible: Boolean;
         FunctionButton2Visible: Boolean;
+        PackageTrackingVisible: Boolean;
 
         CancelReservationQst: Label 'Cancel reservation?';
 
@@ -252,6 +255,13 @@ page 6503 "Avail. - Item Tracking Lines"
     local procedure GetReservedQtyBase(): Decimal
     begin
         // This procedure is intentionally left blank.
+    end;
+
+    local procedure SetPackageTrackingVisibility()
+    var
+        PackageMgt: Codeunit "Package Management";
+    begin
+        PackageTrackingVisible := PackageMgt.IsEnabled();
     end;
 
     [IntegrationEvent(true, false)]

@@ -12,7 +12,6 @@ table 221 "Gen. Jnl. Allocation"
 {
     Caption = 'Gen. Jnl. Allocation';
     Permissions = tabledata "Gen. Jnl. Allocation" = R;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -195,7 +194,7 @@ table 221 "Gen. Jnl. Allocation"
         }
         field(17; "Account Name"; Text[100])
         {
-            CalcFormula = lookup("G/L Account".Name where("No." = field("Account No.")));
+            CalcFormula = Lookup("G/L Account".Name where("No." = field("Account No.")));
             Caption = 'Account Name';
             Editable = false;
             FieldClass = FlowField;

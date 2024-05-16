@@ -16,9 +16,7 @@ codeunit 134325 "ERM Purchase Quote"
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryRandom: Codeunit "Library - Random";
-#if not CLEAN22
         LibrarySetupStorage: Codeunit "Library - Setup Storage";
-#endif
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryResource: Codeunit "Library - Resource";
         IsInitialized: Boolean;
@@ -45,7 +43,7 @@ codeunit 134325 "ERM Purchase Quote"
         Initialize();
 
         // Exercise: Create Purchase Quote.
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
 
         // Verify: Verify that Correct Purchase Quote created.
         PurchaseHeader.Get(PurchaseHeader."Document Type"::Quote, PurchaseHeader."No.");
@@ -66,7 +64,7 @@ codeunit 134325 "ERM Purchase Quote"
 
         // Setup: Create a Purchase Quote.
         Initialize();
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
 
         // Exercise: Calculate VAT Amount on VAT Amount Line from Purchase Line.
         PurchaseLine.CalcVATAmountLines(QtyType::Invoicing, PurchaseHeader, PurchaseLine, VATAmountLine);
@@ -95,7 +93,7 @@ codeunit 134325 "ERM Purchase Quote"
 
         // Setup: Create a Purchase Quote.
         Initialize();
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
 
         // Exercise: Generate Purchase Quote Report and save it as external file.
         PurchaseHeader.SetRange("Document Type", PurchaseHeader."Document Type"::Quote);
@@ -120,7 +118,7 @@ codeunit 134325 "ERM Purchase Quote"
 
         // Setup: Create Purchase Quote and save the line count into a variable.
         Initialize();
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
         PurchaseLine.SetRange("Document Type", PurchaseLine."Document Type"::Quote);
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
         LineCount := PurchaseLine.Count();
@@ -150,7 +148,7 @@ codeunit 134325 "ERM Purchase Quote"
         LibraryMarketing.CreateBusinessRelation(BusinessRelation);
         LibraryMarketing.CreateContactBusinessRelation(ContactBusinessRelation, Contact."No.", BusinessRelation.Code);
         ContactBusinessRelation.Validate("Link to Table", ContactBusinessRelation."Link to Table"::Vendor);
-        ContactBusinessRelation.Validate("No.", LibraryPurchase.CreateVendorNo());
+        ContactBusinessRelation.Validate("No.", LibraryPurchase.CreateVendorNo);
         ContactBusinessRelation.Modify(true);
 
         // Exercise: Create a Purchase Quote for the Contact.
@@ -176,10 +174,10 @@ codeunit 134325 "ERM Purchase Quote"
 
         // Setup: Create a Purchase Quote.
         Initialize();
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
 
         // Exercise: Change the Buy From Vendor No. of Purchase Quote.
-        PurchaseHeader.Validate("Buy-from Vendor No.", CreateVendor());
+        PurchaseHeader.Validate("Buy-from Vendor No.", CreateVendor);
         PurchaseHeader.Modify(true);
 
         // Verify: Verify that correct Buy From Vendor No. updated in Purchase Line table.
@@ -202,7 +200,7 @@ codeunit 134325 "ERM Purchase Quote"
 
         // Setup: Create Purchase Quote and Calculate Invoice Discount.
         Initialize();
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendorInvDiscount(CreateVendor()));
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendorInvDiscount(CreateVendor));
         CODEUNIT.Run(CODEUNIT::"Purch.-Calc.Discount", PurchaseLine);
         PurchaseLine.Get(PurchaseHeader."Document Type", PurchaseHeader."No.", PurchaseLine."Line No.");
         InvDiscountAmount := PurchaseLine."Inv. Discount Amount";
@@ -231,12 +229,12 @@ codeunit 134325 "ERM Purchase Quote"
 
         // Setup: Create Purchase Quote.
         Initialize();
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
-        PurchaseQuote.OpenEdit();
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
+        PurchaseQuote.OpenEdit;
         PurchaseQuote.FILTER.SetFilter("No.", PurchaseHeader."No.");
 
         // Exercise: Open Statistics page from Purchase Quote.
-        PurchaseQuote.Statistics.Invoke();
+        PurchaseQuote.Statistics.Invoke;
 
         // Verify: Verification is done in 'PurchaseQuoteStatisticsHandler' handler method.
     end;
@@ -255,7 +253,7 @@ codeunit 134325 "ERM Purchase Quote"
         // Setup: Update Purchase & Payables Setup and create Purchase Quote.
         Initialize();
         UpdatePurchasePayablesSetup(OldDefaultPostingDate, PurchasesPayablesSetup."Default Posting Date"::"No Date");
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
 
         // Exercise: Create Purchase Order from Purchase Quote.
         CODEUNIT.Run(CODEUNIT::"Purch.-Quote to Order", PurchaseHeader);
@@ -282,7 +280,7 @@ codeunit 134325 "ERM Purchase Quote"
         PurchaseQuote.OpenNew();
 
         // [THEN] Contact Field is not editable
-        Assert.IsFalse(PurchaseQuote."Buy-from Contact".Editable(), ContactShouldNotBeEditableErr);
+        Assert.IsFalse(PurchaseQuote."Buy-from Contact".Editable, ContactShouldNotBeEditableErr);
     end;
 
     [Test]
@@ -299,14 +297,14 @@ codeunit 134325 "ERM Purchase Quote"
         Initialize();
 
         // [Given] A sample Purchase Quote
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
 
         // [WHEN] Purchase Quote page is opened
-        PurchaseQuote.OpenEdit();
+        PurchaseQuote.OpenEdit;
         PurchaseQuote.GotoRecord(PurchaseHeader);
 
         // [THEN] Contact Field is editable
-        Assert.IsTrue(PurchaseQuote."Buy-from Contact".Editable(), ContactShouldBeEditableErr);
+        Assert.IsTrue(PurchaseQuote."Buy-from Contact".Editable, ContactShouldBeEditableErr);
     end;
 
     [Test]
@@ -323,18 +321,18 @@ codeunit 134325 "ERM Purchase Quote"
         Initialize();
 
         // [Given] A sample Purchase Quote
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
 
         // [WHEN] Purchase Quote page is opened
-        PurchaseQuote.OpenEdit();
+        PurchaseQuote.OpenEdit;
         PurchaseQuote.GotoRecord(PurchaseHeader);
 
         // [THEN] Pay-to Address Fields is not editable
-        Assert.IsFalse(PurchaseQuote."Pay-to Address".Editable(), PayToAddressFieldsNotEditableErr);
-        Assert.IsFalse(PurchaseQuote."Pay-to Address 2".Editable(), PayToAddressFieldsNotEditableErr);
-        Assert.IsFalse(PurchaseQuote."Pay-to City".Editable(), PayToAddressFieldsNotEditableErr);
-        Assert.IsFalse(PurchaseQuote."Pay-to Contact".Editable(), PayToAddressFieldsNotEditableErr);
-        Assert.IsFalse(PurchaseQuote."Pay-to Post Code".Editable(), PayToAddressFieldsNotEditableErr);
+        Assert.IsFalse(PurchaseQuote."Pay-to Address".Editable, PayToAddressFieldsNotEditableErr);
+        Assert.IsFalse(PurchaseQuote."Pay-to Address 2".Editable, PayToAddressFieldsNotEditableErr);
+        Assert.IsFalse(PurchaseQuote."Pay-to City".Editable, PayToAddressFieldsNotEditableErr);
+        Assert.IsFalse(PurchaseQuote."Pay-to Contact".Editable, PayToAddressFieldsNotEditableErr);
+        Assert.IsFalse(PurchaseQuote."Pay-to Post Code".Editable, PayToAddressFieldsNotEditableErr);
     end;
 
     [Test]
@@ -353,22 +351,22 @@ codeunit 134325 "ERM Purchase Quote"
         Initialize();
 
         // [Given] A sample Purchase Quote
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
 
         // Purchase Quote page is opened
-        PurchaseQuote.OpenEdit();
+        PurchaseQuote.OpenEdit;
         PurchaseQuote.GotoRecord(PurchaseHeader);
 
         // [WHEN] Another Pay-to vendor is picked
-        PayToVendor.Get(CreateVendor());
+        PayToVendor.Get(CreateVendor);
         PurchaseQuote."Pay-to Name".SetValue(PayToVendor.Name);
 
         // [THEN] Pay-to Address Fields is editable
-        Assert.IsTrue(PurchaseQuote."Pay-to Address".Editable(), PayToAddressFieldsEditableErr);
-        Assert.IsTrue(PurchaseQuote."Pay-to Address 2".Editable(), PayToAddressFieldsEditableErr);
-        Assert.IsTrue(PurchaseQuote."Pay-to City".Editable(), PayToAddressFieldsEditableErr);
-        Assert.IsTrue(PurchaseQuote."Pay-to Contact".Editable(), PayToAddressFieldsEditableErr);
-        Assert.IsTrue(PurchaseQuote."Pay-to Post Code".Editable(), PayToAddressFieldsEditableErr);
+        Assert.IsTrue(PurchaseQuote."Pay-to Address".Editable, PayToAddressFieldsEditableErr);
+        Assert.IsTrue(PurchaseQuote."Pay-to Address 2".Editable, PayToAddressFieldsEditableErr);
+        Assert.IsTrue(PurchaseQuote."Pay-to City".Editable, PayToAddressFieldsEditableErr);
+        Assert.IsTrue(PurchaseQuote."Pay-to Contact".Editable, PayToAddressFieldsEditableErr);
+        Assert.IsTrue(PurchaseQuote."Pay-to Post Code".Editable, PayToAddressFieldsEditableErr);
     end;
 
     [Test]
@@ -384,7 +382,7 @@ codeunit 134325 "ERM Purchase Quote"
 
         // [GIVEN] Page with Prices including VAT disabled was open
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Quote, '');
-        PurchaseQuotePage.OpenEdit();
+        PurchaseQuotePage.OpenEdit;
         PurchaseQuotePage.GotoRecord(PurchaseHeader);
 
         // [WHEN] User checks Prices including VAT
@@ -411,17 +409,17 @@ codeunit 134325 "ERM Purchase Quote"
         Initialize();
 
         // [GIVEN] Purchase Quote "PQ" opened with Purchase Quote page
-        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor());
+        CreatePurchaseQuote(PurchaseHeader, PurchaseLine, CreateVendor);
         PurchaseLine.SetRange("Document Type", PurchaseLine."Document Type"::Quote);
         PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
-        PurchaseQuote.OpenEdit();
+        PurchaseQuote.OpenEdit;
         PurchaseQuote.FILTER.SetFilter("No.", PurchaseHeader."No.");
 
         // [WHEN] Make Order action is being selected, created order "PO" and confirmend to open order
-        PurchaseOrder.Trap();
+        PurchaseOrder.Trap;
         LibraryVariableStorage.Enqueue(MakeOrderQst);
         LibraryVariableStorage.Enqueue(OpenNewOrderTxt);
-        PurchaseQuote.MakeOrder.Invoke();
+        PurchaseQuote.MakeOrder.Invoke;
 
         // [THEN] Purchase Order page opened with order "PO"
         PurchaseOrder."Buy-from Vendor No.".AssertEquals(PurchaseHeader."Buy-from Vendor No.");
@@ -561,8 +559,8 @@ codeunit 134325 "ERM Purchase Quote"
         LibraryERMCountryData: Codeunit "Library - ERM Country Data";
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"ERM Purchase Quote");
-        PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyVendorAddressNotificationId());
-        PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyPayToVendorAddressNotificationId());
+        PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyVendorAddressNotificationId);
+        PurchaseHeader.DontNotifyCurrentUserAgain(PurchaseHeader.GetModifyPayToVendorAddressNotificationId);
         LibraryVariableStorage.Clear();
 
         if IsInitialized then
@@ -632,7 +630,7 @@ codeunit 134325 "ERM Purchase Quote"
 
         // Create Purchase Quote Line with Random Quantity and Direct Unit Cost. Take Unit Cost in multiple of 100 (Standard Value).
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandInt(10));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandInt(10));
         PurchaseLine.Validate("Direct Unit Cost", 100 * LibraryRandom.RandInt(10));
         PurchaseLine.Modify(true);
     end;
@@ -688,7 +686,7 @@ codeunit 134325 "ERM Purchase Quote"
     [Scope('OnPrem')]
     procedure QuoteToOrderHandler(Question: Text[1024]; var Reply: Boolean)
     begin
-        Assert.IsTrue(StrPos(Question, LibraryVariableStorage.DequeueText()) <> 0, 'Invalid confirm message');
+        Assert.IsTrue(StrPos(Question, LibraryVariableStorage.DequeueText) <> 0, 'Invalid confirm message');
         Reply := true;
     end;
 
@@ -696,7 +694,7 @@ codeunit 134325 "ERM Purchase Quote"
     [Scope('OnPrem')]
     procedure PurchaseQuoteStatisticsHandler(var PurchaseStatistics: TestPage "Purchase Statistics")
     begin
-        Assert.IsFalse(PurchaseStatistics.VATAmount.Editable(), 'The VAT Amount field should not be editable');
+        Assert.IsFalse(PurchaseStatistics.VATAmount.Editable, 'The VAT Amount field should not be editable');
     end;
 }
 

@@ -1,4 +1,4 @@
-#if not CLEAN23
+#if not CLEAN21
 namespace Microsoft.Projects.Resources.Resource;
 
 using Microsoft.Finance.Currency;
@@ -23,51 +23,53 @@ report 1191 "Suggest Res. Price Chg. (Res.)"
             trigger OnAfterGetRecord()
             begin
                 Window.Update(1, "No.");
-                ResPriceChg.Type := ResPriceChg.Type::Resource;
-                ResPriceChg.Code := Resource."No.";
-                ResPriceChg."New Unit Price" :=
-                  Round(
-                    CurrExchRate.ExchangeAmtLCYToFCY(
-                      WorkDate(), ToCurrency.Code,
-                      Resource."Unit Price",
-                      CurrExchRate.ExchangeRate(
-                        WorkDate(), ToCurrency.Code)),
-                    ToCurrency."Unit-Amount Rounding Precision");
+                with ResPriceChg do begin
+                    Type := Type::Resource;
+                    Code := Resource."No.";
+                    "New Unit Price" :=
+                      Round(
+                        CurrExchRate.ExchangeAmtLCYToFCY(
+                          WorkDate(), ToCurrency.Code,
+                          Resource."Unit Price",
+                          CurrExchRate.ExchangeRate(
+                            WorkDate(), ToCurrency.Code)),
+                        ToCurrency."Unit-Amount Rounding Precision");
 
-                if ResPriceChg."New Unit Price" > PriceLowerLimit then
-                    ResPriceChg."New Unit Price" := ResPriceChg."New Unit Price" * UnitPriceFactor;
-                if RoundingMethod.Code <> '' then begin
-                    RoundingMethod."Minimum Amount" := ResPriceChg."New Unit Price";
-                    if RoundingMethod.Find('=<') then begin
-                        ResPriceChg."New Unit Price" := ResPriceChg."New Unit Price" + RoundingMethod."Amount Added Before";
+                    if "New Unit Price" > PriceLowerLimit then
+                        "New Unit Price" := "New Unit Price" * UnitPriceFactor;
+                    if RoundingMethod.Code <> '' then begin
+                        RoundingMethod."Minimum Amount" := "New Unit Price";
+                        if RoundingMethod.Find('=<') then begin
+                            "New Unit Price" := "New Unit Price" + RoundingMethod."Amount Added Before";
 
-                        if RoundingMethod.Precision > 0 then
-                            ResPriceChg."New Unit Price" :=
-                              Round(
-                                ResPriceChg."New Unit Price",
-                                RoundingMethod.Precision, CopyStr('=><', RoundingMethod.Type + 1, 1));
-                        ResPriceChg."New Unit Price" := ResPriceChg."New Unit Price" + RoundingMethod."Amount Added After";
+                            if RoundingMethod.Precision > 0 then
+                                "New Unit Price" :=
+                                  Round(
+                                    "New Unit Price",
+                                    RoundingMethod.Precision, CopyStr('=><', RoundingMethod.Type + 1, 1));
+                            "New Unit Price" := "New Unit Price" + RoundingMethod."Amount Added After";
+                        end;
                     end;
-                end;
 
-                ResPrice.SetRange(Type, ResPriceChg.Type);
-                ResPrice.SetRange(Code, ResPriceChg.Code);
-                ResPrice.SetRange("Currency Code", ToCurrency.Code);
-                ResPrice.SetRange("Work Type Code", ToWorkType.Code);
-                if ResPrice.FindLast() then begin
-                    ResPriceChg."Current Unit Price" := ResPrice."Unit Price";
-                    PriceAlreadyExists := true
-                end else begin
-                    ResPriceChg."Current Unit Price" := 0;
-                    PriceAlreadyExists := false;
-                end;
+                    ResPrice.SetRange(Type, Type);
+                    ResPrice.SetRange(Code, Code);
+                    ResPrice.SetRange("Currency Code", ToCurrency.Code);
+                    ResPrice.SetRange("Work Type Code", ToWorkType.Code);
+                    if ResPrice.FindLast() then begin
+                        "Current Unit Price" := ResPrice."Unit Price";
+                        PriceAlreadyExists := true
+                    end else begin
+                        "Current Unit Price" := 0;
+                        PriceAlreadyExists := false;
+                    end;
 
-                if PriceAlreadyExists or CreateNewPrices then begin
-                    ResPriceChg2 := ResPriceChg;
-                    if ResPriceChg2.Find('=') then
-                        ResPriceChg.Modify()
-                    else
-                        ResPriceChg.Insert();
+                    if PriceAlreadyExists or CreateNewPrices then begin
+                        ResPriceChg2 := ResPriceChg;
+                        if ResPriceChg2.Find('=') then
+                            Modify()
+                        else
+                            Insert();
+                    end;
                 end;
             end;
 
@@ -133,7 +135,7 @@ report 1191 "Suggest Res. Price Chg. (Res.)"
                     {
                         ApplicationArea = Jobs;
                         Caption = 'Create New Prices';
-                        ToolTip = 'Specifies if you want the batch job to create new price suggestions, such as a new combination of currency, project number, or work type. If you only want to adjust existing alternative prices, do not select.';
+                        ToolTip = 'Specifies if you want the batch job to create new price suggestions, such as a new combination of currency, job number, or work type. If you only want to adjust existing alternative prices, do not select.';
                     }
                 }
             }
@@ -165,8 +167,10 @@ report 1191 "Suggest Res. Price Chg. (Res.)"
             ToCurrency.TestField("Unit-Amount Rounding Precision");
         end;
 
-        ResPriceChg."Currency Code" := ToCurrency.Code;
-        ResPriceChg."Work Type Code" := ToWorkType.Code;
+        with ResPriceChg do begin
+            "Currency Code" := ToCurrency.Code;
+            "Work Type Code" := ToWorkType.Code;
+        end;
     end;
 
     var

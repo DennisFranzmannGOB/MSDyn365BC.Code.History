@@ -5,7 +5,6 @@ table 385 "Dimension Posting Buffer"
     Caption = 'Dimension Posting Buffer';
     ReplicateData = false;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

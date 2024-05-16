@@ -1,8 +1,6 @@
 ﻿namespace Microsoft.Inventory.Availability;
 
-#pragma warning disable AL0659
 enum 99000880 "Order Promising Line Source Type"
-#pragma warning restore AL0659
 {
     Extensible = true;
     AssignmentCompatibility = true;

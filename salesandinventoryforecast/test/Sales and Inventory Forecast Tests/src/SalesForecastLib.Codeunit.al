@@ -71,13 +71,10 @@ codeunit 139542 "Sales Forecast Lib"
     end;
 
     procedure Setup();
-    var
-        ApiKey: Text;
     begin
         MSSalesForecastSetup.GetSingleInstance();
         MSSalesForecastSetup.Validate("API URI", MockServiceURITxt);
-        ApiKey := MockServiceKeyTxt;
-        MSSalesForecastSetup.SetUserDefinedAPIKey(ApiKey);
+        MSSalesForecastSetup.SetUserDefinedAPIKey(MockServiceKeyTxt);
         MSSalesForecastSetup.Modify(true);
     end;
 

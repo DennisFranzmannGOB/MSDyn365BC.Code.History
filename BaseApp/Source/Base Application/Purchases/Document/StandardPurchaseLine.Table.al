@@ -11,7 +11,6 @@ using Microsoft.Utilities;
 table 174 "Standard Purchase Line"
 {
     Caption = 'Standard Purchase Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -155,8 +154,6 @@ table 174 "Standard Purchase Line"
         {
             Caption = 'Unit of Measure Code';
             TableRelation = if (Type = const(Item)) "Item Unit of Measure".Code where("Item No." = field("No."))
-            else
-            if (Type = const(Resource)) "Resource Unit of Measure".Code where("Resource No." = field("No."))
             else
             "Unit of Measure";
 

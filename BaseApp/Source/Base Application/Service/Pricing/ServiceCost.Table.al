@@ -11,7 +11,6 @@ table 5905 "Service Cost"
 {
     Caption = 'Service Cost';
     LookupPageID = "Service Costs";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -10,7 +10,6 @@ table 1234 "CSV Buffer"
 {
     Caption = 'CSV Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

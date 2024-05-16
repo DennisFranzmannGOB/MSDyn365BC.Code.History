@@ -2,7 +2,6 @@ table 134093 "Table With Link To G/L Account"
 {
     LookupPageID = "Table With Link To G/L Account";
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

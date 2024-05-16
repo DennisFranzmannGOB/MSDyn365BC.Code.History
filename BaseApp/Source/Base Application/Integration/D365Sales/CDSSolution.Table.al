@@ -12,7 +12,6 @@ table 5394 "CDS Solution"
     Description = 'A solution which contains CRM customizations.';
     ExternalName = 'solution';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {

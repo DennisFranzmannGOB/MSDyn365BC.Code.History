@@ -4,7 +4,6 @@ table 7305 "Special Equipment"
 {
     Caption = 'Special Equipment';
     LookupPageID = "Special Equipment";
-    DataClassification = CustomerContent;
 
     fields
     {

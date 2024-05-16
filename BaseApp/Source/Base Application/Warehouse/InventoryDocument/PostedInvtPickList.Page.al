@@ -15,7 +15,7 @@ page 7395 "Posted Invt. Pick List"
     PageType = List;
     SourceTable = "Posted Invt. Pick Header";
     SourceTableView = sorting("Posting Date")
-                      order(descending);
+                      order(Descending);
     UsageCategory = History;
 
     layout

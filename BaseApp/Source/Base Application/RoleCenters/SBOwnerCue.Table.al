@@ -16,7 +16,6 @@ using Microsoft.Sales.Receivables;
 table 9060 "SB Owner Cue"
 {
     Caption = 'SB Owner Cue';
-    DataClassification = CustomerContent;
 
     fields
     {

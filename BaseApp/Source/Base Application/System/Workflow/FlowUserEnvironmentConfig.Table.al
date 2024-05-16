@@ -5,7 +5,6 @@ table 1545 "Flow User Environment Config"
     Caption = 'Power Automate User Environment Config';
     DataPerCompany = false;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

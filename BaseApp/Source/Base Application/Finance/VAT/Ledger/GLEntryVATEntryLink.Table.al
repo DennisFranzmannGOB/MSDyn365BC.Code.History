@@ -6,7 +6,6 @@ table 253 "G/L Entry - VAT Entry Link"
 {
     Caption = 'G/L Entry - VAT Entry Link';
     Permissions = TableData "G/L Entry - VAT Entry Link" = rimd;
-    DataClassification = CustomerContent;
 
     fields
     {

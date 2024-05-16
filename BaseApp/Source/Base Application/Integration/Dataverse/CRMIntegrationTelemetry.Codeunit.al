@@ -31,20 +31,22 @@ codeunit 5333 "CRM Integration Telemetry"
 
     local procedure GetEnabledConnectionTelemetryData(CRMConnectionSetup: Record "CRM Connection Setup"): Text
     begin
-        exit(
+        with CRMConnectionSetup do
+            exit(
               StrSubstNo(
                 EnabledConnectionTelemetryTxt,
-                Format(CRMConnectionSetup."Authentication Type"), CRMConnectionSetup."CRM Version", CRMConnectionSetup."Proxy Version", CRMConnectionSetup."Is CRM Solution Installed",
-                CRMConnectionSetup."Is S.Order Integration Enabled", CRMConnectionSetup."Auto Create Sales Orders", CRMConnectionSetup."Auto Process Sales Quotes",
+                Format("Authentication Type"), "CRM Version", "Proxy Version", "Is CRM Solution Installed",
+                "Is S.Order Integration Enabled", "Auto Create Sales Orders", "Auto Process Sales Quotes",
                 CRMIntegrationManagement.IsItemAvailabilityEnabled()));
     end;
 
     local procedure GetDisabledConnectionTelemetryData(CRMConnectionSetup: Record "CRM Connection Setup"): Text
     begin
-        exit(
+        with CRMConnectionSetup do
+            exit(
               StrSubstNo(
                 DisabledConnectionTelemetryTxt,
-                CRMConnectionSetup."Disable Reason", Format(CRMConnectionSetup."Authentication Type"), CRMConnectionSetup."Proxy Version", CRMConnectionSetup."Auto Create Sales Orders"));
+                "Disable Reason", Format("Authentication Type"), "Proxy Version", "Auto Create Sales Orders"));
     end;
 
     local procedure GetIntegrationStatsTelemetryData() Data: Text
@@ -59,20 +61,21 @@ codeunit 5333 "CRM Integration Telemetry"
             exit(NoPermissionTxt);
 
         Data := '[';
-        if IntegrationTableMapping.FindSet() then
-            repeat
-                TableRecRef.Open(IntegrationTableMapping."Table ID");
-                IntTableRecRef.Open(IntegrationTableMapping."Integration Table ID");
-                TableData :=
-                  StrSubstNo(
-                    IntegrationTableStatsTxt, IntegrationTableMapping.Name, IntegrationTableMapping."Table ID", IntegrationTableMapping."Integration Table ID",
-                    TableRecRef.Name(), IntTableRecRef.Name(),
-                    Format(IntegrationTableMapping.Direction), IntegrationTableMapping."Synch. Only Coupled Records",
-                    GetSyncJobsTotal(IntegrationTableMapping.Name), GetTotalRecords(IntegrationTableMapping."Table ID"),
-                    GetCoupledRecords(IntegrationTableMapping."Table ID"), GetCoupledErrors(IntegrationTableMapping."Table ID"));
-                Data += Comma + TableData;
-                Comma := ','
-            until IntegrationTableMapping.Next() = 0;
+        with IntegrationTableMapping do
+            if FindSet() then
+                repeat
+                    TableRecRef.Open("Table ID");
+                    IntTableRecRef.Open("Integration Table ID");
+                    TableData :=
+                      StrSubstNo(
+                        IntegrationTableStatsTxt, Name, "Table ID", "Integration Table ID",
+                        TableRecRef.Name(), IntTableRecRef.Name(),
+                        Format(Direction), "Synch. Only Coupled Records",
+                        GetSyncJobsTotal(Name), GetTotalRecords("Table ID"),
+                        GetCoupledRecords("Table ID"), GetCoupledErrors("Table ID"));
+                    Data += Comma + TableData;
+                    Comma := ','
+                until Next() = 0;
         Data += ']';
     end;
 
@@ -121,10 +124,11 @@ codeunit 5333 "CRM Integration Telemetry"
 
     local procedure SendConnectionTelemetry(CRMConnectionSetup: Record "CRM Connection Setup")
     begin
-        if CRMConnectionSetup."Is Enabled" then
-            Session.LogMessage('000024X', GetEnabledConnectionTelemetryData(CRMConnectionSetup), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CRMConnectionCategoryTxt)
-        else
-            Session.LogMessage('000024Y', GetDisabledConnectionTelemetryData(CRMConnectionSetup), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CRMConnectionCategoryTxt);
+        with CRMConnectionSetup do
+            if "Is Enabled" then
+                Session.LogMessage('000024X', GetEnabledConnectionTelemetryData(CRMConnectionSetup), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CRMConnectionCategoryTxt)
+            else
+                Session.LogMessage('000024Y', GetDisabledConnectionTelemetryData(CRMConnectionSetup), Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', CRMConnectionCategoryTxt);
     end;
 
     local procedure SendIntegrationStatsTelemetry()

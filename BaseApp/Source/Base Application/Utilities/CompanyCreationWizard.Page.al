@@ -26,10 +26,8 @@ page 9192 "Company Creation Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and not FinalStepVisible;
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND NOT FinalStepVisible;
                 field("MediaResourcesStandard.""Media Reference"""; MediaResourcesStandard."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -40,10 +38,8 @@ page 9192 "Company Creation Wizard"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and FinalStepVisible;
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND FinalStepVisible;
                 field("MediaResourcesDone.""Media Reference"""; MediaResourcesDone."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -108,12 +104,12 @@ page 9192 "Company Creation Wizard"
                         group(Control26)
                         {
                             ShowCaption = false;
-                            Visible = not IsSandbox;
+                            Visible = NOT IsSandbox;
                             field(CompanyData; NewCompanyDataProduction)
                             {
                                 ApplicationArea = Basic, Suite;
                                 ShowCaption = false;
-                                Visible = not IsSandbox;
+                                Visible = NOT IsSandbox;
 
                                 trigger OnValidate()
                                 begin
@@ -180,7 +176,7 @@ page 9192 "Company Creation Wizard"
                             Editable = false;
                             ShowCaption = false;
                             Style = AttentionAccent;
-                            StyleExpr = true;
+                            StyleExpr = TRUE;
 
                             trigger OnDrillDown()
                             var
@@ -220,14 +216,14 @@ page 9192 "Company Creation Wizard"
                 group("The new company will be created without users")
                 {
                     Caption = 'The new company will be created without users';
-                    Visible = not CanManageUser;
+                    Visible = NOT CanManageUser;
                     field(OnlySuperCanLabel; OnlySuperCanManageUsersLbl)
                     {
                         ApplicationArea = Basic, Suite;
                         Editable = false;
                         ShowCaption = false;
                         Style = AttentionAccent;
-                        StyleExpr = true;
+                        StyleExpr = TRUE;
                     }
                 }
             }
@@ -370,7 +366,7 @@ page 9192 "Company Creation Wizard"
         EvalPeriodTxt: Label '\\You will be able to use the company to try out the product for as long as you want. ';
         IsSandbox: Boolean;
         LangDifferentFromConfigurationPackageFileMsg: Label 'The language of the configuration package file is different than your current language. The new company will be created in %1.', Comment = '%1 is the language code of the pack';
-        CompanySetUpInProgressMsg: Label 'Company %1 is created, but we are still setting it up.\This might take some time, so take a break before you begin to use it. When it is ready, its status is Completed. Refresh the page to update the status.', Comment = '%1 - a company name';
+        CompanySetUpInProgressMsg: Label 'Company %1 has been created, but we are still setting it up for you.\This may take up to 10 minutes, so take a short break before you begin to use it.', Comment = '%1 - a company name';
         AddUsersVisible: Boolean;
         ManageUsersLbl: Label 'Manage Users';
         CanManageUser: Boolean;

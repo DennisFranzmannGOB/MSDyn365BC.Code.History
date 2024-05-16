@@ -1410,7 +1410,7 @@ page 6630 "Sales Return Order"
                 {
                     ApplicationArea = SalesReturnOrder;
                     Caption = 'Send A&pproval Request';
-                    Enabled = not OpenApprovalEntriesExist;
+                    Enabled = NOT OpenApprovalEntriesExist;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval of the document.';
 

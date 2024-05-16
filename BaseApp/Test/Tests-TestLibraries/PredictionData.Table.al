@@ -1,7 +1,6 @@
 table 135300 "Prediction Data"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

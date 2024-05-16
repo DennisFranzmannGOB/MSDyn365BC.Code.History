@@ -10,7 +10,7 @@ page 830 "Workflow Webhook Entries"
     PageType = List;
     SourceTable = "Workflow Webhook Entry";
     SourceTableView = sorting("Entry No.")
-                      order(ascending);
+                      order(Ascending);
     UsageCategory = Lists;
 
     layout

@@ -7,7 +7,6 @@ table 5701 "Stockkeeping Unit Comment Line"
     Caption = 'Stockkeeping Unit Comment Line';
     DrillDownPageID = "Stockkeeping Unit Comment List";
     LookupPageID = "Stockkeeping Unit Comment List";
-    DataClassification = CustomerContent;
 
     fields
     {

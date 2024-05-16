@@ -9,7 +9,6 @@ table 6305 "Power BI Chart Buffer"
     Caption = 'Power BI Chart Buffer';
     ReplicateData = false;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

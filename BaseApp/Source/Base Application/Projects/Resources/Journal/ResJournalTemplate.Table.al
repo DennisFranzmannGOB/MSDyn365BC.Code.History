@@ -11,7 +11,6 @@ table 206 "Res. Journal Template"
     DrillDownPageID = "Res. Journal Template List";
     LookupPageID = "Res. Journal Template List";
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -86,7 +85,7 @@ table 206 "Res. Journal Template"
         }
         field(13; "Test Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Test Report ID")));
             Caption = 'Test Report Caption';
             Editable = false;
@@ -94,7 +93,7 @@ table 206 "Res. Journal Template"
         }
         field(14; "Page Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
                                                                            "Object ID" = field("Page ID")));
             Caption = 'Page Caption';
             Editable = false;
@@ -102,7 +101,7 @@ table 206 "Res. Journal Template"
         }
         field(15; "Posting Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Posting Report ID")));
             Caption = 'Posting Report Caption';
             Editable = false;

@@ -16,7 +16,6 @@ table 6309 "Power BI Service Status Setup"
     ObsoleteState = Removed;
     ObsoleteTag = '25.0';
 #endif
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -1,6 +1,5 @@
 ﻿namespace Microsoft.Inventory.Tracking;
 
-using Microsoft.Foundation.Navigate;
 using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Journal;
 using Microsoft.Inventory.Ledger;
@@ -21,6 +20,7 @@ using Microsoft.Warehouse.Journal;
 using Microsoft.Warehouse.Ledger;
 using Microsoft.Warehouse.Structure;
 using Microsoft.Warehouse.Tracking;
+using System.Environment.Configuration;
 
 codeunit 6516 "Package Management"
 {
@@ -34,34 +34,25 @@ codeunit 6516 "Package Management"
         PackageNoRequiredErr: Label 'You must assign a package number for item %1.', Comment = '%1 - Item No.';
         LineNoTxt: Label ' Line No. = ''%1''.', Comment = '%1 - Line No.';
         CannotBeFullyAppliedErr: Label 'Item Tracking Serial No. %1 Lot No. %2 Package No. %3 for Item No. %4 Variant %5 cannot be fully applied.', Comment = '%1 - Serial No., %2  - Lot No., %3 - Package No., %4 - Item No., %5 - Variant Code';
-#if not CLEAN24
         PackageTrackingFeatureIdTok: Label 'PackageTracking', Locked = true;
-#endif
 
-#if not CLEAN24
-    [Obsolete('Package Tracking enabled by default.', '24.0')]
     procedure IsEnabled() FeatureEnabled: Boolean
+    var
+        FeatureManagementFacade: Codeunit "Feature Management Facade";
     begin
-        FeatureEnabled := true;
+        FeatureEnabled := FeatureManagementFacade.IsEnabled(PackageTrackingFeatureIdTok);
         OnAfterIsEnabled(FeatureEnabled);
     end;
-#endif
 
-#if not CLEAN24
-    [Obsolete('Package Tracking enabled by default.', '24.0')]
     procedure GetFeatureKey(): Text[50]
     begin
         exit(PackageTrackingFeatureIdTok);
     end;
-#endif
 
-#if not CLEAN24
-    [Obsolete('Package Tracking enabled by default.', '24.0')]
     [IntegrationEvent(false, false)]
     local procedure OnAfterIsEnabled(var FeatureEnabled: Boolean)
     begin
     end;
-#endif
 
     // Tracking Specification subscribers
 
@@ -940,20 +931,22 @@ codeunit 6516 "Package Management"
                                                                          WhseItemTrackingSetup: Record "Item Tracking Setup";
                                                                          ItemTrackingSetup: Record "Item Tracking Setup")
     begin
-        NonWhseItemTrackingSetup."Serial No. Required" :=
-            ItemTrackingSetup."Serial No. Required" and
-            not WhseItemTrackingSetup."Serial No. Required" and
-            (WhseItemTrackingSetup."Lot No. Required" or WhseItemTrackingSetup."Package No. Required");
+        if IsEnabled() then begin
+            NonWhseItemTrackingSetup."Serial No. Required" :=
+                ItemTrackingSetup."Serial No. Required" and
+                not WhseItemTrackingSetup."Serial No. Required" and
+                (WhseItemTrackingSetup."Lot No. Required" or WhseItemTrackingSetup."Package No. Required");
 
-        NonWhseItemTrackingSetup."Lot No. Required" :=
-            ItemTrackingSetup."Lot No. Required" and
-            not WhseItemTrackingSetup."Lot No. Required" and
-            (WhseItemTrackingSetup."Serial No. Required" or WhseItemTrackingSetup."Package No. Required");
+            NonWhseItemTrackingSetup."Lot No. Required" :=
+                ItemTrackingSetup."Lot No. Required" and
+                not WhseItemTrackingSetup."Lot No. Required" and
+                (WhseItemTrackingSetup."Serial No. Required" or WhseItemTrackingSetup."Package No. Required");
 
-        NonWhseItemTrackingSetup."Package No. Required" :=
-            ItemTrackingSetup."Package No. Required" and
-            not WhseItemTrackingSetup."Package No. Required" and
-            (WhseItemTrackingSetup."Serial No. Required" or WhseItemTrackingSetup."Lot No. Required");
+            NonWhseItemTrackingSetup."Package No. Required" :=
+                ItemTrackingSetup."Package No. Required" and
+                not WhseItemTrackingSetup."Package No. Required" and
+                (WhseItemTrackingSetup."Serial No. Required" or WhseItemTrackingSetup."Lot No. Required");
+        end;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Item Tracking Setup", 'OnAfterSetTrackingFilterForItem', '', false, false)]
@@ -1005,6 +998,12 @@ codeunit 6516 "Package Management"
     local procedure ItemTrackingSetupOnAfterCopyTrackingFromItemTracingBuffer(var ItemTrackingSetup: Record "Item Tracking Setup"; ItemTracingBuffer: Record "Item Tracing Buffer")
     begin
         ItemTrackingSetup."Package No." := ItemTracingBuffer."Package No.";
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Item Tracking Setup", 'OnAfterTrackingMismatch', '', false, false)]
+    local procedure ItemTrackingSetupOnAfterTrackingMismatch(ItemTrackingSetup: Record "Item Tracking Setup"; var IsTrackingMismatch: Boolean)
+    begin
+        IsTrackingMismatch := IsTrackingMismatch or ItemTrackingSetup."Package No. Mismatch";
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Item Tracking Setup", 'OnAfterSpecificTracking', '', false, false)]
@@ -2040,19 +2039,6 @@ codeunit 6516 "Package Management"
         // reserved for future use
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Tracking Data Collection", 'OnRetrieveLookupDataOnAfterBuildNonSerialDataSet', '', false, false)]
-    local procedure ItemTrackingDataCollectionOnRetrieveLookupDataOnAfterBuildNonSerialDataSet(var ItemLedgEntry: Record "Item Ledger Entry"; var TempReservEntry: Record "Reservation Entry"; var Sender: Codeunit "Item Tracking Data Collection"; var TempTrackingSpecification: Record "Tracking Specification")
-    begin
-        ItemLedgEntry.ClearTrackingFilter();
-        TempReservEntry.ClearTrackingFilter();
-        if TempTrackingSpecification."Package No." <> '' then begin
-            ItemLedgEntry.SetRange("Package No.", TempTrackingSpecification."Package No.");
-            TempReservEntry.SetRange("Package No.", TempTrackingSpecification."Package No.");
-            Sender.TransferReservEntryToTempRec(TempReservEntry, TempTrackingSpecification);
-            Sender.TransferItemLedgToTempRec(ItemLedgEntry, TempTrackingSpecification);
-        end;
-    end;
-
     // ItemJnlPostLine.Codeunit.al
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnCheckItemTrackingOnAfterCheckRequiredTrackingNos', '', false, false)]
@@ -2179,12 +2165,5 @@ codeunit 6516 "Package Management"
     begin
         if ReservationEntry.FieldFilterNeeded(FieldFilter, ReservMgt.IsPositive(), "Item Tracking Type"::"Package No.") then
             ItemLedgerEntry.SetFilter("Package No.", FieldFilter);
-    end;
-
-    [EventSubscriber(ObjectType::Table, Database::"Document Entry", 'OnAfterSetTrackingFilterFromItemTrackingSetup', '', false, false)]
-    local procedure DocumentEntryOnAfterSetTrackingFilterFromItemTrackingSetup(var DocumentEntry: Record "Document Entry"; ItemTrackingSetup: Record "Item Tracking Setup")
-    begin
-        if ItemTrackingSetup."Package No." <> '' then
-            DocumentEntry.SetRange("Package No. Filter", ItemTrackingSetup."Package No.");
     end;
 }

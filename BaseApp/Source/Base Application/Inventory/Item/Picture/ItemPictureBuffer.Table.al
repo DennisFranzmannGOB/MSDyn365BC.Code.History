@@ -8,7 +8,6 @@ table 31 "Item Picture Buffer"
 {
     Caption = 'Item Picture Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -27,7 +26,7 @@ table 31 "Item Picture Buffer"
         }
         field(4; "Item Description"; Text[100])
         {
-            CalcFormula = lookup(Item.Description where("No." = field("Item No.")));
+            CalcFormula = Lookup(Item.Description where("No." = field("Item No.")));
             Caption = 'Item Description';
             FieldClass = FlowField;
         }
@@ -152,7 +151,7 @@ table 31 "Item Picture Buffer"
     begin
         Window.Open('#1############################################');
 
-        if FindSet(true) then
+        if FindSet(true, false) then
             repeat
                 if "Import Status" = "Import Status"::Pending then
                     if ("Item No." <> '') and ShouldImport(ReplaceMode, "Picture Already Exists") then begin
@@ -184,10 +183,12 @@ table 31 "Item Picture Buffer"
     var
         TempItemPictureBuffer2: Record "Item Picture Buffer" temporary;
     begin
-        TempItemPictureBuffer2.Copy(Rec, true);
-        TempItemPictureBuffer2.SetRange("Import Status", TempItemPictureBuffer2."Import Status"::Pending);
-        TempItemPictureBuffer2.SetRange("Picture Already Exists", false);
-        exit(TempItemPictureBuffer2.Count);
+        with TempItemPictureBuffer2 do begin
+            Copy(Rec, true);
+            SetRange("Import Status", "Import Status"::Pending);
+            SetRange("Picture Already Exists", false);
+            exit(Count);
+        end;
     end;
 
     [Scope('OnPrem')]
@@ -195,10 +196,12 @@ table 31 "Item Picture Buffer"
     var
         TempItemPictureBuffer2: Record "Item Picture Buffer" temporary;
     begin
-        TempItemPictureBuffer2.Copy(Rec, true);
-        TempItemPictureBuffer2.SetRange("Import Status", TempItemPictureBuffer2."Import Status"::Completed);
-        TempItemPictureBuffer2.SetRange("Picture Already Exists", false);
-        exit(TempItemPictureBuffer2.Count);
+        with TempItemPictureBuffer2 do begin
+            Copy(Rec, true);
+            SetRange("Import Status", "Import Status"::Completed);
+            SetRange("Picture Already Exists", false);
+            exit(Count);
+        end;
     end;
 
     [Scope('OnPrem')]
@@ -206,10 +209,12 @@ table 31 "Item Picture Buffer"
     var
         TempItemPictureBuffer2: Record "Item Picture Buffer" temporary;
     begin
-        TempItemPictureBuffer2.Copy(Rec, true);
-        TempItemPictureBuffer2.SetRange("Import Status", TempItemPictureBuffer2."Import Status"::Pending);
-        TempItemPictureBuffer2.SetRange("Picture Already Exists", true);
-        exit(TempItemPictureBuffer2.Count);
+        with TempItemPictureBuffer2 do begin
+            Copy(Rec, true);
+            SetRange("Import Status", "Import Status"::Pending);
+            SetRange("Picture Already Exists", true);
+            exit(Count);
+        end;
     end;
 
     [Scope('OnPrem')]
@@ -217,10 +222,12 @@ table 31 "Item Picture Buffer"
     var
         TempItemPictureBuffer2: Record "Item Picture Buffer" temporary;
     begin
-        TempItemPictureBuffer2.Copy(Rec, true);
-        TempItemPictureBuffer2.SetRange("Import Status", TempItemPictureBuffer2."Import Status"::Completed);
-        TempItemPictureBuffer2.SetRange("Picture Already Exists", true);
-        exit(TempItemPictureBuffer2.Count);
+        with TempItemPictureBuffer2 do begin
+            Copy(Rec, true);
+            SetRange("Import Status", "Import Status"::Completed);
+            SetRange("Picture Already Exists", true);
+            exit(Count);
+        end;
     end;
 }
 

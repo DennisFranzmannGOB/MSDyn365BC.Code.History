@@ -5,7 +5,6 @@ table 7506 "Filter Item Attributes Buffer"
     Caption = 'Filter Item Attributes Buffer';
     ReplicateData = false;
     Description = 'This table is used by the Filter Item By Attribute feature. It should only be used as temporary.';
-    DataClassification = CustomerContent;
 
     fields
     {

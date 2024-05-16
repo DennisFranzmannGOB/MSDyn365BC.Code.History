@@ -4,11 +4,11 @@ using Microsoft.Finance.Currency;
 using Microsoft.Inventory.Item;
 
 using Microsoft.Purchases.History;
+using Microsoft.Purchases.Setup;
 
 table 5805 "Item Charge Assignment (Purch)"
 {
     Caption = 'Item Charge Assignment (Purch)';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -53,10 +53,14 @@ table 5805 "Item Charge Assignment (Purch)"
             DecimalPlaces = 0 : 5;
 
             trigger OnValidate()
+            var
+                PurchasePayablesSetup: Record "Purchases & Payables Setup";
             begin
+                PurchasePayablesSetup.Get();
                 PurchLine.Get("Document Type", "Document No.", "Document Line No.");
                 if Rec."Qty. to Assign" <> xRec."Qty. to Assign" then
-                    PurchLine.TestField("Qty. to Invoice");
+                    if PurchasePayablesSetup."Default Qty. to Receive" <> PurchasePayablesSetup."Default Qty. to Receive"::Blank then
+                        PurchLine.TestField("Qty. to Invoice");
 
                 TestField("Applies-to Doc. Line No.");
                 if ("Qty. to Assign" <> 0) and ("Applies-to Doc. Type" = "Document Type") then
@@ -200,7 +204,7 @@ table 5805 "Item Charge Assignment (Purch)"
     begin
         PurchLine.Get("Document Type", "Document No.", "Document Line No.");
         if not Currency.Get(PurchLine."Currency Code") then
-            Currency.InitRoundingPrecision();
+            Currency.InitRoundingPrecision;
     end;
 
     procedure PurchLineInvoiced(): Boolean

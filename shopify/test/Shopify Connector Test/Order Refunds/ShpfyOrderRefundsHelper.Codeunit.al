@@ -207,7 +207,6 @@ codeunit 139564 "Shpfy Order Refunds Helper"
         RefundLine.Restocked := true;
         RefundLine.Amount := 156.38;
         RefundLine."Subtotal Amount" := 156.38;
-        RefundLine."Can Create Credit Memo" := true;
         RefundLine.Insert();
     end;
 

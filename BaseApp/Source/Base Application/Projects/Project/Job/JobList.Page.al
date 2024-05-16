@@ -9,7 +9,7 @@ using Microsoft.Pricing.Source;
 using Microsoft.Projects.Project.Analysis;
 using Microsoft.Projects.Project.Ledger;
 using Microsoft.Projects.Project.Planning;
-#if not CLEAN23
+#if not CLEAN21
 using Microsoft.Projects.Project.Pricing;
 #endif
 using Microsoft.Projects.Project.Reports;
@@ -18,13 +18,12 @@ using Microsoft.Purchases.Pricing;
 using Microsoft.Sales.Customer;
 using Microsoft.Sales.Document;
 using Microsoft.Sales.Pricing;
-using System.Integration.PowerBI;
 
 page 89 "Job List"
 {
-    AdditionalSearchTerms = 'Project List,Jobs,Job List';
+    AdditionalSearchTerms = 'Projects, Projects List';
     ApplicationArea = Jobs;
-    Caption = 'Projects';
+    Caption = 'Jobs';
     CardPageID = "Job Card";
     Editable = false;
     PageType = List;
@@ -47,47 +46,47 @@ page 89 "Job List"
                 field(Description; Rec.Description)
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies a short description of the project.';
+                    ToolTip = 'Specifies a short description of the job.';
                 }
                 field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the customer who pays for the project.';
+                    ToolTip = 'Specifies the number of the customer who pays for the job.';
                 }
                 field(Status; Rec.Status)
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies a status for the current project. You can change the status for the project as it progresses. Final calculations can be made on completed projects.';
+                    ToolTip = 'Specifies a status for the current job. You can change the status for the job as it progresses. Final calculations can be made on completed jobs.';
                 }
                 field("Person Responsible"; Rec."Person Responsible")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the name of the person responsible for the project. You can select a name from the list of resources available in the Resource List window. The name is copied from the No. field in the Resource table. You can choose the field to see a list of resources.';
+                    ToolTip = 'Specifies the name of the person responsible for the job. You can select a name from the list of resources available in the Resource List window. The name is copied from the No. field in the Resource table. You can choose the field to see a list of resources.';
                     Visible = false;
                 }
                 field("Next Invoice Date"; Rec."Next Invoice Date")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the next invoice date for the project.';
+                    ToolTip = 'Specifies the next invoice date for the job.';
                     Visible = false;
                 }
                 field("Job Posting Group"; Rec."Job Posting Group")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies a project posting group code for a project. To see the available codes, choose the field.';
+                    ToolTip = 'Specifies a job posting group code for a job. To see the available codes, choose the field.';
                     Visible = false;
                 }
                 field("Search Description"; Rec."Search Description")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the additional name for the project. The field is used for searching purposes.';
+                    ToolTip = 'Specifies the additional name for the job. The field is used for searching purposes.';
                 }
                 field("% of Overdue Planning Lines"; Rec.PercentOverdue())
                 {
                     ApplicationArea = Jobs;
                     Caption = '% of Overdue Planning Lines';
                     Editable = false;
-                    ToolTip = 'Specifies the percent of planning lines that are overdue for this project.';
+                    ToolTip = 'Specifies the percent of planning lines that are overdue for this job.';
                     Visible = false;
                 }
                 field("% Completed"; Rec.PercentCompleted())
@@ -95,7 +94,7 @@ page 89 "Job List"
                     ApplicationArea = Jobs;
                     Caption = '% Completed';
                     Editable = false;
-                    ToolTip = 'Specifies the completion percentage for this project.';
+                    ToolTip = 'Specifies the completion percentage for this job.';
                     Visible = false;
                 }
                 field("% Invoiced"; Rec.PercentInvoiced())
@@ -103,36 +102,19 @@ page 89 "Job List"
                     ApplicationArea = Jobs;
                     Caption = '% Invoiced';
                     Editable = false;
-                    ToolTip = 'Specifies the invoiced percentage for this project.';
+                    ToolTip = 'Specifies the invoiced percentage for this job.';
                     Visible = false;
                 }
                 field("Project Manager"; Rec."Project Manager")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the person assigned as the manager for this project.';
-                    Visible = false;
-                }
-                field("External Document No."; Rec."External Document No.")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies a document number that refers to the customer''s or vendor''s numbering system.';
-                    Visible = false;
-                }
-                field("Your Reference"; Rec."Your Reference")
-                {
-                    ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the customer''s reference. The content will be printed on sales documents.';
+                    ToolTip = 'Specifies the person assigned as the manager for this job.';
                     Visible = false;
                 }
             }
         }
         area(factboxes)
         {
-            part(PowerBIEmbeddedReportPart; "Power BI Embedded Report Part")
-            {
-                ApplicationArea = Basic, Suite;
-                Visible = false;
-            }
             part(Control1907234507; "Sales Hist. Bill-to FactBox")
             {
                 ApplicationArea = Jobs;
@@ -148,12 +130,6 @@ page 89 "Job List"
             part(Control1905650007; "Job WIP/Recognition FactBox")
             {
                 ApplicationArea = Jobs;
-                SubPageLink = "No." = field("No.");
-            }
-            part("Job Details"; "Job Cost Factbox")
-            {
-                ApplicationArea = Jobs;
-                Caption = 'Project Details';
                 SubPageLink = "No." = field("No.");
             }
             part("Attached Documents"; "Document Attachment Factbox")
@@ -181,16 +157,16 @@ page 89 "Job List"
         {
             group("&Job")
             {
-                Caption = '&Project';
+                Caption = '&Job';
                 Image = Job;
                 action("Job Task &Lines")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Project Task &Lines';
+                    Caption = 'Job Task &Lines';
                     Image = TaskList;
                     RunObject = Page "Job Task Lines";
                     RunPageLink = "Job No." = field("No.");
-                    ToolTip = 'Plan how you want to set up your planning information. In this window you can specify the tasks involved in a project. To start planning a project or to post usage for a project, you must set up at least one project task.';
+                    ToolTip = 'Plan how you want to set up your planning information. In this window you can specify the tasks involved in a job. To start planning a job or to post usage for a job, you must set up at least one job task.';
                 }
                 group("&Dimensions")
                 {
@@ -234,14 +210,14 @@ page 89 "Job List"
                     RunObject = Page "Job Statistics";
                     RunPageLink = "No." = field("No.");
                     ShortCutKey = 'F7';
-                    ToolTip = 'View this project''s statistics.';
+                    ToolTip = 'View this job''s statistics.';
                 }
                 action(SalesInvoicesCreditMemos)
                 {
                     ApplicationArea = Jobs;
                     Caption = 'Sales &Invoices/Credit Memos';
                     Image = GetSourceDoc;
-                    ToolTip = 'View sales invoices or sales credit memos that are related to the selected project.';
+                    ToolTip = 'View sales invoices or sales credit memos that are related to the selected job.';
 
                     trigger OnAction()
                     var
@@ -274,8 +250,8 @@ page 89 "Job List"
                     RunObject = Page "Job WIP Entries";
                     RunPageLink = "Job No." = field("No.");
                     RunPageView = sorting("Job No.", "Job Posting Group", "WIP Posting Date")
-                                  order(descending);
-                    ToolTip = 'View entries for the project that are posted as work in process.';
+                                  order(Descending);
+                    ToolTip = 'View entries for the job that are posted as work in process.';
                 }
                 action("WIP &G/L Entries")
                 {
@@ -285,11 +261,11 @@ page 89 "Job List"
                     RunObject = Page "Job WIP G/L Entries";
                     RunPageLink = "Job No." = field("No.");
                     RunPageView = sorting("Job No.")
-                                  order(descending);
-                    ToolTip = 'View the project''s WIP G/L entries.';
+                                  order(Descending);
+                    ToolTip = 'View the job''s WIP G/L entries.';
                 }
             }
-#if not CLEAN23
+#if not CLEAN21
             group("&Prices")
             {
                 Caption = '&Prices';
@@ -306,7 +282,7 @@ page 89 "Job List"
                     Visible = not ExtendedPriceEnabled;
                     RunObject = Page "Job Resource Prices";
                     RunPageLink = "Job No." = field("No.");
-                    ToolTip = 'View this project''s resource prices.';
+                    ToolTip = 'View this job''s resource prices.';
                     ObsoleteState = Pending;
                     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation.';
                     ObsoleteTag = '17.0';
@@ -319,7 +295,7 @@ page 89 "Job List"
                     Visible = not ExtendedPriceEnabled;
                     RunObject = Page "Job Item Prices";
                     RunPageLink = "Job No." = field("No.");
-                    ToolTip = 'View this project''s item prices.';
+                    ToolTip = 'View this job''s item prices.';
                     ObsoleteState = Pending;
                     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation.';
                     ObsoleteTag = '17.0';
@@ -332,7 +308,7 @@ page 89 "Job List"
                     Visible = not ExtendedPriceEnabled;
                     RunObject = Page "Job G/L Account Prices";
                     RunPageLink = "Job No." = field("No.");
-                    ToolTip = 'View this project''s G/L account prices.';
+                    ToolTip = 'View this job''s G/L account prices.';
                     ObsoleteState = Pending;
                     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation.';
                     ObsoleteTag = '17.0';
@@ -397,7 +373,7 @@ page 89 "Job List"
                         PriceUXManagement.ShowPriceListLines(PriceSource, Enum::"Price Amount Type"::Discount);
                     end;
                 }
-#if not CLEAN23
+#if not CLEAN21
                 action(SalesPriceListsDiscounts)
                 {
                     ApplicationArea = Basic, Suite;
@@ -472,7 +448,7 @@ page 89 "Job List"
                         PriceUXManagement.ShowPriceListLines(PriceSource, Enum::"Price Amount Type"::Discount);
                     end;
                 }
-#if not CLEAN23
+#if not CLEAN21
                 action(PurchasePriceListsDiscounts)
                 {
                     ApplicationArea = Basic, Suite;
@@ -502,18 +478,18 @@ page 89 "Job List"
                 action("Resource &Allocated per Job")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Resource &Allocated per Project';
+                    Caption = 'Resource &Allocated per Job';
                     Image = ViewJob;
                     RunObject = Page "Resource Allocated per Job";
-                    ToolTip = 'View this project''s resource allocation.';
+                    ToolTip = 'View this job''s resource allocation.';
                 }
                 action("Res. Group All&ocated per Job")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Res. Group All&ocated per Project';
+                    Caption = 'Res. Group All&ocated per Job';
                     Image = ViewJob;
                     RunObject = Page "Res. Gr. Allocated per Job";
-                    ToolTip = 'View the project''s resource group allocation.';
+                    ToolTip = 'View the job''s resource group allocation.';
                 }
             }
             group(History)
@@ -528,7 +504,7 @@ page 89 "Job List"
                     RunObject = Page "Job Ledger Entries";
                     RunPageLink = "Job No." = field("No.");
                     RunPageView = sorting("Job No.", "Job Task No.", "Entry Type", "Posting Date")
-                                  order(descending);
+                                  order(Descending);
                     ShortCutKey = 'Ctrl+F7';
                     ToolTip = 'View the history of transactions that have been posted for the selected record.';
                 }
@@ -543,10 +519,10 @@ page 89 "Job List"
                 action(CopyJob)
                 {
                     ApplicationArea = Jobs;
-                    Caption = '&Copy Project';
+                    Caption = '&Copy Job';
                     Ellipsis = true;
                     Image = CopyFromTask;
-                    ToolTip = 'Copy a project and its project tasks, planning lines, and prices.';
+                    ToolTip = 'Copy a job and its job tasks, planning lines, and prices.';
 
                     trigger OnAction()
                     var
@@ -559,10 +535,10 @@ page 89 "Job List"
                 action("Create Job &Sales Invoice")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Create Project &Sales Invoice';
+                    Caption = 'Create Job &Sales Invoice';
                     Image = JobSalesInvoice;
                     RunObject = Report "Job Create Sales Invoice";
-                    ToolTip = 'Use a batch job to help you create project sales invoices for the involved project planning lines.';
+                    ToolTip = 'Use a batch job to help you create job sales invoices for the involved job planning lines.';
                 }
                 group(Action7)
                 {
@@ -576,7 +552,7 @@ page 89 "Job List"
                         Image = CalculateWIP;
                         //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                         //PromotedCategory = Process;
-                        ToolTip = 'Run the Project Calculate WIP batch job.';
+                        ToolTip = 'Run the Job Calculate WIP batch job.';
 
                         trigger OnAction()
                         var
@@ -598,7 +574,7 @@ page 89 "Job List"
                         Image = PostOrder;
                         //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                         //PromotedCategory = Process;
-                        ToolTip = 'Run the Project Post WIP to G/L batch job.';
+                        ToolTip = 'Run the Job Post WIP to G/L batch job.';
 
                         trigger OnAction()
                         var
@@ -618,73 +594,73 @@ page 89 "Job List"
             action("Job Actual to Budget")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Project Actual to Budget';
+                Caption = 'Job Actual to Budget';
                 Image = "Report";
                 RunObject = Report "Job Actual To Budget";
-                ToolTip = 'Compare budgeted and usage amounts for selected projects. All lines of the selected project show quantity, total cost, and line amount.';
+                ToolTip = 'Compare budgeted and usage amounts for selected jobs. All lines of the selected job show quantity, total cost, and line amount.';
             }
             action("Job Analysis")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Project Analysis';
+                Caption = 'Job Analysis';
                 Image = "Report";
                 RunObject = Report "Job Analysis";
-                ToolTip = 'Analyze the project, such as the budgeted prices, usage prices, and contract prices, and then compares the three sets of prices.';
+                ToolTip = 'Analyze the job, such as the budgeted prices, usage prices, and contract prices, and then compares the three sets of prices.';
             }
             action("Job - Planning Lines")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Project - Planning Lines';
+                Caption = 'Job - Planning Lines';
                 Image = "Report";
                 RunObject = Report "Job - Planning Lines";
-                ToolTip = 'View all planning lines for the project. You use this window to plan what items, resources, and general ledger expenses that you expect to use on a project (budget) or you can specify what you actually agreed with your customer that he should pay for the project (billable).';
+                ToolTip = 'View all planning lines for the job. You use this window to plan what items, resources, and general ledger expenses that you expect to use on a job (budget) or you can specify what you actually agreed with your customer that he should pay for the job (billable).';
             }
             action("Job - Suggested Billing")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Project - Suggested Billing';
+                Caption = 'Job - Suggested Billing';
                 Image = "Report";
                 RunObject = Report "Job Suggested Billing";
-                ToolTip = 'View a list of all projects, grouped by customer, how much the customer has already been invoiced, and how much remains to be invoiced, that is, the suggested billing.';
+                ToolTip = 'View a list of all jobs, grouped by customer, how much the customer has already been invoiced, and how much remains to be invoiced, that is, the suggested billing.';
             }
             action("Jobs per Customer")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Projects per Customer';
+                Caption = 'Jobs per Customer';
                 Image = "Report";
                 //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                 //PromotedCategory = "Report";
                 RunObject = Report "Jobs per Customer";
-                ToolTip = 'Run the Projects per Customer report.';
+                ToolTip = 'Run the Jobs per Customer report.';
             }
             action("Items per Job")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Items per Project';
+                Caption = 'Items per Job';
                 Image = "Report";
                 //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                 //PromotedCategory = "Report";
                 RunObject = Report "Items per Job";
-                ToolTip = 'View which items are used for a specific project.';
+                ToolTip = 'View which items are used for a specific job.';
             }
             action("Jobs per Item")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Projects per Item';
+                Caption = 'Jobs per Item';
                 Image = "Report";
                 //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                 //PromotedCategory = "Report";
                 RunObject = Report "Jobs per Item";
-                ToolTip = 'Run the Projects per item report.';
+                ToolTip = 'Run the Jobs per item report.';
             }
             action("Report Job Quote")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Preview Project Quote';
+                Caption = 'Preview Job Quote';
                 Image = "Report";
                 //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                 //PromotedCategory = "Report";
-                ToolTip = 'Open the Project Quote report.';
+                ToolTip = 'Open the Job Quote report.';
 
                 trigger OnAction()
                 var
@@ -698,11 +674,11 @@ page 89 "Job List"
             action("Send Job Quote")
             {
                 ApplicationArea = Jobs;
-                Caption = 'Send Project Quote';
+                Caption = 'Send Job Quote';
                 Image = SendTo;
                 //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                 //PromotedCategory = "Report";
-                ToolTip = 'Send the project quote to the customer. You can change the way that the document is sent in the window that appears.';
+                ToolTip = 'Send the job quote to the customer. You can change the way that the document is sent in the window that appears.';
 
                 trigger OnAction()
                 begin
@@ -716,12 +692,12 @@ page 89 "Job List"
                 action("Job WIP to G/L")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Project WIP to G/L';
+                    Caption = 'Job WIP to G/L';
                     Image = "Report";
                     //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                     //PromotedCategory = "Report";
                     RunObject = Report "Job WIP To G/L";
-                    ToolTip = 'View the value of work in process on the projects that you select compared to the amount that has been posted in the general ledger.';
+                    ToolTip = 'View the value of work in process on the jobs that you select compared to the amount that has been posted in the general ledger.';
                 }
             }
             group(Action23)
@@ -731,22 +707,22 @@ page 89 "Job List"
                 action("Jobs - Transaction Detail")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Projects - Transaction Detail';
+                    Caption = 'Jobs - Transaction Detail';
                     Image = "Report";
                     //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                     //PromotedCategory = "Report";
                     RunObject = Report "Job - Transaction Detail";
-                    ToolTip = 'View all postings with entries for a selected project for a selected period, which have been charged to a certain project. At the end of each project list, the amounts are totaled separately for the Sales and Usage entry types.';
+                    ToolTip = 'View all postings with entries for a selected job for a selected period, which have been charged to a certain job. At the end of each job list, the amounts are totaled separately for the Sales and Usage entry types.';
                 }
                 action("Job Register")
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Project Register';
+                    Caption = 'Job Register';
                     Image = "Report";
                     //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                     //PromotedCategory = "Report";
                     RunObject = Report "Job Register";
-                    ToolTip = 'View one or more selected project registers. By using a filter, you can select only those register entries that you want to see. If you do not set a filter, the report can be impractical because it can contain a large amount of information. On the project journal template, you can indicate that you want the report to print when you post.';
+                    ToolTip = 'View one or more selected job registers. By using a filter, you can select only those register entries that you want to see. If you do not set a filter, the report can be impractical because it can contain a large amount of information. On the job journal template, you can indicate that you want the report to print when you post.';
                 }
             }
         }
@@ -765,7 +741,7 @@ page 89 "Job List"
             }
             group(Category_Category5)
             {
-                Caption = 'Project', Comment = 'Generated from the PromotedActionCategories property index 4.';
+                Caption = 'Job', Comment = 'Generated from the PromotedActionCategories property index 4.';
 
                 group(Category_Dimensions)
                 {
@@ -799,7 +775,7 @@ page 89 "Job List"
             {
                 Caption = 'Prices & Discounts', Comment = 'Generated from the PromotedActionCategories property index 5.';
 
-#if not CLEAN23
+#if not CLEAN21
                 actionref("&Resource_Promoted"; "&Resource")
                 {
                     ObsoleteState = Pending;
@@ -807,7 +783,7 @@ page 89 "Job List"
                     ObsoleteTag = '17.0';
                 }
 #endif
-#if not CLEAN23
+#if not CLEAN21
                 actionref("&Item_Promoted"; "&Item")
                 {
                     ObsoleteState = Pending;
@@ -815,7 +791,7 @@ page 89 "Job List"
                     ObsoleteTag = '17.0';
                 }
 #endif
-#if not CLEAN23
+#if not CLEAN21
                 actionref("&G/L Account_Promoted"; "&G/L Account")
                 {
                     ObsoleteState = Pending;
@@ -863,7 +839,7 @@ page 89 "Job List"
                 actionref(PurchDiscountLines_Promoted; PurchDiscountLines)
                 {
                 }
-#if not CLEAN23
+#if not CLEAN21
                 actionref(SalesPriceListsDiscounts_Promoted; SalesPriceListsDiscounts)
                 {
                     ObsoleteState = Pending;
@@ -871,7 +847,7 @@ page 89 "Job List"
                     ObsoleteTag = '18.0';
                 }
 #endif
-#if not CLEAN23
+#if not CLEAN21
                 actionref(PurchasePriceListsDiscounts_Promoted; PurchasePriceListsDiscounts)
                 {
                     ObsoleteState = Pending;
@@ -900,33 +876,6 @@ page 89 "Job List"
         }
     }
 
-    views
-    {
-        view(Open)
-        {
-            Caption = 'Open';
-            Filters = where(Status = const(Open));
-        }
-        view(PlannedAndQuoted)
-        {
-            Caption = 'Planned and Quoted';
-            Filters = where(Status = filter(Quote | Planning));
-        }
-        view(Completed)
-        {
-            Caption = 'Completed';
-            Filters = where(Status = const(Completed));
-        }
-    }
-
-    trigger OnAfterGetCurrRecord()
-    var
-        Job: Record Job;
-    begin
-        CurrPage.SetSelectionFilter(Job);
-        CurrPage.PowerBIEmbeddedReportPart.PAGE.SetFilterToMultipleValues(Job, Job.FieldNo("No."));
-    end;
-
     trigger OnOpenPage()
     var
         PriceCalculationMgt: Codeunit "Price Calculation Mgt.";
@@ -934,14 +883,7 @@ page 89 "Job List"
         ExtendedPriceEnabled := PriceCalculationMgt.IsExtendedPriceCalculationEnabled();
     end;
 
-    trigger OnInit()
-    begin
-        CurrPage.PowerBIEmbeddedReportPart.PAGE.InitPageRatio(PowerBIServiceMgt.GetFactboxRatio());
-        CurrPage.PowerBIEmbeddedReportPart.PAGE.SetPageContext(CurrPage.ObjectId(false));
-    end;
-
     var
-        PowerBIServiceMgt: Codeunit "Power BI Service Mgt.";
         ExtendedPriceEnabled: Boolean;
 }
 

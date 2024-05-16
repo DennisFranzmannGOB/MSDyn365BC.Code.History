@@ -14,7 +14,6 @@ table 5455 "Graph Subscription"
     ObsoleteState = Removed;
     ObsoleteTag = '23.0';
     ObsoleteReason = 'This functionality is out of support';
-    DataClassification = CustomerContent;
 
     fields
     {

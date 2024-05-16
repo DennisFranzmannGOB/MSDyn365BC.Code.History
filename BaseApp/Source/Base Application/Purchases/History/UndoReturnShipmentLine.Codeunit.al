@@ -74,66 +74,68 @@ codeunit 5814 "Undo Return Shipment Line"
         PostedWhseShptLineFound: Boolean;
     begin
         OnBeforeCode(ReturnShptLine, UndoPostingMgt);
-        Clear(ItemJnlPostLine);
-        ReturnShptLine.SetFilter(Quantity, '<>0');
-        ReturnShptLine.SetRange(Correction, false);
-        if ReturnShptLine.IsEmpty() then
-            Error(AlreadyReversedErr);
-        ReturnShptLine.FindFirst();
-        repeat
-            if not HideDialog then
-                Window.Open(Text003);
-            CheckReturnShptLine(ReturnShptLine);
-        until ReturnShptLine.Next() = 0;
+        with ReturnShptLine do begin
+            Clear(ItemJnlPostLine);
+            SetFilter(Quantity, '<>0');
+            SetRange(Correction, false);
+            if IsEmpty() then
+                Error(AlreadyReversedErr);
+            FindFirst();
+            repeat
+                if not HideDialog then
+                    Window.Open(Text003);
+                CheckReturnShptLine(ReturnShptLine);
+            until Next() = 0;
 
-        ReturnShptLine.Find('-');
-        repeat
-            TempGlobalItemLedgEntry.Reset();
-            if not TempGlobalItemLedgEntry.IsEmpty() then
-                TempGlobalItemLedgEntry.DeleteAll();
-            TempGlobalItemEntryRelation.Reset();
-            if not TempGlobalItemEntryRelation.IsEmpty() then
-                TempGlobalItemEntryRelation.DeleteAll();
+            Find('-');
+            repeat
+                TempGlobalItemLedgEntry.Reset();
+                if not TempGlobalItemLedgEntry.IsEmpty() then
+                    TempGlobalItemLedgEntry.DeleteAll();
+                TempGlobalItemEntryRelation.Reset();
+                if not TempGlobalItemEntryRelation.IsEmpty() then
+                    TempGlobalItemEntryRelation.DeleteAll();
 
-            if not HideDialog then
-                Window.Open(Text001);
+                if not HideDialog then
+                    Window.Open(Text001);
 
-            if ReturnShptLine.Type = ReturnShptLine.Type::Item then begin
-                PostedWhseShptLineFound :=
-                    WhseUndoQty.FindPostedWhseShptLine(
-                        PostedWhseShptLine, DATABASE::"Return Shipment Line", ReturnShptLine."Document No.",
-                        DATABASE::"Purchase Line", SalesLine."Document Type"::"Return Order".AsInteger(), ReturnShptLine."Return Order No.", ReturnShptLine."Return Order Line No.");
+                if Type = Type::Item then begin
+                    PostedWhseShptLineFound :=
+                        WhseUndoQty.FindPostedWhseShptLine(
+                            PostedWhseShptLine, DATABASE::"Return Shipment Line", "Document No.",
+                            DATABASE::"Purchase Line", SalesLine."Document Type"::"Return Order".AsInteger(), "Return Order No.", "Return Order Line No.");
 
-                ItemShptEntryNo := PostItemJnlLine(ReturnShptLine, DocLineNo);
-            end else
-                DocLineNo := GetCorrectionLineNo(ReturnShptLine);
+                    ItemShptEntryNo := PostItemJnlLine(ReturnShptLine, DocLineNo);
+                end else
+                    DocLineNo := GetCorrectionLineNo(ReturnShptLine);
 
-            InsertNewReturnShptLine(ReturnShptLine, ItemShptEntryNo, DocLineNo);
-            OnAfterInsertNewReturnShptLine(ReturnShptLine, PostedWhseShptLine, PostedWhseShptLineFound, DocLineNo);
+                InsertNewReturnShptLine(ReturnShptLine, ItemShptEntryNo, DocLineNo);
+                OnAfterInsertNewReturnShptLine(ReturnShptLine, PostedWhseShptLine, PostedWhseShptLineFound, DocLineNo);
 
-            if PostedWhseShptLineFound then
-                WhseUndoQty.UndoPostedWhseShptLine(PostedWhseShptLine);
+                if PostedWhseShptLineFound then
+                    WhseUndoQty.UndoPostedWhseShptLine(PostedWhseShptLine);
 
-            UpdateOrderLine(ReturnShptLine);
-            if PostedWhseShptLineFound then
-                WhseUndoQty.UpdateShptSourceDocLines(PostedWhseShptLine);
+                UpdateOrderLine(ReturnShptLine);
+                if PostedWhseShptLineFound then
+                    WhseUndoQty.UpdateShptSourceDocLines(PostedWhseShptLine);
 
-            ReturnShptLine."Quantity Invoiced" := ReturnShptLine.Quantity;
-            ReturnShptLine."Qty. Invoiced (Base)" := ReturnShptLine."Quantity (Base)";
-            ReturnShptLine."Return Qty. Shipped Not Invd." := 0;
-            ReturnShptLine.Correction := true;
+                "Quantity Invoiced" := Quantity;
+                "Qty. Invoiced (Base)" := "Quantity (Base)";
+                "Return Qty. Shipped Not Invd." := 0;
+                Correction := true;
 
-            OnBeforeReturnShptLineModify(ReturnShptLine, TempWhseJnlLine);
-            ReturnShptLine.Modify();
-            OnAfterReturnShptLineModify(ReturnShptLine, TempWhseJnlLine, DocLineNo, UndoPostingMgt);
+                OnBeforeReturnShptLineModify(ReturnShptLine, TempWhseJnlLine);
+                Modify();
+                OnAfterReturnShptLineModify(ReturnShptLine, TempWhseJnlLine, DocLineNo, UndoPostingMgt);
 
-            if not JobItem then
-                JobItem := (ReturnShptLine.Type = ReturnShptLine.Type::Item) and (ReturnShptLine."Job No." <> '');
-        until ReturnShptLine.Next() = 0;
+                if not JobItem then
+                    JobItem := (Type = Type::Item) and ("Job No." <> '');
+            until Next() = 0;
 
-        MakeInventoryAdjustment();
+            MakeInventoryAdjustment();
 
-        WhseUndoQty.PostTempWhseJnlLine(TempWhseJnlLine);
+            WhseUndoQty.PostTempWhseJnlLine(TempWhseJnlLine);
+        end;
 
         OnAfterCode(ReturnShptLine, UndoPostingMgt);
     end;
@@ -148,21 +150,23 @@ codeunit 5814 "Undo Return Shipment Line"
         if IsHandled then
             exit;
 
-        if ReturnShptLine.Correction then
-            Error(AlreadyReversedErr);
-        if ReturnShptLine."Return Qty. Shipped Not Invd." <> ReturnShptLine.Quantity then
-            Error(Text004);
+        with ReturnShptLine do begin
+            if Correction then
+                Error(AlreadyReversedErr);
+            if "Return Qty. Shipped Not Invd." <> Quantity then
+                Error(Text004);
 
-        if ReturnShptLine.Type = ReturnShptLine.Type::Item then begin
-            ReturnShptLine.TestField("Prod. Order No.", '');
+            if Type = Type::Item then begin
+                TestField("Prod. Order No.", '');
 
-            UndoPostingMgt.TestReturnShptLine(ReturnShptLine);
-            IsHandled := false;
-            OnCheckReturnShptLineOnBeforeCollectItemLedgEntries(ReturnShptLine, IsHandled);
-            if not IsHandled then begin
-                UndoPostingMgt.CollectItemLedgEntries(TempItemLedgEntry, DATABASE::"Return Shipment Line",
-                ReturnShptLine."Document No.", ReturnShptLine."Line No.", ReturnShptLine."Quantity (Base)", ReturnShptLine."Item Shpt. Entry No.");
-                UndoPostingMgt.CheckItemLedgEntries(TempItemLedgEntry, ReturnShptLine."Line No.");
+                UndoPostingMgt.TestReturnShptLine(ReturnShptLine);
+                IsHandled := false;
+                OnCheckReturnShptLineOnBeforeCollectItemLedgEntries(ReturnShptLine, IsHandled);
+                If not IsHandled then begin
+                    UndoPostingMgt.CollectItemLedgEntries(TempItemLedgEntry, DATABASE::"Return Shipment Line",
+                    "Document No.", "Line No.", "Quantity (Base)", "Item Shpt. Entry No.");
+                    UndoPostingMgt.CheckItemLedgEntries(TempItemLedgEntry, "Line No.");
+                end;
             end;
         end;
     end;
@@ -178,19 +182,21 @@ codeunit 5814 "Undo Return Shipment Line"
         if IsHandled then
             exit(Result);
 
-        ReturnShptLine2.SetRange("Document No.", ReturnShptLine."Document No.");
-        ReturnShptLine2."Document No." := ReturnShptLine."Document No.";
-        ReturnShptLine2."Line No." := ReturnShptLine."Line No.";
-        ReturnShptLine2.Find('=');
+        with ReturnShptLine do begin
+            ReturnShptLine2.SetRange("Document No.", "Document No.");
+            ReturnShptLine2."Document No." := "Document No.";
+            ReturnShptLine2."Line No." := "Line No.";
+            ReturnShptLine2.Find('=');
 
-        if ReturnShptLine2.Find('>') then begin
-            LineSpacing := (ReturnShptLine2."Line No." - ReturnShptLine."Line No.") div 2;
-            if LineSpacing = 0 then
-                Error(Text002);
-        end else
-            LineSpacing := 10000;
+            if ReturnShptLine2.Find('>') then begin
+                LineSpacing := (ReturnShptLine2."Line No." - "Line No.") div 2;
+                if LineSpacing = 0 then
+                    Error(Text002);
+            end else
+                LineSpacing := 10000;
 
-        exit(ReturnShptLine."Line No." + LineSpacing);
+            exit("Line No." + LineSpacing);
+        end;
     end;
 
     local procedure PostItemJnlLine(ReturnShptLine: Record "Return Shipment Line"; var DocLineNo: Integer): Integer
@@ -208,84 +214,88 @@ codeunit 5814 "Undo Return Shipment Line"
         if IsHandled then
             exit(ItemLedgEntryNo);
 
-        DocLineNo := GetCorrectionLineNo(ReturnShptLine);
+        with ReturnShptLine do begin
+            DocLineNo := GetCorrectionLineNo(ReturnShptLine);
 
-        SourceCodeSetup.Get();
-        ReturnShptHeader.Get(ReturnShptLine."Document No.");
-        ItemJnlLine.Init();
-        ItemJnlLine."Entry Type" := ItemJnlLine."Entry Type"::Purchase;
-        ItemJnlLine."Item No." := ReturnShptLine."No.";
-        ItemJnlLine."Unit of Measure Code" := ReturnShptLine."Unit of Measure Code";
-        ItemJnlLine."Posting Date" := ReturnShptHeader."Posting Date";
-        ItemJnlLine."Document No." := ReturnShptLine."Document No.";
-        ItemJnlLine."Document Line No." := DocLineNo;
-        ItemJnlLine."Document Type" := ItemJnlLine."Document Type"::"Purchase Return Shipment";
-        ItemJnlLine."Gen. Bus. Posting Group" := ReturnShptLine."Gen. Bus. Posting Group";
-        ItemJnlLine."Gen. Prod. Posting Group" := ReturnShptLine."Gen. Prod. Posting Group";
-        ItemJnlLine."Location Code" := ReturnShptLine."Location Code";
-        ItemJnlLine."Source Code" := SourceCodeSetup.Purchases;
-        ItemJnlLine."Shortcut Dimension 1 Code" := ReturnShptLine."Shortcut Dimension 1 Code";
-        ItemJnlLine."Shortcut Dimension 2 Code" := ReturnShptLine."Shortcut Dimension 2 Code";
-        ItemJnlLine."Dimension Set ID" := ReturnShptLine."Dimension Set ID";
-        if ReturnShptLine."Job No." = '' then begin
-            ItemJnlLine.Correction := true;
-            ItemJnlLine."Applies-to Entry" := ReturnShptLine."Item Shpt. Entry No.";
-        end else begin
-            ItemJnlLine."Job No." := ReturnShptLine."Job No.";
-            ItemJnlLine."Job Task No." := ReturnShptLine."Job Task No.";
-            ItemJnlLine."Job Purchase" := true;
-            ItemJnlLine."Unit Cost" := ReturnShptLine."Unit Cost (LCY)";
+            SourceCodeSetup.Get();
+            ReturnShptHeader.Get("Document No.");
+            ItemJnlLine.Init();
+            ItemJnlLine."Entry Type" := ItemJnlLine."Entry Type"::Purchase;
+            ItemJnlLine."Item No." := "No.";
+            ItemJnlLine."Unit of Measure Code" := "Unit of Measure Code";
+            ItemJnlLine."Posting Date" := ReturnShptHeader."Posting Date";
+            ItemJnlLine."Document No." := "Document No.";
+            ItemJnlLine."Document Line No." := DocLineNo;
+            ItemJnlLine."Document Type" := ItemJnlLine."Document Type"::"Purchase Return Shipment";
+            ItemJnlLine."Gen. Bus. Posting Group" := "Gen. Bus. Posting Group";
+            ItemJnlLine."Gen. Prod. Posting Group" := "Gen. Prod. Posting Group";
+            ItemJnlLine."Location Code" := "Location Code";
+            ItemJnlLine."Source Code" := SourceCodeSetup.Purchases;
+            ItemJnlLine."Shortcut Dimension 1 Code" := "Shortcut Dimension 1 Code";
+            ItemJnlLine."Shortcut Dimension 2 Code" := "Shortcut Dimension 2 Code";
+            ItemJnlLine."Dimension Set ID" := "Dimension Set ID";
+            if "Job No." = '' then begin
+                ItemJnlLine.Correction := true;
+                ItemJnlLine."Applies-to Entry" := "Item Shpt. Entry No.";
+            end else begin
+                ItemJnlLine."Job No." := "Job No.";
+                ItemJnlLine."Job Task No." := "Job Task No.";
+                ItemJnlLine."Job Purchase" := true;
+                ItemJnlLine."Unit Cost" := "Unit Cost (LCY)";
+            end;
+            ItemJnlLine."Variant Code" := "Variant Code";
+            ItemJnlLine."Bin Code" := "Bin Code";
+            ItemJnlLine.Quantity := "Quantity (Base)";
+            ItemJnlLine."Quantity (Base)" := "Quantity (Base)";
+            ItemJnlLine."Document Date" := ReturnShptHeader."Document Date";
+            ItemJnlLine."Unit of Measure Code" := "Unit of Measure Code";
+
+            OnAfterCopyItemJnlLineFromReturnShpt(ItemJnlLine, ReturnShptHeader, ReturnShptLine, WhseUndoQty);
+
+            WhseUndoQty.InsertTempWhseJnlLine(
+                ItemJnlLine,
+                DATABASE::"Purchase Line", PurchLine."Document Type"::"Return Order".AsInteger(), "Return Order No.", "Return Order Line No.",
+                TempWhseJnlLine."Reference Document"::"Posted Rtrn. Shipment".AsInteger(), TempWhseJnlLine, NextLineNo);
+
+            if "Item Shpt. Entry No." <> 0 then begin
+                if "Job No." <> '' then
+                    UndoPostingMgt.TransferSourceValues(ItemJnlLine, "Item Shpt. Entry No.");
+                UndoPostingMgt.PostItemJnlLine(ItemJnlLine);
+                exit(ItemJnlLine."Item Shpt. Entry No.");
+            end;
+            UndoPostingMgt.CollectItemLedgEntries(
+                TempApplyToEntryList, DATABASE::"Return Shipment Line", "Document No.", "Line No.", "Quantity (Base)", "Item Shpt. Entry No.");
+
+            UndoPostingMgt.PostItemJnlLineAppliedToList(
+                ItemJnlLine, TempApplyToEntryList, Quantity, "Quantity (Base)", TempGlobalItemLedgEntry, TempGlobalItemEntryRelation);
+
+            exit(0); // "Item Shpt. Entry No."
         end;
-        ItemJnlLine."Variant Code" := ReturnShptLine."Variant Code";
-        ItemJnlLine."Bin Code" := ReturnShptLine."Bin Code";
-        ItemJnlLine.Quantity := ReturnShptLine."Quantity (Base)";
-        ItemJnlLine."Quantity (Base)" := ReturnShptLine."Quantity (Base)";
-        ItemJnlLine."Document Date" := ReturnShptHeader."Document Date";
-        ItemJnlLine."Unit of Measure Code" := ReturnShptLine."Unit of Measure Code";
-
-        OnAfterCopyItemJnlLineFromReturnShpt(ItemJnlLine, ReturnShptHeader, ReturnShptLine, WhseUndoQty);
-
-        WhseUndoQty.InsertTempWhseJnlLine(
-            ItemJnlLine,
-            DATABASE::"Purchase Line", PurchLine."Document Type"::"Return Order".AsInteger(), ReturnShptLine."Return Order No.", ReturnShptLine."Return Order Line No.",
-            TempWhseJnlLine."Reference Document"::"Posted Rtrn. Shipment".AsInteger(), TempWhseJnlLine, NextLineNo);
-
-        if ReturnShptLine."Item Shpt. Entry No." <> 0 then begin
-            if ReturnShptLine."Job No." <> '' then
-                UndoPostingMgt.TransferSourceValues(ItemJnlLine, ReturnShptLine."Item Shpt. Entry No.");
-            UndoPostingMgt.PostItemJnlLine(ItemJnlLine);
-            exit(ItemJnlLine."Item Shpt. Entry No.");
-        end;
-        UndoPostingMgt.CollectItemLedgEntries(
-            TempApplyToEntryList, DATABASE::"Return Shipment Line", ReturnShptLine."Document No.", ReturnShptLine."Line No.", ReturnShptLine."Quantity (Base)", ReturnShptLine."Item Shpt. Entry No.");
-
-        UndoPostingMgt.PostItemJnlLineAppliedToList(
-            ItemJnlLine, TempApplyToEntryList, ReturnShptLine.Quantity, ReturnShptLine."Quantity (Base)", TempGlobalItemLedgEntry, TempGlobalItemEntryRelation);
-
-        exit(0); // "Item Shpt. Entry No."
     end;
 
     local procedure InsertNewReturnShptLine(OldReturnShptLine: Record "Return Shipment Line"; ItemShptEntryNo: Integer; DocLineNo: Integer)
     var
         NewReturnShptLine: Record "Return Shipment Line";
     begin
-        NewReturnShptLine.Init();
-        NewReturnShptLine.Copy(OldReturnShptLine);
-        NewReturnShptLine."Line No." := DocLineNo;
-        NewReturnShptLine."Appl.-to Item Entry" := OldReturnShptLine."Item Shpt. Entry No.";
-        NewReturnShptLine."Item Shpt. Entry No." := ItemShptEntryNo;
-        NewReturnShptLine.Quantity := -OldReturnShptLine.Quantity;
-        NewReturnShptLine."Quantity (Base)" := -OldReturnShptLine."Quantity (Base)";
-        NewReturnShptLine."Quantity Invoiced" := NewReturnShptLine.Quantity;
-        NewReturnShptLine."Qty. Invoiced (Base)" := NewReturnShptLine."Quantity (Base)";
-        NewReturnShptLine."Return Qty. Shipped Not Invd." := 0;
-        NewReturnShptLine.Correction := true;
-        NewReturnShptLine."Dimension Set ID" := OldReturnShptLine."Dimension Set ID";
-        OnBeforeNewReturnShptLineInsert(NewReturnShptLine, OldReturnShptLine);
-        NewReturnShptLine.Insert();
-        OnAfterNewReturnShptLineInsert(NewReturnShptLine, OldReturnShptLine);
+        with OldReturnShptLine do begin
+            NewReturnShptLine.Init();
+            NewReturnShptLine.Copy(OldReturnShptLine);
+            NewReturnShptLine."Line No." := DocLineNo;
+            NewReturnShptLine."Appl.-to Item Entry" := "Item Shpt. Entry No.";
+            NewReturnShptLine."Item Shpt. Entry No." := ItemShptEntryNo;
+            NewReturnShptLine.Quantity := -Quantity;
+            NewReturnShptLine."Quantity (Base)" := -"Quantity (Base)";
+            NewReturnShptLine."Quantity Invoiced" := NewReturnShptLine.Quantity;
+            NewReturnShptLine."Qty. Invoiced (Base)" := NewReturnShptLine."Quantity (Base)";
+            NewReturnShptLine."Return Qty. Shipped Not Invd." := 0;
+            NewReturnShptLine.Correction := true;
+            NewReturnShptLine."Dimension Set ID" := "Dimension Set ID";
+            OnBeforeNewReturnShptLineInsert(NewReturnShptLine, OldReturnShptLine);
+            NewReturnShptLine.Insert();
+            OnAfterNewReturnShptLineInsert(NewReturnShptLine, OldReturnShptLine);
 
-        InsertItemEntryRelation(TempGlobalItemEntryRelation, NewReturnShptLine);
+            InsertItemEntryRelation(TempGlobalItemEntryRelation, NewReturnShptLine);
+        end;
     end;
 
     procedure UpdateOrderLine(ReturnShptLine: Record "Return Shipment Line")
@@ -298,10 +308,12 @@ codeunit 5814 "Undo Return Shipment Line"
         if IsHandled then
             exit;
 
-        PurchLine.Get(PurchLine."Document Type"::"Return Order", ReturnShptLine."Return Order No.", ReturnShptLine."Return Order Line No.");
-        OnUpdateOrderLineOnBeforeUpdatePurchLine(ReturnShptLine, PurchLine);
-        UndoPostingMgt.UpdatePurchLine(PurchLine, ReturnShptLine.Quantity, ReturnShptLine."Quantity (Base)", TempGlobalItemLedgEntry);
-        OnAfterUpdatePurchLine(PurchLine, ReturnShptLine);
+        with ReturnShptLine do begin
+            PurchLine.Get(PurchLine."Document Type"::"Return Order", "Return Order No.", "Return Order Line No.");
+            OnUpdateOrderLineOnBeforeUpdatePurchLine(ReturnShptLine, PurchLine);
+            UndoPostingMgt.UpdatePurchLine(PurchLine, Quantity, "Quantity (Base)", TempGlobalItemLedgEntry);
+            OnAfterUpdatePurchLine(PurchLine, ReturnShptLine);
+        end;
     end;
 
     local procedure InsertItemEntryRelation(var TempItemEntryRelation: Record "Item Entry Relation" temporary; NewReturnShptLine: Record "Return Shipment Line")

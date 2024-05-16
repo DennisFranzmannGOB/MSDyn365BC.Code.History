@@ -5,7 +5,6 @@ using System.Integration.Word;
 table 5074 "Delivery Sorter"
 {
     Caption = 'Delivery Sorter';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -49,15 +48,7 @@ table 5074 "Delivery Sorter"
         {
             DataClassification = SystemMetadata;
             Caption = 'Force Hide Email Dialog';
-            InitValue = true;
-            ObsoleteReason = 'This field is no longer used.';
-#if not CLEAN25
-            ObsoleteState = Pending;
-            ObsoleteTag = '25.0';
-#else
-            ObsoleteState = Removed;
-            ObsoleteTag = '28.0';
-#endif   
+            InitValue = false;
         }
     }
 

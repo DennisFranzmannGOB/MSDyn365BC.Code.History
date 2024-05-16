@@ -1,7 +1,6 @@
 table 132802 "UPG - CRM Connection Setup"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

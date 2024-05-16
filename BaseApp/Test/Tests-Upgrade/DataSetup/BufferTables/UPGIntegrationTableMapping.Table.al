@@ -1,7 +1,6 @@
 table 132803 "UPG-Integration Table Mapping"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

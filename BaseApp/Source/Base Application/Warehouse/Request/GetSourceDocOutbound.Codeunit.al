@@ -219,17 +219,19 @@ codeunit 5752 "Get Source Doc. Outbound"
     begin
         OnBeforeCheckSalesHeader(SalesHeader, ShowError);
 
-        if SalesHeader."Shipping Advice" = SalesHeader."Shipping Advice"::Partial then
-            exit(false);
+        with SalesHeader do begin
+            if "Shipping Advice" = "Shipping Advice"::Partial then
+                exit(false);
 
-        SalesLine.SetCurrentKey("Document Type", Type, "No.", "Variant Code");
-        SalesLine.SetRange("Document Type", SalesHeader."Document Type");
-        SalesLine.SetRange("Document No.", SalesHeader."No.");
-        SalesLine.SetRange(Type, SalesLine.Type::Item);
-        OnCheckSalesHeaderOnAfterSetLineFilters(SalesLine, SalesHeader);
-        CheckSalesHeaderMarkSalesLines(SalesHeader, SalesLine);
+            SalesLine.SetCurrentKey("Document Type", Type, "No.", "Variant Code");
+            SalesLine.SetRange("Document Type", "Document Type");
+            SalesLine.SetRange("Document No.", "No.");
+            SalesLine.SetRange(Type, SalesLine.Type::Item);
+            OnCheckSalesHeaderOnAfterSetLineFilters(SalesLine, SalesHeader);
+            CheckSalesHeaderMarkSalesLines(SalesHeader, SalesLine);
 
-        exit(CheckSalesLines(SalesHeader, SalesLine, ShowError));
+            exit(CheckSalesLines(SalesHeader, SalesLine, ShowError));
+        end;
     end;
 
     local procedure CheckSalesLines(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; ShowError: Boolean) Result: Boolean
@@ -247,50 +249,49 @@ codeunit 5752 "Get Source Doc. Outbound"
         if IsHandled then
             exit(Result);
 
-        if SalesLine.FindSet() then begin
-            LocationCode := SalesLine."Location Code";
-            SetItemVariant(CurrItemVariant, SalesLine."No.", SalesLine."Variant Code");
-            TotalNoOfRecords := SalesLine.Count();
-            repeat
-                RecordNo += 1;
+        with SalesHeader do
+            if SalesLine.FindSet() then begin
+                LocationCode := SalesLine."Location Code";
+                SetItemVariant(CurrItemVariant, SalesLine."No.", SalesLine."Variant Code");
+                TotalNoOfRecords := SalesLine.Count();
+                repeat
+                    RecordNo += 1;
 
-                if SalesLine."Location Code" <> LocationCode then begin
-                    if ShowError then
-                        Error(Text001, SalesHeader.FieldCaption(SalesHeader."Shipping Advice"), SalesHeader."Shipping Advice",
-                          SalesOrder.Caption, SalesHeader."No.", SalesLine.Type);
-                    exit(true);
-                end;
-
-                if EqualItemVariant(CurrItemVariant, SalesLine."No.", SalesLine."Variant Code") then
-                    QtyOutstandingBase += SalesLine."Outstanding Qty. (Base)"
-                else begin
-                    if CheckSalesHeaderOnBeforeCheckAvailability(SalesHeader, SalesLine, ShowError, Result) then
-                        exit(Result);
-
-                    if CheckAvailability(
-                         CurrItemVariant, QtyOutstandingBase, SalesLine."Location Code",
-                         SalesOrder.Caption(), Database::"Sales Line", SalesHeader."Document Type".AsInteger(), SalesHeader."No.", ShowError)
-                    then
+                    if SalesLine."Location Code" <> LocationCode then begin
+                        if ShowError then
+                            Error(Text001, FieldCaption("Shipping Advice"), "Shipping Advice",
+                              SalesOrder.Caption, "No.", SalesLine.Type);
                         exit(true);
-                    SetItemVariant(CurrItemVariant, SalesLine."No.", SalesLine."Variant Code");
-                    if CheckSalesHeaderOnAfterSetItemVariant(Result) then
-                        exit(Result);
-                    QtyOutstandingBase := SalesLine."Outstanding Qty. (Base)";
-                end;
-                if RecordNo = TotalNoOfRecords then begin
-                    // last record
-                    if CheckSalesHeaderOnBeforeCheckAvailability(SalesHeader, SalesLine, ShowError, Result) then
-                        exit(Result);
+                    end;
 
-                    if CheckAvailability(
-                         CurrItemVariant, QtyOutstandingBase, SalesLine."Location Code",
-                         SalesOrder.Caption(), Database::"Sales Line", SalesHeader."Document Type".AsInteger(), SalesHeader."No.", ShowError)
-                    then
-                        exit(true);
-                end;
-            until SalesLine.Next() = 0;
-            // sorted by item
-        end;
+                    if EqualItemVariant(CurrItemVariant, SalesLine."No.", SalesLine."Variant Code") then
+                        QtyOutstandingBase += SalesLine."Outstanding Qty. (Base)"
+                    else begin
+                        if CheckSalesHeaderOnBeforeCheckAvailability(SalesHeader, SalesLine, ShowError, Result) then
+                            exit(Result);
+
+                        if CheckAvailability(
+                             CurrItemVariant, QtyOutstandingBase, SalesLine."Location Code",
+                             SalesOrder.Caption, Database::"Sales Line", "Document Type".AsInteger(), "No.", ShowError)
+                        then
+                            exit(true);
+                        SetItemVariant(CurrItemVariant, SalesLine."No.", SalesLine."Variant Code");
+                        if CheckSalesHeaderOnAfterSetItemVariant(Result) then
+                            exit(Result);
+                        QtyOutstandingBase := SalesLine."Outstanding Qty. (Base)";
+                    end;
+                    if RecordNo = TotalNoOfRecords then begin // last record
+                        if CheckSalesHeaderOnBeforeCheckAvailability(SalesHeader, SalesLine, ShowError, Result) then
+                            exit(Result);
+
+                        if CheckAvailability(
+                             CurrItemVariant, QtyOutstandingBase, SalesLine."Location Code",
+                             SalesOrder.Caption, Database::"Sales Line", "Document Type".AsInteger(), "No.", ShowError)
+                        then
+                            exit(true);
+                    end;
+                until SalesLine.Next() = 0; // sorted by item
+            end;
     end;
 
     local procedure CheckSalesHeaderMarkSalesLines(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
@@ -335,39 +336,37 @@ codeunit 5752 "Get Source Doc. Outbound"
         if IsHandled then
             exit;
 
-        if TransferHeader."Shipping Advice" = TransferHeader."Shipping Advice"::Partial then
-            exit(false);
+        with TransferHeader do begin
+            if "Shipping Advice" = "Shipping Advice"::Partial then
+                exit(false);
 
-        TransferLine.SetCurrentKey("Item No.");
-        TransferLine.SetRange("Document No.", TransferHeader."No.");
-        OnCheckTransferHeaderOnAfterSetLineFilters(TransferLine, TransferHeader);
-        if TransferLine.FindSet() then begin
-            SetItemVariant(CurrItemVariant, TransferLine."Item No.", TransferLine."Variant Code");
-            TotalNoOfRecords := TransferLine.Count();
-            repeat
-                RecordNo += 1;
-                if EqualItemVariant(CurrItemVariant, TransferLine."Item No.", TransferLine."Variant Code") then
-                    QtyOutstandingBase += TransferLine."Outstanding Qty. (Base)"
-                else begin
-                    if CheckAvailability(
-                         CurrItemVariant, QtyOutstandingBase, TransferLine."Transfer-from Code",
-                         TransferOrder.Caption(), Database::"Transfer Line", 0, TransferHeader."No.", ShowError)
-                    then
-                        // outbound
-                        exit(true);
-                    SetItemVariant(CurrItemVariant, TransferLine."Item No.", TransferLine."Variant Code");
-                    QtyOutstandingBase := TransferLine."Outstanding Qty. (Base)";
-                end;
-                if RecordNo = TotalNoOfRecords then
-                    // last record
-                    if CheckAvailability(
-                         CurrItemVariant, QtyOutstandingBase, TransferLine."Transfer-from Code",
-                         TransferOrder.Caption(), Database::"Transfer Line", 0, TransferHeader."No.", ShowError)
-                    then
-                        // outbound
-                        exit(true);
-            until TransferLine.Next() = 0;
-            // sorted by item
+            TransferLine.SetCurrentKey("Item No.");
+            TransferLine.SetRange("Document No.", "No.");
+            OnCheckTransferHeaderOnAfterSetLineFilters(TransferLine, TransferHeader);
+            if TransferLine.FindSet() then begin
+                SetItemVariant(CurrItemVariant, TransferLine."Item No.", TransferLine."Variant Code");
+                TotalNoOfRecords := TransferLine.Count();
+                repeat
+                    RecordNo += 1;
+                    if EqualItemVariant(CurrItemVariant, TransferLine."Item No.", TransferLine."Variant Code") then
+                        QtyOutstandingBase += TransferLine."Outstanding Qty. (Base)"
+                    else begin
+                        if CheckAvailability(
+                             CurrItemVariant, QtyOutstandingBase, TransferLine."Transfer-from Code",
+                             TransferOrder.Caption, Database::"Transfer Line", 0, "No.", ShowError)
+                        then // outbound
+                            exit(true);
+                        SetItemVariant(CurrItemVariant, TransferLine."Item No.", TransferLine."Variant Code");
+                        QtyOutstandingBase := TransferLine."Outstanding Qty. (Base)";
+                    end;
+                    if RecordNo = TotalNoOfRecords then // last record
+                        if CheckAvailability(
+                             CurrItemVariant, QtyOutstandingBase, TransferLine."Transfer-from Code",
+                             TransferOrder.Caption, Database::"Transfer Line", 0, "No.", ShowError)
+                        then // outbound
+                            exit(true);
+                until TransferLine.Next() = 0; // sorted by item
+            end;
         end;
     end;
 
@@ -388,26 +387,29 @@ codeunit 5752 "Get Source Doc. Outbound"
         if IsHandled then
             exit(Result);
 
-        Item.Get(CurrItemVariant."Item No.");
-        Item.SetRange("Location Filter", LocationCode);
-        Item.SetRange("Variant Filter", CurrItemVariant.Code);
-        Item.CalcFields(Inventory, "Reserved Qty. on Inventory");
-        // find qty reserved for this order
-        ReservEntry.SetSourceFilter(SourceType, SourceSubType, SourceID, -1, true);
-        ReservEntry.SetRange("Item No.", CurrItemVariant."Item No.");
-        ReservEntry.SetRange("Location Code", LocationCode);
-        ReservEntry.SetRange("Variant Code", CurrItemVariant.Code);
-        ReservEntry.SetRange("Reservation Status", ReservEntry."Reservation Status"::Reservation);
-        if ReservEntry.FindSet() then
-            repeat
-                ReservEntry2.Get(ReservEntry."Entry No.", not ReservEntry.Positive);
-                QtyReservedForOrder += ReservEntry2."Quantity (Base)";
-            until ReservEntry.Next() = 0;
+        with Item do begin
+            Get(CurrItemVariant."Item No.");
+            SetRange("Location Filter", LocationCode);
+            SetRange("Variant Filter", CurrItemVariant.Code);
+            CalcFields(Inventory, "Reserved Qty. on Inventory");
 
-        NotAvailable := Item.Inventory - (Item."Reserved Qty. on Inventory" - QtyReservedForOrder) < QtyBaseNeeded;
-        ErrorMessage := StrSubstNo(Text002, CurrItemVariant."Item No.", LocationCode, FormCaption, SourceID);
-        if AfterCheckAvailability(NotAvailable, ShowError, ErrorMessage, Result) then
-            exit(Result);
+            // find qty reserved for this order
+            ReservEntry.SetSourceFilter(SourceType, SourceSubType, SourceID, -1, true);
+            ReservEntry.SetRange("Item No.", CurrItemVariant."Item No.");
+            ReservEntry.SetRange("Location Code", LocationCode);
+            ReservEntry.SetRange("Variant Code", CurrItemVariant.Code);
+            ReservEntry.SetRange("Reservation Status", ReservEntry."Reservation Status"::Reservation);
+            if ReservEntry.FindSet() then
+                repeat
+                    ReservEntry2.Get(ReservEntry."Entry No.", not ReservEntry.Positive);
+                    QtyReservedForOrder += ReservEntry2."Quantity (Base)";
+                until ReservEntry.Next() = 0;
+
+            NotAvailable := Inventory - ("Reserved Qty. on Inventory" - QtyReservedForOrder) < QtyBaseNeeded;
+            ErrorMessage := StrSubstNo(Text002, CurrItemVariant."Item No.", LocationCode, FormCaption, SourceID);
+            if AfterCheckAvailability(NotAvailable, ShowError, ErrorMessage, Result) then
+                exit(Result);
+        end;
     end;
 
     local procedure AfterCheckAvailability(NotAvailable: Boolean; ShowError: Boolean; ErrorMessage: Text; var Result: Boolean) IsHandled: Boolean;
@@ -475,51 +477,59 @@ codeunit 5752 "Get Source Doc. Outbound"
 
     local procedure FindWarehouseRequestForSalesOrder(var WhseRqst: Record "Warehouse Request"; SalesHeader: Record "Sales Header")
     begin
-        SalesHeader.TestField(Status, SalesHeader.Status::Released);
-        CheckWhseShipmentConflict(SalesHeader);
-        CheckSalesHeader(SalesHeader, true);
-        WhseRqst.SetRange(Type, WhseRqst.Type::Outbound);
-        WhseRqst.SetSourceFilter(Database::"Sales Line", SalesHeader."Document Type".AsInteger(), SalesHeader."No.");
-        WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
-        OnFindWarehouseRequestForSalesOrderOnAfterWhseRqstSetFilters(WhseRqst, SalesHeader);
-        GetRequireShipRqst(WhseRqst);
+        with SalesHeader do begin
+            TestField(Status, Status::Released);
+            CheckWhseShipmentConflict(SalesHeader);
+            CheckSalesHeader(SalesHeader, true);
+            WhseRqst.SetRange(Type, WhseRqst.Type::Outbound);
+            WhseRqst.SetSourceFilter(Database::"Sales Line", "Document Type".AsInteger(), "No.");
+            WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
+            OnFindWarehouseRequestForSalesOrderOnAfterWhseRqstSetFilters(WhseRqst, SalesHeader);
+            GetRequireShipRqst(WhseRqst);
+        end;
 
         OnAfterFindWarehouseRequestForSalesOrder(WhseRqst, SalesHeader);
     end;
 
     local procedure FindWarehouseRequestForPurchReturnOrder(var WhseRqst: Record "Warehouse Request"; PurchHeader: Record "Purchase Header")
     begin
-        PurchHeader.TestField(Status, PurchHeader.Status::Released);
-        WhseRqst.SetRange(Type, WhseRqst.Type::Outbound);
-        WhseRqst.SetSourceFilter(Database::"Purchase Line", PurchHeader."Document Type".AsInteger(), PurchHeader."No.");
-        WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
-        OnFindWarehouseRequestForPurchReturnOrderOnAfterWhseRqstSetFilters(WhseRqst, PurchHeader);
-        GetRequireShipRqst(WhseRqst);
+        with PurchHeader do begin
+            TestField(Status, Status::Released);
+            WhseRqst.SetRange(Type, WhseRqst.Type::Outbound);
+            WhseRqst.SetSourceFilter(Database::"Purchase Line", "Document Type".AsInteger(), "No.");
+            WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
+            OnFindWarehouseRequestForPurchReturnOrderOnAfterWhseRqstSetFilters(WhseRqst, PurchHeader);
+            GetRequireShipRqst(WhseRqst);
+        end;
 
         OnAfterFindWarehouseRequestForPurchReturnOrder(WhseRqst, PurchHeader);
     end;
 
     local procedure FindWarehouseRequestForOutbndTransferOrder(var WhseRqst: Record "Warehouse Request"; TransHeader: Record "Transfer Header")
     begin
-        TransHeader.TestField(Status, TransHeader.Status::Released);
-        CheckTransferHeader(TransHeader, true);
-        WhseRqst.SetRange(Type, WhseRqst.Type::Outbound);
-        WhseRqst.SetSourceFilter(Database::"Transfer Line", 0, TransHeader."No.");
-        WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
-        OnFindWarehouseRequestForOutbndTransferOrderOnAfterWhseRqstSetFilters(WhseRqst, TransHeader);
-        GetRequireShipRqst(WhseRqst);
+        with TransHeader do begin
+            TestField(Status, Status::Released);
+            CheckTransferHeader(TransHeader, true);
+            WhseRqst.SetRange(Type, WhseRqst.Type::Outbound);
+            WhseRqst.SetSourceFilter(Database::"Transfer Line", 0, "No.");
+            WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
+            OnFindWarehouseRequestForOutbndTransferOrderOnAfterWhseRqstSetFilters(WhseRqst, TransHeader);
+            GetRequireShipRqst(WhseRqst);
+        end;
 
         OnAfterFindWarehouseRequestForOutbndTransferOrder(WhseRqst, TransHeader);
     end;
 
     local procedure FindWarehouseRequestForServiceOrder(var WhseRqst: Record "Warehouse Request"; ServiceHeader: Record "Service Header")
     begin
-        ServiceHeader.TestField("Release Status", ServiceHeader."Release Status"::"Released to Ship");
-        WhseRqst.SetRange(Type, WhseRqst.Type::Outbound);
-        WhseRqst.SetSourceFilter(Database::"Service Line", ServiceHeader."Document Type".AsInteger(), ServiceHeader."No.");
-        WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
-        OnFindWarehouseRequestForServiceOrderOnAfterSetWhseRqstFilters(WhseRqst, ServiceHeader);
-        GetRequireShipRqst(WhseRqst);
+        with ServiceHeader do begin
+            TestField("Release Status", "Release Status"::"Released to Ship");
+            WhseRqst.SetRange(Type, WhseRqst.Type::Outbound);
+            WhseRqst.SetSourceFilter(Database::"Service Line", "Document Type".AsInteger(), "No.");
+            WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
+            OnFindWarehouseRequestForServiceOrderOnAfterSetWhseRqstFilters(WhseRqst, ServiceHeader);
+            GetRequireShipRqst(WhseRqst);
+        end;
 
         OnAfterFindWarehouseRequestForServiceOrder(WhseRqst, ServiceHeader);
     end;
@@ -537,9 +547,11 @@ codeunit 5752 "Get Source Doc. Outbound"
 
     local procedure UpdateShipmentHeaderStatus(var WarehouseShipmentHeader: Record "Warehouse Shipment Header")
     begin
-        WarehouseShipmentHeader.Find();
-        WarehouseShipmentHeader."Document Status" := WarehouseShipmentHeader.GetDocumentStatus(0);
-        WarehouseShipmentHeader.Modify();
+        with WarehouseShipmentHeader do begin
+            Find();
+            "Document Status" := GetDocumentStatus(0);
+            Modify();
+        end;
     end;
 
     local procedure ShowResult(WhseShipmentCreated: Boolean)

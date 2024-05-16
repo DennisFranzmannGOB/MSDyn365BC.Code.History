@@ -14,7 +14,6 @@ table 7323 "Posted Whse. Shipment Line"
 {
     Caption = 'Posted Whse. Shipment Line';
     LookupPageID = "Posted Whse. Shipment Lines";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -4,7 +4,6 @@ table 5929 "Service Shelf"
 {
     Caption = 'Service Shelf';
     LookupPageID = "Service Shelves";
-    DataClassification = CustomerContent;
 
     fields
     {

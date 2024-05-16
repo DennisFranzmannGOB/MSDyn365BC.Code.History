@@ -6,7 +6,6 @@ table 832 "Workflows Entries Buffer"
 {
     Caption = 'Workflows Entries Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

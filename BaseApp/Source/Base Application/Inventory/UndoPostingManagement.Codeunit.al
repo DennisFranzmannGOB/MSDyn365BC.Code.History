@@ -78,63 +78,70 @@ codeunit 5817 "Undo Posting Management"
     var
         SalesLine: Record "Sales Line";
     begin
-        TestAllTransactions(
-            DATABASE::"Sales Shipment Line", SalesShptLine."Document No.", SalesShptLine."Line No.",
-            DATABASE::"Sales Line", SalesLine."Document Type"::Order.AsInteger(), SalesShptLine."Order No.", SalesShptLine."Order Line No.");
+        with SalesShptLine do
+            TestAllTransactions(
+                DATABASE::"Sales Shipment Line", "Document No.", "Line No.",
+                DATABASE::"Sales Line", SalesLine."Document Type"::Order.AsInteger(), "Order No.", "Order Line No.");
     end;
 
     procedure TestServShptLine(ServShptLine: Record "Service Shipment Line")
     var
         ServLine: Record "Service Line";
     begin
-        TestAllTransactions(
-            DATABASE::"Service Shipment Line", ServShptLine."Document No.", ServShptLine."Line No.",
-            DATABASE::"Service Line", ServLine."Document Type"::Order.AsInteger(), ServShptLine."Order No.", ServShptLine."Order Line No.");
+        with ServShptLine do
+            TestAllTransactions(
+                DATABASE::"Service Shipment Line", "Document No.", "Line No.",
+                DATABASE::"Service Line", ServLine."Document Type"::Order.AsInteger(), "Order No.", "Order Line No.");
     end;
 
     procedure TestPurchRcptLine(PurchRcptLine: Record "Purch. Rcpt. Line")
     var
         PurchLine: Record "Purchase Line";
     begin
-        TestAllTransactions(
-            DATABASE::"Purch. Rcpt. Line", PurchRcptLine."Document No.", PurchRcptLine."Line No.",
-            DATABASE::"Purchase Line", PurchLine."Document Type"::Order.AsInteger(), PurchRcptLine."Order No.", PurchRcptLine."Order Line No.");
+        with PurchRcptLine do
+            TestAllTransactions(
+                DATABASE::"Purch. Rcpt. Line", "Document No.", "Line No.",
+                DATABASE::"Purchase Line", PurchLine."Document Type"::Order.AsInteger(), "Order No.", "Order Line No.");
     end;
 
     procedure TestReturnShptLine(ReturnShptLine: Record "Return Shipment Line")
     var
         PurchLine: Record "Purchase Line";
     begin
-        TestAllTransactions(
-            DATABASE::"Return Shipment Line", ReturnShptLine."Document No.", ReturnShptLine."Line No.",
-            DATABASE::"Purchase Line", PurchLine."Document Type"::"Return Order".AsInteger(), ReturnShptLine."Return Order No.", ReturnShptLine."Return Order Line No.");
+        with ReturnShptLine do
+            TestAllTransactions(
+                DATABASE::"Return Shipment Line", "Document No.", "Line No.",
+                DATABASE::"Purchase Line", PurchLine."Document Type"::"Return Order".AsInteger(), "Return Order No.", "Return Order Line No.");
     end;
 
     procedure TestReturnRcptLine(ReturnRcptLine: Record "Return Receipt Line")
     var
         SalesLine: Record "Sales Line";
     begin
-        TestAllTransactions(
-            DATABASE::"Return Receipt Line", ReturnRcptLine."Document No.", ReturnRcptLine."Line No.",
-            DATABASE::"Sales Line", SalesLine."Document Type"::"Return Order".AsInteger(), ReturnRcptLine."Return Order No.", ReturnRcptLine."Return Order Line No.");
+        with ReturnRcptLine do
+            TestAllTransactions(
+                DATABASE::"Return Receipt Line", "Document No.", "Line No.",
+                DATABASE::"Sales Line", SalesLine."Document Type"::"Return Order".AsInteger(), "Return Order No.", "Return Order Line No.");
     end;
 
     procedure TestAsmHeader(PostedAsmHeader: Record "Posted Assembly Header")
     var
         AsmHeader: Record "Assembly Header";
     begin
-        TestAllTransactions(
-            DATABASE::"Posted Assembly Header", PostedAsmHeader."No.", 0,
-            DATABASE::"Assembly Header", AsmHeader."Document Type"::Order.AsInteger(), PostedAsmHeader."Order No.", 0);
+        with PostedAsmHeader do
+            TestAllTransactions(
+                DATABASE::"Posted Assembly Header", "No.", 0,
+                DATABASE::"Assembly Header", AsmHeader."Document Type"::Order.AsInteger(), "Order No.", 0);
     end;
 
     procedure TestAsmLine(PostedAsmLine: Record "Posted Assembly Line")
     var
         AsmLine: Record "Assembly Line";
     begin
-        TestAllTransactions(
-            DATABASE::"Posted Assembly Line", PostedAsmLine."Document No.", PostedAsmLine."Line No.",
-            DATABASE::"Assembly Line", AsmLine."Document Type"::Order.AsInteger(), PostedAsmLine."Order No.", PostedAsmLine."Order Line No.");
+        with PostedAsmLine do
+            TestAllTransactions(
+                DATABASE::"Posted Assembly Line", "Document No.", "Line No.",
+                DATABASE::"Assembly Line", AsmLine."Document Type"::Order.AsInteger(), "Order No.", "Order Line No.");
     end;
 
     procedure RunTestAllTransactions(UndoType: Integer; UndoID: Code[20]; UndoLineNo: Integer; SourceType: Integer; SourceSubtype: Integer; SourceID: Code[20]; SourceRefNo: Integer)
@@ -216,21 +223,22 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        if PostedWhseReceiptLine."Location Code" = '' then
-            exit;
-        Location.Get(PostedWhseReceiptLine."Location Code");
-        if Location."Bin Mandatory" then begin
-            WarehouseEntry.SetCurrentKey("Item No.", "Location Code", "Variant Code", "Bin Type Code");
-            WarehouseEntry.SetRange("Item No.", PostedWhseReceiptLine."Item No.");
-            WarehouseEntry.SetRange("Location Code", PostedWhseReceiptLine."Location Code");
-            WarehouseEntry.SetRange("Variant Code", PostedWhseReceiptLine."Variant Code");
-            if Location."Directed Put-away and Pick" then
-                WarehouseEntry.SetFilter(WarehouseEntry."Bin Type Code", GetBinTypeFilter(0));
-            // Receiving area
-            OnTestWarehouseEntryOnAfterSetFilters(WarehouseEntry, PostedWhseReceiptLine);
-            WarehouseEntry.CalcSums(WarehouseEntry."Qty. (Base)");
-            if WarehouseEntry."Qty. (Base)" < PostedWhseReceiptLine."Qty. (Base)" then
-                Error(Text001, UndoLineNo);
+        with WarehouseEntry do begin
+            if PostedWhseReceiptLine."Location Code" = '' then
+                exit;
+            Location.Get(PostedWhseReceiptLine."Location Code");
+            if Location."Bin Mandatory" then begin
+                SetCurrentKey("Item No.", "Location Code", "Variant Code", "Bin Type Code");
+                SetRange("Item No.", PostedWhseReceiptLine."Item No.");
+                SetRange("Location Code", PostedWhseReceiptLine."Location Code");
+                SetRange("Variant Code", PostedWhseReceiptLine."Variant Code");
+                if Location."Directed Put-away and Pick" then
+                    SetFilter("Bin Type Code", GetBinTypeFilter(0)); // Receiving area
+                OnTestWarehouseEntryOnAfterSetFilters(WarehouseEntry, PostedWhseReceiptLine);
+                CalcSums("Qty. (Base)");
+                if "Qty. (Base)" < PostedWhseReceiptLine."Qty. (Base)" then
+                    Error(Text001, UndoLineNo);
+            end;
         end;
     end;
 
@@ -240,21 +248,23 @@ codeunit 5817 "Undo Posting Management"
         BinContent: Record "Bin Content";
         QtyAvailToTake: Decimal;
     begin
-        WhseEntry.SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
-        if not WhseEntry.FindFirst() then
-            exit;
+        with WhseEntry do begin
+            SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
+            if not FindFirst() then
+                exit;
 
-        BinContent.Get(WhseEntry."Location Code", WhseEntry."Bin Code", WhseEntry."Item No.", WhseEntry."Variant Code", WhseEntry."Unit of Measure Code");
-        QtyAvailToTake := BinContent.CalcQtyAvailToTake(0);
-        if QtyAvailToTake < UndoQtyBase then
-            Error(Text015,
-              WhseEntry."Item No.",
-              WhseEntry."Variant Code",
-              WhseEntry."Unit of Measure Code",
-              WhseEntry."Location Code",
-              WhseEntry."Bin Code",
-              UndoQtyBase,
-              QtyAvailToTake);
+            BinContent.Get("Location Code", "Bin Code", "Item No.", "Variant Code", "Unit of Measure Code");
+            QtyAvailToTake := BinContent.CalcQtyAvailToTake(0);
+            if QtyAvailToTake < UndoQtyBase then
+                Error(Text015,
+                  "Item No.",
+                  "Variant Code",
+                  "Unit of Measure Code",
+                  "Location Code",
+                  "Bin Code",
+                  UndoQtyBase,
+                  QtyAvailToTake);
+        end;
     end;
 
     local procedure TestWarehouseActivityLine2(UndoLineNo: Integer; var PostedWhseReceiptLine: Record "Posted Whse. Receipt Line")
@@ -267,13 +277,15 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        WarehouseActivityLine.SetCurrentKey("Whse. Document No.", "Whse. Document Type", "Activity Type", "Whse. Document Line No.");
-        WarehouseActivityLine.SetRange("Whse. Document No.", PostedWhseReceiptLine."No.");
-        WarehouseActivityLine.SetRange("Whse. Document Type", WarehouseActivityLine."Whse. Document Type"::Receipt);
-        WarehouseActivityLine.SetRange("Activity Type", WarehouseActivityLine."Activity Type"::"Put-away");
-        WarehouseActivityLine.SetRange("Whse. Document Line No.", PostedWhseReceiptLine."Line No.");
-        if not WarehouseActivityLine.IsEmpty() then
-            Error(Text002, UndoLineNo);
+        with WarehouseActivityLine do begin
+            SetCurrentKey("Whse. Document No.", "Whse. Document Type", "Activity Type", "Whse. Document Line No.");
+            SetRange("Whse. Document No.", PostedWhseReceiptLine."No.");
+            SetRange("Whse. Document Type", "Whse. Document Type"::Receipt);
+            SetRange("Activity Type", "Activity Type"::"Put-away");
+            SetRange("Whse. Document Line No.", PostedWhseReceiptLine."Line No.");
+            if not IsEmpty() then
+                Error(Text002, UndoLineNo);
+        end;
     end;
 
     local procedure TestRgstrdWhseActivityLine2(UndoLineNo: Integer; var PostedWhseReceiptLine: Record "Posted Whse. Receipt Line")
@@ -286,24 +298,28 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        RegisteredWhseActivityLine.SetCurrentKey("Whse. Document Type", "Whse. Document No.", "Whse. Document Line No.");
-        RegisteredWhseActivityLine.SetRange("Whse. Document Type", RegisteredWhseActivityLine."Whse. Document Type"::Receipt);
-        RegisteredWhseActivityLine.SetRange("Whse. Document No.", PostedWhseReceiptLine."No.");
-        RegisteredWhseActivityLine.SetRange("Whse. Document Line No.", PostedWhseReceiptLine."Line No.");
-        if not RegisteredWhseActivityLine.IsEmpty() then
-            Error(Text003, UndoLineNo);
+        with RegisteredWhseActivityLine do begin
+            SetCurrentKey("Whse. Document Type", "Whse. Document No.", "Whse. Document Line No.");
+            SetRange("Whse. Document Type", "Whse. Document Type"::Receipt);
+            SetRange("Whse. Document No.", PostedWhseReceiptLine."No.");
+            SetRange("Whse. Document Line No.", PostedWhseReceiptLine."Line No.");
+            if not IsEmpty() then
+                Error(Text003, UndoLineNo);
+        end;
     end;
 
     local procedure TestWhseWorksheetLine2(UndoLineNo: Integer; var PostedWhseReceiptLine: Record "Posted Whse. Receipt Line")
     var
         WhseWorksheetLine: Record "Whse. Worksheet Line";
     begin
-        WhseWorksheetLine.SetCurrentKey("Whse. Document Type", "Whse. Document No.", "Whse. Document Line No.");
-        WhseWorksheetLine.SetRange("Whse. Document Type", WhseWorksheetLine."Whse. Document Type"::Receipt);
-        WhseWorksheetLine.SetRange("Whse. Document No.", PostedWhseReceiptLine."No.");
-        WhseWorksheetLine.SetRange("Whse. Document Line No.", PostedWhseReceiptLine."Line No.");
-        if not WhseWorksheetLine.IsEmpty() then
-            Error(Text004, WhseWorksheetLine.TableCaption(), UndoLineNo);
+        with WhseWorksheetLine do begin
+            SetCurrentKey("Whse. Document Type", "Whse. Document No.", "Whse. Document Line No.");
+            SetRange("Whse. Document Type", "Whse. Document Type"::Receipt);
+            SetRange("Whse. Document No.", PostedWhseReceiptLine."No.");
+            SetRange("Whse. Document Line No.", PostedWhseReceiptLine."Line No.");
+            if not IsEmpty() then
+                Error(Text004, TableCaption(), UndoLineNo);
+        end;
     end;
 
     local procedure TestWarehouseActivityLine(UndoType: Integer; UndoLineNo: Integer; SourceType: Integer; SourceSubtype: Integer; SourceID: Code[20]; SourceRefNo: Integer)
@@ -316,11 +332,13 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        WarehouseActivityLine.SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, -1, true);
-        if not WarehouseActivityLine.IsEmpty() then begin
-            if UndoType = DATABASE::"Assembly Line" then
-                Error(Text002, UndoLineNo);
-            Error(Text003, UndoLineNo);
+        with WarehouseActivityLine do begin
+            SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, -1, true);
+            if not IsEmpty() then begin
+                if UndoType = DATABASE::"Assembly Line" then
+                    Error(Text002, UndoLineNo);
+                Error(Text003, UndoLineNo);
+            end;
         end;
     end;
 
@@ -334,10 +352,12 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        RegisteredWhseActivityLine.SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, -1, true);
-        RegisteredWhseActivityLine.SetRange("Activity Type", RegisteredWhseActivityLine."Activity Type"::"Put-away");
-        if not RegisteredWhseActivityLine.IsEmpty() then
-            Error(Text002, UndoLineNo);
+        with RegisteredWhseActivityLine do begin
+            SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, -1, true);
+            SetRange("Activity Type", "Activity Type"::"Put-away");
+            if not IsEmpty() then
+                Error(Text002, UndoLineNo);
+        end;
     end;
 
     local procedure TestWarehouseReceiptLine(UndoLineNo: Integer; SourceType: Integer; SourceSubtype: Integer; SourceID: Code[20]; SourceRefNo: Integer)
@@ -351,9 +371,11 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        WhseManagement.SetSourceFilterForWhseRcptLine(WarehouseReceiptLine, SourceType, SourceSubtype, SourceID, SourceRefNo, true);
-        if not WarehouseReceiptLine.IsEmpty() then
-            Error(Text005, UndoLineNo);
+        with WarehouseReceiptLine do begin
+            WhseManagement.SetSourceFilterForWhseRcptLine(WarehouseReceiptLine, SourceType, SourceSubtype, SourceID, SourceRefNo, true);
+            if not IsEmpty() then
+                Error(Text005, UndoLineNo);
+        end;
     end;
 
     local procedure TestWarehouseShipmentLine(UndoLineNo: Integer; SourceType: Integer; SourceSubtype: Integer; SourceID: Code[20]; SourceRefNo: Integer)
@@ -366,9 +388,11 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        WarehouseShipmentLine.SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
-        if not WarehouseShipmentLine.IsEmpty() then
-            Error(Text006, UndoLineNo);
+        with WarehouseShipmentLine do begin
+            SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
+            if not IsEmpty() then
+                Error(Text006, UndoLineNo);
+        end;
     end;
 
     local procedure TestPostedWhseShipmentLine(UndoType: Integer; UndoID: Code[20]; UndoLineNo: Integer; SourceType: Integer; SourceSubtype: Integer; SourceID: Code[20]; SourceRefNo: Integer)
@@ -382,10 +406,12 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        WhseManagement.SetSourceFilterForPostedWhseShptLine(PostedWhseShipmentLine, SourceType, SourceSubtype, SourceID, SourceRefNo, true);
-        if not PostedWhseShipmentLine.IsEmpty() then
-            if not Confirm(Text007, true, UndoLineNo) then
-                Error('');
+        with PostedWhseShipmentLine do begin
+            WhseManagement.SetSourceFilterForPostedWhseShptLine(PostedWhseShipmentLine, SourceType, SourceSubtype, SourceID, SourceRefNo, true);
+            if not IsEmpty() then
+                if not Confirm(Text007, true, UndoLineNo) then
+                    Error('');
+        end;
     end;
 
     local procedure TestWhseWorksheetLine(UndoLineNo: Integer; SourceType: Integer; SourceSubtype: Integer; SourceID: Code[20]; SourceRefNo: Integer)
@@ -398,9 +424,11 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        WhseWorksheetLine.SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
-        if not WhseWorksheetLine.IsEmpty() then
-            Error(Text008, UndoLineNo);
+        with WhseWorksheetLine do begin
+            SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
+            if not IsEmpty() then
+                Error(Text008, UndoLineNo);
+        end;
     end;
 
     local procedure TestPostedInvtPutAwayLine(UndoType: Integer; UndoID: Code[20]; UndoLineNo: Integer; SourceType: Integer; SourceSubtype: Integer; SourceID: Code[20]; SourceRefNo: Integer)
@@ -413,9 +441,11 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        PostedInvtPutAwayLine.SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
-        if not PostedInvtPutAwayLine.IsEmpty() then
-            Error(Text009, UndoLineNo);
+        with PostedInvtPutAwayLine do begin
+            SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
+            if not IsEmpty() then
+                Error(Text009, UndoLineNo);
+        end;
     end;
 
     local procedure TestPostedInvtPickLine(UndoType: Integer; UndoID: Code[20]; UndoLineNo: Integer; SourceType: Integer; SourceSubtype: Integer; SourceID: Code[20]; SourceRefNo: Integer)
@@ -428,9 +458,11 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        PostedInvtPickLine.SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
-        if ShouldThrowErrorForPostedInvtPickLine(PostedInvtPickLine, UndoType, UndoID) then
-            Error(Text010, UndoLineNo);
+        with PostedInvtPickLine do begin
+            SetSourceFilter(SourceType, SourceSubtype, SourceID, SourceRefNo, true);
+            if ShouldThrowErrorForPostedInvtPickLine(PostedInvtPickLine, UndoType, UndoID) then
+                Error(Text010, UndoLineNo);
+        end;
     end;
 
     local procedure ShouldThrowErrorForPostedInvtPickLine(var PostedInvtPickLine: Record "Posted Invt. Pick Line"; UndoType: Integer; UndoID: Code[20]): Boolean
@@ -476,40 +508,44 @@ codeunit 5817 "Undo Posting Management"
     var
         ItemChargeAssignmentPurch: Record "Item Charge Assignment (Purch)";
     begin
-        ItemChargeAssignmentPurch.SetCurrentKey("Applies-to Doc. Type", "Applies-to Doc. No.", "Applies-to Doc. Line No.");
-        case UndoType of
-            DATABASE::"Purch. Rcpt. Line":
-                ItemChargeAssignmentPurch.SetRange("Applies-to Doc. Type", ItemChargeAssignmentPurch."Applies-to Doc. Type"::Receipt);
-            DATABASE::"Return Shipment Line":
-                ItemChargeAssignmentPurch.SetRange("Applies-to Doc. Type", ItemChargeAssignmentPurch."Applies-to Doc. Type"::"Return Shipment");
-            else
-                exit;
+        with ItemChargeAssignmentPurch do begin
+            SetCurrentKey("Applies-to Doc. Type", "Applies-to Doc. No.", "Applies-to Doc. Line No.");
+            case UndoType of
+                DATABASE::"Purch. Rcpt. Line":
+                    SetRange("Applies-to Doc. Type", "Applies-to Doc. Type"::Receipt);
+                DATABASE::"Return Shipment Line":
+                    SetRange("Applies-to Doc. Type", "Applies-to Doc. Type"::"Return Shipment");
+                else
+                    exit;
+            end;
+            SetRange("Applies-to Doc. No.", SourceID);
+            SetRange("Applies-to Doc. Line No.", SourceRefNo);
+            if not IsEmpty() then
+                if FindFirst() then
+                    Error(Text011, UndoLineNo, "Document Type", "Document No.", "Line No.");
         end;
-        ItemChargeAssignmentPurch.SetRange("Applies-to Doc. No.", SourceID);
-        ItemChargeAssignmentPurch.SetRange("Applies-to Doc. Line No.", SourceRefNo);
-        if not ItemChargeAssignmentPurch.IsEmpty() then
-            if ItemChargeAssignmentPurch.FindFirst() then
-                Error(Text011, UndoLineNo, ItemChargeAssignmentPurch."Document Type", ItemChargeAssignmentPurch."Document No.", ItemChargeAssignmentPurch."Line No.");
     end;
 
     local procedure TestItemChargeAssignmentSales(UndoType: Integer; UndoLineNo: Integer; SourceID: Code[20]; SourceRefNo: Integer)
     var
         ItemChargeAssignmentSales: Record "Item Charge Assignment (Sales)";
     begin
-        ItemChargeAssignmentSales.SetCurrentKey("Applies-to Doc. Type", "Applies-to Doc. No.", "Applies-to Doc. Line No.");
-        case UndoType of
-            DATABASE::"Sales Shipment Line":
-                ItemChargeAssignmentSales.SetRange("Applies-to Doc. Type", ItemChargeAssignmentSales."Applies-to Doc. Type"::Shipment);
-            DATABASE::"Return Receipt Line":
-                ItemChargeAssignmentSales.SetRange("Applies-to Doc. Type", ItemChargeAssignmentSales."Applies-to Doc. Type"::"Return Receipt");
-            else
-                exit;
+        with ItemChargeAssignmentSales do begin
+            SetCurrentKey("Applies-to Doc. Type", "Applies-to Doc. No.", "Applies-to Doc. Line No.");
+            case UndoType of
+                DATABASE::"Sales Shipment Line":
+                    SetRange("Applies-to Doc. Type", "Applies-to Doc. Type"::Shipment);
+                DATABASE::"Return Receipt Line":
+                    SetRange("Applies-to Doc. Type", "Applies-to Doc. Type"::"Return Receipt");
+                else
+                    exit;
+            end;
+            SetRange("Applies-to Doc. No.", SourceID);
+            SetRange("Applies-to Doc. Line No.", SourceRefNo);
+            if not IsEmpty() then
+                if FindFirst() then
+                    Error(Text011, UndoLineNo, "Document Type", "Document No.", "Line No.");
         end;
-        ItemChargeAssignmentSales.SetRange("Applies-to Doc. No.", SourceID);
-        ItemChargeAssignmentSales.SetRange("Applies-to Doc. Line No.", SourceRefNo);
-        if not ItemChargeAssignmentSales.IsEmpty() then
-            if ItemChargeAssignmentSales.FindFirst() then
-                Error(Text011, UndoLineNo, ItemChargeAssignmentSales."Document Type", ItemChargeAssignmentSales."Document No.", ItemChargeAssignmentSales."Line No.");
     end;
 
     local procedure GetBinTypeFilter(Type: Option Receive,Ship,"Put Away",Pick): Text[1024]
@@ -517,22 +553,24 @@ codeunit 5817 "Undo Posting Management"
         BinType: Record "Bin Type";
         "Filter": Text[1024];
     begin
-        case Type of
-            Type::Receive:
-                BinType.SetRange(BinType.Receive, true);
-            Type::Ship:
-                BinType.SetRange(BinType.Ship, true);
-            Type::"Put Away":
-                BinType.SetRange(BinType."Put Away", true);
-            Type::Pick:
-                BinType.SetRange(BinType.Pick, true);
+        with BinType do begin
+            case Type of
+                Type::Receive:
+                    SetRange(Receive, true);
+                Type::Ship:
+                    SetRange(Ship, true);
+                Type::"Put Away":
+                    SetRange("Put Away", true);
+                Type::Pick:
+                    SetRange(Pick, true);
+            end;
+            if Find('-') then
+                repeat
+                    Filter := StrSubstNo('%1|%2', Filter, Code);
+                until Next() = 0;
+            if Filter <> '' then
+                Filter := CopyStr(Filter, 2);
         end;
-        if BinType.Find('-') then
-            repeat
-                Filter := StrSubstNo('%1|%2', Filter, BinType.Code);
-            until BinType.Next() = 0;
-        if Filter <> '' then
-            Filter := CopyStr(Filter, 2);
         exit(Filter);
     end;
 
@@ -552,40 +590,41 @@ codeunit 5817 "Undo Posting Management"
         if IsHandled then
             exit;
 
-        TempItemLedgEntry.Find('-');
-        // Assertion: will fail if not found.
-        ItemRec.Get(TempItemLedgEntry."Item No.");
-        if ItemRec.IsNonInventoriableType() then
-            exit;
+        with TempItemLedgEntry do begin
+            Find('-'); // Assertion: will fail if not found.
+            ItemRec.Get("Item No.");
+            if ItemRec.IsNonInventoriableType() then
+                exit;
 
-        repeat
-            IsHandled := false;
-            OnCheckItemLedgEntriesOnBeforeCheckTempItemLedgEntry(TempItemLedgEntry, IsHandled);
-            if not IsHandled then
-                if TempItemLedgEntry.Positive then begin
-                    if (TempItemLedgEntry."Job No." = '') and
-                    not ((TempItemLedgEntry."Order Type" = TempItemLedgEntry."Order Type"::Assembly) and
-                            PostedATOLink.Get(PostedATOLink."Assembly Document Type"::Assembly, TempItemLedgEntry."Document No."))
-                    then
-                        if InvoicedEntry then
-                            TempItemLedgEntry.TestField("Remaining Quantity", TempItemLedgEntry.Quantity - TempItemLedgEntry."Invoiced Quantity")
-                        else
-                            TempItemLedgEntry.TestField("Remaining Quantity", TempItemLedgEntry.Quantity);
-                end else
-                    if TempItemLedgEntry."Entry Type" <> TempItemLedgEntry."Entry Type"::Transfer then
-                        if InvoicedEntry then
-                            TempItemLedgEntry.TestField("Shipped Qty. Not Returned", TempItemLedgEntry.Quantity - TempItemLedgEntry."Invoiced Quantity")
-                        else
-                            TempItemLedgEntry.TestField("Shipped Qty. Not Returned", TempItemLedgEntry.Quantity);
+            repeat
+                IsHandled := false;
+                OnCheckItemLedgEntriesOnBeforeCheckTempItemLedgEntry(TempItemLedgEntry, IsHandled);
+                if not IsHandled then
+                    if Positive then begin
+                        if ("Job No." = '') and
+                        not (("Order Type" = "Order Type"::Assembly) and
+                                PostedATOLink.Get(PostedATOLink."Assembly Document Type"::Assembly, "Document No."))
+                        then
+                            if InvoicedEntry then
+                                TestField("Remaining Quantity", Quantity - "Invoiced Quantity")
+                            else
+                                TestField("Remaining Quantity", Quantity);
+                    end else
+                        if "Entry Type" <> "Entry Type"::Transfer then
+                            if InvoicedEntry then
+                                TestField("Shipped Qty. Not Returned", Quantity - "Invoiced Quantity")
+                            else
+                                TestField("Shipped Qty. Not Returned", Quantity);
 
-            TempItemLedgEntry.CalcFields(TempItemLedgEntry."Reserved Quantity");
-            TempItemLedgEntry.TestField("Reserved Quantity", 0);
+                CalcFields("Reserved Quantity");
+                TestField("Reserved Quantity", 0);
 
-            CheckValueEntries(TempItemLedgEntry, LineRef, InvoicedEntry);
+                CheckValueEntries(TempItemLedgEntry, LineRef, InvoicedEntry);
 
-            if ItemRec."Costing Method" = ItemRec."Costing Method"::Specific then
-                TempItemLedgEntry.TestField("Serial No.");
-        until TempItemLedgEntry.Next() = 0; // WITH
+                if ItemRec."Costing Method" = ItemRec."Costing Method"::Specific then
+                    TestField("Serial No.");
+            until Next() = 0;
+        end; // WITH
     end;
 
     local procedure CheckValueEntries(var TempItemLedgEntry: Record "Item Ledger Entry" temporary; LineRef: Integer; InvoicedEntry: Boolean)
@@ -771,44 +810,46 @@ codeunit 5817 "Undo Posting Management"
             exit;
 
         PurchSetup.Get();
-        xPurchLine := PurchLine;
-        case PurchLine."Document Type" of
-            PurchLine."Document Type"::"Return Order":
-                begin
-                    PurchLine."Return Qty. Shipped" := PurchLine."Return Qty. Shipped" - UndoQty;
-                    PurchLine."Return Qty. Shipped (Base)" := PurchLine."Return Qty. Shipped (Base)" - UndoQtyBase;
-                    PurchLine.InitOutstanding();
-                    if PurchSetup."Default Qty. to Receive" = PurchSetup."Default Qty. to Receive"::Blank then
-                        PurchLine."Qty. to Receive" := 0
-                    else
-                        PurchLine.InitQtyToShip();
-                    OnUpdatePurchLineOnAfterSetQtyToShip(PurchLine);
-                    PurchLine.UpdateWithWarehouseReceive();
-                end;
-            PurchLine."Document Type"::Order:
-                begin
-                    PurchLine."Quantity Received" := PurchLine."Quantity Received" - UndoQty;
-                    PurchLine."Qty. Received (Base)" := PurchLine."Qty. Received (Base)" - UndoQtyBase;
-                    PurchLine.InitOutstanding();
-                    if PurchSetup."Default Qty. to Receive" = PurchSetup."Default Qty. to Receive"::Blank then
-                        PurchLine."Qty. to Receive" := 0
-                    else
-                        PurchLine.InitQtyToReceive();
-                    OnUpdatePurchLineOnAfterSetQtyToReceive(PurchLine);
-                    PurchLine.UpdateWithWarehouseReceive();
-                end;
-            else
-                PurchLine.FieldError(PurchLine."Document Type");
+        with PurchLine do begin
+            xPurchLine := PurchLine;
+            case "Document Type" of
+                "Document Type"::"Return Order":
+                    begin
+                        "Return Qty. Shipped" := "Return Qty. Shipped" - UndoQty;
+                        "Return Qty. Shipped (Base)" := "Return Qty. Shipped (Base)" - UndoQtyBase;
+                        InitOutstanding();
+                        if PurchSetup."Default Qty. to Receive" = PurchSetup."Default Qty. to Receive"::Blank then
+                            "Qty. to Receive" := 0
+                        else
+                            InitQtyToShip();
+                        OnUpdatePurchLineOnAfterSetQtyToShip(PurchLine);
+                        UpdateWithWarehouseReceive();
+                    end;
+                "Document Type"::Order:
+                    begin
+                        "Quantity Received" := "Quantity Received" - UndoQty;
+                        "Qty. Received (Base)" := "Qty. Received (Base)" - UndoQtyBase;
+                        InitOutstanding();
+                        if PurchSetup."Default Qty. to Receive" = PurchSetup."Default Qty. to Receive"::Blank then
+                            "Qty. to Receive" := 0
+                        else
+                            InitQtyToReceive();
+                        OnUpdatePurchLineOnAfterSetQtyToReceive(PurchLine);
+                        UpdateWithWarehouseReceive();
+                    end;
+                else
+                    FieldError("Document Type");
+            end;
+            OnUpdatePurchLineOnBeforePurchLineModify(PurchLine);
+            Modify();
+            RevertPostedItemTrackingFromPurchLine(PurchLine, TempUndoneItemLedgEntry);
+            xPurchLine."Quantity (Base)" := 0;
+            PurchLineReserveVerifyQuantity(PurchLine, xPurchLine);
+
+            UpdateWarehouseRequest(DATABASE::"Purchase Line", "Document Type".AsInteger(), "Document No.", "Location Code");
+
+            OnAfterUpdatePurchline(PurchLine);
         end;
-        OnUpdatePurchLineOnBeforePurchLineModify(PurchLine);
-        PurchLine.Modify();
-        RevertPostedItemTrackingFromPurchLine(PurchLine, TempUndoneItemLedgEntry);
-        xPurchLine."Quantity (Base)" := 0;
-        PurchLineReserveVerifyQuantity(PurchLine, xPurchLine);
-
-        UpdateWarehouseRequest(DATABASE::"Purchase Line", PurchLine."Document Type".AsInteger(), PurchLine."Document No.", PurchLine."Location Code");
-
-        OnAfterUpdatePurchline(PurchLine);
     end;
 
     local procedure RevertPostedItemTrackingFromPurchLine(PurchLine: Record "Purchase Line"; var TempUndoneItemLedgEntry: Record "Item Ledger Entry" temporary)
@@ -848,45 +889,47 @@ codeunit 5817 "Undo Posting Management"
             exit;
 
         SalesSetup.Get();
-        xSalesLine := SalesLine;
-        case SalesLine."Document Type" of
-            SalesLine."Document Type"::"Return Order":
-                begin
-                    SalesLine."Return Qty. Received" := SalesLine."Return Qty. Received" - UndoQty;
-                    SalesLine."Return Qty. Received (Base)" := SalesLine."Return Qty. Received (Base)" - UndoQtyBase;
-                    OnUpdateSalesLineOnBeforeInitOustanding(SalesLine, UndoQty, UndoQtyBase);
-                    SalesLine.InitOutstanding();
-                    if SalesSetup."Default Quantity to Ship" = SalesSetup."Default Quantity to Ship"::Blank then
-                        SalesLine."Qty. to Ship" := 0
-                    else
-                        SalesLine.InitQtyToReceive();
-                    SalesLine.UpdateWithWarehouseShip();
-                    OnUpdateSalesLineOnAfterUpdateWithWarehouseShipForReturnOrder(SalesLine);
-                end;
-            SalesLine."Document Type"::Order:
-                begin
-                    SalesLine."Quantity Shipped" := SalesLine."Quantity Shipped" - UndoQty;
-                    SalesLine."Qty. Shipped (Base)" := SalesLine."Qty. Shipped (Base)" - UndoQtyBase;
-                    OnUpdateSalesLineOnBeforeInitOustanding(SalesLine, UndoQty, UndoQtyBase);
-                    SalesLine.InitOutstanding();
-                    if SalesSetup."Default Quantity to Ship" = SalesSetup."Default Quantity to Ship"::Blank then
-                        SalesLine."Qty. to Ship" := 0
-                    else
-                        SalesLine.InitQtyToShip();
-                    SalesLine.UpdateWithWarehouseShip();
-                end;
-            else
-                SalesLine.FieldError(SalesLine."Document Type");
+        with SalesLine do begin
+            xSalesLine := SalesLine;
+            case "Document Type" of
+                "Document Type"::"Return Order":
+                    begin
+                        "Return Qty. Received" := "Return Qty. Received" - UndoQty;
+                        "Return Qty. Received (Base)" := "Return Qty. Received (Base)" - UndoQtyBase;
+                        OnUpdateSalesLineOnBeforeInitOustanding(SalesLine, UndoQty, UndoQtyBase);
+                        InitOutstanding();
+                        if SalesSetup."Default Quantity to Ship" = SalesSetup."Default Quantity to Ship"::Blank then
+                            "Qty. to Ship" := 0
+                        else
+                            InitQtyToReceive();
+                        UpdateWithWarehouseShip();
+                        OnUpdateSalesLineOnAfterUpdateWithWarehouseShipForReturnOrder(SalesLine);
+                    end;
+                "Document Type"::Order:
+                    begin
+                        "Quantity Shipped" := "Quantity Shipped" - UndoQty;
+                        "Qty. Shipped (Base)" := "Qty. Shipped (Base)" - UndoQtyBase;
+                        OnUpdateSalesLineOnBeforeInitOustanding(SalesLine, UndoQty, UndoQtyBase);
+                        InitOutstanding();
+                        if SalesSetup."Default Quantity to Ship" = SalesSetup."Default Quantity to Ship"::Blank then
+                            "Qty. to Ship" := 0
+                        else
+                            InitQtyToShip();
+                        UpdateWithWarehouseShip();
+                    end;
+                else
+                    FieldError("Document Type");
+            end;
+            OnUpdateSalesLineOnBeforeSalesLineModify(SalesLine);
+            Modify();
+            RevertPostedItemTrackingFromSalesLine(SalesLine, TempUndoneItemLedgEntry);
+            xSalesLine."Quantity (Base)" := 0;
+            SalesLineReserveVerifyQuantity(SalesLine, xSalesLine);
+
+            UpdateWarehouseRequest(DATABASE::"Sales Line", "Document Type".AsInteger(), "Document No.", "Location Code");
+
+            OnAfterUpdateSalesLine(SalesLine);
         end;
-        OnUpdateSalesLineOnBeforeSalesLineModify(SalesLine);
-        SalesLine.Modify();
-        RevertPostedItemTrackingFromSalesLine(SalesLine, TempUndoneItemLedgEntry);
-        xSalesLine."Quantity (Base)" := 0;
-        SalesLineReserveVerifyQuantity(SalesLine, xSalesLine);
-
-        UpdateWarehouseRequest(DATABASE::"Sales Line", SalesLine."Document Type".AsInteger(), SalesLine."Document No.", SalesLine."Location Code");
-
-        OnAfterUpdateSalesLine(SalesLine);
     end;
 
     internal procedure UpdateDerivedTransferLine(var TransferLine: Record "Transfer Line"; var TransferShptLine: Record "Transfer Shipment Line")
@@ -1098,35 +1141,37 @@ codeunit 5817 "Undo Posting Management"
         SalesSetup: Record "Sales & Receivables Setup";
         ServCalcDiscount: Codeunit "Service-Calc. Discount";
     begin
-        xServLine := ServLine;
-        case ServLine."Document Type" of
-            ServLine."Document Type"::Order:
-                begin
-                    ServLine."Quantity Consumed" := ServLine."Quantity Consumed" - UndoQty;
-                    ServLine."Qty. Consumed (Base)" := ServLine."Qty. Consumed (Base)" - UndoQtyBase;
-                    ServLine."Quantity Shipped" := ServLine."Quantity Shipped" - UndoQty;
-                    ServLine."Qty. Shipped (Base)" := ServLine."Qty. Shipped (Base)" - UndoQtyBase;
-                    ServLine."Qty. to Invoice" := 0;
-                    ServLine."Qty. to Invoice (Base)" := 0;
-                    ServLine.InitOutstanding();
-                    ServLine.InitQtyToShip();
-                    ServLine.Validate(ServLine."Line Discount %");
-                    ServLine.ConfirmAdjPriceLineChange();
-                    ServLine.Modify();
+        with ServLine do begin
+            xServLine := ServLine;
+            case "Document Type" of
+                "Document Type"::Order:
+                    begin
+                        "Quantity Consumed" := "Quantity Consumed" - UndoQty;
+                        "Qty. Consumed (Base)" := "Qty. Consumed (Base)" - UndoQtyBase;
+                        "Quantity Shipped" := "Quantity Shipped" - UndoQty;
+                        "Qty. Shipped (Base)" := "Qty. Shipped (Base)" - UndoQtyBase;
+                        "Qty. to Invoice" := 0;
+                        "Qty. to Invoice (Base)" := 0;
+                        InitOutstanding();
+                        InitQtyToShip();
+                        Validate("Line Discount %");
+                        ConfirmAdjPriceLineChange();
+                        Modify();
 
-                    SalesSetup.Get();
-                    if SalesSetup."Calc. Inv. Discount" then begin
-                        ServHeader.Get(ServLine."Document Type", ServLine."Document No.");
-                        ServCalcDiscount.CalculateWithServHeader(ServHeader, ServLine, ServLine);
+                        SalesSetup.Get();
+                        if SalesSetup."Calc. Inv. Discount" then begin
+                            ServHeader.Get("Document Type", "Document No.");
+                            ServCalcDiscount.CalculateWithServHeader(ServHeader, ServLine, ServLine);
+                        end;
                     end;
-                end;
-            else
-                ServLine.FieldError(ServLine."Document Type");
+                else
+                    FieldError("Document Type");
+            end;
+            Modify();
+            RevertPostedItemTracking(TempUndoneItemLedgEntry, "Posting Date", false);
+            xServLine."Quantity (Base)" := 0;
+            ServiceLineCnsmReserveVerifyQuantity(ServLine, xServLine);
         end;
-        ServLine.Modify();
-        RevertPostedItemTracking(TempUndoneItemLedgEntry, ServLine."Posting Date", false);
-        xServLine."Quantity (Base)" := 0;
-        ServiceLineCnsmReserveVerifyQuantity(ServLine, xServLine);
     end;
 
     local procedure ServiceLineCnsmReserveVerifyQuantity(ServiceLine: Record "Service Line"; xServiceLine: Record "Service Line")
@@ -1154,49 +1199,50 @@ codeunit 5817 "Undo Posting Management"
         IsHandled := false;
         OnBeforeRevertPostedItemTracking(TempItemLedgEntry, AvailabilityDate, RevertInvoiced, IsHandled);
         if not IsHandled then
-            if TempItemLedgEntry.Find('-') then begin
-                repeat
-                    TrackingSpecification.Get(TempItemLedgEntry."Entry No.");
-                    QtyToRevert := TrackingSpecification."Quantity Invoiced (Base)";
+            with TempItemLedgEntry do
+                if Find('-') then begin
+                    repeat
+                        TrackingSpecification.Get("Entry No.");
+                        QtyToRevert := TrackingSpecification."Quantity Invoiced (Base)";
 
-                    IsHandled := false;
-                    OnRevertPostedItemTrackingOnBeforeUpdateReservEntry(TempItemLedgEntry, TrackingSpecification, IsHandled);
-                    if not IsHandled then
-                        if not TrackingIsATO(TrackingSpecification) then begin
-                            ReservEntry.Init();
-                            ReservEntry.TransferFields(TrackingSpecification);
-                            if RevertInvoiced then begin
-                                ReservEntry."Quantity (Base)" := QtyToRevert;
-                                ReservEntry."Quantity Invoiced (Base)" -= QtyToRevert;
+                        IsHandled := false;
+                        OnRevertPostedItemTrackingOnBeforeUpdateReservEntry(TempItemLedgEntry, TrackingSpecification, IsHandled);
+                        if not IsHandled then
+                            if not TrackingIsATO(TrackingSpecification) then begin
+                                ReservEntry.Init();
+                                ReservEntry.TransferFields(TrackingSpecification);
+                                if RevertInvoiced then begin
+                                    ReservEntry."Quantity (Base)" := QtyToRevert;
+                                    ReservEntry."Quantity Invoiced (Base)" -= QtyToRevert;
+                                end;
+                                ReservEntry.Validate("Quantity (Base)");
+                                ReservEntry."Reservation Status" := ReservEntry."Reservation Status"::Surplus;
+                                if ReservEntry.Positive then
+                                    ReservEntry."Expected Receipt Date" := AvailabilityDate
+                                else
+                                    ReservEntry."Shipment Date" := AvailabilityDate;
+
+                                ReservEntry."Warranty Date" := 0D;
+                                ReservEntry."Entry No." := 0;
+                                ReservEntry.UpdateItemTracking();
+                                OnRevertPostedItemTrackingOnBeforeReservEntryInsert(ReservEntry, TempItemLedgEntry);
+                                ReservEntry.Insert();
+
+                                TempReservEntry := ReservEntry;
+                                TempReservEntry.Insert();
                             end;
-                            ReservEntry.Validate("Quantity (Base)");
-                            ReservEntry."Reservation Status" := ReservEntry."Reservation Status"::Surplus;
-                            if ReservEntry.Positive then
-                                ReservEntry."Expected Receipt Date" := AvailabilityDate
-                            else
-                                ReservEntry."Shipment Date" := AvailabilityDate;
 
-                            ReservEntry."Warranty Date" := 0D;
-                            ReservEntry."Entry No." := 0;
-                            ReservEntry.UpdateItemTracking();
-                            OnRevertPostedItemTrackingOnBeforeReservEntryInsert(ReservEntry, TempItemLedgEntry);
-                            ReservEntry.Insert();
-
-                            TempReservEntry := ReservEntry;
-                            TempReservEntry.Insert();
-                        end;
-
-                    if RevertInvoiced and (TrackingSpecification."Quantity (Base)" <> QtyToRevert) then begin
-                        TrackingSpecification."Quantity (Base)" -= QtyToRevert;
-                        TrackingSpecification."Quantity Handled (Base)" -= QtyToRevert;
-                        TrackingSpecification."Quantity Invoiced (Base)" := 0;
-                        TrackingSpecification."Buffer Value1" -= QtyToRevert;
-                        TrackingSpecification.Modify();
-                    end else
-                        TrackingSpecification.Delete();
-                until TempItemLedgEntry.Next() = 0;
-                ReservEngineMgt.UpdateOrderTracking(TempReservEntry);
-            end;
+                        if RevertInvoiced and (TrackingSpecification."Quantity (Base)" <> QtyToRevert) then begin
+                            TrackingSpecification."Quantity (Base)" -= QtyToRevert;
+                            TrackingSpecification."Quantity Handled (Base)" -= QtyToRevert;
+                            TrackingSpecification."Quantity Invoiced (Base)" := 0;
+                            TrackingSpecification."Buffer Value1" -= QtyToRevert;
+                            TrackingSpecification.Modify();
+                        end else
+                            TrackingSpecification.Delete();
+                    until Next() = 0;
+                    ReservEngineMgt.UpdateOrderTracking(TempReservEntry);
+                end;
         OnAfterRevertPostedItemTracking(TempReservEntry);
     end;
 
@@ -1264,17 +1310,19 @@ codeunit 5817 "Undo Posting Management"
     var
         ATOLink: Record "Assemble-to-Order Link";
     begin
-        if TrackingSpecification."Source Type" <> DATABASE::"Sales Line" then
-            exit(false);
-        if not TrackingSpecification."Prohibit Cancellation" then
-            exit(false);
+        with TrackingSpecification do begin
+            if "Source Type" <> DATABASE::"Sales Line" then
+                exit(false);
+            if not "Prohibit Cancellation" then
+                exit(false);
 
-        ATOLink.SetCurrentKey(Type, "Document Type", "Document No.", "Document Line No.");
-        ATOLink.SetRange(Type, ATOLink.Type::Sale);
-        ATOLink.SetRange("Document Type", TrackingSpecification."Source Subtype");
-        ATOLink.SetRange("Document No.", TrackingSpecification."Source ID");
-        ATOLink.SetRange("Document Line No.", TrackingSpecification."Source Ref. No.");
-        exit(not ATOLink.IsEmpty);
+            ATOLink.SetCurrentKey(Type, "Document Type", "Document No.", "Document Line No.");
+            ATOLink.SetRange(Type, ATOLink.Type::Sale);
+            ATOLink.SetRange("Document Type", "Source Subtype");
+            ATOLink.SetRange("Document No.", "Source ID");
+            ATOLink.SetRange("Document Line No.", "Source Ref. No.");
+            exit(not ATOLink.IsEmpty);
+        end;
     end;
 
     procedure TransferSourceValues(var ItemJnlLine: Record "Item Journal Line"; EntryNo: Integer)
@@ -1282,15 +1330,19 @@ codeunit 5817 "Undo Posting Management"
         ItemLedgEntry: Record "Item Ledger Entry";
         ValueEntry: Record "Value Entry";
     begin
-        ItemLedgEntry.Get(EntryNo);
-        ItemJnlLine."Source Type" := ItemLedgEntry."Source Type";
-        ItemJnlLine."Source No." := ItemLedgEntry."Source No.";
-        ItemJnlLine."Country/Region Code" := ItemLedgEntry."Country/Region Code";
+        with ItemLedgEntry do begin
+            Get(EntryNo);
+            ItemJnlLine."Source Type" := "Source Type";
+            ItemJnlLine."Source No." := "Source No.";
+            ItemJnlLine."Country/Region Code" := "Country/Region Code";
+        end;
 
-        ValueEntry.SetRange("Item Ledger Entry No.", EntryNo);
-        ValueEntry.FindFirst();
-        ItemJnlLine."Source Posting Group" := ValueEntry."Source Posting Group";
-        ItemJnlLine."Salespers./Purch. Code" := ValueEntry."Salespers./Purch. Code";
+        with ValueEntry do begin
+            SetRange("Item Ledger Entry No.", EntryNo);
+            FindFirst();
+            ItemJnlLine."Source Posting Group" := "Source Posting Group";
+            ItemJnlLine."Salespers./Purch. Code" := "Salespers./Purch. Code";
+        end;
     end;
 
     procedure ReapplyJobConsumption(ItemRcptEntryNo: Integer)
@@ -1342,10 +1394,12 @@ codeunit 5817 "Undo Posting Management"
     var
         WarehouseRequest: Record "Warehouse Request";
     begin
-        WarehouseRequest.SetSourceFilter(SourceType, SourceSubtype, SourceNo);
-        WarehouseRequest.SetRange("Location Code", LocationCode);
-        if not WarehouseRequest.IsEmpty() then
-            WarehouseRequest.ModifyAll("Completely Handled", false);
+        with WarehouseRequest do begin
+            SetSourceFilter(SourceType, SourceSubtype, SourceNo);
+            SetRange("Location Code", LocationCode);
+            if not IsEmpty() then
+                ModifyAll("Completely Handled", false);
+        end;
     end;
 
     local procedure Maximum(A: Decimal; B: Decimal): Decimal

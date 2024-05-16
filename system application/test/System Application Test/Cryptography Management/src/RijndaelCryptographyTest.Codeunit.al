@@ -95,7 +95,7 @@ codeunit 132575 "Rijndael Cryptography Test"
     var
         RijndaelCryptography1: Codeunit "Rijndael Cryptography";
         RijndaelCryptography2: Codeunit "Rijndael Cryptography";
-        KeyAsBase64: SecretText;
+        KeyAsBase64: Text;
         VectorAsBase64: Text;
         PlainText: Text;
         CryptedText: Text;
@@ -123,12 +123,9 @@ codeunit 132575 "Rijndael Cryptography Test"
         exit('afa1beac1c9f236cf678c392963c4716');
     end;
 
-    local procedure GetECP128BitEncryptionKey(): SecretText
-    var
-        KeyValue: Text;
+    local procedure GetECP128BitEncryptionKey(): Text
     begin
-        KeyValue := 'hYRCHMB9TPHu7lIcRsiQ6WmqtaaFGlnF';
-        exit(KeyValue);
+        exit('hYRCHMB9TPHu7lIcRsiQ6WmqtaaFGlnF');
     end;
 
 }

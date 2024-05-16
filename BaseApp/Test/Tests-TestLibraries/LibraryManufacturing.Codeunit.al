@@ -11,11 +11,11 @@ codeunit 132202 "Library - Manufacturing"
 
     var
         ManufacturingSetup: Record "Manufacturing Setup";
-        LibraryERM: Codeunit "Library - ERM";
         LibraryUtility: Codeunit "Library - Utility";
         LibraryInventory: Codeunit "Library - Inventory";
         TemplateName: Label 'FOR. LABOR';
         BatchName: Label 'DEFAULT', Comment = 'Default Batch';
+        LibraryERM: Codeunit "Library - ERM";
 
     procedure CalculateConsumption(ProductionOrderNo: Code[20]; ItemJournalTemplateName: Code[10]; ItemJournalBatchName: Code[10])
     var
@@ -133,19 +133,19 @@ codeunit 132202 "Library - Manufacturing"
     procedure CalculateWorkCenterCalendar(var WorkCenter: Record "Work Center"; StartingDate: Date; EndingDate: Date)
     var
         TmpWorkCenter: Record "Work Center";
-        CalculateWorkCenterCalendarReport: Report "Calculate Work Center Calendar";
+        CalculateWorkCenterCalendar: Report "Calculate Work Center Calendar";
     begin
         Commit();
-        CalculateWorkCenterCalendarReport.InitializeRequest(StartingDate, EndingDate);
+        CalculateWorkCenterCalendar.InitializeRequest(StartingDate, EndingDate);
         if WorkCenter.HasFilter then
             TmpWorkCenter.CopyFilters(WorkCenter)
         else begin
             WorkCenter.Get(WorkCenter."No.");
             TmpWorkCenter.SetRange("No.", WorkCenter."No.");
         end;
-        CalculateWorkCenterCalendarReport.SetTableView(TmpWorkCenter);
-        CalculateWorkCenterCalendarReport.UseRequestPage(false);
-        CalculateWorkCenterCalendarReport.RunModal();
+        CalculateWorkCenterCalendar.SetTableView(TmpWorkCenter);
+        CalculateWorkCenterCalendar.UseRequestPage(false);
+        CalculateWorkCenterCalendar.RunModal();
     end;
 
     procedure CalculateSubcontractOrderWithProdOrderRoutingLine(var ProdOrderRoutingLine: Record "Prod. Order Routing Line")
@@ -196,7 +196,7 @@ codeunit 132202 "Library - Manufacturing"
         ChangeProdOrderStatus(ProductionOrder, ProductionOrder.Status::Finished, WorkDate(), false);
     end;
 
-    procedure ChangeProuctionOrderStatus(ProductionOrderNo: Code[20]; FromStatus: Enum "Production Order Status"; ToStatus: Enum "Production Order Status"): Code[20]
+    procedure ChangeStatusFirmPlanToReleased(ProductionOrderNo: Code[20]; FromStatus: Enum "Production Order Status"; ToStatus: Enum "Production Order Status"): Code[20]
     var
         ProductionOrder: Record "Production Order";
     begin
@@ -208,27 +208,11 @@ codeunit 132202 "Library - Manufacturing"
         exit(ProductionOrder."No.");
     end;
 
-#if not CLEAN24
-    [Obsolete('Moved implementation to ChangeProuctionOrderStatus method.', '24.0')]
-    procedure ChangeStatusFirmPlanToReleased(ProductionOrderNo: Code[20]; FromStatus: Enum "Production Order Status"; ToStatus: Enum "Production Order Status"): Code[20]
-    var
-        ProductionOrder: Record "Production Order";
-    begin
-        exit(ChangeProuctionOrderStatus(ProductionOrderNo, FromStatus, ToStatus));
-    end;
-#endif
-    procedure ChangeStatusFirmPlanToReleased(ProductionOrderNo: Code[20]): Code[20]
-    var
-        ProductionOrder: Record "Production Order";
-    begin
-        exit(ChangeProuctionOrderStatus(ProductionOrderNo, ProductionOrder.Status::"Firm Planned", ProductionOrder.Status::Released));
-    end;
-
     procedure ChangeStatusSimulatedToReleased(ProductionOrderNo: Code[20]): Code[20]
     var
         ProductionOrder: Record "Production Order";
     begin
-        exit(ChangeProuctionOrderStatus(ProductionOrderNo, ProductionOrder.Status::Simulated, ProductionOrder.Status::Released));
+        exit(ChangeStatusFirmPlanToReleased(ProductionOrderNo, ProductionOrder.Status::Simulated, ProductionOrder.Status::Released));
     end;
 
     procedure CreateAndRefreshProductionOrder(var ProductionOrder: Record "Production Order"; ProdOrderStatus: Enum "Production Order Status"; SourceType: Enum "Prod. Order Source Type"; SourceNo: Code[20]; Quantity: Decimal)
@@ -378,16 +362,18 @@ codeunit 132202 "Library - Manufacturing"
 
     procedure CreateProdOrderLine(var ProdOrderLine: Record "Prod. Order Line"; ProdOrderStatus: Enum "Production Order Status"; ProdOrderNo: Code[20]; ItemNo: Code[20]; VariantCode: Code[10]; LocationCode: Code[10]; Qty: Decimal)
     begin
-        ProdOrderLine.Init();
-        ProdOrderLine.Validate(Status, ProdOrderStatus);
-        ProdOrderLine.Validate("Prod. Order No.", ProdOrderNo);
-        ProdOrderLine.Validate("Line No.", LibraryUtility.GetNewRecNo(ProdOrderLine, ProdOrderLine.FieldNo("Line No.")));
-        ProdOrderLine.Validate("Item No.", ItemNo);
-        ProdOrderLine.Validate("Variant Code", VariantCode);
-        ProdOrderLine.Validate("Location Code", LocationCode);
-        ProdOrderLine.Validate(Quantity, Qty);
+        with ProdOrderLine do begin
+            Init();
+            Validate(Status, ProdOrderStatus);
+            Validate("Prod. Order No.", ProdOrderNo);
+            Validate("Line No.", LibraryUtility.GetNewRecNo(ProdOrderLine, FieldNo("Line No.")));
+            Validate("Item No.", ItemNo);
+            Validate("Variant Code", VariantCode);
+            Validate("Location Code", LocationCode);
+            Validate(Quantity, Qty);
 
-        ProdOrderLine.Insert(true);
+            Insert(true);
+        end;
     end;
 
     procedure CreateProductionBOMCommentLine(ProductionBOMLine: Record "Production BOM Line")

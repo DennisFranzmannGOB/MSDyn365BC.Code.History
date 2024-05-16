@@ -7,7 +7,6 @@ using System.Security.AccessControl;
 table 1105 "Cost Register"
 {
     Caption = 'Cost Register';
-    DataClassification = CustomerContent;
     LookupPageID = "Cost Registers";
 
     fields

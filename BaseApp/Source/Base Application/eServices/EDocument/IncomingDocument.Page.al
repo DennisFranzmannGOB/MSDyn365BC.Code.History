@@ -592,7 +592,7 @@ page 189 "Incoming Document"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Set To Processed';
-                    Enabled = not Rec.Processed;
+                    Enabled = NOT Rec.Processed;
                     Image = Archive;
                     ToolTip = 'Set the incoming document to processed. It will then be moved to the Processed Incoming Documents window.';
 
@@ -690,7 +690,7 @@ page 189 "Incoming Document"
                 {
                     ApplicationArea = Suite;
                     Caption = 'Send A&pproval Request';
-                    Enabled = not OpenApprovalEntriesExist;
+                    Enabled = NOT OpenApprovalEntriesExist;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval of the incoming document. You can send an approval request as part of a workflow if this has been set up in your organization.';
 
@@ -1037,6 +1037,15 @@ page 189 "Incoming Document"
                 actionref(ApprovalEntries_Promoted; ApprovalEntries)
                 {
                 }
+#if not CLEAN21
+                actionref(DataExchangeTypes_Promoted; DataExchangeTypes)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category7)
             {
@@ -1048,6 +1057,15 @@ page 189 "Incoming Document"
                 actionref(ReceiveFromOCR_Promoted; ReceiveFromOCR)
                 {
                 }
+#if not CLEAN21
+                actionref(OCRSetup_Promoted; OCRSetup)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
                 actionref(CorrectOCRData_Promoted; CorrectOCRData)
                 {
                 }
@@ -1072,7 +1090,7 @@ page 189 "Incoming Document"
 
     trigger OnAfterGetRecord()
     begin
-        Rec.URL := CopyStr(Rec.GetURL(), 1, MaxStrLen(Rec.URL));
+        Rec.URL := Rec.GetURL();
         ShowErrors();
         EnableReceiveFromOCR := Rec.WaitingToReceiveFromOCR();
         CurrPage.Editable(not Rec.Processed);
@@ -1110,6 +1128,7 @@ page 189 "Incoming Document"
 
     var
         IncomingDocumentsSetup: Record "Incoming Documents Setup";
+        AutomaticProcessingQst: Label 'The Data Exchange Type field is filled on at least one of the selected Incoming Documents.\\Are you sure you want to create documents manually?', Comment = '%1 is Data Exchange Type';
         ClientTypeManagement: Codeunit "Client Type Management";
         Camera: Codeunit Camera;
         HasCamera: Boolean;
@@ -1120,6 +1139,7 @@ page 189 "Incoming Document"
         IsDataExchTypeEditable: Boolean;
         OCRDataCorrectionEnabled: Boolean;
         AdditionalAttachmentsPresent: Boolean;
+        InvalidTypeErr: Label 'The default attachment is not an XML document.';
         OpenApprovalEntriesExistForCurrUser: Boolean;
         OpenApprovalEntriesExist: Boolean;
         ShowWorkflowStatus: Boolean;
@@ -1130,13 +1150,10 @@ page 189 "Incoming Document"
         AutomaticCreationActionsAreEnabled: Boolean;
         RecordHasAttachment: Boolean;
         RecordLinkExists: Boolean;
+        NoPostedDocumentsErr: Label 'There are no posted documents.';
         CanBeSentToOCR: Boolean;
         AttachEnabled: Boolean;
         ReplaceMainAttachmentEnabled: Boolean;
-
-        AutomaticProcessingQst: Label 'The Data Exchange Type field is filled on at least one of the selected Incoming Documents.\\Are you sure you want to create documents manually?', Comment = '%1 is Data Exchange Type';
-        InvalidTypeErr: Label 'The default attachment is not an XML document.';
-        NoPostedDocumentsErr: Label 'There are no posted documents.';
 
     protected procedure AskUserPermission(): Boolean
     begin
@@ -1189,7 +1206,7 @@ page 189 "Incoming Document"
         ReplaceMainAttachmentEnabled := Rec.CanReplaceMainAttachment();
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(TRUE, TRUE)]
     local procedure OnCloseIncomingDocumentFromAction(var IncomingDocument: Record "Incoming Document")
     begin
     end;

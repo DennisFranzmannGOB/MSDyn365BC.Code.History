@@ -5,7 +5,6 @@ table 2850 "Native - API Tax Setup"
     ObsoleteState = Removed;
     ObsoleteTag = '23.0';
     ObsoleteReason = 'These objects will be removed';
-    DataClassification = CustomerContent;
 
     fields
     {

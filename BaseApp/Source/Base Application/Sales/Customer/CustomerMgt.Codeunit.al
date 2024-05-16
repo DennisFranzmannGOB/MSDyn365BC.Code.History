@@ -25,36 +25,38 @@ codeunit 1302 "Customer Mgt."
     var
         CustLedgEntry: Record "Cust. Ledger Entry";
         CustLedgEntry2: Record "Cust. Ledger Entry";
-        AverageDaysToPay: Decimal;
+        AvgDaysToPay: Decimal;
         TotalDaysToPay: Decimal;
         TotalNoOfInv: Integer;
     begin
-        AverageDaysToPay := 0;
-        CustLedgEntry.SetCurrentKey("Customer No.", "Posting Date");
-        SetFilterForPostedDocs(CustLedgEntry, CustNo, CustLedgEntry."Document Type"::Invoice);
-        CustLedgEntry.SetRange(Open, false);
+        with CustLedgEntry do begin
+            AvgDaysToPay := 0;
+            SetCurrentKey("Customer No.", "Posting Date");
+            SetFilterForPostedDocs(CustLedgEntry, CustNo, "Document Type"::Invoice);
+            SetRange(Open, false);
 
-        if CustLedgEntry.FindSet() then
-            repeat
-                case true of
-                    CustLedgEntry."Closed at Date" > CustLedgEntry."Posting Date":
-                        UpdateDaysToPay(CustLedgEntry."Closed at Date" - CustLedgEntry."Posting Date", TotalDaysToPay, TotalNoOfInv);
-                    CustLedgEntry."Closed by Entry No." <> 0:
-                        if CustLedgEntry2.Get(CustLedgEntry."Closed by Entry No.") then
-                            UpdateDaysToPay(CustLedgEntry2."Posting Date" - CustLedgEntry."Posting Date", TotalDaysToPay, TotalNoOfInv);
-                    else begin
-                        CustLedgEntry2.SetCurrentKey("Closed by Entry No.");
-                        CustLedgEntry2.SetRange("Closed by Entry No.", CustLedgEntry."Entry No.");
-                        if CustLedgEntry2.FindFirst() then
-                            UpdateDaysToPay(CustLedgEntry2."Posting Date" - CustLedgEntry."Posting Date", TotalDaysToPay, TotalNoOfInv);
+            if FindSet() then
+                repeat
+                    case true of
+                        "Closed at Date" > "Posting Date":
+                            UpdateDaysToPay("Closed at Date" - "Posting Date", TotalDaysToPay, TotalNoOfInv);
+                        "Closed by Entry No." <> 0:
+                            if CustLedgEntry2.Get("Closed by Entry No.") then
+                                UpdateDaysToPay(CustLedgEntry2."Posting Date" - "Posting Date", TotalDaysToPay, TotalNoOfInv);
+                        else begin
+                            CustLedgEntry2.SetCurrentKey("Closed by Entry No.");
+                            CustLedgEntry2.SetRange("Closed by Entry No.", "Entry No.");
+                            if CustLedgEntry2.FindFirst() then
+                                UpdateDaysToPay(CustLedgEntry2."Posting Date" - "Posting Date", TotalDaysToPay, TotalNoOfInv);
+                        end;
                     end;
-                end;
-            until CustLedgEntry.Next() = 0;
+                until Next() = 0;
+        end;
 
         if TotalNoOfInv <> 0 then
-            AverageDaysToPay := TotalDaysToPay / TotalNoOfInv;
+            AvgDaysToPay := TotalDaysToPay / TotalNoOfInv;
 
-        exit(AverageDaysToPay);
+        exit(AvgDaysToPay);
     end;
 
     local procedure UpdateDaysToPay(NoOfDays: Integer; var TotalDaysToPay: Decimal; var TotalNoOfInv: Integer)
@@ -123,12 +125,16 @@ codeunit 1302 "Customer Mgt."
     local procedure CalcAmountsOnPostedDocs(CustNo: Code[20]; var RecCount: Integer; DocType: Enum "Gen. Journal Document Type"): Decimal
     var
         [SecurityFiltering(SecurityFilter::Filtered)]
-        CustLedgerEntry: Record "Cust. Ledger Entry";
+        CustLedgEntry: Record "Cust. Ledger Entry";
     begin
-        SetFilterForPostedDocs(CustLedgerEntry, CustNo, DocType);
-        RecCount := CustLedgerEntry.Count();
-        CustLedgerEntry.CalcSums("Sales (LCY)");
-        exit(CustLedgerEntry."Sales (LCY)");
+        with CustLedgEntry do begin
+            SetFilterForPostedDocs(CustLedgEntry, CustNo, DocType);
+
+            RecCount := Count;
+
+            CalcSums("Sales (LCY)");
+            exit("Sales (LCY)");
+        end;
     end;
 
     procedure CalculateAmountsWithVATOnUnpostedDocuments(CustNo: Code[20]): Decimal
@@ -203,10 +209,12 @@ codeunit 1302 "Customer Mgt."
         [SecurityFiltering(SecurityFilter::Filtered)]
         SalesInvoiceHeader: Record "Sales Invoice Header";
     begin
-        SalesInvoiceHeader.SetRange("Bill-to Customer No.", CustNo);
-        SalesInvoiceHeader.SetFilter("Posting Date", GetCurrentYearFilter());
+        with SalesInvoiceHeader do begin
+            SetRange("Bill-to Customer No.", CustNo);
+            SetFilter("Posting Date", GetCurrentYearFilter());
 
-        PAGE.Run(PAGE::"Posted Sales Invoices", SalesInvoiceHeader);
+            PAGE.Run(PAGE::"Posted Sales Invoices", SalesInvoiceHeader);
+        end;
     end;
 
     procedure DrillDownOnPostedCrMemo(CustNo: Code[20])
@@ -214,10 +222,12 @@ codeunit 1302 "Customer Mgt."
         [SecurityFiltering(SecurityFilter::Filtered)]
         SalesCrMemoHeader: Record "Sales Cr.Memo Header";
     begin
-        SalesCrMemoHeader.SetRange("Bill-to Customer No.", CustNo);
-        SalesCrMemoHeader.SetFilter("Posting Date", GetCurrentYearFilter());
+        with SalesCrMemoHeader do begin
+            SetRange("Bill-to Customer No.", CustNo);
+            SetFilter("Posting Date", GetCurrentYearFilter());
 
-        PAGE.Run(PAGE::"Posted Sales Credit Memos", SalesCrMemoHeader);
+            PAGE.Run(PAGE::"Posted Sales Credit Memos", SalesCrMemoHeader);
+        end;
     end;
 
     procedure DrillDownOnOrders(CustNo: Code[20])
@@ -225,10 +235,12 @@ codeunit 1302 "Customer Mgt."
         [SecurityFiltering(SecurityFilter::Filtered)]
         SalesHeader: Record "Sales Header";
     begin
-        SalesHeader.SetRange("Bill-to Customer No.", CustNo);
-        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
+        with SalesHeader do begin
+            SetRange("Bill-to Customer No.", CustNo);
+            SetRange("Document Type", "Document Type"::Order);
 
-        PAGE.Run(PAGE::"Sales Order List", SalesHeader);
+            PAGE.Run(PAGE::"Sales Order List", SalesHeader);
+        end;
     end;
 
     procedure DrillDownOnQuotes(CustNo: Code[20])
@@ -236,10 +248,12 @@ codeunit 1302 "Customer Mgt."
         [SecurityFiltering(SecurityFilter::Filtered)]
         SalesHeader: Record "Sales Header";
     begin
-        SalesHeader.SetRange("Bill-to Customer No.", CustNo);
-        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Quote);
+        with SalesHeader do begin
+            SetRange("Bill-to Customer No.", CustNo);
+            SetRange("Document Type", "Document Type"::Quote);
 
-        PAGE.Run(PAGE::"Sales Quotes", SalesHeader);
+            PAGE.Run(PAGE::"Sales Quotes", SalesHeader);
+        end;
     end;
 
     procedure DrillDownMoneyOwedExpected(CustNo: Code[20])
@@ -271,31 +285,37 @@ codeunit 1302 "Customer Mgt."
 
     local procedure SetFilterForUnpostedDocs(var SalesHeader: Record "Sales Header"; CustNo: Code[20]; DocumentType: Integer)
     begin
-        SalesHeader.SetRange("Bill-to Customer No.", CustNo);
-        SalesHeader.SetFilter("Posting Date", GetCurrentYearFilter());
+        with SalesHeader do begin
+            SetRange("Bill-to Customer No.", CustNo);
+            SetFilter("Posting Date", GetCurrentYearFilter());
 
-        if DocumentType = -1 then
-            SalesHeader.SetFilter("Document Type", '%1|%2', SalesHeader."Document Type"::Invoice, SalesHeader."Document Type"::"Credit Memo")
-        else
-            SalesHeader.SetRange("Document Type", DocumentType);
+            if DocumentType = -1 then
+                SetFilter("Document Type", '%1|%2', "Document Type"::Invoice, "Document Type"::"Credit Memo")
+            else
+                SetRange("Document Type", DocumentType);
+        end;
     end;
 
     local procedure SetFilterForUnpostedLines(var SalesLine: Record "Sales Line"; CustNo: Code[20]; DocumentType: Enum "Sales Document Type"; Posted: Boolean)
     begin
-        SalesLine.SetRange("Bill-to Customer No.", CustNo);
-        if Posted then
-            SalesLine.SetFilter("Posting Date", GetCurrentYearFilter());
+        with SalesLine do begin
+            SetRange("Bill-to Customer No.", CustNo);
+            if Posted then
+                SetFilter("Posting Date", GetCurrentYearFilter());
 
-        SalesLine.SetRange("Document Type", DocumentType);
+            SetRange("Document Type", DocumentType);
+        end;
 
         OnAfterSetFilterForUnpostedLines(SalesLine);
     end;
 
     local procedure SetFilterForPostedDocs(var CustLedgEntry: Record "Cust. Ledger Entry"; CustNo: Code[20]; DocumentType: Enum "Gen. Journal Document Type")
     begin
-        CustLedgEntry.SetRange("Customer No.", CustNo);
-        CustLedgEntry.SetFilter("Posting Date", GetCurrentYearFilter());
-        CustLedgEntry.SetRange("Document Type", DocumentType);
+        with CustLedgEntry do begin
+            SetRange("Customer No.", CustNo);
+            SetFilter("Posting Date", GetCurrentYearFilter());
+            SetRange("Document Type", DocumentType);
+        end;
 
         OnAfterSetFilterForPostedDocs(CustLedgEntry);
     end;
@@ -357,49 +377,35 @@ codeunit 1302 "Customer Mgt."
         exit(Totals);
     end;
 
-#if not CLEAN24
-    [Obsolete('Replaced by procedure CalculateShipToBillToEnums()', '24.0')]
     procedure CalculateShipToBillToOptions(var ShipToOptions: Option "Default (Sell-to Address)","Alternate Shipping Address","Custom Address"; var BillToOptions: Option "Default (Customer)","Another Customer","Custom Address"; var SalesHeader: Record "Sales Header")
-    var
-        ShipToOptionsEnum: Enum "Sales Ship-to Options";
-        BillToOptionsEnum: Enum "Sales Bill-to Options";
-    begin
-        ShipToOptionsEnum := "Sales Ship-to Options".FromInteger(ShipToOptions);
-        BillToOptionsEnum := "Sales Bill-to Options".FromInteger(BillToOptions);
-        CalculateShipBillToOptions(ShipToOptionsEnum, BillToOptionsEnum, SalesHeader);
-        ShipToOptions := ShipToOptionsEnum.AsInteger();
-        BillToOptions := BillToOptionsEnum.AsInteger();
-
-        OnAfterCalculateShipToBillToOptions(ShipToOptions, BillToOptions, SalesHeader);
-    end;
-#endif
-
-    procedure CalculateShipBillToOptions(var ShipToOptions: Enum "Sales Ship-to Options"; var BillToOptions: Enum "Sales Bill-to Options"; var SalesHeader: Record "Sales Header")
     var
         ShipToNameEqualsSellToName: Boolean;
     begin
-        ShipToNameEqualsSellToName :=
-            (SalesHeader."Ship-to Name" = SalesHeader."Sell-to Customer Name") and (SalesHeader."Ship-to Name 2" = SalesHeader."Sell-to Customer Name 2");
+        with SalesHeader do begin
+            ShipToNameEqualsSellToName :=
+              ("Ship-to Name" = "Sell-to Customer Name") and ("Ship-to Name 2" = "Sell-to Customer Name 2");
 
-        case true of
-            (SalesHeader."Ship-to Code" = '') and ShipToNameEqualsSellToName and SalesHeader.ShipToAddressEqualsSellToAddress():
-                ShipToOptions := ShipToOptions::"Default (Sell-to Address)";
-            (SalesHeader."Ship-to Code" = '') and (not ShipToNameEqualsSellToName or not SalesHeader.ShipToAddressEqualsSellToAddress()):
-                ShipToOptions := ShipToOptions::"Custom Address";
-            SalesHeader."Ship-to Code" <> '':
-                ShipToOptions := ShipToOptions::"Alternate Shipping Address";
+            case true of
+                ("Ship-to Code" = '') and ShipToNameEqualsSellToName and ShipToAddressEqualsSellToAddress():
+                    ShipToOptions := ShipToOptions::"Default (Sell-to Address)";
+                ("Ship-to Code" = '') and
+              (not ShipToNameEqualsSellToName or not ShipToAddressEqualsSellToAddress()):
+                    ShipToOptions := ShipToOptions::"Custom Address";
+                "Ship-to Code" <> '':
+                    ShipToOptions := ShipToOptions::"Alternate Shipping Address";
+            end;
+
+            case true of
+                ("Bill-to Customer No." = "Sell-to Customer No.") and BillToAddressEqualsSellToAddress():
+                    BillToOptions := BillToOptions::"Default (Customer)";
+                ("Bill-to Customer No." = "Sell-to Customer No.") and (not BillToAddressEqualsSellToAddress()):
+                    BillToOptions := BillToOptions::"Custom Address";
+                "Bill-to Customer No." <> "Sell-to Customer No.":
+                    BillToOptions := BillToOptions::"Another Customer";
+            end;
         end;
 
-        case true of
-            (SalesHeader."Bill-to Customer No." = SalesHeader."Sell-to Customer No.") and SalesHeader.BillToAddressEqualsSellToAddress():
-                BillToOptions := BillToOptions::"Default (Customer)";
-            (SalesHeader."Bill-to Customer No." = SalesHeader."Sell-to Customer No.") and (not SalesHeader.BillToAddressEqualsSellToAddress()):
-                BillToOptions := BillToOptions::"Custom Address";
-            SalesHeader."Bill-to Customer No." <> SalesHeader."Sell-to Customer No.":
-                BillToOptions := BillToOptions::"Another Customer";
-        end;
-
-        OnAfterCalculateShipBillToOptions(ShipToOptions, BillToOptions, SalesHeader);
+        OnAfterCalculateShipToBillToOptions(ShipToOptions, BillToOptions, SalesHeader);
     end;
 
     [IntegrationEvent(false, false)]
@@ -423,16 +429,8 @@ codeunit 1302 "Customer Mgt."
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterCalculateShipBillToOptions(var ShipToOptions: Enum "Sales Ship-to Options"; var BillToOptions: Enum "Sales Bill-to Options"; SalesHeader: Record "Sales Header")
-    begin
-    end;
-
-#if not CLEAN24
-    [Obsolete('Replaced by event OnAfterCalculateShipToBillToEnums()', '24.0')]
-    [IntegrationEvent(false, false)]
     local procedure OnAfterCalculateShipToBillToOptions(var ShipToOptions: Option "Default (Sell-to Address)","Alternate Shipping Address","Custom Address"; var BillToOptions: Option "Default (Customer)","Another Customer","Custom Address"; SalesHeader: Record "Sales Header")
     begin
     end;
-#endif
 }
 

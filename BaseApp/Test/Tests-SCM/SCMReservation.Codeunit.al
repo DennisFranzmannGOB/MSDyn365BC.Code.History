@@ -679,7 +679,6 @@ codeunit 137049 "SCM Reservation"
         Initialize();
         SalesReceivablesSetup.Get();
         UpdateSalesReceivablesSetup(true);  // Stockout Warning - TRUE
-        LibraryERM.SetEnableDataCheck(false);
         InitialInventory := LibraryRandom.RandDec(10, 2) + 100;  // Large random Inventory value.
 
         CreateItemAndUpdateInventory(Item, InitialInventory);
@@ -699,7 +698,6 @@ codeunit 137049 "SCM Reservation"
         // Teardown.
         UpdateSalesReceivablesSetup(SalesReceivablesSetup."Stockout Warning");
         NotificationLifecycleMgt.RecallAllNotifications();
-        LibraryERM.SetEnableDataCheck(true);
     end;
 
     [Test]
@@ -849,7 +847,7 @@ codeunit 137049 "SCM Reservation"
         // [THEN] Verify Reserved = R - 1, Qty to Reserve = R.
         ReservationFromSalesOrder(SalesHeader."No.");
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1967,7 +1965,7 @@ codeunit 137049 "SCM Reservation"
     var
         TransferLine: Record "Transfer Line";
     begin
-        CreateTransferLine(TransferLine, ItemNo, UOMCode, Qty, LibraryUtility.GenerateGUID(), LocationCode, WorkDate(), 0D);
+        CreateTransferLine(TransferLine, ItemNo, UOMCode, Qty, LibraryUtility.GenerateGUID, LocationCode, WorkDate(), 0D);
 
         RoundingIssuesCreateReservationEntry(true, false, ItemNo, TransferLine.Quantity, TransferLine."Quantity (Base)",
           DATABASE::"Transfer Line", 1, TransferLine."Document No.", TransferLine."Line No.", 0, '',
@@ -1985,7 +1983,7 @@ codeunit 137049 "SCM Reservation"
     begin
         CreateTransferLine(
           TransferLine, ItemUnitOfMeasureCAS."Item No.",
-          ItemUnitOfMeasureCAS.Code, Qty, LocationCode, LibraryUtility.GenerateGUID(), 0D, WorkDate());
+          ItemUnitOfMeasureCAS.Code, Qty, LocationCode, LibraryUtility.GenerateGUID, 0D, WorkDate());
 
         if CreateReservationEntry then
             RoundingIssuesCreateReservationEntry(false, true, TransferLine."Item No.", -TransferLine.Quantity, -TransferLine."Quantity (Base)",
@@ -2413,9 +2411,9 @@ codeunit 137049 "SCM Reservation"
         LibraryAssembly.CreateAssemblyLine(
           AssemblyHeader, AssemblyLine, "BOM Component Type"::Item, Item."No.", Item."Base Unit of Measure", Quantity, 1, '');
 
-        // [GIVEN] Create Assembly Order with component of Item "I" of Quantity "Q", set Due Date to WorkDate() + 7 days
+        // [GIVEN] Create Assembly Order with component of Item "I" of Quantity "Q", set Due Date to Workdate + 7 days
         LibraryAssembly.CreateAssemblyHeader(
-          AssemblyHeader, CalcDate('<+7D>', WorkDate()), LibraryInventory.CreateItemNo(), '', Quantity, '');
+          AssemblyHeader, CalcDate('<+7D>', WorkDate()), LibraryInventory.CreateItemNo, '', Quantity, '');
         LibraryAssembly.CreateAssemblyLine(
           AssemblyHeader, AssemblyLine, "BOM Component Type"::Item, AssemblyItem."No.", Item."Base Unit of Measure", Quantity, 1, '');
 
@@ -2442,13 +2440,13 @@ codeunit 137049 "SCM Reservation"
         // [SCENARIO 379402] In Sales Line and in Reservation Entry, Shipment Date shouldn't be changed after changing of "Sell-to Customer No.".
 
         Initialize();
-        SalesHeader.DontNotifyCurrentUserAgain(SalesHeader.GetModifyBillToCustomerAddressNotificationId());
-        SalesHeader.DontNotifyCurrentUserAgain(SalesHeader.GetModifyCustomerAddressNotificationId());
+        SalesHeader.DontNotifyCurrentUserAgain(SalesHeader.GetModifyBillToCustomerAddressNotificationId);
+        SalesHeader.DontNotifyCurrentUserAgain(SalesHeader.GetModifyCustomerAddressNotificationId);
         LibraryWarehouse.CreateLocation(Location);
         ItemNo := LibraryInventory.CreateItemNo();
         Qty := LibraryRandom.RandInt(20);
         // [GIVEN] Date "TransactionDate" of Purchase and Sales more than WORKDATE.
-        TransactionDate := WorkDate() + LibraryRandom.RandInt(30);
+        TransactionDate := WorkDate + LibraryRandom.RandInt(30);
         // [GIVEN] Purchase Order with "Expected Receipt Date" = "TransactionDate".
         CreatePurchaseOrderWithExpectedReceiptDate(TransactionDate, Location.Code, ItemNo, Qty);
         // [GIVEN] Sales Order with Shipment Date = WORKDATE and Sales Line with Shipment Date = "TransactionDate".
@@ -2641,8 +2639,8 @@ codeunit 137049 "SCM Reservation"
 
     local procedure NoSeriesSetup()
     begin
-        LibrarySales.SetOrderNoSeriesInSetup();
-        LibraryPurchase.SetOrderNoSeriesInSetup();
+        LibrarySales.SetOrderNoSeriesInSetup;
+        LibraryPurchase.SetOrderNoSeriesInSetup;
     end;
 
     local procedure OutputJournalSetup()
@@ -2761,7 +2759,7 @@ codeunit 137049 "SCM Reservation"
         PurchaseHeader: Record "Purchase Header";
         PurchaseLine: Record "Purchase Line";
     begin
-        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo());
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo);
         LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, ItemNo, Qty);
         PurchaseLine.Validate("Location Code", LocationCode);
         PurchaseLine.Validate("Expected Receipt Date", ExpectedReceiptDate);
@@ -2838,7 +2836,7 @@ codeunit 137049 "SCM Reservation"
 
     local procedure CreateSalesOrderWithShipmentDate(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; ShipmentDate: Date; LocationCode: Code[10]; ItemNo: Code[20]; Qty: Decimal)
     begin
-        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
+        LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo);
         SalesHeader.Validate("Location Code", LocationCode);
         SalesHeader.Modify(true);
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemNo, Qty);
@@ -2987,7 +2985,7 @@ codeunit 137049 "SCM Reservation"
     var
         TransferLine: Record "Transfer Line";
     begin
-        CreateTransferLine(TransferLine, ItemNo, UOMCode, Qty, LibraryUtility.GenerateGUID(), LocationCode, ReceiptDate, 0D);
+        CreateTransferLine(TransferLine, ItemNo, UOMCode, Qty, LibraryUtility.GenerateGUID, LocationCode, ReceiptDate, 0D);
         RoundingIssuesCreateReservationEntry(true, true, ItemNo, 0, TransferLine."Quantity (Base)",
           DATABASE::"Transfer Line", 1, TransferLine."Document No.", TransferLine."Line No.", 0, '',
           TransferLine."Qty. per Unit of Measure", LotNo, TransferLine."Receipt Date");
@@ -2998,7 +2996,7 @@ codeunit 137049 "SCM Reservation"
         TransferLine: Record "Transfer Line";
     begin
         CreateTransferLine(TransferLine,
-          ItemUnitOfMeasureCAS."Item No.", ItemUnitOfMeasureCAS.Code, Qty, LocationCode, LibraryUtility.GenerateGUID(), 0D, ShipmentDate);
+          ItemUnitOfMeasureCAS."Item No.", ItemUnitOfMeasureCAS.Code, Qty, LocationCode, LibraryUtility.GenerateGUID, 0D, ShipmentDate);
         RoundingIssuesCreateReservationEntry(false, true, TransferLine."Item No.", -TransferLine.Quantity, -TransferLine."Quantity (Base)",
           DATABASE::"Transfer Line", 0, TransferLine."Document No.", TransferLine."Line No.", 0, '',
           TransferLine."Qty. per Unit of Measure", LotNo, TransferLine."Shipment Date");
@@ -3108,9 +3106,9 @@ codeunit 137049 "SCM Reservation"
     var
         SalesOrder: TestPage "Sales Order";
     begin
-        SalesOrder.OpenView();
+        SalesOrder.OpenView;
         SalesOrder.FILTER.SetFilter("No.", No);
-        SalesOrder.SalesLines.Reserve.Invoke();
+        SalesOrder.SalesLines.Reserve.Invoke;
         SalesOrder.Close();
     end;
 
@@ -3118,9 +3116,9 @@ codeunit 137049 "SCM Reservation"
     var
         ProdOrderComponents: TestPage "Prod. Order Components";
     begin
-        ProdOrderComponents.OpenView();
+        ProdOrderComponents.OpenView;
         ProdOrderComponents.FILTER.SetFilter("Item No.", ItemNo);
-        ProdOrderComponents.Reserve.Invoke();
+        ProdOrderComponents.Reserve.Invoke;
         ProdOrderComponents.Close();
     end;
 
@@ -3128,9 +3126,9 @@ codeunit 137049 "SCM Reservation"
     var
         AssemblyOrder: TestPage "Assembly Order";
     begin
-        AssemblyOrder.OpenView();
+        AssemblyOrder.OpenView;
         AssemblyOrder.FILTER.SetFilter("No.", No);
-        AssemblyOrder.Lines."Reserve Item".Invoke();
+        AssemblyOrder.Lines."Reserve Item".Invoke;
         AssemblyOrder.Close();
     end;
 
@@ -3304,12 +3302,12 @@ codeunit 137049 "SCM Reservation"
     begin
         // Verify values for both Production Order lines.
         // Retrieve value from Production Order lines.
-        Reservation.First();
-        ActualTotalAvailable := Reservation."Total Quantity".AsDecimal();
-        ActualCurrentReserved := Reservation."Current Reserved Quantity".AsDecimal();
+        Reservation.First;
+        ActualTotalAvailable := Reservation."Total Quantity".AsDEcimal;
+        ActualCurrentReserved := Reservation."Current Reserved Quantity".AsDEcimal;
         Reservation.Next();
-        ActualTotalAvailable += Reservation."Total Quantity".AsDecimal();
-        ActualCurrentReserved += Reservation."Current Reserved Quantity".AsDecimal();
+        ActualTotalAvailable += Reservation."Total Quantity".AsDEcimal;
+        ActualCurrentReserved += Reservation."Current Reserved Quantity".AsDEcimal;
 
         // Verify Total available and reserved quantity.
         Assert.AreEqual(InitialInventory, ActualTotalAvailable, TotalQuantityErr);
@@ -3447,7 +3445,7 @@ codeunit 137049 "SCM Reservation"
         MessageCounter := MessageCounter + 1;
         case MessageCounter of
             1:
-                Reservation."Reserve from Current Line".Invoke();  // Reserve from Current Line.
+                Reservation."Reserve from Current Line".Invoke;  // Reserve from Current Line.
             2:
                 VerifyReservationQty(Reservation);  // Verify Total and Reserved Quantities.
         end;
@@ -3457,14 +3455,14 @@ codeunit 137049 "SCM Reservation"
     [Scope('OnPrem')]
     procedure ReservationPageHandler2(var Reservation: TestPage Reservation)
     begin
-        Reservation."Total Quantity".DrillDown();
+        Reservation."Total Quantity".DrillDown;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure AvailableAssemblyHeadersPageHandler(var AvailableAssemblyHeaders: TestPage "Available - Assembly Headers")
     begin
-        AvailableAssemblyHeaders.Reserve.Invoke();
+        AvailableAssemblyHeaders.Reserve.Invoke;
     end;
 
     [ModalPageHandler]
@@ -3474,7 +3472,7 @@ codeunit 137049 "SCM Reservation"
         MessageCounter := MessageCounter + 1;
         case MessageCounter of
             1:
-                Reservation."Auto Reserve".Invoke();  // Auto Reserve.
+                Reservation."Auto Reserve".Invoke;  // Auto Reserve.
             2:
                 VerifyReservationQty(Reservation);  // Verify Total and Reserved Quantities.
         end;
@@ -3488,10 +3486,10 @@ codeunit 137049 "SCM Reservation"
         case MessageCounter of
             1:
                 begin
-                    Reservation.First();
-                    Reservation."Reserve from Current Line".Invoke();  // Reserve from Current Line for first Production Order.
+                    Reservation.First;
+                    Reservation."Reserve from Current Line".Invoke;  // Reserve from Current Line for first Production Order.
                     Reservation.Next();
-                    Reservation."Reserve from Current Line".Invoke();  // Reserve from Current Line for second Production Order.
+                    Reservation."Reserve from Current Line".Invoke;  // Reserve from Current Line for second Production Order.
                 end;
             2:
                 VerifyReservQtyTwoAvailableLines(Reservation);  // Verify Total and Reserved Quantities.
@@ -3505,7 +3503,7 @@ codeunit 137049 "SCM Reservation"
         MessageCounter := MessageCounter + 1;
         case MessageCounter of
             1:
-                Reservation."Auto Reserve".Invoke();  // Auto Reserve.
+                Reservation."Auto Reserve".Invoke;  // Auto Reserve.
             2:
                 VerifyReservQtyTwoAvailableLines(Reservation);  // Verify Total and Reserved Quantities.
         end;
@@ -3518,9 +3516,9 @@ codeunit 137049 "SCM Reservation"
         MessageCounter := MessageCounter + 1;
         case MessageCounter of
             1:
-                Reservation."Reserve from Current Line".Invoke();  // Reserve from Current Line.
+                Reservation."Reserve from Current Line".Invoke;  // Reserve from Current Line.
             2:
-                Reservation.CancelReservationCurrentLine.Invoke();  // Cancel Reservation.
+                Reservation.CancelReservationCurrentLine.Invoke;  // Cancel Reservation.
         end;
     end;
 
@@ -3531,9 +3529,9 @@ codeunit 137049 "SCM Reservation"
         MessageCounter := MessageCounter + 1;
         case MessageCounter of
             1:
-                Reservation."Auto Reserve".Invoke();  // Auto Reserve.
+                Reservation."Auto Reserve".Invoke;  // Auto Reserve.
             2:
-                Reservation.CancelReservationCurrentLine.Invoke();  // Cancel Reservation.
+                Reservation.CancelReservationCurrentLine.Invoke;  // Cancel Reservation.
         end;
     end;
 
@@ -3552,7 +3550,7 @@ codeunit 137049 "SCM Reservation"
         MessageCounter := MessageCounter + 1;
         case MessageCounter of
             1:
-                Reservation."Reserve from Current Line".Invoke();  // Reserve from Current Line.
+                Reservation."Reserve from Current Line".Invoke;  // Reserve from Current Line.
             2:
                 VerifyReservQtyTwoAvailableLines(Reservation);  // Verify Total and Reserved Quantities.
         end;
@@ -3565,7 +3563,7 @@ codeunit 137049 "SCM Reservation"
         MessageCounter := MessageCounter + 1;
         case MessageCounter of
             1:
-                Reservation."Reserve from Current Line".Invoke();  // Reserve from Current Line.
+                Reservation."Reserve from Current Line".Invoke;  // Reserve from Current Line.
             2:
                 VerifyReservationQtyFinishProduction(Reservation);  // Verify Quantity To Reserve and Quantity Reserved as per finished Production Order.
         end;
@@ -3582,7 +3580,7 @@ codeunit 137049 "SCM Reservation"
     [Scope('OnPrem')]
     procedure MissingOutputConfirmHandler(Question: Text[1024]; var Reply: Boolean)
     begin
-        Assert.ExpectedMessage(LibraryVariableStorage.DequeueText(), Question);
+        Assert.ExpectedMessage(LibraryVariableStorage.DequeueText, Question);
         Reply := true;
     end;
 

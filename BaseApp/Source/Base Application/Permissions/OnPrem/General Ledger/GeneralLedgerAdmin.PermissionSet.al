@@ -108,6 +108,7 @@ permissionset 4423 "General Ledger - Admin"
                   tabledata "IC G/L Account" = RIMD,
                   tabledata "IC Partner" = RIMD,
                   tabledata "IC Setup" = RIMD,
+                  tabledata "Inc. Doc. Attachment Overview" = RIMD,
                   tabledata "Incoming Document" = RIMD,
                   tabledata "Incoming Document Approver" = RIMD,
                   tabledata "Incoming Document Attachment" = RIMD,

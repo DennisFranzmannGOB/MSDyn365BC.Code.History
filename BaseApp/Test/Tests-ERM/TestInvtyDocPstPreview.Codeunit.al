@@ -13,6 +13,7 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryERM: Codeunit "Library - ERM";
         LibraryPurchase: Codeunit "Library - Purchase";
+        LibraryManufacturing: Codeunit "Library - Manufacturing";
         LibraryInventory: Codeunit "Library - Inventory";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryRandom: Codeunit "Library - Random";
@@ -51,18 +52,18 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror InvtDocPostYesNo.Preview(InvtDocumentHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 1);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -92,18 +93,18 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror InvtDocPostYesNo.Preview(InvtDocumentHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 2);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 2);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -150,12 +151,12 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror InvtDocPostYesNo.Preview(InvtDocumentHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
@@ -164,7 +165,7 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, WarehouesEntry.TableCaption(), 1);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -203,18 +204,18 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror InvtDocPostYesNo.Preview(InvtDocumentHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), InvtDocumentLine.Quantity);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), InvtDocumentLine.Quantity);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -242,18 +243,18 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror InvtDocPostYesNo.Preview(InvtDocumentHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 1);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -283,18 +284,18 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror InvtDocPostYesNo.Preview(InvtDocumentHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 2);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 2);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -343,12 +344,12 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror InvtDocPostYesNo.Preview(InvtDocumentHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
@@ -357,7 +358,7 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, WarehouesEntry.TableCaption(), 1);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -368,6 +369,7 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         InvtDocumentHeader: Record "Invt. Document Header";
         InvtDocumentLine: Record "Invt. Document Line";
         Item: Record Item;
+        ItemJournalLine: Record "Item Journal Line";
         Location: Record Location;
         ItemLedgerEntry: Record "Item Ledger Entry";
         ValueEntry: Record "Value Entry";
@@ -389,18 +391,18 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror InvtDocPostYesNo.Preview(InvtDocumentHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), InvtDocumentLine.Quantity);
 
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), InvtDocumentLine.Quantity);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -432,12 +434,12 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         Commit();
 
         // [WHEN] Preview is invoked
-        GLPostingPreview.Trap();
+        GLPostingPreview.Trap;
         asserterror PhysInvtOrderPostYN.Preview(PhysInvtOrderHeader);
         Assert.AreEqual('', GetLastErrorText, WrongPostPreviewErr + GetLastErrorText);
 
         // [THEN] Preview creates the entries that will be created when the journal is posted
-        GLPostingPreview.First();
+        GLPostingPreview.First;
         VerifyGLPostingPreviewLine(GLPostingPreview, ItemLedgerEntry.TableCaption(), 1);
 
         GLPostingPreview.Next();
@@ -446,7 +448,7 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         GLPostingPreview.Next();
         VerifyGLPostingPreviewLine(GLPostingPreview, ValueEntry.TableCaption(), 1);
         Assert.IsFalse(GLPostingPreview.Next(), 'No more entries should exist.');
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 
     [Test]
@@ -636,7 +638,7 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
         LibraryERMCountryData.UpdatePrepaymentAccounts();
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         LibraryERMCountryData.UpdateGeneralLedgerSetup();
-        LibraryERMCountryData.UpdateVATPostingSetup();
+        LibraryERMCountryData.UpdateVATPostingSetup;
         LibraryERMCountryData.CreateVATData();
         LibraryERMCountryData.UpdateJournalTemplMandatory(false);
         LibraryPurchase.SetOrderNoSeriesInSetup();
@@ -650,7 +652,7 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
     local procedure VerifyGLPostingPreviewLine(GLPostingPreview: TestPage "G/L Posting Preview"; TableName: Text; ExpectedEntryCount: Integer)
     begin
         Assert.AreEqual(TableName, GLPostingPreview."Table Name".Value, StrSubstNo('A record for Table Name %1 was not found.', TableName));
-        Assert.AreEqual(ExpectedEntryCount, GLPostingPreview."No. of Records".AsInteger(),
+        Assert.AreEqual(ExpectedEntryCount, GLPostingPreview."No. of Records".AsInteger,
           StrSubstNo('Table Name %1 Unexpected number of records.', TableName));
     end;
 
@@ -815,6 +817,6 @@ codeunit 134786 "Test Invty. Doc. Pst Preview"
     [Scope('OnPrem')]
     procedure GLPostingPreviewPageHandler(var GLPostingPreview: TestPage "G/L Posting Preview")
     begin
-        GLPostingPreview.OK().Invoke();
+        GLPostingPreview.OK.Invoke;
     end;
 }

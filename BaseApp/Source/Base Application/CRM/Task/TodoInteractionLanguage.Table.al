@@ -7,7 +7,6 @@ using System.Globalization;
 table 5196 "To-do Interaction Language"
 {
     Caption = 'Task Interaction Language';
-    DataClassification = CustomerContent;
     LookupPageID = "Task Interaction Languages";
 
     fields

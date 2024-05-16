@@ -9,14 +9,14 @@ enum 7008 "Job Price Source Type"
     Extensible = true;
     value(30; "All Jobs")
     {
-        Caption = 'All Projects';
+        Caption = 'All Jobs';
     }
     value(31; Job)
     {
-        Caption = 'Project';
+        Caption = 'Job';
     }
     value(32; "Job Task")
     {
-        Caption = 'Project Task';
+        Caption = 'Job Task';
     }
 }

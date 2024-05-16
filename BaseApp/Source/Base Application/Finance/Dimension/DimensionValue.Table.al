@@ -12,7 +12,6 @@ table 349 "Dimension Value"
 {
     Caption = 'Dimension Value';
     LookupPageID = "Dimension Value List";
-    DataClassification = CustomerContent;
 
     fields
     {

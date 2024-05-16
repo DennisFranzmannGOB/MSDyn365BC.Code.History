@@ -12,7 +12,6 @@ table 5363 "CRM Organization"
     Description = 'Top level of the Microsoft Dynamics CRM business hierarchy. The organization can be a specific business, holding company, or corporation.';
     ExternalName = 'organization';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -617,7 +616,7 @@ table 5363 "CRM Organization"
         }
         field(79; ModifiedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
             Caption = 'ModifiedByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedbyname';
@@ -626,7 +625,7 @@ table 5363 "CRM Organization"
         }
         field(80; CreatedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
             Caption = 'CreatedByName';
             ExternalAccess = Read;
             ExternalName = 'createdbyname';
@@ -999,7 +998,7 @@ table 5363 "CRM Organization"
         }
         field(130; BaseCurrencyIdName; Text[100])
         {
-            CalcFormula = lookup("CRM Transactioncurrency".CurrencyName where(TransactionCurrencyId = field(BaseCurrencyId)));
+            CalcFormula = Lookup("CRM Transactioncurrency".CurrencyName where(TransactionCurrencyId = field(BaseCurrencyId)));
             Caption = 'BaseCurrencyIdName';
             ExternalAccess = Read;
             ExternalName = 'basecurrencyidname';
@@ -1113,7 +1112,7 @@ table 5363 "CRM Organization"
         }
         field(143; CreatedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
             Caption = 'CreatedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'createdonbehalfbyname';
@@ -1131,7 +1130,7 @@ table 5363 "CRM Organization"
         }
         field(145; ModifiedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
             Caption = 'ModifiedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedonbehalfbyname';

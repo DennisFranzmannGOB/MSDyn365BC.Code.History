@@ -6,7 +6,6 @@ using Microsoft.Inventory.Location;
 table 7380 "Phys. Invt. Item Selection"
 {
     Caption = 'Phys. Invt. Item Selection';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -31,7 +30,7 @@ table 7380 "Phys. Invt. Item Selection"
         }
         field(4; Description; Text[100])
         {
-            CalcFormula = lookup(Item.Description where("No." = field("Item No.")));
+            CalcFormula = Lookup(Item.Description where("No." = field("Item No.")));
             Caption = 'Description';
             Editable = false;
             FieldClass = FlowField;

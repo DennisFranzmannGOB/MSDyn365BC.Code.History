@@ -10,7 +10,6 @@ table 84 "Acc. Schedule Name"
     Caption = 'Acc. Schedule Name';
     DataCaptionFields = Name, Description;
     LookupPageID = "Account Schedule Names";
-    DataClassification = CustomerContent;
 
     fields
     {

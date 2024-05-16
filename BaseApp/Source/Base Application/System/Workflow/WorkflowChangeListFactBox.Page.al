@@ -28,7 +28,7 @@ page 1527 "Workflow Change List FactBox"
                     ApplicationArea = Suite;
                     Caption = 'New Value';
                     Style = StrongAccent;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies the field value after the field is changed.';
                 }
                 field(OldValue; OldValue)

@@ -18,7 +18,6 @@ using Microsoft.Warehouse.Structure;
 table 5855 "Invt. Shipment Line"
 {
     Caption = 'Item Shipment Line';
-    DataClassification = CustomerContent;
 
     fields
     {

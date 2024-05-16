@@ -776,6 +776,8 @@ codeunit 136319 "Job Item Tracking"
         JobTask: Record "Job Task";
         ReservationEntry: Record "Reservation Entry";
         ItemLedgerEntry: Record "Item Ledger Entry";
+        ReservationStatus: Enum "Reservation Status";
+        ItemTrackingLinesPage: TestPage "Item Tracking Lines";
         QtyInventory: Integer;
         SerialNo1: Code[20];
         SerialNo2: Code[20];
@@ -962,6 +964,7 @@ codeunit 136319 "Job Item Tracking"
         ItemSNAll: Record Item;
         ItemSNWMS: Record Item;
         ItemNegAdj: Record Item;
+        JobPlanningLine: Record "Job Planning Line";
         JobPlanningLine1: Record "Job Planning Line";
         JobPlanningLine2: Record "Job Planning Line";
         JobPlanningLine3: Record "Job Planning Line";
@@ -1615,6 +1618,8 @@ codeunit 136319 "Job Item Tracking"
         JobTask: Record "Job Task";
         WarehouseActivityLine: Record "Warehouse Activity Line";
         ReservationEntry: Record "Reservation Entry";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        ReservationStatus: Enum "Reservation Status";
         QtyInventory: Integer;
         SerialNo: Code[20];
     begin
@@ -1861,6 +1866,8 @@ codeunit 136319 "Job Item Tracking"
         JobPlanningLine6: Record "Job Planning Line";
         Job: Record Job;
         JobTask: Record "Job Task";
+        WarehouseActivityLine: Record "Warehouse Activity Line";
+        ReservationEntry: Record "Reservation Entry";
         ReservationStatus: Enum "Reservation Status";
         QtyInventory: Integer;
     begin
@@ -1950,6 +1957,7 @@ codeunit 136319 "Job Item Tracking"
         Job: Record Job;
         JobTask: Record "Job Task";
         WarehouseActivityLine: Record "Warehouse Activity Line";
+        ReservationEntry: Record "Reservation Entry";
         ReservationStatus: Enum "Reservation Status";
         QtyInventory: Integer;
         QtyToHandle: Integer;
@@ -2046,6 +2054,7 @@ codeunit 136319 "Job Item Tracking"
         Job: Record Job;
         JobTask: Record "Job Task";
         WarehouseActivityLine: Record "Warehouse Activity Line";
+        ReservationEntry: Record "Reservation Entry";
         ReservationStatus: Enum "Reservation Status";
         QtyInventory: Integer;
         QtyToHandle: Integer;
@@ -2124,11 +2133,13 @@ codeunit 136319 "Job Item Tracking"
     procedure QtyToHandleDoesNotMatchItemTrackingOnJobPlanningLineForLotWithSplitError()
     var
         ItemLotAll1: Record Item;
+        ItemTrackingCode: Record "Item Tracking Code";
         JobPlanningLine1: Record "Job Planning Line";
         JobPlanningLine2: Record "Job Planning Line";
         Job: Record Job;
         JobTask: Record "Job Task";
         WarehouseActivityLine: Record "Warehouse Activity Line";
+        ReservationEntry: Record "Reservation Entry";
         ReservationStatus: Enum "Reservation Status";
         QtyInventory: Integer;
         QtyOnJobPlanningLine: Integer;
@@ -2232,6 +2243,7 @@ codeunit 136319 "Job Item Tracking"
     var
         ItemLotAll1: Record Item;
         ItemLotAll2: Record Item;
+        ItemTrackingCode: Record "Item Tracking Code";
         JobPlanningLine1: Record "Job Planning Line";
         JobPlanningLine2: Record "Job Planning Line";
         JobPlanningLine3: Record "Job Planning Line";
@@ -2239,6 +2251,7 @@ codeunit 136319 "Job Item Tracking"
         Job: Record Job;
         JobTask: Record "Job Task";
         WarehouseActivityLine: Record "Warehouse Activity Line";
+        ReservationEntry: Record "Reservation Entry";
         ReservationStatus: Enum "Reservation Status";
         QtyInventory: Integer;
         QtyOnJobPlanningLine: Integer;
@@ -2360,6 +2373,7 @@ codeunit 136319 "Job Item Tracking"
         Job: Record Job;
         JobTask: Record "Job Task";
         WarehouseActivityLine: Record "Warehouse Activity Line";
+        ReservationEntry: Record "Reservation Entry";
         ReservationStatus: Enum "Reservation Status";
         QtyInventory: Integer;
         QtyToHandle: Integer;
@@ -2475,6 +2489,8 @@ codeunit 136319 "Job Item Tracking"
         Job: Record Job;
         JobTask: Record "Job Task";
         JobJournalLine: Record "Job Journal Line";
+        WarehouseActivityLine: Record "Warehouse Activity Line";
+        ReservationEntry: Record "Reservation Entry";
         ReservationStatus: Enum "Reservation Status";
         QtyInventory: Integer;
     begin
@@ -2549,23 +2565,23 @@ codeunit 136319 "Job Item Tracking"
         // [WHEN] Post job journal lines for the planning lines.
         // [THEN] Error: Items not picked and therefore we cannot post job usage.
         asserterror OpenRelatedJournalAndPost(JobPlanningLine1);
-        Assert.ExpectedError('You cannot post usage for project number');
+        Assert.ExpectedError('You cannot post usage for job number');
 
         asserterror OpenRelatedJournalAndPost(JobPlanningLine2);
-        Assert.ExpectedError('You cannot post usage for project number');
+        Assert.ExpectedError('You cannot post usage for job number');
 
         asserterror OpenRelatedJournalAndPost(JobPlanningLine3);
-        Assert.ExpectedError('You cannot post usage for project number');
+        Assert.ExpectedError('You cannot post usage for job number');
 
         asserterror OpenRelatedJournalAndPost(JobPlanningLine4);
-        Assert.ExpectedError('You cannot post usage for project number');
+        Assert.ExpectedError('You cannot post usage for job number');
 
         asserterror OpenRelatedJournalAndPost(JobPlanningLine5);
-        Assert.ExpectedError('You cannot post usage for project number');
+        Assert.ExpectedError('You cannot post usage for job number');
 
         asserterror OpenRelatedJournalAndPost(JobPlanningLine6);
-        Assert.ExpectedError('You cannot post usage for project number');
-        
+        Assert.ExpectedError('You cannot post usage for job number');
+
         // [WHEN] Split the lines
         // [WHEN] AutoFill Qty. to handle and Post Inventory Pick for LocationWithRequirePickBinMandatory
         SplitAndPostInventoryPickFromPage(Job."No.", LocationWithRequirePickBinMandatory.Code, true);
@@ -2907,6 +2923,7 @@ codeunit 136319 "Job Item Tracking"
         JobPlanningLine: Record "Job Planning Line";
         Job: Record Job;
         JobTask: Record "Job Task";
+        ReservationEntry: Record "Reservation Entry";
         ItemLedgerEntry: Record "Item Ledger Entry";
         WarehouseActivityLine: Record "Warehouse Activity Line";
         SerialNo1: Code[50];
@@ -4130,6 +4147,7 @@ codeunit 136319 "Job Item Tracking"
         ItemNo: Code[20];
         LocationCode: Code[10];
         HowMany: Integer;
+        Count: Integer;
     begin
         ActionOption := LibraryVariableStorage.DequeueInteger();
         case ActionOption of
@@ -4251,7 +4269,7 @@ codeunit 136319 "Job Item Tracking"
     [Scope('OnPrem')]
     procedure JobTransferToSalesInvoiceRequestPageHandler(var JobTransferToSalesInvoice: TestRequestPage "Job Transfer to Sales Invoice")
     begin
-        JobTransferToSalesInvoice.OK().Invoke();
+        JobTransferToSalesInvoice.OK.Invoke;
     end;
 
     [RequestPageHandler]

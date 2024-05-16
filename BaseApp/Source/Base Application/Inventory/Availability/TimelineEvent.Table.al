@@ -3,7 +3,6 @@ namespace Microsoft.Inventory.Availability;
 table 5540 "Timeline Event"
 {
     Caption = 'Timeline Event';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -74,5 +73,14 @@ table 5540 "Timeline Event"
     fieldgroups
     {
     }
+
+
+#if not CLEAN21
+    [Obsolete('This procedure is discontinued because the TimelineVisualizer control has been deprecated.', '21.0')]
+    procedure DefaultTime(): Time
+    begin
+        exit(0T);
+    end;
+#endif    
 }
 

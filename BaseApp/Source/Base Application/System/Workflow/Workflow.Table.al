@@ -11,7 +11,6 @@ table 1501 Workflow
     Permissions = TableData "Workflow Step" = rimd,
                   TableData "Workflow Step Instance" = rm;
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

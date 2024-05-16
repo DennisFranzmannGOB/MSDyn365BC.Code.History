@@ -1,10 +1,6 @@
-#if not CLEAN24
 codeunit 2161 "Calendar Event Execution"
 {
     Permissions = TableData "Calendar Event" = rimd;
-    ObsoleteReason = 'Invoicing';
-    ObsoleteState = Pending;
-    ObsoleteTag = '24.0';
 
     trigger OnRun()
     var
@@ -126,4 +122,4 @@ codeunit 2161 "Calendar Event Execution"
     begin
     end;
 }
-#endif
+

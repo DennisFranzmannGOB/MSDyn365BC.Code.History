@@ -8,7 +8,6 @@ table 1701 "Deferral Header"
 {
     Caption = 'Deferral Header';
     DataCaptionFields = "Schedule Description";
-    DataClassification = CustomerContent;
 
     fields
     {

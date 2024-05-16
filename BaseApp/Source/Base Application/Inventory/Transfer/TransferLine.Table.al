@@ -24,7 +24,6 @@ table 5741 "Transfer Line"
     Caption = 'Transfer Line';
     DrillDownPageID = "Transfer Lines";
     LookupPageID = "Transfer Lines";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -706,7 +705,7 @@ table 5741 "Transfer Line"
                     TestField(Quantity);
                     ItemLedgEntry.Get("Appl.-to Item Entry");
                     ItemLedgEntry.TestField(Positive, true);
-                    if (ItemLedgEntry."Lot No." <> '') or (ItemLedgEntry."Serial No." <> '') then
+                    if (ItemLedgEntry."Lot No." <> '') or (ItemLedgEntry."Serial No." <> '') or (ItemLedgEntry."Package No." <> '') then
                         Error(MustUseTrackingErr, ItemTrackingLines.Caption, FieldCaption("Appl.-to Item Entry"));
                     if Abs("Qty. to Ship (Base)") > ItemLedgEntry.Quantity then
                         Error(ShippingMoreUnitsThanReceivedErr, ItemLedgEntry.Quantity, ItemLedgEntry."Document No.");
@@ -1015,7 +1014,7 @@ table 5741 "Transfer Line"
     begin
         IsHandled := false;
         OnBeforeOnInsert(Rec, xRec, TransHeader, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit;
 
         TestStatusOpen();

@@ -6,7 +6,6 @@ table 404 "Change Log Setup (Field)"
 {
     Caption = 'Change Log Setup (Field)';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -22,7 +21,7 @@ table 404 "Change Log Setup (Field)"
         }
         field(3; "Field Caption"; Text[100])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table No."),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table No."),
                                                               "No." = field("Field No.")));
             Caption = 'Field Caption';
             FieldClass = FlowField;
@@ -49,7 +48,7 @@ table 404 "Change Log Setup (Field)"
         }
         field(9; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Table No.")));
             Caption = 'Table Caption';
             FieldClass = FlowField;

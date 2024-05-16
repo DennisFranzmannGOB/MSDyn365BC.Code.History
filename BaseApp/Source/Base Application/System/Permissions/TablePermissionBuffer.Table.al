@@ -6,10 +6,15 @@ table 9800 "Table Permission Buffer"
 {
     Caption = 'Table Permission Buffer';
     ReplicateData = false;
+#if CLEAN21
     ObsoleteState = Removed;
     ObsoleteTag = '24.0';
     ObsoleteReason = 'Replaced with using temporary table Tenant Permission.';
-    DataClassification = CustomerContent;
+#else
+    ObsoleteState = Pending;
+    ObsoleteTag = '21.0';
+    ObsoleteReason = 'Replaced with using temporary table Tenant Permission.';
+#endif
 
     fields
     {
@@ -49,7 +54,7 @@ table 9800 "Table Permission Buffer"
         }
         field(5; "Object Name"; Text[249])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = field("Object Type"),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = field("Object Type"),
                                                                            "Object ID" = field("Object ID")));
             Caption = 'Object Name';
             FieldClass = FlowField;

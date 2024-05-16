@@ -2,27 +2,10 @@ codeunit 134998 "Reminder - Add. Fee Setup"
 {
     Subtype = Test;
     TestPermissions = NonRestrictive;
-    Permissions = TableData "Feature Data Update Status" = rimd;
 
     trigger OnRun()
     begin
         // [FEATURE] [ERM] [Reminder] [Additional Fee]
-    end;
-
-    local procedure Initialize()
-    var
-        FeatureKey: Record "Feature Key";
-        FeatureKeyUpdateStatus: Record "Feature Data Update Status";
-    begin
-        if FeatureKey.Get('ReminderTermsCommunicationTexts') then begin
-            FeatureKey.Enabled := FeatureKey.Enabled::None;
-            FeatureKey.Modify();
-        end;
-        if FeatureKeyUpdateStatus.Get('ReminderTermsCommunicationTexts', CompanyName()) then begin
-            FeatureKeyUpdateStatus."Feature Status" := FeatureKeyUpdateStatus."Feature Status"::Disabled;
-            FeatureKeyUpdateStatus.Modify();
-        end;
-        Commit();
     end;
 
     var
@@ -47,7 +30,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] Remaining amount is less than Threshold Remaining Amount defined in Additional Fee Setup
         // and Calculation Type is Accumulated Dynamic then Add. Fee Amount = 0
-        Initialize();
 
         // [GIVEN] Remaining Amount less than Threshold Remaining Amount
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -74,7 +56,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Setup contains Additional Fee Amount >0 and Additional Fee % = 0
         // and Calculation Type is Accumulated Dynamic then calculated amount is Additional Fee Amount
-        Initialize();
 
         // [GIVEN] Additional Fee Setup conatins Additional Fee Amount <>0 and Additional Fee % = 0
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -108,7 +89,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Setup contains Additional Fee Amount  = 0 and Additional Fee % > 0
         // and Calculation Type is Accumulated Dynamic then Add. Fee calculation is based on Additional Fee %
-        Initialize();
 
         // [GIVEN] Additional Fee Setup conatins Additional Fee Amount = 0 and Additional Fee % > 0
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -142,7 +122,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Amount calculated from Additional Fee Setup is less than Min. Add. Fee Amount
         // and Calculation Type is Accumulated Dynamic then calculated amount is equal to Min. Add. Fee Amount
-        Initialize();
 
         // [GIVEN] Additional Fee Amount defined by Additional Fee Setup is less than Min. Add. Fee Amount
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -176,7 +155,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Amount calculated from Additional Fee Setup is equal to Min. Add. Fee Amount
         // and Calculation Type is Accumulated Dynamic then calculated amount is 0
-        Initialize();
 
         // [GIVEN] Additional Fee Amount defined by Additional Fee Setup is equal to Min. Add. Fee Amount
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -209,7 +187,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Amount calculated from Additional Fee Setup is bigger than Max. Add. Fee Amount
         // and Calculation Type is Accumulated Dynamic then calculated amount is equal to Max. Add. Fee Amount
-        Initialize();
 
         // [GIVEN] When Additional Fee Amount calculated from Additional Fee Setup is bigger than Max. Add. Fee Amount
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -242,7 +219,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Amount calculated from Additional Fee Setup is equal to Max. Add. Fee Amount
         // and Calculation Type is Accumulated Dynamic then calculated amount is equal to Max. Add. Fee Amount
-        Initialize();
 
         // [GIVEN] When Additional Fee Amount calculated from Additional Fee Setup is equal to Max. Add. Fee Amount
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -277,7 +253,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         // [SCENARIO 107048] When Additional Fee Setup contains Additional Fee Amount  > 0 and Additional Fee % > 0
         // and Calculation Type is Accumulated Dynamic then Add. Fee calculation is sum of Additional Fee Amount
         // and "Additional Fee %" * RemainingAmount / 100
-        Initialize();
 
         // [GIVEN] Additional Fee Setup conatins Additional Fee Amount > 0 and Additional Fee % > 0
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -317,7 +292,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Setup contains multiple amount ranges with Additional Fee Amount  > 0 and Additional Fee % > 0
         // and Calculation Type is Accumulated Dynamic then Add. Fee calculation is based on amount ranges
-        Initialize();
 
         // [GIVEN] When Additional Fee Setup contains multiple amount ranges with Additional Fee Amount  > 0 and Additional Fee % > 0
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -376,13 +350,12 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Setup contains record with Currency Code <> ''
         // and Calculation Type is Accumulated Dynamic then Add. Fee calculation is based on that record
-        Initialize();
 
         // [GIVEN] When Additional Fee Setup contains record with Currency Code <> ''
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
         RemainingAmount := LibraryRandom.RandDec(99, 2);
         AddFeePerc := LibraryRandom.RandDec(100, 2);
-        CreateAddFeeSetupUT(AdditionalFeeSetup, 0, LibraryERM.CreateCurrencyWithRandomExchRates(), false, AddFeeCalculationType);
+        CreateAddFeeSetupUT(AdditionalFeeSetup, 0, LibraryERM.CreateCurrencyWithRandomExchRates, false, AddFeeCalculationType);
 
         SetUpAdditionalFeePropertiesUT(AdditionalFeeSetup,
           0,// Min. Add. Fee Amount
@@ -411,7 +384,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When calculation requires Additional Fee per Line
         // and Calculation Type is Accumulated Dynamic then calculation will be based only on record with Charge per Line = TRUE
-        Initialize();
 
         // [GIVEN] Additional Fee Setup conatins record with Charge per Line = TRUE
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -444,7 +416,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] Remaining amount is less than Threshold Remaining Amount defined in Additional Fee Setup
         // and Calculation Type is Single Dynamic then Add. Fee Amount = 0
-        Initialize();
 
         // [GIVEN] Remaining Amount less than Threshold Remaining Amount
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -471,7 +442,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Setup contains Additional Fee Amount > 0 and Additional Fee % = 0
         // and Calculation Type is Single Dynamic then calculated amount is Additional Fee Amount
-        Initialize();
 
         // [GIVEN] Additional Fee Setup conatins Additional Fee Amount <>0 and Additional Fee % = 0
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -505,7 +475,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Setup contains Additional Fee Amount  = 0 and Additional Fee % > 0
         // and Calculation Type is Single Dynamic then Add. Fee calculation is equal to Remaining Amount * Additional Fee %/100
-        Initialize();
 
         // [GIVEN] Additional Fee Setup conatins Additional Fee Amount = 0 and Additional Fee % > 0
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -539,7 +508,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Amount calculated from Additional Fee Setup is less than Min. Add. Fee Amount
         // and Calculation Type is Single Dynamic then calculated amount is equal to Min. Add. Fee Amount
-        Initialize();
 
         // [GIVEN] Additional Fee Amount defined by Additional Fee Setup is less than Min. Add. Fee Amount
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -573,7 +541,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Amount calculated from Additional Fee Setup is equal to Min. Add. Fee Amount
         // and Calculation Type is Single Dynamic then calculated amount is Min. Add. Fee Amount
-        Initialize();
 
         // [GIVEN] Additional Fee Amount defined by Additional Fee Setup is equal to Min. Add. Fee Amount
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -606,7 +573,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Amount calculated from Additional Fee Setup is bigger than Max. Add. Fee Amount
         // and Calculation Type is Single Dynamic then calculated amount is equal to Max. Add. Fee Amount
-        Initialize();
 
         // [GIVEN] When Additional Fee Amount calculated from Additional Fee Setup is bigger than Max. Add. Fee Amount
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -639,7 +605,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Amount calculated from Additional Fee Setup is equal to Max. Add. Fee Amount
         // and Calculation Type is Single Dynamic then calculated amount is equal to Max. Add. Fee Amount
-        Initialize();
 
         // [GIVEN] When Additional Fee Amount calculated from Additional Fee Setup is equal to Max. Add. Fee Amount
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -674,7 +639,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         // [SCENARIO 107048] When Additional Fee Setup contains Additional Fee Amount  > 0 and Additional Fee % > 0
         // and Calculation Type is Single Dynamic then Add. Fee calculation is sum of Add Fee Amount
         // and "Additional Fee %" * RemainingAmount / 100 from that Amount Range
-        Initialize();
 
         // [GIVEN] Additional Fee Setup conatins Additional Fee Amount > 0 and Additional Fee % > 0
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -714,7 +678,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Setup contains multiple amount ranges with Additional Fee Amount  > 0 and Additional Fee % > 0
         // and Calculation Type is Single Dynamic then Add. Fee calculation is based on chosen amount range
-        Initialize();
 
         // [GIVEN] When Additional Fee Setup contains multiple amount ranges with Additional Fee Amount  > 0 and Additional Fee % > 0
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -771,13 +734,12 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Additional Fee Setup contains record with Currency Code <> ''
         // and Calculation Type is Single Dynamic then Add. Fee calculation is based on that record
-        Initialize();
 
         // [GIVEN] When Additional Fee Setup contains record with Currency Code <> ''
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
         RemainingAmount := LibraryRandom.RandDec(99, 2);
         AddFeePerc := LibraryRandom.RandDec(100, 2);
-        CreateAddFeeSetupUT(AdditionalFeeSetup, 0, LibraryERM.CreateCurrencyWithRandomExchRates(), false, AddFeeCalculationType);
+        CreateAddFeeSetupUT(AdditionalFeeSetup, 0, LibraryERM.CreateCurrencyWithRandomExchRates, false, AddFeeCalculationType);
 
         SetUpAdditionalFeePropertiesUT(AdditionalFeeSetup,
           0,// Min. Add. Fee Amount
@@ -806,7 +768,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When calculation requires Additional Fee per Line
         // and Calculation Type is Dynamic then calculation will be based only on record with Charge per Line = TRUE
-        Initialize();
 
         // [GIVEN] Additional Fee Setup conatins record with Charge per Line = TRUE
         AddFeeCalculationType := AddFeeCalculationType::"Single Dynamic";
@@ -839,7 +800,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         // [SCENARIO 107048] When Reminder Level contains Additional Fee Amount > 0
         // and Post Additional Fee = TRUE and Calculation Type is Fixed
         // then calculated amount is Additional Fee Amount
-        Initialize();
 
         // [GIVEN] When Reminder Level contains Additional Fee (LCY) Amount > 0
         AddFeeCalculationType := AddFeeCalculationType::Fixed;
@@ -866,7 +826,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         // [SCENARIO 107048] When Reminder Level contains Additional Fee per Line Amount > 0
         // and Post Additional Fee per Line  = TRUE
         // and Calculation Type is Fixed then calculated amount is Additional Fee per Line Amount
-        Initialize();
 
         // [GIVEN] When Reminder Level contains Additional Fee Amount > 0
         AddFeeCalculationType := AddFeeCalculationType::Fixed;
@@ -895,10 +854,9 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         // [SCENARIO 107048] When Reminder Level contains Currency for Reminder Level record
         // and Post Additional Fee = TRUE and Calculation Type is Fixed
         // then calculated amount is Additional Fee Amount in FCY
-        Initialize();
 
         // [GIVEN] When Reminder Level contains Additional Fee (LCY) Amount record
-        Currency.Get(LibraryERM.CreateCurrencyWithRandomExchRates());
+        Currency.Get(LibraryERM.CreateCurrencyWithRandomExchRates);
         AddFeeCalculationType := AddFeeCalculationType::Fixed;
         AddFeeAmount := LibraryRandom.RandDec(100, 2);
         CreateReminderTermsAndLevel(ReminderLevel, true, true, AddFeeCalculationType);
@@ -925,10 +883,9 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         // [SCENARIO 107048] When Reminder Level contains Currency for Reminder Level
         // and Post Additional Fee per Line = TRUE and Calculation Type is Fixed
         // then calculated amount is Additional Fee per Line Amount in FCY
-        Initialize();
 
         // [GIVEN] When Reminder Level contains Currency for Reminder Level
-        Currency.Get(LibraryERM.CreateCurrencyWithRandomExchRates());
+        Currency.Get(LibraryERM.CreateCurrencyWithRandomExchRates);
         AddFeeCalculationType := AddFeeCalculationType::Fixed;
         AddFeePerLineAmount := LibraryRandom.RandDec(100, 2);
         CreateReminderTermsAndLevel(ReminderLevel, true, true, AddFeeCalculationType);
@@ -953,7 +910,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     begin
         // [SCENARIO 107048] When Reminder Terms has value Post Add. Fee Per Line = FALSE
         // then Add. Fee Amount =0
-        Initialize();
 
         // [GIVEN] When Reminder Terms has value Post Add. Fee per Line = FALSE
         AddFeeCalculationType := AddFeeCalculationType::Fixed;
@@ -982,7 +938,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         PageCaption: Text;
     begin
         // [SCENARIO 107048] Verify Add. Fee Setup Caption
-        Initialize();
 
         // [GIVEN] When Reminder Terms and Reminder Level exist
         CreateReminderTermsAndLevel(ReminderLevel, true, true, AddFeeCalculationType);
@@ -991,8 +946,8 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         OpenReminderLevelsPage(ReminderLevels, ReminderLevel."Reminder Terms Code", ReminderLevel."No.");
         ReminderLevels."Add. Fee Calculation Type".SetValue(ReminderLevel."Add. Fee Calculation Type"::"Single Dynamic");
 
-        AdditionalFeeSetupPage.Trap();
-        ReminderLevels."Additional Fee per Line".Invoke();
+        AdditionalFeeSetupPage.Trap;
+        ReminderLevels."Additional Fee per Line".Invoke;
         PageCaption := AddFeePerLineTxt + ' ' + ReminderTermsTxt + ' ' + ReminderLevel."Reminder Terms Code" + ' ' +
           ReminderLevelTxt + ' ' + Format(ReminderLevel."No.");
 
@@ -1010,7 +965,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         ReminderLevels: TestPage "Reminder Levels";
     begin
         // [SCENARIO 107048] Verify Add. Fee Chart
-        Initialize();
 
         // [GIVEN] When Reminder Terms and Reminder Level exist
         CreateReminderTermsAndLevel(ReminderLevel, true, true, AddFeeCalculationType);
@@ -1018,8 +972,8 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         // [WHEN] Add. Fee Chart Page is run from Reminder Levels Page.
         OpenReminderLevelsPage(ReminderLevels, ReminderLevel."Reminder Terms Code", ReminderLevel."No.");
         ReminderLevels."Add. Fee Calculation Type".SetValue(ReminderLevel."Add. Fee Calculation Type"::"Single Dynamic");
-        AdditionalFeeChart.Trap();
-        ReminderLevels."View Additional Fee Chart".Invoke();
+        AdditionalFeeChart.Trap;
+        ReminderLevels."View Additional Fee Chart".Invoke;
 
         // [THEN] then Additional Fee  per Line, M
     end;
@@ -1035,7 +989,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         RemainingAmount: Decimal;
     begin
         // [SCENARIO 107048] Verify Add. Fee Setup Caption
-        Initialize();
 
         // [GIVEN] When Reminder Terms and Reminder Level exist
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -1060,7 +1013,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         RemainingAmount: Decimal;
     begin
         // [SCENARIO 107048] Verify Add. Fee Setup Caption
-        Initialize();
 
         // [GIVEN] When Reminder Terms and Reminder Level exist
         AddFeeCalculationType := AddFeeCalculationType::"Accumulated Dynamic";
@@ -1086,7 +1038,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         AdditionalFeeSetup: Record "Additional Fee Setup";
     begin
         // [SCENARIO 291536] Changing Additional Fee Amount in Additional Fee Setup validates the value to it's parent Reminder Level
-        Initialize();
 
         // [GIVEN] Additional Fee Setup was created for a Reminder Level with Charge Per Line = FALSE
         CreateAddFeeSetupUT(AdditionalFeeSetup, 0, '', false, ReminderLevel."Add. Fee Calculation Type"::"Accumulated Dynamic");
@@ -1107,7 +1058,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         AdditionalFeeSetup: Record "Additional Fee Setup";
     begin
         // [SCENARIO 291536] Changing Additional Fee Amount in Additional Fee Setup validates the Per Line value to it's parent Reminder Level
-        Initialize();
 
         // [GIVEN] Additional Fee Setup was created for a Reminder Level with Charge Per Line = TRUE
         CreateAddFeeSetupUT(AdditionalFeeSetup, 0, '', true, ReminderLevel."Add. Fee Calculation Type"::"Accumulated Dynamic");
@@ -1129,7 +1079,6 @@ codeunit 134998 "Reminder - Add. Fee Setup"
         Currency: Record Currency;
     begin
         // [SCENARIO 291536] Changing Additional Fee Amount in Additional Fee Setup validates the Per Line value to the Reminder Level
-        Initialize();
 
         // [GIVEN] Currency
         LibraryERM.CreateCurrency(Currency);
@@ -1281,10 +1230,10 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     var
         ReminderTerms: TestPage "Reminder Terms";
     begin
-        ReminderTerms.OpenEdit();
+        ReminderTerms.OpenEdit;
         ReminderTerms.FILTER.SetFilter(Code, Code);
-        ReminderLevels.Trap();
-        ReminderTerms."&Levels".Invoke();
+        ReminderLevels.Trap;
+        ReminderTerms."&Levels".Invoke;
         ReminderLevels.FILTER.SetFilter("No.", Format(No));
     end;
 
@@ -1335,11 +1284,11 @@ codeunit 134998 "Reminder - Add. Fee Setup"
     [Scope('OnPrem')]
     procedure AdditionalFeeChartPageHandler(var AdditionalFeeChart: TestPage "Additional Fee Chart")
     begin
-        AdditionalFeeChart.Last();
+        AdditionalFeeChart.Last;
         AdditionalFeeChart.ChargePerLine.SetValue(true);
         AdditionalFeeChart."Max. Remaining Amount".SetValue(LibraryRandom.RandDec(100, 2));
-        AdditionalFeeChart.Currency.SetValue(LibraryERM.CreateCurrencyWithRandomExchRates());
-        AdditionalFeeChart.OK().Invoke();
+        AdditionalFeeChart.Currency.SetValue(LibraryERM.CreateCurrencyWithRandomExchRates);
+        AdditionalFeeChart.OK.Invoke;
     end;
 }
 

@@ -10,7 +10,6 @@ using Microsoft.Finance.VAT.Setup;
 table 187 "VAT Posting Parameters"
 {
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

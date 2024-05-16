@@ -13,7 +13,6 @@ using System.Utilities;
 table 189 "VAT Setup"
 {
     Caption = 'VAT Setup';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -34,7 +33,7 @@ table 189 "VAT Setup"
                     Error(NotPossibleToDisableNonDedVATErr);
                 if not ConfirmMgt.GetResponse(OneWayWarningMsg, false) then
                     error('');
-                if GuiAllowed and "Enable Non-Deductible VAT" then
+                If GuiAllowed and "Enable Non-Deductible VAT" then
                     ShowEnableNonDeductibleVATNotification();
                 "Non-Deductible VAT Is Enabled" := true;
                 FeatureTelemetry.LogUsage('0000KI4', 'Non-Deductible VAT', 'The feature is enabled');

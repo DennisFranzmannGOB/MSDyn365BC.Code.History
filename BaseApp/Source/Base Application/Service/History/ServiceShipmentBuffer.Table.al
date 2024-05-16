@@ -11,7 +11,6 @@ table 5909 "Service Shipment Buffer"
 {
     Caption = 'Service Shipment Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

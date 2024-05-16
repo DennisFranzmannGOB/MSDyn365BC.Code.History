@@ -9,7 +9,6 @@ table 9600 "XML Schema"
     DataCaptionFields = "Code", Description;
     DrillDownPageID = "XML Schemas";
     LookupPageID = "XML Schemas";
-    DataClassification = CustomerContent;
 
     fields
     {

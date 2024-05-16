@@ -4,7 +4,6 @@ table 197 "Acc. Sched. KPI Buffer"
 {
     Caption = 'Acc. Sched. KPI Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

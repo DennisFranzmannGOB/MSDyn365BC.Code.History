@@ -233,7 +233,7 @@ page 1501 Workflow
         CurrPage.WorkflowResponses.PAGE.UpdateData();
 
         if not TemplateValueSet then begin
-            TemplateValueSet := true;
+            TemplateValueSet := True;
             Rec.SetRange(Template, Rec.Template);
         end;
     end;

@@ -6,7 +6,6 @@ using System.Security.User;
 table 467 "Workflow Webhook Entry"
 {
     Caption = 'Workflow Webhook Entry';
-    DataClassification = CustomerContent;
 
     fields
     {

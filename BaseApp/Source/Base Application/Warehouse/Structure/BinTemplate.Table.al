@@ -9,7 +9,6 @@ table 7335 "Bin Template"
     DataCaptionFields = "Code", Description;
     LookupPageID = "Bin Templates";
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -26,7 +25,7 @@ table 7335 "Bin Template"
         {
             Caption = 'Location Code';
             NotBlank = true;
-            TableRelation = Location where("Bin Mandatory" = const(true));
+            TableRelation = Location WHERE("Bin Mandatory" = CONST(true));
         }
         field(5; "Bin Description"; Text[50])
         {
@@ -35,7 +34,7 @@ table 7335 "Bin Template"
         field(6; "Zone Code"; Code[10])
         {
             Caption = 'Zone Code';
-            TableRelation = Zone.Code where("Location Code" = field("Location Code"));
+            TableRelation = Zone.Code WHERE("Location Code" = FIELD("Location Code"));
 
             trigger OnValidate()
             begin

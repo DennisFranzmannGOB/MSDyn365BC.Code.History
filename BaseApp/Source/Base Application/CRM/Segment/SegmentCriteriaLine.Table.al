@@ -6,7 +6,6 @@ using System.Globalization;
 table 5097 "Segment Criteria Line"
 {
     Caption = 'Segment Criteria Line';
-    DataClassification = CustomerContent;
     DrillDownPageID = "Segment Criteria";
 
     fields
@@ -72,7 +71,7 @@ table 5097 "Segment Criteria Line"
         }
         field(13; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Table No.")));
             Caption = 'Table Caption';
             Editable = false;

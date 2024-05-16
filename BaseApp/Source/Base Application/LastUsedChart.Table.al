@@ -1,7 +1,6 @@
 table 1311 "Last Used Chart"
 {
     Caption = 'Last Used Chart';
-    DataClassification = CustomerContent;
 
     fields
     {

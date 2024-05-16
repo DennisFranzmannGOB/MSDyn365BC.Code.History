@@ -5,7 +5,6 @@ using Microsoft.FixedAssets.FixedAsset;
 table 5650 "Total Value Insured"
 {
     Caption = 'Total Value Insured';
-    DataClassification = CustomerContent;
 
     fields
     {

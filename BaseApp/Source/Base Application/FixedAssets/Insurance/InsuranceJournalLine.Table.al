@@ -9,7 +9,6 @@ using Microsoft.Foundation.NoSeries;
 table 5635 "Insurance Journal Line"
 {
     Caption = 'Insurance Journal Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -196,11 +195,10 @@ table 5635 "Insurance Journal Line"
         InsuranceJnlTempl: Record "Insurance Journal Template";
         InsuranceJnlBatch: Record "Insurance Journal Batch";
         InsuranceJnlLine: Record "Insurance Journal Line";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         DimMgt: Codeunit DimensionManagement;
 
     procedure SetUpNewLine(LastInsuranceJnlLine: Record "Insurance Journal Line")
-    var
-        NoSeries: Codeunit "No. Series";    
     begin
         InsuranceJnlTempl.Get("Journal Template Name");
         InsuranceJnlBatch.Get("Journal Template Name", "Journal Batch Name");
@@ -211,8 +209,10 @@ table 5635 "Insurance Journal Line"
             "Document No." := LastInsuranceJnlLine."Document No.";
         end else begin
             "Posting Date" := WorkDate();
-            if InsuranceJnlBatch."No. Series" <> '' then 
-                "Document No." := NoSeries.PeekNextNo(InsuranceJnlBatch."No. Series", "Posting Date");
+            if InsuranceJnlBatch."No. Series" <> '' then begin
+                Clear(NoSeriesMgt);
+                "Document No." := NoSeriesMgt.TryGetNextNo(InsuranceJnlBatch."No. Series", "Posting Date");
+            end;
         end;
         "Source Code" := InsuranceJnlTempl."Source Code";
         "Reason Code" := InsuranceJnlBatch."Reason Code";

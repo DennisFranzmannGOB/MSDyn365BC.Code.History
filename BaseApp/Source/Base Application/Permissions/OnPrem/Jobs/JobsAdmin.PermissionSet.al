@@ -11,7 +11,7 @@ permissionset 6124 "Jobs - Admin"
 {
     Access = Public;
     Assignable = false;
-    Caption = 'Project setup';
+    Caption = 'Job setup';
 
     Permissions = tabledata "Job Journal Batch" = RIMD,
                   tabledata "Job Journal Template" = RIMD,

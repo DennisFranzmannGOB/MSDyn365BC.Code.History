@@ -6,7 +6,6 @@ table 5055 "Mailing Group"
 {
     Caption = 'Mailing Group';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Mailing Groups";
 
     fields
@@ -22,7 +21,7 @@ table 5055 "Mailing Group"
         }
         field(3; "No. of Contacts"; Integer)
         {
-            CalcFormula = count("Contact Mailing Group" where("Mailing Group Code" = field(Code)));
+            CalcFormula = Count("Contact Mailing Group" where("Mailing Group Code" = field(Code)));
             Caption = 'No. of Contacts';
             Editable = false;
             FieldClass = FlowField;

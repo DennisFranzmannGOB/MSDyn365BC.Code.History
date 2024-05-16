@@ -827,6 +827,7 @@ codeunit 139903 "Service Declaration UT"
     end;
 
     local procedure Initialize()
+    var
     begin
         LibraryTestInitialize.OnTestInitialize(Codeunit::"Service Declaration UT");
         LibrarySetupStorage.Restore();

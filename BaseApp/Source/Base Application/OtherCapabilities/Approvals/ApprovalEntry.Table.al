@@ -19,7 +19,6 @@ table 454 "Approval Entry"
 {
     Caption = 'Approval Entry';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -433,7 +432,7 @@ table 454 "Approval Entry"
         FilterGroup(0);
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterGetRecordDetails(RecRef: RecordRef; ChangeRecordDetails: Text; var Details: Text)
     begin
     end;

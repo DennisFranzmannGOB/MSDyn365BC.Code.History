@@ -8,7 +8,6 @@ table 7113 "Analysis Type"
     DataCaptionFields = "Code", Name;
     DrillDownPageID = "Analysis Type List";
     LookupPageID = "Analysis Type List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -334,14 +333,16 @@ table 7113 "Analysis Type"
     var
         AnalysisType: Record "Analysis Type";
     begin
-        AnalysisType.Init();
-        AnalysisType.Code := Code2;
-        AnalysisType.Name := Name2;
-        AnalysisType.Validate("Value Type", ValueType);
-        AnalysisType.Validate("Item Ledger Entry Type Filter", ItemLedgEntryTypeFilter);
-        AnalysisType.Validate("Value Entry Type Filter", ValueEntryTypeFilter);
-        if not AnalysisType.Insert(true) then
-            AnalysisType.Modify(true);
+        with AnalysisType do begin
+            Init();
+            Code := Code2;
+            Name := Name2;
+            Validate("Value Type", ValueType);
+            Validate("Item Ledger Entry Type Filter", ItemLedgEntryTypeFilter);
+            Validate("Value Entry Type Filter", ValueEntryTypeFilter);
+            if not Insert(true) then
+                Modify(true);
+        end;
     end;
 
     [IntegrationEvent(false, false)]

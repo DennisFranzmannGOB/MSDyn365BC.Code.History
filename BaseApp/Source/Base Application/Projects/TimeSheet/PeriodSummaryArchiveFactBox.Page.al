@@ -68,7 +68,7 @@ page 964 "Period Summary Archive FactBox"
                 Caption = 'Total';
                 Editable = false;
                 Style = Strong;
-                StyleExpr = true;
+                StyleExpr = TRUE;
                 ToolTip = 'Specifies the total.';
             }
             field(PresenceQty; PresenceQty)

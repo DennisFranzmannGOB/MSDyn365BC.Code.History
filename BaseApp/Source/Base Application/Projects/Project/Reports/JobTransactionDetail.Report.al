@@ -11,11 +11,10 @@ using System.Utilities;
 
 report 1007 "Job - Transaction Detail"
 {
-    AdditionalSearchTerms = 'Job - Transaction Detail';
     DefaultLayout = RDLC;
     RDLCLayout = './Projects/Project/Reports/JobTransactionDetail.rdlc';
     ApplicationArea = Jobs;
-    Caption = 'Project Task - Transaction Detail';
+    Caption = 'Job Task - Transaction Detail';
     UsageCategory = ReportsAndAnalysis;
 
     dataset
@@ -382,9 +381,9 @@ report 1007 "Job - Transaction Detail"
         JobLedgEntryFilter: Text;
         CurrencyFieldReq: Option "Local Currency","Foreign Currency";
         I: Integer;
-        JobTransactionDetailCaptionLbl: Label 'Project - Transaction Detail';
+        JobTransactionDetailCaptionLbl: Label 'Job - Transaction Detail';
         PageNoCaptionLbl: Label 'Page';
-        JobNoCaptionLbl: Label 'Project No.';
+        JobNoCaptionLbl: Label 'Job No.';
         PostingDateCaptionLbl: Label 'Posting Date';
         TotalUsageCaptionLbl: Label 'Total Usage';
         TotalSaleCaptionLbl: Label 'Total Sale';

@@ -422,7 +422,7 @@ page 5870 "BOM Structure"
     begin
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnRefreshPageOnBeforeRaiseError(var Item: Record Item; var RaiseError: Boolean; var ErrorText: Text)
     begin
     end;

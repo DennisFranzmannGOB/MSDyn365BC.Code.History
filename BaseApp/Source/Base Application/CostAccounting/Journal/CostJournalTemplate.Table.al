@@ -7,7 +7,6 @@ using System.Reflection;
 table 1100 "Cost Journal Template"
 {
     Caption = 'Cost Journal Template';
-    DataClassification = CustomerContent;
     LookupPageID = "Cost Journal Templates";
     ReplicateData = true;
 
@@ -41,7 +40,7 @@ table 1100 "Cost Journal Template"
         }
         field(8; "Posting Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Posting Report ID")));
             Caption = 'Posting Report Caption';
             Editable = false;

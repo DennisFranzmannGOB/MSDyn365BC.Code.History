@@ -18,6 +18,8 @@ codeunit 137602 "SCM CETAF Sales-Purchase"
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         IsInitialized: Boolean;
+        CalculatePer: Option "Item Ledger Entry",Item;
+        CalculationBase: Option " ","Last Direct Unit Cost","Standard Cost - Assembly List","Standard Cost - Manufacturing";
 
     local procedure Initialize()
     var
@@ -32,7 +34,7 @@ codeunit 137602 "SCM CETAF Sales-Purchase"
             exit;
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"SCM CETAF Sales-Purchase");
 
-        LibraryPatterns.SetNoSeries();
+        LibraryPatterns.SETNoSeries;
         LibraryERMCountryData.CreateVATData();
         LibraryERMCountryData.UpdateGeneralLedgerSetup();
         LibraryERMCountryData.UpdateGeneralPostingSetup();
@@ -109,13 +111,13 @@ codeunit 137602 "SCM CETAF Sales-Purchase"
         GetEntries(Item, ItemLedgerEntry, ValueEntry);
         AverageCost := GetAverageCost(TempItemJournalLine);
 
-        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ActualCost());
-        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ActualCost());
-        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ActualCost());
+        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ACTUALCOST);
+        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ACTUALCOST);
+        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ACTUALCOST);
 
         TempItemJournalLine.FindFirst();
-        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, AverageCost, TempItemJournalLine."Unit Amount", ActualCost());
-        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, AverageCost, TempItemJournalLine."Unit Amount", ActualCost());
+        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, AverageCost, TempItemJournalLine."Unit Amount", ACTUALCOST);
+        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, AverageCost, TempItemJournalLine."Unit Amount", ACTUALCOST);
 
         LibraryCosting.CheckAdjustment(Item);
     end;
@@ -147,14 +149,14 @@ codeunit 137602 "SCM CETAF Sales-Purchase"
         // Validate
         GetEntries(Item, ItemLedgerEntry, ValueEntry);
 
-        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ActualCost());
-        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ActualCost());
-        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ActualCost());
+        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ACTUALCOST);
+        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ACTUALCOST);
+        ValidateValueEntry_Inbound(TempItemJournalLine, ItemLedgerEntry, ValueEntry, ACTUALCOST);
 
         TempItemJournalLine.FindFirst();
-        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, FIFOCost1, TempItemJournalLine."Unit Amount", ActualCost());
-        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, FIFOCost2, TempItemJournalLine."Unit Amount", ActualCost());
-        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, FIFOCost3, TempItemJournalLine."Unit Amount", ExpectedCost());
+        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, FIFOCost1, TempItemJournalLine."Unit Amount", ACTUALCOST);
+        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, FIFOCost2, TempItemJournalLine."Unit Amount", ACTUALCOST);
+        ValidateValueEntry_Outbound(ItemLedgerEntry, ValueEntry, FIFOCost3, TempItemJournalLine."Unit Amount", EXPECTEDCOST);
 
         LibraryCosting.CheckAdjustment(Item);
     end;
@@ -922,7 +924,7 @@ codeunit 137602 "SCM CETAF Sales-Purchase"
         if ItemJnlLine.FindSet() then
             repeat
                 ItemJnlLine.Validate(
-                  "Inventory Value (Revalued)", Round(ItemJnlLine."Inventory Value (Revalued)" * Factor, LibraryERM.GetAmountRoundingPrecision()));
+                  "Inventory Value (Revalued)", Round(ItemJnlLine."Inventory Value (Revalued)" * Factor, LibraryERM.GetAmountRoundingPrecision));
                 ItemJnlLine.Modify();
             until (ItemJnlLine.Next() = 0);
         LibraryInventory.PostItemJournalBatch(ItemJnlBatch);
@@ -1015,12 +1017,12 @@ codeunit 137602 "SCM CETAF Sales-Purchase"
         exit(ValueEntry."Cost Amount (Expected)");
     end;
 
-    local procedure ActualCost(): Boolean
+    local procedure ACTUALCOST(): Boolean
     begin
         exit(true);
     end;
 
-    local procedure ExpectedCost(): Boolean
+    local procedure EXPECTEDCOST(): Boolean
     begin
         exit(false);
     end;
@@ -1052,9 +1054,9 @@ codeunit 137602 "SCM CETAF Sales-Purchase"
         Factor := 1 + LibraryPatterns.RandDec(0, 1, 5);
 
         LibraryCosting.AdjustCostItemEntries(Item."No.", '');
-        LibraryPatterns.CalculateInventoryValueRun(ItemJournalBatch, Item, RevaluationDate, "Inventory Value Calc. Per"::Item,
+        LibraryPatterns.CalculateInventoryValueRun(ItemJournalBatch, Item, RevaluationDate, CalculatePer::Item,
           Item."Costing Method" <> Item."Costing Method"::Average, Item."Costing Method" <> Item."Costing Method"::Average,
-          false, "Inventory Value Calc. Base"::" ", false, '', '');
+          false, CalculationBase::" ", false, '', '');
         ModifyPostRevaluation(ItemJournalBatch, Factor);
         Adjust(Item);
     end;

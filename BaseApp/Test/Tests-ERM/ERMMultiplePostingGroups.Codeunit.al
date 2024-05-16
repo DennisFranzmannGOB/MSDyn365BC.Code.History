@@ -16,9 +16,14 @@ codeunit 134195 "ERM Multiple Posting Groups"
         LibrarySetupStorage: Codeunit "Library - Setup Storage";
         LibraryRandom: Codeunit "Library - Random";
         LibraryUtility: Codeunit "Library - Utility";
+        LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         Assert: Codeunit Assert;
         isInitialized: Boolean;
+        BlockedTestFieldErr: Label 'Blocked must be equal to ''No''';
+        TestFieldCodeErr: Label 'TestField';
+        AccountCategory: Option ,Assets,Liabilities,Equity,Income,"Cost of Goods Sold",Expense;
+        GenProdPostingGroupTestFieldErr: Label 'Gen. Prod. Posting Group must have a value in G/L Account: No.=%1. It cannot be zero or empty.';
 
     [Test]
     [Scope('OnPrem')]
@@ -31,7 +36,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetSalesAllowMultiplePostingGroups(false);
 
         SalesOrder.OpenNew();
-        Assert.IsFalse(SalesOrder."Customer Posting Group".Editable(), 'Customer Posting Group is editable in Sales Order page');
+        Assert.IsFalse(SalesOrder."Customer Posting Group".Editable, 'Customer Posting Group is editable in Sales Order page');
     end;
 
     [Test]
@@ -51,7 +56,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         SalesOrder.OpenNew();
         SalesOrder."Sell-to Customer No.".SetValue(Customer."No.");
-        Assert.IsTrue(SalesOrder."Customer Posting Group".Editable(), 'Customer Posting Group is not editable in Sales Order page');
+        Assert.IsTrue(SalesOrder."Customer Posting Group".Editable, 'Customer Posting Group is not editable in Sales Order page');
     end;
 
     [Test]
@@ -65,7 +70,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetSalesAllowMultiplePostingGroups(false);
 
         SalesInvoice.OpenNew();
-        Assert.IsFalse(SalesInvoice."Customer Posting Group".Editable(), 'Customer Posting Group is editable in Sales Invoice page');
+        Assert.IsFalse(SalesInvoice."Customer Posting Group".Editable, 'Customer Posting Group is editable in Sales Invoice page');
     end;
 
     [Test]
@@ -85,7 +90,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         SalesInvoice.OpenNew();
         SalesInvoice."Sell-to Customer No.".SetValue(Customer."No.");
-        Assert.IsTrue(SalesInvoice."Customer Posting Group".Editable(), 'Customer Posting Group is not editable in Sales Invoice page');
+        Assert.IsTrue(SalesInvoice."Customer Posting Group".Editable, 'Customer Posting Group is not editable in Sales Invoice page');
     end;
 
     [Test]
@@ -99,7 +104,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetSalesAllowMultiplePostingGroups(false);
 
         SalesCreditMemo.OpenNew();
-        Assert.IsFalse(SalesCreditMemo."Customer Posting Group".Editable(), 'Customer Posting Group is editable in Sales Credit Memo page');
+        Assert.IsFalse(SalesCreditMemo."Customer Posting Group".Editable, 'Customer Posting Group is editable in Sales Credit Memo page');
     end;
 
     [Test]
@@ -119,7 +124,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         SalesCreditMemo.OpenNew();
         SalesCreditMemo."Sell-to Customer No.".SetValue(Customer."No.");
-        Assert.IsTrue(SalesCreditMemo."Customer Posting Group".Editable(), 'Customer Posting Group is not editable in Sales Credit Memo page');
+        Assert.IsTrue(SalesCreditMemo."Customer Posting Group".Editable, 'Customer Posting Group is not editable in Sales Credit Memo page');
     end;
 
     [Test]
@@ -133,7 +138,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetSalesAllowMultiplePostingGroups(false);
 
         SalesReturnOrder.OpenNew();
-        Assert.IsFalse(SalesReturnOrder."Customer Posting Group".Editable(), 'Customer Posting Group is editable in Sales Return Order page');
+        Assert.IsFalse(SalesReturnOrder."Customer Posting Group".Editable, 'Customer Posting Group is editable in Sales Return Order page');
     end;
 
     [Test]
@@ -153,7 +158,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         SalesReturnOrder.OpenNew();
         SalesReturnOrder."Sell-to Customer No.".SetValue(Customer."No.");
-        Assert.IsTrue(SalesReturnOrder."Customer Posting Group".Editable(), 'Customer Posting Group is not editable in Sales Return Order page');
+        Assert.IsTrue(SalesReturnOrder."Customer Posting Group".Editable, 'Customer Posting Group is not editable in Sales Return Order page');
     end;
 
     [Test]
@@ -167,7 +172,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetPurchAllowMultiplePostingGroups(false);
 
         PurchaseOrder.OpenNew();
-        Assert.IsFalse(PurchaseOrder."Vendor Posting Group".Editable(), 'Vendor Posting Group is editable in Purchase Order page');
+        Assert.IsFalse(PurchaseOrder."Vendor Posting Group".Editable, 'Vendor Posting Group is editable in Purchase Order page');
     end;
 
     [Test]
@@ -187,7 +192,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         PurchaseOrder.OpenNew();
         PurchaseOrder."Buy-from Vendor No.".SetValue(Vendor."No.");
-        Assert.IsTrue(PurchaseOrder."Vendor Posting Group".Editable(), 'Vendor Posting Group is not editable in Purchase Order page');
+        Assert.IsTrue(PurchaseOrder."Vendor Posting Group".Editable, 'Vendor Posting Group is not editable in Purchase Order page');
     end;
 
     [Test]
@@ -201,7 +206,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetPurchAllowMultiplePostingGroups(false);
 
         PurchaseInvoice.OpenNew();
-        Assert.IsFalse(PurchaseInvoice."Vendor Posting Group".Editable(), 'Vendor Posting Group is editable in Purchase Invoice page');
+        Assert.IsFalse(PurchaseInvoice."Vendor Posting Group".Editable, 'Vendor Posting Group is editable in Purchase Invoice page');
     end;
 
     [Test]
@@ -221,7 +226,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         PurchaseInvoice.OpenNew();
         PurchaseInvoice."Buy-from Vendor No.".SetValue(Vendor."No.");
-        Assert.IsTrue(PurchaseInvoice."Vendor Posting Group".Editable(), 'Vendor Posting Group is not editable in Purchase Invoice page');
+        Assert.IsTrue(PurchaseInvoice."Vendor Posting Group".Editable, 'Vendor Posting Group is not editable in Purchase Invoice page');
     end;
 
     [Test]
@@ -235,7 +240,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetPurchAllowMultiplePostingGroups(false);
 
         PurchaseCreditMemo.OpenNew();
-        Assert.IsFalse(PurchaseCreditMemo."Vendor Posting Group".Editable(), 'Vendor Posting Group is editable in Purchase Credit Memo page');
+        Assert.IsFalse(PurchaseCreditMemo."Vendor Posting Group".Editable, 'Vendor Posting Group is editable in Purchase Credit Memo page');
     end;
 
     [Test]
@@ -255,7 +260,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         PurchaseCreditMemo.OpenNew();
         PurchaseCreditMemo."Buy-from Vendor No.".SetValue(Vendor."No.");
-        Assert.IsTrue(PurchaseCreditMemo."Vendor Posting Group".Editable(), 'Vendor Posting Group is not editable in Purchase Credit Memo page');
+        Assert.IsTrue(PurchaseCreditMemo."Vendor Posting Group".Editable, 'Vendor Posting Group is not editable in Purchase Credit Memo page');
     end;
 
     [Test]
@@ -269,7 +274,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetPurchAllowMultiplePostingGroups(false);
 
         PurchaseReturnOrder.OpenNew();
-        Assert.IsFalse(PurchaseReturnOrder."Vendor Posting Group".Editable(), 'Customer Posting Group is editable in Purchase Return Order page');
+        Assert.IsFalse(PurchaseReturnOrder."Vendor Posting Group".Editable, 'Customer Posting Group is editable in Purchase Return Order page');
     end;
 
     [Test]
@@ -289,7 +294,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         PurchaseReturnOrder.OpenNew();
         PurchaseReturnOrder."Buy-from Vendor No.".SetValue(Vendor."No.");
-        Assert.IsTrue(PurchaseReturnOrder."Vendor Posting Group".Editable(), 'Vendor Posting Group is not editable in Purchase Return Order page');
+        Assert.IsTrue(PurchaseReturnOrder."Vendor Posting Group".Editable, 'Vendor Posting Group is not editable in Purchase Return Order page');
     end;
 
 
@@ -298,17 +303,13 @@ codeunit 134195 "ERM Multiple Posting Groups"
     procedure CheckServiceInvoiceCustomerPostingGroupIsNotEditableIfFeatureDisabled()
     var
         ServiceInvoice: TestPage "Service Invoice";
-        NoSeriesCode: Code[20];
     begin
         Initialize();
-        UpdateServiceDocumentNos(0, NoSeriesCode, false);
 
         SetServiceAllowMultiplePostingGroups(false);
 
         ServiceInvoice.OpenNew();
-        Assert.IsFalse(ServiceInvoice."Customer Posting Group".Editable(), 'Customer Posting Group is editable in Service Invoice page');
-        if NoSeriesCode <> '' then
-            UpdateServiceDocumentNos(0, NoSeriesCode, true);
+        Assert.IsFalse(ServiceInvoice."Customer Posting Group".Editable, 'Customer Posting Group is editable in Service Invoice page');
     end;
 
     [Test]
@@ -329,7 +330,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         ServiceInvoice.OpenNew();
         ServiceInvoice."Bill-to Customer No.".SetValue(Customer."No.");
-        Assert.IsTrue(ServiceInvoice."Customer Posting Group".Editable(), 'Customer Posting Group is not editable in Service Invoice page');
+        Assert.IsTrue(ServiceInvoice."Customer Posting Group".Editable, 'Customer Posting Group is not editable in Service Invoice page');
     end;
 
     [Test]
@@ -337,17 +338,13 @@ codeunit 134195 "ERM Multiple Posting Groups"
     procedure CheckServiceCreditMemoCustomerPostingGroupIsNotEditableIfFeatureDisabled()
     var
         ServiceCreditMemo: TestPage "Service Credit Memo";
-        NoSeriesCode: Code[20];
     begin
         Initialize();
-        UpdateServiceDocumentNos(1, NoSeriesCode, false);
 
         SetServiceAllowMultiplePostingGroups(false);
 
         ServiceCreditMemo.OpenNew();
-        Assert.IsFalse(ServiceCreditMemo."Customer Posting Group".Editable(), 'Customer Posting Group is editable in Service Credit Memo page');
-        if NoSeriesCode <> '' then
-            UpdateServiceDocumentNos(1, NoSeriesCode, true);
+        Assert.IsFalse(ServiceCreditMemo."Customer Posting Group".Editable, 'Customer Posting Group is editable in Service Credit Memo page');
     end;
 
     [Test]
@@ -368,7 +365,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         ServiceCreditMemo.OpenNew();
         ServiceCreditMemo."Bill-to Customer No.".SetValue(Customer."No.");
-        Assert.IsTrue(ServiceCreditMemo."Customer Posting Group".Editable(), 'Customer Posting Group is not editable in Service Credit Memo page');
+        Assert.IsTrue(ServiceCreditMemo."Customer Posting Group".Editable, 'Customer Posting Group is not editable in Service Credit Memo page');
     end;
 
     [Test]
@@ -382,7 +379,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
         SetSalesAllowMultiplePostingGroups(false);
 
         FinanceChargeMemo.OpenNew();
-        Assert.IsFalse(FinanceChargeMemo."Customer Posting Group".Editable(), 'Customer Posting Group is editable in Finance Charge Memo page');
+        Assert.IsFalse(FinanceChargeMemo."Customer Posting Group".Editable, 'Customer Posting Group is editable in Finance Charge Memo page');
     end;
 
     [Test]
@@ -402,7 +399,7 @@ codeunit 134195 "ERM Multiple Posting Groups"
 
         FinanceChargeMemo.OpenNew();
         FinanceChargeMemo."Customer No.".SetValue(Customer."No.");
-        Assert.IsTrue(FinanceChargeMemo."Customer Posting Group".Editable(), 'Customer Posting Group is not editable in Finance Charge Memo page');
+        Assert.IsTrue(FinanceChargeMemo."Customer Posting Group".Editable, 'Customer Posting Group is not editable in Finance Charge Memo page');
     end;
 
     [Test]
@@ -979,46 +976,6 @@ codeunit 134195 "ERM Multiple Posting Groups"
         GLEntry.SetRange("G/L Account No.", AccountNo);
         GLEntry.FindFirst();
         Assert.AreEqual(Amount, GLEntry.Amount, StrSubstNo('G/L entry amount %1 for posting group %2 is not correct', GLEntry.Amount, AccountNo));
-    end;
-
-    local procedure UpdateServiceDocumentNos(DocType: Option Invoice,CreditMemo; var OldValue: Code[20]; ReturnOldValue: Boolean)
-    var
-        ServiceMgtSetup: Record "Service Mgt. Setup";
-        NoSeries: Record "No. Series";
-        NoSeriesLine: Record "No. Series Line";
-    begin
-        ServiceMgtSetup.Get();
-
-        if ReturnOldValue then begin
-            case
-                DocType of
-                DocType::Invoice:
-                    ServiceMgtSetup."Service Invoice Nos." := OldValue;
-                DocType::CreditMemo:
-                    ServiceMgtSetup."Service Credit Memo Nos." := OldValue;
-            end;
-            ServiceMgtSetup.Modify();
-            exit;
-        end;
-
-        case DocType of
-            DocType::Invoice:
-                if not NoSeries.Get(ServiceMgtSetup."Service Invoice Nos.") then begin
-                    OldValue := ServiceMgtSetup."Service Invoice Nos.";
-                    LibraryUtility.CreateNoSeries(NoSeries, true, false, false);
-                    LibraryUtility.CreateNoSeriesLine(NoSeriesLine, NoSeries.Code, '', '');
-                    ServiceMgtSetup."Service Invoice Nos." := NoSeries.Code;
-                    ServiceMgtSetup.Modify();
-                end;
-            DocType::CreditMemo:
-                if not NoSeries.Get(ServiceMgtSetup."Service Credit Memo Nos.") then begin
-                    OldValue := ServiceMgtSetup."Service Credit Memo Nos.";
-                    LibraryUtility.CreateNoSeries(NoSeries, true, false, false);
-                    LibraryUtility.CreateNoSeriesLine(NoSeriesLine, NoSeries.Code, '', '');
-                    ServiceMgtSetup."Service Credit Memo Nos." := NoSeries.Code;
-                    ServiceMgtSetup.Modify();
-                end;
-        end;
     end;
 }
 

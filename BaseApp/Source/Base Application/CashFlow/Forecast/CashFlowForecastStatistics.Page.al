@@ -141,8 +141,8 @@ page 868 "Cash Flow Forecast Statistics"
                 field(Job; Rec.CalcSourceTypeAmount(CashFlowForecastEntry."Source Type"::Job))
                 {
                     ApplicationArea = Jobs;
-                    Caption = 'Project';
-                    ToolTip = 'Specifies amounts related to projects.';
+                    Caption = 'Job';
+                    ToolTip = 'Specifies amounts related to jobs.';
 
                     trigger OnDrillDown()
                     begin

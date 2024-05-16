@@ -1,7 +1,7 @@
 namespace Microsoft.Purchases.RoleCenters;
 
 using Microsoft.Inventory.Analysis;
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 772 "Inventory Performance"
@@ -20,20 +20,20 @@ page 772 "Inventory Performance"
                 Enabled = false;
                 ShowCaption = false;
                 Style = StrongAccent;
-                StyleExpr = true;
+                StyleExpr = TRUE;
                 ToolTip = 'Specifies the status of the chart.';
             }
-            usercontrol(BusinessChart; BusinessChart)
+            usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = Basic, Suite;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
                     Rec.SetDrillDownIndexes(point);
                     AnalysisReportChartMgt.DrillDown(Rec, AnalysisReportChartSetup);
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -173,7 +173,7 @@ page 772 "Inventory Performance"
     begin
         AnalysisReportChartMgt.UpdateChart(
           Period, AnalysisReportChartSetup, AnalysisReportChartSetup."Analysis Area"::Inventory.AsInteger(), Rec, StatusText);
-        Rec.UpdateChart(CurrPage.BusinessChart);
+        Rec.Update(CurrPage.BusinessChart);
     end;
 }
 

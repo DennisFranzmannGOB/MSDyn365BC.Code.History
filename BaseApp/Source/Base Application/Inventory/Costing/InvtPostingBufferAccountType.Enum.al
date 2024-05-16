@@ -1,8 +1,6 @@
 ﻿namespace Microsoft.Inventory.Costing;
 
-#pragma warning disable AL0659
 enum 48 "Invt. Posting Buffer Account Type"
-#pragma warning restore AL0659
 {
     Extensible = true;
     AssignmentCompatibility = true;

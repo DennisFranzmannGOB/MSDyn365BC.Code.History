@@ -741,28 +741,30 @@ report 7112 "Analysis Report"
         HasRounding := false;
         NoOfCols := 0;
         AnalysisReportManagement.CopyColumnsToTemp("Analysis Line", AnalysisColumnTemplName, TempAnalysisColumn);
-        i := 0;
-        if TempAnalysisColumn.Find('-') then begin
-            repeat
-                if TempAnalysisColumn.Show <> TempAnalysisColumn.Show::Never then begin
-                    i := i + 1;
-                    if i <= MaxColumnsDisplayed then begin
-                        Header[i] := TempAnalysisColumn."Column Header";
-                        RoundingHeader[i] := '';
-                        if TempAnalysisColumn."Rounding Factor" in [TempAnalysisColumn."Rounding Factor"::"1000", TempAnalysisColumn."Rounding Factor"::"1000000"] then begin
-                            HasRounding := true;
-                            case TempAnalysisColumn."Rounding Factor" of
-                                TempAnalysisColumn."Rounding Factor"::"1000":
-                                    RoundingHeader[i] := Text000;
-                                TempAnalysisColumn."Rounding Factor"::"1000000":
-                                    RoundingHeader[i] := Text001;
+        with TempAnalysisColumn do begin
+            i := 0;
+            if Find('-') then begin
+                repeat
+                    if Show <> Show::Never then begin
+                        i := i + 1;
+                        if i <= MaxColumnsDisplayed then begin
+                            Header[i] := "Column Header";
+                            RoundingHeader[i] := '';
+                            if "Rounding Factor" in ["Rounding Factor"::"1000", "Rounding Factor"::"1000000"] then begin
+                                HasRounding := true;
+                                case "Rounding Factor" of
+                                    "Rounding Factor"::"1000":
+                                        RoundingHeader[i] := Text000;
+                                    "Rounding Factor"::"1000000":
+                                        RoundingHeader[i] := Text001;
+                                end;
                             end;
                         end;
+                        NoOfCols += 1;
                     end;
-                    NoOfCols += 1;
-                end;
-            until (i >= MaxColumnsDisplayed) or (TempAnalysisColumn.Next() = 0);
-            MaxColumnsDisplayed := i;
+                until (i >= MaxColumnsDisplayed) or (Next() = 0);
+                MaxColumnsDisplayed := i;
+            end;
         end;
     end;
 
@@ -792,32 +794,34 @@ report 7112 "Analysis Report"
         NonZero: Boolean;
     begin
         NonZero := false;
-        TempAnalysisColumn.SetRange(TempAnalysisColumn."Analysis Column Template", AnalysisColumnTemplName);
-        i := 0;
-        if TempAnalysisColumn.Find('-') then
-            repeat
-                if TempAnalysisColumn.Show <> TempAnalysisColumn.Show::Never then begin
-                    i := i + 1;
-                    ColumnValuesDisplayed[i] :=
-                      AnalysisReportManagement.CalcCell("Analysis Line", TempAnalysisColumn, false);
-                    if AnalysisReportManagement.GetDivisionError() then
-                        if ShowError in [ShowError::"Division by Zero", ShowError::Both] then
-                            ColumnValuesAsText[i] := Text002
-                        else
-                            ColumnValuesAsText[i] := ''
-                    else
-                        if AnalysisReportManagement.GetPeriodError() then
-                            if ShowError in [ShowError::"Period Error", ShowError::Both] then
-                                ColumnValuesAsText[i] := Text004
+        with TempAnalysisColumn do begin
+            SetRange("Analysis Column Template", AnalysisColumnTemplName);
+            i := 0;
+            if Find('-') then
+                repeat
+                    if Show <> Show::Never then begin
+                        i := i + 1;
+                        ColumnValuesDisplayed[i] :=
+                          AnalysisReportManagement.CalcCell("Analysis Line", TempAnalysisColumn, false);
+                        if AnalysisReportManagement.GetDivisionError() then
+                            if ShowError in [ShowError::"Division by Zero", ShowError::Both] then
+                                ColumnValuesAsText[i] := Text002
                             else
                                 ColumnValuesAsText[i] := ''
-                        else begin
-                            NonZero := NonZero or (ColumnValuesDisplayed[i] <> 0);
-                            ColumnValuesAsText[i] :=
-                              MatrixMgt.FormatAmount(ColumnValuesDisplayed[i], TempAnalysisColumn."Rounding Factor", false);
-                        end;
-                end;
-            until (i >= MaxColumnsDisplayed) or (TempAnalysisColumn.Next() = 0);
+                        else
+                            if AnalysisReportManagement.GetPeriodError() then
+                                if ShowError in [ShowError::"Period Error", ShowError::Both] then
+                                    ColumnValuesAsText[i] := Text004
+                                else
+                                    ColumnValuesAsText[i] := ''
+                            else begin
+                                NonZero := NonZero or (ColumnValuesDisplayed[i] <> 0);
+                                ColumnValuesAsText[i] :=
+                                  MatrixMgt.FormatAmount(ColumnValuesDisplayed[i], "Rounding Factor", false);
+                            end;
+                    end;
+                until (i >= MaxColumnsDisplayed) or (Next() = 0);
+        end;
         exit(NonZero);
     end;
 

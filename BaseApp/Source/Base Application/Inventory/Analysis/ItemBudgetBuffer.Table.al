@@ -11,7 +11,6 @@ table 7136 "Item Budget Buffer"
 {
     Caption = 'Item Budget Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

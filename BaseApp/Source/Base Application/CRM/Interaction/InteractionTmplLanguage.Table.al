@@ -12,7 +12,6 @@ using System.Utilities;
 table 5103 "Interaction Tmpl. Language"
 {
     Caption = 'Interaction Tmpl. Language';
-    DataClassification = CustomerContent;
     LookupPageID = "Interact. Tmpl. Languages";
 
     fields
@@ -39,7 +38,7 @@ table 5103 "Interaction Tmpl. Language"
         field(5; "Custom Layout Code"; Code[20])
         {
             Caption = 'Custom Layout Code';
-            TableRelation = "Custom Report Layout" where("Report ID" = const(Report::"Email Merge"));
+            TableRelation = "Custom Report Layout" WHERE("Report ID" = CONST(Report::"Email Merge"));
 
             trigger OnValidate()
             begin
@@ -50,7 +49,7 @@ table 5103 "Interaction Tmpl. Language"
         }
         field(6; "Custom Layout Description"; Text[250])
         {
-            CalcFormula = lookup("Custom Report Layout".Description where(Code = field("Custom Layout Code")));
+            CalcFormula = Lookup("Custom Report Layout".Description where(Code = field("Custom Layout Code")));
             Caption = 'Custom Layout Description';
             Editable = false;
             FieldClass = FlowField;
@@ -58,12 +57,12 @@ table 5103 "Interaction Tmpl. Language"
         field(7; "Word Template Code"; Code[30])
         {
             DataClassification = CustomerContent;
-            TableRelation = "Word Template".Code where("Language Code" = field("Language Code"), "Table ID" = const(Database::"Interaction Merge Data")); // Only Interaction Merge Data word templates with same language code are allowed
+            TableRelation = "Word Template".Code WHERE("Language Code" = FIELD("Language Code"), "Table ID" = CONST(Database::"Interaction Merge Data")); // Only Interaction Merge Data word templates with same language code are allowed
         }
         field(8; "Report Layout Name"; Text[250])
         {
             Caption = 'Report Layout Name';
-            TableRelation = "Report Layout List".Name where("Report ID" = const(Report::"Email Merge"));
+            TableRelation = "Report Layout List".Name WHERE("Report ID" = CONST(Report::"Email Merge"));
 
             trigger OnLookup()
             var
@@ -83,7 +82,7 @@ table 5103 "Interaction Tmpl. Language"
             var
                 ReportLayoutList: Record "Report Layout List";
             begin
-                if "Report Layout Name" <> '' then begin
+                if "Report Layout Name" <> '' then Begin
                     ReportLayoutList.SetRange(Name, "Report Layout Name");
                     ReportLayoutList.SetRange("Report ID", Report::"Email Merge");
 

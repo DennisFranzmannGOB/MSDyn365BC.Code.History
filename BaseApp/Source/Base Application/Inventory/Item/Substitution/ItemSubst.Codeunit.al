@@ -444,27 +444,29 @@ codeunit 5701 "Item Subst."
 
         TempProdOrderComp := ProdOrderComp;
 
-        SaveQty := TempProdOrderComp."Quantity per";
+        with TempProdOrderComp do begin
+            SaveQty := "Quantity per";
 
-        TempProdOrderComp."Item No." := SubstItemNo;
-        TempProdOrderComp."Variant Code" := SubstVariantCode;
-        TempProdOrderComp."Location Code" := ProdOrderComp."Location Code";
-        TempProdOrderComp."Quantity per" := 0;
-        TempProdOrderComp.Validate("Item No.");
-        TempProdOrderComp.Validate("Variant Code");
+            "Item No." := SubstItemNo;
+            "Variant Code" := SubstVariantCode;
+            "Location Code" := ProdOrderComp."Location Code";
+            "Quantity per" := 0;
+            Validate("Item No.");
+            Validate("Variant Code");
 
-        TempProdOrderComp."Original Item No." := ProdOrderComp."Item No.";
-        TempProdOrderComp."Original Variant Code" := ProdOrderComp."Variant Code";
+            "Original Item No." := ProdOrderComp."Item No.";
+            "Original Variant Code" := ProdOrderComp."Variant Code";
 
-        if ProdOrderComp."Qty. per Unit of Measure" <> 1 then
-            if ItemUnitOfMeasure.Get(Item."No.", ProdOrderComp."Unit of Measure Code") and
-               (ItemUnitOfMeasure."Qty. per Unit of Measure" = ProdOrderComp."Qty. per Unit of Measure")
-            then
-                TempProdOrderComp.Validate("Unit of Measure Code", ProdOrderComp."Unit of Measure Code")
-            else
-                SaveQty :=
-                  Round(ProdOrderComp."Quantity per" * ProdOrderComp."Qty. per Unit of Measure", UOMMgt.QtyRndPrecision());
-        TempProdOrderComp.Validate("Quantity per", SaveQty);
+            if ProdOrderComp."Qty. per Unit of Measure" <> 1 then
+                if ItemUnitOfMeasure.Get(Item."No.", ProdOrderComp."Unit of Measure Code") and
+                   (ItemUnitOfMeasure."Qty. per Unit of Measure" = ProdOrderComp."Qty. per Unit of Measure")
+                then
+                    Validate("Unit of Measure Code", ProdOrderComp."Unit of Measure Code")
+                else
+                    SaveQty :=
+                      Round(ProdOrderComp."Quantity per" * ProdOrderComp."Qty. per Unit of Measure", UOMMgt.QtyRndPrecision());
+            Validate("Quantity per", SaveQty);
+        end;
 
         OnAfterUpdateComponentBeforeAssign(ProdOrderComp, TempProdOrderComp);
 
@@ -629,14 +631,15 @@ codeunit 5701 "Item Subst."
 
     local procedure IsSubstitutionInserted(var ItemSubstitutionToCheck: Record "Item Substitution"; ItemSubstitution: Record "Item Substitution"): Boolean
     begin
-        if ItemSubstitution."Substitute No." <> '' then begin
-            ItemSubstitutionToCheck.Reset();
-            ItemSubstitutionToCheck.SetRange("Substitute Type", ItemSubstitution."Substitute Type");
-            ItemSubstitutionToCheck.SetRange("Substitute No.", ItemSubstitution."Substitute No.");
-            ItemSubstitutionToCheck.SetRange("Substitute Variant Code", ItemSubstitution."Substitute Variant Code");
-            if ItemSubstitutionToCheck.IsEmpty() then
-                exit(ItemSubstitutionToCheck.Insert());
-        end;
+        if ItemSubstitution."Substitute No." <> '' then
+            with ItemSubstitutionToCheck do begin
+                Reset();
+                SetRange("Substitute Type", ItemSubstitution."Substitute Type");
+                SetRange("Substitute No.", ItemSubstitution."Substitute No.");
+                SetRange("Substitute Variant Code", ItemSubstitution."Substitute Variant Code");
+                if IsEmpty() then
+                    exit(Insert());
+            end;
         exit(false);
     end;
 

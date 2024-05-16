@@ -5,7 +5,6 @@ table 5210 "Cause of Inactivity"
     Caption = 'Cause of Inactivity';
     DrillDownPageID = "Causes of Inactivity";
     LookupPageID = "Causes of Inactivity";
-    DataClassification = CustomerContent;
 
     fields
     {

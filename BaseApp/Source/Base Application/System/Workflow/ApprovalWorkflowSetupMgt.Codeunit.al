@@ -51,20 +51,21 @@ codeunit 1804 "Approval Workflow Setup Mgt."
         WorkflowEventHandling: Codeunit "Workflow Event Handling";
         EventConditions: Text;
     begin
-        case TempApprovalWorkflowWizard."App. Trigger" of
-            TempApprovalWorkflowWizard."App. Trigger"::"The user sends an approval requests manually":
-                begin
-                    EventConditions := WorkflowSetup.BuildCustomerTypeConditions();
-                    CreateCustomerOrItemApprovalWorkflow(Workflow, TempApprovalWorkflowWizard, DATABASE::Customer,
-                      WorkflowSetup.CustomerWorkflowCode(), CustomerApprWorkflowDescTxt, EventConditions,
-                      WorkflowEventHandling.RunWorkflowOnSendCustomerForApprovalCode(),
-                      WorkflowEventHandling.RunWorkflowOnCancelCustomerApprovalRequestCode());
-                end;
-            TempApprovalWorkflowWizard."App. Trigger"::"The user changes a specific field":
-                CreateCustomerOrItemChangeApprovalWorkflow(Workflow, TempApprovalWorkflowWizard, DATABASE::Customer,
-                  WorkflowSetup.CustomerCreditLimitChangeApprovalWorkflowCode(), CustomerChangeApprWorkflowDescTxt,
-                  WorkflowEventHandling.RunWorkflowOnCustomerChangedCode());
-        end;
+        with TempApprovalWorkflowWizard do
+            case "App. Trigger" of
+                "App. Trigger"::"The user sends an approval requests manually":
+                    begin
+                        EventConditions := WorkflowSetup.BuildCustomerTypeConditions();
+                        CreateCustomerOrItemApprovalWorkflow(Workflow, TempApprovalWorkflowWizard, DATABASE::Customer,
+                          WorkflowSetup.CustomerWorkflowCode(), CustomerApprWorkflowDescTxt, EventConditions,
+                          WorkflowEventHandling.RunWorkflowOnSendCustomerForApprovalCode(),
+                          WorkflowEventHandling.RunWorkflowOnCancelCustomerApprovalRequestCode());
+                    end;
+                "App. Trigger"::"The user changes a specific field":
+                    CreateCustomerOrItemChangeApprovalWorkflow(Workflow, TempApprovalWorkflowWizard, DATABASE::Customer,
+                      WorkflowSetup.CustomerCreditLimitChangeApprovalWorkflowCode(), CustomerChangeApprWorkflowDescTxt,
+                      WorkflowEventHandling.RunWorkflowOnCustomerChangedCode());
+            end;
 
         Workflow.Validate(Enabled, true);
         Workflow.Modify(true);
@@ -78,20 +79,21 @@ codeunit 1804 "Approval Workflow Setup Mgt."
         WorkflowEventHandling: Codeunit "Workflow Event Handling";
         EventConditions: Text;
     begin
-        case TempApprovalWorkflowWizard."App. Trigger" of
-            TempApprovalWorkflowWizard."App. Trigger"::"The user sends an approval requests manually":
-                begin
-                    EventConditions := WorkflowSetup.BuildItemTypeConditions();
-                    CreateCustomerOrItemApprovalWorkflow(Workflow, TempApprovalWorkflowWizard, DATABASE::Item,
-                      WorkflowSetup.ItemWorkflowCode(), ItemApprWorkflowDescTxt, EventConditions,
-                      WorkflowEventHandling.RunWorkflowOnSendItemForApprovalCode(),
-                      WorkflowEventHandling.RunWorkflowOnCancelItemApprovalRequestCode());
-                end;
-            TempApprovalWorkflowWizard."App. Trigger"::"The user changes a specific field":
-                CreateCustomerOrItemChangeApprovalWorkflow(Workflow, TempApprovalWorkflowWizard, DATABASE::Item,
-                  WorkflowSetup.ItemUnitPriceChangeApprovalWorkflowCode(), ItemChangeApprWorkflowDescTxt,
-                  WorkflowEventHandling.RunWorkflowOnItemChangedCode());
-        end;
+        with TempApprovalWorkflowWizard do
+            case "App. Trigger" of
+                "App. Trigger"::"The user sends an approval requests manually":
+                    begin
+                        EventConditions := WorkflowSetup.BuildItemTypeConditions();
+                        CreateCustomerOrItemApprovalWorkflow(Workflow, TempApprovalWorkflowWizard, DATABASE::Item,
+                          WorkflowSetup.ItemWorkflowCode(), ItemApprWorkflowDescTxt, EventConditions,
+                          WorkflowEventHandling.RunWorkflowOnSendItemForApprovalCode(),
+                          WorkflowEventHandling.RunWorkflowOnCancelItemApprovalRequestCode());
+                    end;
+                "App. Trigger"::"The user changes a specific field":
+                    CreateCustomerOrItemChangeApprovalWorkflow(Workflow, TempApprovalWorkflowWizard, DATABASE::Item,
+                      WorkflowSetup.ItemUnitPriceChangeApprovalWorkflowCode(), ItemChangeApprWorkflowDescTxt,
+                      WorkflowEventHandling.RunWorkflowOnItemChangedCode());
+            end;
 
         Workflow.Validate(Enabled, true);
         Workflow.Modify(true);

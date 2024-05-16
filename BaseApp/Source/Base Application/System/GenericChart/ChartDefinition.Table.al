@@ -5,7 +5,6 @@ using Microsoft.Finance.FinancialReports;
 table 1310 "Chart Definition"
 {
     Caption = 'Chart Definition';
-    DataClassification = CustomerContent;
 
     fields
     {

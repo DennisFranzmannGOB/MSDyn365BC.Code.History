@@ -6,7 +6,6 @@ table 5910 "Service Hour"
 {
     Caption = 'Service Hour';
     LookupPageID = "Service Hours";
-    DataClassification = CustomerContent;
 
     fields
     {

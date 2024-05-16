@@ -8,7 +8,6 @@ using System.Security.User;
 table 9053 "Sales Cue"
 {
     Caption = 'Sales Cue';
-    DataClassification = CustomerContent;
 
     fields
     {

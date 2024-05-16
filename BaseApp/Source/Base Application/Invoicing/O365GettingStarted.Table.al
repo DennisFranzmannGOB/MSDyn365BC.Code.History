@@ -1,7 +1,6 @@
 table 1309 "O365 Getting Started"
 {
     Caption = 'O365 Getting Started';
-    DataClassification = CustomerContent;
 
     fields
     {

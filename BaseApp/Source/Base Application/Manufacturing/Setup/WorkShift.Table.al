@@ -5,7 +5,6 @@ table 99000750 "Work Shift"
     Caption = 'Work Shift';
     DrillDownPageID = "Work Shifts";
     LookupPageID = "Work Shifts";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -4,7 +4,6 @@ table 402 "Change Log Setup"
 {
     Caption = 'Change Log Setup';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

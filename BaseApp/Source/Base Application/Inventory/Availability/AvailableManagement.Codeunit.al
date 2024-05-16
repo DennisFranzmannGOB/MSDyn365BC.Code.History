@@ -46,49 +46,51 @@ codeunit 5400 "Available Management"
             exit(AvailableQty);
 
         CopyOfItem.Copy(Item);
-        CopyOfItem.SetRange("Date Filter", 0D, CopyOfItem.GetRangeMax(CopyOfItem."Date Filter"));
-        CopyOfItem.CalcFields(
-          "Qty. on Purch. Order",
-          "Scheduled Receipt (Qty.)",
-          "Trans. Ord. Receipt (Qty.)",
-          "Planned Order Receipt (Qty.)",
-          "Qty. on Sales Return");
+        with CopyOfItem do begin
+            SetRange("Date Filter", 0D, GetRangeMax("Date Filter"));
+            CalcFields(
+              "Qty. on Purch. Order",
+              "Scheduled Receipt (Qty.)",
+              "Trans. Ord. Receipt (Qty.)",
+              "Planned Order Receipt (Qty.)",
+              "Qty. on Sales Return");
 
-        if CopyOfItem.GetFilter("Location Filter") <> '' then
-            CopyOfItem.CalcFields("Qty. in Transit");
+            if GetFilter("Location Filter") <> '' then
+                CalcFields("Qty. in Transit");
 
-        if CalcAvailable then
-            CopyOfItem.SetRange("Date Filter", 0D, PlannedOrderReceiptDate);
-        CopyOfItem.CalcFields(
-          "Qty. on Sales Order",
-          "Qty. on Component Lines",
-          "Trans. Ord. Shipment (Qty.)",
-          "Qty. on Service Order",
-          "Qty. on Assembly Order",
-          "Qty. on Purch. Return");
+            if CalcAvailable then
+                SetRange("Date Filter", 0D, PlannedOrderReceiptDate);
+            CalcFields(
+              "Qty. on Sales Order",
+              "Qty. on Component Lines",
+              "Trans. Ord. Shipment (Qty.)",
+              "Qty. on Service Order",
+              "Qty. on Assembly Order",
+              "Qty. on Purch. Return");
 
-        if JobPlanningLine.ReadPermission then
-            CopyOfItem.CalcFields("Qty. on Job Order");
+            if JobPlanningLine.ReadPermission then
+                CalcFields("Qty. on Job Order");
 
-        AvailableQty :=
-          CopyOfItem.Inventory +
-          CopyOfItem."Qty. on Purch. Order" -
-          CopyOfItem."Qty. on Sales Order" -
-          CopyOfItem."Qty. on Component Lines" +
-          CopyOfItem."Planned Order Receipt (Qty.)" +
-          CopyOfItem."Scheduled Receipt (Qty.)" -
-          CopyOfItem."Trans. Ord. Shipment (Qty.)" +
-          CopyOfItem."Qty. in Transit" +
-          CopyOfItem."Trans. Ord. Receipt (Qty.)" -
-          CopyOfItem."Qty. on Service Order" -
-          CopyOfItem."Qty. on Job Order" -
-          CopyOfItem."Qty. on Purch. Return" +
-          CopyOfItem."Qty. on Assembly Order" +
-          CopyOfItem."Qty. on Sales Return";
+            AvailableQty :=
+              Inventory +
+              "Qty. on Purch. Order" -
+              "Qty. on Sales Order" -
+              "Qty. on Component Lines" +
+              "Planned Order Receipt (Qty.)" +
+              "Scheduled Receipt (Qty.)" -
+              "Trans. Ord. Shipment (Qty.)" +
+              "Qty. in Transit" +
+              "Trans. Ord. Receipt (Qty.)" -
+              "Qty. on Service Order" -
+              "Qty. on Job Order" -
+              "Qty. on Purch. Return" +
+              "Qty. on Assembly Order" +
+              "Qty. on Sales Return";
 
-        OnAfterCalcAvailableQty(Item, CalcAvailable, PlannedOrderReceiptDate, AvailableQty);
+            OnAfterCalcAvailableQty(Item, CalcAvailable, PlannedOrderReceiptDate, AvailableQty);
 
-        exit(AvailableQty);
+            exit(AvailableQty);
+        end;
     end;
 
     procedure GetItemReorderQty(Item: Record Item; QtyAvailable: Decimal) ReorderQty: Decimal

@@ -101,8 +101,13 @@ table 2751 "Universal Printer Settings"
         field(12; outputBin; Text[2048])
         {
             Caption = 'Output Bin';
+#if not CLEAN18
+            ObsoleteState = Pending;
+            ObsoleteTag = '18.0';
+#else
             ObsoleteState = Removed;
-            ObsoleteTag = '24.0';
+            ObsoleteTag = '23.0';
+#endif
             ObsoleteReason = 'Replaced with Paper Tray';
         }
 

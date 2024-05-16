@@ -4,7 +4,6 @@ table 5630 "Insurance Type"
 {
     Caption = 'Insurance Type';
     LookupPageID = "Insurance Types";
-    DataClassification = CustomerContent;
 
     fields
     {

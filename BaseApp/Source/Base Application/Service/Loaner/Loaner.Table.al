@@ -12,7 +12,6 @@ table 5913 Loaner
     DataCaptionFields = "No.", Description;
     DrillDownPageID = "Loaner List";
     LookupPageID = "Loaner List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -24,7 +23,7 @@ table 5913 Loaner
             begin
                 if "No." <> xRec."No." then begin
                     ServMgtSetup.Get();
-                    NoSeries.TestManual(ServMgtSetup."Loaner Nos.");
+                    NoSeriesMgt.TestManual(ServMgtSetup."Loaner Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -68,7 +67,7 @@ table 5913 Loaner
         }
         field(8; Comment; Boolean)
         {
-            CalcFormula = exist("Service Comment Line" where("Table Name" = const(Loaner),
+            CalcFormula = Exist("Service Comment Line" where("Table Name" = const(Loaner),
                                                               "Table Subtype" = const("0"),
                                                               "No." = field("No.")));
             Caption = 'Comment';
@@ -87,7 +86,7 @@ table 5913 Loaner
         }
         field(12; "Document No."; Code[20])
         {
-            CalcFormula = lookup("Loaner Entry"."Document No." where("Loaner No." = field("No."),
+            CalcFormula = Lookup("Loaner Entry"."Document No." where("Loaner No." = field("No."),
                                                                       Lent = const(true)));
             Caption = 'Document No.';
             Editable = false;
@@ -95,7 +94,7 @@ table 5913 Loaner
         }
         field(13; Lent; Boolean)
         {
-            CalcFormula = exist("Loaner Entry" where("Loaner No." = field("No."),
+            CalcFormula = Exist("Loaner Entry" where("Loaner No." = field("No."),
                                                       Lent = const(true)));
             Caption = 'Lent';
             Editable = false;
@@ -107,7 +106,7 @@ table 5913 Loaner
         }
         field(15; "Document Type"; Enum "Service Loaner Document Type")
         {
-            CalcFormula = lookup("Loaner Entry"."Document Type" where("Loaner No." = field("No."),
+            CalcFormula = Lookup("Loaner Entry"."Document Type" where("Loaner No." = field("No."),
                                                                        Lent = const(true)));
             Caption = 'Document Type';
             Editable = false;
@@ -161,27 +160,11 @@ table 5913 Loaner
     end;
 
     trigger OnInsert()
-#if not CLEAN24
-    var
-        NoSeriesMgt: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         if "No." = '' then begin
             ServMgtSetup.Get();
             ServMgtSetup.TestField("Loaner Nos.");
-#if not CLEAN24
-            NoSeriesMgt.RaiseObsoleteOnBeforeInitSeries(ServMgtSetup."Loaner Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-#endif
-                "No. Series" := ServMgtSetup."Loaner Nos.";
-                if NoSeries.AreRelated("No. Series", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series";
-                "No." := NoSeries.GetNextNo("No. Series");
-#if not CLEAN24
-                NoSeriesMgt.RaiseObsoleteOnAfterInitSeries("No. Series", ServMgtSetup."Loaner Nos.", 0D, "No.");
-            end;
-#endif
+            NoSeriesMgt.InitSeries(ServMgtSetup."Loaner Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
     end;
 
@@ -197,17 +180,19 @@ table 5913 Loaner
         Item: Record Item;
         Loaner: Record Loaner;
         LoanerEntry: Record "Loaner Entry";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
 
     procedure AssistEdit(OldLoaner: Record Loaner): Boolean
     begin
-        Loaner := Rec;
-        ServMgtSetup.Get();
-        ServMgtSetup.TestField("Loaner Nos.");
-        if NoSeries.LookupRelatedNoSeries(ServMgtSetup."Loaner Nos.", OldLoaner."No. Series", Loaner."No. Series") then begin
-            Loaner."No." := NoSeries.GetNextNo(Loaner."No. Series");
-            Rec := Loaner;
-            exit(true);
+        with Loaner do begin
+            Loaner := Rec;
+            ServMgtSetup.Get();
+            ServMgtSetup.TestField("Loaner Nos.");
+            if NoSeriesMgt.SelectSeries(ServMgtSetup."Loaner Nos.", OldLoaner."No. Series", "No. Series") then begin
+                NoSeriesMgt.SetSeries("No.");
+                Rec := Loaner;
+                exit(true);
+            end;
         end;
     end;
 }

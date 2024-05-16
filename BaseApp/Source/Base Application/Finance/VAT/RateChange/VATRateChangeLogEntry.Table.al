@@ -6,7 +6,6 @@ table 552 "VAT Rate Change Log Entry"
 {
     Caption = 'VAT Rate Change Log Entry';
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -25,7 +24,7 @@ table 552 "VAT Rate Change Log Entry"
         }
         field(11; "Table Caption"; Text[80])
         {
-            CalcFormula = lookup(AllObj."Object Name" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObj."Object Name" where("Object Type" = const(Table),
                                                              "Object ID" = field("Table ID")));
             Caption = 'Table Caption';
             Editable = false;

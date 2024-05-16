@@ -6,7 +6,6 @@ table 5216 "Confidential Information"
 {
     Caption = 'Confidential Information';
     DataCaptionFields = "Employee No.";
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -27,8 +27,6 @@ page 12 "Email Viewer"
         {
             group("Email Details")
             {
-                Caption = 'Email Details';
-
                 grid("Email Details Grid")
                 {
                     group("Email Inner Details")

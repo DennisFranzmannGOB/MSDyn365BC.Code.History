@@ -4,7 +4,6 @@ table 1500 "Workflow Buffer"
 {
     Caption = 'Workflow Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -33,21 +32,21 @@ table 1500 "Workflow Buffer"
         }
         field(6; Template; Boolean)
         {
-            CalcFormula = lookup(Workflow.Template where(Code = field("Workflow Code")));
+            CalcFormula = Lookup(Workflow.Template where(Code = field("Workflow Code")));
             Caption = 'Template';
             Editable = false;
             FieldClass = FlowField;
         }
         field(7; Enabled; Boolean)
         {
-            CalcFormula = lookup(Workflow.Enabled where(Code = field("Workflow Code")));
+            CalcFormula = Lookup(Workflow.Enabled where(Code = field("Workflow Code")));
             Caption = 'Enabled';
             Editable = false;
             FieldClass = FlowField;
         }
         field(8; "External Client ID"; Guid)
         {
-            CalcFormula = lookup("Workflow Webhook Subscription"."Client Id" where("WF Definition Id" = field("Workflow Code"),
+            CalcFormula = Lookup("Workflow Webhook Subscription"."Client Id" where("WF Definition Id" = field("Workflow Code"),
                                                                                     Enabled = const(true)));
             Caption = 'External Client ID';
             Editable = false;
@@ -55,7 +54,7 @@ table 1500 "Workflow Buffer"
         }
         field(9; "External Client Type"; Text[50])
         {
-            CalcFormula = lookup("Workflow Webhook Subscription"."Client Type" where("WF Definition Id" = field("Workflow Code"),
+            CalcFormula = Lookup("Workflow Webhook Subscription"."Client Type" where("WF Definition Id" = field("Workflow Code"),
                                                                                       Enabled = const(true)));
             Caption = 'External Client Type';
             Editable = false;

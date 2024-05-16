@@ -9,7 +9,6 @@ table 570 "G/L Account Category"
 {
     Caption = 'G/L Account Category';
     DataCaptionFields = Description;
-    DataClassification = CustomerContent;
 
     fields
     {

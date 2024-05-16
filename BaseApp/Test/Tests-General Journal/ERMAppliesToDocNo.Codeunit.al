@@ -332,6 +332,7 @@
         CustLedgerEntry: Record "Cust. Ledger Entry";
         ApplyUnapplyParameters: Record "Apply Unapply Parameters";
         PostApplicationPage: Page "Post Application";
+        ExternalDocNo: Code[35];
         MaxStrLength: Integer;
     begin
         // [SCENARIO 292999] Post Application Page can handle External Document No. of Max size
@@ -436,6 +437,7 @@
         GenJournalLine: Record "Gen. Journal Line";
         PurchaseHeader: Record "Purchase Header";
         PostedDocNo: Code[20];
+        EmployeeNo: Code[20];
     begin
         // [FEATURE] [UT]
         // [SCENARIO 431503] "Applies-To Doc. No." cleared when "Account No." is updated and "Account Type" = Vendor
@@ -466,6 +468,7 @@
         PurchaseHeader: Record "Purchase Header";
         VendorLedgerEntry: Record "Vendor Ledger Entry";
         PostedDocNo: Code[20];
+        EmployeeNo: Code[20];
     begin
         // [FEATURE] [UT]
         // [SCENARIO 431503] "Applies-To Id" cleared when "Account No." is updated and "Account Type" = Vendor
@@ -503,6 +506,7 @@
         GenJournalLine: Record "Gen. Journal Line";
         PurchaseHeader: Record "Purchase Header";
         PostedDocNo: Code[20];
+        EmployeeNo: Code[20];
     begin
         // [FEATURE] [UT]
         // [SCENARIO 431503] "Applies-To Doc. No." cleared when "Bal. Account No." is updated and "Bal. Account Type" = Vendor
@@ -537,6 +541,7 @@
         PurchaseHeader: Record "Purchase Header";
         VendorLedgerEntry: Record "Vendor Ledger Entry";
         PostedDocNo: Code[20];
+        EmployeeNo: Code[20];
     begin
         // [FEATURE] [UT]
         // [SCENARIO 431503] "Applies-To Id" cleared when "Bal. Account No." is updated and "Bal. Account Type" = Vendor
@@ -576,6 +581,7 @@
         GenJournalLine: Record "Gen. Journal Line";
         PurchaseHeader: Record "Purchase Header";
         PostedDocNo: Code[20];
+        EmployeeNo: Code[20];
     begin
         // [FEATURE] [UT]
         // [SCENARIO 431503] "Applies-To Doc. No." is not cleared when "Account No." is updated and "Account Type" = "G/L Account"
@@ -606,6 +612,7 @@
         PurchaseHeader: Record "Purchase Header";
         VendorLedgerEntry: Record "Vendor Ledger Entry";
         PostedDocNo: Code[20];
+        EmployeeNo: Code[20];
     begin
         // [FEATURE] [UT]
         // [SCENARIO 431503] "Applies-To Id" cleared when "Account No." is updated and "Account Type" = "G/L Account"
@@ -643,6 +650,7 @@
         GenJournalLine: Record "Gen. Journal Line";
         PurchaseHeader: Record "Purchase Header";
         PostedDocNo: Code[20];
+        EmployeeNo: Code[20];
     begin
         // [FEATURE] [UT]
         // [SCENARIO 431503] "Applies-To Doc. No." is not cleared when "Bal. Account No." is updated and "Bal. Account Type" = "G/L Account"
@@ -677,6 +685,7 @@
         PurchaseHeader: Record "Purchase Header";
         VendorLedgerEntry: Record "Vendor Ledger Entry";
         PostedDocNo: Code[20];
+        EmployeeNo: Code[20];
     begin
         // [FEATURE] [UT]
         // [SCENARIO 431503] "Applies-To Id" is not cleared when "Bal. Account No." is updated and "Bal. Account Type" = "G/L Account"
@@ -766,11 +775,11 @@
     begin
         case AccountType of
             GenJournalLine."Account Type"::Customer:
-                exit(LibrarySales.CreateCustomerNo());
+                exit(LibrarySales.CreateCustomerNo);
             GenJournalLine."Account Type"::Vendor:
-                exit(LibraryPurchase.CreateVendorNo());
+                exit(LibraryPurchase.CreateVendorNo);
             GenJournalLine."Account Type"::Employee:
-                exit(LibraryHumanResource.CreateEmployeeNoWithBankAccount());
+                exit(LibraryHumanResource.CreateEmployeeNoWithBankAccount);
         end;
     end;
 
@@ -791,11 +800,11 @@
     var
         CustLedgerEntry: Record "Cust. Ledger Entry";
     begin
-        CustLedgerEntry.SetRange("Document Type", LibraryVariableStorage.DequeueInteger());
-        CustLedgerEntry.SetRange("Document No.", LibraryVariableStorage.DequeueText());
+        CustLedgerEntry.SetRange("Document Type", LibraryVariableStorage.DequeueInteger);
+        CustLedgerEntry.SetRange("Document No.", LibraryVariableStorage.DequeueText);
         CustLedgerEntry.FindFirst();
         ApplyCustomerEntries.GotoRecord(CustLedgerEntry);
-        ApplyCustomerEntries.OK().Invoke();
+        ApplyCustomerEntries.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -804,11 +813,11 @@
     var
         VendorLedgerEntry: Record "Vendor Ledger Entry";
     begin
-        VendorLedgerEntry.SetRange("Document Type", LibraryVariableStorage.DequeueInteger());
-        VendorLedgerEntry.SetRange("Document No.", LibraryVariableStorage.DequeueText());
+        VendorLedgerEntry.SetRange("Document Type", LibraryVariableStorage.DequeueInteger);
+        VendorLedgerEntry.SetRange("Document No.", LibraryVariableStorage.DequeueText);
         VendorLedgerEntry.FindFirst();
         ApplyVendorEntries.GotoRecord(VendorLedgerEntry);
-        ApplyVendorEntries.OK().Invoke();
+        ApplyVendorEntries.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -817,11 +826,11 @@
     var
         EmployeeLedgerEntry: Record "Employee Ledger Entry";
     begin
-        EmployeeLedgerEntry.SetRange("Document Type", LibraryVariableStorage.DequeueInteger());
-        EmployeeLedgerEntry.SetRange("Document No.", LibraryVariableStorage.DequeueText());
+        EmployeeLedgerEntry.SetRange("Document Type", LibraryVariableStorage.DequeueInteger);
+        EmployeeLedgerEntry.SetRange("Document No.", LibraryVariableStorage.DequeueText);
         EmployeeLedgerEntry.FindFirst();
         ApplyEmployeeEntries.GotoRecord(EmployeeLedgerEntry);
-        ApplyEmployeeEntries.OK().Invoke();
+        ApplyEmployeeEntries.OK.Invoke;
     end;
 }
 

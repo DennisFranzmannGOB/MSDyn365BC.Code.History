@@ -15,7 +15,6 @@ using System.Utilities;
 table 7602 "Customized Calendar Change"
 {
     Caption = 'Customized Calendar Change';
-    DataClassification = CustomerContent;
 
     fields
     {

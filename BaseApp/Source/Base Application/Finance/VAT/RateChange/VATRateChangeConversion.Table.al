@@ -6,7 +6,6 @@ using Microsoft.Finance.VAT.Setup;
 table 551 "VAT Rate Change Conversion"
 {
     Caption = 'VAT Rate Change Conversion';
-    DataClassification = CustomerContent;
 
     fields
     {

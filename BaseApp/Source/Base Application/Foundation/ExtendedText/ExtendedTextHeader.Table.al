@@ -18,7 +18,6 @@ table 279 "Extended Text Header"
     Caption = 'Extended Text Header';
     DataCaptionFields = "No.", "Language Code", "Text No.";
     LookupPageID = "Extended Text List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -35,9 +34,9 @@ table 279 "Extended Text Header"
             else
             if ("Table Name" = const(Item)) Item
             else
-            if ("Table Name" = const(Resource)) Resource
+            if ("Table Name" = CONST(Resource)) Resource
             else
-            if ("Table Name" = const("VAT Clause")) "VAT Clause";
+            if ("Table Name" = CONST("VAT Clause")) "VAT Clause";
         }
         field(3; "Language Code"; Code[10])
         {

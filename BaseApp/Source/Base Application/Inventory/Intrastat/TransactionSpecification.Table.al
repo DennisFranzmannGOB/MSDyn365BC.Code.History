@@ -8,7 +8,6 @@ table 285 "Transaction Specification"
 {
     Caption = 'Transaction Specification';
     LookupPageID = "Transaction Specifications";
-    DataClassification = CustomerContent;
 
     fields
     {

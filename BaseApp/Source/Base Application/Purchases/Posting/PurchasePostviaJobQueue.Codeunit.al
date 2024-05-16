@@ -36,7 +36,7 @@ codeunit 98 "Purchase Post via Job Queue"
             SetJobQueueStatus(PurchHeader, PurchHeader."Job Queue Status"::Error, Rec);
             IsHandled := false;
             OnBeforeBatchProcessingErrorReset(Rec, IsHandled);
-            if not IsHandled then
+            if not IsHandled THEN
                 BatchProcessingMgt.ResetBatchID();
             Error(GetLastErrorText);
         end;
@@ -58,9 +58,9 @@ codeunit 98 "Purchase Post via Job Queue"
         DefaultCategoryCodeLbl: Label 'PURCHBCKGR', Locked = true;
         DefaultCategoryDescLbl: Label 'Def. Background Purch. Posting', Locked = true;
 
-    local procedure SetJobQueueStatus(var PurchHeader: Record "Purchase Header"; NewStatus: Enum "Document Job Queue Status"; JobQueueEntry: Record "Job Queue Entry")
+    local procedure SetJobQueueStatus(var PurchHeader: Record "Purchase Header"; NewStatus: Option; JobQueueEntry: Record "Job Queue Entry")
     begin
-        OnBeforeSetJobQueueStatus(PurchHeader, NewStatus.AsInteger(), JobQueueEntry);
+        OnBeforeSetJobQueueStatus(PurchHeader, NewStatus, JobQueueEntry);
         PurchHeader.LockTable();
         if PurchHeader.Find() then begin
             PurchHeader."Job Queue Status" := NewStatus;
@@ -85,40 +85,44 @@ codeunit 98 "Purchase Post via Job Queue"
         if Handled then
             exit;
 
-        if not (PurchHeader."Job Queue Status" in [PurchHeader."Job Queue Status"::" ", PurchHeader."Job Queue Status"::Error]) then
-            Error(WrongJobQueueStatus, PurchHeader."Document Type", PurchHeader."No.");
-        TempInvoice := PurchHeader.Invoice;
-        TempRcpt := PurchHeader.Receive;
-        TempShip := PurchHeader.Ship;
-        OnBeforeReleasePurchDoc(PurchHeader);
-        if PurchHeader.Status = PurchHeader.Status::Open then
-            CODEUNIT.Run(CODEUNIT::"Release Purchase Document", PurchHeader);
-        PurchHeader.Invoice := TempInvoice;
-        PurchHeader.Receive := TempRcpt;
-        PurchHeader.Ship := TempShip;
-        PurchHeader."Job Queue Status" := PurchHeader."Job Queue Status"::"Scheduled for Posting";
-        PurchHeader."Job Queue Entry ID" := EnqueueJobEntry(PurchHeader);
-        PurchHeader.Modify();
+        with PurchHeader do begin
+            if not ("Job Queue Status" in ["Job Queue Status"::" ", "Job Queue Status"::Error]) then
+                Error(WrongJobQueueStatus, "Document Type", "No.");
+            TempInvoice := Invoice;
+            TempRcpt := Receive;
+            TempShip := Ship;
+            OnBeforeReleasePurchDoc(PurchHeader);
+            if Status = Status::Open then
+                CODEUNIT.Run(CODEUNIT::"Release Purchase Document", PurchHeader);
+            Invoice := TempInvoice;
+            Receive := TempRcpt;
+            Ship := TempShip;
+            "Job Queue Status" := "Job Queue Status"::"Scheduled for Posting";
+            "Job Queue Entry ID" := EnqueueJobEntry(PurchHeader);
+            Modify();
 
-        if GuiAllowed then
-            if WithUI then
-                Message(Confirmation, PurchHeader."Document Type", PurchHeader."No.");
+            if GuiAllowed then
+                if WithUI then
+                    Message(Confirmation, "Document Type", "No.");
+        end;
     end;
 
     local procedure EnqueueJobEntry(PurchHeader: Record "Purchase Header"): Guid
     var
         JobQueueEntry: Record "Job Queue Entry";
     begin
-        Clear(JobQueueEntry.ID);
-        JobQueueEntry."Object Type to Run" := JobQueueEntry."Object Type to Run"::Codeunit;
-        JobQueueEntry."Object ID to Run" := CODEUNIT::"Purchase Post via Job Queue";
-        JobQueueEntry."Record ID to Process" := PurchHeader.RecordId;
-        FillJobEntryFromPurchSetup(JobQueueEntry);
-        FillJobEntryPurchDescription(JobQueueEntry, PurchHeader);
-        JobQueueEntry."User Session ID" := SessionId();
-        OnEnqueueJobEntryOnBeforeRunJobQueueEnqueue(PurchHeader, JobQueueEntry);
-        CODEUNIT.Run(CODEUNIT::"Job Queue - Enqueue", JobQueueEntry);
-        exit(JobQueueEntry.ID);
+        with JobQueueEntry do begin
+            Clear(ID);
+            "Object Type to Run" := "Object Type to Run"::Codeunit;
+            "Object ID to Run" := CODEUNIT::"Purchase Post via Job Queue";
+            "Record ID to Process" := PurchHeader.RecordId;
+            FillJobEntryFromPurchSetup(JobQueueEntry);
+            FillJobEntryPurchDescription(JobQueueEntry, PurchHeader);
+            "User Session ID" := SessionId();
+            OnEnqueueJobEntryOnBeforeRunJobQueueEnqueue(PurchHeader, JobQueueEntry);
+            CODEUNIT.Run(CODEUNIT::"Job Queue - Enqueue", JobQueueEntry);
+            exit(ID);
+        end;
     end;
 
     local procedure FillJobEntryFromPurchSetup(var JobQueueEntry: Record "Job Queue Entry")
@@ -126,38 +130,45 @@ codeunit 98 "Purchase Post via Job Queue"
         PurchSetup: Record "Purchases & Payables Setup";
     begin
         PurchSetup.Get();
-        JobQueueEntry."Notify On Success" := PurchSetup."Notify On Success";
-        JobQueueEntry."Job Queue Category Code" := GetJobQueueCategoryCode();
+        with JobQueueEntry do begin
+            "Notify On Success" := PurchSetup."Notify On Success";
+            "Job Queue Category Code" := GetJobQueueCategoryCode();
+        end;
     end;
 
     local procedure FillJobEntryPurchDescription(var JobQueueEntry: Record "Job Queue Entry"; PurchHeader: Record "Purchase Header")
     begin
-        if PurchHeader."Print Posted Documents" then
-            JobQueueEntry.Description := PostAndPrintDescription
-        else
-            JobQueueEntry.Description := PostDescription;
-        JobQueueEntry.Description :=
-          CopyStr(StrSubstNo(JobQueueEntry.Description, PurchHeader."Document Type", PurchHeader."No."), 1, MaxStrLen(JobQueueEntry.Description));
+        with JobQueueEntry do begin
+            if PurchHeader."Print Posted Documents" then
+                Description := PostAndPrintDescription
+            else
+                Description := PostDescription;
+            Description :=
+              CopyStr(StrSubstNo(Description, PurchHeader."Document Type", PurchHeader."No."), 1, MaxStrLen(Description));
+        end;
     end;
 
     procedure CancelQueueEntry(var PurchHeader: Record "Purchase Header")
     begin
-        if PurchHeader."Job Queue Status" <> PurchHeader."Job Queue Status"::" " then begin
-            DeleteJobs(PurchHeader);
-            PurchHeader."Job Queue Status" := PurchHeader."Job Queue Status"::" ";
-            PurchHeader.Modify();
-        end;
+        with PurchHeader do
+            if "Job Queue Status" <> "Job Queue Status"::" " then begin
+                DeleteJobs(PurchHeader);
+                "Job Queue Status" := "Job Queue Status"::" ";
+                Modify();
+            end;
     end;
 
     local procedure DeleteJobs(PurchHeader: Record "Purchase Header")
     var
         JobQueueEntry: Record "Job Queue Entry";
     begin
-        if not IsNullGuid(PurchHeader."Job Queue Entry ID") then
-            JobQueueEntry.SetRange(ID, PurchHeader."Job Queue Entry ID");
-        JobQueueEntry.SetRange("Record ID to Process", PurchHeader.RecordId);
-        if not JobQueueEntry.IsEmpty() then
-            JobQueueEntry.DeleteAll(true);
+        with PurchHeader do begin
+            if not IsNullGuid("Job Queue Entry ID") then
+                JobQueueEntry.SetRange(ID, "Job Queue Entry ID");
+            JobQueueEntry.SetRange("Record ID to Process", RecordId);
+            if not JobQueueEntry.IsEmpty() then
+                JobQueueEntry.DeleteAll(true);
+        end;
     end;
 
     local procedure AreOtherJobQueueEntriesScheduled(JobQueueEntry: Record "Job Queue Entry"): Boolean

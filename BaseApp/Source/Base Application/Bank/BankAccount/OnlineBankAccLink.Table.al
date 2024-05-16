@@ -7,7 +7,6 @@ namespace Microsoft.Bank.BankAccount;
 table 777 "Online Bank Acc. Link"
 {
     Caption = 'Online Bank Acc. Link';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -39,7 +38,6 @@ table 777 "Online Bank Acc. Link"
         field(7; Contact; Text[50])
         {
             Caption = 'Contact';
-            DataClassification = EndUserIdentifiableInformation;
         }
         field(8; "Bank Account No."; Text[30])
         {

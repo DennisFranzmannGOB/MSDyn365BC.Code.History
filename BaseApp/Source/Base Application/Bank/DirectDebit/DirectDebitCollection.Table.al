@@ -11,7 +11,6 @@ table 1207 "Direct Debit Collection"
     DataCaptionFields = Identifier, "Created Date-Time";
     DrillDownPageID = "Direct Debit Collections";
     LookupPageID = "Direct Debit Collections";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -52,7 +51,7 @@ table 1207 "Direct Debit Collection"
         }
         field(8; "To Bank Account Name"; Text[100])
         {
-            CalcFormula = lookup("Bank Account".Name where("No." = field("To Bank Account No.")));
+            CalcFormula = Lookup("Bank Account".Name where("No." = field("To Bank Account No.")));
             Caption = 'To Bank Account Name';
             FieldClass = FlowField;
         }

@@ -4,7 +4,6 @@ table 1542 "Workflow Webhook Sub Buffer"
 {
     Caption = 'Workflow Webhook Sub Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

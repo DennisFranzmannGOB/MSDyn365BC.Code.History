@@ -91,10 +91,8 @@ reportextension 14601 "IS Purch Credit Memo" extends "Purchase - Credit Memo"
                 field(AlwaysShowVATSum; AllwaysShowVATSum)
                 {
                     ApplicationArea = Basic, Suite;
-#if not CLEAN24
-                    Visible = IsISCoreAppEnabled;
-                    Enabled = IsISCoreAppEnabled;
-#endif
+                    // Visible = IsISCoreAppEnabled; Bug 488336
+                    // Enabled = IsISCoreAppEnabled; Bug 488336
                     Caption = 'Always Show VAT Summary';
                     ToolTip = 'Specifies that you want the document to include VAT information.';
                 }

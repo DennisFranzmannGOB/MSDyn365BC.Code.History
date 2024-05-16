@@ -73,11 +73,13 @@ page 5932 "Report Selection - Service"
                 field(ReportLayoutName; Rec."Report Layout Name")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the Name of the report layout that is used.';
                     Visible = false;
                 }
                 field(EmailLayoutCaption; Rec."Email Body Layout Caption")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the Name of the report layout that is used.';
 
                     trigger OnDrillDown()
                     begin
@@ -88,6 +90,7 @@ page 5932 "Report Selection - Service"
                 field(ReportLayoutCaption; Rec."Report Layout Caption")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the Name of the report layout that is used.';
 
                     trigger OnDrillDown()
                     begin
@@ -98,6 +101,7 @@ page 5932 "Report Selection - Service"
                 field(ReportLayoutPublisher; Rec."Report Layout Publisher")
                 {
                     ApplicationArea = Basic, Suite;
+                    ToolTip = 'Specifies the publisher of the email Attachment layout that is used.';
                     Visible = false;
                 }
                 field("Email Body Layout Code"; Rec."Email Body Layout Code")
@@ -110,7 +114,7 @@ page 5932 "Report Selection - Service"
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies a description of the email body custom layout that is used.';
-                    Visible = false;
+                    Visible = not PlatformSelectionEnabled;
 
                     trigger OnDrillDown()
                     var
@@ -150,10 +154,12 @@ page 5932 "Report Selection - Service"
     begin
         InitUsageFilter();
         SetUsageFilter(false);
+        PlatformSelectionEnabled := Rec.UsePlatformLayoutSelection()
     end;
 
     var
         ReportUsage2: Enum "Report Selection Usage Service";
+        PlatformSelectionEnabled: Boolean;
 
     local procedure SetUsageFilter(ModifyRec: Boolean)
     begin

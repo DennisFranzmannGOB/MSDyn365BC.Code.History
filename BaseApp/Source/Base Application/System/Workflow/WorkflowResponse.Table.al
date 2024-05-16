@@ -7,7 +7,6 @@ table 1521 "Workflow Response"
     Caption = 'Workflow Response';
     LookupPageID = "Workflow Responses";
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {

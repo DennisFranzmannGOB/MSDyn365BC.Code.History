@@ -6,6 +6,7 @@ namespace Microsoft.Inventory.InventoryForecast;
 
 using Microsoft.Foundation.Company;
 using Microsoft.Inventory.Item;
+using Microsoft.Utilities;
 using System.Environment;
 using System.Privacy;
 using System.Upgrade;

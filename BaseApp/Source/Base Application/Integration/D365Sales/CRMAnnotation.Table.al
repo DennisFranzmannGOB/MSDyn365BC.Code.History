@@ -12,7 +12,6 @@ table 5385 "CRM Annotation"
     Description = 'Note that is attached to one or more objects, including other notes.';
     ExternalName = 'annotation';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {

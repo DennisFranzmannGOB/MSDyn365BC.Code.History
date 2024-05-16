@@ -13,7 +13,6 @@ using Microsoft.Utilities;
 table 298 "Issued Reminder Line"
 {
     Caption = 'Issued Reminder Line';
-    DataClassification = CustomerContent;
 
     fields
     {

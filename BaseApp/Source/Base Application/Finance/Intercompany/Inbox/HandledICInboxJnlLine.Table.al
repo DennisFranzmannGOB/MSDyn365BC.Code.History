@@ -11,7 +11,6 @@ using Microsoft.Sales.Customer;
 table 421 "Handled IC Inbox Jnl. Line"
 {
     Caption = 'Handled IC Inbox Jnl. Line';
-    DataClassification = CustomerContent;
 
     fields
     {

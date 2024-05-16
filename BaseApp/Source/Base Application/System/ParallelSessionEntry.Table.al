@@ -3,7 +3,9 @@ namespace System.Threading;
 table 491 "Parallel Session Entry"
 {
     DataClassification = SystemMetadata;
+#pragma warning disable AS0034
     TableType = Temporary;
+#pragma warning restore AS0034
 
     fields
     {

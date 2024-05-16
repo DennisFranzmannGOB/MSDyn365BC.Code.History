@@ -9,7 +9,6 @@ using System.Telemetry;
 table 314 "Resources Setup"
 {
     Caption = 'Resources Setup';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -44,7 +43,7 @@ table 314 "Resources Setup"
         }
         field(952; "Time Sheet by Job Approval"; Option)
         {
-            Caption = 'Time Sheet by Project Approval';
+            Caption = 'Time Sheet by Job Approval';
             OptionCaption = 'Never,Machine Only,Always';
             OptionMembers = Never,"Machine Only",Always;
 
@@ -86,12 +85,6 @@ table 314 "Resources Setup"
             end;
 #endif
         }
-        field(954; "Time Sheet Submission Policy"; Option)
-        {
-            Caption = 'Time Sheet Submission Policy';
-            OptionCaption = 'Empty Lines Not Submitted,Stop and Show Empty Line Error';
-            OptionMembers = "Empty Lines Not Submitted","Stop and Show Empty Line Error";
-        }
     }
 
     keys
@@ -109,7 +102,7 @@ table 314 "Resources Setup"
     var
         TimeSheetHeader: Record "Time Sheet Header";
         TimeSheetLine: Record "Time Sheet Line";
-        Text001: Label '%1 cannot be changed, because there is at least one submitted time sheet line with Type=Project.';
+        Text001: Label '%1 cannot be changed, because there is at least one submitted time sheet line with Type=Job.';
         Text002: Label '%1 cannot be changed, because there is at least one time sheet.';
 }
 

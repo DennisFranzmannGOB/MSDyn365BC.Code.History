@@ -18,7 +18,6 @@ table 951 "Time Sheet Line"
 {
     Caption = 'Time Sheet Line';
     Permissions = TableData Employee = r;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -61,15 +60,13 @@ table 951 "Time Sheet Line"
                     "Assembly Order Line No." := 0;
 
                     UpdateApproverID();
-                    if Type = Type::Absence then
-                        CheckIsEmployeeLinkedToResource();
                 end;
             end;
         }
         field(6; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
-            TableRelation = Job where(Status = filter(Open));
+            Caption = 'Job No.';
+            TableRelation = Job;
 
             trigger OnValidate()
             begin
@@ -88,8 +85,8 @@ table 951 "Time Sheet Line"
         }
         field(7; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
-            TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."), "Job Task Type" = filter(Posting));
+            Caption = 'Job Task No.';
+            TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
 
             trigger OnValidate()
             begin
@@ -108,13 +105,22 @@ table 951 "Time Sheet Line"
 
             trigger OnValidate()
             var
+                Resource: Record Resource;
+                Employee: Record Employee;
                 CauseOfAbsence: Record "Cause of Absence";
             begin
                 if "Cause of Absence Code" <> '' then begin
                     TestField(Type, Type::Absence);
                     CauseOfAbsence.Get("Cause of Absence Code");
                     Description := CauseOfAbsence.Description;
-                    CheckIsEmployeeLinkedToResource();
+                    TimeSheetHeader.Get("Time Sheet No.");
+                    Resource.Get(TimeSheetHeader."Resource No.");
+                    Resource.TestField("Base Unit of Measure");
+                    Resource.TestField(Type, Resource.Type::Person);
+                    Employee.Reset();
+                    Employee.SetRange("Resource No.", TimeSheetHeader."Resource No.");
+                    if Employee.IsEmpty() then
+                        Error(Text001, TimeSheetHeader."Resource No.");
                 end;
             end;
         }
@@ -231,7 +237,7 @@ table 951 "Time Sheet Line"
         }
         field(8002; "Job Id"; Guid)
         {
-            Caption = 'Project Id';
+            Caption = 'Job Id';
             DataClassification = SystemMetadata;
             TableRelation = Job.SystemId;
         }
@@ -333,20 +339,6 @@ table 951 "Time Sheet Line"
               Text002,
               "Time Sheet No.",
               "Line No.");
-    end;
-
-    local procedure CheckIsEmployeeLinkedToResource()
-    var
-        Resource: Record Resource;
-        Employee: Record Employee;
-    begin
-        GetTimeSheetResource(Resource);
-        Resource.TestField("Base Unit of Measure");
-        Resource.TestField(Type, Resource.Type::Person);
-        Employee.Reset();
-        Employee.SetRange("Resource No.", TimeSheetHeader."Resource No.");
-        if Employee.IsEmpty() then
-            Error(Text001, TimeSheetHeader."Resource No.");
     end;
 
     local procedure UpdateDetails()
@@ -499,21 +491,6 @@ table 951 "Time Sheet Line"
     begin
         if Resource."Privacy Blocked" then
             Error(PrivacyBlockedErr, Resource."No.");
-    end;
-
-    procedure CheckIfTimeSheetLineLinkExist(Job: Record Job)
-    var
-        TimeSheetLineExistsForJobErr: Label 'One or more unposted Time Sheet lines exists for the project %1.\\You must post or delete the time sheet lines before you can change the project status.', Comment = '%1 = Project No.';
-    begin
-        if Job.Status = Job.Status::Open then
-            exit;
-
-        SetCurrentKey(Type, "Job No.");
-        SetRange(Type, Type::Job);
-        SetRange("Job No.", Job."No.");
-        SetRange(Posted, false);
-        if not IsEmpty() then
-            Error(TimeSheetLineExistsForJobErr, Job."No.");
     end;
 
     [Scope('OnPrem')]

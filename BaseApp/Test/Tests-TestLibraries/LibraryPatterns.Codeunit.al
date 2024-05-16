@@ -31,7 +31,7 @@ codeunit 132212 "Library - Patterns"
 
         LibraryInventory.CreateItemTrackingCode(ItemTrackingCode);
         Item.Validate("Item Tracking Code", ItemTrackingCode.Code);
-        Item.Validate("Serial Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        Item.Validate("Serial Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         Item.Modify(true);
     end;
 
@@ -312,10 +312,10 @@ codeunit 132212 "Library - Patterns"
     var
         ProdOrderLine: Record "Prod. Order Line";
         ManufacturingSetup: Record "Manufacturing Setup";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         ProdNoSeries: Code[20];
     begin
-        ProdNoSeries := LibraryUtility.GetGlobalNoSeriesCode();
+        ProdNoSeries := LibraryUtility.GetGlobalNoSeriesCode;
         ManufacturingSetup.Get();
         case ProdOrderStatus of
             ProductionOrder.Status::Simulated:
@@ -341,7 +341,7 @@ codeunit 132212 "Library - Patterns"
         end;
 
         Clear(ProductionOrder);
-        ProductionOrder."No." := NoSeries.GetNextNo(ProdNoSeries);
+        ProductionOrder."No." := NoSeriesManagement.GetNextNo(ProdNoSeries, 0D, true);
         ProductionOrder.Status := ProdOrderStatus;
         ProductionOrder.Validate("Source Type", ProductionOrder."Source Type"::Item);
         ProductionOrder.Validate("Source No.", Item."No.");
@@ -408,7 +408,7 @@ codeunit 132212 "Library - Patterns"
           DirectUnitCost);
     end;
 
-    procedure MAKERevaluationJournalLine(var ItemJournalBatch: Record "Item Journal Batch"; var Item: Record Item; NewPostingDate: Date; NewCalculatePer: Enum "Inventory Value Calc. Per"; NewByLocation: Boolean; NewByVariant: Boolean; NewUpdStdCost: Boolean; NewCalcBase: Enum "Inventory Value Calc. Base")
+    procedure MAKERevaluationJournalLine(var ItemJournalBatch: Record "Item Journal Batch"; var Item: Record Item; NewPostingDate: Date; NewCalculatePer: Option; NewByLocation: Boolean; NewByVariant: Boolean; NewUpdStdCost: Boolean; NewCalcBase: Option)
     var
         ItemJournalLine: Record "Item Journal Line";
         NewDocNo: Code[20];
@@ -803,7 +803,7 @@ codeunit 132212 "Library - Patterns"
         MarketingSetup: Record "Marketing Setup";
         NoSeries: Code[20];
     begin
-        NoSeries := LibraryUtility.GetGlobalNoSeriesCode();
+        NoSeries := LibraryUtility.GetGlobalNoSeriesCode;
 
         InventorySetup.Get();
         if InventorySetup."Item Nos." <> NoSeries then begin
@@ -1010,7 +1010,7 @@ codeunit 132212 "Library - Patterns"
         MAKEInbound(Item, QtyPurch2, WorkDate(), TempItemJournalLine);
 
         SHIPSales(SalesLine, Item, QtySales1, WorkDate());
-        SHIPSales(SalesLineSplit, Item, QtySales2, WorkDate() + 1);
+        SHIPSales(SalesLineSplit, Item, QtySales2, WorkDate + 1);
     end;
 
     procedure GRPHSeveralSplitApplicationWithCosts(Item: Record Item; var SalesLine: Record "Sales Line"; var TempItemJournalLine: Record "Item Journal Line" temporary; var Cost1: Decimal; var Cost2: Decimal; var Cost3: Decimal)
@@ -1031,22 +1031,22 @@ codeunit 132212 "Library - Patterns"
 
         MAKEInbound(Item, Qty1, WorkDate(), TempItemJournalLine);
         UnitCost1 := TempItemJournalLine."Unit Amount";
-        MAKEInbound(Item, Qty2, WorkDate() + 1, TempItemJournalLine);
+        MAKEInbound(Item, Qty2, WorkDate + 1, TempItemJournalLine);
         UnitCost2 := TempItemJournalLine."Unit Amount";
-        MAKEInbound(Item, Qty3, WorkDate() + 2, TempItemJournalLine);
+        MAKEInbound(Item, Qty3, WorkDate + 2, TempItemJournalLine);
         UnitCost3 := TempItemJournalLine."Unit Amount";
 
         QtyOut1 := Qty1 + RandDec(0, Qty2 / 2, 2);
         RemainingQty2 := Qty2 + Qty1 - QtyOut1;
         QtyOut2 := RandDec(0, RemainingQty2, 2);
 
-        MAKEOutbound(Item, QtyOut1, WorkDate() + 3, TempItemJournalLine);
+        MAKEOutbound(Item, QtyOut1, WorkDate + 3, TempItemJournalLine);
         Cost1 := (Qty1 * UnitCost1 + (QtyOut1 - Qty1) * UnitCost2) / QtyOut1;
-        MAKEOutbound(Item, QtyOut2, WorkDate() + 4, TempItemJournalLine);
+        MAKEOutbound(Item, QtyOut2, WorkDate + 4, TempItemJournalLine);
         Cost2 := UnitCost2;
 
         RemainingQty2 -= QtyOut2;
-        SHIPSales(SalesLine, Item, RemainingQty2 + RandDec(0, Qty3, 2), WorkDate() + 5);
+        SHIPSales(SalesLine, Item, RemainingQty2 + RandDec(0, Qty3, 2), WorkDate + 5);
         Cost3 := (RemainingQty2 * UnitCost2 + (SalesLine.Quantity - RemainingQty2) * UnitCost3) / SalesLine.Quantity;
 
         TempItemJournalLine.FindSet();
@@ -1093,7 +1093,7 @@ codeunit 132212 "Library - Patterns"
         SHIPSales(SalesLine, Item, QtyOut, WorkDate());
 
         MAKEInbound(Item, QtyIn1, WorkDate() - 1, TempItemJournalLine);
-        MAKEInbound(Item, QtyIn2, WorkDate() - 2, TempItemJournalLine);
+        MAKEInbound(Item, QtyIn2, WorkDate - 2, TempItemJournalLine);
     end;
 
     procedure GRPHSimpleApplication(Item: Record Item; var SalesLine: Record "Sales Line"; var TempItemJournalLine: Record "Item Journal Line" temporary)
@@ -1102,7 +1102,7 @@ codeunit 132212 "Library - Patterns"
     begin
         QtyIn := RandDec(10, 20, 2);
         MAKEInbound(Item, QtyIn, WorkDate(), TempItemJournalLine);
-        SHIPSales(SalesLine, Item, RandDec(0, QtyIn, 2), WorkDate() + 1);
+        SHIPSales(SalesLine, Item, RandDec(0, QtyIn, 2), WorkDate + 1);
     end;
 
     procedure GRPHSalesReturnOnly(var Item: Record Item; var ReturnReceiptLine: Record "Return Receipt Line")
@@ -1154,19 +1154,21 @@ codeunit 132212 "Library - Patterns"
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
     begin
-        RefItemLedgerEntry.FindSet();
-        ItemLedgerEntry.SetRange("Item No.", RefItemLedgerEntry."Item No.");
-        ItemLedgerEntry.SetRange("Location Code", RefItemLedgerEntry."Location Code");
-        ItemLedgerEntry.SetRange("Variant Code", RefItemLedgerEntry."Variant Code");
-        ItemLedgerEntry.FindSet();
-        repeat
-            ItemLedgerEntry.TestField("Cost Amount (Expected)", RefItemLedgerEntry."Cost Amount (Expected)");
-            ItemLedgerEntry.TestField("Cost Amount (Actual)", RefItemLedgerEntry."Cost Amount (Actual)");
-            ItemLedgerEntry.TestField("Remaining Quantity", RefItemLedgerEntry."Remaining Quantity");
-            ItemLedgerEntry.TestField("Invoiced Quantity", RefItemLedgerEntry."Invoiced Quantity");
-            ItemLedgerEntry.TestField("Applies-to Entry", RefItemLedgerEntry."Applies-to Entry");
-            RefItemLedgerEntry.Next();
-        until ItemLedgerEntry.Next() = 0;
+        with ItemLedgerEntry do begin
+            RefItemLedgerEntry.FindSet();
+            SetRange("Item No.", RefItemLedgerEntry."Item No.");
+            SetRange("Location Code", RefItemLedgerEntry."Location Code");
+            SetRange("Variant Code", RefItemLedgerEntry."Variant Code");
+            FindSet();
+            repeat
+                TestField("Cost Amount (Expected)", RefItemLedgerEntry."Cost Amount (Expected)");
+                TestField("Cost Amount (Actual)", RefItemLedgerEntry."Cost Amount (Actual)");
+                TestField("Remaining Quantity", RefItemLedgerEntry."Remaining Quantity");
+                TestField("Invoiced Quantity", RefItemLedgerEntry."Invoiced Quantity");
+                TestField("Applies-to Entry", RefItemLedgerEntry."Applies-to Entry");
+                RefItemLedgerEntry.Next();
+            until Next = 0;
+        end;
     end;
 
     procedure RandDec("Min": Decimal; "Max": Decimal; Precision: Integer): Decimal
@@ -1185,7 +1187,7 @@ codeunit 132212 "Library - Patterns"
     var
         Precision: Decimal;
     begin
-        Precision := LibraryERM.GetAmountRoundingPrecision();
+        Precision := LibraryERM.GetAmountRoundingPrecision;
         if Item."Unit Cost" <> 0 then
             exit(Round(Item."Unit Cost" * RandDec(0, 2, 5), Precision));
         exit(Round(RandDec(0, 100, 5), Precision));
@@ -1233,7 +1235,7 @@ codeunit 132212 "Library - Patterns"
         SalesLineReturn.FindFirst();
     end;
 
-    procedure CHECKCalcInvPost(Item: Record Item; ItemJnlBatch: Record "Item Journal Batch"; PostingDate: Date; CalculatePer: Enum "Inventory Value Calc. Per"; ByLocation: Boolean; ByVariant: Boolean; LocationFilter: Code[20]; VariantFilter: Code[20])
+    procedure CHECKCalcInvPost(Item: Record Item; ItemJnlBatch: Record "Item Journal Batch"; PostingDate: Date; CalculatePer: Option "Item Ledger Entry",Item; ByLocation: Boolean; ByVariant: Boolean; LocationFilter: Code[20]; VariantFilter: Code[20])
     var
         TempRefItemJnlLine: Record "Item Journal Line" temporary;
         ItemJnlLine: Record "Item Journal Line";
@@ -1259,7 +1261,7 @@ codeunit 132212 "Library - Patterns"
                     Assert.AreEqual(TempRefItemJnlLine."Inventory Value (Calculated)", ItemJnlLine."Inventory Value (Calculated)",
                       StrSubstNo(TXTIncorrectEntry, TempRefItemJnlLine.FieldName("Inventory Value (Calculated)"), ItemJnlLine."Line No."));
                 until ItemJnlLine.Next() = 0;
-        end else
+        end else begin
             if ItemJnlLine.FindSet() then
                 repeat
                     TempRefItemJnlLine.SetRange("Applies-to Entry", ItemJnlLine."Applies-to Entry");
@@ -1277,9 +1279,10 @@ codeunit 132212 "Library - Patterns"
                       TempRefItemJnlLine."Inventory Value (Calculated)", ItemJnlLine."Inventory Value (Calculated)",
                       StrSubstNo(TXTIncorrectEntry, TempRefItemJnlLine.FieldName("Inventory Value (Calculated)"), ItemJnlLine."Applies-to Entry"));
                 until ItemJnlLine.Next() = 0;
+        end;
     end;
 
-    local procedure CreateRefJnlforCalcInvPost(Item: Record Item; var TempRefItemJnlLine: Record "Item Journal Line" temporary; PostingDate: Date; CalculatePer: Enum "Inventory Value Calc. Per"; ByLocation: Boolean; ByVariant: Boolean; LocationFilter: Code[20]; VariantFilter: Code[20])
+    local procedure CreateRefJnlforCalcInvPost(Item: Record Item; var TempRefItemJnlLine: Record "Item Journal Line" temporary; PostingDate: Date; CalculatePer: Option "Item Ledger Entry",Item; ByLocation: Boolean; ByVariant: Boolean; LocationFilter: Code[20]; VariantFilter: Code[20])
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
         TempItemLedgerEntry: Record "Item Ledger Entry" temporary;
@@ -1383,7 +1386,7 @@ codeunit 132212 "Library - Patterns"
         if ByVariant then
             TempRefItemJnlLine."Variant Code" := TempItemLedgerEntry."Variant Code";
         TempRefItemJnlLine.Quantity := RefQuantity;
-        TempRefItemJnlLine."Inventory Value (Calculated)" := Round(RefCostAmount, LibraryERM.GetAmountRoundingPrecision());
+        TempRefItemJnlLine."Inventory Value (Calculated)" := Round(RefCostAmount, LibraryERM.GetAmountRoundingPrecision);
         TempRefItemJnlLine.Insert();
     end;
 
@@ -1408,7 +1411,7 @@ codeunit 132212 "Library - Patterns"
                     TempRefItemJnlLine."Inventory Value (Calculated)" :=
                       Round(
                         CalculateCostAtDate(TempItemLedgerEntry."Entry No.", PostingDate) /
-                        TempItemLedgerEntry.Quantity * ItemApplicationEntry.Quantity, LibraryERM.GetAmountRoundingPrecision());
+                        TempItemLedgerEntry.Quantity * ItemApplicationEntry.Quantity, LibraryERM.GetAmountRoundingPrecision);
                     TempRefItemJnlLine."Applies-to Entry" := TempItemLedgerEntry."Entry No.";
                     TempRefItemJnlLine.Insert();
                 end;
@@ -1447,7 +1450,7 @@ codeunit 132212 "Library - Patterns"
         LibraryCosting.AdjustCostItemEntries(Item."No.", '');
     end;
 
-    procedure CalculateInventoryValueRun(var ItemJnlBatch: Record "Item Journal Batch"; var Item: Record Item; PostingDate: Date; CalculatePer: Enum "Inventory Value Calc. Per"; ByLocation: Boolean; ByVariant: Boolean; UpdStdCost: Boolean; CalcBase: Enum "Inventory Value Calc. Base"; ShowDialog: Boolean; LocationFilter: Code[20]; VariantFilter: Code[20])
+    procedure CalculateInventoryValueRun(var ItemJnlBatch: Record "Item Journal Batch"; var Item: Record Item; PostingDate: Date; CalculatePer: Option; ByLocation: Boolean; ByVariant: Boolean; UpdStdCost: Boolean; CalcBase: Option; ShowDialog: Boolean; LocationFilter: Code[20]; VariantFilter: Code[20])
     var
         RevalueItem: Record Item;
         ItemJournalLine: Record "Item Journal Line";
@@ -1466,7 +1469,7 @@ codeunit 132212 "Library - Patterns"
         if Item."No." <> '' then
             RevalueItem.SetRange("No.", Item."No.");
         CalculateInventoryValue.SetTableView(RevalueItem);
-        CalculateInventoryValue.SetParameters(
+        CalculateInventoryValue.InitializeRequest(
           PostingDate, DocumentNo, true, CalculatePer, ByLocation, ByVariant, UpdStdCost, CalcBase, ShowDialog);
         CalculateInventoryValue.RunModal();
     end;
@@ -1480,7 +1483,7 @@ codeunit 132212 "Library - Patterns"
         if ItemJnlLine.FindSet() then
             repeat
                 ItemJnlLine.Validate("Inventory Value (Revalued)",
-                  Round(ItemJnlLine."Inventory Value (Revalued)" * Factor, LibraryERM.GetAmountRoundingPrecision()));
+                  Round(ItemJnlLine."Inventory Value (Revalued)" * Factor, LibraryERM.GetAmountRoundingPrecision));
                 ItemJnlLine.Modify();
             until ItemJnlLine.Next() = 0;
         LibraryInventory.PostItemJournalBatch(ItemJnlBatch);
@@ -1495,7 +1498,7 @@ codeunit 132212 "Library - Patterns"
         if ItemJnlLine.FindSet() then
             repeat
                 ItemJnlLine.Validate("Inventory Value (Revalued)",
-                  Round(ItemJnlLine."Inventory Value (Revalued)" * Factor, LibraryERM.GetAmountRoundingPrecision()));
+                  Round(ItemJnlLine."Inventory Value (Revalued)" * Factor, LibraryERM.GetAmountRoundingPrecision));
                 ItemJnlLine.Validate("Applies-to Entry", AppliesToEntry);
                 ItemJnlLine.Modify();
             until ItemJnlLine.Next() = 0;
@@ -1551,7 +1554,7 @@ codeunit 132212 "Library - Patterns"
         exit(Value2);
     end;
 
-    procedure RevaluationJournalCalcInventory(var ItemJournalBatch: Record "Item Journal Batch"; var Item: Record Item; NewPostingDate: Date; NewDocNo: Code[20]; NewCalculatePer: Enum "Inventory Value Calc. Per"; NewByLocation: Boolean; NewByVariant: Boolean; NewUpdStdCost: Boolean; NewCalcBase: Enum "Inventory Value Calc. Base")
+    procedure RevaluationJournalCalcInventory(var ItemJournalBatch: Record "Item Journal Batch"; var Item: Record Item; NewPostingDate: Date; NewDocNo: Code[20]; NewCalculatePer: Option; NewByLocation: Boolean; NewByVariant: Boolean; NewUpdStdCost: Boolean; NewCalcBase: Option)
     var
         TmpItem: Record Item;
         ItemJournalLine: Record "Item Journal Line";
@@ -1560,9 +1563,8 @@ codeunit 132212 "Library - Patterns"
         JnlSelected: Boolean;
     begin
         Commit();
-        CalculateInventoryValue.SetParameters(
-            NewPostingDate, NewDocNo, true, NewCalculatePer, NewByLocation, NewByVariant,
-            NewUpdStdCost, NewCalcBase, true);
+        CalculateInventoryValue.InitializeRequest(NewPostingDate, NewDocNo, true, NewCalculatePer, NewByLocation, NewByVariant,
+          NewUpdStdCost, NewCalcBase, true);
 
         LibraryInventory.CreateItemJournalBatchByType(ItemJournalBatch, ItemJournalBatch."Template Type"::Revaluation);
 

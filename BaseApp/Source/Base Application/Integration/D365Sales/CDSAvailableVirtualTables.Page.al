@@ -101,7 +101,7 @@ page 5372 "CDS Available Virtual Tables"
                     CDSIntegrationImpl: Codeunit "CDS Integration Impl.";
                 begin
                     Rec.DeleteAll();
-                    CDSIntegrationImpl.LoadAvailableVirtualTables(Rec, false);
+                    CDSIntegrationImpl.LoadAvailableVirtualTables(Rec);
                 end;
             }
             action("Open in Dataverse")
@@ -147,7 +147,7 @@ page 5372 "CDS Available Virtual Tables"
         CDSIntegrationImpl: Codeunit "CDS Integration Impl.";
     begin
         if Rec.IsEmpty() then
-            CDSIntegrationImpl.LoadAvailableVirtualTables(Rec, false);
+            CDSIntegrationImpl.LoadAvailableVirtualTables(Rec);
     end;
 
     var

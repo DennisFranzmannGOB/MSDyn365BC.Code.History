@@ -13,7 +13,6 @@ table 710 "Activity Log"
 {
     Caption = 'Activity Log';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

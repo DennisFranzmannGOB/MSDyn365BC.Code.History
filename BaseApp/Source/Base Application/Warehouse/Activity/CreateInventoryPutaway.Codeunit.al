@@ -1286,7 +1286,7 @@ codeunit 7321 "Create Inventory Put-away"
     end;
 #endif
 
-    procedure InsertWhseActivLine(var NewWarehouseActivityLine: Record "Warehouse Activity Line"; PutAwayQty: Decimal)
+    local procedure InsertWhseActivLine(var NewWarehouseActivityLine: Record "Warehouse Activity Line"; PutAwayQty: Decimal)
     var
         UnitOfMeasureManagement: Codeunit "Unit of Measure Management";
         CalculatedPutAway: Decimal;

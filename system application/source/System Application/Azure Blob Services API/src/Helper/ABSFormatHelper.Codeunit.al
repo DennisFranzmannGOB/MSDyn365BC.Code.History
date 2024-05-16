@@ -161,6 +161,7 @@ codeunit 9044 "ABS Format Helper"
     [NonDebuggable]
     procedure TagsDictionaryToSearchExpression(Tags: Dictionary of [Text, Text]): Text
     var
+        UriHelper: Codeunit Uri;
         Keys: List of [Text];
         "Key": Text;
         SingleQuoteChar: Char;
@@ -174,6 +175,7 @@ codeunit 9044 "ABS Format Helper"
                 Expression += ' AND ';
             Expression += StrSubstNo(ExpressionPartLbl, "Key".Trim(), GetOperatorFromValue(Tags.Get("Key")).Trim(), SingleQuoteChar, GetValueWithoutOperator(Tags.Get("Key")).Trim(), SingleQuoteChar);
         end;
+        Expression := UriHelper.EscapeDataString(Expression);
         exit(Expression);
     end;
 

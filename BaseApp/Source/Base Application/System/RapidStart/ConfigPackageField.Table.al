@@ -6,7 +6,6 @@ table 8616 "Config. Package Field"
 {
     Caption = 'Config. Package Field';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -108,7 +107,7 @@ table 8616 "Config. Package Field"
         }
         field(10; "Relation Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Name" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Name" where("Object Type" = const(Table),
                                                                         "Object ID" = field("Relation Table ID")));
             Caption = 'Relation Table Caption';
             Editable = false;

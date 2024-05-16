@@ -22,7 +22,6 @@ using System.Email;
 table 5077 "Segment Line"
 {
     Caption = 'Segment Line';
-    DataClassification = CustomerContent;
     Permissions = tabledata Attachment = rd,
                   tabledata "Segment Line" = rim,
                   tabledata "Segment History" = rd,
@@ -279,7 +278,7 @@ table 5077 "Segment Line"
         }
         field(12; "Contact Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact No."),
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact No."),
                                                      Type = const(Person)));
             Caption = 'Contact Name';
             Editable = false;
@@ -320,7 +319,7 @@ table 5077 "Segment Line"
         }
         field(18; "Contact Company Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact Company No."),
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact Company No."),
                                                      Type = const(Company)));
             Caption = 'Contact Company Name';
             Editable = false;
@@ -457,7 +456,7 @@ table 5077 "Segment Line"
         }
         field(50; "Contact Phone No."; Text[30])
         {
-            CalcFormula = lookup(Contact."Phone No." where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact."Phone No." where("No." = field("Contact No.")));
             Caption = 'Contact Phone No.';
             Editable = false;
             FieldClass = FlowField;
@@ -466,7 +465,7 @@ table 5077 "Segment Line"
         }
         field(51; "Contact Mobile Phone No."; Text[30])
         {
-            CalcFormula = lookup(Contact."Mobile Phone No." where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact."Mobile Phone No." where("No." = field("Contact No.")));
             Caption = 'Contact Mobile Phone No.';
             Editable = false;
             FieldClass = FlowField;
@@ -475,7 +474,7 @@ table 5077 "Segment Line"
         }
         field(52; "Contact Email"; Text[80])
         {
-            CalcFormula = lookup(Contact."E-Mail" where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact."E-Mail" where("No." = field("Contact No.")));
             Caption = 'Contact Email';
             Editable = false;
             FieldClass = FlowField;
@@ -1785,14 +1784,21 @@ table 5077 "Segment Line"
         ODataFieldsExport.RunModal();
     end;
 
+    procedure ProcessInterLogEntryComments(InterLogEntryNo: Integer)
+    var
+        SegManagement: Codeunit SegManagement;
+    begin
+        SegManagement.InterLogEntryCommentLineInsert(TempInterLogEntryCommentLine, InterLogEntryNo);
+    end;
+
     local procedure SetDefaultSalesperson()
     var
         UserSetup: Record "User Setup";
     begin
-        if not UserSetup.GET(USERID) then
-            exit;
+        IF NOT UserSetup.GET(USERID) THEN
+            EXIT;
 
-        if UserSetup."Salespers./Purch. Code" <> '' then
+        IF UserSetup."Salespers./Purch. Code" <> '' THEN
             VALIDATE("Salesperson Code", UserSetup."Salespers./Purch. Code");
 
     end;

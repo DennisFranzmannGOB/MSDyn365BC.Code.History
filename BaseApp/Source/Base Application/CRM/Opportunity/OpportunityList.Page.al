@@ -393,7 +393,7 @@ page 5123 "Opportunity List"
                 {
                     ApplicationArea = RelationshipMgmt;
                     Caption = 'Close';
-                    Enabled = OppNotStarted or OppInProgress;
+                    Enabled = OppNotStarted OR OppInProgress;
                     Image = Close;
                     Scope = Repeater;
                     ToolTip = 'Close all the actions that are related to your opportunities.';
@@ -473,6 +473,24 @@ page 5123 "Opportunity List"
                 actionref("Activate First Stage_Promoted"; "Activate First Stage")
                 {
                 }
+#if not CLEAN21
+                actionref(Statistics_Promoted; Statistics)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
+#if not CLEAN21
+                actionref("Postponed &Interactions_Promoted"; "Postponed &Interactions")
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
                 actionref(Close_Promoted; Close)
                 {
                 }
@@ -594,28 +612,32 @@ page 5123 "Opportunity List"
     var
         Contact: Record Contact;
     begin
-        exit(BuildCaption(CaptionText, Contact, Filter, Contact.FieldNo(Contact."No."), Contact.FieldNo(Name)));
+        with Contact do
+            exit(BuildCaption(CaptionText, Contact, Filter, FieldNo("No."), FieldNo(Name)));
     end;
 
     local procedure BuildCaptionSalespersonPurchaser(var CaptionText: Text[260]; "Filter": Text): Boolean
     var
         SalespersonPurchaser: Record "Salesperson/Purchaser";
     begin
-        exit(BuildCaption(CaptionText, SalespersonPurchaser, Filter, SalespersonPurchaser.FieldNo(Code), SalespersonPurchaser.FieldNo(Name)));
+        with SalespersonPurchaser do
+            exit(BuildCaption(CaptionText, SalespersonPurchaser, Filter, FieldNo(Code), FieldNo(Name)));
     end;
 
     local procedure BuildCaptionCampaign(var CaptionText: Text[260]; "Filter": Text): Boolean
     var
         Campaign: Record Campaign;
     begin
-        exit(BuildCaption(CaptionText, Campaign, Filter, Campaign.FieldNo("No."), Campaign.FieldNo(Description)));
+        with Campaign do
+            exit(BuildCaption(CaptionText, Campaign, Filter, FieldNo("No."), FieldNo(Description)));
     end;
 
     local procedure BuildCaptionSegmentHeader(var CaptionText: Text[260]; "Filter": Text): Boolean
     var
         SegmentHeader: Record "Segment Header";
     begin
-        exit(BuildCaption(CaptionText, SegmentHeader, Filter, SegmentHeader.FieldNo("No."), SegmentHeader.FieldNo(Description)));
+        with SegmentHeader do
+            exit(BuildCaption(CaptionText, SegmentHeader, Filter, FieldNo("No."), FieldNo(Description)));
     end;
 
     local procedure BuildCaption(var CaptionText: Text[260]; RecVar: Variant; "Filter": Text; IndexFieldNo: Integer; TextFieldNo: Integer): Boolean

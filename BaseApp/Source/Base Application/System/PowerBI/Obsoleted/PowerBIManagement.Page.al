@@ -24,12 +24,12 @@ page 6319 "Power BI Management"
             group(Control14)
             {
                 ShowCaption = false;
-                Visible = not IsInvalidClient;
-                usercontrol(PowerBIManagement; PowerBIManagement)
+                Visible = NOT IsInvalidClient;
+                usercontrol(PowerBIManagement; "Microsoft.Dynamics.Nav.Client.PowerBIManagement")
                 {
                     ApplicationArea = Basic, Suite;
 
-                    trigger ControlAddInReady()
+                    trigger AddInReady()
                     begin
                         InitializeAddIn();
                     end;
@@ -38,13 +38,13 @@ page 6319 "Power BI Management"
             group(Control2)
             {
                 ShowCaption = false;
-                Visible = not HasSelectedReport or IsInvalidClient;
+                Visible = NOT HasSelectedReport OR IsInvalidClient;
                 label(MissingSelectedErr)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'The selected report is missing';
                     ToolTip = 'Specifies there is no report selected to display. Choose Select Report to see a list of reports that you can display.';
-                    Visible = not HasSelectedReport;
+                    Visible = NOT HasSelectedReport;
                 }
                 label(InvalidClient)
                 {

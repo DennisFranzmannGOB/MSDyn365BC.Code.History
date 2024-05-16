@@ -546,10 +546,38 @@ page 7345 "Pick Worksheet"
                 actionref("Warehouse Entries_Promoted"; "Warehouse Entries")
                 {
                 }
+#if not CLEAN21
+                actionref("Bin Contents_Promoted"; "Bin Contents")
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category5)
             {
                 Caption = 'Item', Comment = 'Generated from the PromotedActionCategories property index 4.';
+
+#if not CLEAN21
+                actionref(Card_Promoted; Card)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
+#if not CLEAN21
+                actionref("Ledger E&ntries_Promoted"; "Ledger E&ntries")
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Report)
             {

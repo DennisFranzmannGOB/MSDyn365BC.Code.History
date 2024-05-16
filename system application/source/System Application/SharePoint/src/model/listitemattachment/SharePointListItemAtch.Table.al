@@ -16,6 +16,7 @@ table 9104 "SharePoint List Item Atch"
     DataClassification = SystemMetadata; // Data classification is SystemMetadata as the table is temporary
     Caption = 'SharePoint List Item Attachment';
     TableType = Temporary;
+    Extensible = false;
 
     fields
     {

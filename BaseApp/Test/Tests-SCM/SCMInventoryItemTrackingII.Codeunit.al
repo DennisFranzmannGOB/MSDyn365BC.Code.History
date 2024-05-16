@@ -23,6 +23,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         LibraryWarehouse: Codeunit "Library - Warehouse";
         LibraryPlanning: Codeunit "Library - Planning";
         LibraryRandom: Codeunit "Library - Random";
+        LibraryJob: Codeunit "Library - Job";
         isInitialized: Boolean;
         IsUsingSimpleYesConfirmHandler: Boolean;
         AvailabilityWarning: Label 'You do not have enough inventory to meet the demand for items in one or more lines';
@@ -36,13 +37,14 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         AssignSerialNoStatus: Label 'Assign Serial No must be TRUE.';
         ExistingSalesLnITError: Label 'Item tracking is defined for item %1 in the Sales Line.';
         WrongSerialNoErr: Label 'Serial No is wrong.';
-        TrackingOption: Option AssignSerialNo,AssignLotNo,VerifyLotNo,EditValue,SelectEntries,UpdateQtyToInvoice,AssignLotNo2,AssignQty,ReSelectEntries,AssignMoreThanPurchasedQty,SetNewLotNo,EditSNValue,SetNewSN,SetLotAndSerial,CheckExpDateControls,CreateCustomizedSN,AssignPackageNo,SetNewPackageNo,AssignTwoLotNos,AssignLotNoAndPackageNo,AssignPackageNoAndLotNo,AssignSerialNoWithLotNo,AssignSerialNoWithPackageNo,AssignSerialNoWithLotNoAndPackageNo,CreateCustomizedSNWithLotNo,CreateCustomizedSNWithPackageNo,CreateCustomizedSNWithLotNoAndPackageNo;
+        TrackingOption: Option AssignSerialNo,AssignLotNo,VerifyLotNo,EditValue,SelectEntries,UpdateQtyToInvoice,AssignLotNo2,AssignQty,ReSelectEntries,AssignMoreThanPurchasedQty,SetNewLotNo,EditSNValue,SetNewSN,SetLotAndSerial,CheckExpDateControls,CreateCustomizedSN,AssignPackageNo,SetNewPackageNo,AssignTwoLotNos,AssignLotNoAndPackageNo;
         TheLotNoInfoDoesNotExistErr: Label 'The Lot No. Information does not exist. Identification fields and values:';
         TheSerialNoInfoDoesNotExistErr: Label 'The Serial No. Information does not exist. Identification fields and values:';
         LotNoBySNNotFoundErr: Label 'A lot number could not be found for serial number';
         QtyToInvoiceDoesNotMatchItemTrackingErr: Label 'The quantity to invoice does not match the quantity defined in item tracking.';
         InventoryNotAvailableErr: Label '%1 %2 is not available on inventory or it has already been reserved for another document.', Comment = '%1 = Item Tracking ID, %2 = Item Tracking No."';
         CloseItemTrackingLinesWithQtyZeroConfirmErr: Label 'One or more lines have tracking specified';
+        VariableIsUsingSinpleYesConfirmInitErr: Label 'The variable IsUsingSimpleYesConfirmHandler should be initialzied with false but now it is true.';
         CreateSNInfo: Boolean;
 
     [Test]
@@ -59,7 +61,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         Initialize();
 
         // [GIVEN] Create Purchase Order with Item with Serial Specific Item Tracking and Post Purchase Order Receipt.
-        CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(false, true, false));
+        CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(false, true, false));
         CreatePurchaseOrder(PurchaseLine, Item."No.", LibraryRandom.RandInt(20));
         AssignSerialNoAndReceivePurchaseOrder(PurchaseHeader, PurchaseLine);
         PurchaseLine.Find();
@@ -84,7 +86,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
 
         // Setup: Create Item Journal Line with Serial Specific Item Tracking and post.
         Initialize();
-        CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(false, true, false));
+        CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(false, true, false));
         CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
         LibraryVariableStorage.Enqueue(TrackingOption::AssignSerialNo);  // Enqueue value for ItemTrackingLinesPageHandler.
         ItemJournalLine.OpenItemTrackingLines(false);
@@ -107,11 +109,16 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         ItemJournalLine: Record "Item Journal Line";
         ItemLedgerEntry: Record "Item Ledger Entry";
         ItemTrackingCode: Record "Item Tracking Code";
+        InventorySetup: Record "Inventory Setup";
     begin
         // Verify package number cab ne auto assigned after creating inventory with Item Tracking.
 
         // Setup: Create Item Journal Line with Serial Specific Item Tracking and post.
         Initialize();
+
+        InventorySetup.Get();
+        InventorySetup.Validate("Package Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        InventorySetup.Modify();
 
         LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, false, false, true);
         CreateTrackedItem(Item, '', '', ItemTrackingCode.Code);
@@ -519,8 +526,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         ItemJournalLine: Record "Item Journal Line";
         ItemJournalBatch: Record "Item Journal Batch";
     begin
-        // When Use Expiration Dates = false, the column "New Expiration Date" is neither shown nor editable on the tracking page in Item Reclassification.
-        // [SCENARIO 459882] "Expiration Date" field is not visible.
+        // When Use Expiration Dates = false, the column is neither shown nor editable on the tracking page in Item Reclassification.
 
         CreateTrackedItemAndPostItemJournal(ItemJournalLine, false);
 
@@ -533,9 +539,9 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         ItemJournalLine.Validate("Bin Code", ItemJournalLine."Bin Code");
         ItemJournalLine.Modify(true);
         LibraryVariableStorage.Enqueue(TrackingOption::CheckExpDateControls); // Enqueue value for ItemTrackingLinesPageHandler.
-        LibraryVariableStorage.Enqueue(false); // Enqueue value for CheckExpDateControls ExpirationDateExpectedEditability.
-        LibraryVariableStorage.Enqueue(false); // Enqueue value for CheckExpDateControls NewExpirationDateExpectedEditability.
-        ItemJournalLine.OpenItemTrackingLines(true);
+        LibraryVariableStorage.Enqueue(false); // Enqueue value for CheckExpDateControls.
+        AssertError ItemJournalLine.OpenItemTrackingLines(true);
+        Assert.ExpectedError('The field with ID'); // Invisible fields cannot be tested but the error raised confirms that the field is invisible
     end;
 
     [Test]
@@ -546,8 +552,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         ItemJournalLine: Record "Item Journal Line";
         ItemJournalBatch: Record "Item Journal Batch";
     begin
-        // When Use Expiration Dates = true, the column "New Expiration Date" is shown as editable on the tracking page in Item Reclassification.
-        // [SCENARIO 459882] "Expiration Date" field is visible and not editable.
+        // When Use Expiration Dates = true, the column is shown as editable on the tracking page in Item Reclassification.
         Initialize();
 
         CreateTrackedItemAndPostItemJournal(ItemJournalLine, true);
@@ -561,9 +566,9 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         ItemJournalLine.Validate("Bin Code", ItemJournalLine."Bin Code");
         ItemJournalLine.Modify(true);
         LibraryVariableStorage.Enqueue(TrackingOption::CheckExpDateControls); // Enqueue value for ItemTrackingLinesPageHandler.
-        LibraryVariableStorage.Enqueue(false); // Enqueue value for CheckExpDateControls ExpirationDateExpectedEditability.
-        LibraryVariableStorage.Enqueue(true); // Enqueue value for CheckExpDateControls NewExpirationDateExpectedEditability.
-        ItemJournalLine.OpenItemTrackingLines(true);
+        LibraryVariableStorage.Enqueue(true); // Enqueue value for CheckExpDateControls.
+        AssertError ItemJournalLine.OpenItemTrackingLines(true);
+        Assert.ExpectedError('The field with ID'); // Invisible fields cannot be tested but the error raised confirms that the field is invisible
     end;
 
     local procedure CreateTrackedItemAndPostItemJournal(var ItemJournalLine: Record "Item Journal Line"; UseExpirationDates: Boolean)
@@ -573,7 +578,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         LotNo: Variant;
     begin
         // Setup: Create item that has Use Expiration Dates = UseExpirationDates
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), '', CreateItemTrackingCode(true, false, UseExpirationDates));
+        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode, '', CreateItemTrackingCode(true, false, UseExpirationDates));
 
         // Setup: Post Item Journal with Item Tracking
         CreateLocationWithBin(Bin);
@@ -600,7 +605,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
 
         // Setup: Create Item, create Purchase Order and Receive partially.
         Initialize();
-        CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(false, true, false));
+        CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(false, true, false));
         CreatePurchaseOrder(PurchaseLine, Item."No.", 2 * LibraryRandom.RandInt(100));  // Take random Quantity.
         UpdatePurchaseLineAndAssignIT(
           PurchaseLine, PurchaseLine.FieldNo("Qty. to Receive"), PurchaseLine.Quantity / 2, TrackingOption::AssignSerialNo,
@@ -742,7 +747,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         // Setup: Create and Post Purchase order with Lot No.
         Initialize();
         CreateTrackedItem(
-          Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(true, false, false));
+          Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(true, false, false));
         CreateAndPostPurchaseOrderWithIT(PurchaseLine, Item."No.", TrackingOption::AssignLotNo2);
         CreateSalesDocument(
           SalesLine, SalesLine."Document Type"::Order, Item."No.", '', (PurchaseLine.Quantity - LibraryRandom.RandInt(10)));  // Random Sales Quantity less than Purchase Quantity for test case.
@@ -772,7 +777,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         // Setup: Create and Post Purchase order with Lot No,Create Sales order,Assign Lot.
         Initialize();
         CreateTrackedItem(
-          Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(true, false, false));
+          Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(true, false, false));
         CreateAndPostPurchaseOrderWithIT(PurchaseLine, Item."No.", TrackingOption::AssignLotNo2);
         CreateSalesDocument(SalesLine, SalesLine."Document Type"::Order, Item."No.", '', (PurchaseLine.Quantity - 1));  // Sales Quantity less than Purchase Quantity for test case.
         QuantityBase := LibraryRandom.RandInt(10) + PurchaseLine.Quantity;  // Take Random Quantity Greater than Purchase Quantity.
@@ -809,7 +814,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         // Setup: Create and Post Purchase order,Create Sales Order Assign Lot.
         Initialize();
         CreateTrackedItem(
-          Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(true, false, false));
+          Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(true, false, false));
         CreateAndPostPurchaseOrderWithIT(PurchaseLine, Item."No.", TrackingOption::AssignLotNo2);
         CreateSalesDocument(
           SalesLine, SalesLine."Document Type"::Order, Item."No.", '', (PurchaseLine.Quantity - LibraryRandom.RandInt(10)));  // Take Random Quantity.
@@ -844,7 +849,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         // Setup: Create Sales order and Assign Serial Number, Create Purchase Order and Assign Serial No.
         Initialize();
         CreateTrackedItem(
-          Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(false, true, false));
+          Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(false, true, false));
         LibraryWarehouse.CreateLocation(Location);
         CreateSalesDocument(SalesLine, SalesLine."Document Type"::Order, Item."No.", Location.Code, LibraryRandom.RandInt(10));  // Take random for Quantity.
         LibraryVariableStorage.Enqueue(TrackingOption::AssignSerialNo);  // Enqueue value for ItemTrackingLinesPageHandler.
@@ -876,7 +881,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         // Setup: Create Purchase order.
         Initialize();
         CreateTrackedItem(
-          Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(false, true, false));
+          Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(false, true, false));
         CreatePurchaseOrder(PurchaseLine, Item."No.", LibraryRandom.RandIntInRange(10, 20));  // Take Random Quantity.
         LibraryVariableStorage.Enqueue(TrackingOption::AssignLotNo2);  // Enqueue value for ItemTrackingLinesPageHandler.
 
@@ -950,7 +955,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         PurchQuantity := LibraryRandom.RandIntInRange(1, 10);
 
         // [GIVEN] Create Purchase Order, Location with receive/ship required.
-        CreatePurchOrderWithLocation(PurchaseLine, CreateLocationWithReceiveShipRequired(), Item."No.", PurchQuantity);
+        CreatePurchOrderWithLocation(PurchaseLine, CreateLocationWithReceiveShipRequired, Item."No.", PurchQuantity);
 
         PurchaseHeader.Get(PurchaseLine."Document Type", PurchaseLine."Document No.");
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
@@ -994,7 +999,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         LotNo := CreateItemWarehouseInventoryWithLotInfo(ItemJournalLine, Item."No.");
 
         // [GIVEN] Create item reclassification journal line. Set New "Lot No." = "L2". Lot "L2" does not have lot information.
-        NewLotNo := LibraryUtility.GenerateGUID() + LibraryUtility.GenerateGUID();
+        NewLotNo := LibraryUtility.GenerateGUID + LibraryUtility.GenerateGUID();
         CreateItemReclassificationJournalLineWithTrackingAttribute(
           ItemJournalLine, ItemJournalLine."Item No.", ItemJournalLine."Location Code",
           ItemJournalLine.Quantity, TrackingOption::SetNewLotNo, LotNo, NewLotNo);
@@ -1027,7 +1032,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         SN := CreateItemWarehouseInventoryWithSNInfo(ItemJournalLine, Item."No.");
 
         // [GIVEN] Create item reclassification journal line. Set New "Serial No." = "S2". Serial No. "S2" does not have serial no. information.
-        NewSN := LibraryUtility.GenerateGUID() + LibraryUtility.GenerateGUID();
+        NewSN := LibraryUtility.GenerateGUID + LibraryUtility.GenerateGUID();
         CreateItemReclassificationJournalLineWithTrackingAttribute(
           ItemJournalLine, ItemJournalLine."Item No.", ItemJournalLine."Location Code",
           ItemJournalLine.Quantity, TrackingOption::SetNewSN, SN, NewSN);
@@ -1072,8 +1077,9 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     var
         Item: Record Item;
         ItemJournalLine: Record "Item Journal Line";
-        SerialNoInformation: Record "Serial No. Information";
         SN: Code[20];
+        SerialNoInformation: Record "Serial No. Information";
+        ReservationEntry: Record "Reservation Entry";
     begin
         // [FEATURE] [Item Tracking] [Serial No. Info]
         // [SCENARIO 319084] Posting of Item Journal Line with tracking code having Create Information SN Card enabled
@@ -1098,7 +1104,10 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     var
         Item: Record Item;
         ItemJournalLine: Record "Item Journal Line";
+        SN: Code[20];
+        SerialNoInformation: Record "Serial No. Information";
     begin
+
         // [FEATURE] [Item Tracking] [Serial No. Info]
         // [SCENARIO 319084] Creating information card from assign serial no. action on item tracking page
         Initialize();
@@ -1121,7 +1130,10 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     var
         Item: Record Item;
         ItemJournalLine: Record "Item Journal Line";
+        SN: Code[20];
+        SerialNoInformation: Record "Serial No. Information";
     begin
+
         // [FEATURE] [Item Tracking] [Serial No. Info]
         // [SCENARIO 319084] Creating information card from Create Customized SN action on item tracking page
         Initialize();
@@ -1207,7 +1219,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
 
         // [WHEN] Try to update "Lot No." and "Serial No." in "WAL" by new values unregistred in the system
         asserterror
-          UpdateLotSerialNoInWarehouseActivityLine(WarehouseActivityLine, LibraryUtility.GenerateGUID(), LibraryUtility.GenerateGUID());
+          UpdateLotSerialNoInWarehouseActivityLine(WarehouseActivityLine, LibraryUtility.GenerateGUID, LibraryUtility.GenerateGUID());
 
         // [THEN] The error 'There is no Entry Summary within the filter' occurs
         Assert.ExpectedError(LotNoBySNNotFoundErr);
@@ -1235,7 +1247,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         PostItemJournalWithTracking(Item."No.", LotNo, LibraryRandom.RandInt(10));
 
         // [WHEN] Open "Lot No. Information List" page for Item with "Lot No." tracking
-        LotNoInformationList.OpenEdit();
+        LotNoInformationList.OpenEdit;
         LotNoInformationList.GotoKey(Item."No.", '', LotNo);
 
         // [THEN] "Date Filter" is "01.01.0000..05.01.2017"
@@ -1266,7 +1278,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         PostItemJournalWithTracking(Item."No.", SerialNo, 1);
 
         // [WHEN] Open "Serial No. Information List" page for Item with "Serial No." tracking
-        SerialNoInformationList.OpenEdit();
+        SerialNoInformationList.OpenEdit;
         SerialNoInformationList.GotoKey(Item."No.", '', SerialNo);
 
         // [THEN] "Date Filter" is "01.01.0000..05.01.2017"
@@ -1297,7 +1309,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         PostItemJournalWithTracking(Item."No.", LotNo, LibraryRandom.RandInt(10));
 
         // [WHEN] Open "Lot No. Information Card" page for Item with "Lot No." tracking
-        LotNoInformationCard.OpenEdit();
+        LotNoInformationCard.OpenEdit;
         LotNoInformationCard.GotoKey(Item."No.", '', LotNo);
 
         // [THEN] "Date Filter" is "01.01.0000..05.01.2017"
@@ -1328,7 +1340,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         PostItemJournalWithTracking(Item."No.", SerialNo, 1);
 
         // [WHEN] Open "Serial No. Information Card" page for Item with "Serial No." tracking
-        SerialNoInformationCard.OpenEdit();
+        SerialNoInformationCard.OpenEdit;
         SerialNoInformationCard.GotoKey(Item."No.", '', SerialNo);
 
         // [THEN] "Date Filter" is "01.01.0000..05.01.2017"
@@ -1356,7 +1368,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
 
         // [GIVEN] Location "L" with enabled put-away.
         // [GIVEN] Lot-tracked item "I".
-        Location.Get(CreatePutawayPickLocation());
+        Location.Get(CreatePutawayPickLocation);
         CreateWhseLotSpecificTrackedItem(Item, true);
 
         // [GIVEN] Released production order for item "I" on location "L". Quantity = 100.
@@ -1405,7 +1417,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
 
         // [GIVEN] Location "L" with enabled put-away.
         // [GIVEN] Lot-tracked item "I" with "Expiration calculation" = "2Y"
-        Location.Get(CreatePutawayPickLocation());
+        Location.Get(CreatePutawayPickLocation);
         CreateWhseLotSpecificTrackedItem(Item, false);
         LibraryWarehouse.FindBin(Bin, Location.Code, '', 1);
 
@@ -1466,7 +1478,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         SerialNo := LibraryUtility.GenerateGUID();
 
         // [GIVEN] Location with required pick.
-        Location.Get(CreatePutawayPickLocation());
+        Location.Get(CreatePutawayPickLocation);
         Bin.SetRange("Location Code", Location.Code);
         Bin.FindFirst();
 
@@ -1688,6 +1700,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         SerialTrackedItem: Record Item;
         ItemJournalBatch: Record "Item Journal Batch";
         ItemJournalLine: Record "Item Journal Line";
+        ReservationEntry: Record "Reservation Entry";
     begin
         // [FEATURE] [Item Journal]
         // [SCENARIO 348246] Cannot post item journal with item tracking defined on the line if item tracking is disabled on the batch.
@@ -1992,6 +2005,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         Location: Record Location;
         WarehouseEmployee: Record "Warehouse Employee";
         PurchaseLine: Record "Purchase Line";
+        SalesLine: Record "Sales Line";
         SalesHeader: Record "Sales Header";
         LotNo, SerialNo : Code[50];
         Quantity: Decimal;
@@ -2022,7 +2036,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         CreateAndPostWarehouseReceiptFromPO(PurchaseLine);
 
         // [GIVEN] Create and Register Put-away
-        CreateAndRegisterPutAwayFromPurchaseOrder(PurchaseLine."Document No.", Location.Code);
+        CreateAndRegisterPutAwayFromPurchaseOrder(PurchaseLine."Document No.", Item."No.", Location.Code);
 
         // [GIVEN] Create Sales Order and Warehouse Shipment
         CreateSalesOrderAndWareshouseShipment(SalesHeader, Item."No.", Location.Code, Quantity);
@@ -2057,12 +2071,10 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         // [FEATURE] [Item Journal] [Item Tracking on Lines] [UI]
         // [SCENARIO 485524] Lookup "Lot No." on item journal line with item tracking defined on the line work with decimal Quantity.
         Initialize();
-
         // [GIVEN] Lot-tracked item "I" with decimal Rounding Precision.
         LibraryItemTracking.CreateLotItem(Item);
         Item.Validate("Rounding Precision", 0.00001);
         Item.Modify(true);
-
         // [GIVEN] Item journal batch with "Item Tracking on Lines" = true.
         SelectAndClearItemJournalBatch(ItemJournalBatch, ItemJournalBatch."Template Type"::Item);
         ItemJournalBatch."Item Tracking on Lines" := true;
@@ -2070,238 +2082,33 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         LibraryInventory.CreateItemJournalLine(
           ItemJournalLine, ItemJournalBatch."Journal Template Name", ItemJournalBatch.Name,
           ItemJournalLine."Entry Type"::"Positive Adjmt.", Item."No.", 0.01);
-
         // [WHEN] Lookup "Lot No." on item journal line.
         ItemJournalLine.LookUpTrackingSummary("Item Tracking Type"::"Lot No.");
-
         // [THEN] The "Lot No. Information List" page opens.
     end;
 
     [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandler,ConfirmHandlerTrue')]
-    procedure ItemTrackingLines_AssignLotNoAndPackageNo()
+    [HandlerFunctions('ItemTrackingLinesPageHandler')]
+    procedure PostPurchaseOrderWhenItemTrackingLinesWithLotNoAndPackageNoAssigned()
     var
-        Item: Record Item;
         ItemTrackingCode: Record "Item Tracking Code";
-        ItemJournalLine: Record "Item Journal Line";
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+        InventorySetup: Record "Inventory Setup";
     begin
-        // [FEATURE] [Item Tracking] [Item Journal]
-        // [SCENARIO 459882] "Assign Lot No. on the empty tracking inserts new line and sets "Lot No.".
-        // [SCENARIO 459882] "Assign Package No." on the line with "Lot No." sets "Package No.", without inserting new line.
-        // [SCENARIO 459882] "Assign Lot No." on the line with "Lot No." inserts new line with new "Lot No." and copies "Package No." from that line.
-        // [SCENARIO 459882] "Assign Lot No." on the new line inserts new line and sets "Lot No.".
+        // [SCENARIO 504315] Item tracking error "Package No. must be equal to 'x' in item ledger entry: Entry No.=xxx. Current value is 'x'." 
+        // when package tracking is enabled, and a job is used on a purchase order.
         Initialize();
 
         // [GIVEN] Create Item Tracking Code with Lot and Package tracking
         LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, false, true, true);
 
-        // [GIVEN] Create Item with Lot and Package tracking
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), '', ItemTrackingCode.Code);
+        // [GIVEN] Create Purchase Order with Job when Item with Lot and Package tracking
+        CreatePurchaseDocumentWithJobAndLotTracking(PurchaseLine, PurchaseHeader."Document Type"::Order, ItemTrackingCode.Code);
 
-        // [GIVEN] Create Item Journal Line and open tracking lines
-        CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
-        LibraryVariableStorage.Enqueue(TrackingOption::AssignLotNoAndPackageNo);  // Enqueue value for ItemTrackingLinesPageHandler.
-        ItemJournalLine.OpenItemTrackingLines(false);
-
-        // [WHEN] [THEN] Verified in ItemTrackingLinesPageHandler
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandler,ConfirmHandlerTrue')]
-    procedure ItemTrackingLines_AssignPackageNoAndLotNo()
-    var
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        ItemJournalLine: Record "Item Journal Line";
-    begin
-        // [FEATURE] [Item Tracking] [Item Journal]
-        // [SCENARIO 459882] "Assign Package No. on the empty tracking inserts new line and sets "Package No.".
-        // [SCENARIO 459882] "Assign Lot No." on the line with "Package No." sets "Lot No.", without inserting new line.
-        // [SCENARIO 459882] "Assign Package No." on the line with "Package No." inserts new line with new "Package No." and copies "Lot No." from that line.
-        // [SCENARIO 459882] "Assign Package No." on the new line inserts new line and sets "Package No.".
-        Initialize();
-
-        // [GIVEN] Create Item Tracking Code with Lot and Package tracking
-        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, false, true, true);
-
-        // [GIVEN] Create Item with Lot and Package tracking
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), '', ItemTrackingCode.Code);
-
-        // [GIVEN] Create Item Journal Line and open tracking lines
-        CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
-        LibraryVariableStorage.Enqueue(TrackingOption::AssignPackageNoAndLotNo);  // Enqueue value for ItemTrackingLinesPageHandler.
-        ItemJournalLine.OpenItemTrackingLines(false);
-
-        // [WHEN] [THEN] Verified in ItemTrackingLinesPageHandler
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandler,EnterQuantityToCreateHandlerForSetQuantityAssignLot')]
-    procedure ItemTrackingLines_AssignSerialNoWithLot_ThenAssignPackage()
-    var
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        ItemJournalLine: Record "Item Journal Line";
-    begin
-        // [FEATURE] [Item Tracking] [Item Journal]
-        // [SCENARIO 459882] "Assign Serial No." with creating Lot No. inserts new lines and with "Serial No." and "Lot No.".
-        // [SCENARIO 459882] "Assign Package No." on the line with "Serial No." and "Lot No." sets "Package No.", without inserting new line.
-        Initialize();
-
-        // [GIVEN] Create Item Tracking Code with Serial, Lot and Package tracking
-        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, true, true, true);
-
-        // [GIVEN] Create Item with Serial, Lot and Package tracking
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), ItemTrackingCode.Code);
-
-        // [GIVEN] Create Item Journal Line and open tracking lines
-        CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
-        LibraryVariableStorage.Enqueue(TrackingOption::AssignSerialNoWithLotNo);  // Enqueue value for ItemTrackingLinesPageHandler.
-        LibraryVariableStorage.Enqueue(ItemJournalLine.Quantity); // Enqueue for EnterQuantityToCreateHandlerForSetQuantityAssignLot.
-        ItemJournalLine.OpenItemTrackingLines(false);
-
-        // [WHEN] [THEN] Verified in ItemTrackingLinesPageHandler
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandler,EnterQuantityToCreateHandlerForSetQuantityAssignPackage')]
-    procedure ItemTrackingLines_AssignSerialNoWithPackage_ThenAssignLot()
-    var
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        ItemJournalLine: Record "Item Journal Line";
-    begin
-        // [FEATURE] [Item Tracking] [Item Journal]
-        // [SCENARIO 459882] "Assign Serial No." with creating Package No. inserts new lines and with "Serial No." and "Package No.".
-        // [SCENARIO 459882] "Assign Lot No." on the line with "Serial No." and "Package No." sets "Lot No.", without inserting new line.
-        Initialize();
-
-        // [GIVEN] Create Item Tracking Code with Serial, Lot and Package tracking
-        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, true, true, true);
-
-        // [GIVEN] Create Item with Serial, Lot and Package tracking
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), ItemTrackingCode.Code);
-
-        // [GIVEN] Create Item Journal Line and open tracking lines
-        CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
-        LibraryVariableStorage.Enqueue(TrackingOption::AssignSerialNoWithPackageNo);  // Enqueue value for ItemTrackingLinesPageHandler.
-        LibraryVariableStorage.Enqueue(ItemJournalLine.Quantity); // Enqueue for EnterQuantityToCreateHandlerForSetQuantityAssignPackage.
-        ItemJournalLine.OpenItemTrackingLines(false);
-
-        // [WHEN] [THEN] Verified in ItemTrackingLinesPageHandler
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandler,EnterQuantityToCreateHandlerForSetQuantityAssignLotAndPackage')]
-    procedure ItemTrackingLines_AssignSerialNoWithLotAndPackage()
-    var
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        ItemJournalLine: Record "Item Journal Line";
-    begin
-        // [FEATURE] [Item Tracking] [Item Journal]
-        // [SCENARIO 459882] "Assign Serial No." with creating Lot No. and Package No. inserts new lines and with "Serial No.", "Lot No." and "Package No.".
-        Initialize();
-
-        // [GIVEN] Create Item Tracking Code with Serial, Lot and Package tracking
-        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, true, true, true);
-
-        // [GIVEN] Create Item with Serial, Lot and Package tracking
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), ItemTrackingCode.Code);
-
-        // [GIVEN] Create Item Journal Line and open tracking lines
-        CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
-        LibraryVariableStorage.Enqueue(TrackingOption::AssignSerialNoWithLotNoAndPackageNo);  // Enqueue value for ItemTrackingLinesPageHandler.
-        LibraryVariableStorage.Enqueue(ItemJournalLine.Quantity); // Enqueue for EnterQuantityToCreateHandlerForSetQuantityAssignLotAndPackage.
-        ItemJournalLine.OpenItemTrackingLines(false);
-
-        // [WHEN] [THEN] Verified in ItemTrackingLinesPageHandler
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandler,CustomizedSerialPageHandlerAssignLot')]
-    procedure ItemTrackingLines_CreateCustomizedSerialNoWithLot_ThenAssignPackage()
-    var
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        ItemJournalLine: Record "Item Journal Line";
-    begin
-        // [FEATURE] [Item Tracking] [Item Journal]
-        // [SCENARIO 459882] "Create Customized SN" with creating Lot No. inserts new lines and with "Serial No." and "Lot No.".
-        // [SCENARIO 459882] "Assign Package No." on the line with "Serial No." and "Lot No." sets "Package No.", without inserting new line.
-        Initialize();
-
-        // [GIVEN] Create Item Tracking Code with Serial, Lot and Package tracking
-        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, true, true, true);
-
-        // [GIVEN] Create Item with Serial, Lot and Package tracking
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), ItemTrackingCode.Code);
-
-        // [GIVEN] Create Item Journal Line and open tracking lines
-        CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
-        LibraryVariableStorage.Enqueue(TrackingOption::CreateCustomizedSNWithLotNo);  // Enqueue value for ItemTrackingLinesPageHandler.
-        LibraryVariableStorage.Enqueue(ItemJournalLine.Quantity); // Enqueue for CustomizedSerialPageHandlerAssignLot.
-        CreateSNInfo := false;
-        ItemJournalLine.OpenItemTrackingLines(false);
-
-        // [WHEN] [THEN] Verified in ItemTrackingLinesPageHandler
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandler,CustomizedSerialPageHandlerAssignPackage')]
-    procedure ItemTrackingLines_CreateCustomizedSerialNoWithPackage_ThenAssignLot()
-    var
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        ItemJournalLine: Record "Item Journal Line";
-    begin
-        // [FEATURE] [Item Tracking] [Item Journal]
-        // [SCENARIO 459882] "Create Customized SN" with creating Package No. inserts new lines and with "Serial No." and "Package No.".
-        // [SCENARIO 459882] "Assign Lot No." on the line with "Serial No." and "Package No." sets "Lot No.", without inserting new line.
-        Initialize();
-
-        // [GIVEN] Create Item Tracking Code with Serial, Lot and Package tracking
-        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, true, true, true);
-
-        // [GIVEN] Create Item with Serial, Lot and Package tracking
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), ItemTrackingCode.Code);
-
-        // [GIVEN] Create Item Journal Line and open tracking lines
-        CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
-        LibraryVariableStorage.Enqueue(TrackingOption::CreateCustomizedSNWithPackageNo);  // Enqueue value for ItemTrackingLinesPageHandler.
-        LibraryVariableStorage.Enqueue(ItemJournalLine.Quantity); // Enqueue for CustomizedSerialPageHandlerAssignPackage.
-        CreateSNInfo := false;
-        ItemJournalLine.OpenItemTrackingLines(false);
-
-        // [WHEN] [THEN] Verified in ItemTrackingLinesPageHandler
-    end;
-
-    [Test]
-    [HandlerFunctions('ItemTrackingLinesPageHandler,CustomizedSerialPageHandlerAssignLotAndPackage')]
-    procedure ItemTrackingLines_CreateCustomizedSerialNoWithLotAndPackage()
-    var
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        ItemJournalLine: Record "Item Journal Line";
-    begin
-        // [FEATURE] [Item Tracking] [Item Journal]
-        // [SCENARIO 459882] "Create Customized SN" with creating Lot No. and Package No. inserts new lines and with "Serial No.", "Lot No." and "Package No.".
-        Initialize();
-
-        // [GIVEN] Create Item Tracking Code with Serial, Lot and Package tracking
-        LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, true, true, true);
-
-        // [GIVEN] Create Item with Serial, Lot and Package tracking
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), ItemTrackingCode.Code);
-
-        // [GIVEN] Create Item Journal Line and open tracking lines
-        CreateItemJournalLine(ItemJournalLine, Item."No.", '', '', LibraryRandom.RandInt(10));  // Take random for Quantity and used blank for Location and Bin Code.
-        LibraryVariableStorage.Enqueue(TrackingOption::CreateCustomizedSNWithLotNoAndPackageNo);  // Enqueue value for ItemTrackingLinesPageHandler.
-        LibraryVariableStorage.Enqueue(ItemJournalLine.Quantity); // Enqueue for CustomizedSerialPageHandlerAssignLotAndPackage.
-        CreateSNInfo := false;
-        ItemJournalLine.OpenItemTrackingLines(false);
-
-        // [WHEN] [THEN] Verified in ItemTrackingLinesPageHandler
+        // [THEN] Purchase Order Post without any Error
+        PurchaseHeader.Get(PurchaseHeader."Document Type"::Order, PurchaseLine."Document No.");
+        LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
     end;
 
     local procedure Initialize()
@@ -2322,8 +2129,6 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         LibraryERMCountryData.CreateGeneralPostingSetupData();
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         LibraryInventory.NoSeriesSetup(InventorySetup);
-        InventorySetup.Validate("Package Nos.", LibraryUtility.GetGlobalNoSeriesCode());
-        InventorySetup.Modify();
         isInitialized := true;
         Commit();
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"SCM Inventory Item Tracking II");
@@ -2367,7 +2172,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     var
         Item: Record Item;
     begin
-        LibraryInventory.CreateTrackedItem(Item, '', '', CreateLotSNWarehouseItemTrackingCode());
+        LibraryInventory.CreateTrackedItem(Item, '', '', CreateLotSNWarehouseItemTrackingCode);
         exit(Item."No.");
     end;
 
@@ -2377,7 +2182,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         ExpirationDate: DateFormula;
     begin
         CreateTrackedItem(
-          Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(),
+          Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode,
           CreateItemTrackingCode(LotSpecific, SerialSpecific, true));
         Evaluate(ExpirationDate, '<' + Format(LibraryRandom.RandInt(5)) + 'D>');
         Item.Validate("Expiration Calculation", ExpirationDate);
@@ -2391,7 +2196,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         Bin: Record Bin;
         LotNo: Variant;
     begin
-        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), '', CreateItemTrackingCode(true, false, false));
+        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode, '', CreateItemTrackingCode(true, false, false));
         CreateLocationWithBin(Bin);
         CreateItemJournalLine(ItemJournalLine, Item."No.", Bin."Location Code", Bin.Code, LibraryRandom.RandInt(10));  // Take random Quantity.
         LibraryVariableStorage.Enqueue(TrackingOption::AssignLotNo);  // Enqueue value for ItemTrackingLinesPageHandler.
@@ -2646,25 +2451,25 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     local procedure CreateItemInboundLotInfoMustExist(var Item: Record Item)
     begin
         CreateTrackedItem(
-          Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCodeInboundInfoMustExist(true, false, true, false, false, false));
+          Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCodeInboundInfoMustExist(true, false, true, false, false, false));
     end;
 
     local procedure CreateItemInboundSNInfoMustExist(var Item: Record Item)
     begin
         CreateTrackedItem(
-          Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCodeInboundInfoMustExist(false, true, false, true, false, false));
+          Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCodeInboundInfoMustExist(false, true, false, true, false, false));
     end;
 
     local procedure CreateItemInboundLotInfoMustExistAutoInfoCard(var Item: Record Item)
     begin
         CreateTrackedItem(
-          Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCodeInboundInfoMustExist(true, false, true, false, true, false));
+          Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCodeInboundInfoMustExist(true, false, true, false, true, false));
     end;
 
     local procedure CreateItemInboundSNInfoMustExistAutoInfoCard(var Item: Record Item)
     begin
         CreateTrackedItem(
-          Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCodeInboundInfoMustExist(false, true, false, true, false, true));
+          Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCodeInboundInfoMustExist(false, true, false, true, false, true));
     end;
 
     local procedure CreateItemTrackingCodeInboundInfoMustExist(LotSpecific: Boolean; SNSpecific: Boolean; InboundLotNoInfoMustExist: Boolean; InboundSNInfoMustExist: Boolean; AutoLotInfo: Boolean; AutoSNInfo: Boolean): Code[10]
@@ -2766,7 +2571,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
             Validate("Lot Warehouse Tracking", true);
             Validate("SN Purchase Inbound Tracking", SNTracking);
             Modify(true);
-            CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), Code);
+            CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode, Code);
         end;
         Evaluate(Item."Expiration Calculation", '<1Y>');
         Item.Modify(true);
@@ -2793,7 +2598,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         Item: Record Item;
         Location: Record Location;
     begin
-        CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode(), CreateItemTrackingCode(false, true, false));  // Blank value for Lot No.
+        CreateTrackedItem(Item, '', LibraryUtility.GetGlobalNoSeriesCode, CreateItemTrackingCode(false, true, false));  // Blank value for Lot No.
         CreateSalesDocument(
           SalesLine, SalesLine."Document Type"::"Return Order", Item."No.",
           LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location),
@@ -2821,7 +2626,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         Item: Record Item;
     begin
         CreateTrackedItem(
-          Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(),
+          Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode,
           CreateItemTrackingCode(LOTSpecific, SNSpecific, false));
         LibraryWarehouse.CreateLocation(Location);
         CreateSalesDocument(SalesLine, SalesLine."Document Type"::Order, Item."No.", Location.Code, LibraryRandom.RandInt(10));  // Take random for Quantity.
@@ -2831,7 +2636,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     var
         SalesHeader: Record "Sales Header";
     begin
-        LibrarySales.CreateSalesHeader(SalesHeader, DocumentType, CreateCustomer());
+        LibrarySales.CreateSalesHeader(SalesHeader, DocumentType, CreateCustomer);
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, No, Quantity);
         SalesLine.Validate("Location Code", LocationCode);
         SalesLine.Modify(true);
@@ -2886,7 +2691,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     begin
         LibraryPurchase.CreatePurchaseDocumentWithItem(
           PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, '',
-          CreateLotSNWarehouseTrackingItem(), 1, CreatePutawayPickLocation(), WorkDate());
+          CreateLotSNWarehouseTrackingItem, 1, CreatePutawayPickLocation, WorkDate());
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
         LibraryWarehouse.CreateInvtPutPickMovement(
           WarehouseRequest."Source Document"::"Purchase Order", PurchaseHeader."No.", true, false, false);
@@ -2901,8 +2706,8 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         WarehouseRequest: Record "Warehouse Request";
     begin
         LibraryManufacturing.CreateProductionOrder(
-          ProductionOrder, ProductionOrder.Status::Released, ProductionOrder."Source Type"::Item, CreateLotSNWarehouseTrackingItem(), 1);
-        ProductionOrder.Validate("Location Code", CreatePutawayPickLocation());
+          ProductionOrder, ProductionOrder.Status::Released, ProductionOrder."Source Type"::Item, CreateLotSNWarehouseTrackingItem, 1);
+        ProductionOrder.Validate("Location Code", CreatePutawayPickLocation);
         ProductionOrder.Modify(true);
         LibraryManufacturing.RefreshProdOrder(ProductionOrder, false, true, true, true, true);
         LibraryWarehouse.CreateInvtPutPickMovement(
@@ -2921,8 +2726,8 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         LocationCode: Code[10];
         ItemNo: Code[20];
     begin
-        LocationCode := CreatePutawayPickLocation();
-        ItemNo := CreateLotSNWarehouseTrackingItem();
+        LocationCode := CreatePutawayPickLocation;
+        ItemNo := CreateLotSNWarehouseTrackingItem;
         Bin.SetRange("Location Code", LocationCode);
         Bin.FindFirst();
         CreateAndPostPosAdjmtItemJournalLineWithIT(Bin, ItemNo, 1);
@@ -3278,7 +3083,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
             FindSet();
             repeat
                 Assert.AreEqual(ExpectedSerialNo, "Serial No.", WrongSerialNoErr);
-            until Next() = 0;
+            until Next = 0;
         end;
     end;
 
@@ -3293,9 +3098,9 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     var
         SalesReturnOrder: TestPage "Sales Return Order";
     begin
-        SalesReturnOrder.OpenEdit();
+        SalesReturnOrder.OpenEdit;
         SalesReturnOrder.Filter.SetFilter("No.", No);
-        SalesReturnOrder.GetPostedDocumentLinesToReverse.Invoke();
+        SalesReturnOrder.GetPostedDocumentLinesToReverse.Invoke;
     end;
 
     local procedure PostWarehouseShipmentFromSalesOrder(var SalesHeader: Record "Sales Header")
@@ -3373,7 +3178,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         LibraryWarehouse.CreateWhseShipmentFromSO(SalesHeader);
     end;
 
-    local procedure CreateAndRegisterPutAwayFromPurchaseOrder(SourceNo: Code[20]; LocationCode: Code[10])
+    local procedure CreateAndRegisterPutAwayFromPurchaseOrder(SourceNo: Code[20]; ItemNo: Code[20]; LocationCode: Code[10])
     var
         Bin: Record Bin;
         WarehouseActivityLine: Record "Warehouse Activity Line";
@@ -3508,6 +3313,51 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         PurchaseLine.OpenItemTrackingLines();
     end;
 
+    local procedure CreatePurchaseDocumentWithJobAndLotTracking(
+        var PurchaseLine: Record "Purchase Line";
+        DocumentType: Enum "Purchase Document Type";
+        ItemTrackingCode: Code[10])
+    var
+        LotNo: Code[10];
+    begin
+        CreatePurchaseDocumentWithJob(PurchaseLine, DocumentType, ItemTrackingCode);
+        LibraryVariableStorage.Enqueue(TrackingOption::AssignLotNoAndPackageNo);
+        LotNo := LibraryUtility.GenerateGUID();
+        LibraryVariableStorage.Enqueue(LotNo);
+        LibraryVariableStorage.Enqueue(LibraryUtility.GenerateGUID());
+        LibraryVariableStorage.Enqueue(PurchaseLine."Quantity (Base)" / 2);
+        LibraryVariableStorage.Enqueue(LotNo);
+        LibraryVariableStorage.Enqueue(LibraryUtility.GenerateGUID());
+        LibraryVariableStorage.Enqueue(PurchaseLine."Quantity (Base)" / 2);
+        PurchaseLine.OpenItemTrackingLines();
+    end;
+
+    local procedure CreatePurchaseDocumentWithJob(
+        var PurchaseLine: Record "Purchase Line";
+        DocumentType: Enum "Purchase Document Type";
+        ItemTrackingCode: Code[10])
+    var
+        PurchaseHeader: Record "Purchase Header";
+        Item: Record Item;
+        Job: Record Job;
+        JobTask: Record "Job Task";
+    begin
+        CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), '', ItemTrackingCode);
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, DocumentType, LibraryPurchase.CreateVendorNo());
+        LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, Item."No.", LibraryRandom.RandIntInRange(5, 10));
+        LibraryJob.CreateJob(Job);
+        LibraryJob.CreateJobTask(Job, JobTask);
+        UpdatePurchaseLineWithJobTask(PurchaseLine, JobTask);
+    end;
+
+    local procedure UpdatePurchaseLineWithJobTask(var PurchaseLine: Record "Purchase Line"; JobTask: Record "Job Task")
+    begin
+        PurchaseLine.Validate("Job No.", JobTask."Job No.");
+        PurchaseLine.Validate("Job Task No.", JobTask."Job Task No.");
+        PurchaseLine.Validate("Job Line Type", PurchaseLine."Job Line Type"::Budget);
+        PurchaseLine.Modify(true);
+    end;
+
     [ConfirmHandler]
     [Scope('OnPrem')]
     procedure ConfirmHandler(ConfirmMessage: Text[1024]; var Reply: Boolean)
@@ -3519,19 +3369,12 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         Reply := true;
     end;
 
-    [ConfirmHandler]
-    [Scope('OnPrem')]
-    procedure ConfirmHandlerTrue(ConfirmMessage: Text[1024]; var Reply: Boolean)
-    begin
-        Reply := true;
-    end;
-
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure EnterQuantityToCreatePageHandler(var EnterQuantityToCreate: TestPage "Enter Quantity to Create")
     begin
         EnterQuantityToCreate.CreateSNInfo.SetValue(CreateSNInfo);
-        EnterQuantityToCreate.OK().Invoke();
+        EnterQuantityToCreate.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -3542,7 +3385,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     begin
         LibraryVariableStorage.Dequeue(Quantity);
         EnterQuantityToCreate.QtyToCreate.SetValue(Quantity);
-        EnterQuantityToCreate.OK().Invoke();
+        EnterQuantityToCreate.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -3554,30 +3397,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         LibraryVariableStorage.Dequeue(Quantity);
         EnterQuantityToCreate.QtyToCreate.SetValue(Quantity);
         EnterQuantityToCreate.CreateNewLotNo.SetValue(true);
-        EnterQuantityToCreate.OK().Invoke();
-    end;
-
-    [ModalPageHandler]
-    procedure EnterQuantityToCreateHandlerForSetQuantityAssignPackage(var EnterQuantityToCreate: TestPage "Enter Quantity to Create")
-    var
-        Quantity: Variant;
-    begin
-        LibraryVariableStorage.Dequeue(Quantity);
-        EnterQuantityToCreate.QtyToCreate.SetValue(Quantity);
-        EnterQuantityToCreate.CreateNewPackageNo.SetValue(true);
-        EnterQuantityToCreate.OK().Invoke();
-    end;
-
-    [ModalPageHandler]
-    procedure EnterQuantityToCreateHandlerForSetQuantityAssignLotAndPackage(var EnterQuantityToCreate: TestPage "Enter Quantity to Create")
-    var
-        Quantity: Variant;
-    begin
-        LibraryVariableStorage.Dequeue(Quantity);
-        EnterQuantityToCreate.QtyToCreate.SetValue(Quantity);
-        EnterQuantityToCreate.CreateNewLotNo.SetValue(true);
-        EnterQuantityToCreate.CreateNewPackageNo.SetValue(true);
-        EnterQuantityToCreate.OK().Invoke();
+        EnterQuantityToCreate.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -3588,41 +3408,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         EnterCustomizedSN.CustomizedSN.SetValue(LibraryRandom.RandText(40));  // Random Text40 for Serial No.
         EnterCustomizedSN.Increment.SetValue(LibraryRandom.RandInt(10));  // Random Value for Increment starting from 1.
         EnterCustomizedSN.CreateSNInfo.SetValue(CreateSNInfo);
-        EnterCustomizedSN.OK().Invoke();
-    end;
-
-    [ModalPageHandler]
-    procedure CustomizedSerialPageHandlerAssignLot(var EnterCustomizedSN: TestPage "Enter Customized SN")
-    begin
-        EnterCustomizedSN.QtyToCreate.SetValue(LibraryVariableStorage.DequeueInteger());
-        EnterCustomizedSN.CustomizedSN.SetValue(LibraryRandom.RandText(40));  // Random Text40 for Serial No.
-        EnterCustomizedSN.Increment.SetValue(LibraryRandom.RandInt(10));  // Random Value for Increment starting from 1.
-        EnterCustomizedSN.CreateNewLotNo.SetValue(true);
-        EnterCustomizedSN.CreateSNInfo.SetValue(CreateSNInfo);
-        EnterCustomizedSN.OK().Invoke();
-    end;
-
-    [ModalPageHandler]
-    procedure CustomizedSerialPageHandlerAssignPackage(var EnterCustomizedSN: TestPage "Enter Customized SN")
-    begin
-        EnterCustomizedSN.QtyToCreate.SetValue(LibraryVariableStorage.DequeueInteger());
-        EnterCustomizedSN.CustomizedSN.SetValue(LibraryRandom.RandText(40));  // Random Text40 for Serial No.
-        EnterCustomizedSN.Increment.SetValue(LibraryRandom.RandInt(10));  // Random Value for Increment starting from 1.
-        EnterCustomizedSN.CreateNewPackageNo.SetValue(true);
-        EnterCustomizedSN.CreateSNInfo.SetValue(CreateSNInfo);
-        EnterCustomizedSN.OK().Invoke();
-    end;
-
-    [ModalPageHandler]
-    procedure CustomizedSerialPageHandlerAssignLotAndPackage(var EnterCustomizedSN: TestPage "Enter Customized SN")
-    begin
-        EnterCustomizedSN.QtyToCreate.SetValue(LibraryVariableStorage.DequeueInteger());
-        EnterCustomizedSN.CustomizedSN.SetValue(LibraryRandom.RandText(40));  // Random Text40 for Serial No.
-        EnterCustomizedSN.Increment.SetValue(LibraryRandom.RandInt(10));  // Random Value for Increment starting from 1.
-        EnterCustomizedSN.CreateNewLotNo.SetValue(true);
-        EnterCustomizedSN.CreateNewPackageNo.SetValue(true);
-        EnterCustomizedSN.CreateSNInfo.SetValue(CreateSNInfo);
-        EnterCustomizedSN.OK().Invoke();
+        EnterCustomizedSN.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -3641,33 +3427,33 @@ codeunit 137261 "SCM Inventory Item Tracking II"
         TrackingOptionLoc: Option;
         Count2: Integer;
         i: Integer;
-        ExpirationDateExpectedEditability, NewExpirationDateExpectedEditability : Boolean;
+        ExpectedEditability: Boolean;
     begin
-        TrackingOptionLoc := LibraryVariableStorage.DequeueInteger();  // Dequeue TrackingOption.
+        TrackingOptionLoc := LibraryVariableStorage.DequeueInteger;  // Dequeue TrackingOption.
         case TrackingOptionLoc of
             TrackingOption::AssignSerialNo:
                 begin
-                    ItemTrackingLines."Assign Serial No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines.First(), AssignSerialNoStatus);
+                    ItemTrackingLines."Assign Serial No.".Invoke;
+                    Assert.IsTrue(ItemTrackingLines.First, AssignSerialNoStatus);
                 end;
             TrackingOption::AssignLotNo:
                 begin
-                    ItemTrackingLines."Assign Lot No.".Invoke();
+                    ItemTrackingLines."Assign Lot No.".Invoke;
                     LibraryVariableStorage.Enqueue(ItemTrackingLines."Lot No.".Value);
                 end;
             TrackingOption::AssignPackageNo:
                 begin
-                    ItemTrackingLines."Assign Package No.".Invoke();
+                    ItemTrackingLines."Assign Package No.".Invoke;
                     LibraryVariableStorage.Enqueue(ItemTrackingLines."Package No.".Value);
                 end;
             TrackingOption::EditValue:
                 begin
                     LibraryVariableStorage.Dequeue(LotNo);
                     ItemTrackingLines."Lot No.".SetValue(LotNo);
-                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger());
+                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger);
                 end;
             TrackingOption::SelectEntries:
-                ItemTrackingLines."Select Entries".Invoke();
+                ItemTrackingLines."Select Entries".Invoke;
             TrackingOption::UpdateQtyToInvoice:
                 begin
                     LibraryVariableStorage.Dequeue(Count);
@@ -3676,25 +3462,25 @@ codeunit 137261 "SCM Inventory Item Tracking II"
                         ItemTrackingLines."Qty. to Invoice (Base)".SetValue(0);
                 end;
             TrackingOption::AssignLotNo2:
-                ItemTrackingLines."Assign Lot No.".Invoke();
+                ItemTrackingLines."Assign Lot No.".Invoke;
             TrackingOption::ReSelectEntries:
                 begin
-                    ItemTrackingLines."Lot No.".AssistEdit();
-                    ItemTrackingLines."Lot No.".AssistEdit();
+                    ItemTrackingLines."Lot No.".AssistEdit;
+                    ItemTrackingLines."Lot No.".AssistEdit;
                 end;
             TrackingOption::AssignQty:
                 begin
                     LibraryVariableStorage.Enqueue(SummaryOption::AssignQty);  // Enqueue value for ItemTrackingSummaryPageHandler.
-                    ItemTrackingLines."Lot No.".AssistEdit();
+                    ItemTrackingLines."Lot No.".AssistEdit;
                     ItemTrackingLines."Quantity (Base)".SetValue(LibraryRandom.RandInt(10));  // Take random for QuantityBase.
-                    LibraryVariableStorage.Enqueue(ItemTrackingLines."Quantity (Base)".AsDecimal());   // Enqueue Assigned Qantity.
+                    LibraryVariableStorage.Enqueue(ItemTrackingLines."Quantity (Base)".AsDEcimal);   // Enqueue Assigned Qantity.
                 end;
             TrackingOption::AssignMoreThanPurchasedQty:
                 begin
-                    ItemTrackingLines."Lot No.".AssistEdit();
+                    ItemTrackingLines."Lot No.".AssistEdit;
                     LibraryVariableStorage.Dequeue(QuantityBase);
                     ItemTrackingLines."Quantity (Base)".SetValue(QuantityBase);
-                    ItemTrackingLines."Lot No.".AssistEdit();
+                    ItemTrackingLines."Lot No.".AssistEdit;
                 end;
             TrackingOption::SetNewLotNo:
                 begin
@@ -3702,7 +3488,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
                     LibraryVariableStorage.Dequeue(NewLotNo);
                     ItemTrackingLines."Lot No.".SetValue(LotNo);
                     ItemTrackingLines."New Lot No.".SetValue(NewLotNo);
-                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger());
+                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger);
                 end;
             TrackingOption::SetNewPackageNo:
                 begin
@@ -3710,13 +3496,13 @@ codeunit 137261 "SCM Inventory Item Tracking II"
                     LibraryVariableStorage.Dequeue(NewPackageNo);
                     ItemTrackingLines."Package No.".SetValue(PackageNo);
                     ItemTrackingLines."New Package No.".SetValue(NewPackageNo);
-                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger());
+                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger);
                 end;
             TrackingOption::EditSNValue:
                 begin
                     LibraryVariableStorage.Dequeue(SN);
                     ItemTrackingLines."Serial No.".SetValue(SN);
-                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger());
+                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger);
                 end;
             TrackingOption::SetNewSN:
                 begin
@@ -3724,7 +3510,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
                     LibraryVariableStorage.Dequeue(NewSN);
                     ItemTrackingLines."Serial No.".SetValue(SN);
                     ItemTrackingLines."New Serial No.".SetValue(NewSN);
-                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger());
+                    ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger);
                 end;
             TrackingOption::SetLotAndSerial:
                 begin
@@ -3737,16 +3523,15 @@ codeunit 137261 "SCM Inventory Item Tracking II"
                 end;
             TrackingOption::CheckExpDateControls:
                 begin
-                    ExpirationDateExpectedEditability := LibraryVariableStorage.DequeueBoolean();
-                    NewExpirationDateExpectedEditability := LibraryVariableStorage.DequeueBoolean();
-                    Assert.AreEqual(ExpirationDateExpectedEditability, ItemTrackingLines."Expiration Date".Editable(), 'Expiration Date editable is not as expected');
-                    Assert.AreEqual(NewExpirationDateExpectedEditability, ItemTrackingLines."New Expiration Date".Editable(), 'New Expiration Date editable is not as expected');
+                    ExpectedEditability := LibraryVariableStorage.DequeueBoolean();
+                    Assert.AreEqual(ExpectedEditability, ItemTrackingLines."Expiration Date".Editable(), 'Expiration date is not editable');
+                    Assert.AreEqual(ExpectedEditability, ItemTrackingLines."New Expiration Date".Editable(), 'New Expiration date is not editable');
                 end;
             TrackingOption::CreateCustomizedSN:
                 begin
                     LibraryVariableStorage.Dequeue(SN);
                     LibraryVariableStorage.Enqueue(ItemTrackingLines.Quantity3.AsInteger());
-                    ItemTrackingLines."Create Customized SN".Invoke();
+                    ItemTrackingLines."Create Customized SN".Invoke;
                 end;
             TrackingOption::AssignTwoLotNos:
                 begin
@@ -3758,182 +3543,32 @@ codeunit 137261 "SCM Inventory Item Tracking II"
                 end;
             TrackingOption::AssignLotNoAndPackageNo:
                 begin
-                    // Assign "Lot No." for the 1st line.
-                    ItemTrackingLines."Assign Lot No.".Invoke();
-                    ItemTrackingLines.First();
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the 1st line.');
-                    LotNo := ItemTrackingLines."Lot No.".Value();
-
-                    // Assign "Package No." for the 1st line.
-                    ItemTrackingLines."Assign Package No.".Invoke();
-                    ItemTrackingLines.First();
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the 1st line.');
-                    Assert.AreEqual(LotNo, ItemTrackingLines."Lot No.".Value(), 'Lot No. is changed for the 1st line.');
-                    PackageNo := ItemTrackingLines."Package No.".Value();
+                    ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText());
+                    ItemTrackingLines."Package No.".SetValue(LibraryVariableStorage.DequeueText());
+                    ItemTrackingLines."Quantity (Base)".SetValue(LibraryVariableStorage.DequeueDecimal());
                     ItemTrackingLines.Next();
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the 2nd line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the 2nd line.');
-                    Assert.IsTrue(ItemTrackingLines.Next() = false, 'There is more than 1 line.');
-
-                    // Assign "Lot No." for the 2nd line, copying "Package No." from the 1st line.
-                    ItemTrackingLines.First();
-                    ItemTrackingLines."Assign Lot No.".Invoke();
-                    ItemTrackingLines.Last();
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the 2nd line.');
-                    Assert.AreNotEqual(LotNo, ItemTrackingLines."Lot No.".Value(), 'Lot No. on the 2nd line is the same as on the 1st line.');
-                    LotNo := ItemTrackingLines."Lot No.".Value();
-                    Assert.AreEqual(PackageNo, ItemTrackingLines."Package No.".Value(), 'Package No. on the 2nd line is not equal to the 1st line.');
-
-                    // Assign "Lot No." for the 3rd line, with empty "Package No."
-                    ItemTrackingLines.New();
-                    ItemTrackingLines."Assign Lot No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the 3rd line.');
-                    Assert.AreNotEqual(LotNo, ItemTrackingLines."Lot No.".Value(), 'Lot No. on the 3rd line is the same as on the 2nd line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the 3rd line.');
-                end;
-            TrackingOption::AssignPackageNoAndLotNo:
-                begin
-                    // Assign "Package No." for the 1st line.
-                    ItemTrackingLines."Assign Package No.".Invoke();
-                    ItemTrackingLines.First();
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the 1st line.');
-                    PackageNo := ItemTrackingLines."Package No.".Value();
-
-                    // Assign "Lot No." for the 1st line.
-                    ItemTrackingLines."Assign Lot No.".Invoke();
-                    ItemTrackingLines.First();
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the 1st line.');
-                    Assert.AreEqual(PackageNo, ItemTrackingLines."Package No.".Value(), 'Package No. is changed for the 1st line.');
-                    LotNo := ItemTrackingLines."Lot No.".Value();
-                    ItemTrackingLines.Next();
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the 2nd line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the 2nd line.');
-                    Assert.IsTrue(ItemTrackingLines.Next() = false, 'There is more than 1 line.');
-
-                    // Assign "Package No." for the 2nd line, copying "Lot No." from the 1st line.
-                    ItemTrackingLines.First();
-                    ItemTrackingLines."Assign Package No.".Invoke();
-                    ItemTrackingLines.Last();
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the 2nd line.');
-                    Assert.AreNotEqual(PackageNo, ItemTrackingLines."Package No.".Value(), 'Package No. on the 2nd line is the same as on the 1st line.');
-                    PackageNo := ItemTrackingLines."Package No.".Value();
-                    Assert.AreEqual(LotNo, ItemTrackingLines."Lot No.".Value(), 'Lot No. on the 2nd line is not equal to the 1st line.');
-
-                    // Assign "Package No." for the 3rd line, with empty "Lot No."
-                    ItemTrackingLines.New();
-                    ItemTrackingLines."Assign Package No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the 3rd line.');
-                    Assert.AreNotEqual(PackageNo, ItemTrackingLines."Package No.".Value(), 'Package No. on the 3rd line is the same as on the 2nd line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the 3rd line.');
-                end;
-            TrackingOption::AssignSerialNoWithLotNo:
-                begin
-                    // "Assign Serial No." with creating Lot No. inserts new lines and with "Serial No." and "Lot No.".
-                    ItemTrackingLines."Assign Serial No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines.Last(), AssignSerialNoStatus);
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() <> '', 'Serial No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the last line.');
-
-                    // "Assign Package No." on the line with "Serial No." and "Lot No." sets "Package No.", without inserting new line.
-                    ItemTrackingLines."Assign Package No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the last line.');
-                    ItemTrackingLines.Next();
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() = '', 'Serial No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines.Next() = false, 'New line is inserted after assigning Package No.');
-                end;
-            TrackingOption::AssignSerialNoWithPackageNo:
-                begin
-                    // "Assign Serial No." with creating Package No. inserts new lines and with "Serial No." and "Package No.".
-                    ItemTrackingLines."Assign Serial No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines.Last(), AssignSerialNoStatus);
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() <> '', 'Serial No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the last line.');
-
-                    // "Assign Lot No." on the line with "Serial No." and "Package No." sets "Lot No.", without inserting new line.
-                    ItemTrackingLines."Assign Lot No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the last line.');
-                    ItemTrackingLines.Next();
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() = '', 'Serial No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines.Next() = false, 'New line is inserted after assigning Lot No.');
-                end;
-            TrackingOption::AssignSerialNoWithLotNoAndPackageNo:
-                begin
-                    // "Assign Serial No." with creating Lot No. and Package No. inserts new lines and with "Serial No.", "Lot No." and "Package No.".
-                    ItemTrackingLines."Assign Serial No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines.Last(), AssignSerialNoStatus);
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() <> '', 'Serial No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the last line.');
-                end;
-            TrackingOption::CreateCustomizedSNWithLotNo:
-                begin
-                    // "Create Customized SN" with creating Lot No. inserts new lines and with "Serial No." and "Lot No.".
-                    ItemTrackingLines."Create Customized SN".Invoke();
-                    Assert.IsTrue(ItemTrackingLines.Last(), AssignSerialNoStatus);
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() <> '', 'Serial No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the last line.');
-
-                    // "Assign Package No." on the line with "Serial No." and "Lot No." sets "Package No.", without inserting new line.
-                    ItemTrackingLines."Assign Package No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the last line.');
-                    ItemTrackingLines.Next();
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() = '', 'Serial No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines.Next() = false, 'New line is inserted after assigning Package No.');
-                end;
-            TrackingOption::CreateCustomizedSNWithPackageNo:
-                begin
-                    // "Create Customized SN" with creating Package No. inserts new lines and with "Serial No." and "Package No.".
-                    ItemTrackingLines."Create Customized SN".Invoke();
-                    Assert.IsTrue(ItemTrackingLines.Last(), AssignSerialNoStatus);
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() <> '', 'Serial No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the last line.');
-
-                    // "Assign Lot No." on the line with "Serial No." and "Package No." sets "Lot No.", without inserting new line.
-                    ItemTrackingLines."Assign Lot No.".Invoke();
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the last line.');
-                    ItemTrackingLines.Next();
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() = '', 'Serial No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() = '', 'Package No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() = '', 'Lot No. is not empty for the last line.');
-                    Assert.IsTrue(ItemTrackingLines.Next() = false, 'New line is inserted after assigning Lot No.');
-                end;
-            TrackingOption::CreateCustomizedSNWithLotNoAndPackageNo:
-                begin
-                    // "Create Customized SN" with creating Lot No. and Package No. inserts new lines and with "Serial No.", "Lot No." and "Package No.".
-                    ItemTrackingLines."Create Customized SN".Invoke();
-                    Assert.IsTrue(ItemTrackingLines.Last(), AssignSerialNoStatus);
-                    Assert.IsTrue(ItemTrackingLines."Serial No.".Value() <> '', 'Serial No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Lot No.".Value() <> '', 'Lot No. is not assigned for the last line.');
-                    Assert.IsTrue(ItemTrackingLines."Package No.".Value() <> '', 'Package No. is not assigned for the last line.');
+                    ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText());
+                    ItemTrackingLines."Package No.".SetValue(LibraryVariableStorage.DequeueText());
+                    ItemTrackingLines."Quantity (Base)".SetValue(LibraryVariableStorage.DequeueDecimal());
                 end;
         end;
-        ItemTrackingLines.OK().Invoke();
+        ItemTrackingLines.OK.Invoke;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure ItemTrackingLinesExpiredLotPageHandler(var ItemTrackingLines: TestPage "Item Tracking Lines")
     begin
-        ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText());
-        ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger());
+        ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText);
+        ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger);
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure ItemTrackingLinesExpiredSerialNoPageHandler(var ItemTrackingLines: TestPage "Item Tracking Lines")
     begin
-        ItemTrackingLines."Serial No.".SetValue(LibraryVariableStorage.DequeueText());
-        ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger());
+        ItemTrackingLines."Serial No.".SetValue(LibraryVariableStorage.DequeueText);
+        ItemTrackingLines."Quantity (Base)".SetValue(ItemTrackingLines.Quantity3.AsInteger);
     end;
 
     [ModalPageHandler]
@@ -3962,7 +3597,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
             OptionString::SetQuantity:
                 begin
                     LibraryVariableStorage.Dequeue(Quantity);
-                    ItemTrackingSummary.First();
+                    ItemTrackingSummary.First;
                     ItemTrackingSummary."Selected Quantity".SetValue(Quantity);
                 end;
             OptionString::VerifyQuantity:
@@ -3985,20 +3620,20 @@ codeunit 137261 "SCM Inventory Item Tracking II"
                     ItemTrackingSummary."Current Pending Quantity".AssertEquals(CurrentPendingQuantity);
                 end;
         end;
-        ItemTrackingSummary.OK().Invoke();
+        ItemTrackingSummary.OK.Invoke;
     end;
 
     [ModalPageHandler]
     procedure ItemTrackingSummaryModalPageHandler(var ItemTrackingSummary: TestPage "Item Tracking Summary")
     begin
-        ItemTrackingSummary.OK().Invoke();
+        ItemTrackingSummary.OK.Invoke;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure ItemTrackingListPageHandler(var ItemTrackingList: TestPage "Item Tracking List")
     begin
-        ItemTrackingList.OK().Invoke();
+        ItemTrackingList.OK.Invoke;
     end;
 
     [MessageHandler]
@@ -4015,8 +3650,8 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     [Scope('OnPrem')]
     procedure ReservationPageHandler(var Reservation: TestPage Reservation)
     begin
-        Reservation."Reserve from Current Line".Invoke();
-        Reservation.OK().Invoke();
+        Reservation."Reserve from Current Line".Invoke;
+        Reservation.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -4026,7 +3661,7 @@ codeunit 137261 "SCM Inventory Item Tracking II"
     begin
         LibraryVariableStorage.Dequeue(ItemNo);
         PostedSalesDocumentLines.PostedInvoices.FILTER.SetFilter("No.", ItemNo);
-        PostedSalesDocumentLines.OK().Invoke();
+        PostedSalesDocumentLines.OK.Invoke;
     end;
 
     [MessageHandler]

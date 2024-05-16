@@ -4,7 +4,6 @@ table 1281 "Bank Data Conversion Pmt. Type"
     ObsoleteState = Removed;
     ObsoleteReason = 'Changed to AMC Banking 365 Fundamentals Extension';
     ObsoleteTag = '15.0';
-    DataClassification = CustomerContent;
 
     fields
     {

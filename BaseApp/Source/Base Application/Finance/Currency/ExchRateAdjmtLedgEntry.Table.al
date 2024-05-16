@@ -15,7 +15,6 @@ table 186 "Exch. Rate Adjmt. Ledg. Entry"
     Caption = 'Exch. Rate Adjmt. Ledger Entry';
     DrillDownPageID = "Exch.Rate Adjmt. Ledg.Entries";
     LookupPageID = "Exch.Rate Adjmt. Ledg.Entries";
-    DataClassification = CustomerContent;
 
     fields
     {

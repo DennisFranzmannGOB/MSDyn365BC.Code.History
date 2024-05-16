@@ -11,7 +11,6 @@ table 7350 "Lot Numbers by Bin Buffer"
     ObsoleteState = Removed;
     ReplicateData = false;
     ObsoleteTag = '18.0';
-    DataClassification = CustomerContent;
 
     fields
     {

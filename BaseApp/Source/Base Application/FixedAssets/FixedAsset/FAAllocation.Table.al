@@ -8,7 +8,6 @@ table 5615 "FA Allocation"
     Caption = 'FA Allocation';
     DrillDownPageID = "FA Allocations";
     LookupPageID = "FA Allocations";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -85,7 +84,7 @@ table 5615 "FA Allocation"
         }
         field(9; "Account Name"; Text[100])
         {
-            CalcFormula = lookup("G/L Account".Name where("No." = field("Account No.")));
+            CalcFormula = Lookup("G/L Account".Name where("No." = field("Account No.")));
             Caption = 'Account Name';
             Editable = false;
             FieldClass = FlowField;

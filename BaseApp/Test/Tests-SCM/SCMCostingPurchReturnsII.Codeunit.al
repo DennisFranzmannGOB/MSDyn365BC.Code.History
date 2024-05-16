@@ -10,6 +10,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
     end;
 
     var
+        Item: Record Item;
         LibraryRandom: Codeunit "Library - Random";
         LibraryPurchase: Codeunit "Library - Purchase";
         LibraryInventory: Codeunit "Library - Inventory";
@@ -17,17 +18,16 @@ codeunit 137032 "SCM Costing Purch Returns II"
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         isInitialized: Boolean;
-        PurchaseAmountMustBeSameErr: Label 'Purchase Amount must be same.';
-        GeneratedMustBeSameErr: Label 'Error Generated Must Be Same.';
-        ApplToItemEntryNoServiceTierErr: Label 'Appl.-to Item Entry must have a value in Purchase Line: Document Type=%1, Document No.=%2, Line No.=%3. It cannot be zero or empty.',
-            Comment = '%1: Document type; %2: Document No.; %3: Line No.';
+        ErrPurchaseAmountMustBeSame: Label 'Purchase Amount must be same.';
+        ErrorGeneratedMustBeSame: Label 'Error Generated Must Be Same.';
+        ApplToItemEntryNoServiceTier: Label 'Appl.-to Item Entry must have a value in Purchase Line: Document Type=%1, Document No.=%2, Line No.=%3. It cannot be zero or empty.';
 
     [Test]
     [Scope('OnPrem')]
     procedure PurchReturnsChargeAVG()
     begin
         // Purchase return with one Item and One Charge (Item).Costing Method Average.
-        PurchReturnApplyCharge(Enum::"Costing Method"::Average, 1, 1);
+        PurchReturnApplyCharge(Item."Costing Method"::Average, 1, 1);
     end;
 
     [Test]
@@ -35,7 +35,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
     procedure PurchReturnsNegChargeAVG()
     begin
         // Purchase return with two Item and One Charge (Item) with Negative Quantity.Costing Method Average.
-        PurchReturnApplyCharge(Enum::"Costing Method"::Average, 2, -1);
+        PurchReturnApplyCharge(Item."Costing Method"::Average, 2, -1);
     end;
 
     [Test]
@@ -43,7 +43,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
     procedure PurchReturnsChargeFIFO()
     begin
         // Purchase return with One Charge (Item).Costing Method FIFO.
-        PurchReturnApplyCharge(Enum::"Costing Method"::FIFO, 0, 1);
+        PurchReturnApplyCharge(Item."Costing Method"::FIFO, 0, 1);
     end;
 
     [Test]
@@ -51,7 +51,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
     procedure PurchReturnsItemNegChargeAVG()
     begin
         // Purchase return with one Item and One Charge (Item) with Negative Quantity.Costing Method Average.
-        PurchReturnApplyCharge(Enum::"Costing Method"::Average, 1, -1);
+        PurchReturnApplyCharge(Item."Costing Method"::Average, 1, -1);
     end;
 
     [Test]
@@ -59,7 +59,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
     procedure PurchReturnsItemNegChargeFIFO()
     begin
         // Purchase return with one Item and One Charge (Item) with Negative Quantity.Costing Method FIFO.
-        PurchReturnApplyCharge(Enum::"Costing Method"::FIFO, 1, -1);
+        PurchReturnApplyCharge(Item."Costing Method"::FIFO, 1, -1);
     end;
 
     local procedure PurchReturnApplyCharge(CostingMethod: Enum "Costing Method"; ChargeOnItem: Integer; SignFactor: Decimal)
@@ -109,7 +109,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
         // 1. Setup: Create required Purchase setup.
         Initialize();
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, false);
-        CreatePurchaseReturnSetup(PurchaseHeader, TempPurchaseLine, Enum::"Costing Method"::Average);
+        CreatePurchaseReturnSetup(PurchaseHeader, TempPurchaseLine, Item."Costing Method"::Average);
 
         // 2. Exercise: Create Purchase Return Order using Copy Document of Posted Purchase shipment.
         PurchaseCopyDocument(
@@ -141,12 +141,14 @@ codeunit 137032 "SCM Costing Purch Returns II"
         // Update Apply From Item Entry No.
         Initialize();
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, true);
-        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, Enum::"Costing Method"::Average);
+        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, Item."Costing Method"::Average);
+        Item.Get(PurchaseLine."No.");
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
         LibraryPurchase.CreateVendor(Vendor);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::"Return Order", Vendor."No.");
         UpdatePurchaseHeader(PurchaseHeader);
-        LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, PurchaseLine."No.", LibraryRandom.RandInt(10));
+        LibraryPurchase.CreatePurchaseLine(
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, Item."No.", LibraryRandom.RandInt(10));
         UpdateApplyToItemEntryNo(PurchaseLine, 1);
         TransferPurchaseLineToTemp(TempPurchaseLine, PurchaseLine);
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
@@ -178,15 +180,15 @@ codeunit 137032 "SCM Costing Purch Returns II"
         // 1. Setup: Create required Purchase setup.
         Initialize();
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, true);
-        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::"Return Order", Enum::"Costing Method"::FIFO);
+        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::"Return Order", Item."Costing Method"::FIFO);
 
         // 2. Exercise: Post Purchase Return Order with 'Appl.-from Item Entry = 0'.
         asserterror LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
 
         // 3. Verify: Verify Apply from Item Entry Error.
         Assert.AreEqual(
-          StrSubstNo(ApplToItemEntryNoServiceTierErr, PurchaseHeader."Document Type", PurchaseHeader."No.", PurchaseLine."Line No."),
-          GetLastErrorText, GeneratedMustBeSameErr);
+          StrSubstNo(ApplToItemEntryNoServiceTier, PurchaseHeader."Document Type", PurchaseHeader."No.", PurchaseLine."Line No."),
+          GetLastErrorText, ErrorGeneratedMustBeSame);
 
         // 4. Tear Down: Set value of 'Ext. Doc. No. Mandatory' to default in Purchase and Payable Setup.
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, BaseExactCostReversingMand);
@@ -205,8 +207,8 @@ codeunit 137032 "SCM Costing Purch Returns II"
         // 1. Setup: Create required Purchase setup.
         Initialize();
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, false);
-        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, Enum::"Costing Method"::FIFO);
-        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Enum::"Costing Method"::Average, 1, 0);
+        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, Item."Costing Method"::FIFO);
+        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Item."Costing Method"::Average, 1, 0);
         UpdatePurchaseLineQty(PurchaseLine, -1);
         TransferPurchaseLineToTemp(TempPurchaseLine, PurchaseLine);
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
@@ -215,7 +217,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
         LibraryPurchase.CreatePurchHeader(
           PurchaseHeader, PurchaseLine."Document Type"::"Return Order", TempPurchaseLine."Buy-from Vendor No.");
         UpdatePurchaseHeader(PurchaseHeader);
-        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Enum::"Costing Method"::FIFO, 1, 1);
+        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Item."Costing Method"::FIFO, 1, 1);
         CreateItemChargeAssignmentLine(PurchaseLine, TempPurchaseLine."Document No.", TempPurchaseLine."No.");
         TransferPurchaseLineToTemp(TempPurchaseLine2, PurchaseLine);
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
@@ -234,7 +236,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
     procedure PurchInvoiceChargeTwoItemsAVG()
     begin
         // Purchase Invoice for One charge (Item) and Two Items with Costing Method Average.
-        PurchInvoiceApplyCharge(Enum::"Costing Method"::Average, 2);
+        PurchInvoiceApplyCharge(Item."Costing Method"::Average, 2);
     end;
 
     [Test]
@@ -242,7 +244,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
     procedure PurchInvoiceChargeOneItemFIFO()
     begin
         // Purchase Invoice for One charge (Item) and One Item with Costing Method FIFO.
-        PurchInvoiceApplyCharge(Enum::"Costing Method"::FIFO, 1);
+        PurchInvoiceApplyCharge(Item."Costing Method"::FIFO, 1);
     end;
 
     local procedure PurchInvoiceApplyCharge(CostingMethod: Enum "Costing Method"; NoOfItemLine: Integer)
@@ -289,8 +291,8 @@ codeunit 137032 "SCM Costing Purch Returns II"
         // 1. Setup: Create required Purchase setup.Random Values used are notImportant for Test.
         Initialize();
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, true);
-        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, Enum::"Costing Method"::FIFO);
-        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Enum::"Costing Method"::Average, 1, 0);
+        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, Item."Costing Method"::FIFO);
+        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Item."Costing Method"::Average, 1, 0);
         TransferPurchaseLineToTemp(TempPurchaseLine, PurchaseLine);
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
 
@@ -301,15 +303,11 @@ codeunit 137032 "SCM Costing Purch Returns II"
         LibraryPurchase.CreatePurchaseLine(
           PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, TempPurchaseLine."No.", TempPurchaseLine.Quantity);
         UpdateApplyToItemEntryNo(PurchaseLine, -1);
-
-        PurchaseLine.Validate("Direct Unit Cost", -PurchaseLine."Direct Unit Cost");
-        PurchaseLine.Modify(true);
-
-        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Enum::"Costing Method"::Average, 0, 1);
+        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Item."Costing Method"::Average, 0, 1);
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandDec(50, 2));
         PurchaseLine.Modify(true);
         CreateItemChargeAssignmentLine(PurchaseLine, TempPurchaseLine."Document No.", TempPurchaseLine."No.");
-        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Enum::"Costing Method"::FIFO, 1, 0);
+        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Item."Costing Method"::FIFO, 1, 0);
         TransferPurchaseLineToTemp(TempPurchaseLine2, PurchaseLine);
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
         LibraryCosting.AdjustCostItemEntries('', '');
@@ -330,12 +328,14 @@ codeunit 137032 "SCM Costing Purch Returns II"
         PurchaseHeader2: Record "Purchase Header";
         TempPurchaseLine: Record "Purchase Line" temporary;
         TempPurchaseLine2: Record "Purchase Line" temporary;
+        ToDocType: Option ,,"Order",Invoice,"Return Order","Credit Memo";
+        FromDocType: Option Quote,"Blanket Order","Order",Invoice,"Return Order","Credit Memo";
         BaseExactCostReversingMand: Boolean;
     begin
         // 1. Setup: Create required Purchase setup.
         Initialize();
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, true);
-        CreatePurchaseReturnSetup(PurchaseHeader, TempPurchaseLine, Enum::"Costing Method"::FIFO);
+        CreatePurchaseReturnSetup(PurchaseHeader, TempPurchaseLine, Item."Costing Method"::FIFO);
 
         // 2. Exercise: Create Purchase Order with two Items one with (negative Quantity).
         // Move Negative Item line to new Purchase Return Order.
@@ -343,8 +343,10 @@ codeunit 137032 "SCM Costing Purch Returns II"
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, TempPurchaseLine."Buy-from Vendor No.");
         LibraryPurchase.CreatePurchaseLine(
           PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, TempPurchaseLine."No.", TempPurchaseLine.Quantity);
+        PurchaseLine.Validate(Quantity, -PurchaseLine.Quantity);
+        PurchaseLine.Modify(true);
         UpdateApplyToItemEntryNo(PurchaseLine, -1);
-        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Enum::"Costing Method"::FIFO, 1, 0);
+        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Item."Costing Method"::FIFO, 1, 0);
         MoveNegativeLines(PurchaseHeader, PurchaseHeader2, "Purchase Document Type From"::Order, "Purchase Document Type From"::"Return Order");
         TransferPurchaseLineToTemp(TempPurchaseLine, PurchaseLine);
         FindPurchaseLine(PurchaseHeader2, PurchaseLine);
@@ -381,11 +383,11 @@ codeunit 137032 "SCM Costing Purch Returns II"
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, false);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, Vendor."No.");
         UpdatePurchaseHeader(PurchaseHeader);
-        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Enum::"Costing Method"::FIFO, 2, 0);
+        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Item."Costing Method"::FIFO, 2, 0);
         ItemNo := GetItemToBeInvUpdateQtyToRecv(PurchaseLine);
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true);
         LibraryPurchase.ReopenPurchaseDocument(PurchaseHeader);
-        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Enum::"Costing Method"::FIFO, 0, 1);
+        CreatePurchaseLines(PurchaseLine, PurchaseHeader, Item."Costing Method"::FIFO, 0, 1);
         CreateItemChargeAssignmentLine(PurchaseLine, PurchaseLine."Document No.", ItemNo);
         UpdatePurchaseHeader(PurchaseHeader);
 
@@ -396,7 +398,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
         PurchInvHeader.SetRange("Order No.", PurchaseHeader."No.");
         PurchInvHeader.FindFirst();
         PurchInvLine.SetRange("Document No.", PurchInvHeader."No.");
-        Assert.RecordIsNotEmpty(PurchInvLine);
+        PurchInvLine.FindFirst();
 
         // 4. Tear Down: Set value of 'Ext. Doc. No. Mandatory' to default in Purchase and Payable Setup.
         UpdatePurchasesPayablesSetup(BaseExactCostReversingMand, BaseExactCostReversingMand);
@@ -426,7 +428,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
         // [GIVEN] Return item, ship only.
         // [GIVEN] Invoice purchase.
         // [WHEN] Undo Return Shipment.
-        ItemNo := StandardItemPurchReturnShipmentVariance();
+        ItemNo := StandardItemPurchReturnShipmentVariance;
 
         // [THEN] Inserted adjusting Value Entries, where "Entry Type" is "Variance".
         VerifyValueEntryType(ItemNo, true, ValueEntry."Entry Type"::Variance);
@@ -459,7 +461,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
         // [GIVEN] Return item, ship only.
         // [GIVEN] Invoice purchase.
         // [GIVEN] Undo Return Shipment.
-        ItemNo := StandardItemPurchReturnShipmentVariance();
+        ItemNo := StandardItemPurchReturnShipmentVariance;
 
         // [WHEN] Run Adjust Cost - Item Entries.
         LibraryCosting.AdjustCostItemEntries(ItemNo, '');
@@ -496,7 +498,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
         // [GIVEN] Return item, ship only.
         // [GIVEN] Invoice purchase.
         // [WHEN] Undo Return Shipment.
-        ItemNo := StandardItemPurchReturnShipmentVariance();
+        ItemNo := StandardItemPurchReturnShipmentVariance;
 
         // [THEN] Inserted adjusting Value Entries, where "Entry Type" is "Variance".
         VerifyValueEntryType(ItemNo, true, ValueEntry."Entry Type"::Variance);
@@ -527,7 +529,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
 
         // [GIVEN] Item of Standard Cost = "C", purchase item, receive only, set "Direct Unit Cost" <> "C".
         // [GIVEN] Return item (ship only), invoice purchase, undo Return Shipment.
-        ItemNo := StandardItemPurchReturnShipmentVariance();
+        ItemNo := StandardItemPurchReturnShipmentVariance;
 
         // [WHEN] Run Adjust Cost - Item Entries.
         LibraryCosting.AdjustCostItemEntries(ItemNo, '');
@@ -567,10 +569,11 @@ codeunit 137032 "SCM Costing Purch Returns II"
         PurchaseHeader2: Record "Purchase Header";
         PurchaseLine: Record "Purchase Line";
         ReturnShipmentLine: Record "Return Shipment Line";
-        Item: Record Item;
         DocumentNo: Code[20];
     begin
-        CreatePurchaseDocument(PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order, Enum::"Costing Method"::Standard);
+        CreatePurchaseDocument(
+          PurchaseHeader, PurchaseLine, PurchaseHeader."Document Type"::Order,
+          Item."Costing Method"::Standard);
 
         with Item do begin
             Get(PurchaseLine."No.");
@@ -581,7 +584,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, false);
 
         LibraryPurchase.CreatePurchHeader(
-            PurchaseHeader2, PurchaseHeader2."Document Type"::"Return Order", PurchaseHeader."Buy-from Vendor No.");
+          PurchaseHeader2, PurchaseHeader2."Document Type"::"Return Order", PurchaseHeader."Buy-from Vendor No.");
         UpdatePurchaseHeader(PurchaseHeader2);
         PurchaseHeader2.GetPstdDocLinesToReverse();
         DocumentNo := LibraryPurchase.PostPurchaseDocument(PurchaseHeader2, true, false);
@@ -659,7 +662,8 @@ codeunit 137032 "SCM Costing Purch Returns II"
 
         for Count := 1 to NoOfCharges do begin
             LibraryPurchase.CreatePurchaseLine(
-                PurchaseLine, PurchaseHeader, PurchaseLine.Type::"Charge (Item)", LibraryInventory.CreateItemChargeNo(), LibraryRandom.RandInt(10));
+              PurchaseLine, PurchaseHeader, PurchaseLine.Type::"Charge (Item)",
+              LibraryInventory.CreateItemChargeNo, LibraryRandom.RandInt(10));
             PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandDec(5, 2));
             PurchaseLine.Modify(true);
         end;
@@ -810,7 +814,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
             repeat
                 TempPurchaseLine := PurchaseLine;
                 TempPurchaseLine.Insert();
-            until Next() = 0;
+            until Next = 0;
         end;
     end;
 
@@ -822,7 +826,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
             SetRange(Type, Type::Item);
             FindFirst();
             ItemNo := "No.";
-            Next();
+            Next;
             Validate("Qty. to Receive", 0);
             Modify(true);
         end;
@@ -835,7 +839,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
             repeat
                 ExpectedPurchaseDocumnetAmount +=
                   Quantity * "Direct Unit Cost" + "VAT %" * (Quantity * "Direct Unit Cost") / 100;
-            until Next() = 0;
+            until Next = 0;
         end;
     end;
 
@@ -862,7 +866,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
                   TempPurchaseLine2.Quantity * TempPurchaseLine2."Direct Unit Cost";
         end;
 
-        Assert.AreNearlyEqual(ExpectedPurchaseAmt, ItemLedgerEntry."Purchase Amount (Actual)", 0.1, PurchaseAmountMustBeSameErr);
+        Assert.AreNearlyEqual(ExpectedPurchaseAmt, ItemLedgerEntry."Purchase Amount (Actual)", 0.1, ErrPurchaseAmountMustBeSame);
     end;
 
     local procedure VerifyVendorLedgerEntry(var TempPurchaseLine: Record "Purchase Line" temporary; var TempPurchaseLine2: Record "Purchase Line" temporary)
@@ -885,7 +889,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
         ExpectedPurchaseCrMemoAmount := CalcExpectedPurchaseDocAmount(TempPurchaseLine2);
 
         Assert.AreNearlyEqual(
-          -ExpectedPurchaseInvoiceAmount + ExpectedPurchaseCrMemoAmount, ActualVendLedgerAmount, 0.1, PurchaseAmountMustBeSameErr);
+          -ExpectedPurchaseInvoiceAmount + ExpectedPurchaseCrMemoAmount, ActualVendLedgerAmount, 0.1, ErrPurchaseAmountMustBeSame);
     end;
 
     local procedure VerifyValueEntryType(ItemNo: Code[20]; IsAdjustment: Boolean; ExpectedEntryType: Enum "Cost Entry Type")
@@ -898,7 +902,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
             FindSet();
             repeat
                 TestField("Entry Type", ExpectedEntryType);
-            until Next() = 0;
+            until Next = 0;
         end;
     end;
 
@@ -913,7 +917,7 @@ codeunit 137032 "SCM Costing Purch Returns II"
     procedure PostedPurchaseDocumentLinesModalHandler(var PostedPurchaseDocumentLinesPage: TestPage "Posted Purchase Document Lines")
     begin
         PostedPurchaseDocumentLinesPage.PostedReceiptsBtn.SetValue(0); // Posted Receipts
-        PostedPurchaseDocumentLinesPage.OK().Invoke();
+        PostedPurchaseDocumentLinesPage.OK.Invoke;
     end;
 
     [ConfirmHandler]

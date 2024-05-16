@@ -12,7 +12,6 @@ table 1262 "Isolated Certificate"
     Permissions = TableData "Isolated Certificate" = rimd,
                   TableData "No. Series Tenant" = rimd;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -140,11 +139,13 @@ table 1262 "Isolated Certificate"
 
     local procedure GetNextAvailableCode(): Code[20]
     var
-        CrossCompanyNoSeries: Codeunit "Cross-Company No. Series";
+        NoSeriesTenant: Record "No. Series Tenant";
     begin
-        if not CrossCompanyNoSeries.Exists(CertCodeTxt) then
-            CrossCompanyNoSeries.CreateNoSeries(CertCodeTxt, CertNoSeriesDescriptionTxt, CertStartCodeNumberTxt);
-        exit(CrossCompanyNoSeries.GetNextNo(CertCodeTxt));
+        if not NoSeriesTenant.Get(CertCodeTxt) then begin
+            NoSeriesTenant.InitNoSeries(CertCodeTxt, CertNoSeriesDescriptionTxt, CertStartCodeNumberTxt);
+            NoSeriesTenant.Get(CertCodeTxt);
+        end;
+        exit(NoSeriesTenant.GetNextAvailableCode());
     end;
 
     [Scope('OnPrem')]
@@ -169,7 +170,7 @@ table 1262 "Isolated Certificate"
 
     local procedure ExistsInIsolatedStorage(): Boolean
     begin
-        exit(IsolatedStorage.Contains(Code, CertificateManagement.GetCertDataScope(Rec)));
+        exit(ISOLATEDSTORAGE.Contains(Code, CertificateManagement.GetCertDataScope(Rec)));
     end;
 }
 

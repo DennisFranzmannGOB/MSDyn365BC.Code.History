@@ -4,8 +4,6 @@ using System.Reflection;
 
 table 1238 "Data Exch. Field Grouping"
 {
-    DataClassification = CustomerContent;
-
     fields
     {
         field(1; "Data Exch. Def Code"; Code[20])

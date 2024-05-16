@@ -13,7 +13,6 @@ table 5718 "Nonstock Item"
     Caption = 'Nonstock Item';
     DrillDownPageID = "Catalog Item List";
     LookupPageID = "Catalog Item List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -23,12 +22,10 @@ table 5718 "Nonstock Item"
             Editable = true;
 
             trigger OnValidate()
-            var
-                NoSeries: Codeunit "No. Series";
             begin
                 if "Entry No." <> xRec."Entry No." then begin
                     GetInvtSetup();
-                    NoSeries.TestManual(InvtSetup."Nonstock Item Nos.");
+                    NoSeriesMgt.TestManual(InvtSetup."Nonstock Item Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -261,32 +258,12 @@ table 5718 "Nonstock Item"
     end;
 
     trigger OnInsert()
-    var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         NonStockItem.LockTable();
         if "Entry No." = '' then begin
             GetInvtSetup();
             InvtSetup.TestField("Nonstock Item Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(InvtSetup."Nonstock Item Nos.", xRec."No. Series", 0D, "Entry No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                "No. Series" := InvtSetup."Nonstock Item Nos.";
-                if NoSeries.AreRelated(InvtSetup."Nonstock Item Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series";
-                "Entry No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", InvtSetup."Nonstock Item Nos.", 0D, "Entry No.");
-            end;
-#else
-            "No. Series" := InvtSetup."Nonstock Item Nos.";
-            if NoSeries.AreRelated(InvtSetup."Nonstock Item Nos.", xRec."No. Series") then
-                "No. Series" := xRec."No. Series";
-            "Entry No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(InvtSetup."Nonstock Item Nos.", xRec."No. Series", 0D, "Entry No.", "No. Series");
         end;
     end;
 
@@ -358,6 +335,7 @@ table 5718 "Nonstock Item"
         NonStockItem: Record "Nonstock Item";
         NonStockItemSetup: Record "Nonstock Item Setup";
         InvtSetup: Record "Inventory Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         ItemNo: Code[20];
         TempItemNo: Code[20];
         MfrLength: Integer;
@@ -369,13 +347,11 @@ table 5718 "Nonstock Item"
         CommentLine: Record "Comment Line";
 
     procedure AssistEdit(): Boolean
-    var
-        NoSeries: Codeunit "No. Series";
     begin
         GetInvtSetup();
         InvtSetup.TestField("Nonstock Item Nos.");
-        if NoSeries.LookupRelatedNoSeries(InvtSetup."Nonstock Item Nos.", xRec."No. Series", "No. Series") then begin
-            "Entry No." := NoSeries.GetNextNo("No. Series");
+        if NoSeriesMgt.SelectSeries(InvtSetup."Nonstock Item Nos.", xRec."No. Series", "No. Series") then begin
+            NoSeriesMgt.SetSeries("Entry No.");
             exit(true);
         end;
     end;

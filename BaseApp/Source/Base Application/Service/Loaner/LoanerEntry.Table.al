@@ -9,7 +9,6 @@ table 5914 "Loaner Entry"
 {
     Caption = 'Loaner Entry';
     DrillDownPageID = "Loaner Entries";
-    DataClassification = CustomerContent;
 
     fields
     {

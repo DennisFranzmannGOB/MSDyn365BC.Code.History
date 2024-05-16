@@ -244,7 +244,7 @@ page 26 "Vendor Card"
                         Editable = false;
                         ShowCaption = false;
                         Style = StrongAccent;
-                        StyleExpr = true;
+                        StyleExpr = TRUE;
                         ToolTip = 'Specifies you can view the vendor''s address on your preferred map website.';
 
                         trigger OnDrillDown()
@@ -576,7 +576,7 @@ page 26 "Vendor Card"
             {
                 ApplicationArea = Basic, Suite;
                 SubPageLink = "No." = field("No.");
-                Visible = not IsOfficeAddin;
+                Visible = NOT IsOfficeAddin;
             }
             part("Attached Documents"; "Document Attachment Factbox")
             {
@@ -842,7 +842,7 @@ page 26 "Vendor Card"
                         PriceUXManagement.ShowPriceListLines(PriceSource, Enum::"Price Amount Type"::Discount);
                     end;
                 }
-#if not CLEAN23
+#if not CLEAN21
                 action(PriceListsDiscounts)
                 {
                     ApplicationArea = Basic, Suite;
@@ -863,7 +863,7 @@ page 26 "Vendor Card"
                     end;
                 }
 #endif
-#if not CLEAN23
+#if not CLEAN21
                 action(Prices)
                 {
                     ApplicationArea = Basic, Suite;
@@ -979,7 +979,7 @@ page 26 "Vendor Card"
                     RunObject = Page "Vendor Ledger Entries";
                     RunPageLink = "Vendor No." = field("No.");
                     RunPageView = sorting("Vendor No.")
-                                  order(descending);
+                                  order(Descending);
                     ShortCutKey = 'Ctrl+F7';
                     ToolTip = 'View the history of transactions that have been posted for the selected record.';
                 }
@@ -1182,7 +1182,7 @@ page 26 "Vendor Card"
                 RunPageLink = "Buy-from Vendor No." = field("No.");
                 RunPageMode = Create;
                 ToolTip = 'Create a new purchase invoice for items or services.';
-                Visible = not IsOfficeAddin;
+                Visible = NOT IsOfficeAddin;
             }
             action(NewPurchaseOrder)
             {
@@ -1193,7 +1193,7 @@ page 26 "Vendor Card"
                 RunPageLink = "Buy-from Vendor No." = field("No.");
                 RunPageMode = Create;
                 ToolTip = 'Create a new purchase order.';
-                Visible = not IsOfficeAddin;
+                Visible = NOT IsOfficeAddin;
             }
             action(NewPurchaseCrMemo)
             {
@@ -1204,7 +1204,7 @@ page 26 "Vendor Card"
                 RunPageLink = "Buy-from Vendor No." = field("No.");
                 RunPageMode = Create;
                 ToolTip = 'Create a new purchase credit memo to revert a posted purchase invoice.';
-                Visible = not IsOfficeAddin;
+                Visible = NOT IsOfficeAddin;
             }
             action(NewPurchaseReturnOrder)
             {
@@ -1332,7 +1332,7 @@ page 26 "Vendor Card"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Send A&pproval Request';
-                    Enabled = not OpenApprovalEntriesExist and CanRequestApprovalForFlow;
+                    Enabled = NOT OpenApprovalEntriesExist AND CanRequestApprovalForFlow;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval to change the record.';
 
@@ -1348,7 +1348,7 @@ page 26 "Vendor Card"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Cancel Approval Re&quest';
-                    Enabled = CanCancelApprovalForRecord or CanCancelApprovalForFlow;
+                    Enabled = CanCancelApprovalForRecord OR CanCancelApprovalForFlow;
                     Image = CancelApprovalRequest;
                     ToolTip = 'Cancel the approval request.';
 
@@ -1398,6 +1398,20 @@ page 26 "Vendor Card"
                             FlowTemplateSelector.SetSearchText(FlowServiceManagement.GetVendorTemplateFilter());
                             FlowTemplateSelector.Run();
                         end;
+                    }
+#endif
+#if not CLEAN21
+                    action(SeeFlows)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'See my flows';
+                        Image = Flow;
+                        RunObject = Page "Flow Selector";
+                        ToolTip = 'View and configure Power Automate flows that you created.';
+                        Visible = false;
+                        ObsoleteState = Pending;
+                        ObsoleteReason = 'This action has been moved to the tab dedicated to Power Automate';
+                        ObsoleteTag = '21.0';
                     }
 #endif
                 }
@@ -1640,6 +1654,15 @@ page 26 "Vendor Card"
                 actionref(PayVendor_Promoted; PayVendor)
                 {
                 }
+#if not CLEAN21
+                actionref("Create Payments_Promoted"; "Create Payments")
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category4)
             {
@@ -1668,6 +1691,24 @@ page 26 "Vendor Card"
                 actionref(CancelApprovalRequest_Promoted; CancelApprovalRequest)
                 {
                 }
+#if not CLEAN21
+                actionref(CreateFlow_Promoted; CreateFlow)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
+#if not CLEAN21
+                actionref(SeeFlows_Promoted; SeeFlows)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'This action has been moved to the tab dedicated to Power Automate';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category6)
             {
@@ -1744,6 +1785,29 @@ page 26 "Vendor Card"
                 actionref("Item References_Promoted"; "Item References")
                 {
                 }
+#if not CLEAN21
+                actionref(Quotes_Promoted; Quotes)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Demoted: The page can be accessed from the FactBox.';
+                    ObsoleteTag = '21.0';
+                }
+                actionref(Orders_Promoted; Orders)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Demoted: The page can be accessed from the FactBox.';
+                    ObsoleteTag = '21.0';
+                }
+                actionref("Return Orders_Promoted"; "Return Orders")
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Demoted: The page can be accessed from the FactBox.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group("Category_Prices & Discounts")
             {
@@ -1758,7 +1822,7 @@ page 26 "Vendor Card"
                 actionref(DiscountLines_Promoted; DiscountLines)
                 {
                 }
-#if not CLEAN23
+#if not CLEAN21
                 actionref(Prices_Promoted; Prices)
                 {
                     ObsoleteState = Pending;
@@ -1766,7 +1830,7 @@ page 26 "Vendor Card"
                     ObsoleteTag = '17.0';
                 }
 #endif
-#if not CLEAN23
+#if not CLEAN21
                 actionref("Line Discounts_Promoted"; "Line Discounts")
                 {
                     ObsoleteState = Pending;

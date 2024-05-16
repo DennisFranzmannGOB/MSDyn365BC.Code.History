@@ -20,6 +20,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         MockOnFindTaskSchedulerAllowed: Codeunit MockOnFindTaskSchedulerAllowed;
         MockOnPostNotificationRequest: Codeunit MockOnPostNotificationRequest;
         MockOnFetchInitParams: Codeunit MockOnFetchInitParams;
+        TypeHelper: Codeunit "Type Helper";
         WorkflowEventHandling: Codeunit "Workflow Event Handling";
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         EmptyJSONErr: Label 'The JSON should not be blank.';
@@ -42,7 +43,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         LibraryTestInitialize.OnTestInitialize(Codeunit::"WFWH Subscription E2E Tests");
 
         LibraryApplicationArea.EnableFoundationSetup();
-        LibraryWorkflow.DisableAllWorkflows();
+        LibraryWorkflow.DisableAllWorkflows;
         WorkflowWebhookSubscription.DeleteAll();
         UnbindSubscription(MockOnFindTaskSchedulerAllowed);
         BindSubscription(MockOnFindTaskSchedulerAllowed);
@@ -71,7 +72,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         Initialize();
 
         // [GIVEN] A Workflow Webhook Subscripiton exists.
-        CreateWorkflowWebhookSubscriptionNoWorkflow();
+        CreateWorkflowWebhookSubscriptionNoWorkflow;
 
         // [WHEN] A GET request is made for a given workflow webhook subscription.
         TargetURL := CreateTargetURL(
@@ -137,7 +138,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         Initialize();
 
         // [GIVEN] A WorkflowWebhookSubscripiton and corresponding workflow exist.
-        CreateWorkflowWebhookSubscriptionAndWorkflow();
+        CreateWorkflowWebhookSubscriptionAndWorkflow;
         WorkflowWebhookSubscriptionId := WorkflowWebhookSubscription.Id;
         Workflow.Get(WorkflowWebhookSubscription."WF Definition Id");
         WorkflowCode := Workflow.Code;
@@ -169,13 +170,13 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         Initialize();
 
         // [GIVEN] A WorkflowWebhookSubscripiton and corresponding workflow exist.
-        CreateWorkflowWebhookSubscriptionAndWorkflow();
+        CreateWorkflowWebhookSubscriptionAndWorkflow;
         WorkflowWebhookSubscriptionId := WorkflowWebhookSubscription.Id;
         Workflow.Get(WorkflowWebhookSubscription."WF Definition Id");
         WorkflowCode := Workflow.Code;
 
         // [GIVEN] A pending Sales Order for the workflow exists.
-        CreateSalesOrderAndSendForApproval();
+        CreateSalesOrderAndSendForApproval;
 
         // [WHEN] The user makes a DELETE request to the service.
         ResponseText := MockDeleteFromWebService(WorkflowWebhookSubscription);
@@ -214,7 +215,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         Initialize();
 
         // [GIVEN] A WorkflowWebhookSubscripiton and corresponding workflow exist.
-        CreateWorkflowWebhookSubscriptionAndWorkflow();
+        CreateWorkflowWebhookSubscriptionAndWorkflow;
         WorkflowWebhookSubscriptionId := WorkflowWebhookSubscription.Id;
         Workflow.Get(WorkflowWebhookSubscription."WF Definition Id");
         WorkflowCode := Workflow.Code;
@@ -272,7 +273,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         Initialize();
 
         // [GIVEN] A WorkflowWebhookSubscripiton and corresponding workflow exist.
-        CreateWorkflowWebhookSubscriptionAndWorkflow();
+        CreateWorkflowWebhookSubscriptionAndWorkflow;
         WorkflowWebhookSubscriptionId := WorkflowWebhookSubscription.Id;
         Workflow.Get(WorkflowWebhookSubscription."WF Definition Id");
         WorkflowCode := Workflow.Code;
@@ -330,7 +331,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         Initialize();
 
         // [GIVEN] A WorkflowWebhookSubscripiton and corresponding workflow exist.
-        CreateWorkflowWebhookSubscriptionAndWorkflow();
+        CreateWorkflowWebhookSubscriptionAndWorkflow;
         WorkflowWebhookSubscriptionId := WorkflowWebhookSubscription.Id;
         Workflow.Get(WorkflowWebhookSubscription."WF Definition Id");
 
@@ -399,21 +400,21 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions Xml is generated.
         ConditionsResulted1Txt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInput1Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInput1Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
         ConditionsResulted2Txt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInput2Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInput2Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
         ConditionsResulted3Txt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInput3Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInput3Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Generate expected results.
         ConditionsExpected1Txt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions1, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions1, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
         ConditionsExpected2Txt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions2, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions2, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
 
         TableMetadata.Get(DATABASE::"Sales Header");
         EventConditions3.AddTable(TableMetadata.Caption, DATABASE::"Sales Header");
@@ -425,7 +426,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpected3Txt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions3, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions3, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
 
         // [THEN] Verify generated conditions are as expected.
         Assert.AreEqual(ConditionsExpected1Txt, ConditionsResulted1Txt, 'Empty input should result in XML without conditions.');
@@ -456,7 +457,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Generate expected results.
         SalesHeader.Reset();
@@ -467,7 +468,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -496,7 +497,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Generate expected results.
         SalesLine.Reset();
@@ -507,7 +508,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -542,10 +543,10 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResulted1Txt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInput1Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInput1Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
         ConditionsResulted2Txt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInput2Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInput2Txt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Generate expected results.
         SalesHeader.Reset();
@@ -562,7 +563,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResulted1Txt, ConditionsDoNotAgreeErr);
@@ -593,7 +594,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Generate expected results.
         SalesHeader.Reset();
@@ -612,7 +613,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -636,10 +637,10 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
-        Assert.ExpectedError(WorkflowWebhookSubscription.GetUnableToParseEncodingErr());
+        Assert.ExpectedError(WorkflowWebhookSubscription.GetUnableToParseEncodingErr);
     end;
 
     [Test]
@@ -660,10 +661,10 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
-        Assert.ExpectedError(WorkflowWebhookSubscription.GetUnableToParseInvalidJsonErr());
+        Assert.ExpectedError(WorkflowWebhookSubscription.GetUnableToParseInvalidJsonErr);
     end;
 
     [Test]
@@ -686,12 +687,12 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
           StrSubstNo(
-            WorkflowWebhookSubscription.GetNoControlOnPageErr(), 'nonExistingControlName',
+            WorkflowWebhookSubscription.GetNoControlOnPageErr, 'nonExistingControlName',
             WorkflowWebhookSubscription.GetPageName(PAGE::"Sales Document Entity")));
     end;
 
@@ -713,10 +714,10 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
-        Assert.ExpectedError(StrSubstNo(WorkflowWebhookSubscription.GetUnableToParseJsonArrayErr(), 'HeaderConditions'));
+        Assert.ExpectedError(StrSubstNo(WorkflowWebhookSubscription.GetUnableToParseJsonArrayErr, 'HeaderConditions'));
     end;
 
     [Test]
@@ -738,7 +739,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
           WorkflowWebhookSubscriptionRec.CreateEventConditions(ConditionsInputTxt, 'Nonexisting Event Code');
 
         // [THEN] Verify that error occured and the error message is correct.
-        Assert.ExpectedError(StrSubstNo(WorkflowWebhookSetup.GetUnsupportedWorkflowEventCodeErr(), UpperCase('Nonexisting Event Code')));
+        Assert.ExpectedError(StrSubstNo(WorkflowWebhookSetup.GetUnsupportedWorkflowEventCodeErr, UpperCase('Nonexisting Event Code')));
     end;
 
     [Test]
@@ -759,7 +760,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
@@ -804,7 +805,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Generate expected results.
         DateTimeSampleValue := CreateDateTime(20080101D, 093500T);
@@ -832,7 +833,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -857,12 +858,12 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
           StrSubstNo(
-            WorkflowWebhookSubscription.GetNoControlOnPageErr(), 'aRcdNotInvExVatLcy',
+            WorkflowWebhookSubscription.GetNoControlOnPageErr, 'aRcdNotInvExVatLcy',
             WorkflowWebhookSubscription.GetPageName(PAGE::"Sales Document Line Entity")));
     end;
 
@@ -885,12 +886,12 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendPurchaseDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendPurchaseDocForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
           StrSubstNo(
-            WorkflowWebhookSubscription.GetNoControlOnPageErr(), 'quoteAcceptedDate',
+            WorkflowWebhookSubscription.GetNoControlOnPageErr, 'quoteAcceptedDate',
             WorkflowWebhookSubscription.GetPageName(PAGE::"Purchase Document Entity")));
     end;
 
@@ -913,12 +914,12 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendGeneralJournalBatchForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendGeneralJournalBatchForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
           StrSubstNo(
-            WorkflowWebhookSubscription.GetNoControlOnPageErr(), 'quoteAcceptedDate',
+            WorkflowWebhookSubscription.GetNoControlOnPageErr, 'quoteAcceptedDate',
             WorkflowWebhookSubscription.GetPageName(PAGE::"Gen. Journal Batch Entity")));
     end;
 
@@ -941,12 +942,12 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendGeneralJournalLineForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendGeneralJournalLineForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
           StrSubstNo(
-            WorkflowWebhookSubscription.GetNoControlOnPageErr(), 'quoteAcceptedDate',
+            WorkflowWebhookSubscription.GetNoControlOnPageErr, 'quoteAcceptedDate',
             WorkflowWebhookSubscription.GetPageName(PAGE::"Gen. Journal Line Entity")));
     end;
 
@@ -969,12 +970,12 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendCustomerForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendCustomerForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
           StrSubstNo(
-            WorkflowWebhookSubscription.GetNoControlOnPageErr(), 'quoteAcceptedDate',
+            WorkflowWebhookSubscription.GetNoControlOnPageErr, 'quoteAcceptedDate',
             WorkflowWebhookSubscription.GetPageName(PAGE::"Workflow - Customer Entity")));
     end;
 
@@ -997,12 +998,12 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendItemForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendItemForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
           StrSubstNo(
-            WorkflowWebhookSubscription.GetNoControlOnPageErr(), 'quoteAcceptedDate',
+            WorkflowWebhookSubscription.GetNoControlOnPageErr, 'quoteAcceptedDate',
             WorkflowWebhookSubscription.GetPageName(PAGE::"Workflow - Item Entity")));
     end;
 
@@ -1025,12 +1026,12 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are tried to get parsed.
         asserterror
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendVendorForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendVendorForApprovalCode);
 
         // [THEN] Verify that error occured and the error message is correct.
         Assert.ExpectedError(
           StrSubstNo(
-            WorkflowWebhookSubscription.GetNoControlOnPageErr(), 'quoteAcceptedDate',
+            WorkflowWebhookSubscription.GetNoControlOnPageErr, 'quoteAcceptedDate',
             WorkflowWebhookSubscription.GetPageName(PAGE::"Workflow - Vendor Entity")));
     end;
 
@@ -1057,7 +1058,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode);
 
         // [THEN] Generate expected results.
         SalesHeader.Reset();
@@ -1074,7 +1075,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt(), DATABASE::"Sales Header");
+            EventConditions, WorkflowWebhookSetup.GetSalesDocCategoryTxt, DATABASE::"Sales Header");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -1103,7 +1104,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendPurchaseDocForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendPurchaseDocForApprovalCode);
 
         // [THEN] Generate expected results.
         PurchaseHeader.Reset();
@@ -1120,7 +1121,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetPurchaseDocCategoryTxt(), DATABASE::"Purchase Header");
+            EventConditions, WorkflowWebhookSetup.GetPurchaseDocCategoryTxt, DATABASE::"Purchase Header");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -1148,7 +1149,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendGeneralJournalBatchForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendGeneralJournalBatchForApprovalCode);
 
         // [THEN] Generate expected results.
         GenJournalBatch.Reset();
@@ -1159,7 +1160,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetFinCategoryTxt(), DATABASE::"Gen. Journal Batch");
+            EventConditions, WorkflowWebhookSetup.GetFinCategoryTxt, DATABASE::"Gen. Journal Batch");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -1188,7 +1189,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendGeneralJournalLineForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendGeneralJournalLineForApprovalCode);
 
         // [THEN] Generate expected results.
         GenJournalLine.Reset();
@@ -1199,7 +1200,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetFinCategoryTxt(), DATABASE::"Gen. Journal Line");
+            EventConditions, WorkflowWebhookSetup.GetFinCategoryTxt, DATABASE::"Gen. Journal Line");
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -1228,7 +1229,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendCustomerForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendCustomerForApprovalCode);
 
         // [THEN] Generate expected results.
         Customer.Reset();
@@ -1239,7 +1240,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetSalesMktCategoryTxt(), DATABASE::Customer);
+            EventConditions, WorkflowWebhookSetup.GetSalesMktCategoryTxt, DATABASE::Customer);
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -1268,7 +1269,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendItemForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendItemForApprovalCode);
 
         // [THEN] Generate expected results.
         Item.Reset();
@@ -1279,7 +1280,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetSalesMktCategoryTxt(), DATABASE::Item);
+            EventConditions, WorkflowWebhookSetup.GetSalesMktCategoryTxt, DATABASE::Item);
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -1308,7 +1309,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         // [WHEN] Conditions received from Flow are parsed and Conditions XML is generated.
         ConditionsResultedTxt :=
           WorkflowWebhookSubscriptionRec.CreateEventConditions(
-            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendVendorForApprovalCode());
+            ConditionsInputTxt, WorkflowEventHandling.RunWorkflowOnSendVendorForApprovalCode);
 
         // [THEN] Generate expected results.
         Vendor.Reset();
@@ -1319,7 +1320,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
 
         ConditionsExpectedTxt :=
           RequestPageParametersHelper.GetViewFromDynamicRequestPage(
-            EventConditions, WorkflowWebhookSetup.GetPurchPayCategoryTxt(), DATABASE::Vendor);
+            EventConditions, WorkflowWebhookSetup.GetPurchPayCategoryTxt, DATABASE::Vendor);
 
         // [THEN] Compare received and expected results.
         Assert.AreEqual(ConditionsExpectedTxt, ConditionsResultedTxt, ConditionsDoNotAgreeErr);
@@ -1344,7 +1345,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         WorkflowWebhookSubscriptionRec.Init();
         WorkflowWebhookSubscriptionRec."Client Type" := DummyClientTypeTxt;
         WorkflowWebhookSubscriptionRec."Client Id" := DummyClientIdTxt;
-        WorkflowWebhookSubscriptionRec."Event Code" := WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode();
+        WorkflowWebhookSubscriptionRec."Event Code" := WorkflowEventHandling.RunWorkflowOnSendSalesDocForApprovalCode;
         WorkflowWebhookSubscriptionRec.SetConditions(NewConditionsTxt);
         WorkflowWebhookSubscriptionRec.SetNotificationUrl(DummyNotificationUrlTxt);
         WorkflowWebhookSubscriptionRec.Insert(true);
@@ -1364,9 +1365,9 @@ codeunit 135528 "WFWH Subscription E2E Tests"
         SalesLine.Modify(true);
 
         // Send for approval
-        SalesOrder.OpenView();
+        SalesOrder.OpenView;
         SalesOrder.GotoRecord(SalesHeader);
-        SalesOrder.SendApprovalRequest.Invoke();
+        SalesOrder.SendApprovalRequest.Invoke;
         SalesOrder.Close();
 
         // Verify that sales order is pending approval
@@ -1383,7 +1384,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
           WorkflowWebhookSubscriptionJSON, 'clientId', LowerCase(Format(WorkflowWebhookSubscriptionRec."Client Id", 0, 4)));
         VerifyPropertyInJSON(WorkflowWebhookSubscriptionJSON, 'clientType', WorkflowWebhookSubscriptionRec."Client Type");
         VerifyPropertyInJSON(WorkflowWebhookSubscriptionJSON, 'eventCode', WorkflowWebhookSubscriptionRec."Event Code");
-        VerifyPropertyInJSON(WorkflowWebhookSubscriptionJSON, 'conditions', WorkflowWebhookSubscriptionRec.GetConditions());
+        VerifyPropertyInJSON(WorkflowWebhookSubscriptionJSON, 'conditions', WorkflowWebhookSubscriptionRec.GetConditions);
         VerifyPropertyInJSON(WorkflowWebhookSubscriptionJSON, 'notificationUrl', WorkflowWebhookSubscriptionRec.GetNotificationUrl());
     end;
 
@@ -1431,7 +1432,7 @@ codeunit 135528 "WFWH Subscription E2E Tests"
           JsonObject, 'clientId', LowerCase(Format(WorkflowWebhookSubscriptionRec."Client Id", 0, 4)));
         JSONManagement.AddJPropertyToJObject(JsonObject, 'clientType', WorkflowWebhookSubscriptionRec."Client Type");
         JSONManagement.AddJPropertyToJObject(JsonObject, 'eventCode', WorkflowWebhookSubscriptionRec."Event Code");
-        JSONManagement.AddJPropertyToJObject(JsonObject, 'conditions', WorkflowWebhookSubscriptionRec.GetConditions());
+        JSONManagement.AddJPropertyToJObject(JsonObject, 'conditions', WorkflowWebhookSubscriptionRec.GetConditions);
         JSONManagement.AddJPropertyToJObject(JsonObject, 'notificationUrl', WorkflowWebhookSubscriptionRec.GetNotificationUrl());
 
         WorkflowWebhookSubscriptionJSON := JSONManagement.WriteObjectToString();

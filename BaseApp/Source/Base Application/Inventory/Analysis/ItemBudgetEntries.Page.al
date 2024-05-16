@@ -301,11 +301,13 @@ page 7133 "Item Budget Entries"
     var
         Item: Record Item;
     begin
-        Item.SetFilter("No.", ItemFilter);
-        if Item.FindFirst() then
-            exit(Item."No.");
+        with Item do begin
+            SetFilter("No.", ItemFilter);
+            if FindFirst() then
+                exit("No.");
 
-        exit('');
+            exit('');
+        end;
     end;
 
     local procedure GetFirstDate(DateFilter: Text[250]): Date
@@ -314,12 +316,14 @@ page 7133 "Item Budget Entries"
     begin
         if DateFilter = '' then
             exit(0D);
-        Period.SetRange("Period Type", Period."Period Type"::Date);
-        Period.SetFilter("Period Start", DateFilter);
-        if Period.FindFirst() then
-            exit(Period."Period Start");
+        with Period do begin
+            SetRange("Period Type", "Period Type"::Date);
+            SetFilter("Period Start", DateFilter);
+            if FindFirst() then
+                exit("Period Start");
 
-        exit(0D);
+            exit(0D);
+        end;
     end;
 
     local procedure GetFirstDimValue(DimCode: Code[20]; DimValFilter: Text[250]): Code[20]
@@ -328,23 +332,27 @@ page 7133 "Item Budget Entries"
     begin
         if (DimCode = '') or (DimValFilter = '') then
             exit('');
-        DimVal.SetRange("Dimension Code", DimCode);
-        DimVal.SetFilter(Code, DimValFilter);
-        if DimVal.FindFirst() then
-            exit(DimVal.Code);
+        with DimVal do begin
+            SetRange("Dimension Code", DimCode);
+            SetFilter(Code, DimValFilter);
+            if FindFirst() then
+                exit(Code);
 
-        exit('');
+            exit('');
+        end;
     end;
 
     local procedure GetFirstLocationCode(LocationCodetFilter: Text[250]): Code[10]
     var
         Location: Record Location;
     begin
-        Location.SetFilter(Code, LocationCodetFilter);
-        if Location.FindFirst() then
-            exit(Location.Code);
+        with Location do begin
+            SetFilter(Code, LocationCodetFilter);
+            if FindFirst() then
+                exit(Code);
 
-        exit('');
+            exit('');
+        end;
     end;
 }
 

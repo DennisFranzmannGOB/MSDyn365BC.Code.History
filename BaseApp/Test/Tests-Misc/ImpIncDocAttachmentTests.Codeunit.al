@@ -37,6 +37,7 @@ codeunit 134419 "Imp. Inc.Doc. Attachment Tests"
     var
         PurchaseHeader: Record "Purchase Header";
         IncomingDocumentAttachment: Record "Incoming Document Attachment";
+        ImportAttachmentIncDoc: Codeunit "Import Attachment - Inc. Doc.";
         TempBlob: Codeunit "Temp Blob";
         FileName: Text[250];
         FileOutStream: OutStream;

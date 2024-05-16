@@ -11,7 +11,6 @@ using Microsoft.Sales.Customer;
 table 415 "IC Outbox Jnl. Line"
 {
     Caption = 'IC Outbox Jnl. Line';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -5,10 +5,9 @@ using System.Security.AccessControl;
 
 table 241 "Job Register"
 {
-    Caption = 'Project Register';
+    Caption = 'Job Register';
     DrillDownPageID = "Job Registers";
     LookupPageID = "Job Registers";
-    DataClassification = CustomerContent;
 
     fields
     {

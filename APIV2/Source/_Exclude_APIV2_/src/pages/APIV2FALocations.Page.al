@@ -10,7 +10,6 @@ page 30097 "APIV2 - FA Locations"
     EntitySetName = 'fixedAssetLocations';
     SourceTable = "FA Location";
     Extensible = false;
-
     layout
     {
         area(Content)

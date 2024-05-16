@@ -16,7 +16,6 @@ table 99000830 "Planning Routing Line"
     DrillDownPageID = "Planning Routing";
     LookupPageID = "Planning Routing";
     Permissions = TableData "Prod. Order Capacity Need" = rmd;
-    DataClassification = CustomerContent;
 
     fields
     {

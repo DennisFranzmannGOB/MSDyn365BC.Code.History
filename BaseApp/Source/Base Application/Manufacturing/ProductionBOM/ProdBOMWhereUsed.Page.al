@@ -148,7 +148,7 @@ page 99000811 "Prod. BOM Where-Used"
     begin
         IsHandled := false;
         OnBeforeSetCaption(Item, ProdBOMHeader, Result, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(Result);
 
         if ProdBOMHeader."No." <> '' then

@@ -157,7 +157,7 @@ page 9990 "Code Coverage"
             {
                 ApplicationArea = All;
                 Caption = 'Start';
-                Enabled = not CodeCoverageRunning;
+                Enabled = NOT CodeCoverageRunning;
                 Image = Start;
 
                 trigger OnAction()

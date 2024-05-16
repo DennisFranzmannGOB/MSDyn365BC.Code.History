@@ -21,7 +21,6 @@ table 1294 "Applied Payment Entry"
 {
     Caption = 'Applied Payment Entry';
     LookupPageID = "Payment Application";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -543,15 +542,11 @@ table 1294 "Applied Payment Entry"
     local procedure GetEmployeeLedgEntryRemAmt(): Decimal
     var
         EmployeeLedgEntry: Record "Employee Ledger Entry";
-        BankAccReconLine: Record "Bank Acc. Reconciliation Line";
     begin
         EmployeeLedgEntry.Get("Applies-to Entry No.");
         if IsBankLCY() and (EmployeeLedgEntry."Currency Code" <> '') then begin
-            BankAccReconLine.Get("Statement Type", "Bank Account No.", "Statement No.", "Statement Line No.");
-            EmployeeLedgEntry.CalcFields("Remaining Amount");
-            exit(
-                CurrencyExchRate.ExchangeAmount(
-                    EmployeeLedgEntry."Remaining Amount", EmployeeLedgEntry."Currency Code", '', BankAccReconLine."Transaction Date"));
+            EmployeeLedgEntry.CalcFields("Remaining Amt. (LCY)");
+            exit(EmployeeLedgEntry."Remaining Amt. (LCY)");
         end;
         EmployeeLedgEntry.CalcFields("Remaining Amount");
         exit(EmployeeLedgEntry."Remaining Amount");
@@ -570,34 +565,20 @@ table 1294 "Applied Payment Entry"
         exit(BankAccLedgEntry."Remaining Amount");
     end;
 
-    local procedure GetCustLedgEntryPmtTolAmt() TotalAcceptedPaymentTolerance: Decimal
+    local procedure GetCustLedgEntryPmtTolAmt(): Decimal
     var
-        BankAccountReconciliationLine: Record "Bank Acc. Reconciliation Line";
         CustLedgEntry: Record "Cust. Ledger Entry";
     begin
-        BankAccountReconciliationLine.Get(Rec."Statement Type", Rec."Bank Account No.", Rec."Statement No.", Rec."Statement Line No.");
-        CustLedgEntry.SetRange("Applies-to ID", BankAccountReconciliationLine.GetAppliesToID());
-        if not CustLedgEntry.FindSet() then
-            exit(0);
-        repeat
-            TotalAcceptedPaymentTolerance += CustLedgEntry."Accepted Payment Tolerance";
-        until CustLedgEntry.Next() = 0;
-        exit(TotalAcceptedPaymentTolerance);
+        CustLedgEntry.Get("Applies-to Entry No.");
+        exit(CustLedgEntry."Accepted Payment Tolerance");
     end;
 
-    local procedure GetVendLedgEntryPmtTolAmt() TotalAcceptedPaymentTolerance: Decimal
+    local procedure GetVendLedgEntryPmtTolAmt(): Decimal
     var
-        BankAccountReconciliationLine: Record "Bank Acc. Reconciliation Line";
-        VendorLedgerEntry: Record "Vendor Ledger Entry";
+        VendLedgEntry: Record "Vendor Ledger Entry";
     begin
-        BankAccountReconciliationLine.Get(Rec."Statement Type", Rec."Bank Account No.", Rec."Statement No.", Rec."Statement Line No.");
-        VendorLedgerEntry.SetRange("Applies-to ID", BankAccountReconciliationLine.GetAppliesToID());
-        if not VendorLedgerEntry.FindSet() then
-            exit(0);
-        repeat
-            TotalAcceptedPaymentTolerance += VendorLedgerEntry."Accepted Payment Tolerance";
-        until VendorLedgerEntry.Next() = 0;
-        exit(TotalAcceptedPaymentTolerance);
+        VendLedgEntry.Get("Applies-to Entry No.");
+        exit(VendLedgEntry."Accepted Payment Tolerance");
     end;
 
     procedure GetStmtLineRemAmtToApply(): Decimal

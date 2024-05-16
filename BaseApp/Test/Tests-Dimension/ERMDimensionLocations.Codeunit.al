@@ -492,6 +492,7 @@ codeunit 134474 "ERM Dimension Locations"
     procedure DimensionsFromLocationOnPhysInvtOrder()
     var
         DimensionValue: Record "Dimension Value";
+        Item: Record Item;
         Location: Record Location;
         PhysInvtOrderHeader: Record "Phys. Invt. Order Header";
         PhysInvtOrderLine: Record "Phys. Invt. Order Line";
@@ -929,7 +930,7 @@ codeunit 134474 "ERM Dimension Locations"
 
         // [THEN] Get the Transfer Header.
         TransferHeader.Get(TransferOrder."No.".Value());
-        TransferOrder.OK().Invoke();
+        TransferOrder.OK.Invoke();
 
         // [VERIFY] Verify Default Dimension on the Transfer Header.
         VerifyDimensionValue(TransferHeader."Dimension Set ID", DimensionValue);

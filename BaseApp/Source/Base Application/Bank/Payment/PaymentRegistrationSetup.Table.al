@@ -7,7 +7,6 @@ using Microsoft.Finance.GeneralLedger.Journal;
 table 980 "Payment Registration Setup"
 {
     Caption = 'Payment Registration Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

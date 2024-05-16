@@ -25,7 +25,7 @@ codeunit 141001 "Electronic Invoices - Tests"
 
         Initialized := true;
         LibrarySales.SetStockoutWarning(false);
-        LibrarySales.SetCreditWarningsToNoWarnings();
+        LibrarySales.SetCreditWarningsToNoWarnings;
         Commit();
     end;
 
@@ -74,13 +74,15 @@ codeunit 141001 "Electronic Invoices - Tests"
 
     local procedure VerifyElectronicInvInDataset(IsOn: Boolean)
     begin
-        LibraryReportDataset.LoadDataSetFile();
-        LibraryReportDataset.Reset();
-        LibraryReportDataset.SetRange('ElectronicInvoicing', IsOn);
-        Assert.IsTrue(LibraryReportDataset.GetNextRow(), '');
+        with LibraryReportDataset do begin
+            LoadDataSetFile;
+            Reset();
+            SetRange('ElectronicInvoicing', IsOn);
+            Assert.IsTrue(GetNextRow, '');
+        end;
     end;
 
-    local procedure CreateSalesDoc(var SalesHeader: Record "Sales Header"; DocType: Enum "Sales Document Type")
+    local procedure CreateSalesDoc(var SalesHeader: Record "Sales Header"; DocType: Option)
     var
         SalesLine: Record "Sales Line";
         Cust: Record Customer;
@@ -123,7 +125,7 @@ codeunit 141001 "Electronic Invoices - Tests"
     [Scope('OnPrem')]
     procedure SalesQuoteRequestHandler(var SalesQuote: TestRequestPage "Standard Sales - Quote")
     begin
-        SalesQuote.SaveAsXml(LibraryReportDataset.GetParametersFileName(), LibraryReportDataset.GetFileName());
+        SalesQuote.SaveAsXml(LibraryReportDataset.GetParametersFileName, LibraryReportDataset.GetFileName);
     end;
 
     [MessageHandler]

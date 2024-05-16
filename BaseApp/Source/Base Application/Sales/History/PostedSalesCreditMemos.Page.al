@@ -18,7 +18,7 @@ page 144 "Posted Sales Credit Memos"
     QueryCategory = 'Posted Sales Credit Memos';
     SourceTable = "Sales Cr.Memo Header";
     SourceTableView = sorting("Posting Date")
-                      order(descending);
+                      order(Descending);
     UsageCategory = History;
 
     layout
@@ -262,7 +262,7 @@ page 144 "Posted Sales Credit Memos"
             {
                 ApplicationArea = Basic, Suite;
                 ShowFilter = false;
-                Visible = not IsOfficeAddin;
+                Visible = NOT IsOfficeAddin;
             }
             part(GLEntriesPart; "G/L Entries Part")
             {
@@ -373,7 +373,7 @@ page 144 "Posted Sales Credit Memos"
                     Scope = Repeater;
                     ShortCutKey = 'Ctrl+Alt+Q';
                     ToolTip = 'Find entries and documents that exist for the document number and posting date on the selected document. (Formerly this action was named Navigate.)';
-                    Visible = not IsOfficeAddin;
+                    Visible = NOT IsOfficeAddin;
 
                     trigger OnAction()
                     begin
@@ -442,7 +442,7 @@ page 144 "Posted Sales Credit Memos"
                     Image = Print;
                     Scope = Repeater;
                     ToolTip = 'Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.';
-                    Visible = not IsOfficeAddin;
+                    Visible = NOT IsOfficeAddin;
 
                     trigger OnAction()
                     var
@@ -543,6 +543,15 @@ page 144 "Posted Sales Credit Memos"
                 actionref(ActivityLog_Promoted; ActivityLog)
                 {
                 }
+#if not CLEAN21
+                actionref(Card_Promoted; Card)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
                 separator(Navigate_Separator)
                 {
                 }

@@ -281,7 +281,7 @@ codeunit 226 "CustEntry-Apply Posted Entries"
     begin
         IsHandled := false;
         OnBeforeUnApplyCustomer(DtldCustLedgEntry, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit;
 
         DtldCustLedgEntry.TestField("Entry Type", DtldCustLedgEntry."Entry Type"::Application);

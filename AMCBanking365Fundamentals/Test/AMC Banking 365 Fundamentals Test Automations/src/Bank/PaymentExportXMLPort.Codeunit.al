@@ -70,6 +70,7 @@ codeunit 134423 "Payment Export XMLPort"
     end;
 
     local procedure SetupExport(var TempBlobANSI: Codeunit "Temp Blob"; var DataExch: Record "Data Exch."; var DataExchDef: Record "Data Exch. Def"; var TempXmlBuffer: Record "Xml Buffer"; ProcessingXMLport: Integer; FileType: Option)
+    var
     begin
         CreateDataExchDef(DataExchDef, ProcessingXMLport, DataExchDef."Column Separator"::Comma, FileType);
         CreateDataExch(DataExch, DataExchDef.Code, TempBlobANSI);
@@ -307,6 +308,7 @@ codeunit 134423 "Payment Export XMLPort"
     end;
 
     local procedure VerifyAMCOutput(var TempXMLBuffer: Record "XML Buffer"; TempBlobANSI: Codeunit "Temp Blob"; DataExchNo: Integer)
+    var
     begin
         LibraryXPathXMLReader.InitializeWithBlob(TempBlobANSI, AMCBankingMgt.GetNamespace());
         LibraryXPathXMLReader.SetDefaultNamespaceUsage(false);

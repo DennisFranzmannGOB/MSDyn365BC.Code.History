@@ -8,7 +8,6 @@ table 5848 "Cost Share Buffer"
 {
     Caption = 'Cost Share Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

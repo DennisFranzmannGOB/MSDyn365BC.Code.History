@@ -88,6 +88,7 @@ codeunit 2750 "Universal Printer Setup"
     end;
 
     local procedure IsLandscape(Orientation: Enum "Universal Printer Orientation"): Boolean
+    var
     begin
         exit(Orientation = Orientation::landscape);
     end;
@@ -315,6 +316,7 @@ codeunit 2750 "Universal Printer Setup"
     end;
 
     internal procedure IsPaperSizeCustom("Paper Size": Enum "Printer Paper Kind"): Boolean
+    var
     begin
         exit("Paper Size" = "Paper Size"::Custom);
     end;

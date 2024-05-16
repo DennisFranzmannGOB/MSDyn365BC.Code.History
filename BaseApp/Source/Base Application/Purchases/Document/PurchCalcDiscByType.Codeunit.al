@@ -53,43 +53,48 @@ codeunit 66 "Purch - Calc Disc. By Type"
         DiscountNotificationMgt: Codeunit "Discount Notification Mgt.";
         InvDiscBaseAmount: Decimal;
     begin
-        PurchSetup.Get();
-        DiscountNotificationMgt.NotifyAboutMissingSetup(
-            PurchSetup.RecordId, PurchHeader."Gen. Bus. Posting Group",
-            PurchSetup."Discount Posting", PurchSetup."Discount Posting"::"Line Discounts");
+        with PurchHeader do begin
 
-        PurchLine.SetRange("Document No.", PurchHeader."No.");
-        PurchLine.SetRange("Document Type", PurchHeader."Document Type");
+            PurchSetup.Get();
+            DiscountNotificationMgt.NotifyAboutMissingSetup(
+                PurchSetup.RecordId, "Gen. Bus. Posting Group",
+                PurchSetup."Discount Posting", PurchSetup."Discount Posting"::"Line Discounts");
 
-        PurchLine.CalcVATAmountLines(0, PurchHeader, PurchLine, TempVATAmountLine);
+            PurchLine.SetRange("Document No.", "No.");
+            PurchLine.SetRange("Document Type", "Document Type");
 
-        InvDiscBaseAmount := TempVATAmountLine.GetTotalInvDiscBaseAmount(false, PurchHeader."Currency Code");
+            PurchLine.CalcVATAmountLines(0, PurchHeader, PurchLine, TempVATAmountLine);
 
-        if (InvDiscBaseAmount = 0) and (InvoiceDiscountAmount > 0) then
-            Error(InvDiscBaseAmountIsZeroErr);
+            InvDiscBaseAmount := TempVATAmountLine.GetTotalInvDiscBaseAmount(false, "Currency Code");
 
-        TempVATAmountLine.SetInvoiceDiscountAmount(InvoiceDiscountAmount, PurchHeader."Currency Code",
-          PurchHeader."Prices Including VAT", PurchHeader."VAT Base Discount %");
+            if (InvDiscBaseAmount = 0) and (InvoiceDiscountAmount > 0) then
+                Error(InvDiscBaseAmountIsZeroErr);
 
-        PurchLine.UpdateVATOnLines(0, PurchHeader, PurchLine, TempVATAmountLine);
+            TempVATAmountLine.SetInvoiceDiscountAmount(InvoiceDiscountAmount, "Currency Code",
+              "Prices Including VAT", "VAT Base Discount %");
 
-        PurchHeader."Invoice Discount Calculation" := PurchHeader."Invoice Discount Calculation"::Amount;
-        PurchHeader."Invoice Discount Value" := InvoiceDiscountAmount;
+            PurchLine.UpdateVATOnLines(0, PurchHeader, PurchLine, TempVATAmountLine);
 
-        ResetRecalculateInvoiceDisc(PurchHeader);
+            "Invoice Discount Calculation" := "Invoice Discount Calculation"::Amount;
+            "Invoice Discount Value" := InvoiceDiscountAmount;
 
-        PurchHeader.Modify();
+            ResetRecalculateInvoiceDisc(PurchHeader);
+
+            Modify();
+        end;
     end;
 
     local procedure ApplyInvDiscBasedOnPct(var PurchHeader: Record "Purchase Header")
     var
         PurchLine: Record "Purchase Line";
     begin
-        PurchLine.SetRange("Document No.", PurchHeader."No.");
-        PurchLine.SetRange("Document Type", PurchHeader."Document Type");
-        if PurchLine.FindFirst() then begin
-            CODEUNIT.Run(CODEUNIT::"Purch.-Calc.Discount", PurchLine);
-            PurchHeader.Get(PurchHeader."Document Type", PurchHeader."No.");
+        with PurchHeader do begin
+            PurchLine.SetRange("Document No.", "No.");
+            PurchLine.SetRange("Document Type", "Document Type");
+            if PurchLine.FindFirst() then begin
+                CODEUNIT.Run(CODEUNIT::"Purch.-Calc.Discount", PurchLine);
+                Get("Document Type", "No.");
+            end;
         end;
     end;
 
@@ -100,37 +105,39 @@ codeunit 66 "Purch - Calc Disc. By Type"
         AmountIncludingVATDiscountAllowed: Decimal;
         AmountDiscountAllowed: Decimal;
     begin
-        if not PurchHeader.Get(PurchLine."Document Type", PurchLine."Document No.") then
-            exit(0);
+        with PurchHeader do begin
+            if not Get(PurchLine."Document Type", PurchLine."Document No.") then
+                exit(0);
 
-        PurchHeader.CalcFields("Invoice Discount Amount");
-        if PurchHeader."Invoice Discount Amount" = 0 then
-            exit(0);
+            CalcFields("Invoice Discount Amount");
+            if "Invoice Discount Amount" = 0 then
+                exit(0);
 
-        case PurchHeader."Invoice Discount Calculation" of
-            PurchHeader."Invoice Discount Calculation"::"%":
-                begin
-                    // Only if VendorInvDisc table is empty header is not updated
-                    if not VendorInvDiscRecExists(PurchHeader."Invoice Disc. Code") then
-                        exit(0);
+            case "Invoice Discount Calculation" of
+                "Invoice Discount Calculation"::"%":
+                    begin
+                        // Only if VendorInvDisc table is empty header is not updated
+                        if not VendorInvDiscRecExists("Invoice Disc. Code") then
+                            exit(0);
 
-                    exit(PurchHeader."Invoice Discount Value");
-                end;
-            PurchHeader."Invoice Discount Calculation"::None,
-            PurchHeader."Invoice Discount Calculation"::Amount:
-                begin
-                    InvoiceDiscountValue := PurchHeader."Invoice Discount Amount";
+                        exit("Invoice Discount Value");
+                    end;
+                "Invoice Discount Calculation"::None,
+                "Invoice Discount Calculation"::Amount:
+                    begin
+                        InvoiceDiscountValue := "Invoice Discount Amount";
 
-                    CalcAmountWithDiscountAllowed(PurchHeader, AmountIncludingVATDiscountAllowed, AmountDiscountAllowed);
+                        CalcAmountWithDiscountAllowed(PurchHeader, AmountIncludingVATDiscountAllowed, AmountDiscountAllowed);
 
-                    if AmountDiscountAllowed + InvoiceDiscountValue = 0 then
-                        exit(0);
+                        if AmountDiscountAllowed + InvoiceDiscountValue = 0 then
+                            exit(0);
 
-                    if PurchHeader."Prices Including VAT" then
-                        exit(Round(InvoiceDiscountValue / (AmountIncludingVATDiscountAllowed + InvoiceDiscountValue) * 100, 0.01));
+                        if "Prices Including VAT" then
+                            exit(Round(InvoiceDiscountValue / (AmountIncludingVATDiscountAllowed + InvoiceDiscountValue) * 100, 0.01));
 
-                    exit(Round(InvoiceDiscountValue / AmountDiscountAllowed * 100, 0.01));
-                end;
+                        exit(Round(InvoiceDiscountValue / AmountDiscountAllowed * 100, 0.01));
+                    end;
+            end;
         end;
 
         exit(0);
@@ -204,12 +211,14 @@ codeunit 66 "Purch - Calc Disc. By Type"
     var
         PurchLine: Record "Purchase Line";
     begin
-        PurchLine.SetRange("Document Type", PurchHeader."Document Type");
-        PurchLine.SetRange("Document No.", PurchHeader."No.");
-        PurchLine.SetRange("Allow Invoice Disc.", true);
-        PurchLine.CalcSums(Amount, "Amount Including VAT", "Inv. Discount Amount");
-        AmountIncludingVATDiscountAllowed := PurchLine."Amount Including VAT";
-        AmountDiscountAllowed := PurchLine.Amount + PurchLine."Inv. Discount Amount";
+        with PurchLine do begin
+            SetRange("Document Type", PurchHeader."Document Type");
+            SetRange("Document No.", PurchHeader."No.");
+            SetRange("Allow Invoice Disc.", true);
+            CalcSums(Amount, "Amount Including VAT", "Inv. Discount Amount");
+            AmountIncludingVATDiscountAllowed := "Amount Including VAT";
+            AmountDiscountAllowed := Amount + "Inv. Discount Amount";
+        end;
     end;
 
     [IntegrationEvent(false, false)]

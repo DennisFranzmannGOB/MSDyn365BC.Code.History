@@ -109,13 +109,14 @@ codeunit 1512 "Workflow Create Payment Line"
     procedure GetDocumentNo(var GenJournalLine: Record "Gen. Journal Line"; LastDocNo: Code[20]): Code[20]
     var
         GenJournalBatch: Record "Gen. Journal Batch";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
         GenJournalBatch.Get(GenJournalLine."Journal Template Name", GenJournalLine."Journal Batch Name");
         if GenJournalBatch."No. Series" = '' then
             exit(IncStr(LastDocNo));
 
-        exit(NoSeries.PeekNextNo(GenJournalBatch."No. Series", GenJournalLine."Posting Date"));
+        Clear(NoSeriesMgt);
+        exit(NoSeriesMgt.GetNextNo(GenJournalBatch."No. Series", GenJournalLine."Posting Date", false));
     end;
 }
 

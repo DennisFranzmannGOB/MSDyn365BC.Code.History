@@ -233,7 +233,7 @@ codeunit 5496 "Graph Mgt - Sales Order Buffer"
                 APIDataUpgrade.CountRecordsAndCommit(RecordCount);
             until SalesHeader.Next() = 0;
 
-        if SalesOrderEntityBuffer.FindSet(true) then
+        if SalesOrderEntityBuffer.FindSet(true, false) then
             repeat
                 if not SalesHeader.Get(SalesHeader."Document Type"::Order, SalesOrderEntityBuffer."No.") then begin
                     SalesOrderEntityBuffer.Delete(true);
@@ -429,7 +429,7 @@ codeunit 5496 "Graph Mgt - Sales Order Buffer"
         SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
         SalesLine.SetRange("Document No.", SalesOrderEntityBuffer."No.");
 
-        if SalesLine.FindSet(false) then
+        if SalesLine.FindSet(false, false) then
             repeat
                 TransferFromSalesLine(SalesInvoiceLineAggregate, SalesOrderEntityBuffer, SalesLine);
                 SalesInvoiceLineAggregate.Insert(true);

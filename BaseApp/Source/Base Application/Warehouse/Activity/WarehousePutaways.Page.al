@@ -164,20 +164,6 @@ page 9312 "Warehouse Put-aways"
                     WhseActPrint.PrintPutAwayHeader(Rec);
                 end;
             }
-            action("Assign to me")
-            {
-                ApplicationArea = Warehouse;
-                Caption = 'Assign to me';
-                Image = User;
-                Gesture = LeftSwipe;
-                ToolTip = 'Assigns this put-away to the current user.';
-
-                trigger OnAction()
-                begin
-                    Rec.AssignToCurrentUser();
-                    CurrPage.Update();
-                end;
-            }
         }
         area(Promoted)
         {
@@ -189,9 +175,6 @@ page 9312 "Warehouse Put-aways"
                 {
                 }
                 actionref("Print_Promoted"; "Print")
-                {
-                }
-                actionref("Assign to me_Promoted"; "Assign to me")
                 {
                 }
             }

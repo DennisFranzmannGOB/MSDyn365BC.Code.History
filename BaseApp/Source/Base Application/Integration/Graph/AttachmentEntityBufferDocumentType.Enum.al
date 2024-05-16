@@ -4,9 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 namespace Microsoft.Integration.Graph;
 
-#pragma warning disable AL0659
 enum 135 "Attachment Entity Buffer Document Type"
-#pragma warning restore AL0659
 {
     Extensible = false;
 

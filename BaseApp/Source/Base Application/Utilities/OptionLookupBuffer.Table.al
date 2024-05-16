@@ -10,8 +10,9 @@ table 1670 "Option Lookup Buffer"
     Caption = 'Option Lookup Buffer';
     LookupPageID = "Option Lookup List";
     ReplicateData = false;
+#pragma warning disable AS0034
     TableType = Temporary;
-    DataClassification = CustomerContent;
+#pragma warning restore AS0034
 
     fields
     {
@@ -156,7 +157,7 @@ table 1670 "Option Lookup Buffer"
         if IsHandled then
             exit;
 
-        Option := FieldRef.Value();
+        Option := FieldRef.Value;
         case FieldRef.Record().Number of
             DATABASE::"Sales Line", DATABASE::"Standard Sales Line":
                 if Option = SalesLine.Type::" ".AsInteger() then

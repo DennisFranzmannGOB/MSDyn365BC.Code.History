@@ -19,7 +19,7 @@ codeunit 5518 "API Fix Purchase Order"
         UpgradeTag: Codeunit "Upgrade Tag";
         GraphMgtPurchOrderBuffer: Codeunit "Graph Mgt - Purch Order Buffer";
     begin
-        if PurchaseHeader.FindSet() then
+        IF PurchaseHeader.FindSet() THEN
             repeat
                 GraphMgtPurchOrderBuffer.InsertOrModifyFromPurchaseHeader(PurchaseHeader);
             until PurchaseHeader.Next() = 0;

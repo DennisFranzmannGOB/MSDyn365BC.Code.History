@@ -10,7 +10,6 @@ table 840 "Cash Flow Forecast"
     Caption = 'Cash Flow Forecast';
     DrillDownPageID = "Cash Flow Forecast List";
     LookupPageID = "Cash Flow Forecast List";
-    DataClassification = CustomerContent;
     Permissions = TableData "Cash Flow Account Comment" = rimd,
                   TableData "Cash Flow Forecast Entry" = rimd;
 
@@ -173,32 +172,11 @@ table 840 "Cash Flow Forecast"
     end;
 
     trigger OnInsert()
-#if not CLEAN24
-    var
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         if "No." = '' then begin
             CFSetup.Get();
             CFSetup.TestField("Cash Flow Forecast No. Series");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(CFSetup."Cash Flow Forecast No. Series", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(CFSetup."Cash Flow Forecast No. Series", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := CFSetup."Cash Flow Forecast No. Series";
-                "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", CFSetup."Cash Flow Forecast No. Series", 0D, "No.");
-            end;
-#else
-			if NoSeries.AreRelated(CFSetup."Cash Flow Forecast No. Series", xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := CFSetup."Cash Flow Forecast No. Series";
-            "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(CFSetup."Cash Flow Forecast No. Series", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
         "Creation Date" := WorkDate();
@@ -212,17 +190,21 @@ table 840 "Cash Flow Forecast"
         CashFlowForecast: Record "Cash Flow Forecast";
         CFAccountComment: Record "Cash Flow Account Comment";
         CFForecastEntry: Record "Cash Flow Forecast Entry";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
 
     procedure AssistEdit(OldCashFlowForecast: Record "Cash Flow Forecast"): Boolean
     begin
-        CashFlowForecast := Rec;
-        CFSetup.Get();
-        CFSetup.TestField("Cash Flow Forecast No. Series");
-        if NoSeries.LookupRelatedNoSeries(CFSetup."Cash Flow Forecast No. Series", OldCashFlowForecast."No. Series", CashFlowForecast."No. Series") then begin
-            CashFlowForecast."No." := NoSeries.GetNextNo(CashFlowForecast."No. Series");
-            Rec := CashFlowForecast;
-            exit(true);
+        with CashFlowForecast do begin
+            CashFlowForecast := Rec;
+            CFSetup.Get();
+            CFSetup.TestField("Cash Flow Forecast No. Series");
+            if NoSeriesMgt.SelectSeries(CFSetup."Cash Flow Forecast No. Series", OldCashFlowForecast."No. Series", "No. Series") then begin
+                CFSetup.Get();
+                CFSetup.TestField("Cash Flow Forecast No. Series");
+                NoSeriesMgt.SetSeries("No.");
+                Rec := CashFlowForecast;
+                exit(true);
+            end;
         end;
     end;
 
@@ -309,12 +291,14 @@ table 840 "Cash Flow Forecast"
         CashFlowForecast: Record "Cash Flow Forecast";
         CFReportSelection: Record "Cash Flow Report Selection";
     begin
-        CashFlowForecast.Copy(Rec);
-        CFReportSelection.SetFilter("Report ID", '<>0');
-        if CFReportSelection.FindSet() then
-            repeat
-                REPORT.RunModal(CFReportSelection."Report ID", true, false, CashFlowForecast);
-            until CFReportSelection.Next() = 0;
+        with CashFlowForecast do begin
+            Copy(Rec);
+            CFReportSelection.SetFilter("Report ID", '<>0');
+            if CFReportSelection.FindSet() then
+                repeat
+                    REPORT.RunModal(CFReportSelection."Report ID", true, false, CashFlowForecast);
+                until CFReportSelection.Next() = 0;
+        end;
     end;
 
     procedure LookupCashFlowFilter(var Text: Text): Boolean

@@ -35,7 +35,6 @@ page 9631 "Page Inspection"
                 ShowCaption = false;
                 field(ExploreInVsCodeTextLbl; ExploreInVsCodeTextLbl)
                 {
-                    AccessByPermission = System "Tools, Zoom" = X;
                     ApplicationArea = All;
                     DrillDown = true;
                     ExtendedDatatype = URL;
@@ -75,7 +74,7 @@ page 9631 "Page Inspection"
             group(Control24)
             {
                 ShowCaption = false;
-                Visible = not PageIsOpening and IsViewQueryPage;
+                Visible = NOT PageIsOpening AND IsViewQueryPage;
                 field(QueryInfo; QueryInfo)
                 {
                     ApplicationArea = All;
@@ -86,7 +85,7 @@ page 9631 "Page Inspection"
             group(Control10)
             {
                 ShowCaption = false;
-                Visible = not PageIsOpening and not PageIsSystem and not PageIsReportRequest and not PageIsReportViewer and not PageIsXMLPortPage and not PageIsRoleCenter and not IsViewQueryPage;
+                Visible = NOT PageIsOpening AND NOT PageIsSystem AND NOT PageIsReportRequest AND NOT PageIsReportViewer AND NOT PageIsXMLPortPage AND NOT PageIsRoleCenter AND NOT IsViewQueryPage;
                 field(TableInfo; TableInfo)
                 {
                     ApplicationArea = All;
@@ -130,7 +129,7 @@ page 9631 "Page Inspection"
             group(Control11)
             {
                 ShowCaption = false;
-                Visible = not PageIsOpening and not PageIsSystem and not PageIsReportRequest and not PageIsReportViewer and not PageIsXMLPortPage and not PageIsRoleCenter and not IsViewTablePage and PageHasSourceTable and not PageSourceTableIsTemporary and not IsViewQueryPage;
+                Visible = NOT PageIsOpening AND NOT PageIsSystem AND NOT PageIsReportRequest AND NOT PageIsReportViewer AND NOT PageIsXMLPortPage AND NOT PageIsRoleCenter AND NOT IsViewTablePage AND PageHasSourceTable AND NOT PageSourceTableIsTemporary AND NOT IsViewQueryPage;
                 field(ViewTableLbl; ViewTableLbl)
                 {
                     AccessByPermission = System "Tools, Zoom" = X;
@@ -149,7 +148,7 @@ page 9631 "Page Inspection"
             group(Control7)
             {
                 ShowCaption = false;
-                Visible = not PageIsOpening and not PageIsSystem and not PageIsReportRequest and not PageIsReportViewer and not PageIsXMLPortPage and not PageIsRoleCenter and not PageIsSystemPart and not IsViewQueryPage and PageHasSourceTable and PageSourceTableIsTemporary;
+                Visible = NOT PageIsOpening AND NOT PageIsSystem AND NOT PageIsReportRequest AND NOT PageIsReportViewer AND NOT PageIsXMLPortPage AND NOT PageIsRoleCenter AND NOT PageIsSystemPart AND NOT IsViewQueryPage AND PageHasSourceTable AND PageSourceTableIsTemporary;
                 field(SourceTableIsTemporaryLbl; SourceTableIsTemporaryLbl)
                 {
                     ApplicationArea = All;
@@ -438,7 +437,7 @@ page 9631 "Page Inspection"
 
         PageIsOpening := (Rec."Current Form ID" = '00000000-0000-0000-0000-000000000007');
 
-        ShowExploreInVSCodeLink := not PageIsOpening and not PageIsSystem and not PageIsReportRequest and not PageIsReportViewer and not PageIsXMLPortPage and not IsViewTablePage and not IsViewQueryPage;
+        ShowExploreInVSCodeLink := NOT PageIsOpening AND NOT PageIsSystem AND NOT PageIsReportRequest AND NOT PageIsReportViewer AND NOT PageIsXMLPortPage AND NOT IsViewTablePage AND NOT IsViewQueryPage;
     end;
 
     local procedure UpdateVisiblePart()

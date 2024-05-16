@@ -1,6 +1,6 @@
 namespace Microsoft.CRM.Opportunity;
 
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 783 "Relationship Performance"
@@ -19,21 +19,21 @@ page 783 "Relationship Performance"
                 Enabled = false;
                 ShowCaption = false;
                 Style = StrongAccent;
-                StyleExpr = true;
+                StyleExpr = TRUE;
                 ToolTip = 'Specifies the status of the chart.';
                 Visible = false;
             }
-            usercontrol(BusinessChart; BusinessChart)
+            usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = RelationshipMgmt;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
                     BusinessChartBuffer.SetDrillDownIndexes(point);
                     RlshpPerformanceMgt.DrillDown(BusinessChartBuffer, TempOpportunity);
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -71,7 +71,7 @@ page 783 "Relationship Performance"
             exit;
 
         RlshpPerformanceMgt.UpdateData(BusinessChartBuffer, TempOpportunity);
-        BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
+        BusinessChartBuffer.Update(CurrPage.BusinessChart);
     end;
 }
 

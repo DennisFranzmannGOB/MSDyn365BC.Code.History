@@ -6,7 +6,6 @@ table 8624 "Config. Related Field"
 {
     Caption = 'Config. Related Field';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -20,7 +19,7 @@ table 8624 "Config. Related Field"
         }
         field(3; "Field Name"; Text[30])
         {
-            CalcFormula = lookup (Field.FieldName where(TableNo = field("Table ID"),
+            CalcFormula = Lookup (Field.FieldName where(TableNo = field("Table ID"),
                                                         "No." = field("Field ID")));
             Caption = 'Field Name';
             Editable = false;
@@ -28,7 +27,7 @@ table 8624 "Config. Related Field"
         }
         field(4; "Field Caption"; Text[250])
         {
-            CalcFormula = lookup (Field."Field Caption" where(TableNo = field("Table ID"),
+            CalcFormula = Lookup (Field."Field Caption" where(TableNo = field("Table ID"),
                                                               "No." = field("Field ID")));
             Caption = 'Field Caption';
             Editable = false;
@@ -42,7 +41,7 @@ table 8624 "Config. Related Field"
         }
         field(9; "Relation Table Name"; Text[250])
         {
-            CalcFormula = lookup (AllObjWithCaption."Object Name" where("Object Type" = const(Table),
+            CalcFormula = Lookup (AllObjWithCaption."Object Name" where("Object Type" = const(Table),
                                                                         "Object ID" = field("Relation Table ID")));
             Caption = 'Relation Table Name';
             Editable = false;

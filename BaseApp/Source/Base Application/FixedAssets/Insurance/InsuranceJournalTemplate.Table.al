@@ -9,7 +9,6 @@ table 5633 "Insurance Journal Template"
     Caption = 'Insurance Journal Template';
     LookupPageID = "Insurance Jnl. Template List";
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -70,7 +69,7 @@ table 5633 "Insurance Journal Template"
         }
         field(13; "Test Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Test Report ID")));
             Caption = 'Test Report Caption';
             Editable = false;
@@ -78,7 +77,7 @@ table 5633 "Insurance Journal Template"
         }
         field(14; "Page Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
                                                                            "Object ID" = field("Page ID")));
             Caption = 'Page Caption';
             Editable = false;
@@ -86,7 +85,7 @@ table 5633 "Insurance Journal Template"
         }
         field(15; "Posting Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Posting Report ID")));
             Caption = 'Posting Report Caption';
             Editable = false;

@@ -341,12 +341,6 @@ page 255 "Cash Receipt Journal"
                     ToolTip = 'Specifies the ID of entries that will be applied to when you choose the Apply Entries action.';
                     Visible = false;
                 }
-                field("Payment Method Code"; Rec."Payment Method Code")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Visible = false;
-                    ToolTip = 'Specifies how to make payment, such as with bank transfer, cash, or check.';
-                }
                 field("Reason Code"; Rec."Reason Code")
                 {
                     ApplicationArea = Basic, Suite;
@@ -944,7 +938,7 @@ page 255 "Cash Receipt Journal"
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Selected Journal Lines';
-                        Enabled = not OpenApprovalEntriesOnBatchOrCurrJnlLineExist and CanRequestFlowApprovalForBatchAndCurrentLine;
+                        Enabled = NOT OpenApprovalEntriesOnBatchOrCurrJnlLineExist AND CanRequestFlowApprovalForBatchAndCurrentLine;
                         Image = SendApprovalRequest;
                         ToolTip = 'Send selected journal lines for approval.';
 
@@ -966,7 +960,7 @@ page 255 "Cash Receipt Journal"
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Journal Batch';
-                        Enabled = CanCancelApprovalForJnlBatch or CanCancelFlowApprovalForBatch;
+                        Enabled = CanCancelApprovalForJnlBatch OR CanCancelFlowApprovalForBatch;
                         Image = CancelApprovalRequest;
                         ToolTip = 'Cancel sending all journal lines for approval, also those that you may not see because of filters.';
 
@@ -983,7 +977,7 @@ page 255 "Cash Receipt Journal"
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Selected Journal Lines';
-                        Enabled = CanCancelApprovalForJnlLine or CanCancelFlowApprovalForLine;
+                        Enabled = CanCancelApprovalForJnlLine OR CanCancelFlowApprovalForLine;
                         Image = CancelApprovalRequest;
                         ToolTip = 'Cancel sending selected journal lines for approval.';
 
@@ -997,38 +991,18 @@ page 255 "Cash Receipt Journal"
                         end;
                     }
                 }
-#if not CLEAN24
                 customaction(CreateFlowFromTemplate)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Create approval flow';
                     ToolTip = 'Create a new flow in Power Automate from a list of relevant flow templates.';
-                    Visible = false;
+#if not CLEAN22
+                    Visible = IsSaaS and PowerAutomateTemplatesEnabled and IsPowerAutomatePrivacyNoticeApproved;
+#else
+                    Visible = IsSaaS and IsPowerAutomatePrivacyNoticeApproved;
+#endif
                     CustomActionType = FlowTemplateGallery;
                     FlowTemplateCategoryName = 'd365bc_approval_generalJournal';
-                    ObsoleteReason = 'Replaced by field "CreateApprovalFlowFromTemplate" in the group Flow.';
-                    ObsoleteState = Pending;
-                    ObsoleteTag = '24.0';
-                }
-#endif
-                group(Flow)
-                {
-                    Caption = 'Power Automate';
-                    Image = Flow;
-
-                    customaction(CreateApprovalFlowFromTemplate)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Create approval flow';
-                        ToolTip = 'Create a new flow in Power Automate from a list of relevant flow templates.';
-#if not CLEAN22
-                        Visible = IsSaaS and PowerAutomateTemplatesEnabled and IsPowerAutomatePrivacyNoticeApproved;
-#else
-                        Visible = IsSaaS and IsPowerAutomatePrivacyNoticeApproved;
-#endif
-                        CustomActionType = FlowTemplateGallery;
-                        FlowTemplateCategoryName = 'd365bc_approval_generalJournal';
-                    }
                 }
 #if not CLEAN22
                 action(CreateFlow)
@@ -1051,6 +1025,20 @@ page 255 "Cash Receipt Journal"
                         FlowTemplateSelector.SetSearchText(FlowServiceManagement.GetJournalTemplateFilter());
                         FlowTemplateSelector.Run();
                     end;
+                }
+#endif
+#if not CLEAN21
+                action(SeeFlows)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'See my flows';
+                    Image = Flow;
+                    RunObject = Page "Flow Selector";
+                    ToolTip = 'View and configure Power Automate flows that you created.';
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'This action has been moved to the tab dedicated to Power Automate';
+                    ObsoleteTag = '21.0';
                 }
 #endif
             }
@@ -1156,6 +1144,15 @@ page 255 "Cash Receipt Journal"
                     Caption = 'Post/Print', Comment = 'Generated from the PromotedActionCategories property index 5.';
                     ShowAs = SplitButton;
 
+#if not CLEAN21
+                    actionref("Remove From Job Queue_Promoted"; "Remove From Job Queue")
+                    {
+                        Visible = false;
+                        ObsoleteState = Pending;
+                        ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                        ObsoleteTag = '21.0';
+                    }
+#endif
                     actionref(Post_Promoted; Post)
                     {
                     }
@@ -1241,6 +1238,24 @@ page 255 "Cash Receipt Journal"
             {
                 Caption = 'Account', Comment = 'Generated from the PromotedActionCategories property index 7.';
 
+#if not CLEAN21
+                actionref(Card_Promoted; Card)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
+#if not CLEAN21
+                actionref("Ledger E&ntries_Promoted"; "Ledger E&ntries")
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category5)
             {
@@ -1363,6 +1378,7 @@ page 255 "Cash Receipt Journal"
     var
         GeneralLedgerSetup: Record "General Ledger Setup";
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
+        GenJnlManagement: Codeunit GenJnlManagement;
         ClientTypeManagement: Codeunit "Client Type Management";
         JournalErrorsMgt: Codeunit "Journal Errors Mgt.";
         BackgroundErrorHandlingMgt: Codeunit "Background Error Handling Mgt.";
@@ -1370,6 +1386,8 @@ page 255 "Cash Receipt Journal"
         PrivacyNoticeRegistrations: Codeunit "Privacy Notice Registrations";
         ApprovalMgmt: Codeunit "Approvals Mgmt.";
         ChangeExchangeRate: Page "Change Exchange Rate";
+        AccName: Text[100];
+        BalAccName: Text[100];
         GenJnlBatchApprovalStatus: Text[20];
         GenJnlLineApprovalStatus: Text[20];
         TotalBalance: Decimal;
@@ -1410,9 +1428,6 @@ page 255 "Cash Receipt Journal"
         ActionOnlyAllowedForAllocationAccountsErr: Label 'This action is only available for lines that have Allocation Account set as Account Type or Balancing Account Type.';
 
     protected var
-        GenJnlManagement: Codeunit GenJnlManagement;
-        AccName: Text[100];
-        BalAccName: Text[100];
         CurrentJnlBatchName: Code[10];
         Balance: Decimal;
         ApplyEntriesActionEnabled: Boolean;
@@ -1432,7 +1447,7 @@ page 255 "Cash Receipt Journal"
     begin
         IsHandled := false;
         OnBeforeUpdateBalance(Rec, xRec, Balance, TotalBalance, ShowBalance, ShowTotalBalance, IsHandled);
-        if not IsHandled then
+        If not IsHandled then
             GenJnlManagement.CalcBalance(
               Rec, xRec, Balance, TotalBalance, ShowBalance, ShowTotalBalance);
         BalanceVisible := ShowBalance;
@@ -1463,7 +1478,7 @@ page 255 "Cash Receipt Journal"
         exit(GenJournalLine.FindSet());
     end;
 
-    protected procedure SetControlAppearanceFromBatch()
+    local procedure SetControlAppearanceFromBatch()
     begin
         SetApprovalStateForBatch();
         BackgroundErrorCheck := BackgroundErrorHandlingMgt.BackgroundValidationFeatureEnabled();
@@ -1601,3 +1616,4 @@ page 255 "Cash Receipt Journal"
     begin
     end;
 }
+

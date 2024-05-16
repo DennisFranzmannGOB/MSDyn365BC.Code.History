@@ -880,7 +880,7 @@ page 508 "Blanket Sales Order Subform"
             {
                 Caption = 'F&unctions';
                 Image = "Action";
-#if not CLEAN23
+#if not CLEAN21
                 action("Get &Price")
                 {
                     AccessByPermission = TableData "Sales Price" = R;
@@ -1145,9 +1145,9 @@ page 508 "Blanket Sales Order Subform"
         DeltaUpdateTotals();
     end;
 
-    procedure DeltaUpdateTotals()
+    local procedure DeltaUpdateTotals()
     begin
-        OnBeforeDeltaUpdateTotals(Rec, xRec);
+        OnBeforeDeltaUpdateTotals(rec, xRec);
         DocumentTotals.SalesDeltaUpdateTotals(Rec, xRec, TotalSalesLine, VATAmount, InvoiceDiscountAmount, InvoiceDiscountPct);
         if Rec."Line Amount" <> xRec."Line Amount" then
             Rec.SendLineInvoiceDiscountResetNotification();
@@ -1227,12 +1227,12 @@ page 508 "Blanket Sales Order Subform"
 
     procedure ShowDocumentLineTracking()
     var
-        DocumentLineTrackingPage: Page "Document Line Tracking";
+        DocumentLineTracking: Page "Document Line Tracking";
     begin
-        Clear(DocumentLineTrackingPage);
-        DocumentLineTrackingPage.SetSourceDoc(
-            "Document Line Source Type"::"Blanket Sales Order", Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
-        DocumentLineTrackingPage.RunModal();
+        Clear(DocumentLineTracking);
+        DocumentLineTracking.SetDoc(
+            2, Rec."Document No.", Rec."Line No.", Rec."Blanket Order No.", Rec."Blanket Order Line No.", '', 0);
+        DocumentLineTracking.RunModal();
     end;
 
     procedure RedistributeTotalsOnAfterValidate()
@@ -1292,7 +1292,7 @@ page 508 "Blanket Sales Order Subform"
             Rec.Type := Rec.GetDefaultLineType();
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterNoOnAfterValidate(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line")
     begin
     end;

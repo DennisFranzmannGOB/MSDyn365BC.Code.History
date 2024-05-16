@@ -11,7 +11,6 @@ using System.Security.User;
 table 1112 "Cost Center"
 {
     Caption = 'Cost Center';
-    DataClassification = CustomerContent;
     LookupPageID = "Chart of Cost Centers";
 
     fields
@@ -122,7 +121,7 @@ table 1112 "Cost Center"
 
                 if "Line Type" <> "Line Type"::"Cost Center" then begin
                     Blocked := true;
-                    "Cost Subtype" := "Cost Subtype"::" ";
+                    "Cost Subtype" := 0;
                 end else
                     Totaling := '';
             end;

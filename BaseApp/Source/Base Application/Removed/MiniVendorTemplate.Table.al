@@ -5,7 +5,6 @@ table 1303 "Mini Vendor Template"
     ObsoleteReason = 'Deprecate mini templates. Use table "Vendor Templ." instead and for extensions.';
     ObsoleteState = Removed;
     ObsoleteTag = '21.0';
-    DataClassification = CustomerContent;
 
     fields
     {

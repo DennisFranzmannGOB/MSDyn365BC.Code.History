@@ -1,13 +1,17 @@
 namespace Microsoft.Finance.FinancialReports;
 
-#if not CLEAN22
 #pragma warning disable AS0109
-#endif
 table 342 "Acc. Sched. Cell Value"
+#pragma warning restore AS0109
 {
     Caption = 'Acc. Sched. Cell Value';
+#if CLEAN21
     TableType = Temporary;
-    DataClassification = CustomerContent;
+#else
+    ObsoleteReason = 'This table will be marked as temporary. Make sure you are not using this table to store records.';
+    ObsoleteState = Pending;
+    ObsoleteTag = '21.0';
+#endif
 
     fields
     {

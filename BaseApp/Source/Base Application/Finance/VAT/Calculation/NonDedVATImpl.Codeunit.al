@@ -91,7 +91,7 @@ codeunit 6201 "Non-Ded. VAT Impl."
         if not IsNonDeductibleVATEnabled() then
             exit(0);
         NonDeductibleVAT.OnBeforeGetNonDeductibleVATPct(NonDeductibleVATPct, VATPostingSetup, GeneralPostingType, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(NonDeductibleVATPct);
         if not (VATPostingSetup."VAT Calculation Type" in [VATPostingSetup."VAT Calculation Type"::"Normal VAT", VATPostingSetup."VAT Calculation Type"::"Reverse Charge VAT"]) then
             exit(0);
@@ -105,7 +105,7 @@ codeunit 6201 "Non-Ded. VAT Impl."
         IsHandled: Boolean;
     begin
         NonDeductibleVAT.OnBeforeGetNonDeductibleVATPctForDeferrals(NonDeductibleVATPct, VATBusPostGroupCode, VATProdPostGroupCode, DeferralDocType, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(NonDeductibleVATPct);
         exit(GetNonDeductibleVATPct(VATBusPostGroupCode, VATProdPostGroupCode, GetGeneralPostingTypeFromDeferralDocType(DeferralDocType)));
     end;
@@ -443,7 +443,7 @@ codeunit 6201 "Non-Ded. VAT Impl."
 
     procedure CheckUnrealizedVATWithNonDeductibleVATInVATPostingSetup(VATPostingSetup: Record "VAT Posting Setup")
     begin
-        if (VATPostingSetup."Unrealized VAT Type" <> VATPostingSetup."Unrealized VAT Type"::" ") and (VATPostingSetup."Non-Deductible VAT %" <> 0) and (VATPostingSetup."Allow Non-Deductible VAT" = VATPostingSetup."Allow Non-Deductible VAT"::Allow) then
+        If (VATPostingSetup."Unrealized VAT Type" <> VATPostingSetup."Unrealized VAT Type"::" ") and (VATPostingSetup."Non-Deductible VAT %" <> 0) and (VATPostingSetup."Allow Non-Deductible VAT" = VATPostingSetup."Allow Non-Deductible VAT"::Allow) then
             error(UnrealizedVATWithNDVATErr);
     end;
 
@@ -792,7 +792,7 @@ codeunit 6201 "Non-Ded. VAT Impl."
             exit;
         GenJournalLine.Validate("Non-Deductible VAT Base",
             Round(GenJournalLine."VAT Base Amount" * GetNonDedVATPctFromGenJournalLine(GenJournalLine) / 100, Currency."Amount Rounding Precision"));
-        if GenJournalLine."VAT Calculation Type" = GenJournalLine."VAT Calculation Type"::"Reverse Charge VAT" then
+        if GenJournalLine."VAT Calculation Type" = GenJournalLine."VAT Calculation Type"::"Reverse Charge VAT" THEN
             GenJournalLine.Validate("Non-Deductible VAT Amount",
                 Round(GenJournalLine."Non-Deductible VAT Base" * VATPostingSetup."VAT %" / 100, Currency."Amount Rounding Precision"))
         else
@@ -832,12 +832,12 @@ codeunit 6201 "Non-Ded. VAT Impl."
             exit;
         GenJournalLine.Validate("Bal. Non-Ded. VAT Base",
             Round(GenJournalLine."Bal. VAT Base Amount" * GetBalNonDedVATPctFromGenJournalLine(GenJournalLine) / 100, Currency."Amount Rounding Precision"));
-        if GenJournalLine."Bal. VAT Calculation Type" = GenJournalLine."Bal. VAT Calculation Type"::"Reverse Charge VAT" then
+        if GenJournalLine."Bal. VAT Calculation Type" = GenJournalLine."Bal. VAT Calculation Type"::"Reverse Charge VAT" THEN
             GenJournalLine.Validate("Bal. Non-Ded. VAT Amount",
                 Round(GenJournalLine."Bal. Non-Ded. VAT Base" * VATPostingSetup."VAT %" / 100, Currency."Amount Rounding Precision"))
         else
             GenJournalLine.Validate("Bal. Non-Ded. VAT Amount",
-                Round((GenJournalLine.Amount - GenJournalLine."Bal. VAT Base Amount") * GetBalNonDedVATPctFromGenJournalLine(GenJournalLine) / 100, Currency."Amount Rounding Precision"));
+                Round((-GenJournalLine."Bal. VAT Base Amount" - GenJournalLine.Amount) * GetBalNonDedVATPctFromGenJournalLine(GenJournalLine) / 100, Currency."Amount Rounding Precision"));
         if GenJournalLine."Currency Code" = '' then begin
             GenJournalLine.Validate("Bal. Non-Ded. VAT Base LCY", GenJournalLine."Bal. Non-Ded. VAT Base");
             GenJournalLine.Validate("Bal. Non-Ded. VAT Amount LCY", GenJournalLine."Bal. Non-Ded. VAT Amount");
@@ -1195,7 +1195,7 @@ codeunit 6201 "Non-Ded. VAT Impl."
         IsHandled: Boolean;
     begin
         NonDeductibleVAT.OnBeforeGetNonDeductibleVATPctForPurchLine(NonDeductibleVATPct, PurchaseLine, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(NonDeductibleVATPct);
         exit(GetNonDeductibleVATPct(PurchaseLine."VAT Bus. Posting Group", PurchaseLine."VAT Prod. Posting Group", GeneralPostingType::Purchase));
     end;
@@ -1231,7 +1231,7 @@ codeunit 6201 "Non-Ded. VAT Impl."
             exit(0);
         if not VATPostingSetup.Get(GenJournalLine."Bal. VAT Bus. Posting Group", GenJournalLine."Bal. VAT Prod. Posting Group") then
             exit(0);
-        exit(GetNonDeductibleVATPct(VATPostingSetup, GenJournalLine."Gen. Posting Type"));
+        exit(GetNonDeductibleVATPct(VATPostingSetup, GenJournalLine."Bal. Gen. Posting Type"));
     end;
 
     local procedure GetNonDedVATPctFromGenJournalLine(GenJournalLine: Record "Gen. Journal Line"): Decimal

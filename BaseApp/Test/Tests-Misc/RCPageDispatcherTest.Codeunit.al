@@ -9,17 +9,13 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     var
-#if not CLEAN23
         LibraryPriceCalculation: Codeunit "Library - Price Calculation";
-#endif
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         Assert: Codeunit Assert;
         isInitialized: Boolean;
 
-#if not CLEAN23
-#pragma warning disable AS0072
+#if not CLEAN21
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T001_PurchasePricesAsPurchasePriceLists()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -36,7 +32,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T002_PurchaseLineDiscountsAsPurchasePriceLists()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -53,7 +48,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T003_ResourceCostsAsPurchaseJobPriceLists()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -70,7 +64,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T004_ResourcePricesAsSalesJobPriceLists()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -86,7 +79,6 @@ codeunit 134681 "RC Page Dispatcher Test"
         TestSalesJobPriceLists.Close();
     end;
 
-    [Obsolete('Not used.', '23.0')]
     procedure T005_SalesPricesAsSalesPriceLists()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -103,7 +95,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T006_SalesLineDiscountsAsSalesPriceLists()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -120,7 +111,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T007_SalesPriceWorksheetAsPriceWorksheet()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -137,7 +127,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T008_ResourcePriceChangesAsPriceWorksheet()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -154,7 +143,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     [HandlerFunctions('ItemPriceListHandler')]
     procedure T009_ReportPriceListAsItemPriceList()
     var
@@ -171,7 +159,6 @@ codeunit 134681 "RC Page Dispatcher Test"
 
     [Test]
     [HandlerFunctions('ResPriceListHandler')]
-    [Obsolete('Not used.', '23.0')]
     procedure T010_ReportPriceListAsItemPriceList()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -186,7 +173,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T011_SuggestResPriceChgResAsPriceWorksheet()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -203,7 +189,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T012_SuggestResPriceChgPriceAsPriceWorksheet()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -220,7 +205,6 @@ codeunit 134681 "RC Page Dispatcher Test"
     end;
 
     [Test]
-    [Obsolete('Not used.', '23.0')]
     procedure T013_ImplementResPriceChangeAsPriceWorksheet()
     var
         AllObjWithCaption: Record AllObjWithCaption;
@@ -235,7 +219,6 @@ codeunit 134681 "RC Page Dispatcher Test"
         // [THEN] Page "Price Worksheet" is open
         TestPriceWorksheet.Close();
     end;
-#pragma warning restore AS0072
 #endif
 
     local procedure Initialize()

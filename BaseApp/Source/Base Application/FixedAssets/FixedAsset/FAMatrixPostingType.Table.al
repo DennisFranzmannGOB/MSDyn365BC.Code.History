@@ -6,7 +6,6 @@ table 5647 "FA Matrix Posting Type"
 {
     Caption = 'FA Matrix Posting Type';
     LookupPageID = "FA Matrix Posting Types";
-    DataClassification = CustomerContent;
 
     fields
     {

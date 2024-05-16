@@ -11,7 +11,6 @@ table 1060 "Payment Service Setup"
     Caption = 'Payment Service Setup';
     Permissions = TableData "Sales Invoice Header" = rimd,
                   TableData "Payment Reporting Argument" = rimd;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -43,7 +42,7 @@ table 1060 "Payment Service Setup"
             begin
                 if Confirm(UpdateExistingInvoicesQst) then begin
                     SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Invoice);
-                    if SalesHeader.FindSet(true) then
+                    if SalesHeader.FindSet(true, false) then
                         repeat
                             SalesHeader.SetDefaultPaymentServices();
                             SalesHeader.Modify();
@@ -130,7 +129,7 @@ table 1060 "Payment Service Setup"
         DataTypeMgt.GetRecordRef(DocumentRecordVariant, DocumentRecordRef);
         DataTypeMgt.FindFieldByName(DocumentRecordRef, PaymentServiceFieldRef, DummySalesHeader.FieldName("Payment Service Set ID"));
 
-        SetID := PaymentServiceFieldRef.Value();
+        SetID := PaymentServiceFieldRef.Value;
 
         GetEnabledPaymentServices(TempPaymentServiceSetup);
         LoadSet(TempPaymentServiceSetup, SetID);

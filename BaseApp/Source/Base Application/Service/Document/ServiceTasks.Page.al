@@ -542,16 +542,18 @@ page 5915 "Service Tasks"
 
     procedure SetDocFilterHeader(var ServHeader: Record "Service Header")
     begin
-        ServHeader.FilterGroup(2);
-        case DocFilter of
-            DocFilter::Order:
-                ServHeader.SetRange("Document Type", ServHeader."Document Type"::Order);
-            DocFilter::Quote:
-                ServHeader.SetRange("Document Type", ServHeader."Document Type"::Quote);
-            DocFilter::All:
-                ServHeader.SetRange("Document Type");
+        with ServHeader do begin
+            FilterGroup(2);
+            case DocFilter of
+                DocFilter::Order:
+                    SetRange("Document Type", "Document Type"::Order);
+                DocFilter::Quote:
+                    SetRange("Document Type", "Document Type"::Quote);
+                DocFilter::All:
+                    SetRange("Document Type");
+            end;
+            FilterGroup(0);
         end;
-        ServHeader.FilterGroup(0);
     end;
 
     procedure SetServOrderFilter()

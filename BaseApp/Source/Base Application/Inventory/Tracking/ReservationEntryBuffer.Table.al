@@ -4,7 +4,6 @@ table 7360 "Reservation Entry Buffer"
 {
     Caption = 'Reservation Entry Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -64,7 +64,7 @@ page 7498 "Item From Picture"
                     var
                         ItemTempl: Record "Item Templ.";
                     begin
-                        if Rec.ItemTemplateCode = '' then
+                        If Rec.ItemTemplateCode = '' then
                             exit;
 
                         ItemTempl.Get(Rec.ItemTemplateCode);

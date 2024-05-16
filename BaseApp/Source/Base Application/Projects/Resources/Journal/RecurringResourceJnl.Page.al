@@ -105,7 +105,7 @@ page 290 "Recurring Resource Jnl."
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
 
                     trigger OnValidate()

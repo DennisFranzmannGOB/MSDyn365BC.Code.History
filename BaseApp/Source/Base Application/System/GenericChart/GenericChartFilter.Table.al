@@ -3,7 +3,6 @@ namespace System.Visualization;
 table 9181 "Generic Chart Filter"
 {
     Caption = 'Generic Chart Filter';
-    DataClassification = CustomerContent;
 
     fields
     {

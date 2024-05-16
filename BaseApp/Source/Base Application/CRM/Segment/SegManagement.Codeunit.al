@@ -133,6 +133,7 @@ codeunit 5051 SegManagement
                     TempDeliverySorter."Language Code" := SegmentLine."Language Code";
                     TempDeliverySorter."Word Template Code" := InteractionLogEntry."Word Template Code";
                     TempDeliverySorter."Wizard Action" := InteractionTemplate."Wizard Action";
+                    TempDeliverySorter."Force Hide Email Dialog" := true;
                     OnBeforeDeliverySorterInsert(TempDeliverySorter, SegmentLine);
                     TempDeliverySorter.Insert();
                 end;
@@ -683,6 +684,44 @@ codeunit 5051 SegManagement
             "Interaction Log Entry Document Type"::"Sales Inv.".AsInteger(),
             SalesInvoiceHeader."No.", 0, 0, Database::Contact, SalesInvoiceHeader."Bill-to Contact No.", SalesInvoiceHeader."Salesperson Code",
             CampaignTargetGroup."Campaign No.", SalesInvoiceHeader."Posting Description", '');
+    end;
+
+#if not CLEAN21
+    [Obsolete('Replaced by enum "Interaction Log Entry Document Type"::"Sales Ord. Cnfrmn."', '22.0')]
+    procedure SalesOrderConfirmInterDocType(): Integer
+    begin
+        exit(3);
+    end;
+#endif
+
+#if not CLEAN21
+    [Obsolete('Replaced by enum "Interaction Log Entry Document Type"::"Sales Inv."', '22.0')]
+    procedure SalesInvoiceInterDocType(): Integer
+    begin
+        exit(4);
+    end;
+#endif
+
+    procedure InterLogEntryCommentLineInsert(var TempInterLogEntryCommentLine: Record "Inter. Log Entry Comment Line"; InteractionLogEntryNo: Integer)
+    var
+        InterLogEntryCommentLine: Record "Inter. Log Entry Comment Line";
+    begin
+        DeleteInteractionLogEntryComments(InteractionLogEntryNo);
+        if TempInterLogEntryCommentLine.FindSet() then
+            repeat
+                InterLogEntryCommentLine.Init();
+                InterLogEntryCommentLine := TempInterLogEntryCommentLine;
+                InterLogEntryCommentLine."Entry No." := InteractionLogEntryNo;
+                InterLogEntryCommentLine.Insert();
+            until TempInterLogEntryCommentLine.Next() = 0;
+    end;
+
+    local procedure DeleteInteractionLogEntryComments(InteractionLogEntryNo: Integer)
+    var
+        InterLogEntryCommentLine: Record "Inter. Log Entry Comment Line";
+    begin
+        InterLogEntryCommentLine.SetRange("Entry No.", InteractionLogEntryNo);
+        InterLogEntryCommentLine.DeleteAll();
     end;
 
     local procedure GetNextLoggedSegmentEntryNo(): Integer

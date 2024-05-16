@@ -6,7 +6,6 @@ using Microsoft.Bank.Ledger;
 table 1284 "Outstanding Bank Transaction"
 {
     Caption = 'Outstanding Bank Transaction';
-    DataClassification = CustomerContent;
 
     fields
     {

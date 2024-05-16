@@ -5,7 +5,6 @@ table 6704 "Booking Mailbox"
     Caption = 'Booking Mailbox';
     ExternalName = 'BookingMailbox';
     TableType = Exchange;
-    DataClassification = CustomerContent;
 
     fields
     {

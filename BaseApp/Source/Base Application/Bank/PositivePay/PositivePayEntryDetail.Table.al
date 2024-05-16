@@ -7,7 +7,6 @@ using System.Security.AccessControl;
 table 1232 "Positive Pay Entry Detail"
 {
     Caption = 'Positive Pay Entry Detail';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -53,7 +52,6 @@ table 1232 "Positive Pay Entry Detail"
         field(10; Payee; Text[100])
         {
             Caption = 'Payee';
-            DataClassification = EndUserIdentifiableInformation;
         }
         field(11; "User ID"; Code[50])
         {

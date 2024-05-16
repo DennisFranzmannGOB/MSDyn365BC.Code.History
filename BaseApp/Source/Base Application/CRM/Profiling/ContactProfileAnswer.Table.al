@@ -5,7 +5,6 @@ using Microsoft.CRM.Contact;
 table 5089 "Contact Profile Answer"
 {
     Caption = 'Contact Profile Answer';
-    DataClassification = CustomerContent;
     DrillDownPageID = "Profile Contacts";
 
     fields
@@ -62,7 +61,7 @@ table 5089 "Contact Profile Answer"
         }
         field(5; Answer; Text[250])
         {
-            CalcFormula = lookup("Profile Questionnaire Line".Description where("Profile Questionnaire Code" = field("Profile Questionnaire Code"),
+            CalcFormula = Lookup("Profile Questionnaire Line".Description where("Profile Questionnaire Code" = field("Profile Questionnaire Code"),
                                                                                  "Line No." = field("Line No.")));
             Caption = 'Answer';
             Editable = false;
@@ -70,14 +69,14 @@ table 5089 "Contact Profile Answer"
         }
         field(6; "Contact Company Name"; Text[100])
         {
-            CalcFormula = lookup(Contact."Company Name" where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact."Company Name" where("No." = field("Contact No.")));
             Caption = 'Contact Company Name';
             Editable = false;
             FieldClass = FlowField;
         }
         field(7; "Contact Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact No.")));
             Caption = 'Contact Name';
             Editable = false;
             FieldClass = FlowField;
@@ -221,12 +220,14 @@ table 5089 "Contact Profile Answer"
     var
         ProfileQuestnLine: Record "Profile Questionnaire Line";
     begin
-        ProfileQuestnLine.Reset();
-        ProfileQuestnLine.SetRange("Profile Questionnaire Code", Rec."Profile Questionnaire Code");
-        ProfileQuestnLine.SetFilter("Line No.", '<%1', Rec."Line No.");
-        ProfileQuestnLine.SetRange(Type, ProfileQuestnLine.Type::Question);
-        if ProfileQuestnLine.FindLast() then
-            exit(ProfileQuestnLine."Line No.")
+        with ProfileQuestnLine do begin
+            Reset();
+            SetRange("Profile Questionnaire Code", Rec."Profile Questionnaire Code");
+            SetFilter("Line No.", '<%1', Rec."Line No.");
+            SetRange(Type, Type::Question);
+            if FindLast() then
+                exit("Line No.")
+        end;
     end;
 
     local procedure PartOfRating(): Boolean

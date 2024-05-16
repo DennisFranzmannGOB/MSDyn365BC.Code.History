@@ -3,7 +3,6 @@ namespace System.IO;
 table 9061 "RapidStart Services Cue"
 {
     Caption = 'RapidStart Services Cue';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -13,7 +12,7 @@ table 9061 "RapidStart Services Cue"
         }
         field(10; "Not Started"; Integer)
         {
-            CalcFormula = count ("Config. Line" where("Line Type" = const(Table),
+            CalcFormula = Count ("Config. Line" where("Line Type" = const(Table),
                                                       Status = const(" ")));
             Caption = 'Not Started';
             Editable = false;
@@ -21,7 +20,7 @@ table 9061 "RapidStart Services Cue"
         }
         field(11; "In Progress"; Integer)
         {
-            CalcFormula = count ("Config. Line" where("Line Type" = const(Table),
+            CalcFormula = Count ("Config. Line" where("Line Type" = const(Table),
                                                       Status = const("In Progress")));
             Caption = 'In Progress';
             Editable = false;
@@ -29,7 +28,7 @@ table 9061 "RapidStart Services Cue"
         }
         field(12; Completed; Integer)
         {
-            CalcFormula = count ("Config. Line" where("Line Type" = const(Table),
+            CalcFormula = Count ("Config. Line" where("Line Type" = const(Table),
                                                       Status = const(Completed)));
             Caption = 'Completed';
             Editable = false;
@@ -37,7 +36,7 @@ table 9061 "RapidStart Services Cue"
         }
         field(13; Ignored; Integer)
         {
-            CalcFormula = count ("Config. Line" where("Line Type" = const(Table),
+            CalcFormula = Count ("Config. Line" where("Line Type" = const(Table),
                                                       Status = const(Ignored)));
             Caption = 'Ignored';
             Editable = false;
@@ -45,7 +44,7 @@ table 9061 "RapidStart Services Cue"
         }
         field(14; Promoted; Integer)
         {
-            CalcFormula = count ("Config. Line" where("Line Type" = const(Table),
+            CalcFormula = Count ("Config. Line" where("Line Type" = const(Table),
                                                       "Promoted Table" = const(true)));
             Caption = 'Promoted';
             Editable = false;
@@ -53,7 +52,7 @@ table 9061 "RapidStart Services Cue"
         }
         field(15; Blocked; Integer)
         {
-            CalcFormula = count ("Config. Line" where("Line Type" = const(Table),
+            CalcFormula = Count ("Config. Line" where("Line Type" = const(Table),
                                                       Status = const(Blocked)));
             Caption = 'Blocked';
             Editable = false;

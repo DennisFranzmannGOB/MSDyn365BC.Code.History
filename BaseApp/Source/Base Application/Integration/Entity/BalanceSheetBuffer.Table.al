@@ -9,7 +9,6 @@ table 5487 "Balance Sheet Buffer"
     Caption = 'Balance Sheet Buffer';
     ReplicateData = false;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

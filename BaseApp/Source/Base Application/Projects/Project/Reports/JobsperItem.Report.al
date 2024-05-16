@@ -11,11 +11,10 @@ using System.Utilities;
 
 report 1014 "Jobs per Item"
 {
-    AdditionalSearchTerms = 'Jobs per Item';
     DefaultLayout = RDLC;
     RDLCLayout = './Projects/Project/Reports/JobsperItem.rdlc';
     ApplicationArea = Jobs;
-    Caption = 'Projects per Item';
+    Caption = 'Jobs per Item';
     UsageCategory = ReportsAndAnalysis;
 
     dataset
@@ -163,9 +162,9 @@ report 1014 "Jobs per Item"
         ItemFilter: Text;
         Text000: Label 'Total for';
         CurrReportPageNoCaptionLbl: Label 'Page';
-        JobsperItemCaptionLbl: Label 'Projects per Item';
+        JobsperItemCaptionLbl: Label 'Jobs per Item';
         AllamountsareinLCYCaptionLbl: Label 'All amounts are in LCY';
-        JobNoCaptionLbl: Label 'Project No.';
+        JobNoCaptionLbl: Label 'Job No.';
         JobBufferDscrptnCaptionLbl: Label 'Description';
         JobBufferQuantityCaptionLbl: Label 'Quantity';
         JobBufferUOMCaptionLbl: Label 'Unit of Measure';

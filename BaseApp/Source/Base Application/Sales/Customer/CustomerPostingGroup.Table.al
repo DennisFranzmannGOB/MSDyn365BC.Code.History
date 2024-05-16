@@ -11,7 +11,6 @@ table 92 "Customer Posting Group"
 {
     Caption = 'Customer Posting Group';
     LookupPageID = "Customer Posting Groups";
-    DataClassification = CustomerContent;
 
     fields
     {

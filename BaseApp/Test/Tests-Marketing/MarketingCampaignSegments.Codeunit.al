@@ -17,9 +17,7 @@ codeunit 136200 "Marketing Campaign Segments"
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
-#if not CLEAN23
         CopyFromToPriceListLine: Codeunit CopyFromToPriceListLine;
-#endif
         IsInitialized: Boolean;
         CampaignNo2: Code[20];
         CampaignNo3: Code[20];
@@ -33,9 +31,7 @@ codeunit 136200 "Marketing Campaign Segments"
         WrongMailingGroupDescriptionFieldLengthErr: Label 'Wrong Mailing Group Description field length.';
         InteractionTemplateCode2: Code[10];
         SegmentHeaderNo2: Code[20];
-#if not CLEAN23
         InterTemplateSalesInvoicesNotSpecifiedErr: Label 'The Invoices field on the Sales FastTab in the Interaction Template Setup window must be filled in.';
-#endif
         ValueMustBeEqualErr: Label '%1 must be equal to %2 in the %3.', Comment = '%1 = Field Caption , %2 = Expected Value, %3 = Table Caption';
 
     [Test]
@@ -64,7 +60,7 @@ codeunit 136200 "Marketing Campaign Segments"
         // 2. Exercise: Create Interaction for a Contact.
         Contact.SetFilter("Salesperson Code", '<>%1', '');
         Contact.FindFirst();
-        Contact.CreateInteraction();
+        Contact.CreateInteraction;
 
         // 3. Verify: Check that the Interaction Log Entry and Campaign Entry are created correctly.
         VerifyInteractionLogEntry(InteractionTemplate, Contact."No.", Campaign."No.");
@@ -136,13 +132,13 @@ codeunit 136200 "Marketing Campaign Segments"
         SegmentLine.SetRange("Segment No.", SegmentHeader."No.");
         SegmentLine.SetRange("Salesperson Code", Contact."Salesperson Code");
         Assert.IsFalse(
-          SegmentLine.FindFirst(),
+          SegmentLine.FindFirst,
           StrSubstNo(
             ContactMustNotExistError, SegmentLine.TableCaption(), SegmentLine.FieldCaption("Salesperson Code"),
             SegmentLine."Salesperson Code"));
         SegmentLine.SetRange("Salesperson Code", SecondContactSalespersonCode);
         Assert.IsTrue(
-          SegmentLine.FindFirst(),
+          SegmentLine.FindFirst,
           StrSubstNo(
             ContactMustExistError, SegmentLine.TableCaption(), SegmentLine.FieldCaption("Salesperson Code"), SegmentLine."Salesperson Code"));
     end;
@@ -172,12 +168,12 @@ codeunit 136200 "Marketing Campaign Segments"
         SegmentLine.SetRange("Segment No.", SegmentHeader."No.");
         SegmentLine.SetRange("Salesperson Code", Contact."Salesperson Code");
         Assert.IsTrue(
-          SegmentLine.FindFirst(),
+          SegmentLine.FindFirst,
           StrSubstNo(
             ContactMustExistError, SegmentLine.TableCaption(), SegmentLine.FieldCaption("Salesperson Code"), SegmentLine."Salesperson Code"));
         SegmentLine.SetRange("Salesperson Code", SecondContactSalespersonCode);
         Assert.IsFalse(
-          SegmentLine.FindFirst(),
+          SegmentLine.FindFirst,
           StrSubstNo(
             ContactMustNotExistError, SegmentLine.TableCaption(), SegmentLine.FieldCaption("Salesperson Code"),
             SegmentLine."Salesperson Code"));
@@ -206,7 +202,7 @@ codeunit 136200 "Marketing Campaign Segments"
         // 3. Verify: Check that Segment Lines for all contacts were removed.
         SegmentLine.SetRange("Segment No.", SegmentHeader."No.");
         Assert.IsFalse(
-          SegmentLine.FindFirst(),
+          SegmentLine.FindFirst,
           StrSubstNo(
             SegmentLineMustNotExistError, SegmentLine.TableCaption(), SegmentLine.FieldCaption("Segment No."), SegmentLine."Segment No.",
             SegmentLine.FieldCaption("Line No."), SegmentLine."Line No."));
@@ -368,20 +364,20 @@ codeunit 136200 "Marketing Campaign Segments"
         AddContactsToSegment(Contact, SegmentHeader);
         InteractionTemplateCode2 := SegmentHeader."Interaction Template Code";  // Set global variable for form handler.
         SegmentHeaderNo2 := SegmentHeader."No.";
-        SegmentHeader.SaveCriteria();
+        SegmentHeader.SaveCriteria;
 
         // 2. Exercise: Create new Segment Header. Input the same Interaction Code as was used earlier. Run Reuse Criteria.
         LibraryMarketing.CreateSegmentHeader(SegmentHeader2);
         SegmentHeader2.Validate("Interaction Template Code", SegmentHeader."Interaction Template Code");
         SegmentHeader2.Modify(true);
-        SegmentHeader2.ReuseCriteria();
+        SegmentHeader2.ReuseCriteria;
 
         // 3. Verify: Check that the Segment Lines created in new Segment by using the saved criteria have the same information as
         // Segment Lines for Segment for which Criteria was saved.
         VerifySaveCriteriaAndReuse(SegmentHeader."No.", SegmentHeader2."No.");
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     [Test]
     [HandlerFunctions('MessageHandler')]
     [Scope('OnPrem')]
@@ -530,7 +526,7 @@ codeunit 136200 "Marketing Campaign Segments"
         SegmentLine2.SetRange("Segment No.", SegmentHeader."No.");
         SegmentLine2.SetRange("Contact No.", FirstContactNo);
         Assert.IsFalse(
-          SegmentLine2.FindFirst(),
+          SegmentLine2.FindFirst,
           StrSubstNo(
             SegmentLineMustNotExistError, SegmentLine2.TableCaption(), SegmentLine2.FieldCaption("Segment No."), SegmentLine2."Segment No.",
             SegmentLine2.FieldCaption("Line No."), SegmentLine2."Line No."));
@@ -571,7 +567,7 @@ codeunit 136200 "Marketing Campaign Segments"
 
         SegmentLine2.SetRange("Contact No.", SegmentLine."Contact No.");
         Assert.IsFalse(
-          SegmentLine2.FindFirst(),
+          SegmentLine2.FindFirst,
           StrSubstNo(
             ContactMustNotExistError, SegmentLine2.TableCaption(), SegmentLine2.FieldCaption("Contact No."), SegmentLine2."Contact No."));
     end;
@@ -608,7 +604,7 @@ codeunit 136200 "Marketing Campaign Segments"
     procedure CreateCampaignWithNoSeries()
     var
         MarketingSetup: Record "Marketing Setup";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         CampaignCard: TestPage "Campaign Card";
         CampaignNo: Code[20];
     begin
@@ -619,9 +615,9 @@ codeunit 136200 "Marketing Campaign Segments"
         MarketingSetup.Get();
 
         // 2. Exercise: Create new Campaign from Card.
-        CampaignNo := NoSeries.PeekNextNo(MarketingSetup."Campaign Nos.");
+        CampaignNo := NoSeriesManagement.GetNextNo(MarketingSetup."Campaign Nos.", WorkDate(), false);
         CampaignCard.OpenNew();
-        CampaignCard."No.".AssistEdit();
+        CampaignCard."No.".AssistEdit;
 
         // 3. Verify: Verify Created Campaign Number with Number Series Value.
         CampaignCard."No.".AssertEquals(CampaignNo);
@@ -639,7 +635,7 @@ codeunit 136200 "Marketing Campaign Segments"
 
         // 1. Setup: Find Salesperson and create Campaign Status.
         Initialize();
-        SalespersonCode := FindSalespersonPurchaser();
+        SalespersonCode := FindSalespersonPurchaser;
         LibraryMarketing.CreateCampaignStatus(CampaignStatus);
 
         // 2. Exercise: Create new Campaign from Card with Details.
@@ -649,7 +645,7 @@ codeunit 136200 "Marketing Campaign Segments"
         VerifyCampaignWithDetails(CampaignNo, SalespersonCode, CampaignStatus.Code);
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     [Test]
     [HandlerFunctions('MessageHandler')]
     [Scope('OnPrem')]
@@ -768,6 +764,7 @@ codeunit 136200 "Marketing Campaign Segments"
         ContactBusinessRelation: Record "Contact Business Relation";
         SalesHeader: Record "Sales Header";
         SalesPrice: Record "Sales Price";
+        SegManagement: Codeunit SegManagement;
         CustomerNo: Code[20];
     begin
         // [SCENARIO 381140] Sales Campaign Entry is not created when Interaction Log Entry for this "Document No." already exists
@@ -895,7 +892,7 @@ codeunit 136200 "Marketing Campaign Segments"
         // [THEN] Contacts "A", "B", "C" suggested
         VerifySegmentLinesPerContact(SegmentHeader, Contact, 3, 1);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -934,7 +931,7 @@ codeunit 136200 "Marketing Campaign Segments"
         // [THEN] Contacts "A", "B", "C" suggested (because all of them in mailing group)
         VerifySegmentLinesPerContact(SegmentHeader, Contact, 3, 1);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -971,7 +968,7 @@ codeunit 136200 "Marketing Campaign Segments"
         // [THEN] Contacts "A", "B", "C" suggested (because all of them in mailing group)
         VerifySegmentLinesPerContact(SegmentHeader, Contact, 3, 1);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1010,7 +1007,7 @@ codeunit 136200 "Marketing Campaign Segments"
         // [THEN] Contacts "A", "B", "C" suggested (because "B" and "C" in mailing group and "A" added due to option "Allow Related Companies")
         VerifySegmentLinesPerContact(SegmentHeader, Contact, 3, 1);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1047,7 +1044,7 @@ codeunit 136200 "Marketing Campaign Segments"
         // [THEN] Contacts "B", "C" suggested (because "B" and "C" in mailing group and no one associated with "A")
         VerifySegmentLinesPerContact(SegmentHeader, Contact, 2, 2);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1086,7 +1083,7 @@ codeunit 136200 "Marketing Campaign Segments"
         // [THEN] Contacts "B", "C" suggested (because "B" and "C" in mailing group, "A" is not in mailing group and associated companies are not allowed)
         VerifySegmentLinesPerContact(SegmentHeader, Contact, 2, 2);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -1157,7 +1154,7 @@ codeunit 136200 "Marketing Campaign Segments"
 
         // [GIVEN] Created Interaction for a Contact.
         LibraryMarketing.CreateCompanyContact(Contact);
-        Contact.CreateInteraction();
+        Contact.CreateInteraction;
 
         // [GIVEN] Activated Campaign Target on Interaction Log Entry
         InteractionLogEntry.SetRange("Contact No.", Contact."No.");
@@ -1177,7 +1174,9 @@ codeunit 136200 "Marketing Campaign Segments"
     [Scope('OnPrem')]
     procedure SegmentLineUpdateDescriptionOnUpdateInteractionTemplateCode()
     var
+        SegmentHeader: Record "Segment Header";
         SegmentLine: Record "Segment Line";
+        Contact: Record Contact;
         InteractionTemplate: Array[2] of Record "Interaction Template";
     begin
         // [SCENARIO 398630] Segment Line Description should update on Interaction Template change
@@ -1299,7 +1298,7 @@ codeunit 136200 "Marketing Campaign Segments"
             exit;
         LibraryTestInitialize.OnBeforeTestSuiteInitialize(CODEUNIT::"Marketing Campaign Segments");
 
-        LibrarySales.SetCreditWarningsToNoWarnings();
+        LibrarySales.SetCreditWarningsToNoWarnings;
         LibraryERMCountryData.CreateVATData();
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         LibraryERMCountryData.UpdateSalesReceivablesSetup();
@@ -1310,7 +1309,7 @@ codeunit 136200 "Marketing Campaign Segments"
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"Marketing Campaign Segments");
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure SalesPriceDiscountScenario(var Campaign: Record Campaign; var SalesPrice: Record "Sales Price"; var CustomerNo: Code[20]; var SalesLineDiscount: Record "Sales Line Discount")
     var
         SalesAndReceivablesSetup: Record "Sales & Receivables Setup";
@@ -1350,7 +1349,7 @@ codeunit 136200 "Marketing Campaign Segments"
 
     local procedure AddCampaignToSegment(var SegmentHeader: Record "Segment Header")
     begin
-        SegmentHeader.Validate("Campaign No.", FindCampaign());
+        SegmentHeader.Validate("Campaign No.", FindCampaign);
         SegmentHeader.Modify(true);
     end;
 
@@ -1366,7 +1365,7 @@ codeunit 136200 "Marketing Campaign Segments"
 
     local procedure AddSalespersonToSegment(var SegmentHeader: Record "Segment Header")
     begin
-        SegmentHeader.Validate("Salesperson Code", FindSalespersonPurchaser());
+        SegmentHeader.Validate("Salesperson Code", FindSalespersonPurchaser);
         SegmentHeader.Modify(true);
     end;
 
@@ -1383,7 +1382,7 @@ codeunit 136200 "Marketing Campaign Segments"
         ApplyMailingGroup.RunModal();
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure CreateCampaignPriceDiscount(var Campaign: Record Campaign; var SalesPrice: Record "Sales Price"; var SalesLineDiscount: Record "Sales Line Discount")
     begin
         LibraryMarketing.CreateCampaign(Campaign);
@@ -1400,13 +1399,13 @@ codeunit 136200 "Marketing Campaign Segments"
         CampaignCard: TestPage "Campaign Card";
     begin
         CampaignCard.OpenNew();
-        CampaignCard."No.".Activate();
+        CampaignCard."No.".Activate;
         CampaignCard."Salesperson Code".SetValue(SalespersonCode);
         CampaignCard."Starting Date".SetValue(WorkDate());
         CampaignCard."Ending Date".SetValue(WorkDate());
         CampaignCard."Status Code".SetValue(StatusCode);
-        CampaignNo := CampaignCard."No.".Value();
-        CampaignCard.OK().Invoke();
+        CampaignNo := CampaignCard."No.".Value;
+        CampaignCard.OK.Invoke;
     end;
 
     local procedure CreateInteractionTemplate(var InteractionTemplate: Record "Interaction Template")
@@ -1426,7 +1425,7 @@ codeunit 136200 "Marketing Campaign Segments"
         LibrarySales.CreateSalesLine(SalesLine, SalesHeader, SalesLine.Type::Item, ItemNo, Quantity);
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure CreateSalesLineDiscount(var SalesLineDiscount: Record "Sales Line Discount"; SalesPrice: Record "Sales Price")
     begin
         LibraryMarketing.CreateSalesLineDiscount(SalesLineDiscount, SalesPrice."Sales Code", SalesPrice."Item No.");
@@ -1476,9 +1475,9 @@ codeunit 136200 "Marketing Campaign Segments"
     var
         CampaignCard: TestPage "Campaign Card";
     begin
-        CampaignCard.OpenView();
+        CampaignCard.OpenView;
         CampaignCard.FILTER.SetFilter("No.", No);
-        CampaignCard.ActivateSalesPricesLineDisc.Invoke();
+        CampaignCard.ActivateSalesPricesLineDisc.Invoke;
     end;
 
     local procedure SalesOrderPageOpenNew(var SalesOrderNo: Code[20])
@@ -1486,16 +1485,16 @@ codeunit 136200 "Marketing Campaign Segments"
         SalesOrder: TestPage "Sales Order";
     begin
         SalesOrder.OpenNew();
-        SalesOrder."Sell-to Customer Name".Activate();
-        SalesOrderNo := SalesOrder."No.".Value();
-        SalesOrder.OK().Invoke();
+        SalesOrder."Sell-to Customer Name".Activate;
+        SalesOrderNo := SalesOrder."No.".Value;
+        SalesOrder.OK.Invoke;
     end;
 
     local procedure SalesOrderPageOpenEdit(SalesOrder: TestPage "Sales Order"; No: Code[20])
     var
         SalesHeader: Record "Sales Header";
     begin
-        SalesOrder.OpenEdit();
+        SalesOrder.OpenEdit;
         SalesOrder.FILTER.SetFilter("Document Type", Format(SalesHeader."Document Type"::Order));
         SalesOrder.FILTER.SetFilter("No.", No);
     end;
@@ -1504,7 +1503,7 @@ codeunit 136200 "Marketing Campaign Segments"
     var
         SalesHeader: Record "Sales Header";
     begin
-        SalesOrder.OpenView();
+        SalesOrder.OpenView;
         SalesOrder.FILTER.SetFilter("Document Type", Format(SalesHeader."Document Type"::Order));
         SalesOrder.FILTER.SetFilter("No.", No);
     end;
@@ -1606,7 +1605,7 @@ codeunit 136200 "Marketing Campaign Segments"
     local procedure FinishMakePhoneCallWizard(var TempSegmentLine: Record "Segment Line" temporary)
     begin
         TempSegmentLine.Modify();
-        TempSegmentLine.CheckPhoneCallStatus();
+        TempSegmentLine.CheckPhoneCallStatus;
         TempSegmentLine.LogSegLinePhoneCall()
     end;
 
@@ -1625,7 +1624,7 @@ codeunit 136200 "Marketing Campaign Segments"
     local procedure NextStepMakePhoneCallWizard(var TempSegmentLine: Record "Segment Line" temporary)
     begin
         TempSegmentLine.Modify();
-        TempSegmentLine.CheckPhoneCallStatus();
+        TempSegmentLine.CheckPhoneCallStatus;
     end;
 
     local procedure RefineContactsOnSegment(var Contact: Record Contact; SegmentHeader: Record "Segment Header")
@@ -1681,7 +1680,7 @@ codeunit 136200 "Marketing Campaign Segments"
         Campaign.Modify(true);
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure UpdateSalesOrderForCampaign(SalesPrice: Record "Sales Price"; No: Code[20]; CustomerName: Text; Quantity: Decimal)
     var
         SalesLine: Record "Sales Line";
@@ -1694,7 +1693,7 @@ codeunit 136200 "Marketing Campaign Segments"
         SalesOrder.SalesLines.Type.SetValue(SalesLine.Type::Item);
         SalesOrder.SalesLines."No.".SetValue(SalesPrice."Item No.");
         SalesOrder.SalesLines.Quantity.SetValue(Quantity);
-        SalesOrder.OK().Invoke();
+        SalesOrder.OK.Invoke;
     end;
 #endif
 
@@ -1710,7 +1709,7 @@ codeunit 136200 "Marketing Campaign Segments"
         InteractionLogEntry."Contact No." := ContactNo;
         InteractionLogEntry."Document Type" := DocType;
         InteractionLogEntry."Document No." := DocNo;
-        InteractionTemplate.Get(SegManagement.FindInteractionTemplateCode(DocType));
+        InteractionTemplate.Get(SegManagement.FindInteractionTemplateCode(DocType.AsInteger()));
         InteractionLogEntry."Interaction Template Code" := InteractionTemplate.Code;
         InteractionLogEntry."Interaction Group Code" := InteractionTemplate."Interaction Group Code";
         InteractionLogEntry.Insert();
@@ -1732,7 +1731,7 @@ codeunit 136200 "Marketing Campaign Segments"
     var
         CampaignCard: TestPage "Campaign Card";
     begin
-        CampaignCard.OpenView();
+        CampaignCard.OpenView;
         CampaignCard.FILTER.SetFilter("No.", CampaignNo);
         CampaignCard."Salesperson Code".AssertEquals(SalespersonCode);
         CampaignCard."Starting Date".AssertEquals(WorkDate());
@@ -1806,7 +1805,7 @@ codeunit 136200 "Marketing Campaign Segments"
         InteractionLogEntry.TestField("Attempt Failed", false);
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     local procedure VerifyPriceDiscountsActivated(SalesPrice: Record "Sales Price"; SalesLineDiscount: Record "Sales Line Discount"; SalesHeaderNo: Code[20])
     var
         SalesLine: Record "Sales Line";
@@ -2031,7 +2030,7 @@ codeunit 136200 "Marketing Campaign Segments"
         TempSegmentLine.Validate("Contact Via", Contact."Phone No.");
         TempSegmentLine.Description := '';
         TempSegmentLine.Modify();
-        TempSegmentLine.CheckPhoneCallStatus();
+        TempSegmentLine.CheckPhoneCallStatus;
     end;
 
     [ModalPageHandler]
@@ -2044,14 +2043,14 @@ codeunit 136200 "Marketing Campaign Segments"
         TempSegmentLine.Insert();  // Insert temporary Segment Line to modify fields later.
         TempSegmentLine.Validate("Contact Via", '');  // Validate Contact Via as blank to generate error.
         TempSegmentLine.Modify();
-        TempSegmentLine.CheckPhoneCallStatus();
+        TempSegmentLine.CheckPhoneCallStatus;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure NoSeriesListModalPageHandler(var NoSeriesList: TestPage "No. Series")
     begin
-        NoSeriesList.OK().Invoke();
+        NoSeriesList.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -2125,8 +2124,8 @@ codeunit 136200 "Marketing Campaign Segments"
     [Scope('OnPrem')]
     procedure AddContactsRequestPageHandler(var AddContacts: TestRequestPage "Add Contacts")
     begin
-        AddContacts.AllowRelatedCompaines.SetValue(LibraryVariableStorage.DequeueBoolean());
-        AddContacts.OK().Invoke();
+        AddContacts.AllowRelatedCompaines.SetValue(LibraryVariableStorage.DequeueBoolean);
+        AddContacts.OK.Invoke;
     end;
 }
 

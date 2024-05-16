@@ -10,7 +10,6 @@ table 5368 "CRM NAV Connection"
     Description = 'An entity for storing the link to connect to Microsoft Dynamics NAV.';
     ExternalName = 'nav_connection';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -76,7 +75,7 @@ table 5368 "CRM NAV Connection"
         }
         field(8; CreatedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
             Caption = 'CreatedByName';
             ExternalAccess = Read;
             ExternalName = 'createdbyname';
@@ -85,7 +84,7 @@ table 5368 "CRM NAV Connection"
         }
         field(9; CreatedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
             Caption = 'CreatedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'createdonbehalfbyname';
@@ -94,7 +93,7 @@ table 5368 "CRM NAV Connection"
         }
         field(10; ModifiedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
             Caption = 'ModifiedByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedbyname';
@@ -103,7 +102,7 @@ table 5368 "CRM NAV Connection"
         }
         field(11; ModifiedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
             Caption = 'ModifiedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedonbehalfbyname';
@@ -121,7 +120,7 @@ table 5368 "CRM NAV Connection"
         }
         field(13; OrganizationIdName; Text[160])
         {
-            CalcFormula = lookup("CRM Organization".Name where(OrganizationId = field(OrganizationId)));
+            CalcFormula = Lookup("CRM Organization".Name where(OrganizationId = field(OrganizationId)));
             Caption = 'OrganizationIdName';
             ExternalAccess = Read;
             ExternalName = 'organizationidname';

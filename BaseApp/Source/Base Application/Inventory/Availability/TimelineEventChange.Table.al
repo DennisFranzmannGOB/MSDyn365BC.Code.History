@@ -3,7 +3,6 @@ namespace Microsoft.Inventory.Availability;
 table 5541 "Timeline Event Change"
 {
     Caption = 'Timeline Event Change';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -68,5 +67,37 @@ table 5541 "Timeline Event Change"
     fieldgroups
     {
     }
+
+
+#if not CLEAN21
+    [Obsolete('This procedure is discontinued because the TimelineVisualizer control has been deprecated.', '21.0')]
+    procedure ActionMessage(): Integer
+    var
+        ActionMsg: Option " ",New,"Change Qty.",Reschedule,"Resched. & Chg. Qty.",Cancel;
+    begin
+        if ("Original Due Date" = 0D) and ("Original Quantity" = 0) then
+            exit(ActionMsg::New);
+
+        if Quantity = 0 then
+            exit(ActionMsg::Cancel);
+
+        if ("Due Date" <> "Original Due Date") and (Quantity <> "Original Quantity") then
+            exit(ActionMsg::"Resched. & Chg. Qty.");
+
+        if "Due Date" <> "Original Due Date" then
+            exit(ActionMsg::Reschedule);
+
+        if Quantity <> "Original Quantity" then
+            exit(ActionMsg::"Change Qty.");
+
+        exit(0);
+    end;
+
+    [Obsolete('This procedure is discontinued because the TimelineVisualizer control has been deprecated.', '21.0')]
+    procedure NewSupply(): Boolean
+    begin
+        exit((Changes = 1) and (ChangeRefNo = ''));
+    end;
+#endif
 }
 

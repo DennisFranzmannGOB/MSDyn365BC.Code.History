@@ -206,7 +206,6 @@ codeunit 9030 "Undo Transfer Shipment"
         ItemJnlLine."Posting Date" := TransShptHeader."Posting Date";
         ItemJnlLine."Document No." := TransShptLine."Document No.";
         ItemJnlLine."Document Line No." := DocLineNo;
-        ItemJnlLine."Document Type" := ItemJnlLine."Document Type"::"Transfer Shipment";
         ItemJnlLine."Gen. Prod. Posting Group" := TransShptLine."Gen. Prod. Posting Group";
         ItemJnlLine."Inventory Posting Group" := TransShptLine."Inventory Posting Group";
         ItemJnlLine."Location Code" := TransShptLine."Transfer-from Code";

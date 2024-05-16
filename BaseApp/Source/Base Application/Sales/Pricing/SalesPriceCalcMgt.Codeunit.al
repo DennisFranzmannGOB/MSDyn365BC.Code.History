@@ -1,4 +1,4 @@
-﻿#if not CLEAN23
+﻿#if not CLEAN21
 namespace Microsoft.Sales.Pricing;
 
 using Microsoft.CRM.Campaign;
@@ -68,50 +68,53 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        SetCurrency(SalesHeader."Currency Code", SalesHeader."Currency Factor", SalesHeaderExchDate(SalesHeader));
-        SetVAT(SalesHeader."Prices Including VAT", SalesLine."VAT %", SalesLine."VAT Calculation Type".AsInteger(), SalesLine."VAT Bus. Posting Group");
-        SetUoM(Abs(SalesLine.Quantity), SalesLine."Qty. per Unit of Measure");
-        SetLineDisc(SalesLine."Line Discount %", SalesLine."Allow Line Disc.", SalesLine."Allow Invoice Disc.");
-        OnFindSalesLinePriceOnAfterSetLineDisc(SalesLine);
+        with SalesLine do begin
+            SetCurrency(
+              SalesHeader."Currency Code", SalesHeader."Currency Factor", SalesHeaderExchDate(SalesHeader));
+            SetVAT(SalesHeader."Prices Including VAT", "VAT %", "VAT Calculation Type".AsInteger(), "VAT Bus. Posting Group");
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+            SetLineDisc("Line Discount %", "Allow Line Disc.", "Allow Invoice Disc.");
+            OnFindSalesLinePriceOnAfterSetLineDisc(SalesLine);
 
-        SalesLine.TestField("Qty. per Unit of Measure");
-        if PricesInCurrency then
-            SalesHeader.TestField("Currency Factor");
+            TestField("Qty. per Unit of Measure");
+            if PricesInCurrency then
+                SalesHeader.TestField("Currency Factor");
 
-        case SalesLine.Type of
-            SalesLine.Type::Item:
-                begin
-                    Item.Get(SalesLine."No.");
-                    SalesLinePriceExists(SalesHeader, SalesLine, false);
-                    OnFindSalesLinePriceOnCalcBestUnitPrice(SalesLine, TempSalesPrice);
-                    CalcBestUnitPrice(TempSalesPrice);
-                    OnAfterFindSalesLineItemPrice(SalesLine, TempSalesPrice, FoundSalesPrice, CalledByFieldNo);
-                    if FoundSalesPrice or
-                       not ((CalledByFieldNo = SalesLine.FieldNo(Quantity)) or
-                            (CalledByFieldNo = SalesLine.FieldNo("Variant Code")))
-                    then begin
-                        SalesLine."Allow Line Disc." := TempSalesPrice."Allow Line Disc.";
-                        SalesLine."Allow Invoice Disc." := TempSalesPrice."Allow Invoice Disc.";
-                        SalesLine."Unit Price" := TempSalesPrice."Unit Price";
-                        OnFindSalesLinePriceOnItemTypeOnAfterSetUnitPrice(SalesHeader, SalesLine, TempSalesPrice, CalledByFieldNo, FoundSalesPrice);
+            case Type of
+                Type::Item:
+                    begin
+                        Item.Get("No.");
+                        SalesLinePriceExists(SalesHeader, SalesLine, false);
+                        OnFindSalesLinePriceOnCalcBestUnitPrice(SalesLine, TempSalesPrice);
+                        CalcBestUnitPrice(TempSalesPrice);
+                        OnAfterFindSalesLineItemPrice(SalesLine, TempSalesPrice, FoundSalesPrice, CalledByFieldNo);
+                        if FoundSalesPrice or
+                           not ((CalledByFieldNo = FieldNo(Quantity)) or
+                                (CalledByFieldNo = FieldNo("Variant Code")))
+                        then begin
+                            "Allow Line Disc." := TempSalesPrice."Allow Line Disc.";
+                            "Allow Invoice Disc." := TempSalesPrice."Allow Invoice Disc.";
+                            "Unit Price" := TempSalesPrice."Unit Price";
+                            OnFindSalesLinePriceOnItemTypeOnAfterSetUnitPrice(SalesHeader, SalesLine, TempSalesPrice, CalledByFieldNo, FoundSalesPrice);
+                        end;
+                        if not "Allow Line Disc." then
+                            "Line Discount %" := 0;
                     end;
-                    if not SalesLine."Allow Line Disc." then
-                        SalesLine."Line Discount %" := 0;
-                end;
-            SalesLine.Type::Resource:
-                begin
-                    SetResPrice(SalesLine."No.", SalesLine."Work Type Code", SalesLine."Currency Code");
-                    OnFindSalesLinePriceOnAfterSetResPrice(SalesLine, ResPrice);
-                    CODEUNIT.Run(CODEUNIT::"Resource-Find Price", ResPrice);
-                    OnAfterFindSalesLineResPrice(SalesLine, ResPrice);
-                    if not (CalledByFieldNo = SalesLine.FieldNo(Quantity)) then begin
-                        ConvertPriceToVAT(false, '', '', ResPrice."Unit Price");
-                        ConvertPriceLCYToFCY(ResPrice."Currency Code", ResPrice."Unit Price");
-                        SalesLine."Unit Price" := ResPrice."Unit Price" * SalesLine."Qty. per Unit of Measure";
+                Type::Resource:
+                    begin
+                        SetResPrice("No.", "Work Type Code", "Currency Code");
+                        OnFindSalesLinePriceOnAfterSetResPrice(SalesLine, ResPrice);
+                        CODEUNIT.Run(CODEUNIT::"Resource-Find Price", ResPrice);
+                        OnAfterFindSalesLineResPrice(SalesLine, ResPrice);
+                        if not (CalledByFieldNo = FieldNo(Quantity)) then begin
+                            ConvertPriceToVAT(false, '', '', ResPrice."Unit Price");
+                            ConvertPriceLCYToFCY(ResPrice."Currency Code", ResPrice."Unit Price");
+                            "Unit Price" := ResPrice."Unit Price" * "Qty. per Unit of Measure";
+                        end;
                     end;
-                end;
+            end;
+            OnAfterFindSalesLinePrice(SalesLine, SalesHeader, TempSalesPrice, ResPrice, CalledByFieldNo, FoundSalesPrice);
         end;
-        OnAfterFindSalesLinePrice(SalesLine, SalesHeader, TempSalesPrice, ResPrice, CalledByFieldNo, FoundSalesPrice);
     end;
 
     procedure FindItemJnlLinePrice(var ItemJnlLine: Record "Item Journal Line"; CalledByFieldNo: Integer)
@@ -123,22 +126,24 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        SetCurrency('', 0, 0D);
-        SetVAT(false, 0, 0, '');
-        SetUoM(Abs(ItemJnlLine.Quantity), ItemJnlLine."Qty. per Unit of Measure");
-        ItemJnlLine.TestField("Qty. per Unit of Measure");
-        Item.Get(ItemJnlLine."Item No.");
+        with ItemJnlLine do begin
+            SetCurrency('', 0, 0D);
+            SetVAT(false, 0, 0, '');
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+            TestField("Qty. per Unit of Measure");
+            Item.Get("Item No.");
 
-        FindSalesPrice(
-          TempSalesPrice, '', '', '', '', ItemJnlLine."Item No.", ItemJnlLine."Variant Code",
-          ItemJnlLine."Unit of Measure Code", '', ItemJnlLine."Posting Date", false);
-        CalcBestUnitPrice(TempSalesPrice);
-        if FoundSalesPrice or
-           not ((CalledByFieldNo = ItemJnlLine.FieldNo(Quantity)) or
-                (CalledByFieldNo = ItemJnlLine.FieldNo("Variant Code")))
-        then
-            ItemJnlLine.Validate("Unit Amount", TempSalesPrice."Unit Price");
-        OnAfterFindItemJnlLinePrice(ItemJnlLine, TempSalesPrice, CalledByFieldNo, FoundSalesPrice);
+            FindSalesPrice(
+              TempSalesPrice, '', '', '', '', "Item No.", "Variant Code",
+              "Unit of Measure Code", '', "Posting Date", false);
+            CalcBestUnitPrice(TempSalesPrice);
+            if FoundSalesPrice or
+               not ((CalledByFieldNo = FieldNo(Quantity)) or
+                    (CalledByFieldNo = FieldNo("Variant Code")))
+            then
+                Validate("Unit Amount", TempSalesPrice."Unit Price");
+            OnAfterFindItemJnlLinePrice(ItemJnlLine, TempSalesPrice, CalledByFieldNo, FoundSalesPrice);
+        end;
     end;
 
     procedure FindServLinePrice(ServHeader: Record "Service Header"; var ServLine: Record "Service Line"; CalledByFieldNo: Integer)
@@ -152,74 +157,76 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        ServHeader.Get(ServLine."Document Type", ServLine."Document No.");
-        if ServLine.Type <> ServLine.Type::" " then begin
-            SetCurrency(
-              ServHeader."Currency Code", ServHeader."Currency Factor", ServHeaderExchDate(ServHeader));
-            SetVAT(ServHeader."Prices Including VAT", ServLine."VAT %", ServLine."VAT Calculation Type".AsInteger(), ServLine."VAT Bus. Posting Group");
-            SetUoM(Abs(ServLine.Quantity), ServLine."Qty. per Unit of Measure");
-            SetLineDisc(ServLine."Line Discount %", ServLine."Allow Line Disc.", false);
+        with ServLine do begin
+            ServHeader.Get("Document Type", "Document No.");
+            if Type <> Type::" " then begin
+                SetCurrency(
+                  ServHeader."Currency Code", ServHeader."Currency Factor", ServHeaderExchDate(ServHeader));
+                SetVAT(ServHeader."Prices Including VAT", "VAT %", "VAT Calculation Type".AsInteger(), "VAT Bus. Posting Group");
+                SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+                SetLineDisc("Line Discount %", "Allow Line Disc.", false);
 
-            ServLine.TestField("Qty. per Unit of Measure");
-            if PricesInCurrency then
-                ServHeader.TestField("Currency Factor");
-        end;
+                TestField("Qty. per Unit of Measure");
+                if PricesInCurrency then
+                    ServHeader.TestField("Currency Factor");
+            end;
 
-        case ServLine.Type of
-            ServLine.Type::Item:
-                begin
-                    ServLinePriceExists(ServHeader, ServLine, false);
-                    CalcBestUnitPrice(TempSalesPrice);
-                    if FoundSalesPrice or
-                       not ((CalledByFieldNo = ServLine.FieldNo(Quantity)) or
-                            (CalledByFieldNo = ServLine.FieldNo("Variant Code")))
-                    then begin
-                        if ServLine."Line Discount Type" = ServLine."Line Discount Type"::"Line Disc." then
-                            ServLine."Allow Line Disc." := TempSalesPrice."Allow Line Disc.";
-                        ServLine."Unit Price" := TempSalesPrice."Unit Price";
+            case Type of
+                Type::Item:
+                    begin
+                        ServLinePriceExists(ServHeader, ServLine, false);
+                        CalcBestUnitPrice(TempSalesPrice);
+                        if FoundSalesPrice or
+                           not ((CalledByFieldNo = FieldNo(Quantity)) or
+                                (CalledByFieldNo = FieldNo("Variant Code")))
+                        then begin
+                            if "Line Discount Type" = "Line Discount Type"::"Line Disc." then
+                                "Allow Line Disc." := TempSalesPrice."Allow Line Disc.";
+                            "Unit Price" := TempSalesPrice."Unit Price";
+                        end;
+                        if not "Allow Line Disc." and ("Line Discount Type" = "Line Discount Type"::"Line Disc.") then
+                            "Line Discount %" := 0;
                     end;
-                    if not ServLine."Allow Line Disc." and (ServLine."Line Discount Type" = ServLine."Line Discount Type"::"Line Disc.") then
-                        ServLine."Line Discount %" := 0;
-                end;
-            ServLine.Type::Resource:
-                begin
-                    SetResPrice(ServLine."No.", ServLine."Work Type Code", ServLine."Currency Code");
-                    CODEUNIT.Run(CODEUNIT::"Resource-Find Price", ResPrice);
-                    IsHandled := false;
-                    OnAfterFindServLineResPrice(ServLine, ResPrice, HideResUnitPriceMessage, CalledByFieldNo, IsHandled);
-                    if IsHandled then
-                        exit;
-                    ConvertPriceToVAT(false, '', '', ResPrice."Unit Price");
-                    ResPrice."Unit Price" := ResPrice."Unit Price" * ServLine."Qty. per Unit of Measure";
-                    ConvertPriceLCYToFCY(ResPrice."Currency Code", ResPrice."Unit Price");
-                    if (ResPrice."Unit Price" > ServHeader."Max. Labor Unit Price") and
-                       (ServHeader."Max. Labor Unit Price" <> 0)
-                    then begin
-                        Res.Get(ServLine."No.");
-                        ServLine."Unit Price" := ServHeader."Max. Labor Unit Price";
-                        if (HideResUnitPriceMessage = false) and
-                           (CalledByFieldNo <> ServLine.FieldNo(Quantity))
-                        then
-                            Message(
-                              StrSubstNo(
-                                Text018,
-                                Res.TableCaption(), ServLine.FieldCaption("Unit Price"),
-                                ServHeader.FieldCaption("Max. Labor Unit Price"),
-                                ServHeader."Max. Labor Unit Price"));
-                        HideResUnitPriceMessage := true;
-                    end else
-                        ServLine."Unit Price" := ResPrice."Unit Price";
-                end;
-            ServLine.Type::Cost:
-                begin
-                    ServCost.Get(ServLine."No.");
+                Type::Resource:
+                    begin
+                        SetResPrice("No.", "Work Type Code", "Currency Code");
+                        CODEUNIT.Run(CODEUNIT::"Resource-Find Price", ResPrice);
+                        IsHandled := false;
+                        OnAfterFindServLineResPrice(ServLine, ResPrice, HideResUnitPriceMessage, CalledByFieldNo, IsHandled);
+                        if IsHandled then
+                            exit;
+                        ConvertPriceToVAT(false, '', '', ResPrice."Unit Price");
+                        ResPrice."Unit Price" := ResPrice."Unit Price" * "Qty. per Unit of Measure";
+                        ConvertPriceLCYToFCY(ResPrice."Currency Code", ResPrice."Unit Price");
+                        if (ResPrice."Unit Price" > ServHeader."Max. Labor Unit Price") and
+                           (ServHeader."Max. Labor Unit Price" <> 0)
+                        then begin
+                            Res.Get("No.");
+                            "Unit Price" := ServHeader."Max. Labor Unit Price";
+                            if (HideResUnitPriceMessage = false) and
+                               (CalledByFieldNo <> FieldNo(Quantity))
+                            then
+                                Message(
+                                  StrSubstNo(
+                                    Text018,
+                                    Res.TableCaption(), FieldCaption("Unit Price"),
+                                    ServHeader.FieldCaption("Max. Labor Unit Price"),
+                                    ServHeader."Max. Labor Unit Price"));
+                            HideResUnitPriceMessage := true;
+                        end else
+                            "Unit Price" := ResPrice."Unit Price";
+                    end;
+                Type::Cost:
+                    begin
+                        ServCost.Get("No.");
 
-                    ConvertPriceToVAT(false, '', '', ServCost."Default Unit Price");
-                    ConvertPriceLCYToFCY('', ServCost."Default Unit Price");
-                    ServLine."Unit Price" := ServCost."Default Unit Price";
-                end;
+                        ConvertPriceToVAT(false, '', '', ServCost."Default Unit Price");
+                        ConvertPriceLCYToFCY('', ServCost."Default Unit Price");
+                        "Unit Price" := ServCost."Default Unit Price";
+                    end;
+            end;
+            OnAfterFindServLinePrice(ServLine, ServHeader, TempSalesPrice, ResPrice, ServCost, CalledByFieldNo);
         end;
-        OnAfterFindServLinePrice(ServLine, ServHeader, TempSalesPrice, ResPrice, ServCost, CalledByFieldNo);
     end;
 
     procedure FindSalesLineLineDisc(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
@@ -231,21 +238,23 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        SetCurrency(SalesHeader."Currency Code", 0, 0D);
-        SetUoM(Abs(SalesLine.Quantity), SalesLine."Qty. per Unit of Measure");
+        with SalesLine do begin
+            SetCurrency(SalesHeader."Currency Code", 0, 0D);
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
 
-        SalesLine.TestField("Qty. per Unit of Measure");
+            TestField("Qty. per Unit of Measure");
 
-        IsHandled := false;
-        OnFindSalesLineLineDiscOnBeforeCalcLineDisc(SalesHeader, SalesLine, TempSalesLineDisc, Qty, QtyPerUOM, IsHandled);
-        if not IsHandled then
-            if SalesLine.Type = SalesLine.Type::Item then begin
-                SalesLineLineDiscExists(SalesHeader, SalesLine, false);
-                CalcBestLineDisc(TempSalesLineDisc);
-                SalesLine."Line Discount %" := TempSalesLineDisc."Line Discount %";
-            end;
+            IsHandled := false;
+            OnFindSalesLineLineDiscOnBeforeCalcLineDisc(SalesHeader, SalesLine, TempSalesLineDisc, Qty, QtyPerUOM, IsHandled);
+            if not IsHandled then
+                if Type = Type::Item then begin
+                    SalesLineLineDiscExists(SalesHeader, SalesLine, false);
+                    CalcBestLineDisc(TempSalesLineDisc);
+                    "Line Discount %" := TempSalesLineDisc."Line Discount %";
+                end;
 
-        OnAfterFindSalesLineLineDisc(SalesLine, SalesHeader, TempSalesLineDisc);
+            OnAfterFindSalesLineLineDisc(SalesLine, SalesHeader, TempSalesLineDisc);
+        end;
     end;
 
     procedure FindServLineDisc(ServHeader: Record "Service Header"; var ServLine: Record "Service Line")
@@ -257,30 +266,32 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        SetCurrency(ServHeader."Currency Code", 0, 0D);
-        SetUoM(Abs(ServLine.Quantity), ServLine."Qty. per Unit of Measure");
+        with ServLine do begin
+            SetCurrency(ServHeader."Currency Code", 0, 0D);
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
 
-        ServLine.TestField("Qty. per Unit of Measure");
+            TestField("Qty. per Unit of Measure");
 
-        if ServLine.Type = ServLine.Type::Item then begin
-            Item.Get(ServLine."No.");
-            FindSalesLineDisc(
-              TempSalesLineDisc, ServLine."Bill-to Customer No.", ServHeader."Contact No.",
-              ServLine."Customer Disc. Group", '', ServLine."No.", Item."Item Disc. Group", ServLine."Variant Code",
-              ServLine."Unit of Measure Code", ServHeader."Currency Code", ServHeader."Order Date", false);
-            CalcBestLineDisc(TempSalesLineDisc);
-            ServLine."Line Discount %" := TempSalesLineDisc."Line Discount %";
+            if Type = Type::Item then begin
+                Item.Get("No.");
+                FindSalesLineDisc(
+                  TempSalesLineDisc, "Bill-to Customer No.", ServHeader."Contact No.",
+                  "Customer Disc. Group", '', "No.", Item."Item Disc. Group", "Variant Code",
+                  "Unit of Measure Code", ServHeader."Currency Code", ServHeader."Order Date", false);
+                CalcBestLineDisc(TempSalesLineDisc);
+                "Line Discount %" := TempSalesLineDisc."Line Discount %";
+            end;
+            if Type in [Type::Resource, Type::Cost, Type::"G/L Account"] then begin
+                "Line Discount %" := 0;
+                "Line Discount Amount" :=
+                  Round(
+                    Round(CalcChargeableQty() * "Unit Price", Currency."Amount Rounding Precision") *
+                    "Line Discount %" / 100, Currency."Amount Rounding Precision");
+                "Inv. Discount Amount" := 0;
+                "Inv. Disc. Amount to Invoice" := 0;
+            end;
+            OnAfterFindServLineDisc(ServLine, ServHeader, TempSalesLineDisc);
         end;
-        if ServLine.Type in [ServLine.Type::Resource, ServLine.Type::Cost, ServLine.Type::"G/L Account"] then begin
-            ServLine."Line Discount %" := 0;
-            ServLine."Line Discount Amount" :=
-              Round(
-                Round(ServLine.CalcChargeableQty() * ServLine."Unit Price", Currency."Amount Rounding Precision") *
-                ServLine."Line Discount %" / 100, Currency."Amount Rounding Precision");
-            ServLine."Inv. Discount Amount" := 0;
-            ServLine."Inv. Disc. Amount to Invoice" := 0;
-        end;
-        OnAfterFindServLineDisc(ServLine, ServHeader, TempSalesLineDisc);
     end;
 
     procedure FindStdItemJnlLinePrice(var StdItemJnlLine: Record "Standard Item Journal Line"; CalledByFieldNo: Integer)
@@ -292,22 +303,24 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        SetCurrency('', 0, 0D);
-        SetVAT(false, 0, 0, '');
-        SetUoM(Abs(StdItemJnlLine.Quantity), StdItemJnlLine."Qty. per Unit of Measure");
-        StdItemJnlLine.TestField("Qty. per Unit of Measure");
-        Item.Get(StdItemJnlLine."Item No.");
+        with StdItemJnlLine do begin
+            SetCurrency('', 0, 0D);
+            SetVAT(false, 0, 0, '');
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+            TestField("Qty. per Unit of Measure");
+            Item.Get("Item No.");
 
-        FindSalesPrice(
-          TempSalesPrice, '', '', '', '', StdItemJnlLine."Item No.", StdItemJnlLine."Variant Code",
-          StdItemJnlLine."Unit of Measure Code", '', WorkDate(), false);
-        CalcBestUnitPrice(TempSalesPrice);
-        if FoundSalesPrice or
-           not ((CalledByFieldNo = StdItemJnlLine.FieldNo(Quantity)) or
-                (CalledByFieldNo = StdItemJnlLine.FieldNo("Variant Code")))
-        then
-            StdItemJnlLine.Validate("Unit Amount", TempSalesPrice."Unit Price");
-        OnAfterFindStdItemJnlLinePrice(StdItemJnlLine, TempSalesPrice, CalledByFieldNo);
+            FindSalesPrice(
+              TempSalesPrice, '', '', '', '', "Item No.", "Variant Code",
+              "Unit of Measure Code", '', WorkDate(), false);
+            CalcBestUnitPrice(TempSalesPrice);
+            if FoundSalesPrice or
+               not ((CalledByFieldNo = FieldNo(Quantity)) or
+                    (CalledByFieldNo = FieldNo("Variant Code")))
+            then
+                Validate("Unit Amount", TempSalesPrice."Unit Price");
+            OnAfterFindStdItemJnlLinePrice(StdItemJnlLine, TempSalesPrice, CalledByFieldNo);
+        end;
     end;
 
     procedure FindAnalysisReportPrice(ItemNo: Code[20]; Date: Date): Decimal
@@ -342,33 +355,35 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        FoundSalesPrice := SalesPrice.FindSet();
-        if FoundSalesPrice then
-            repeat
-                IsHandled := false;
-                OnCalcBestUnitPriceOnBeforeCalcBestUnitPriceConvertPrice(SalesPrice, Qty, IsHandled);
-                if not IsHandled then
-                    if IsInMinQty(SalesPrice."Unit of Measure Code", SalesPrice."Minimum Quantity") then begin
-                        CalcBestUnitPriceConvertPrice(SalesPrice);
+        with SalesPrice do begin
+            FoundSalesPrice := FindSet();
+            if FoundSalesPrice then
+                repeat
+                    IsHandled := false;
+                    OnCalcBestUnitPriceOnBeforeCalcBestUnitPriceConvertPrice(SalesPrice, Qty, IsHandled);
+                    if not IsHandled then
+                        if IsInMinQty("Unit of Measure Code", "Minimum Quantity") then begin
+                            CalcBestUnitPriceConvertPrice(SalesPrice);
 
-                        case true of
-                            ((BestSalesPrice."Currency Code" = '') and (SalesPrice."Currency Code" <> '')) or
-                            ((BestSalesPrice."Variant Code" = '') and (SalesPrice."Variant Code" <> '')):
-                                begin
-                                    BestSalesPrice := SalesPrice;
-                                    BestSalesPriceFound := true;
-                                end;
-                            ((BestSalesPrice."Currency Code" = '') or (SalesPrice."Currency Code" <> '')) and
-                          ((BestSalesPrice."Variant Code" = '') or (SalesPrice."Variant Code" <> '')):
-                                if (BestSalesPrice."Unit Price" = 0) or
-                                   (CalcLineAmount(BestSalesPrice) > CalcLineAmount(SalesPrice))
-                                then begin
-                                    BestSalesPrice := SalesPrice;
-                                    BestSalesPriceFound := true;
-                                end;
+                            case true of
+                                ((BestSalesPrice."Currency Code" = '') and ("Currency Code" <> '')) or
+                                ((BestSalesPrice."Variant Code" = '') and ("Variant Code" <> '')):
+                                    begin
+                                        BestSalesPrice := SalesPrice;
+                                        BestSalesPriceFound := true;
+                                    end;
+                                ((BestSalesPrice."Currency Code" = '') or ("Currency Code" <> '')) and
+                              ((BestSalesPrice."Variant Code" = '') or ("Variant Code" <> '')):
+                                    if (BestSalesPrice."Unit Price" = 0) or
+                                       (CalcLineAmount(BestSalesPrice) > CalcLineAmount(SalesPrice))
+                                    then begin
+                                        BestSalesPrice := SalesPrice;
+                                        BestSalesPriceFound := true;
+                                    end;
+                            end;
                         end;
-                    end;
-            until SalesPrice.Next() = 0;
+                until Next() = 0;
+        end;
 
         OnAfterCalcBestUnitPrice(SalesPrice, BestSalesPrice);
 
@@ -399,11 +414,13 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        ConvertPriceToVAT(
-            SalesPrice."Price Includes VAT", Item."VAT Prod. Posting Group",
-            SalesPrice."VAT Bus. Posting Gr. (Price)", SalesPrice."Unit Price");
-        ConvertPriceToUoM(SalesPrice."Unit of Measure Code", SalesPrice."Unit Price");
-        ConvertPriceLCYToFCY(SalesPrice."Currency Code", SalesPrice."Unit Price");
+        with SalesPrice do begin
+            ConvertPriceToVAT(
+                "Price Includes VAT", Item."VAT Prod. Posting Group",
+                "VAT Bus. Posting Gr. (Price)", "Unit Price");
+            ConvertPriceToUoM("Unit of Measure Code", "Unit Price");
+            ConvertPriceLCYToFCY("Currency Code", "Unit Price");
+        end;
     end;
 
     procedure CalcBestLineDisc(var SalesLineDisc: Record "Sales Line Discount")
@@ -416,19 +433,20 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        if SalesLineDisc.FindSet() then
-            repeat
-                if IsInMinQty(SalesLineDisc."Unit of Measure Code", SalesLineDisc."Minimum Quantity") then
-                    case true of
-                        ((BestSalesLineDisc."Currency Code" = '') and (SalesLineDisc."Currency Code" <> '')) or
-                      ((BestSalesLineDisc."Variant Code" = '') and (SalesLineDisc."Variant Code" <> '')):
-                            BestSalesLineDisc := SalesLineDisc;
-                        ((BestSalesLineDisc."Currency Code" = '') or (SalesLineDisc."Currency Code" <> '')) and
-                      ((BestSalesLineDisc."Variant Code" = '') or (SalesLineDisc."Variant Code" <> '')):
-                            if BestSalesLineDisc."Line Discount %" < SalesLineDisc."Line Discount %" then
+        with SalesLineDisc do
+            if FindSet() then
+                repeat
+                    if IsInMinQty("Unit of Measure Code", "Minimum Quantity") then
+                        case true of
+                            ((BestSalesLineDisc."Currency Code" = '') and ("Currency Code" <> '')) or
+                          ((BestSalesLineDisc."Variant Code" = '') and ("Variant Code" <> '')):
                                 BestSalesLineDisc := SalesLineDisc;
-                    end;
-            until SalesLineDisc.Next() = 0;
+                            ((BestSalesLineDisc."Currency Code" = '') or ("Currency Code" <> '')) and
+                          ((BestSalesLineDisc."Variant Code" = '') or ("Variant Code" <> '')):
+                                if BestSalesLineDisc."Line Discount %" < "Line Discount %" then
+                                    BestSalesLineDisc := SalesLineDisc;
+                        end;
+                until Next() = 0;
 
         SalesLineDisc := BestSalesLineDisc;
     end;
@@ -448,39 +466,41 @@ codeunit 7000 "Sales Price Calc. Mgt."
           ToSalesPrice, FromSalesPrice, QtyPerUOM, Qty, CustNo, ContNo, CustPriceGrCode, CampaignNo,
           ItemNo, VariantCode, UOM, CurrencyCode, StartingDate, ShowAll);
 
-        FromSalesPrice.SetRange("Item No.", ItemNo);
-        FromSalesPrice.SetFilter("Variant Code", '%1|%2', VariantCode, '');
-        FromSalesPrice.SetFilter("Ending Date", '%1|>=%2', 0D, StartingDate);
-        if not ShowAll then begin
-            FromSalesPrice.SetFilter("Currency Code", '%1|%2', CurrencyCode, '');
-            if UOM <> '' then
-                FromSalesPrice.SetFilter("Unit of Measure Code", '%1|%2', UOM, '');
-            FromSalesPrice.SetRange("Starting Date", 0D, StartingDate);
-        end;
+        with FromSalesPrice do begin
+            SetRange("Item No.", ItemNo);
+            SetFilter("Variant Code", '%1|%2', VariantCode, '');
+            SetFilter("Ending Date", '%1|>=%2', 0D, StartingDate);
+            if not ShowAll then begin
+                SetFilter("Currency Code", '%1|%2', CurrencyCode, '');
+                if UOM <> '' then
+                    SetFilter("Unit of Measure Code", '%1|%2', UOM, '');
+                SetRange("Starting Date", 0D, StartingDate);
+            end;
 
-        FromSalesPrice.SetRange("Sales Type", FromSalesPrice."Sales Type"::"All Customers");
-        FromSalesPrice.SetRange("Sales Code");
-        CopySalesPriceToSalesPrice(FromSalesPrice, ToSalesPrice);
-
-        if CustNo <> '' then begin
-            FromSalesPrice.SetRange("Sales Type", FromSalesPrice."Sales Type"::Customer);
-            FromSalesPrice.SetRange("Sales Code", CustNo);
+            SetRange("Sales Type", "Sales Type"::"All Customers");
+            SetRange("Sales Code");
             CopySalesPriceToSalesPrice(FromSalesPrice, ToSalesPrice);
-        end;
 
-        if CustPriceGrCode <> '' then begin
-            FromSalesPrice.SetRange("Sales Type", FromSalesPrice."Sales Type"::"Customer Price Group");
-            FromSalesPrice.SetRange("Sales Code", CustPriceGrCode);
-            CopySalesPriceToSalesPrice(FromSalesPrice, ToSalesPrice);
-        end;
+            if CustNo <> '' then begin
+                SetRange("Sales Type", "Sales Type"::Customer);
+                SetRange("Sales Code", CustNo);
+                CopySalesPriceToSalesPrice(FromSalesPrice, ToSalesPrice);
+            end;
 
-        if not ((CustNo = '') and (ContNo = '') and (CampaignNo = '')) then begin
-            FromSalesPrice.SetRange("Sales Type", FromSalesPrice."Sales Type"::Campaign);
-            if ActivatedCampaignExists(TempTargetCampaignGr, CustNo, ContNo, CampaignNo) then
-                repeat
-                    FromSalesPrice.SetRange("Sales Code", TempTargetCampaignGr."Campaign No.");
-                    CopySalesPriceToSalesPrice(FromSalesPrice, ToSalesPrice);
-                until TempTargetCampaignGr.Next() = 0;
+            if CustPriceGrCode <> '' then begin
+                SetRange("Sales Type", "Sales Type"::"Customer Price Group");
+                SetRange("Sales Code", CustPriceGrCode);
+                CopySalesPriceToSalesPrice(FromSalesPrice, ToSalesPrice);
+            end;
+
+            if not ((CustNo = '') and (ContNo = '') and (CampaignNo = '')) then begin
+                SetRange("Sales Type", "Sales Type"::Campaign);
+                if ActivatedCampaignExists(TempTargetCampaignGr, CustNo, ContNo, CampaignNo) then
+                    repeat
+                        SetRange("Sales Code", TempTargetCampaignGr."Campaign No.");
+                        CopySalesPriceToSalesPrice(FromSalesPrice, ToSalesPrice);
+                    until TempTargetCampaignGr.Next() = 0;
+            end;
         end;
 
         OnAfterFindSalesPrice(
@@ -498,59 +518,61 @@ codeunit 7000 "Sales Price Calc. Mgt."
           ToSalesLineDisc, CustNo, ContNo, CustDiscGrCode, CampaignNo, ItemNo, ItemDiscGrCode, VariantCode, UOM,
           CurrencyCode, StartingDate, ShowAll);
 
-        FromSalesLineDisc.SetFilter("Ending Date", '%1|>=%2', 0D, StartingDate);
-        FromSalesLineDisc.SetFilter("Variant Code", '%1|%2', VariantCode, '');
-        OnFindSalesLineDiscOnAfterSetFilters(FromSalesLineDisc);
-        if not ShowAll then begin
-            FromSalesLineDisc.SetRange("Starting Date", 0D, StartingDate);
-            FromSalesLineDisc.SetFilter("Currency Code", '%1|%2', CurrencyCode, '');
-            if UOM <> '' then
-                FromSalesLineDisc.SetFilter("Unit of Measure Code", '%1|%2', UOM, '');
-        end;
-
-        ToSalesLineDisc.Reset();
-        ToSalesLineDisc.DeleteAll();
-        for FromSalesLineDisc."Sales Type" := FromSalesLineDisc."Sales Type"::Customer to FromSalesLineDisc."Sales Type"::Campaign do
-            if (FromSalesLineDisc."Sales Type" = FromSalesLineDisc."Sales Type"::"All Customers") or
-               ((FromSalesLineDisc."Sales Type" = FromSalesLineDisc."Sales Type"::Customer) and (CustNo <> '')) or
-               ((FromSalesLineDisc."Sales Type" = FromSalesLineDisc."Sales Type"::"Customer Disc. Group") and (CustDiscGrCode <> '')) or
-               ((FromSalesLineDisc."Sales Type" = FromSalesLineDisc."Sales Type"::Campaign) and
-                not ((CustNo = '') and (ContNo = '') and (CampaignNo = '')))
-            then begin
-                InclCampaigns := false;
-
-                FromSalesLineDisc.SetRange("Sales Type", FromSalesLineDisc."Sales Type");
-                case FromSalesLineDisc."Sales Type" of
-                    FromSalesLineDisc."Sales Type"::"All Customers":
-                        FromSalesLineDisc.SetRange("Sales Code");
-                    FromSalesLineDisc."Sales Type"::Customer:
-                        FromSalesLineDisc.SetRange("Sales Code", CustNo);
-                    FromSalesLineDisc."Sales Type"::"Customer Disc. Group":
-                        FromSalesLineDisc.SetRange("Sales Code", CustDiscGrCode);
-                    FromSalesLineDisc."Sales Type"::Campaign:
-                        begin
-                            InclCampaigns := ActivatedCampaignExists(TempCampaignTargetGr, CustNo, ContNo, CampaignNo);
-                            FromSalesLineDisc.SetRange("Sales Code", TempCampaignTargetGr."Campaign No.");
-                        end;
-                end;
-
-                repeat
-                    FromSalesLineDisc.SetRange(Type, FromSalesLineDisc.Type::Item);
-                    FromSalesLineDisc.SetRange(Code, ItemNo);
-                    CopySalesDiscToSalesDisc(FromSalesLineDisc, ToSalesLineDisc);
-
-                    if ItemDiscGrCode <> '' then begin
-                        FromSalesLineDisc.SetRange(Type, FromSalesLineDisc.Type::"Item Disc. Group");
-                        FromSalesLineDisc.SetRange(Code, ItemDiscGrCode);
-                        CopySalesDiscToSalesDisc(FromSalesLineDisc, ToSalesLineDisc);
-                    end;
-
-                    if InclCampaigns then begin
-                        InclCampaigns := TempCampaignTargetGr.Next() <> 0;
-                        FromSalesLineDisc.SetRange("Sales Code", TempCampaignTargetGr."Campaign No.");
-                    end;
-                until not InclCampaigns;
+        with FromSalesLineDisc do begin
+            SetFilter("Ending Date", '%1|>=%2', 0D, StartingDate);
+            SetFilter("Variant Code", '%1|%2', VariantCode, '');
+            OnFindSalesLineDiscOnAfterSetFilters(FromSalesLineDisc);
+            if not ShowAll then begin
+                SetRange("Starting Date", 0D, StartingDate);
+                SetFilter("Currency Code", '%1|%2', CurrencyCode, '');
+                if UOM <> '' then
+                    SetFilter("Unit of Measure Code", '%1|%2', UOM, '');
             end;
+
+            ToSalesLineDisc.Reset();
+            ToSalesLineDisc.DeleteAll();
+            for "Sales Type" := "Sales Type"::Customer to "Sales Type"::Campaign do
+                if ("Sales Type" = "Sales Type"::"All Customers") or
+                   (("Sales Type" = "Sales Type"::Customer) and (CustNo <> '')) or
+                   (("Sales Type" = "Sales Type"::"Customer Disc. Group") and (CustDiscGrCode <> '')) or
+                   (("Sales Type" = "Sales Type"::Campaign) and
+                    not ((CustNo = '') and (ContNo = '') and (CampaignNo = '')))
+                then begin
+                    InclCampaigns := false;
+
+                    SetRange("Sales Type", "Sales Type");
+                    case "Sales Type" of
+                        "Sales Type"::"All Customers":
+                            SetRange("Sales Code");
+                        "Sales Type"::Customer:
+                            SetRange("Sales Code", CustNo);
+                        "Sales Type"::"Customer Disc. Group":
+                            SetRange("Sales Code", CustDiscGrCode);
+                        "Sales Type"::Campaign:
+                            begin
+                                InclCampaigns := ActivatedCampaignExists(TempCampaignTargetGr, CustNo, ContNo, CampaignNo);
+                                SetRange("Sales Code", TempCampaignTargetGr."Campaign No.");
+                            end;
+                    end;
+
+                    repeat
+                        SetRange(Type, Type::Item);
+                        SetRange(Code, ItemNo);
+                        CopySalesDiscToSalesDisc(FromSalesLineDisc, ToSalesLineDisc);
+
+                        if ItemDiscGrCode <> '' then begin
+                            SetRange(Type, Type::"Item Disc. Group");
+                            SetRange(Code, ItemDiscGrCode);
+                            CopySalesDiscToSalesDisc(FromSalesLineDisc, ToSalesLineDisc);
+                        end;
+
+                        if InclCampaigns then begin
+                            InclCampaigns := TempCampaignTargetGr.Next() <> 0;
+                            SetRange("Sales Code", TempCampaignTargetGr."Campaign No.");
+                        end;
+                    until not InclCampaigns;
+                end;
+        end;
 
         OnAfterFindSalesLineDisc(
           ToSalesLineDisc, CustNo, ContNo, CustDiscGrCode, CampaignNo, ItemNo, ItemDiscGrCode, VariantCode, UOM,
@@ -572,20 +594,22 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        if FromSalesPrice.FindSet() then
-            repeat
-                ToSalesPrice := FromSalesPrice;
-                ToSalesPrice.Insert();
-            until FromSalesPrice.Next() = 0;
+        with ToSalesPrice do
+            if FromSalesPrice.FindSet() then
+                repeat
+                    ToSalesPrice := FromSalesPrice;
+                    Insert();
+                until FromSalesPrice.Next() = 0;
     end;
 
     local procedure CopySalesDiscToSalesDisc(var FromSalesLineDisc: Record "Sales Line Discount"; var ToSalesLineDisc: Record "Sales Line Discount")
     begin
-        if FromSalesLineDisc.FindSet() then
-            repeat
-                ToSalesLineDisc := FromSalesLineDisc;
-                ToSalesLineDisc.Insert();
-            until FromSalesLineDisc.Next() = 0;
+        with ToSalesLineDisc do
+            if FromSalesLineDisc.FindSet() then
+                repeat
+                    ToSalesLineDisc := FromSalesLineDisc;
+                    Insert();
+                until FromSalesLineDisc.Next() = 0;
     end;
 
     procedure SetItem(ItemNo: Code[20])
@@ -595,11 +619,13 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
     procedure SetResPrice(Code2: Code[20]; WorkTypeCode: Code[10]; CurrencyCode: Code[10])
     begin
-        ResPrice.Init();
-        OnSetResPriceOnAfterInit(ResPrice);
-        ResPrice.Code := Code2;
-        ResPrice."Work Type Code" := WorkTypeCode;
-        ResPrice."Currency Code" := CurrencyCode;
+        with ResPrice do begin
+            Init();
+            OnSetResPriceOnAfterInit(ResPrice);
+            Code := Code2;
+            "Work Type Code" := WorkTypeCode;
+            "Currency Code" := CurrencyCode;
+        end;
     end;
 
     procedure SetCurrency(CurrencyCode2: Code[10]; CurrencyFactor2: Decimal; ExchRateDate2: Date)
@@ -633,23 +659,6 @@ codeunit 7000 "Sales Price Calc. Mgt."
         LineDiscPerCent := LineDiscPerCent2;
         AllowLineDisc := AllowLineDisc2;
         AllowInvDisc := AllowInvDisc2;
-    end;
-
-    local procedure SetBillToCustomerDependingOnBillingMethod(Job: Record "Job"; JobPlanningLine: Record "Job Planning Line"; var BillToCustomerNo: Code[20]; var BillToContactNo: Code[20])
-    var
-        JobTask: Record "Job Task";
-    begin
-        BillToCustomerNo := Job."Bill-to Customer No.";
-        BillToContactNo := Job."Bill-to Contact No.";
-
-        if Job."Task Billing Method" = Job."Task Billing Method"::"One customer" then
-            exit;
-
-        JobTask.Get(JobPlanningLine."Job No.", JobPlanningLine."Job Task No.");
-        if (JobTask."Bill-to Customer No." <> '') and (JobTask."Bill-to Customer No." <> Job."Bill-to Customer No.") then begin
-            BillToCustomerNo := JobTask."Bill-to Customer No.";
-            BillToContactNo := JobTask."Bill-to Contact No.";
-        end;
     end;
 
     local procedure IsInMinQty(UnitofMeasureCode: Code[10]; MinQty: Decimal): Boolean
@@ -719,10 +728,11 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
     local procedure CalcLineAmount(SalesPrice: Record "Sales Price") LineAmount: Decimal
     begin
-        if SalesPrice."Allow Line Disc." then
-            LineAmount := SalesPrice."Unit Price" * (1 - LineDiscPerCent / 100)
-        else
-            LineAmount := SalesPrice."Unit Price";
+        with SalesPrice do
+            if "Allow Line Disc." then
+                LineAmount := "Unit Price" * (1 - LineDiscPerCent / 100)
+            else
+                LineAmount := "Unit Price";
         OnAfterCalcLineAmount(SalesPrice, LineAmount, LineDiscPerCent);
     end;
 
@@ -737,51 +747,52 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
         SalesLinePriceExists(SalesHeader, SalesLine, true);
 
-        if PAGE.RunModal(PAGE::"Get Sales Price", TempSalesPrice) = ACTION::LookupOK then begin
-            SetVAT(
-              SalesHeader."Prices Including VAT", SalesLine."VAT %", SalesLine."VAT Calculation Type".AsInteger(), SalesLine."VAT Bus. Posting Group");
-            SetUoM(Abs(SalesLine.Quantity), SalesLine."Qty. per Unit of Measure");
-            SetCurrency(
-              SalesHeader."Currency Code", SalesHeader."Currency Factor", SalesHeaderExchDate(SalesHeader));
+        with SalesLine do
+            if PAGE.RunModal(PAGE::"Get Sales Price", TempSalesPrice) = ACTION::LookupOK then begin
+                SetVAT(
+                  SalesHeader."Prices Including VAT", "VAT %", "VAT Calculation Type".AsInteger(), "VAT Bus. Posting Group");
+                SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+                SetCurrency(
+                  SalesHeader."Currency Code", SalesHeader."Currency Factor", SalesHeaderExchDate(SalesHeader));
 
-            if not IsInMinQty(TempSalesPrice."Unit of Measure Code", TempSalesPrice."Minimum Quantity") then
-                Error(
-                  Text000,
-                  SalesLine.FieldCaption(Quantity),
-                  TempSalesPrice.FieldCaption("Minimum Quantity"),
-                  TempSalesPrice.TableCaption());
-            if not (TempSalesPrice."Currency Code" in [SalesLine."Currency Code", '']) then
-                Error(
-                  Text001,
-                  SalesLine.FieldCaption("Currency Code"),
-                  SalesLine.TableCaption,
-                  TempSalesPrice.TableCaption());
-            if not (TempSalesPrice."Unit of Measure Code" in [SalesLine."Unit of Measure Code", '']) then
-                Error(
-                  Text001,
-                  SalesLine.FieldCaption("Unit of Measure Code"),
-                  SalesLine.TableCaption,
-                  TempSalesPrice.TableCaption());
-            if TempSalesPrice."Starting Date" > SalesHeaderStartDate(SalesHeader, DateCaption) then
-                Error(
-                  Text000,
-                  DateCaption,
-                  TempSalesPrice.FieldCaption("Starting Date"),
-                  TempSalesPrice.TableCaption());
+                if not IsInMinQty(TempSalesPrice."Unit of Measure Code", TempSalesPrice."Minimum Quantity") then
+                    Error(
+                      Text000,
+                      FieldCaption(Quantity),
+                      TempSalesPrice.FieldCaption("Minimum Quantity"),
+                      TempSalesPrice.TableCaption());
+                if not (TempSalesPrice."Currency Code" in ["Currency Code", '']) then
+                    Error(
+                      Text001,
+                      FieldCaption("Currency Code"),
+                      TableCaption,
+                      TempSalesPrice.TableCaption());
+                if not (TempSalesPrice."Unit of Measure Code" in ["Unit of Measure Code", '']) then
+                    Error(
+                      Text001,
+                      FieldCaption("Unit of Measure Code"),
+                      TableCaption,
+                      TempSalesPrice.TableCaption());
+                if TempSalesPrice."Starting Date" > SalesHeaderStartDate(SalesHeader, DateCaption) then
+                    Error(
+                      Text000,
+                      DateCaption,
+                      TempSalesPrice.FieldCaption("Starting Date"),
+                      TempSalesPrice.TableCaption());
 
-            ConvertPriceToVAT(
-              TempSalesPrice."Price Includes VAT", Item."VAT Prod. Posting Group",
-              TempSalesPrice."VAT Bus. Posting Gr. (Price)", TempSalesPrice."Unit Price");
-            ConvertPriceToUoM(TempSalesPrice."Unit of Measure Code", TempSalesPrice."Unit Price");
-            ConvertPriceLCYToFCY(TempSalesPrice."Currency Code", TempSalesPrice."Unit Price");
+                ConvertPriceToVAT(
+                  TempSalesPrice."Price Includes VAT", Item."VAT Prod. Posting Group",
+                  TempSalesPrice."VAT Bus. Posting Gr. (Price)", TempSalesPrice."Unit Price");
+                ConvertPriceToUoM(TempSalesPrice."Unit of Measure Code", TempSalesPrice."Unit Price");
+                ConvertPriceLCYToFCY(TempSalesPrice."Currency Code", TempSalesPrice."Unit Price");
 
-            SalesLine."Allow Invoice Disc." := TempSalesPrice."Allow Invoice Disc.";
-            SalesLine."Allow Line Disc." := TempSalesPrice."Allow Line Disc.";
-            if not SalesLine."Allow Line Disc." then
-                SalesLine."Line Discount %" := 0;
+                "Allow Invoice Disc." := TempSalesPrice."Allow Invoice Disc.";
+                "Allow Line Disc." := TempSalesPrice."Allow Line Disc.";
+                if not "Allow Line Disc." then
+                    "Line Discount %" := 0;
 
-            SalesLine.Validate("Unit Price", TempSalesPrice."Unit Price");
-        end;
+                Validate("Unit Price", TempSalesPrice."Unit Price");
+            end;
 
         OnAfterGetSalesLinePrice(SalesHeader, SalesLine, TempSalesPrice);
     end;
@@ -797,38 +808,39 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
         SalesLineLineDiscExists(SalesHeader, SalesLine, true);
 
-        if PAGE.RunModal(PAGE::"Get Sales Line Disc.", TempSalesLineDisc) = ACTION::LookupOK then begin
-            SetCurrency(SalesHeader."Currency Code", 0, 0D);
-            SetUoM(Abs(SalesLine.Quantity), SalesLine."Qty. per Unit of Measure");
+        with SalesLine do
+            if PAGE.RunModal(PAGE::"Get Sales Line Disc.", TempSalesLineDisc) = ACTION::LookupOK then begin
+                SetCurrency(SalesHeader."Currency Code", 0, 0D);
+                SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
 
-            if not IsInMinQty(TempSalesLineDisc."Unit of Measure Code", TempSalesLineDisc."Minimum Quantity")
-            then
-                Error(
-                  Text000, SalesLine.FieldCaption(Quantity),
-                  TempSalesLineDisc.FieldCaption("Minimum Quantity"),
-                  TempSalesLineDisc.TableCaption());
-            if not (TempSalesLineDisc."Currency Code" in [SalesLine."Currency Code", '']) then
-                Error(
-                  Text001,
-                  SalesLine.FieldCaption("Currency Code"),
-                  SalesLine.TableCaption,
-                  TempSalesLineDisc.TableCaption());
-            if not (TempSalesLineDisc."Unit of Measure Code" in [SalesLine."Unit of Measure Code", '']) then
-                Error(
-                  Text001,
-                  SalesLine.FieldCaption("Unit of Measure Code"),
-                  SalesLine.TableCaption,
-                  TempSalesLineDisc.TableCaption());
-            if TempSalesLineDisc."Starting Date" > SalesHeaderStartDate(SalesHeader, DateCaption) then
-                Error(
-                  Text000,
-                  DateCaption,
-                  TempSalesLineDisc.FieldCaption("Starting Date"),
-                  TempSalesLineDisc.TableCaption());
+                if not IsInMinQty(TempSalesLineDisc."Unit of Measure Code", TempSalesLineDisc."Minimum Quantity")
+                then
+                    Error(
+                      Text000, FieldCaption(Quantity),
+                      TempSalesLineDisc.FieldCaption("Minimum Quantity"),
+                      TempSalesLineDisc.TableCaption());
+                if not (TempSalesLineDisc."Currency Code" in ["Currency Code", '']) then
+                    Error(
+                      Text001,
+                      FieldCaption("Currency Code"),
+                      TableCaption,
+                      TempSalesLineDisc.TableCaption());
+                if not (TempSalesLineDisc."Unit of Measure Code" in ["Unit of Measure Code", '']) then
+                    Error(
+                      Text001,
+                      FieldCaption("Unit of Measure Code"),
+                      TableCaption,
+                      TempSalesLineDisc.TableCaption());
+                if TempSalesLineDisc."Starting Date" > SalesHeaderStartDate(SalesHeader, DateCaption) then
+                    Error(
+                      Text000,
+                      DateCaption,
+                      TempSalesLineDisc.FieldCaption("Starting Date"),
+                      TempSalesLineDisc.TableCaption());
 
-            SalesLine.TestField("Allow Line Disc.");
-            SalesLine.Validate("Line Discount %", TempSalesLineDisc."Line Discount %");
-        end;
+                TestField("Allow Line Disc.");
+                Validate("Line Discount %", TempSalesLineDisc."Line Discount %");
+            end;
 
         OnAfterGetSalesLineLineDisc(SalesLine, TempSalesLineDisc);
     end;
@@ -842,20 +854,21 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit(Result);
 
-        if (SalesLine.Type = SalesLine.Type::Item) and Item.Get(SalesLine."No.") then begin
-            IsHandled := false;
-            OnBeforeSalesLinePriceExists(
-              SalesLine, SalesHeader, TempSalesPrice, Currency, CurrencyFactor,
-              SalesHeaderStartDate(SalesHeader, DateCaption), Qty, QtyPerUOM, ShowAll, IsHandled);
-            if not IsHandled then begin
-                FindSalesPrice(
-                  TempSalesPrice, GetCustNoForSalesHeader(SalesHeader), SalesHeader."Bill-to Contact No.",
-                  SalesLine."Customer Price Group", '', SalesLine."No.", SalesLine."Variant Code", SalesLine."Unit of Measure Code",
-                  SalesHeader."Currency Code", SalesHeaderStartDate(SalesHeader, DateCaption), ShowAll);
-                OnAfterSalesLinePriceExists(SalesLine, SalesHeader, TempSalesPrice, ShowAll);
+        with SalesLine do
+            if (Type = Type::Item) and Item.Get("No.") then begin
+                IsHandled := false;
+                OnBeforeSalesLinePriceExists(
+                  SalesLine, SalesHeader, TempSalesPrice, Currency, CurrencyFactor,
+                  SalesHeaderStartDate(SalesHeader, DateCaption), Qty, QtyPerUOM, ShowAll, IsHandled);
+                if not IsHandled then begin
+                    FindSalesPrice(
+                      TempSalesPrice, GetCustNoForSalesHeader(SalesHeader), SalesHeader."Bill-to Contact No.",
+                      "Customer Price Group", '', "No.", "Variant Code", "Unit of Measure Code",
+                      SalesHeader."Currency Code", SalesHeaderStartDate(SalesHeader, DateCaption), ShowAll);
+                    OnAfterSalesLinePriceExists(SalesLine, SalesHeader, TempSalesPrice, ShowAll);
+                end;
+                exit(TempSalesPrice.FindFirst());
             end;
-            exit(TempSalesPrice.FindFirst());
-        end;
         Result := false;
 
         OnAfterSalesLinePriceExistsProcedure(SalesHeader, SalesLine, Res, DateCaption, ShowAll, Result);
@@ -865,20 +878,21 @@ codeunit 7000 "Sales Price Calc. Mgt."
     var
         IsHandled: Boolean;
     begin
-        if (SalesLine.Type = SalesLine.Type::Item) and Item.Get(SalesLine."No.") then begin
-            IsHandled := false;
-            OnBeforeSalesLineLineDiscExists(
-              SalesLine, SalesHeader, TempSalesLineDisc, SalesHeaderStartDate(SalesHeader, DateCaption),
-              Qty, QtyPerUOM, ShowAll, IsHandled);
-            if not IsHandled then begin
-                FindSalesLineDisc(
-                  TempSalesLineDisc, GetCustNoForSalesHeader(SalesHeader), SalesHeader."Bill-to Contact No.",
-                  SalesLine."Customer Disc. Group", '', SalesLine."No.", Item."Item Disc. Group", SalesLine."Variant Code", SalesLine."Unit of Measure Code",
-                  SalesHeader."Currency Code", SalesHeaderStartDate(SalesHeader, DateCaption), ShowAll);
-                OnAfterSalesLineLineDiscExists(SalesLine, SalesHeader, TempSalesLineDisc, ShowAll);
+        with SalesLine do
+            if (Type = Type::Item) and Item.Get("No.") then begin
+                IsHandled := false;
+                OnBeforeSalesLineLineDiscExists(
+                  SalesLine, SalesHeader, TempSalesLineDisc, SalesHeaderStartDate(SalesHeader, DateCaption),
+                  Qty, QtyPerUOM, ShowAll, IsHandled);
+                if not IsHandled then begin
+                    FindSalesLineDisc(
+                      TempSalesLineDisc, GetCustNoForSalesHeader(SalesHeader), SalesHeader."Bill-to Contact No.",
+                      "Customer Disc. Group", '', "No.", Item."Item Disc. Group", "Variant Code", "Unit of Measure Code",
+                      SalesHeader."Currency Code", SalesHeaderStartDate(SalesHeader, DateCaption), ShowAll);
+                    OnAfterSalesLineLineDiscExists(SalesLine, SalesHeader, TempSalesLineDisc, ShowAll);
+                end;
+                exit(TempSalesLineDisc.FindFirst())
             end;
-            exit(TempSalesLineDisc.FindFirst())
-        end;
         exit(false);
     end;
 
@@ -893,52 +907,53 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
         ServLinePriceExists(ServHeader, ServLine, true);
 
-        if PAGE.RunModal(PAGE::"Get Sales Price", TempSalesPrice) = ACTION::LookupOK then begin
-            SetVAT(
-              ServHeader."Prices Including VAT", ServLine."VAT %", ServLine."VAT Calculation Type".AsInteger(), ServLine."VAT Bus. Posting Group");
-            SetUoM(Abs(ServLine.Quantity), ServLine."Qty. per Unit of Measure");
-            SetCurrency(
-              ServHeader."Currency Code", ServHeader."Currency Factor", ServHeaderExchDate(ServHeader));
+        with ServLine do
+            if PAGE.RunModal(PAGE::"Get Sales Price", TempSalesPrice) = ACTION::LookupOK then begin
+                SetVAT(
+                  ServHeader."Prices Including VAT", "VAT %", "VAT Calculation Type".AsInteger(), "VAT Bus. Posting Group");
+                SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+                SetCurrency(
+                  ServHeader."Currency Code", ServHeader."Currency Factor", ServHeaderExchDate(ServHeader));
 
-            if not IsInMinQty(TempSalesPrice."Unit of Measure Code", TempSalesPrice."Minimum Quantity") then
-                Error(
-                  Text000,
-                  ServLine.FieldCaption(Quantity),
-                  TempSalesPrice.FieldCaption("Minimum Quantity"),
-                  TempSalesPrice.TableCaption());
-            if not (TempSalesPrice."Currency Code" in [ServLine."Currency Code", '']) then
-                Error(
-                  Text001,
-                  ServLine.FieldCaption("Currency Code"),
-                  ServLine.TableCaption,
-                  TempSalesPrice.TableCaption());
-            if not (TempSalesPrice."Unit of Measure Code" in [ServLine."Unit of Measure Code", '']) then
-                Error(
-                  Text001,
-                  ServLine.FieldCaption("Unit of Measure Code"),
-                  ServLine.TableCaption,
-                  TempSalesPrice.TableCaption());
-            if TempSalesPrice."Starting Date" > ServHeaderStartDate(ServHeader, DateCaption) then
-                Error(
-                  Text000,
-                  DateCaption,
-                  TempSalesPrice.FieldCaption("Starting Date"),
-                  TempSalesPrice.TableCaption());
+                if not IsInMinQty(TempSalesPrice."Unit of Measure Code", TempSalesPrice."Minimum Quantity") then
+                    Error(
+                      Text000,
+                      FieldCaption(Quantity),
+                      TempSalesPrice.FieldCaption("Minimum Quantity"),
+                      TempSalesPrice.TableCaption());
+                if not (TempSalesPrice."Currency Code" in ["Currency Code", '']) then
+                    Error(
+                      Text001,
+                      FieldCaption("Currency Code"),
+                      TableCaption,
+                      TempSalesPrice.TableCaption());
+                if not (TempSalesPrice."Unit of Measure Code" in ["Unit of Measure Code", '']) then
+                    Error(
+                      Text001,
+                      FieldCaption("Unit of Measure Code"),
+                      TableCaption,
+                      TempSalesPrice.TableCaption());
+                if TempSalesPrice."Starting Date" > ServHeaderStartDate(ServHeader, DateCaption) then
+                    Error(
+                      Text000,
+                      DateCaption,
+                      TempSalesPrice.FieldCaption("Starting Date"),
+                      TempSalesPrice.TableCaption());
 
-            ConvertPriceToVAT(
-              TempSalesPrice."Price Includes VAT", Item."VAT Prod. Posting Group",
-              TempSalesPrice."VAT Bus. Posting Gr. (Price)", TempSalesPrice."Unit Price");
-            ConvertPriceToUoM(TempSalesPrice."Unit of Measure Code", TempSalesPrice."Unit Price");
-            ConvertPriceLCYToFCY(TempSalesPrice."Currency Code", TempSalesPrice."Unit Price");
+                ConvertPriceToVAT(
+                  TempSalesPrice."Price Includes VAT", Item."VAT Prod. Posting Group",
+                  TempSalesPrice."VAT Bus. Posting Gr. (Price)", TempSalesPrice."Unit Price");
+                ConvertPriceToUoM(TempSalesPrice."Unit of Measure Code", TempSalesPrice."Unit Price");
+                ConvertPriceLCYToFCY(TempSalesPrice."Currency Code", TempSalesPrice."Unit Price");
 
-            ServLine."Allow Invoice Disc." := TempSalesPrice."Allow Invoice Disc.";
-            ServLine."Allow Line Disc." := TempSalesPrice."Allow Line Disc.";
-            if not ServLine."Allow Line Disc." then
-                ServLine."Line Discount %" := 0;
+                "Allow Invoice Disc." := TempSalesPrice."Allow Invoice Disc.";
+                "Allow Line Disc." := TempSalesPrice."Allow Line Disc.";
+                if not "Allow Line Disc." then
+                    "Line Discount %" := 0;
 
-            ServLine.Validate("Unit Price", TempSalesPrice."Unit Price");
-            ServLine.ConfirmAdjPriceLineChange();
-        end;
+                Validate("Unit Price", TempSalesPrice."Unit Price");
+                ConfirmAdjPriceLineChange();
+            end;
     end;
 
     procedure GetServLineLineDisc(ServHeader: Record "Service Header"; var ServLine: Record "Service Line")
@@ -952,40 +967,41 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
         ServLineLineDiscExists(ServHeader, ServLine, true);
 
-        if PAGE.RunModal(PAGE::"Get Sales Line Disc.", TempSalesLineDisc) = ACTION::LookupOK then begin
-            SetCurrency(ServHeader."Currency Code", 0, 0D);
-            SetUoM(Abs(ServLine.Quantity), ServLine."Qty. per Unit of Measure");
+        with ServLine do
+            if PAGE.RunModal(PAGE::"Get Sales Line Disc.", TempSalesLineDisc) = ACTION::LookupOK then begin
+                SetCurrency(ServHeader."Currency Code", 0, 0D);
+                SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
 
-            if not IsInMinQty(TempSalesLineDisc."Unit of Measure Code", TempSalesLineDisc."Minimum Quantity")
-            then
-                Error(
-                  Text000, ServLine.FieldCaption(Quantity),
-                  TempSalesLineDisc.FieldCaption("Minimum Quantity"),
-                  TempSalesLineDisc.TableCaption());
-            if not (TempSalesLineDisc."Currency Code" in [ServLine."Currency Code", '']) then
-                Error(
-                  Text001,
-                  ServLine.FieldCaption("Currency Code"),
-                  ServLine.TableCaption,
-                  TempSalesLineDisc.TableCaption());
-            if not (TempSalesLineDisc."Unit of Measure Code" in [ServLine."Unit of Measure Code", '']) then
-                Error(
-                  Text001,
-                  ServLine.FieldCaption("Unit of Measure Code"),
-                  ServLine.TableCaption,
-                  TempSalesLineDisc.TableCaption());
-            if TempSalesLineDisc."Starting Date" > ServHeaderStartDate(ServHeader, DateCaption) then
-                Error(
-                  Text000,
-                  DateCaption,
-                  TempSalesLineDisc.FieldCaption("Starting Date"),
-                  TempSalesLineDisc.TableCaption());
+                if not IsInMinQty(TempSalesLineDisc."Unit of Measure Code", TempSalesLineDisc."Minimum Quantity")
+                then
+                    Error(
+                      Text000, FieldCaption(Quantity),
+                      TempSalesLineDisc.FieldCaption("Minimum Quantity"),
+                      TempSalesLineDisc.TableCaption());
+                if not (TempSalesLineDisc."Currency Code" in ["Currency Code", '']) then
+                    Error(
+                      Text001,
+                      FieldCaption("Currency Code"),
+                      TableCaption,
+                      TempSalesLineDisc.TableCaption());
+                if not (TempSalesLineDisc."Unit of Measure Code" in ["Unit of Measure Code", '']) then
+                    Error(
+                      Text001,
+                      FieldCaption("Unit of Measure Code"),
+                      TableCaption,
+                      TempSalesLineDisc.TableCaption());
+                if TempSalesLineDisc."Starting Date" > ServHeaderStartDate(ServHeader, DateCaption) then
+                    Error(
+                      Text000,
+                      DateCaption,
+                      TempSalesLineDisc.FieldCaption("Starting Date"),
+                      TempSalesLineDisc.TableCaption());
 
-            ServLine.TestField("Allow Line Disc.");
-            ServLine.CheckLineDiscount(TempSalesLineDisc."Line Discount %");
-            ServLine.Validate("Line Discount %", TempSalesLineDisc."Line Discount %");
-            ServLine.ConfirmAdjPriceLineChange();
-        end;
+                TestField("Allow Line Disc.");
+                CheckLineDiscount(TempSalesLineDisc."Line Discount %");
+                Validate("Line Discount %", TempSalesLineDisc."Line Discount %");
+                ConfirmAdjPriceLineChange();
+            end;
     end;
 
     local procedure GetCustNoForSalesHeader(SalesHeader: Record "Sales Header"): Code[20]
@@ -1002,17 +1018,18 @@ codeunit 7000 "Sales Price Calc. Mgt."
     var
         IsHandled: Boolean;
     begin
-        if (ServLine.Type = ServLine.Type::Item) and Item.Get(ServLine."No.") then begin
-            IsHandled := false;
-            OnBeforeServLinePriceExists(ServLine, ServHeader, TempSalesPrice, ShowAll, IsHandled);
-            if not IsHandled then
-                FindSalesPrice(
-                  TempSalesPrice, ServLine."Bill-to Customer No.", ServHeader."Bill-to Contact No.",
-                  ServLine."Customer Price Group", '', ServLine."No.", ServLine."Variant Code", ServLine."Unit of Measure Code",
-                  ServHeader."Currency Code", ServHeaderStartDate(ServHeader, DateCaption), ShowAll);
-            OnAfterServLinePriceExists(ServLine);
-            exit(TempSalesPrice.Find('-'));
-        end;
+        with ServLine do
+            if (Type = Type::Item) and Item.Get("No.") then begin
+                IsHandled := false;
+                OnBeforeServLinePriceExists(ServLine, ServHeader, TempSalesPrice, ShowAll, IsHandled);
+                if not IsHandled then
+                    FindSalesPrice(
+                      TempSalesPrice, "Bill-to Customer No.", ServHeader."Bill-to Contact No.",
+                      "Customer Price Group", '', "No.", "Variant Code", "Unit of Measure Code",
+                      ServHeader."Currency Code", ServHeaderStartDate(ServHeader, DateCaption), ShowAll);
+                OnAfterServLinePriceExists(ServLine);
+                exit(TempSalesPrice.Find('-'));
+            end;
         exit(false);
     end;
 
@@ -1021,17 +1038,18 @@ codeunit 7000 "Sales Price Calc. Mgt."
     var
         IsHandled: Boolean;
     begin
-        if (ServLine.Type = ServLine.Type::Item) and Item.Get(ServLine."No.") then begin
-            IsHandled := false;
-            OnBeforeServLineLineDiscExists(ServLine, ServHeader, TempSalesLineDisc, ShowAll, IsHandled);
-            if not IsHandled then
-                FindSalesLineDisc(
-                  TempSalesLineDisc, ServLine."Bill-to Customer No.", ServHeader."Bill-to Contact No.",
-                  ServLine."Customer Disc. Group", '', ServLine."No.", Item."Item Disc. Group", ServLine."Variant Code", ServLine."Unit of Measure Code",
-                  ServHeader."Currency Code", ServHeaderStartDate(ServHeader, DateCaption), ShowAll);
-            OnAfterServLineLineDiscExists(ServLine);
-            exit(TempSalesLineDisc.Find('-'));
-        end;
+        with ServLine do
+            if (Type = Type::Item) and Item.Get("No.") then begin
+                IsHandled := false;
+                OnBeforeServLineLineDiscExists(ServLine, ServHeader, TempSalesLineDisc, ShowAll, IsHandled);
+                if not IsHandled then
+                    FindSalesLineDisc(
+                      TempSalesLineDisc, "Bill-to Customer No.", ServHeader."Bill-to Contact No.",
+                      "Customer Disc. Group", '', "No.", Item."Item Disc. Group", "Variant Code", "Unit of Measure Code",
+                      ServHeader."Currency Code", ServHeaderStartDate(ServHeader, DateCaption), ShowAll);
+                OnAfterServLineLineDiscExists(ServLine);
+                exit(TempSalesLineDisc.Find('-'));
+            end;
         exit(false);
     end;
 
@@ -1046,42 +1064,46 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
         IsHandled := false;
         OnBeforeActivatedCampaignExists(ToCampaignTargetGr, CustNo, ContNo, CampaignNo, IsHandled);
-        if IsHandled then
+        IF IsHandled then
             exit;
 
-        ToCampaignTargetGr.Reset();
-        ToCampaignTargetGr.DeleteAll();
+        with FromCampaignTargetGr do begin
+            ToCampaignTargetGr.Reset();
+            ToCampaignTargetGr.DeleteAll();
 
-        if CampaignNo <> '' then begin
-            ToCampaignTargetGr."Campaign No." := CampaignNo;
-            ToCampaignTargetGr.Insert();
-        end else begin
-            FromCampaignTargetGr.SetRange(Type, FromCampaignTargetGr.Type::Customer);
-            FromCampaignTargetGr.SetRange("No.", CustNo);
-            if FromCampaignTargetGr.FindSet() then
-                repeat
-                    ToCampaignTargetGr := FromCampaignTargetGr;
-                    ToCampaignTargetGr.Insert();
-                until FromCampaignTargetGr.Next() = 0
-            else
-                if Cont.Get(ContNo) then begin
-                    FromCampaignTargetGr.SetRange(Type, FromCampaignTargetGr.Type::Contact);
-                    FromCampaignTargetGr.SetRange("No.", Cont."Company No.");
-                    if FromCampaignTargetGr.FindSet() then
-                        repeat
-                            ToCampaignTargetGr := FromCampaignTargetGr;
-                            ToCampaignTargetGr.Insert();
-                        until FromCampaignTargetGr.Next() = 0;
-                end;
+            if CampaignNo <> '' then begin
+                ToCampaignTargetGr."Campaign No." := CampaignNo;
+                ToCampaignTargetGr.Insert();
+            end else begin
+                SetRange(Type, Type::Customer);
+                SetRange("No.", CustNo);
+                if FindSet() then
+                    repeat
+                        ToCampaignTargetGr := FromCampaignTargetGr;
+                        ToCampaignTargetGr.Insert();
+                    until Next() = 0
+                else
+                    if Cont.Get(ContNo) then begin
+                        SetRange(Type, Type::Contact);
+                        SetRange("No.", Cont."Company No.");
+                        if FindSet() then
+                            repeat
+                                ToCampaignTargetGr := FromCampaignTargetGr;
+                                ToCampaignTargetGr.Insert();
+                            until Next() = 0;
+                    end;
+            end;
+            exit(ToCampaignTargetGr.FindFirst())
         end;
-        exit(ToCampaignTargetGr.FindFirst())
     end;
 
     procedure SalesHeaderExchDate(SalesHeader: Record "Sales Header"): Date
     begin
-        if SalesHeader."Posting Date" <> 0D then
-            exit(SalesHeader."Posting Date");
-        exit(WorkDate());
+        with SalesHeader do begin
+            if "Posting Date" <> 0D then
+                exit("Posting Date");
+            exit(WorkDate());
+        end;
     end;
 
     procedure SalesHeaderStartDate(var SalesHeader: Record "Sales Header"; var DateCaption: Text[30]): Date
@@ -1094,33 +1116,37 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit(StartDate);
 
-        if SalesHeader."Document Type" in [SalesHeader."Document Type"::Invoice, SalesHeader."Document Type"::"Credit Memo"] then begin
-            DateCaption := SalesHeader.FieldCaption("Posting Date");
-            exit(SalesHeader."Posting Date")
-        end else begin
-            DateCaption := SalesHeader.FieldCaption("Order Date");
-            exit(SalesHeader."Order Date");
-        end;
+        with SalesHeader do
+            if "Document Type" in ["Document Type"::Invoice, "Document Type"::"Credit Memo"] then begin
+                DateCaption := FieldCaption("Posting Date");
+                exit("Posting Date")
+            end else begin
+                DateCaption := FieldCaption("Order Date");
+                exit("Order Date");
+            end;
     end;
 
     procedure ServHeaderExchDate(ServHeader: Record "Service Header"): Date
     begin
-        if (ServHeader."Document Type" = ServHeader."Document Type"::Quote) and
-           (ServHeader."Posting Date" = 0D)
-        then
-            exit(WorkDate());
-        exit(ServHeader."Posting Date");
+        with ServHeader do begin
+            if ("Document Type" = "Document Type"::Quote) and
+               ("Posting Date" = 0D)
+            then
+                exit(WorkDate());
+            exit("Posting Date");
+        end;
     end;
 
     procedure ServHeaderStartDate(ServHeader: Record "Service Header"; var DateCaption: Text[30]): Date
     begin
-        if ServHeader."Document Type" in [ServHeader."Document Type"::Invoice, ServHeader."Document Type"::"Credit Memo"] then begin
-            DateCaption := ServHeader.FieldCaption("Posting Date");
-            exit(ServHeader."Posting Date")
-        end else begin
-            DateCaption := ServHeader.FieldCaption("Order Date");
-            exit(ServHeader."Order Date");
-        end;
+        with ServHeader do
+            if "Document Type" in ["Document Type"::Invoice, "Document Type"::"Credit Memo"] then begin
+                DateCaption := FieldCaption("Posting Date");
+                exit("Posting Date")
+            end else begin
+                DateCaption := FieldCaption("Order Date");
+                exit("Order Date");
+            end;
     end;
 
     procedure NoOfSalesLinePrice(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; ShowAll: Boolean) Result: Integer
@@ -1178,7 +1204,6 @@ codeunit 7000 "Sales Price Calc. Mgt."
     procedure FindJobPlanningLinePrice(var JobPlanningLine: Record "Job Planning Line"; CalledByFieldNo: Integer)
     var
         Job: Record Job;
-        BillToCustomerNo, BillToContactNo : Code[20];
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -1186,44 +1211,45 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        SetCurrency(JobPlanningLine."Currency Code", JobPlanningLine."Currency Factor", JobPlanningLine."Planning Date");
-        SetVAT(false, 0, 0, '');
-        SetUoM(Abs(JobPlanningLine.Quantity), JobPlanningLine."Qty. per Unit of Measure");
-        SetLineDisc(0, true, true);
+        with JobPlanningLine do begin
+            SetCurrency("Currency Code", "Currency Factor", "Planning Date");
+            SetVAT(false, 0, 0, '');
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+            SetLineDisc(0, true, true);
 
-        case JobPlanningLine.Type of
-            JobPlanningLine.Type::Item:
-                begin
-                    Job.Get(JobPlanningLine."Job No.");
-                    Item.Get(JobPlanningLine."No.");
-                    JobPlanningLine.TestField("Qty. per Unit of Measure");
-                    SetBillToCustomerDependingOnBillingMethod(Job, JobPlanningLine, BillToCustomerNo, BillToContactNo);
-                    FindSalesPrice(
-                      TempSalesPrice, BillToCustomerNo, BillToContactNo,
-                      Job."Customer Price Group", '', JobPlanningLine."No.", JobPlanningLine."Variant Code", JobPlanningLine."Unit of Measure Code",
-                      Job."Currency Code", JobPlanningLine."Planning Date", false);
-                    CalcBestUnitPrice(TempSalesPrice);
-                    if FoundSalesPrice or
-                       not ((CalledByFieldNo = JobPlanningLine.FieldNo(Quantity)) or
-                            (CalledByFieldNo = JobPlanningLine.FieldNo("Location Code")) or
-                            (CalledByFieldNo = JobPlanningLine.FieldNo("Variant Code")))
-                    then begin
-                        JobPlanningLine."Unit Price" := TempSalesPrice."Unit Price";
-                        AllowLineDisc := TempSalesPrice."Allow Line Disc.";
+            case Type of
+                Type::Item:
+                    begin
+                        Job.Get("Job No.");
+                        Item.Get("No.");
+                        TestField("Qty. per Unit of Measure");
+                        FindSalesPrice(
+                          TempSalesPrice, Job."Bill-to Customer No.", Job."Bill-to Contact No.",
+                          Job."Customer Price Group", '', "No.", "Variant Code", "Unit of Measure Code",
+                          Job."Currency Code", "Planning Date", false);
+                        CalcBestUnitPrice(TempSalesPrice);
+                        if FoundSalesPrice or
+                           not ((CalledByFieldNo = FieldNo(Quantity)) or
+                                (CalledByFieldNo = FieldNo("Location Code")) or
+                                (CalledByFieldNo = FieldNo("Variant Code")))
+                        then begin
+                            "Unit Price" := TempSalesPrice."Unit Price";
+                            AllowLineDisc := TempSalesPrice."Allow Line Disc.";
+                        end;
                     end;
-                end;
-            JobPlanningLine.Type::Resource:
-                begin
-                    Job.Get(JobPlanningLine."Job No.");
-                    SetResPrice(JobPlanningLine."No.", JobPlanningLine."Work Type Code", JobPlanningLine."Currency Code");
-                    CODEUNIT.Run(CODEUNIT::"Resource-Find Price", ResPrice);
-                    IsHandled := false;
-                    OnAfterFindJobPlanningLineResPrice(JobPlanningLine, ResPrice, CalledByFieldNo, AllowLineDisc, IsHandled);
-                    if not IsHandled then begin
-                        ConvertPriceLCYToFCY(ResPrice."Currency Code", ResPrice."Unit Price");
-                        JobPlanningLine."Unit Price" := ResPrice."Unit Price" * JobPlanningLine."Qty. per Unit of Measure";
+                Type::Resource:
+                    begin
+                        Job.Get("Job No.");
+                        SetResPrice("No.", "Work Type Code", "Currency Code");
+                        CODEUNIT.Run(CODEUNIT::"Resource-Find Price", ResPrice);
+                        IsHandled := false;
+                        OnAfterFindJobPlanningLineResPrice(JobPlanningLine, ResPrice, CalledByFieldNo, AllowLineDisc, IsHandled);
+                        if not IsHandled then begin
+                            ConvertPriceLCYToFCY(ResPrice."Currency Code", ResPrice."Unit Price");
+                            "Unit Price" := ResPrice."Unit Price" * "Qty. per Unit of Measure";
+                        end;
                     end;
-                end;
+            end;
         end;
         OnFindJobPlanningLinePriceOnBeforeJobPlanningLineFindJTPrice(JobPlanningLine, ResPrice);
         JobPlanningLineFindJTPrice(JobPlanningLine);
@@ -1241,70 +1267,71 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        case JobPlanningLine.Type of
-            JobPlanningLine.Type::Item:
-                begin
-                    JobItemPrice.SetRange("Job No.", JobPlanningLine."Job No.");
-                    JobItemPrice.SetRange("Item No.", JobPlanningLine."No.");
-                    JobItemPrice.SetRange("Variant Code", JobPlanningLine."Variant Code");
-                    JobItemPrice.SetRange("Unit of Measure Code", JobPlanningLine."Unit of Measure Code");
-                    JobItemPrice.SetRange("Currency Code", JobPlanningLine."Currency Code");
-                    JobItemPrice.SetRange("Job Task No.", JobPlanningLine."Job Task No.");
-                    OnJobPlanningLineFindJTPriceOnAfterSetJobItemPriceFilters(JobItemPrice, JobPlanningLine);
-                    if JobItemPrice.FindFirst() then
-                        CopyJobItemPriceToJobPlanLine(JobPlanningLine, JobItemPrice)
-                    else begin
-                        JobItemPrice.SetRange("Job Task No.", ' ');
+        with JobPlanningLine do
+            case Type of
+                Type::Item:
+                    begin
+                        JobItemPrice.SetRange("Job No.", "Job No.");
+                        JobItemPrice.SetRange("Item No.", "No.");
+                        JobItemPrice.SetRange("Variant Code", "Variant Code");
+                        JobItemPrice.SetRange("Unit of Measure Code", "Unit of Measure Code");
+                        JobItemPrice.SetRange("Currency Code", "Currency Code");
+                        JobItemPrice.SetRange("Job Task No.", "Job Task No.");
+                        OnJobPlanningLineFindJTPriceOnAfterSetJobItemPriceFilters(JobItemPrice, JobPlanningLine);
                         if JobItemPrice.FindFirst() then
-                            CopyJobItemPriceToJobPlanLine(JobPlanningLine, JobItemPrice);
-                    end;
-
-                    if JobItemPrice.IsEmpty() or (not JobItemPrice."Apply Job Discount") then
-                        FindJobPlanningLineLineDisc(JobPlanningLine);
-                end;
-            JobPlanningLine.Type::Resource:
-                begin
-                    Res.Get(JobPlanningLine."No.");
-                    JobResPrice.SetRange("Job No.", JobPlanningLine."Job No.");
-                    JobResPrice.SetRange("Currency Code", JobPlanningLine."Currency Code");
-                    JobResPrice.SetRange("Job Task No.", JobPlanningLine."Job Task No.");
-                    OnJobPlanningLineFindJTPriceOnAfterSetJobResPriceFilters(JobResPrice, JobPlanningLine);
-                    case true of
-                        JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::Resource):
-                            CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
-                        JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::"Group(Resource)"):
-                            CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
-                        JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::All):
-                            CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
+                            CopyJobItemPriceToJobPlanLine(JobPlanningLine, JobItemPrice)
                         else begin
-                            JobResPrice.SetRange("Job Task No.", '');
-                            case true of
-                                JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::Resource):
-                                    CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
-                                JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::"Group(Resource)"):
-                                    CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
-                                JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::All):
-                                    CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
+                            JobItemPrice.SetRange("Job Task No.", ' ');
+                            if JobItemPrice.FindFirst() then
+                                CopyJobItemPriceToJobPlanLine(JobPlanningLine, JobItemPrice);
+                        end;
+
+                        if JobItemPrice.IsEmpty() or (not JobItemPrice."Apply Job Discount") then
+                            FindJobPlanningLineLineDisc(JobPlanningLine);
+                    end;
+                Type::Resource:
+                    begin
+                        Res.Get("No.");
+                        JobResPrice.SetRange("Job No.", "Job No.");
+                        JobResPrice.SetRange("Currency Code", "Currency Code");
+                        JobResPrice.SetRange("Job Task No.", "Job Task No.");
+                        OnJobPlanningLineFindJTPriceOnAfterSetJobResPriceFilters(JobResPrice, JobPlanningLine);
+                        case true of
+                            JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::Resource):
+                                CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
+                            JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::"Group(Resource)"):
+                                CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
+                            JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::All):
+                                CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
+                            else begin
+                                JobResPrice.SetRange("Job Task No.", '');
+                                case true of
+                                    JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::Resource):
+                                        CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
+                                    JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::"Group(Resource)"):
+                                        CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
+                                    JobPlanningLineFindJobResPrice(JobPlanningLine, JobResPrice, JobResPrice.Type::All):
+                                        CopyJobResPriceToJobPlanLine(JobPlanningLine, JobResPrice);
+                                end;
                             end;
                         end;
                     end;
-                end;
-            JobPlanningLine.Type::"G/L Account":
-                begin
-                    JobGLAccPrice.SetRange("Job No.", JobPlanningLine."Job No.");
-                    JobGLAccPrice.SetRange("G/L Account No.", JobPlanningLine."No.");
-                    JobGLAccPrice.SetRange("Currency Code", JobPlanningLine."Currency Code");
-                    JobGLAccPrice.SetRange("Job Task No.", JobPlanningLine."Job Task No.");
-                    OnJobPlanningLineFindJTPriceOnAfterSetJobGLAccPriceFilters(JobGLAccPrice, JobPlanningLine);
-                    if JobGLAccPrice.FindFirst() then
-                        CopyJobGLAccPriceToJobPlanLine(JobPlanningLine, JobGLAccPrice)
-                    else begin
-                        JobGLAccPrice.SetRange("Job Task No.", '');
+                Type::"G/L Account":
+                    begin
+                        JobGLAccPrice.SetRange("Job No.", "Job No.");
+                        JobGLAccPrice.SetRange("G/L Account No.", "No.");
+                        JobGLAccPrice.SetRange("Currency Code", "Currency Code");
+                        JobGLAccPrice.SetRange("Job Task No.", "Job Task No.");
+                        OnJobPlanningLineFindJTPriceOnAfterSetJobGLAccPriceFilters(JobGLAccPrice, JobPlanningLine);
                         if JobGLAccPrice.FindFirst() then
-                            CopyJobGLAccPriceToJobPlanLine(JobPlanningLine, JobGLAccPrice);
+                            CopyJobGLAccPriceToJobPlanLine(JobPlanningLine, JobGLAccPrice)
+                        else begin
+                            JobGLAccPrice.SetRange("Job Task No.", '');
+                            if JobGLAccPrice.FindFirst() then
+                                CopyJobGLAccPriceToJobPlanLine(JobPlanningLine, JobGLAccPrice);
+                        end;
                     end;
-                end;
-        end;
+            end;
     end;
 
     local procedure CopyJobItemPriceToJobPlanLine(var JobPlanningLine: Record "Job Planning Line"; JobItemPrice: Record "Job Item Price")
@@ -1316,22 +1343,26 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        if JobItemPrice."Apply Job Price" then begin
-            JobPlanningLine."Unit Price" := JobItemPrice."Unit Price";
-            JobPlanningLine."Cost Factor" := JobItemPrice."Unit Cost Factor";
+        with JobPlanningLine do begin
+            if JobItemPrice."Apply Job Price" then begin
+                "Unit Price" := JobItemPrice."Unit Price";
+                "Cost Factor" := JobItemPrice."Unit Cost Factor";
+            end;
+            if JobItemPrice."Apply Job Discount" then
+                "Line Discount %" := JobItemPrice."Line Discount %";
         end;
-        if JobItemPrice."Apply Job Discount" then
-            JobPlanningLine."Line Discount %" := JobItemPrice."Line Discount %";
     end;
 
     local procedure CopyJobResPriceToJobPlanLine(var JobPlanningLine: Record "Job Planning Line"; JobResPrice: Record "Job Resource Price")
     begin
-        if JobResPrice."Apply Job Price" then begin
-            JobPlanningLine."Unit Price" := JobResPrice."Unit Price" * JobPlanningLine."Qty. per Unit of Measure";
-            JobPlanningLine."Cost Factor" := JobResPrice."Unit Cost Factor";
+        with JobPlanningLine do begin
+            if JobResPrice."Apply Job Price" then begin
+                "Unit Price" := JobResPrice."Unit Price" * "Qty. per Unit of Measure";
+                "Cost Factor" := JobResPrice."Unit Cost Factor";
+            end;
+            if JobResPrice."Apply Job Discount" then
+                "Line Discount %" := JobResPrice."Line Discount %";
         end;
-        if JobResPrice."Apply Job Discount" then
-            JobPlanningLine."Line Discount %" := JobResPrice."Line Discount %";
     end;
 
     local procedure JobPlanningLineFindJobResPrice(var JobPlanningLine: Record "Job Planning Line"; var JobResPrice: Record "Job Resource Price"; PriceType: Option Resource,"Group(Resource)",All): Boolean
@@ -1361,10 +1392,12 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
     local procedure CopyJobGLAccPriceToJobPlanLine(var JobPlanningLine: Record "Job Planning Line"; JobGLAccPrice: Record "Job G/L Account Price")
     begin
-        JobPlanningLine."Unit Cost" := JobGLAccPrice."Unit Cost";
-        JobPlanningLine."Unit Price" := JobGLAccPrice."Unit Price" * JobPlanningLine."Qty. per Unit of Measure";
-        JobPlanningLine."Cost Factor" := JobGLAccPrice."Unit Cost Factor";
-        JobPlanningLine."Line Discount %" := JobGLAccPrice."Line Discount %";
+        with JobPlanningLine do begin
+            "Unit Cost" := JobGLAccPrice."Unit Cost";
+            "Unit Price" := JobGLAccPrice."Unit Price" * "Qty. per Unit of Measure";
+            "Cost Factor" := JobGLAccPrice."Unit Cost Factor";
+            "Line Discount %" := JobGLAccPrice."Line Discount %";
+        end;
     end;
 
     procedure FindJobJnlLinePrice(var JobJnlLine: Record "Job Journal Line"; CalledByFieldNo: Integer)
@@ -1377,44 +1410,46 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        SetCurrency(JobJnlLine."Currency Code", JobJnlLine."Currency Factor", JobJnlLine."Posting Date");
-        SetVAT(false, 0, 0, '');
-        SetUoM(Abs(JobJnlLine.Quantity), JobJnlLine."Qty. per Unit of Measure");
+        with JobJnlLine do begin
+            SetCurrency("Currency Code", "Currency Factor", "Posting Date");
+            SetVAT(false, 0, 0, '');
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
 
-        case JobJnlLine.Type of
-            JobJnlLine.Type::Item:
-                begin
-                    Item.Get(JobJnlLine."No.");
-                    JobJnlLine.TestField("Qty. per Unit of Measure");
-                    Job.Get(JobJnlLine."Job No.");
+            case Type of
+                Type::Item:
+                    begin
+                        Item.Get("No.");
+                        TestField("Qty. per Unit of Measure");
+                        Job.Get("Job No.");
 
-                    FindSalesPrice(
-                      TempSalesPrice, Job."Bill-to Customer No.", Job."Bill-to Contact No.",
-                      JobJnlLine."Customer Price Group", '', JobJnlLine."No.", JobJnlLine."Variant Code", JobJnlLine."Unit of Measure Code",
-                      JobJnlLine."Currency Code", JobJnlLine."Posting Date", false);
-                    CalcBestUnitPrice(TempSalesPrice);
-                    if FoundSalesPrice or
-                       not ((CalledByFieldNo = JobJnlLine.FieldNo(Quantity)) or
-                            (CalledByFieldNo = JobJnlLine.FieldNo("Variant Code")))
-                    then
-                        JobJnlLine."Unit Price" := TempSalesPrice."Unit Price";
-                end;
-            JobJnlLine.Type::Resource:
-                begin
-                    IsHandled := false;
-                    OnFindJobJnlLinePriceOnBeforeResourceGetJob(JobJnlLine, IsHandled);
-                    if not IsHandled then
-                        Job.Get(JobJnlLine."Job No.");
-                    SetResPrice(JobJnlLine."No.", JobJnlLine."Work Type Code", JobJnlLine."Currency Code");
-                    OnBeforeFindJobJnlLineResPrice(JobJnlLine, ResPrice);
-                    CODEUNIT.Run(CODEUNIT::"Resource-Find Price", ResPrice);
-                    IsHandled := false;
-                    OnAfterFindJobJnlLineResPrice(JobJnlLine, ResPrice, CalledByFieldNo, IsHandled);
-                    if not IsHandled then begin
-                        ConvertPriceLCYToFCY(ResPrice."Currency Code", ResPrice."Unit Price");
-                        JobJnlLine."Unit Price" := ResPrice."Unit Price" * JobJnlLine."Qty. per Unit of Measure";
+                        FindSalesPrice(
+                          TempSalesPrice, Job."Bill-to Customer No.", Job."Bill-to Contact No.",
+                          "Customer Price Group", '', "No.", "Variant Code", "Unit of Measure Code",
+                          "Currency Code", "Posting Date", false);
+                        CalcBestUnitPrice(TempSalesPrice);
+                        if FoundSalesPrice or
+                           not ((CalledByFieldNo = FieldNo(Quantity)) or
+                                (CalledByFieldNo = FieldNo("Variant Code")))
+                        then
+                            "Unit Price" := TempSalesPrice."Unit Price";
                     end;
-                end;
+                Type::Resource:
+                    begin
+                        IsHandled := false;
+                        OnFindJobJnlLinePriceOnBeforeResourceGetJob(JobJnlLine, IsHandled);
+                        if not IsHandled then
+                            Job.Get("Job No.");
+                        SetResPrice("No.", "Work Type Code", "Currency Code");
+                        OnBeforeFindJobJnlLineResPrice(JobJnlLine, ResPrice);
+                        CODEUNIT.Run(CODEUNIT::"Resource-Find Price", ResPrice);
+                        IsHandled := false;
+                        OnAfterFindJobJnlLineResPrice(JobJnlLine, ResPrice, CalledByFieldNo, IsHandled);
+                        if not IsHandled then begin
+                            ConvertPriceLCYToFCY(ResPrice."Currency Code", ResPrice."Unit Price");
+                            "Unit Price" := ResPrice."Unit Price" * "Qty. per Unit of Measure";
+                        end;
+                    end;
+            end;
         end;
         OnFindJobJnlLinePriceOnBeforeJobJnlLineFindJTPrice(JobJnlLine);
         JobJnlLineFindJTPrice(JobJnlLine);
@@ -1447,22 +1482,26 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
     local procedure CopyJobResPriceToJobJnlLine(var JobJnlLine: Record "Job Journal Line"; JobResPrice: Record "Job Resource Price")
     begin
-        if JobResPrice."Apply Job Price" then begin
-            JobJnlLine."Unit Price" := JobResPrice."Unit Price" * JobJnlLine."Qty. per Unit of Measure";
-            JobJnlLine."Cost Factor" := JobResPrice."Unit Cost Factor";
+        with JobJnlLine do begin
+            if JobResPrice."Apply Job Price" then begin
+                "Unit Price" := JobResPrice."Unit Price" * "Qty. per Unit of Measure";
+                "Cost Factor" := JobResPrice."Unit Cost Factor";
+            end;
+            if JobResPrice."Apply Job Discount" then
+                "Line Discount %" := JobResPrice."Line Discount %";
         end;
-        if JobResPrice."Apply Job Discount" then
-            JobJnlLine."Line Discount %" := JobResPrice."Line Discount %";
 
         OnAfterCopyJobResPriceToJobJnlLine(JobJnlLine);
     end;
 
     local procedure CopyJobGLAccPriceToJobJnlLine(var JobJnlLine: Record "Job Journal Line"; JobGLAccPrice: Record "Job G/L Account Price")
     begin
-        JobJnlLine."Unit Cost" := JobGLAccPrice."Unit Cost";
-        JobJnlLine."Unit Price" := JobGLAccPrice."Unit Price" * JobJnlLine."Qty. per Unit of Measure";
-        JobJnlLine."Cost Factor" := JobGLAccPrice."Unit Cost Factor";
-        JobJnlLine."Line Discount %" := JobGLAccPrice."Line Discount %";
+        with JobJnlLine do begin
+            "Unit Cost" := JobGLAccPrice."Unit Cost";
+            "Unit Price" := JobGLAccPrice."Unit Price" * "Qty. per Unit of Measure";
+            "Cost Factor" := JobGLAccPrice."Unit Cost Factor";
+            "Line Discount %" := JobGLAccPrice."Line Discount %";
+        end;
     end;
 
     procedure JobJnlLineFindJTPrice(var JobJnlLine: Record "Job Journal Line")
@@ -1471,70 +1510,71 @@ codeunit 7000 "Sales Price Calc. Mgt."
         JobResPrice: Record "Job Resource Price";
         JobGLAccPrice: Record "Job G/L Account Price";
     begin
-        case JobJnlLine.Type of
-            JobJnlLine.Type::Item:
-                begin
-                    JobItemPrice.SetRange("Job No.", JobJnlLine."Job No.");
-                    JobItemPrice.SetRange("Item No.", JobJnlLine."No.");
-                    JobItemPrice.SetRange("Variant Code", JobJnlLine."Variant Code");
-                    JobItemPrice.SetRange("Unit of Measure Code", JobJnlLine."Unit of Measure Code");
-                    JobItemPrice.SetRange("Currency Code", JobJnlLine."Currency Code");
-                    JobItemPrice.SetRange("Job Task No.", JobJnlLine."Job Task No.");
-                    OnJobJnlLineFindJTPriceOnAfterSetJobItemPriceFilters(JobItemPrice, JobJnlLine);
-                    if JobItemPrice.FindFirst() then
-                        CopyJobItemPriceToJobJnlLine(JobJnlLine, JobItemPrice)
-                    else begin
-                        JobItemPrice.SetRange("Job Task No.", ' ');
+        with JobJnlLine do
+            case Type of
+                Type::Item:
+                    begin
+                        JobItemPrice.SetRange("Job No.", "Job No.");
+                        JobItemPrice.SetRange("Item No.", "No.");
+                        JobItemPrice.SetRange("Variant Code", "Variant Code");
+                        JobItemPrice.SetRange("Unit of Measure Code", "Unit of Measure Code");
+                        JobItemPrice.SetRange("Currency Code", "Currency Code");
+                        JobItemPrice.SetRange("Job Task No.", "Job Task No.");
+                        OnJobJnlLineFindJTPriceOnAfterSetJobItemPriceFilters(JobItemPrice, JobJnlLine);
                         if JobItemPrice.FindFirst() then
-                            CopyJobItemPriceToJobJnlLine(JobJnlLine, JobItemPrice);
-                    end;
-                    if JobItemPrice.IsEmpty() or (not JobItemPrice."Apply Job Discount") then
-                        FindJobJnlLineLineDisc(JobJnlLine);
-                    OnAfterJobJnlLineFindJTPriceItem(JobJnlLine);
-                end;
-            JobJnlLine.Type::Resource:
-                begin
-                    Res.Get(JobJnlLine."No.");
-                    JobResPrice.SetRange("Job No.", JobJnlLine."Job No.");
-                    JobResPrice.SetRange("Currency Code", JobJnlLine."Currency Code");
-                    JobResPrice.SetRange("Job Task No.", JobJnlLine."Job Task No.");
-                    case true of
-                        JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::Resource):
-                            CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
-                        JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::"Group(Resource)"):
-                            CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
-                        JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::All):
-                            CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
+                            CopyJobItemPriceToJobJnlLine(JobJnlLine, JobItemPrice)
                         else begin
-                            JobResPrice.SetRange("Job Task No.", '');
-                            case true of
-                                JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::Resource):
-                                    CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
-                                JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::"Group(Resource)"):
-                                    CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
-                                JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::All):
-                                    CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
+                            JobItemPrice.SetRange("Job Task No.", ' ');
+                            if JobItemPrice.FindFirst() then
+                                CopyJobItemPriceToJobJnlLine(JobJnlLine, JobItemPrice);
+                        end;
+                        if JobItemPrice.IsEmpty() or (not JobItemPrice."Apply Job Discount") then
+                            FindJobJnlLineLineDisc(JobJnlLine);
+                        OnAfterJobJnlLineFindJTPriceItem(JobJnlLine);
+                    end;
+                Type::Resource:
+                    begin
+                        Res.Get("No.");
+                        JobResPrice.SetRange("Job No.", "Job No.");
+                        JobResPrice.SetRange("Currency Code", "Currency Code");
+                        JobResPrice.SetRange("Job Task No.", "Job Task No.");
+                        case true of
+                            JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::Resource):
+                                CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
+                            JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::"Group(Resource)"):
+                                CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
+                            JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::All):
+                                CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
+                            else begin
+                                JobResPrice.SetRange("Job Task No.", '');
+                                case true of
+                                    JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::Resource):
+                                        CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
+                                    JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::"Group(Resource)"):
+                                        CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
+                                    JobJnlLineFindJobResPrice(JobJnlLine, JobResPrice, JobResPrice.Type::All):
+                                        CopyJobResPriceToJobJnlLine(JobJnlLine, JobResPrice);
+                                end;
                             end;
                         end;
+                        OnAfterJobJnlLineFindJTPriceResource(JobJnlLine);
                     end;
-                    OnAfterJobJnlLineFindJTPriceResource(JobJnlLine);
-                end;
-            JobJnlLine.Type::"G/L Account":
-                begin
-                    JobGLAccPrice.SetRange("Job No.", JobJnlLine."Job No.");
-                    JobGLAccPrice.SetRange("G/L Account No.", JobJnlLine."No.");
-                    JobGLAccPrice.SetRange("Currency Code", JobJnlLine."Currency Code");
-                    JobGLAccPrice.SetRange("Job Task No.", JobJnlLine."Job Task No.");
-                    if JobGLAccPrice.FindFirst() then
-                        CopyJobGLAccPriceToJobJnlLine(JobJnlLine, JobGLAccPrice)
-                    else begin
-                        JobGLAccPrice.SetRange("Job Task No.", '');
-                        if JobGLAccPrice.FindFirst() then;
-                        CopyJobGLAccPriceToJobJnlLine(JobJnlLine, JobGLAccPrice);
+                Type::"G/L Account":
+                    begin
+                        JobGLAccPrice.SetRange("Job No.", "Job No.");
+                        JobGLAccPrice.SetRange("G/L Account No.", "No.");
+                        JobGLAccPrice.SetRange("Currency Code", "Currency Code");
+                        JobGLAccPrice.SetRange("Job Task No.", "Job Task No.");
+                        if JobGLAccPrice.FindFirst() then
+                            CopyJobGLAccPriceToJobJnlLine(JobJnlLine, JobGLAccPrice)
+                        else begin
+                            JobGLAccPrice.SetRange("Job Task No.", '');
+                            if JobGLAccPrice.FindFirst() then;
+                            CopyJobGLAccPriceToJobJnlLine(JobJnlLine, JobGLAccPrice);
+                        end;
+                        OnAfterJobJnlLineFindJTPriceGLAccount(JobJnlLine);
                     end;
-                    OnAfterJobJnlLineFindJTPriceGLAccount(JobJnlLine);
-                end;
-        end;
+            end;
     end;
 
     local procedure CopyJobItemPriceToJobJnlLine(var JobJnlLine: Record "Job Journal Line"; JobItemPrice: Record "Job Item Price")
@@ -1546,26 +1586,30 @@ codeunit 7000 "Sales Price Calc. Mgt."
         if IsHandled then
             exit;
 
-        if JobItemPrice."Apply Job Price" then begin
-            JobJnlLine."Unit Price" := JobItemPrice."Unit Price";
-            JobJnlLine."Cost Factor" := JobItemPrice."Unit Cost Factor";
+        with JobJnlLine do begin
+            if JobItemPrice."Apply Job Price" then begin
+                "Unit Price" := JobItemPrice."Unit Price";
+                "Cost Factor" := JobItemPrice."Unit Cost Factor";
+            end;
+            if JobItemPrice."Apply Job Discount" then
+                "Line Discount %" := JobItemPrice."Line Discount %";
         end;
-        if JobItemPrice."Apply Job Discount" then
-            JobJnlLine."Line Discount %" := JobItemPrice."Line Discount %";
     end;
 
     local procedure FindJobPlanningLineLineDisc(var JobPlanningLine: Record "Job Planning Line")
     begin
-        SetCurrency(JobPlanningLine."Currency Code", JobPlanningLine."Currency Factor", JobPlanningLine."Planning Date");
-        SetUoM(Abs(JobPlanningLine.Quantity), JobPlanningLine."Qty. per Unit of Measure");
-        JobPlanningLine.TestField("Qty. per Unit of Measure");
-        if JobPlanningLine.Type = JobPlanningLine.Type::Item then begin
-            JobPlanningLineLineDiscExists(JobPlanningLine, false);
-            CalcBestLineDisc(TempSalesLineDisc);
-            if AllowLineDisc then
-                JobPlanningLine."Line Discount %" := TempSalesLineDisc."Line Discount %"
-            else
-                JobPlanningLine."Line Discount %" := 0;
+        with JobPlanningLine do begin
+            SetCurrency("Currency Code", "Currency Factor", "Planning Date");
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+            TestField("Qty. per Unit of Measure");
+            if Type = Type::Item then begin
+                JobPlanningLineLineDiscExists(JobPlanningLine, false);
+                CalcBestLineDisc(TempSalesLineDisc);
+                if AllowLineDisc then
+                    "Line Discount %" := TempSalesLineDisc."Line Discount %"
+                else
+                    "Line Discount %" := 0;
+            end;
         end;
 
         OnAfterFindJobPlanningLineLineDisc(JobPlanningLine, TempSalesLineDisc);
@@ -1575,16 +1619,17 @@ codeunit 7000 "Sales Price Calc. Mgt."
     var
         Job: Record Job;
     begin
-        if (JobPlanningLine.Type = JobPlanningLine.Type::Item) and Item.Get(JobPlanningLine."No.") then begin
-            Job.Get(JobPlanningLine."Job No.");
-            OnBeforeJobPlanningLineLineDiscExists(JobPlanningLine);
-            FindSalesLineDisc(
-              TempSalesLineDisc, Job."Bill-to Customer No.", Job."Bill-to Contact No.",
-              Job."Customer Disc. Group", '', JobPlanningLine."No.", Item."Item Disc. Group", JobPlanningLine."Variant Code", JobPlanningLine."Unit of Measure Code",
-              JobPlanningLine."Currency Code", JobPlanningLineStartDate(JobPlanningLine, DateCaption), ShowAll);
-            OnAfterJobPlanningLineLineDiscExists(JobPlanningLine);
-            exit(TempSalesLineDisc.Find('-'));
-        end;
+        with JobPlanningLine do
+            if (Type = Type::Item) and Item.Get("No.") then begin
+                Job.Get("Job No.");
+                OnBeforeJobPlanningLineLineDiscExists(JobPlanningLine);
+                FindSalesLineDisc(
+                  TempSalesLineDisc, Job."Bill-to Customer No.", Job."Bill-to Contact No.",
+                  Job."Customer Disc. Group", '', "No.", Item."Item Disc. Group", "Variant Code", "Unit of Measure Code",
+                  "Currency Code", JobPlanningLineStartDate(JobPlanningLine, DateCaption), ShowAll);
+                OnAfterJobPlanningLineLineDiscExists(JobPlanningLine);
+                exit(TempSalesLineDisc.Find('-'));
+            end;
         exit(false);
     end;
 
@@ -1596,13 +1641,15 @@ codeunit 7000 "Sales Price Calc. Mgt."
 
     local procedure FindJobJnlLineLineDisc(var JobJnlLine: Record "Job Journal Line")
     begin
-        SetCurrency(JobJnlLine."Currency Code", JobJnlLine."Currency Factor", JobJnlLine."Posting Date");
-        SetUoM(Abs(JobJnlLine.Quantity), JobJnlLine."Qty. per Unit of Measure");
-        JobJnlLine.TestField("Qty. per Unit of Measure");
-        if JobJnlLine.Type = JobJnlLine.Type::Item then begin
-            JobJnlLineLineDiscExists(JobJnlLine, false);
-            CalcBestLineDisc(TempSalesLineDisc);
-            JobJnlLine."Line Discount %" := TempSalesLineDisc."Line Discount %";
+        with JobJnlLine do begin
+            SetCurrency("Currency Code", "Currency Factor", "Posting Date");
+            SetUoM(Abs(Quantity), "Qty. per Unit of Measure");
+            TestField("Qty. per Unit of Measure");
+            if Type = Type::Item then begin
+                JobJnlLineLineDiscExists(JobJnlLine, false);
+                CalcBestLineDisc(TempSalesLineDisc);
+                "Line Discount %" := TempSalesLineDisc."Line Discount %";
+            end;
         end;
 
         OnAfterFindJobJnlLineLineDisc(JobJnlLine, TempSalesLineDisc);
@@ -1612,16 +1659,17 @@ codeunit 7000 "Sales Price Calc. Mgt."
     var
         Job: Record Job;
     begin
-        if (JobJnlLine.Type = JobJnlLine.Type::Item) and Item.Get(JobJnlLine."No.") then begin
-            Job.Get(JobJnlLine."Job No.");
-            OnBeforeJobJnlLineLineDiscExists(JobJnlLine);
-            FindSalesLineDisc(
-              TempSalesLineDisc, Job."Bill-to Customer No.", Job."Bill-to Contact No.",
-              Job."Customer Disc. Group", '', JobJnlLine."No.", Item."Item Disc. Group", JobJnlLine."Variant Code", JobJnlLine."Unit of Measure Code",
-              JobJnlLine."Currency Code", JobJnlLineStartDate(JobJnlLine, DateCaption), ShowAll);
-            OnAfterJobJnlLineLineDiscExists(JobJnlLine);
-            exit(TempSalesLineDisc.Find('-'));
-        end;
+        with JobJnlLine do
+            if (Type = Type::Item) and Item.Get("No.") then begin
+                Job.Get("Job No.");
+                OnBeforeJobJnlLineLineDiscExists(JobJnlLine);
+                FindSalesLineDisc(
+                  TempSalesLineDisc, Job."Bill-to Customer No.", Job."Bill-to Contact No.",
+                  Job."Customer Disc. Group", '', "No.", Item."Item Disc. Group", "Variant Code", "Unit of Measure Code",
+                  "Currency Code", JobJnlLineStartDate(JobJnlLine, DateCaption), ShowAll);
+                OnAfterJobJnlLineLineDiscExists(JobJnlLine);
+                exit(TempSalesLineDisc.Find('-'));
+            end;
         exit(false);
     end;
 

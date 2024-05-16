@@ -27,19 +27,21 @@ codeunit 2023 "Image Analysis Wrapper V3.2" implements "Image Analysis Provider"
         VisualFeaturesQueryParameterTxt: Label 'visualFeatures', Locked = true;
         LastError: Text;
 
-    procedure InvokeAnalysis(var JSONManagement: Codeunit "JSON Management"; BaseUrl: Text; ImageAnalysisKey: SecretText; ImagePath: Text; ImageAnalysisTypes: List of [Enum "Image Analysis Type"]; LanguageId: Integer): Boolean
+    [NonDebuggable]
+    procedure InvokeAnalysis(var JSONManagement: Codeunit "JSON Management"; BaseUrl: Text; ImageAnalysisKey: Text; ImagePath: Text; ImageAnalysisTypes: List of [Enum "Image Analysis Type"]; LanguageId: Integer): Boolean
     begin
         exit(TryInvokeAnalysisInternal(JSONManagement, BaseUrl, ImageAnalysisKey, ImagePath, ImageAnalysisTypes, LanguageId));
     end;
 
+    [NonDebuggable]
     [TryFunction]
-    local procedure TryInvokeAnalysisInternal(var JSONManagement: Codeunit "JSON Management"; BaseUrl: Text; ImageAnalysisKey: SecretText; ImagePath: Text; ImageAnalysisTypes: List of [Enum "Image Analysis Type"]; LanguageId: Integer)
+    local procedure TryInvokeAnalysisInternal(var JSONManagement: Codeunit "JSON Management"; BaseUrl: Text; ImageAnalysisKey: Text; ImagePath: Text; ImageAnalysisTypes: List of [Enum "Image Analysis Type"]; LanguageId: Integer)
     var
         PostUrl: Text;
         Language: Text[10];
         HttpRequestMessage: HttpRequestMessage;
     begin
-        if not TryGetImageAnalysisUserLanguage(LanguageId, Language, ImageAnalysisTypes) then
+        If not TryGetImageAnalysisUserLanguage(LanguageId, Language, ImageAnalysisTypes) then
             Error(UnsupportedLanguageErr);
 
         PostUrl := BuildUri(BaseUrl, Language, ImageAnalysisTypes);
@@ -119,7 +121,8 @@ codeunit 2023 "Image Analysis Wrapper V3.2" implements "Image Analysis Provider"
         exit(Uri.GetAbsoluteUri());
     end;
 
-    local procedure PrepareRequest(var HttpRequestMsg: HttpRequestMessage; PostUrl: Text; ImageAnalysisKey: SecretText)
+    [NonDebuggable]
+    local procedure PrepareRequest(var HttpRequestMsg: HttpRequestMessage; PostUrl: Text; ImageAnalysisKey: Text)
     var
         HttpHeaders: HttpHeaders;
     begin

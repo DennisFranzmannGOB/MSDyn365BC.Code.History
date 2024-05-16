@@ -32,7 +32,6 @@ table 5802 "Value Entry"
     Caption = 'Value Entry';
     DrillDownPageID = "Value Entries";
     LookupPageID = "Value Entries";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -402,18 +401,18 @@ table 5802 "Value Entry"
         }
         field(1000; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = Job."No.";
         }
         field(1001; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
         }
         field(1002; "Job Ledger Entry No."; Integer)
         {
             BlankZero = true;
-            Caption = 'Project Ledger Entry No.';
+            Caption = 'Job Ledger Entry No.';
             TableRelation = "Job Ledger Entry"."Entry No.";
         }
         field(5402; "Variant Code"; Code[10])
@@ -461,13 +460,14 @@ table 5802 "Value Entry"
         {
             Clustered = true;
         }
+#pragma warning disable AS0038
         key(Key2; "Item Ledger Entry No.", "Entry Type")
         {
-            IncludedFields = "Invoiced Quantity", "Sales Amount (Expected)", "Sales Amount (Actual)", "Cost Amount (Expected)", "Cost Amount (Actual)", "Cost Amount (Non-Invtbl.)", "Cost Amount (Expected) (ACY)", "Cost Amount (Actual) (ACY)", "Cost Amount (Non-Invtbl.)(ACY)", "Purchase Amount (Actual)", "Purchase Amount (Expected)", "Discount Amount", "Item Charge No.", "Variance Type", "Applies-to Entry";
+            IncludedFields = "Invoiced Quantity", "Sales Amount (Expected)", "Sales Amount (Actual)", "Cost Amount (Expected)", "Cost Amount (Actual)", "Cost Amount (Non-Invtbl.)", "Cost Amount (Expected) (ACY)", "Cost Amount (Actual) (ACY)", "Cost Amount (Non-Invtbl.)(ACY)", "Purchase Amount (Actual)", "Purchase Amount (Expected)", "Discount Amount", "Item Charge No.", "Variance Type";
         }
+#pragma warning restore AS0038
         key(Key3; "Item Ledger Entry No.", "Document No.", "Document Line No.")
         {
-            IncludedFields = "Invoiced Quantity", "Cost Amount (Expected)", "Cost Amount (Actual)", "Cost Amount (Expected) (ACY)", "Cost Amount (Actual) (ACY)", "Entry Type", "Expected Cost", "Item Charge No.";
         }
         key(Key5; "Item No.", "Posting Date", "Item Ledger Entry Type", "Entry Type", "Variance Type", "Item Charge No.", "Location Code", "Variant Code", "Global Dimension 1 Code", "Global Dimension 2 Code", "Source Type", "Source No.")
         {
@@ -732,7 +732,6 @@ table 5802 "Value Entry"
     var
         ItemApplnEntry: Record "Item Application Entry";
         ItemLedgEntry: Record "Item Ledger Entry";
-        SearchedItemLedgerEntry: Record "Item Ledger Entry";
         TempItemLedgEntry: Record "Item Ledger Entry" temporary;
     begin
         if "Partial Revaluation" then
@@ -744,16 +743,15 @@ table 5802 "Value Entry"
         if ItemLedgEntry.Positive then
             exit(false);
 
-        SearchedItemLedgerEntry.SetRange("Item No.", "Item No.");
-        SearchedItemLedgerEntry.SetRange(Positive, true);
-        if IsAvgCostCalcTypeItem then begin
-            SearchedItemLedgerEntry.SetRange("Location Code", "Location Code");
-            SearchedItemLedgerEntry.SetRange("Variant Code", "Variant Code");
-        end;
-        ItemApplnEntry.SetSearchedItemLedgerEntry(SearchedItemLedgerEntry);
         ItemApplnEntry.GetVisitedEntries(ItemLedgEntry, TempItemLedgEntry, true);
-        TempItemLedgEntry.CopyFilters(SearchedItemLedgerEntry);
-        exit(not TempItemLedgEntry.IsEmpty());
+        TempItemLedgEntry.SetCurrentKey("Item No.", Positive, "Location Code", "Variant Code");
+        TempItemLedgEntry.SetRange("Item No.", "Item No.");
+        TempItemLedgEntry.SetRange(Positive, true);
+        if not IsAvgCostCalcTypeItem then begin
+            TempItemLedgEntry.SetRange("Location Code", "Location Code");
+            TempItemLedgEntry.SetRange("Variant Code", "Variant Code");
+        end;
+        exit(not TempItemLedgEntry.IsEmpty);
     end;
 
     procedure ShowDimensions()

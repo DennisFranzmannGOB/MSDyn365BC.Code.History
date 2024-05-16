@@ -130,6 +130,27 @@ page 9610 "XML Schema Viewer"
     {
         area(processing)
         {
+            action(GenerateXMLPort)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Generate XMLport';
+                Image = Export;
+                ToolTip = 'Create the XMLport object for import into the Object Designer.';
+                Visible = false;
+                ObsoleteReason = 'Functionality will be reomved';
+                ObsoleteState = Pending;
+                ObsoleteTag = '18.0';
+
+                trigger OnAction()
+                var
+                    XSDParser: Codeunit "XSD Parser";
+                begin
+                    if NewObjectNo = 0 then
+                        Error(NoObjectIDErr);
+
+                    XSDParser.CreateXMLPortFile(Rec, NewObjectNo, Rec."XML Schema Code", true, false);
+                end;
+            }
             action(GenerateDataExchSetup)
             {
                 ApplicationArea = Basic, Suite;
@@ -233,6 +254,12 @@ page 9610 "XML Schema Viewer"
                 actionref(GenerateDataExchSetup_Promoted; GenerateDataExchSetup)
                 {
                 }
+                actionref(GenerateXMLPort_Promoted; GenerateXMLPort)
+                {
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Functionality will be reomved';
+                    ObsoleteTag = '18.0';
+                }
             }
             group(Category_Report)
             {
@@ -301,6 +328,7 @@ page 9610 "XML Schema Viewer"
         XMLSchemaCode: Code[20];
         XMLSchemaCodeInternal: Code[20];
         NewObjectNo: Integer;
+        NoObjectIDErr: Label 'You must provide an object number.';
         NewObjectNoInternal: Integer;
         DeselectQst: Label 'Do you want to deselect all elements?';
         StyleExpression: Text;

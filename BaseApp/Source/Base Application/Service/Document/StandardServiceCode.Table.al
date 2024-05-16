@@ -10,7 +10,6 @@ table 5996 "Standard Service Code"
     Caption = 'Standard Service Code';
     DataCaptionFields = "Code", Description;
     LookupPageID = "Standard Service Codes";
-    DataClassification = CustomerContent;
 
     fields
     {

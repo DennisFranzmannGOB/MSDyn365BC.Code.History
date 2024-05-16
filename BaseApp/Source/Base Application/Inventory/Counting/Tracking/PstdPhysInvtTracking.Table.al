@@ -10,7 +10,6 @@ table 5884 "Pstd. Phys. Invt. Tracking"
     Caption = 'Pstd. Phys. Invt. Tracking';
     DrillDownPageID = "Posted Phys. Invt. Tracking";
     LookupPageID = "Posted Phys. Invt. Tracking";
-    DataClassification = CustomerContent;
 
     fields
     {

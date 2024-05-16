@@ -99,32 +99,34 @@ codeunit 5810 "Change Average Cost Setting"
 
         AvgCostEntryPointHandler.DeleteBuffer(Item."No.", StartingValuationDate);
 
-        ValueEntry.Reset();
-        ValueEntry.SetCurrentKey("Item No.", "Valuation Date", "Location Code", "Variant Code");
+        with ValueEntry do begin
+            Reset();
+            SetCurrentKey("Item No.", "Valuation Date", "Location Code", "Variant Code");
 
-        ValueEntry.SetRange("Item No.", Item."No.");
-        ValueEntry.SetFilter("Valuation Date", '>=%1', StartingValuationDate);
-        if ValueEntry.Find('-') then begin
-            repeat
-                UpDateWindow(ValueEntry."Item No.", ValueEntry."Valuation Date");
+            SetRange("Item No.", Item."No.");
+            SetFilter("Valuation Date", '>=%1', StartingValuationDate);
+            if Find('-') then begin
+                repeat
+                    UpDateWindow("Item No.", "Valuation Date");
 
-                AvgCostEntryPointHandler.UpdateValuationDate(ValueEntry);
+                    AvgCostEntryPointHandler.UpdateValuationDate(ValueEntry);
 
-                ValueEntry.SetRange("Valuation Date", ValueEntry."Valuation Date");
-                if InvtSetup."Average Cost Calc. Type" =
-                   InvtSetup."Average Cost Calc. Type"::"Item & Location & Variant"
-                then begin
-                    ValueEntry.SetRange("Location Code", ValueEntry."Location Code");
-                    ValueEntry.SetRange("Variant Code", ValueEntry."Variant Code");
-                end;
-                OnProcessItemAvgCostPointOnBeforeFindLastValueEntry(ValueEntry);
-                if ValueEntry.Find('+') then;
-                ValueEntry.SetRange("Valuation Date");
-                ValueEntry.SetRange("Location Code");
-                ValueEntry.SetRange("Variant Code");
-            until ValueEntry.Next() = 0;
-            Item."Cost is Adjusted" := false;
-            Item.Modify();
+                    SetRange("Valuation Date", "Valuation Date");
+                    if InvtSetup."Average Cost Calc. Type" =
+                       InvtSetup."Average Cost Calc. Type"::"Item & Location & Variant"
+                    then begin
+                        SetRange("Location Code", "Location Code");
+                        SetRange("Variant Code", "Variant Code");
+                    end;
+                    OnProcessItemAvgCostPointOnBeforeFindLastValueEntry(ValueEntry);
+                    if Find('+') then;
+                    SetRange("Valuation Date");
+                    SetRange("Location Code");
+                    SetRange("Variant Code");
+                until Next() = 0;
+                Item."Cost is Adjusted" := false;
+                Item.Modify();
+            end;
         end;
     end;
 

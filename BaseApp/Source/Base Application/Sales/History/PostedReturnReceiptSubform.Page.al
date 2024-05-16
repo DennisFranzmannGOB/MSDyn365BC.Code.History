@@ -109,7 +109,7 @@ page 6661 "Posted Return Receipt Subform"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = SalesReturnOrder;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Appl.-to Item Entry"; Rec."Appl.-to Item Entry")
@@ -272,12 +272,11 @@ page 6661 "Posted Return Receipt Subform"
 
     procedure ShowDocumentLineTracking()
     var
-        DocumentLineTrackingPage: Page "Document Line Tracking";
+        DocumentLineTracking: Page "Document Line Tracking";
     begin
-        Clear(DocumentLineTrackingPage);
-        DocumentLineTrackingPage.SetSourceDoc(
-            "Document Line Source Type"::"Return Receipt", Rec."Document No.", Rec."Line No.", Rec."Return Order No.", Rec."Return Order Line No.", '', 0);
-        DocumentLineTrackingPage.RunModal();
+        Clear(DocumentLineTracking);
+        DocumentLineTracking.SetDoc(12, Rec."Document No.", Rec."Line No.", Rec."Return Order No.", Rec."Return Order Line No.", '', 0);
+        DocumentLineTracking.RunModal();
     end;
 }
 

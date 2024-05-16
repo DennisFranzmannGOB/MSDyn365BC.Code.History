@@ -3,7 +3,6 @@ namespace System.Environment.Configuration;
 table 1519 "Notification Context"
 {
     Caption = 'Notification Context';
-    DataClassification = CustomerContent;
 
     fields
     {

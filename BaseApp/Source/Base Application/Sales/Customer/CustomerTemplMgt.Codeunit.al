@@ -106,7 +106,7 @@ codeunit 1381 "Customer Templ. Mgt."
                 if (not UpdateExistingValues and (CustomerFldRef.Value = EmptyCustomerFldRef.Value) and (CustomerTemplFldRef.Value <> EmptyCustomerTemplFldRef.Value)) or
                    (UpdateExistingValues and (CustomerTemplFldRef.Value <> EmptyCustomerTemplFldRef.Value))
                 then
-                    CustomerFldRef.Value := CustomerTemplFldRef.Value();
+                    CustomerFldRef.Value := CustomerTemplFldRef.Value;
             end;
         end;
         CustomerRecRef.SetTable(Customer);
@@ -352,19 +352,12 @@ codeunit 1381 "Customer Templ. Mgt."
 
     procedure InitCustomerNo(var Customer: Record Customer; CustomerTempl: Record "Customer Templ.")
     var
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
     begin
         if CustomerTempl."No. Series" = '' then
             exit;
 
-        Customer."No. Series" := CustomerTempl."No. Series";
-        if Customer."No." <> '' then begin
-            NoSeries.TestManual(Customer."No. Series");
-            exit;
-        end;
-
-        NoSeries.TestAutomatic(Customer."No. Series");
-        Customer."No." := NoSeries.GetNextNo(Customer."No. Series");
+        NoSeriesManagement.InitSeries(CustomerTempl."No. Series", '', 0D, Customer."No.", Customer."No. Series");
     end;
 
     local procedure TemplateFieldCanBeProcessed(FieldNumber: Integer; FieldExclusionList: List of [Integer]): Boolean
@@ -582,19 +575,18 @@ codeunit 1381 "Customer Templ. Mgt."
     procedure FillCustomerKeyFromInitSeries(var RecRef: RecordRef; ConfigTemplateHeader: Record "Config. Template Header")
     var
         Customer: Record Customer;
-        NoSeries: Codeunit "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         FldRef: FieldRef;
     begin
         if RecRef.Number = Database::Customer then begin
             if ConfigTemplateHeader."Instance No. Series" = '' then
                 exit;
 
-            NoSeries.TestAutomatic(ConfigTemplateHeader."Instance No. Series");
-
+            NoSeriesManagement.InitSeries(ConfigTemplateHeader."Instance No. Series", '', 0D, Customer."No.", Customer."No. Series");
             FldRef := RecRef.Field(Customer.FieldNo("No."));
-            FldRef.Value := NoSeries.GetNextNo(ConfigTemplateHeader."Instance No. Series");
+            FldRef.Value := Customer."No.";
             FldRef := RecRef.Field(Customer.FieldNo("No. Series"));
-            FldRef.Value := ConfigTemplateHeader."Instance No. Series";
+            FldRef.Value := Customer."No. Series";
         end;
     end;
 

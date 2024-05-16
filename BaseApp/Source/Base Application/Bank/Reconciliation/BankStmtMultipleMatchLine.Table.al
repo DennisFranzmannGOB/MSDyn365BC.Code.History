@@ -5,7 +5,6 @@ using Microsoft.Finance.GeneralLedger.Journal;
 table 1249 "Bank Stmt Multiple Match Line"
 {
     Caption = 'Bank Stmt Multiple Match Line';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -27,7 +27,7 @@ page 1831 "Outlook Centralized Deployment"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and not InstructionsStepVisible;
+                Visible = TopBannerVisible AND NOT InstructionsStepVisible;
                 field(MediaResourcesStandard; MediaResourcesStandard."Media Reference")
                 {
                     ApplicationArea = Basic, Suite;
@@ -39,7 +39,7 @@ page 1831 "Outlook Centralized Deployment"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and InstructionsStepVisible;
+                Visible = TopBannerVisible AND InstructionsStepVisible;
                 field(MediaResourcesDone; MediaResourcesDone."Media Reference")
                 {
                     ApplicationArea = Basic, Suite;

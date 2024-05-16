@@ -12,7 +12,7 @@ page 930 "Assembly Quote"
     PageType = Document;
     SourceTable = "Assembly Header";
     SourceTableView = sorting("Document Type", "No.")
-                      order(ascending)
+                      ORDER(Ascending)
                       where("Document Type" = const(Quote));
 
     layout

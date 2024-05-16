@@ -7,7 +7,6 @@ table 403 "Change Log Setup (Table)"
 {
     Caption = 'Change Log Setup (Table)';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -18,7 +17,7 @@ table 403 "Change Log Setup (Table)"
         }
         field(2; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Table No.")));
             Caption = 'Table Caption';
             FieldClass = FlowField;
@@ -122,10 +121,11 @@ table 403 "Change Log Setup (Table)"
                     2:
                         ChangeLogSetupField."Log Deletion" := false;
                 end;
-                if ChangeLogSetupField."Log Insertion" or ChangeLogSetupField."Log Modification" or ChangeLogSetupField."Log Deletion" then
-                    ChangeLogSetupField.Modify()
-                else
-                    ChangeLogSetupField.Delete();
+                with ChangeLogSetupField do
+                    if "Log Insertion" or "Log Modification" or "Log Deletion" then
+                        Modify()
+                    else
+                        Delete();
             until ChangeLogSetupField.Next() = 0;
     end;
 }

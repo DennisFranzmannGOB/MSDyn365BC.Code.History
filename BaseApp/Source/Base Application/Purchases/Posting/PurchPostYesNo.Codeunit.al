@@ -70,18 +70,20 @@ codeunit 91 "Purch.-Post (Yes/No)"
         if IsHandled then
             exit(Result);
 
-        case PurchaseHeader."Document Type" of
-            PurchaseHeader."Document Type"::Order:
-                if not SelectPostOrderOption(PurchaseHeader, DefaultOption) then
-                    exit(false);
-            PurchaseHeader."Document Type"::"Return Order":
-                if not SelectPostReturnOrderOption(PurchaseHeader, DefaultOption) then
-                    exit(false);
-            else
-                if not PostingSelectionManagement.ConfirmPostPurchaseDocument(PurchaseHeader, DefaultOption, false, false) then
-                    exit(false);
+        with PurchaseHeader do begin
+            case "Document Type" of
+                "Document Type"::Order:
+                    if not SelectPostOrderOption(PurchaseHeader, DefaultOption) then
+                        exit(false);
+                "Document Type"::"Return Order":
+                    if not SelectPostReturnOrderOption(PurchaseHeader, DefaultOption) then
+                        exit(false);
+                else
+                    if not PostingSelectionManagement.ConfirmPostPurchaseDocument(PurchaseHeader, DefaultOption, false, false) then
+                        exit(false);
+            end;
+            "Print Posted Documents" := false;
         end;
-        PurchaseHeader."Print Posted Documents" := false;
         exit(true);
     end;
 
@@ -122,17 +124,6 @@ codeunit 91 "Purch.-Post (Yes/No)"
         GenJnlPostPreview.Preview(PurchPostYesNo, PurchaseHeader);
     end;
 
-    procedure MessageIfPostingPreviewMultipleDocuments(var PurchaseHeaderToPreview: Record "Purchase Header"; DocumentNo: Code[20])
-    var
-        GenJnlPostPreview: Codeunit "Gen. Jnl.-Post Preview";
-        RecordRefToPreview: RecordRef;
-    begin
-        RecordRefToPreview.Open(Database::"Purchase Header");
-        RecordRefToPreview.Copy(PurchaseHeaderToPreview);
-
-        GenJnlPostPreview.MessageIfPostingPreviewMultipleDocuments(RecordRefToPreview, DocumentNo);
-    end;
-
     [IntegrationEvent(false, false)]
     local procedure OnAfterPost(var PurchaseHeader: Record "Purchase Header")
     begin
@@ -155,10 +146,12 @@ codeunit 91 "Purch.-Post (Yes/No)"
         if IsHandled then
             exit;
 
-        PurchaseHeader.Copy(RecVar);
-        PurchaseHeader.Ship := PurchaseHeader."Document Type" = PurchaseHeader."Document Type"::"Return Order";
-        PurchaseHeader.Receive := PurchaseHeader."Document Type" = PurchaseHeader."Document Type"::Order;
-        PurchaseHeader.Invoice := true;
+        with PurchaseHeader do begin
+            Copy(RecVar);
+            Ship := "Document Type" = "Document Type"::"Return Order";
+            Receive := "Document Type" = "Document Type"::Order;
+            Invoice := true;
+        end;
         OnRunPreviewOnBeforePurchPostRun(PurchaseHeader);
         PurchPost.SetPreviewMode(true);
         Result := PurchPost.Run(PurchaseHeader);

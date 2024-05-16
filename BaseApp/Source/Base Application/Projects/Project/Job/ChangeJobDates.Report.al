@@ -4,9 +4,8 @@ using Microsoft.Projects.Project.Journal;
 
 report 1087 "Change Job Dates"
 {
-    AdditionalSearchTerms = 'Change Job Planning Line Dates';
     ApplicationArea = Jobs;
-    Caption = 'Change Project Planning Line Dates';
+    Caption = 'Change Job Planning Line Dates';
     ProcessingOnly = true;
     UsageCategory = Tasks;
 
@@ -57,7 +56,7 @@ report 1087 "Change Job Dates"
                         {
                             ApplicationArea = Jobs;
                             Caption = 'Change Currency Date';
-                            ToolTip = 'Specifies that currencies will be updated on the projects that are included in the batch job.';
+                            ToolTip = 'Specifies that currencies will be updated on the jobs that are included in the batch job.';
                         }
                         field(ChangeDateExpressionCurrency; PeriodLength)
                         {
@@ -86,7 +85,7 @@ report 1087 "Change Job Dates"
                             ApplicationArea = Jobs;
                             Caption = 'Include Line type';
                             OptionCaption = ' ,Budget,Billable,Budget+Billable';
-                            ToolTip = 'Specifies the project planning line type you want to change the currency date for.';
+                            ToolTip = 'Specifies the job planning line type you want to change the currency date for.';
                         }
                         field(IncludeCurrDateFrom; StartingDate)
                         {
@@ -108,7 +107,7 @@ report 1087 "Change Job Dates"
                         {
                             ApplicationArea = Jobs;
                             Caption = 'Change Planning Date';
-                            ToolTip = 'Specifies that planning dates will be changed on the projects that are included in the batch job.';
+                            ToolTip = 'Specifies that planning dates will be changed on the jobs that are included in the batch job.';
                         }
                         field(ChangeDateExpressionPlanning; PeriodLength2)
                         {
@@ -137,7 +136,7 @@ report 1087 "Change Job Dates"
                             ApplicationArea = Jobs;
                             Caption = 'Include Line type';
                             OptionCaption = ' ,Budget,Billable,Budget+Billable';
-                            ToolTip = 'Specifies the project planning line type you want to change the planning date for.';
+                            ToolTip = 'Specifies the job planning line type you want to change the planning date for.';
                         }
                         field(IncludePlanDateFrom; StartingDate2)
                         {

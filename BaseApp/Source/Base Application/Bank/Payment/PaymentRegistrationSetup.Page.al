@@ -4,7 +4,7 @@ page 982 "Payment Registration Setup"
 {
     ApplicationArea = Basic, Suite;
     Caption = 'Payment Registration Setup';
-    DataCaptionExpression = PageCaptionVariable;
+    DataCaptionExpression = PageCaption;
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = StandardDialog;
@@ -70,7 +70,7 @@ page 982 "Payment Registration Setup"
             Rec.Insert();
         end;
 
-        PageCaptionVariable := '';
+        PageCaption := '';
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -80,6 +80,6 @@ page 982 "Payment Registration Setup"
     end;
 
     var
-        PageCaptionVariable: Text[10];
+        PageCaption: Text[10];
 }
 

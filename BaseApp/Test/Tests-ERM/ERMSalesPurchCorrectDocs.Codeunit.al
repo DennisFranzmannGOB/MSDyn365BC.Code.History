@@ -130,7 +130,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibrarySales.CreateCustomer(Customer);
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, Customer."No.");
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Modify(true);
         CleanSalesLineDiscAccountOnGenPostingSetup(SalesLine, GeneralPostingSetup);
@@ -170,7 +170,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibraryPurchase.CreateVendor(Vendor);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, Vendor."No.");
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(10));
         PurchaseLine.Modify(true);
         CleanPurchLineDiscAccountOnGenPostingSetup(PurchaseLine, GeneralPostingSetup);
@@ -910,7 +910,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         SalesLine.Modify(true);
         SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, true);
+        CreateInventoryPeriod(WorkDate + 1, true);
 
         Commit();
 
@@ -940,7 +940,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         SalesLine.Modify(true);
         SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, false);
+        CreateInventoryPeriod(WorkDate + 1, false);
 
         Commit();
 
@@ -965,12 +965,12 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
 
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, LibrarySales.CreateCustomerNo());
         LibrarySales.CreateSalesLine(
-            SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), 1);
+            SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, 1);
         SalesLine.Validate("Unit Price", LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Modify(true);
         SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, true);
+        CreateInventoryPeriod(WorkDate + 1, true);
 
         Commit();
 
@@ -997,12 +997,12 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
 
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, LibrarySales.CreateCustomerNo());
         LibrarySales.CreateSalesLine(
-            SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), 1);
+            SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, 1);
         SalesLine.Validate("Unit Price", LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Modify(true);
         SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, false);
+        CreateInventoryPeriod(WorkDate + 1, false);
 
         Commit();
 
@@ -1016,6 +1016,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         InventoryPeriod: Record "Inventory Period";
         SalesHeader: Record "Sales Header";
         SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesLine: Record "Sales Line";
         CorrectPostedSalesInvoice: Codeunit "Correct Posted Sales Invoice";
     begin
         // [FEATURE] [Sales] [Invoice] [UT]
@@ -1028,7 +1029,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
 
         SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, true);
+        CreateInventoryPeriod(WorkDate + 1, true);
 
         Commit();
 
@@ -1056,7 +1057,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
 
         SalesInvoiceHeader.Get(LibrarySales.PostSalesDocument(SalesHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, false);
+        CreateInventoryPeriod(WorkDate + 1, false);
 
         Commit();
 
@@ -1087,7 +1088,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         PurchaseLine.Modify(true);
         PurchInvHeader.Get(LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, true);
+        CreateInventoryPeriod(WorkDate + 1, true);
 
         Commit();
 
@@ -1118,7 +1119,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         PurchaseLine.Modify(true);
         PurchInvHeader.Get(LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, false);
+        CreateInventoryPeriod(WorkDate + 1, false);
 
         Commit();
 
@@ -1149,7 +1150,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         PurchaseLine.Modify(true);
         PurchInvHeader.Get(LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, true);
+        CreateInventoryPeriod(WorkDate + 1, true);
 
         Commit();
 
@@ -1182,7 +1183,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         PurchaseLine.Modify(true);
         PurchInvHeader.Get(LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true));
 
-        CreateInventoryPeriod(WorkDate() + 1, false);
+        CreateInventoryPeriod(WorkDate + 1, false);
 
         Commit();
 
@@ -1210,7 +1211,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         PurchInvHeader.Get(LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true));
         UpdateGLAccountsInGeneralPostingSetupFromPurchaseInvoiceLine(PurchInvHeader);
 
-        CreateInventoryPeriod(WorkDate() + 1, true);
+        CreateInventoryPeriod(WorkDate + 1, true);
 
         Commit();
 
@@ -1239,7 +1240,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         PurchInvHeader.Get(LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, true));
         UpdateGLAccountsInGeneralPostingSetupFromPurchaseInvoiceLine(PurchInvHeader);
 
-        CreateInventoryPeriod(WorkDate() + 1, false);
+        CreateInventoryPeriod(WorkDate + 1, false);
 
         Commit();
 
@@ -1268,7 +1269,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibrarySales.CreateCustomer(Customer);
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, Customer."No.");
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Modify(true);
         CleanSalesLineDiscAccountOnGenPostingSetup(SalesLine, GeneralPostingSetup);
@@ -1309,7 +1310,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibraryPurchase.CreateVendor(Vendor);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, Vendor."No.");
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(10));
         PurchaseLine.Modify(true);
         CleanPurchLineDiscAccountOnGenPostingSetup(PurchaseLine, GeneralPostingSetup);
@@ -1350,7 +1351,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibrarySales.CreateCustomer(Customer);
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, Customer."No.");
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Modify(true);
         CleanSalesLineDiscAccountOnGenPostingSetup(SalesLine, GeneralPostingSetup);
@@ -1391,7 +1392,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibraryPurchase.CreateVendor(Vendor);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, Vendor."No.");
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(10));
         PurchaseLine.Modify(true);
         CleanPurchLineDiscAccountOnGenPostingSetup(PurchaseLine, GeneralPostingSetup);
@@ -1432,7 +1433,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibrarySales.CreateCustomer(Customer);
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, Customer."No.");
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Validate("Line Discount %", LibraryRandom.RandIntInRange(1, 10));
         SalesLine.Modify(true);
@@ -1471,7 +1472,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibraryPurchase.CreateVendor(Vendor);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, Vendor."No.");
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(10));
         PurchaseLine.Validate("Line Discount %", LibraryRandom.RandIntInRange(1, 10));
         PurchaseLine.Modify(true);
@@ -1510,7 +1511,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibrarySales.CreateCustomer(Customer);
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, Customer."No.");
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Validate("Line Discount %", LibraryRandom.RandIntInRange(1, 10));
         SalesLine.Modify(true);
@@ -1549,7 +1550,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibraryPurchase.CreateVendor(Vendor);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, Vendor."No.");
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(10));
         PurchaseLine.Validate("Line Discount %", LibraryRandom.RandIntInRange(1, 10));
         PurchaseLine.Modify(true);
@@ -1588,7 +1589,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibrarySales.CreateCustomer(Customer);
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, Customer."No.");
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Validate("Line Discount %", 0);
         SalesLine.Modify(true);
@@ -1628,7 +1629,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibraryPurchase.CreateVendor(Vendor);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, Vendor."No.");
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(10));
         PurchaseLine.Validate("Line Discount %", 0);
         PurchaseLine.Modify(true);
@@ -1668,7 +1669,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibrarySales.CreateCustomer(Customer);
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Invoice, Customer."No.");
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Validate("Line Discount %", 0);
         SalesLine.Modify(true);
@@ -1708,7 +1709,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         LibraryPurchase.CreateVendor(Vendor);
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Invoice, Vendor."No.");
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(10));
         PurchaseLine.Validate("Line Discount %", 0);
         PurchaseLine.Modify(true);
@@ -1742,7 +1743,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         // [GIVEN] Create purchase order with item "I" line
         LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, LibraryPurchase.CreateVendorNo());
         LibraryPurchase.CreatePurchaseLine(
-          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         PurchaseLine.Validate("Direct Unit Cost", LibraryRandom.RandInt(10));
         PurchaseLine.Modify(true);
         // [GIVEN] Create purchase line for item charge "IC", unit cost = 1000 and quantity to receipt/invoice = 0
@@ -1782,7 +1783,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         // [GIVEN] Create sales order with item "I" line
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
         LibrarySales.CreateSalesLine(
-          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+          SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Modify(true);
         // [GIVEN] Create sales line for item charge "IC", unit price = 1000 and quantity to ship/invoice = 0
@@ -1823,7 +1824,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
         // [GIVEN] Posted sales invoice
         LibrarySales.CreateSalesHeader(SalesHeader, SalesHeader."Document Type"::Order, LibrarySales.CreateCustomerNo());
         LibrarySales.CreateSalesLine(
-            SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo(), LibraryRandom.RandIntInRange(10, 20));
+            SalesLine, SalesHeader, SalesLine.Type::Item, LibraryInventory.CreateItemNo, LibraryRandom.RandIntInRange(10, 20));
         SalesLine.Validate("Unit Price", LibraryRandom.RandInt(10));
         SalesLine.Validate("Location Code", LibraryWarehouse.CreateLocationWithInventoryPostingSetup(Location));
         SalesLine.Modify(true);
@@ -2331,6 +2332,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
     var
         PurchRcptLine: Record "Purch. Rcpt. Line";
         ItemLedgerEntry: Record "Item Ledger Entry";
+        PurchaseLine: Record "Purchase Line";
     begin
         PurchaseHeader."Vendor Invoice No." := LibraryUtility.GenerateGUID();
         PurchaseHeader.Modify();
@@ -2351,6 +2353,7 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
     local procedure PostAndVerifyPurchaseDocumentAfterUndoWithResource(var PurchaseHeader: Record "Purchase Header")
     var
         PurchInvLine: Record "Purch. Inv. Line";
+        PurchaseLine: Record "Purchase Line";
         ResLedgerEntry: Record "Res. Ledger Entry";
     begin
         PurchaseHeader."Vendor Invoice No." := LibraryUtility.GenerateGUID();
@@ -2371,6 +2374,9 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
     end;
 
     local procedure PostAndVerifySalesDocumentAfterUndoWithGLAccount(var SalesHeader: Record "Sales Header")
+    var
+        SalesShipmentLine: Record "Sales Shipment Line";
+        ItemLedgerEntry: Record "Item Ledger Entry";
     begin
         LibrarySales.PostSalesDocument(SalesHeader, true, true);
         asserterror SalesHeader.Get(SalesHeader."Document Type", SalesHeader."No.");
@@ -2473,17 +2479,17 @@ codeunit 134398 "ERM Sales/Purch. Correct. Docs"
     [Scope('OnPrem')]
     procedure ItemTrackingLinesPageHandler(var ItemTrackingLines: TestPage "Item Tracking Lines")
     begin
-        ItemTrackingLines.New();
+        ItemTrackingLines.New;
         ItemTrackingLines."Lot No.".SetValue(LibraryUtility.GenerateGUID());
         ItemTrackingLines."Quantity (Base)".SetValue(5);
         ItemTrackingLines."Qty. to Handle (Base)".SetValue(5);
         ItemTrackingLines."Qty. to Invoice (Base)".SetValue(5);
-        ItemTrackingLines.New();
+        ItemTrackingLines.New;
         ItemTrackingLines."Lot No.".SetValue(LibraryUtility.GenerateGUID());
         ItemTrackingLines."Quantity (Base)".SetValue(4);
         ItemTrackingLines."Qty. to Handle (Base)".SetValue(2);
         ItemTrackingLines."Qty. to Invoice (Base)".SetValue(0);
-        ItemTrackingLines.OK().Invoke();
+        ItemTrackingLines.OK.Invoke;
     end;
 }
 

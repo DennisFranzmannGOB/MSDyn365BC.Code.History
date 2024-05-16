@@ -340,12 +340,14 @@ codeunit 99000835 "Item Jnl. Line-Reserve"
 
     procedure DeleteLineConfirm(var ItemJournalLine: Record "Item Journal Line"): Boolean
     begin
-        if not ItemJournalLine.ReservEntryExist() then
-            exit(true);
+        with ItemJournalLine do begin
+            if not ReservEntryExist() then
+                exit(true);
 
-        ReservationManagement.SetReservSource(ItemJournalLine);
-        if ReservationManagement.DeleteItemTrackingConfirm() then
-            DeleteItemTracking := true;
+            ReservationManagement.SetReservSource(ItemJournalLine);
+            if ReservationManagement.DeleteItemTrackingConfirm() then
+                DeleteItemTracking := true;
+        end;
 
         exit(DeleteItemTracking);
     end;
@@ -356,23 +358,25 @@ codeunit 99000835 "Item Jnl. Line-Reserve"
         if Blocked then
             exit;
 
-        ReservationManagement.SetReservSource(ItemJournalLine);
-        if DeleteItemTracking then
-            ReservationManagement.SetItemTrackingHandling(1);
-        // Allow Deletion
-        ReservationManagement.DeleteReservEntries(true, 0);
-        ItemJournalLine.CalcFields("Reserved Qty. (Base)");
+        with ItemJournalLine do begin
+            ReservationManagement.SetReservSource(ItemJournalLine);
+            if DeleteItemTracking then
+                ReservationManagement.SetItemTrackingHandling(1); // Allow Deletion
+            ReservationManagement.DeleteReservEntries(true, 0);
+            CalcFields("Reserved Qty. (Base)");
+        end;
     end;
 
     procedure AssignForPlanning(var ItemJournalLine: Record "Item Journal Line")
     var
         PlanningAssignment: Record "Planning Assignment";
     begin
-        if ItemJournalLine."Item No." <> '' then begin
-            PlanningAssignment.ChkAssignOne(ItemJournalLine."Item No.", ItemJournalLine."Variant Code", ItemJournalLine."Location Code", ItemJournalLine."Posting Date");
-            if ItemJournalLine."Entry Type" = ItemJournalLine."Entry Type"::Transfer then
-                PlanningAssignment.ChkAssignOne(ItemJournalLine."Item No.", ItemJournalLine."Variant Code", ItemJournalLine."New Location Code", ItemJournalLine."Posting Date");
-        end;
+        if ItemJournalLine."Item No." <> '' then
+            with ItemJournalLine do begin
+                PlanningAssignment.ChkAssignOne("Item No.", "Variant Code", "Location Code", "Posting Date");
+                if "Entry Type" = "Entry Type"::Transfer then
+                    PlanningAssignment.ChkAssignOne("Item No.", "Variant Code", "New Location Code", "Posting Date");
+            end;
     end;
 
     procedure Block(SetBlocked: Boolean)
@@ -602,7 +606,7 @@ codeunit 99000835 "Item Jnl. Line-Reserve"
         if not TempSKU.Find() then begin
             TempSKU.Insert();
             ReservationEntry.Lock();
-        end;
+        end;        
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Reservation Management", 'OnGetSourceRecordValue', '', false, false)]

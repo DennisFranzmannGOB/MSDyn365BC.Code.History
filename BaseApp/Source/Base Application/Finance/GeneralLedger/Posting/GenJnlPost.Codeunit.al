@@ -51,77 +51,79 @@ codeunit 231 "Gen. Jnl.-Post"
         HideDialog := false;
         OnBeforeCode(GenJnlLine, HideDialog);
 
-        GenJnlTemplate.Get(GenJnlLine."Journal Template Name");
-        if GenJnlTemplate.Type = GenJnlTemplate.Type::Jobs then begin
-            SourceCodeSetup.Get();
-            if GenJnlTemplate."Source Code" = SourceCodeSetup."Job G/L WIP" then
-                Error(Text006, GenJnlTemplate.FieldCaption("Source Code"), GenJnlTemplate.TableCaption(),
-                  SourceCodeSetup.FieldCaption("Job G/L WIP"), SourceCodeSetup.TableCaption());
-        end;
-        GenJnlTemplate.TestField("Force Posting Report", false);
-        if GenJnlTemplate.Recurring and (GenJnlLine.GetFilter(GenJnlLine."Posting Date") <> '') then
-            GenJnlLine.FieldError("Posting Date", Text000);
+        with GenJnlLine do begin
+            GenJnlTemplate.Get("Journal Template Name");
+            if GenJnlTemplate.Type = GenJnlTemplate.Type::Jobs then begin
+                SourceCodeSetup.Get();
+                if GenJnlTemplate."Source Code" = SourceCodeSetup."Job G/L WIP" then
+                    Error(Text006, GenJnlTemplate.FieldCaption("Source Code"), GenJnlTemplate.TableCaption(),
+                      SourceCodeSetup.FieldCaption("Job G/L WIP"), SourceCodeSetup.TableCaption());
+            end;
+            GenJnlTemplate.TestField("Force Posting Report", false);
+            if GenJnlTemplate.Recurring and (GetFilter("Posting Date") <> '') then
+                FieldError("Posting Date", Text000);
 
-        OnCodeOnAfterCheckTemplate(GenJnlLine);
+            OnCodeOnAfterCheckTemplate(GenJnlLine);
 
-        IsHandled := false;
-        OnCodeOnBeforeConfirmPostJournalLinesResponse(GenJnlLine, IsHandled);
-        if not IsHandled then
-            if not (PreviewMode or HideDialog) then
-                if not ConfirmManagement.GetResponseOrDefault(Text001, true) then
-                    exit;
+            IsHandled := false;
+            OnCodeOnBeforeConfirmPostJournalLinesResponse(GenJnlLine, IsHandled);
+            if not IsHandled then
+                if not (PreviewMode or HideDialog) then
+                    if not ConfirmManagement.GetResponseOrDefault(Text001, true) then
+                        exit;
 
-        if GenJnlLine."Account Type" = GenJnlLine."Account Type"::"Fixed Asset" then begin
-            FALedgEntry.SetRange("FA No.", GenJnlLine."Account No.");
-            FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::Depreciation);
-            if not FALedgEntry.IsEmpty() and GenJnlLine."Depr. Acquisition Cost" and not HideDialog then
-                if not ConfirmManagement.GetResponseOrDefault(StrSubstNo(Text005, GenJnlLine.FieldCaption(GenJnlLine."Depr. Acquisition Cost")), true) then
-                    exit;
-        end;
-
-        if not HideDialog then
-            if not GenJnlPostBatch.ConfirmPostingUnvoidableChecks(GenJnlLine."Journal Batch Name", GenJnlLine."Journal Template Name") then
-                exit;
-
-        TempJnlBatchName := GenJnlLine."Journal Batch Name";
-
-        GeneralLedgerSetup.Get();
-        GenJnlPostBatch.SetPreviewMode(PreviewMode);
-        if GeneralLedgerSetup."Post with Job Queue" and not PreviewMode then begin
-            // Add job queue entry for each document no.
-            GenJnlLine.SetCurrentKey("Document No.");
-            while GenJnlLine.FindFirst() do begin
-                GenJnlsScheduled := true;
-                GenJnlPostviaJobQueue.EnqueueGenJrnlLineWithUI(GenJnlLine, false);
-                GenJnlLine.SetFilter("Document No.", '>%1', GenJnlLine."Document No.");
+            if "Account Type" = "Account Type"::"Fixed Asset" then begin
+                FALedgEntry.SetRange("FA No.", "Account No.");
+                FALedgEntry.SetRange("FA Posting Type", FALedgEntry."FA Posting Type"::Depreciation);
+                if FALedgEntry.FindFirst() and "Depr. Acquisition Cost" and not HideDialog then
+                    if not ConfirmManagement.GetResponseOrDefault(StrSubstNo(Text005, FieldCaption("Depr. Acquisition Cost")), true) then
+                        exit;
             end;
 
-            if GenJnlsScheduled then
-                Message(JournalsScheduledMsg);
-        end else begin
-            IsHandled := false;
-            OnBeforeGenJnlPostBatchRun(GenJnlLine, IsHandled);
-            if IsHandled then
-                exit;
+            if not HideDialog then
+                if not GenJnlPostBatch.ConfirmPostingUnvoidableChecks("Journal Batch Name", "Journal Template Name") then
+                    exit;
 
-            GenJnlPostBatch.Run(GenJnlLine);
+            TempJnlBatchName := "Journal Batch Name";
 
-            OnCodeOnAfterGenJnlPostBatchRun(GenJnlLine);
+            GeneralLedgerSetup.Get();
+            GenJnlPostBatch.SetPreviewMode(PreviewMode);
+            if GeneralLedgerSetup."Post with Job Queue" and not PreviewMode then begin
+                // Add job queue entry for each document no.
+                GenJnlLine.SetCurrentKey("Document No.");
+                while GenJnlLine.FindFirst() do begin
+                    GenJnlsScheduled := true;
+                    GenJnlPostviaJobQueue.EnqueueGenJrnlLineWithUI(GenJnlLine, false);
+                    GenJnlLine.SetFilter("Document No.", '>%1', GenJnlLine."Document No.");
+                end;
 
-            if PreviewMode then
-                exit;
+                if GenJnlsScheduled then
+                    Message(JournalsScheduledMsg);
+            end else begin
+                IsHandled := false;
+                OnBeforeGenJnlPostBatchRun(GenJnlLine, IsHandled);
+                if IsHandled then
+                    exit;
 
-            ShowPostResultMessage(GenJnlLine, TempJnlBatchName);
-        end;
+                GenJnlPostBatch.Run(GenJnlLine);
 
-        if not GenJnlLine.Find('=><') or (TempJnlBatchName <> GenJnlLine."Journal Batch Name") or GeneralLedgerSetup."Post with Job Queue" then begin
-            GenJnlLine.Reset();
-            GenJnlLine.FilterGroup(2);
-            GenJnlLine.SetRange(GenJnlLine."Journal Template Name", GenJnlLine."Journal Template Name");
-            GenJnlLine.SetRange(GenJnlLine."Journal Batch Name", GenJnlLine."Journal Batch Name");
-            OnGenJnlLineSetFilter(GenJnlLine);
-            GenJnlLine.FilterGroup(0);
-            GenJnlLine."Line No." := 1;
+                OnCodeOnAfterGenJnlPostBatchRun(GenJnlLine);
+
+                if PreviewMode then
+                    exit;
+
+                ShowPostResultMessage(GenJnlLine, TempJnlBatchName);
+            end;
+
+            if not Find('=><') or (TempJnlBatchName <> "Journal Batch Name") or GeneralLedgerSetup."Post with Job Queue" then begin
+                Reset();
+                FilterGroup(2);
+                SetRange("Journal Template Name", "Journal Template Name");
+                SetRange("Journal Batch Name", "Journal Batch Name");
+                OnGenJnlLineSetFilter(GenJnlLine);
+                FilterGroup(0);
+                "Line No." := 1;
+            end;
         end;
     end;
 
@@ -134,13 +136,16 @@ codeunit 231 "Gen. Jnl.-Post"
         if IsHandled then
             exit;
 
-        if GenJnlLine."Line No." = 0 then
-            Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
-        else
-            if TempJnlBatchName = GenJnlLine."Journal Batch Name" then
-                Message(Text003)
+        with GenJnlLine do
+            if "Line No." = 0 then
+                Message(JournalErrorsMgt.GetNothingToPostErrorMsg())
             else
-                Message(Text004, GenJnlLine."Journal Batch Name");
+                if TempJnlBatchName = "Journal Batch Name" then
+                    Message(Text003)
+                else
+                    Message(
+                    Text004,
+                    "Journal Batch Name");
     end;
 
     procedure Preview(var GenJournalLineSource: Record "Gen. Journal Line")

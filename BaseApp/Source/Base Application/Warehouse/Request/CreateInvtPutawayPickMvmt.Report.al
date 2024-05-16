@@ -293,18 +293,20 @@ report 7323 "Create Invt Put-away/Pick/Mvmt"
 
     local procedure InitWhseActivHeader()
     begin
-        WarehouseActivityHeader.Init();
-        case "Warehouse Request".Type of
-            "Warehouse Request".Type::Inbound:
-                WarehouseActivityHeader.Type := WarehouseActivityHeader.Type::"Invt. Put-away";
-            "Warehouse Request".Type::Outbound:
-                if CreatePick then
-                    WarehouseActivityHeader.Type := WarehouseActivityHeader.Type::"Invt. Pick"
-                else
-                    WarehouseActivityHeader.Type := WarehouseActivityHeader.Type::"Invt. Movement";
+        with WarehouseActivityHeader do begin
+            Init();
+            case "Warehouse Request".Type of
+                "Warehouse Request".Type::Inbound:
+                    Type := Type::"Invt. Put-away";
+                "Warehouse Request".Type::Outbound:
+                    if CreatePick then
+                        Type := Type::"Invt. Pick"
+                    else
+                        Type := Type::"Invt. Movement";
+            end;
+            "No." := '';
+            "Location Code" := "Warehouse Request"."Location Code";
         end;
-        WarehouseActivityHeader."No." := '';
-        WarehouseActivityHeader."Location Code" := "Warehouse Request"."Location Code";
 
         OnAfterInitWhseActivHeader(WarehouseActivityHeader, "Warehouse Request");
     end;
@@ -318,16 +320,17 @@ report 7323 "Create Invt Put-away/Pick/Mvmt"
 
     local procedure PrintNewDocuments()
     begin
-        repeat
-            case TempWarehouseActivityHeader.Type of
-                TempWarehouseActivityHeader.Type::"Invt. Put-away":
-                    WhseDocPrint.PrintInvtPutAwayHeader(TempWarehouseActivityHeader, false);
-                TempWarehouseActivityHeader.Type::"Invt. Pick":
-                    WhseDocPrint.PrintInvtPickHeader(TempWarehouseActivityHeader, false);
-                TempWarehouseActivityHeader.Type::"Invt. Movement":
-                    WhseDocPrint.PrintInvtMovementHeader(TempWarehouseActivityHeader, false);
-            end;
-        until TempWarehouseActivityHeader.Next() = 0;
+        with TempWarehouseActivityHeader do
+            repeat
+                case Type of
+                    Type::"Invt. Put-away":
+                        WhseDocPrint.PrintInvtPutAwayHeader(TempWarehouseActivityHeader, false);
+                    Type::"Invt. Pick":
+                        WhseDocPrint.PrintInvtPickHeader(TempWarehouseActivityHeader, false);
+                    Type::"Invt. Movement":
+                        WhseDocPrint.PrintInvtMovementHeader(TempWarehouseActivityHeader, false);
+                end;
+            until Next() = 0;
     end;
 
     local procedure CheckWhseRequest(var WhseRequest: Record "Warehouse Request") SkipRecord: Boolean

@@ -11,7 +11,6 @@ table 5125 "Purch. Comment Line Archive"
     Caption = 'Purch. Comment Line Archive';
     DrillDownPageID = "Purch. Archive Comment Sheet";
     LookupPageID = "Purch. Archive Comment Sheet";
-    DataClassification = CustomerContent;
 
     fields
     {

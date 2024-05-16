@@ -25,40 +25,42 @@ codeunit 5655 "Insurance Jnl.-B.Post"
 
     local procedure "Code"()
     begin
-        InsuranceJnlTempl.Get(InsuranceJnlBatch."Journal Template Name");
-        InsuranceJnlTempl.TestField("Force Posting Report", false);
+        with InsuranceJnlBatch do begin
+            InsuranceJnlTempl.Get("Journal Template Name");
+            InsuranceJnlTempl.TestField("Force Posting Report", false);
 
-        if not Confirm(Text000, false) then
-            exit;
+            if not Confirm(Text000, false) then
+                exit;
 
-        InsuranceJnlBatch.Find('-');
-        repeat
-            InsuranceJnlLine."Journal Template Name" := InsuranceJnlBatch."Journal Template Name";
-            InsuranceJnlLine."Journal Batch Name" := InsuranceJnlBatch.Name;
-            InsuranceJnlLine."Line No." := 1;
+            Find('-');
+            repeat
+                InsuranceJnlLine."Journal Template Name" := "Journal Template Name";
+                InsuranceJnlLine."Journal Batch Name" := Name;
+                InsuranceJnlLine."Line No." := 1;
 
-            Clear(InsuranceJnlPostBatch);
-            if InsuranceJnlPostBatch.Run(InsuranceJnlLine) then
-                InsuranceJnlBatch.Mark(false)
-            else begin
-                InsuranceJnlBatch.Mark(true);
-                JournalWithErrors := true;
+                Clear(InsuranceJnlPostBatch);
+                if InsuranceJnlPostBatch.Run(InsuranceJnlLine) then
+                    Mark(false)
+                else begin
+                    Mark(true);
+                    JournalWithErrors := true;
+                end;
+            until Next() = 0;
+
+            if not JournalWithErrors then
+                Message(Text001)
+            else
+                Message(
+                  Text002 +
+                  Text003);
+
+            if not Find('=><') then begin
+                Reset();
+                FilterGroup := 2;
+                SetRange("Journal Template Name", "Journal Template Name");
+                FilterGroup := 0;
+                Name := '';
             end;
-        until InsuranceJnlBatch.Next() = 0;
-
-        if not JournalWithErrors then
-            Message(Text001)
-        else
-            Message(
-              Text002 +
-              Text003);
-
-        if not InsuranceJnlBatch.Find('=><') then begin
-            InsuranceJnlBatch.Reset();
-            InsuranceJnlBatch.FilterGroup := 2;
-            InsuranceJnlBatch.SetRange("Journal Template Name", InsuranceJnlBatch."Journal Template Name");
-            InsuranceJnlBatch.FilterGroup := 0;
-            InsuranceJnlBatch.Name := '';
         end;
     end;
 }

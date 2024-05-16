@@ -5,7 +5,6 @@ using Microsoft.CRM.Contact;
 table 5113 "Contact Dupl. Details Buffer"
 {
     Caption = 'Contact Dupl. Details Buffer';
-    DataClassification = CustomerContent;
     ReplicateData = false;
 
     fields
@@ -13,18 +12,22 @@ table 5113 "Contact Dupl. Details Buffer"
         field(1; "Field No."; Integer)
         {
             Caption = 'Field No.';
+            DataClassification = SystemMetadata;
         }
         field(2; "Field Name"; Text[30])
         {
             Caption = 'Field Name';
+            DataClassification = SystemMetadata;
         }
         field(3; "Field Value"; Text[250])
         {
             Caption = 'Field Value';
+            DataClassification = SystemMetadata;
         }
         field(4; "Duplicate Field Value"; Text[250])
         {
             Caption = 'Duplicate Field Value';
+            DataClassification = SystemMetadata;
         }
     }
 
@@ -63,9 +66,9 @@ table 5113 "Contact Dupl. Details Buffer"
             "Field No." := DuplicateSearchStringSetup."Field No.";
             "Field Name" := DuplicateSearchStringSetup."Field Name";
             FieldRef := ContactRecRef.Field("Field No.");
-            "Field Value" := FieldRef.Value();
+            "Field Value" := FieldRef.Value;
             FieldRef := DuplicateContactRecRef.Field("Field No.");
-            "Duplicate Field Value" := FieldRef.Value();
+            "Duplicate Field Value" := FieldRef.Value;
             if Insert() then;
         until DuplicateSearchStringSetup.Next() = 0;
     end;

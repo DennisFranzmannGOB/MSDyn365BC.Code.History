@@ -318,6 +318,7 @@ codeunit 137069 "SCM Production Orders"
         PurchaseLine: Record "Purchase Line";
         ItemTrackingCode: Record "Item Tracking Code";
         ReservationEntry: Record "Reservation Entry";
+        ItemTrackingMode: Option " ","Assign Lot No.","Select Entries","Verify Entries";
     begin
         // Setup: Create Production Item with Lot Specific Tracking and Production BOM. Create Sales Order using Parent Item.
         Initialize();
@@ -516,11 +517,11 @@ codeunit 137069 "SCM Production Orders"
         repeat
             case ColumnName of
                 DemandForecastCard.Matrix."No.".Caption:
-                    RowKey := DemandForecastCard.Matrix."No.".Value();
+                    RowKey := DemandForecastCard.Matrix."No.".Value;
                 DemandForecastCard.Matrix."Location Code".Caption:
-                    RowKey := DemandForecastCard.Matrix."Location Code".Value();
+                    RowKey := DemandForecastCard.Matrix."Location Code".Value;
                 DemandForecastCard.Matrix."Variant Code".Caption:
-                    RowKey := DemandForecastCard.Matrix."Variant Code".Value();
+                    RowKey := DemandForecastCard.Matrix."Variant Code".Value;
             end;
 
             if RowCount.ContainsKey(RowKey) then
@@ -536,8 +537,8 @@ codeunit 137069 "SCM Production Orders"
     procedure DemandForecastItemFilter()
     var
         ProductionForecastName: Record "Production Forecast Name";
-        Item: Record Item;
         DemandForecastCard: TestPage "Demand Forecast Card";
+        Item: Record Item;
         InvalidItemNo: Code[20];
     begin
         // [FEATURE] [Demand Forecast with Variant and Location]
@@ -604,8 +605,8 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure DemandForecastLocationFilterOnLookUp()
     var
-        Location1: Record Location;
         DemandForecastCard: TestPage "Demand Forecast Card";
+        Location1: Record Location;
     begin
         // [FEATURE] [Demand Forecast with Variant and Location]
         // [SCENARIO] Set location filter using OnLookUp.
@@ -629,9 +630,9 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure DemandForecastVariantFilterOnLookUp()
     var
+        DemandForecastCard: TestPage "Demand Forecast Card";
         Item1: Record Item;
         Variant1: Record "Item Variant";
-        DemandForecastCard: TestPage "Demand Forecast Card";
     begin
         // [FEATURE] [Demand Forecast with Variant and Location]
         // [SCENARIO] Set variant filter using OnLookUp.
@@ -658,12 +659,12 @@ codeunit 137069 "SCM Production Orders"
     procedure DemandForecastLocationFilter()
     var
         ProductionForecastName: Record "Production Forecast Name";
+        DemandForecastCard: TestPage "Demand Forecast Card";
         Item1: Record Item;
         Item2: Record Item;
         Location1: Record Location;
         Location2: Record Location;
         Location3: Record Location;
-        DemandForecastCard: TestPage "Demand Forecast Card";
         LocationCount: Dictionary of [Text, Integer];
         ItemCount: Dictionary of [Text, Integer];
     begin
@@ -736,6 +737,8 @@ codeunit 137069 "SCM Production Orders"
     procedure DemandForecastVariantFilter()
     var
         ProductionForecastName: Record "Production Forecast Name";
+        DemandForecastCard: TestPage "Demand Forecast Card";
+
         Item1: Record Item;
         Item2: Record Item;
         Item3: Record Item;
@@ -743,7 +746,6 @@ codeunit 137069 "SCM Production Orders"
         Variant1_2: Record "Item Variant";
         Variant1_3: Record "Item Variant";
         Variant2_1: Record "Item Variant";
-        DemandForecastCard: TestPage "Demand Forecast Card";
         VariantCount: Dictionary of [Text, Integer];
         ItemCount: Dictionary of [Text, Integer];
     begin
@@ -827,6 +829,7 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure DemandForecastItemVariantAndLocFilter()
     var
+        DemandForecastCard: TestPage "Demand Forecast Card";
         Item1: Record Item;
         Item2: Record Item;
         Variant1_1: Record "Item Variant";
@@ -834,7 +837,6 @@ codeunit 137069 "SCM Production Orders"
         Variant1_3: Record "Item Variant";
         Location1: Record Location;
         Location2: Record Location;
-        DemandForecastCard: TestPage "Demand Forecast Card";
         LocationCount: Dictionary of [Text, Integer];
         VariantCount: Dictionary of [Text, Integer];
         ItemCount: Dictionary of [Text, Integer];
@@ -938,12 +940,14 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure DemandForecastMatrixFlowFieldsSetQtyFirst()
     var
+        DemandForecastCard: TestPage "Demand Forecast Card";
         Item1: Record Item;
         Variant1_1: Record "Item Variant";
         Location1: Record Location;
-        DemandForecastCard: TestPage "Demand Forecast Card";
         PeriodType: Enum "Analysis Period Type";
         WorkYear: Integer;
+        Index: Integer;
+
     begin
         // [FEATURE] [Demand Forecast with Variant and Location]
         // [SCENARIO] Check demand forecast matrix flow fields when quantities are entered first and then forecast by location and variants are set.
@@ -996,12 +1000,12 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure DemandForecastMatrixFlowFieldsSetQtyLast()
     var
+        DemandForecastCard: TestPage "Demand Forecast Card";
         Item1: Record Item;
         Variant1_1: Record "Item Variant";
         Variant1_2: Record "Item Variant";
         Location1: Record Location;
         Location2: Record Location;
-        DemandForecastCard: TestPage "Demand Forecast Card";
         PeriodType: Enum "Analysis Period Type";
         WorkYear: Integer;
         QuantityToEnter: array[4] of Integer;
@@ -1086,9 +1090,9 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure FilterOnDemandForecastMatrix()
     var
+        DemandForecastCard: TestPage "Demand Forecast Card";
         Item1: Record Item;
         Item2: Record Item;
-        DemandForecastCard: TestPage "Demand Forecast Card";
     begin
         // [FEATURE] [Demand Forecast with Variant and Location]
         // [SCENARIO] Check filtering on Demand Forecast Matrix columns can provide expected results.
@@ -1121,9 +1125,9 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure DemandForecastMatrixRowLimitMessage()
     var
-        Item: Record Item;
-        SCMProdOrders: Codeunit "SCM Production Orders";
         DemandForecastCard: TestPage "Demand Forecast Card";
+        SCMProdOrders: Codeunit "SCM Production Orders";
+        Item: Record Item;
         Index: Integer;
     begin
         // [FEATURE] [Demand Forecast with Variant and Location]
@@ -1257,14 +1261,14 @@ codeunit 137069 "SCM Production Orders"
         // [GIVEN] Created Demand Forecast with WorkDate to +1 day as a date filter.
         Initialize();
         CreateDemandForecastCard(DemandForecastCard);
-        DemandForecastCard."Date Filter".SetValue(Format(WorkDate()) + '..' + Format(CalcDate('<+1D>', WorkDate())));
+        DemandForecastCard."Date Filter".SetValue(Format(WorkDate()) + '..' + Format(CalcDate('+1D', WorkDate())));
 
         // [WHEN] View by in demand forecast card is set to day.
         DemandForecastCard."View By".SetValue(PeriodType::Day);
 
         // [THEN] The first two columns are visible and rest are hidden.
         Assert.AreEqual(Format(WorkDate()), DemandForecastCard.Matrix.Field1.Caption, CaptionErr);
-        Assert.AreEqual(Format(CalcDate('<+1D>', WorkDate())), DemandForecastCard.Matrix.Field2.Caption, CaptionErr);
+        Assert.AreEqual(Format(CalcDate('+1D', WorkDate())), DemandForecastCard.Matrix.Field2.Caption, CaptionErr);
         Assert.IsFalse(DemandForecastCard.Matrix.Field3.Visible(), CaptionErr);
         Assert.IsFalse(DemandForecastCard.Matrix.Field10.Visible(), CaptionErr);
         Assert.IsFalse(DemandForecastCard.Matrix.Field32.Visible(), CaptionErr);
@@ -1283,6 +1287,7 @@ codeunit 137069 "SCM Production Orders"
 
     local procedure CheckPeriodSettingsInDemandForecastMatrix(PeriodType: Enum "Analysis Period Type")
     var
+        ProductionForecastName: Record "Production Forecast Name";
         MatrixRecords: array[32] of Record Date;
         MatrixManagement: Codeunit "Matrix Management";
         ProductionForecast: TestPage "Demand Forecast Card";
@@ -1326,10 +1331,10 @@ codeunit 137069 "SCM Production Orders"
         DemandForecastCard."Forecast By Variants".SetValue(true);
 
         // [THEN] Item No, Description, Location code and Variant code is not editable
-        Assert.IsFalse(DemandForecastCard.Matrix."No.".Editable(), EditableErr);
-        Assert.IsFalse(DemandForecastCard.Matrix.Description.Editable(), EditableErr);
-        Assert.IsFalse(DemandForecastCard.Matrix."Location Code".Editable(), EditableErr);
-        Assert.IsFalse(DemandForecastCard.Matrix."Variant Code".Editable(), EditableErr);
+        Assert.IsFalse(DemandForecastCard.Matrix."No.".Editable, EditableErr);
+        Assert.IsFalse(DemandForecastCard.Matrix.Description.Editable, EditableErr);
+        Assert.IsFalse(DemandForecastCard.Matrix."Location Code".Editable, EditableErr);
+        Assert.IsFalse(DemandForecastCard.Matrix."Variant Code".Editable, EditableErr);
     end;
 
     [Test]
@@ -1354,7 +1359,7 @@ codeunit 137069 "SCM Production Orders"
 
         // Exercise and Verify: Calculate Order Plan from Released Production Order Page. Verify Value on Page Handler - OrderPlanningPageHandler.
         // After Calculating Order Planning, Cursor points to selected Production Order Line.
-        ReleasedProductionOrder.Planning.Invoke();
+        ReleasedProductionOrder.Planning.Invoke;
     end;
 
     [Test]
@@ -1572,7 +1577,7 @@ codeunit 137069 "SCM Production Orders"
     begin
         // Create Item Tracking Code for Lot Specific and create Items. Create Production BOM.
         LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, false, true);
-        LibraryInventory.CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode(), '', ItemTrackingCode.Code);
+        LibraryInventory.CreateTrackedItem(Item, LibraryUtility.GetGlobalNoSeriesCode, '', ItemTrackingCode.Code);
         UpdateFlushingMethodOnItem(Item, Item."Flushing Method"::Forward);
 
         CreateItem(Item2, Item2."Replenishment System"::"Prod. Order");
@@ -1589,7 +1594,7 @@ codeunit 137069 "SCM Production Orders"
             TrackingOnProdOrderComponent(ProductionOrder, Item."No.");  // Add Tracking on Production Order Component line.
 
         // Exercise: Change Production Order Status Firm Planned to Released.
-        asserterror LibraryManufacturing.ChangeProuctionOrderStatus(
+        asserterror LibraryManufacturing.ChangeStatusFirmPlanToReleased(
             ProductionOrder."No.", ProductionOrder.Status, ProductionOrder.Status::Released);
 
         // Verify: Verify error message when Change Production Order Status.
@@ -1834,9 +1839,9 @@ codeunit 137069 "SCM Production Orders"
         ProdBOMWhereUsed.FILTER.SetFilter("Item No.", ParentItem[1]."No.");
 
         // [THEN] Item "PI1" is displayed in the list, item "PI2" in not in the list
-        ProdBOMWhereUsed.First();
+        ProdBOMWhereUsed.First;
         ProdBOMWhereUsed."Item No.".AssertEquals(ParentItem[1]."No.");
-        Assert.IsFalse(ProdBOMWhereUsed.Next(), ItemMustNotBeShownErr);
+        Assert.IsFalse(ProdBOMWhereUsed.Next, ItemMustNotBeShownErr);
     end;
 
     [Test]
@@ -1886,6 +1891,7 @@ codeunit 137069 "SCM Production Orders"
         ProductionOrder: Record "Production Order";
         ProdOrderLine: Record "Prod. Order Line";
         ProdOrderComponent: Record "Prod. Order Component";
+        ProductionJournalMgt: Codeunit "Production Journal Mgt";
     begin
         // Create Production Item Setup. Create and Refresh Released Production Order with Location.
         ChildItem.Get(CreateProductionItemSetup(Item));
@@ -1917,7 +1923,7 @@ codeunit 137069 "SCM Production Orders"
         // Exercise: Create Released Production Order of Silver location and post Production Journal with zero Output Quantity and empty Bin Code.
         // It should not check the Bin Code although Silver is bin mandatory, because we do not post actual inventory item.
         SetupTime := LibraryRandom.RandInt(100);
-        ProdOrderNo := CreateAndPostProdJournalWithLocation(CreateItemWithRouting(), LocationSilver.Code, 0, SetupTime);
+        ProdOrderNo := CreateAndPostProdJournalWithLocation(CreateItemWithRouting, LocationSilver.Code, 0, SetupTime);
 
         // Verify: Verify the Value Entry to assure Production Journal is successfully posted.
         FindValueEntry(ValueEntry, ValueEntry."Item Ledger Entry Type"::" ", ProdOrderNo, ''); // Both Entry Type and Item No. are empty.
@@ -2064,7 +2070,7 @@ codeunit 137069 "SCM Production Orders"
 
         // Exercise: Change Status Firm Planned to Released.
         ProductionOrderNo :=
-          LibraryManufacturing.ChangeProuctionOrderStatus(
+          LibraryManufacturing.ChangeStatusFirmPlanToReleased(
             ProductionOrder."No.", ProductionOrder.Status, ProductionOrder.Status::Released);
 
         // Verify: Verify Status changed without error and verify Released Production Order.
@@ -2158,7 +2164,7 @@ codeunit 137069 "SCM Production Orders"
         CreateAndRefreshSimulatedProductionOrder(ProductionOrder, Item."No.", LibraryRandom.RandDec(10, 2));
 
         // Exercise: Change Status of the Production Order - Simulated to Firm Planned.
-        ProductionOrderNo := LibraryManufacturing.ChangeProuctionOrderStatus(
+        ProductionOrderNo := LibraryManufacturing.ChangeStatusFirmPlanToReleased(
             ProductionOrder."No.", ProductionOrder.Status::Simulated, ProductionOrder.Status::"Firm Planned");
 
         // Verify: Verify Expected Capacity Need on Production Order Routing Line.
@@ -2439,7 +2445,7 @@ codeunit 137069 "SCM Production Orders"
         // [FEATURE] [Production Order]
         // [SCENARIO 361710] "Routing No." and "Routing Reference No." in item journal are copied from production order line when "Order Line No. " is validated
         // [GIVEN] Production Order "N" with one line, Line No. = "L", Routing No. = "X", Routing Reference No. = "Y"
-        CreateAndRefreshReleasedProductionOrder(ProductionOrder, CreateItemWithRouting(), LibraryRandom.RandInt(100));
+        CreateAndRefreshReleasedProductionOrder(ProductionOrder, CreateItemWithRouting, LibraryRandom.RandInt(100));
         FindProductionOrderLine(ProdOrderLine, ProductionOrder.Status, ProductionOrder."No.");
 
         // [GIVEN] Output journal line for prod. order "N"
@@ -2898,7 +2904,7 @@ codeunit 137069 "SCM Production Orders"
         CreateItemWithRoutingAndWaitTime(Item, WaitTime);
 
         // [GIVEN] Released Production Order with "Due Date" = "30.09.2015", "Ending Time" = "0:00:00" with no Calendar Entry on 30.09.2015
-        CreateRelProdOrderWithDateTime(ProductionOrder, Item."No.", WorkDate() + 2, WorkDate() + 3);
+        CreateRelProdOrderWithDateTime(ProductionOrder, Item."No.", WorkDate + 2, WorkDate + 3);
 
         // [WHEN] Resfresh Production Order "Back"
         LibraryManufacturing.RefreshProdOrder(ProductionOrder, false, true, true, false, false);
@@ -3012,7 +3018,7 @@ codeunit 137069 "SCM Production Orders"
         OpenProdBOMWhereUsedPage(ProdBOMWhereUsed, VersionItem);
 
         // [THEN] Item "PI" shown in the report
-        ProdBOMWhereUsed.First();
+        ProdBOMWhereUsed.First;
         ProdBOMWhereUsed."Item No.".AssertEquals(ParentItem."No.");
     end;
 
@@ -3041,7 +3047,7 @@ codeunit 137069 "SCM Production Orders"
         OpenProdBOMWhereUsedPage(ProdBOMWhereUsed, VersionItem);
 
         // [THEN] Empty list opens
-        ProdBOMWhereUsed.First();
+        ProdBOMWhereUsed.First;
         ProdBOMWhereUsed."Item No.".AssertEquals('');
     end;
 
@@ -3349,7 +3355,7 @@ codeunit 137069 "SCM Production Orders"
         LibraryInventory.PostItemJournalLine(ItemJournalLine."Journal Template Name", ItemJournalLine."Journal Batch Name");
 
         // [THEN] That flushes 20 kg again. The total flushed amount is 40 kg.
-        VerifyQuantityOnItemLedgerEntries(ItemLedgerEntry."Entry Type"::Consumption, CompItem."No.", -2 * Round(Qty, 2));
+        VerifyQuantityOnItemLedgerEntries(ItemLedgerEntry."Entry Type"::Consumption, CompItem."No.", -4 * Qty);
     end;
 
     [Test]
@@ -3477,9 +3483,9 @@ codeunit 137069 "SCM Production Orders"
         // [THEN] Notification is active in the record link
         LibraryVariableStorage.Enqueue(PageManagement.GetPageID(ProductionOrder));
         HyperLink(RecordLink.URL1);
-        Assert.IsTrue(LibraryVariableStorage.DequeueBoolean(), MalformedRecLinkErr);
+        Assert.IsTrue(LibraryVariableStorage.DequeueBoolean, MalformedRecLinkErr);
         Assert.IsTrue(RecordLink.Notify, MalformedRecLinkErr);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -3544,7 +3550,7 @@ codeunit 137069 "SCM Production Orders"
         LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, false, true);
         CompItem.Get(CreateProductionItemSetup(ProdItem));
         CompItem.Validate("Item Tracking Code", ItemTrackingCode.Code);
-        CompItem.Validate("Lot Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        CompItem.Validate("Lot Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         CompItem.Modify(true);
 
         // [GIVEN] Three lots "L1", "L2", "L3" of item "C" are in stock.
@@ -3585,7 +3591,7 @@ codeunit 137069 "SCM Production Orders"
         VerifyItemTrackingOnItemJnlLine(ItemJournalLine, LotNos[2], -Qty);
         VerifyItemTrackingOnItemJnlLine(ItemJournalLine, LotNos[3], -Qty);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -4085,7 +4091,7 @@ codeunit 137069 "SCM Production Orders"
         // [THEN] Consumed quantity = 1.
         VerifyQuantityOnItemLedgerEntries(ItemLedgerEntry."Entry Type"::Consumption, CompItem."No.", -1);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -4144,7 +4150,7 @@ codeunit 137069 "SCM Production Orders"
         // [THEN] Consumed quantity = 1.
         VerifyQuantityOnItemLedgerEntries(ItemLedgerEntry."Entry Type"::Consumption, CompItem."No.", -1);
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -4181,9 +4187,9 @@ codeunit 137069 "SCM Production Orders"
         LibraryManufacturing.OpenProductionJournal(ProductionOrder, ProdOrderComponent."Prod. Order Line No.");
 
         // [THEN] Quantity on the consumption line = 1.
-        Assert.AreEqual(1, LibraryVariableStorage.DequeueDecimal(), '');
+        Assert.AreEqual(1, LibraryVariableStorage.DequeueDecimal, '');
 
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -4259,7 +4265,7 @@ codeunit 137069 "SCM Production Orders"
         Item: Record Item;
         ProductionOrder: Record "Production Order";
         ProdOrderRoutingLine: Record "Prod. Order Routing Line";
-        TempOldProdOrderRoutingLine: Record "Prod. Order Routing Line" temporary;
+        OldProdOrderRoutingLine: Record "Prod. Order Routing Line" temporary;
     begin
         // [FEATURE] [Planning] [Prod. Order Routing Line]
         Initialize();
@@ -4291,8 +4297,8 @@ codeunit 137069 "SCM Production Orders"
 
         ProdOrderRoutingLine.FindSet();
         repeat
-            TempOldProdOrderRoutingLine.Copy(ProdOrderRoutingLine);
-            TempOldProdOrderRoutingLine.Insert();
+            OldProdOrderRoutingLine.Copy(ProdOrderRoutingLine);
+            OldProdOrderRoutingLine.Insert();
         until ProdOrderRoutingLine.Next() = 0;
 
         // [WHEN] Changing the lot size from 1 to to 10 for line 2.
@@ -4300,40 +4306,40 @@ codeunit 137069 "SCM Production Orders"
         ProdOrderRoutingLine.Next();
         ProdOrderRoutingLine.Validate("Lot Size", 10);
 
-        TempOldProdOrderRoutingLine.SetRange("Work Center No.", WorkCenter."No.");
-        TempOldProdOrderRoutingLine.FindSet();
+        OldProdOrderRoutingLine.SetRange("Work Center No.", WorkCenter."No.");
+        OldProdOrderRoutingLine.FindSet();
         ProdOrderRoutingLine.FindSet();
 
         // [THEN] First line is untouched.
-        ProdOrderRoutingLine.TestField("Starting Date-Time", TempOldProdOrderRoutingLine."Starting Date-Time");
-        ProdOrderRoutingLine.TestField("Ending Date-Time", TempOldProdOrderRoutingLine."Ending Date-Time");
+        ProdOrderRoutingLine.TestField("Starting Date-Time", OldProdOrderRoutingLine."Starting Date-Time");
+        ProdOrderRoutingLine.TestField("Ending Date-Time", OldProdOrderRoutingLine."Ending Date-Time");
 
         ProdOrderRoutingLine.Next();
-        TempOldProdOrderRoutingLine.Next();
+        OldProdOrderRoutingLine.Next();
 
         // [THEN] Second line is ending earlier.
-        ProdOrderRoutingLine.TestField("Starting Date-Time", TempOldProdOrderRoutingLine."Starting Date-Time");
-        Assert.IsTrue(ProdOrderRoutingLine."Ending Date-Time" < TempOldProdOrderRoutingLine."Ending Date-Time",
+        ProdOrderRoutingLine.TestField("Starting Date-Time", OldProdOrderRoutingLine."Starting Date-Time");
+        Assert.IsTrue(ProdOrderRoutingLine."Ending Date-Time" < OldProdOrderRoutingLine."Ending Date-Time",
             'Expected new ending date-time to be earlier than original.');
 
-        TempOldProdOrderRoutingLine.Next();
+        OldProdOrderRoutingLine.Next();
         ProdOrderRoutingLine.Next();
 
         // [THEN] The rest should have the same time span but start earlier.
         repeat
             Assert.AreEqual(
                 ProdOrderRoutingLine."Ending Date-Time" - ProdOrderRoutingLine."Starting Date-Time",
-                TempOldProdOrderRoutingLine."Ending Date-Time" - TempOldProdOrderRoutingLine."Starting Date-Time",
+                OldProdOrderRoutingLine."Ending Date-Time" - OldProdOrderRoutingLine."Starting Date-Time",
                 'Expected line to have similar length.'
             );
 
-            Assert.IsTrue(ProdOrderRoutingLine."Starting Date-Time" < TempOldProdOrderRoutingLine."Starting Date-Time",
+            Assert.IsTrue(ProdOrderRoutingLine."Starting Date-Time" < OldProdOrderRoutingLine."Starting Date-Time",
                 'Expected new starting date-time to be earlier than original.');
 
-            Assert.IsTrue(ProdOrderRoutingLine."Ending Date-Time" < TempOldProdOrderRoutingLine."Ending Date-Time",
+            Assert.IsTrue(ProdOrderRoutingLine."Ending Date-Time" < OldProdOrderRoutingLine."Ending Date-Time",
                 'Expected new ending date-time to be earlier than original.');
 
-        until (TempOldProdOrderRoutingLine.Next() = 0) and (ProdOrderRoutingLine.Next() = 0);
+        until (OldProdOrderRoutingLine.Next() = 0) and (ProdOrderRoutingLine.Next() = 0);
     end;
 
     [Test]
@@ -4489,9 +4495,9 @@ codeunit 137069 "SCM Production Orders"
         LibraryERMCountryData.UpdateGeneralPostingSetup();
         LibraryERMCountryData.CreateVATData();
         NoSeriesSetup();
-        CreateLocationSetup();
-        ItemJournalSetup();
-        ConsumptionJournalSetup();
+        CreateLocationSetup;
+        ItemJournalSetup;
+        ConsumptionJournalSetup;
         Commit();
 
         Initialized := true;
@@ -4504,13 +4510,13 @@ codeunit 137069 "SCM Production Orders"
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         PurchasesPayablesSetup.Get();
-        PurchasesPayablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode());
-        PurchasesPayablesSetup.Validate("Posted Receipt Nos.", LibraryUtility.GetGlobalNoSeriesCode());
-        PurchasesPayablesSetup.Validate("Posted Invoice Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        PurchasesPayablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode);
+        PurchasesPayablesSetup.Validate("Posted Receipt Nos.", LibraryUtility.GetGlobalNoSeriesCode);
+        PurchasesPayablesSetup.Validate("Posted Invoice Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         PurchasesPayablesSetup.Modify(true);
 
         SalesReceivablesSetup.Get();
-        SalesReceivablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        SalesReceivablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         SalesReceivablesSetup.Modify(true);
     end;
 
@@ -4576,18 +4582,19 @@ codeunit 137069 "SCM Production Orders"
     local procedure CreateTrackedItem(var Item: Record Item; ReplenishmentSystem: Enum "Replenishment System"; ReorderingPolicy: Enum "Reordering Policy"; IncludeInventory: Boolean; ReorderQuantity: Decimal; ItemTrackingCode: Code[10])
     begin
         LibraryInventory.CreateTrackedItem(
-          Item, LibraryUtility.GetGlobalNoSeriesCode(), LibraryUtility.GetGlobalNoSeriesCode(), ItemTrackingCode);
+          Item, LibraryUtility.GetGlobalNoSeriesCode, LibraryUtility.GetGlobalNoSeriesCode, ItemTrackingCode);
         Item.Validate("Replenishment System", ReplenishmentSystem);
         Item.Validate("Reordering Policy", ReorderingPolicy);
         Item.Validate("Include Inventory", IncludeInventory);
         Item.Validate("Reorder Quantity", ReorderQuantity);
-        Item.Validate("Vendor No.", LibraryPurchase.CreateVendorNo());
+        Item.Validate("Vendor No.", LibraryPurchase.CreateVendorNo);
         Item.Modify(true);
     end;
 
     local procedure CreateAndPostItemJournalLineWithTracking(ItemNo: Code[20]; Quantity: Decimal)
     var
         ItemJournalLine: Record "Item Journal Line";
+        ItemTrackingMode: Option " ","Assign Lot No.","Select Entries","Verify Entries";
     begin
         LibraryVariableStorage.Enqueue(ItemTrackingMode::"Assign Lot No.");  // Enqueue for Page Handler.
         UpdateNoSeriesOnItemJournalBatch(ItemJournalBatch, '');  // Required for test when using Item Tracking.
@@ -4596,7 +4603,7 @@ codeunit 137069 "SCM Production Orders"
         ItemJournalLine.Modify(true);
         ItemJournalLine.OpenItemTrackingLines(false);  // Assign Tracking on Page Handler.
         LibraryInventory.PostItemJournalLine(ItemJournalBatch."Journal Template Name", ItemJournalBatch.Name);
-        UpdateNoSeriesOnItemJournalBatch(ItemJournalBatch, LibraryUtility.GetGlobalNoSeriesCode());
+        UpdateNoSeriesOnItemJournalBatch(ItemJournalBatch, LibraryUtility.GetGlobalNoSeriesCode);
     end;
 
     local procedure CreateSalesOrder(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; ItemNo: Code[20]; Quantity: Decimal)
@@ -4936,7 +4943,7 @@ codeunit 137069 "SCM Production Orders"
     begin
         LibraryVariableStorage.Enqueue(ItemTrackingMode::"Set Lot No.");  // Enqueue for Page Handler.
         LibraryVariableStorage.Enqueue(LotNo);
-        LibraryVariableStorage.Enqueue('One or more lines have tracking specified, but Quantity (Base) is zero. If you continue, data on these lines will be lost.'); // Enque for Message Handler
+        LibraryVariableStorage.Enqueue('One or more lines have tracking specified, but Quantity (Base) is zero. If you continue, data on these line will be lost.'); // Enque for Message Handler
         ProdOrderComponent.OpenItemTrackingLines();
     end;
 
@@ -4977,7 +4984,7 @@ codeunit 137069 "SCM Production Orders"
     begin
         AcceptActionMessage(ItemNo);
         SelectRequisitionLine(RequisitionLine, ItemNo);
-        LibraryPlanning.CarryOutReqWksh(RequisitionLine, WorkDate(), WorkDate(), WorkDate(), WorkDate(), '');
+        LibraryPlanning.CarryOutReqWksh(RequisitionLine, WorkDate(), WorkDate, WorkDate(), WorkDate, '');
     end;
 
     local procedure CreateWorkCenter(var WorkCenter: Record "Work Center"; FromTime: Time; ToTime: Time)
@@ -5124,7 +5131,7 @@ codeunit 137069 "SCM Production Orders"
                 repeat
                     Validate("Bin Code", BinCode);
                     Modify(true);
-                until Next() = 0;
+                until Next = 0;
         end;
     end;
 
@@ -5345,7 +5352,7 @@ codeunit 137069 "SCM Production Orders"
         ProductionOrder: Record "Production Order";
     begin
         CreateAndRefreshReleasedProductionOrder(ProductionOrder, ItemNo, LibraryRandom.RandDec(10, 2));
-        ReleasedProductionOrder.OpenEdit();
+        ReleasedProductionOrder.OpenEdit;
         ReleasedProductionOrder.FILTER.SetFilter("No.", ProductionOrder."No.");
     end;
 
@@ -5475,13 +5482,14 @@ codeunit 137069 "SCM Production Orders"
                 repeat
                     Validate("Flushing Method", "Flushing Method"::Forward);
                     Modify(true);
-                until Next() = 0;
+                until Next = 0;
         end;
     end;
 
     local procedure TrackingOnProdOrderComponent(ProductionOrder: Record "Production Order"; ItemNo: Code[20])
     var
         ProdOrderComponent: Record "Prod. Order Component";
+        ItemTrackingMode: Option " ","Assign Lot No.","Select Entries","Verify Entries";
     begin
         FindProdOrderComponent(ProdOrderComponent, ProductionOrder.Status, ProductionOrder."No.", ItemNo);
         LibraryVariableStorage.Enqueue(ItemTrackingMode::"Select Entries");  // Enqueue value for ItemTrackingMode On Page Handler - LotItemTrackingPageHandler.
@@ -5564,7 +5572,7 @@ codeunit 137069 "SCM Production Orders"
         ProdBOMWhereUsed: Page "Prod. BOM Where-Used";
     begin
         // Open Production BOM Where Used page.
-        ProdBOMWhereUsed2.Trap();
+        ProdBOMWhereUsed2.Trap;
         ProdBOMWhereUsed.SetItem(Item, WorkDate());
         ProdBOMWhereUsed.Run();
     end;
@@ -5825,6 +5833,7 @@ codeunit 137069 "SCM Production Orders"
     var
         PurchaseHeader: Record "Purchase Header";
         PurchaseLine: Record "Purchase Line";
+        ItemTrackingMode: Option " ","Assign Lot No.","Select Entries","Verify Entries";
     begin
         CreatePurchaseOrder(PurchaseHeader, PurchaseLine, ItemNo, LibraryRandom.RandDec(10, 2) + 50);  // Using Large Quantity Value.
         LibraryVariableStorage.Enqueue(ItemTrackingMode::"Assign Lot No.");  // Enqueue for Page Handler - LotItemTrackingPageHandler.
@@ -5841,7 +5850,7 @@ codeunit 137069 "SCM Production Orders"
         Item.Modify(true);
     end;
 
-    local procedure FindAssignedLotNo(ItemNo: Code[20]): Code[50]
+    local procedure FindAssignedLotNo(ItemNo: Code[20]): Code[20]
     var
         ItemLedgEntry: Record "Item Ledger Entry";
     begin
@@ -5866,7 +5875,7 @@ codeunit 137069 "SCM Production Orders"
     begin
         LibraryItemTracking.CreateItemTrackingCode(ItemTrackingCode, false, true);
         Item.Validate("Item Tracking Code", ItemTrackingCode.Code);
-        Item.Validate("Lot Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        Item.Validate("Lot Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         Item.Modify(true);
     end;
 
@@ -5928,6 +5937,7 @@ codeunit 137069 "SCM Production Orders"
     local procedure VerifyTrackingOnRequisitionLine(ItemNo: Code[20]; LotNo: Variant; Quantity: Variant)
     var
         RequisitionLine: Record "Requisition Line";
+        ItemTrackingMode: Option " ","Assign Lot No.","Select Entries","Verify Entries";
     begin
         LibraryVariableStorage.Enqueue(ItemTrackingMode::"Verify Entries");  // Enqueue for Page Handler - LotItemTrackingPageHandler.
         RequisitionLine.SetRange(Type, RequisitionLine.Type::Item);
@@ -5944,7 +5954,7 @@ codeunit 137069 "SCM Production Orders"
         LibraryVariableStorage.Enqueue(ItemTrackingMode::"Get Lot Quantity");
         LibraryVariableStorage.Enqueue(LotNo);
         ItemJournalLine.OpenItemTrackingLines(false);
-        Assert.AreEqual(Qty, LibraryVariableStorage.DequeueDecimal(), WrongLotQtyOnItemJnlErr);
+        Assert.AreEqual(Qty, LibraryVariableStorage.DequeueDecimal, WrongLotQtyOnItemJnlErr);
     end;
 
     local procedure VerifyDimensionSetEntry(DimensionSetID: Integer; DimensionCode: Code[20]; DimensionValueCode: Code[20])
@@ -6024,15 +6034,15 @@ codeunit 137069 "SCM Production Orders"
     local procedure VerifyTotalQuantityOnReservationPage(var Reservation: TestPage Reservation; SummaryType: Text[80])
     begin
         Reservation.FILTER.SetFilter("Summary Type", SummaryType);
-        Reservation."Reserve from Current Line".Invoke();
-        Reservation."Total Quantity".AssertEquals(DequeueNumber());
+        Reservation."Reserve from Current Line".Invoke;
+        Reservation."Total Quantity".AssertEquals(DequeueNumber);
     end;
 
     local procedure VerifyQuantityOnReservationPage(Reservation: TestPage Reservation)
     begin
-        Reservation.QtyToReserveBase.AssertEquals(DequeueNumber());
-        Reservation.QtyReservedBase.AssertEquals(DequeueNumber());
-        Reservation.UnreservedQuantity.AssertEquals(DequeueNumber());
+        Reservation.QtyToReserveBase.AssertEquals(DequeueNumber);
+        Reservation.QtyReservedBase.AssertEquals(DequeueNumber);
+        Reservation.UnreservedQuantity.AssertEquals(DequeueNumber);
     end;
 
     local procedure VerifyProductionOrderLine(Status: Enum "Production Order Status"; ProductionOrderNo: Code[20]; ItemNo: Code[20]; Quantity: Decimal; LocationCode: Code[10])
@@ -6229,7 +6239,7 @@ codeunit 137069 "SCM Production Orders"
             FindSet();
             repeat
                 TestField(Binding, Binding::" ");
-            until Next() = 0;
+            until Next = 0;
         end;
     end;
 
@@ -6249,7 +6259,7 @@ codeunit 137069 "SCM Production Orders"
             SetRange("Order Type", "Order Type"::Production);
             SetRange("Order No.", ProdOrderNo);
             CalcSums("Cost Amount (Actual)");
-            Assert.AreNearlyEqual(CostAmount, "Cost Amount (Actual)", LibraryERM.GetAmountRoundingPrecision(), '');
+            Assert.AreNearlyEqual(CostAmount, "Cost Amount (Actual)", LibraryERM.GetAmountRoundingPrecision, '');
         end;
     end;
 
@@ -6306,7 +6316,7 @@ codeunit 137069 "SCM Production Orders"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Tracking Data Collection", 'OnBeforeAssistEditTrackingNo', '', false, false)]
-    local procedure CheckTrackingSpecOnBeforeAssistEditTrackingNoEvent(var TempTrackingSpecification: Record "Tracking Specification" temporary; var SearchForSupply: Boolean; CurrentSignFactor: Integer; LookupMode: Enum "Item Tracking Type"; MaxQuantity: Decimal)
+    procedure CheckTrackingSpecOnBeforeAssistEditTrackingNoEvent(var TempTrackingSpecification: Record "Tracking Specification" temporary; var SearchForSupply: Boolean; CurrentSignFactor: Integer; LookupMode: Enum "Item Tracking Type"; MaxQuantity: Decimal)
     var
         ProdOrderComponent: Record "Prod. Order Component";
     begin
@@ -6320,30 +6330,30 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure LotItemTrackingPageHandler(var ItemTrackingLines: TestPage "Item Tracking Lines")
     begin
-        case LibraryVariableStorage.DequeueInteger() of
+        case LibraryVariableStorage.DequeueInteger of
             ItemTrackingMode::"Assign Lot No.":
-                ItemTrackingLines."Assign Lot No.".Invoke();
+                ItemTrackingLines."Assign Lot No.".Invoke;
             ItemTrackingMode::"Select Entries":
-                ItemTrackingLines."Select Entries".Invoke();
+                ItemTrackingLines."Select Entries".Invoke;
             ItemTrackingMode::"Verify Entries":
                 begin
-                    ItemTrackingLines."Lot No.".AssertEquals(LibraryVariableStorage.DequeueText());
-                    ItemTrackingLines."Quantity (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal());
+                    ItemTrackingLines."Lot No.".AssertEquals(LibraryVariableStorage.DequeueText);
+                    ItemTrackingLines."Quantity (Base)".AssertEquals(LibraryVariableStorage.DequeueDecimal);
                 end;
             ItemTrackingMode::"Set Lot No.":
-                ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText());
+                ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText);
             ItemTrackingMode::"Set Quantity & Lot No.":
                 begin
-                    ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText());
-                    ItemTrackingLines."Quantity (Base)".SetValue(LibraryVariableStorage.DequeueDecimal());
+                    ItemTrackingLines."Lot No.".SetValue(LibraryVariableStorage.DequeueText);
+                    ItemTrackingLines."Quantity (Base)".SetValue(LibraryVariableStorage.DequeueDecimal);
                 end;
             ItemTrackingMode::"Get Lot Quantity":
                 begin
-                    ItemTrackingLines.FILTER.SetFilter("Lot No.", LibraryVariableStorage.DequeueText());
-                    LibraryVariableStorage.Enqueue(ItemTrackingLines."Quantity (Base)".AsDecimal());
+                    ItemTrackingLines.FILTER.SetFilter("Lot No.", LibraryVariableStorage.DequeueText);
+                    LibraryVariableStorage.Enqueue(ItemTrackingLines."Quantity (Base)".AsDEcimal);
                 end;
         end;
-        ItemTrackingLines.OK().Invoke();
+        ItemTrackingLines.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -6358,25 +6368,25 @@ codeunit 137069 "SCM Production Orders"
         AssignSerialNo2 := AssignSerialNo;  // Assign Variant to Boolean.
 
         if AssignSerialNo2 then
-            ItemTrackingLines."Assign Serial No.".Invoke()
+            ItemTrackingLines."Assign Serial No.".Invoke
         else begin
-            ItemTrackingLines.Last();
+            ItemTrackingLines.Last;
             repeat
                 ItemTrackingLines."Quantity (Base)".AssertEquals(1);  // Using One for Serial No.
                 ItemTrackingLines."Qty. to Handle (Base)".AssertEquals(1);  // Using One for Serial No.
                 Assert.IsTrue(ItemTrackingLines."Serial No.".Value > ' ', SerialNoErr);
                 LineCount += 1;
-            until not ItemTrackingLines.Previous();
-            Assert.AreEqual(DequeueNumber(), LineCount, NumberOfLineEqualErr);  // Verify Number of line - Tracking Line.
+            until not ItemTrackingLines.Previous;
+            Assert.AreEqual(DequeueNumber, LineCount, NumberOfLineEqualErr);  // Verify Number of line - Tracking Line.
         end;
-        ItemTrackingLines.OK().Invoke();
+        ItemTrackingLines.OK.Invoke;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure ItemTrackingSummaryPageHandler(var ItemTrackingSummary: TestPage "Item Tracking Summary")
     begin
-        ItemTrackingSummary.OK().Invoke();
+        ItemTrackingSummary.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -6384,15 +6394,15 @@ codeunit 137069 "SCM Production Orders"
     procedure WhseItemTrackingLinesModalPageHandler(var WhseItemTrackingLines: TestPage "Whse. Item Tracking Lines")
     begin
         WhseItemTrackingLines."Lot No.".SetValue(LibraryUtility.GenerateGUID());
-        WhseItemTrackingLines.Quantity.SetValue(WhseItemTrackingLines.Quantity3.AsDecimal());
+        WhseItemTrackingLines.Quantity.SetValue(WhseItemTrackingLines.Quantity3.AsDEcimal);
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure OrderPlanningPageHandler(var OrderPlanning: TestPage "Order Planning")
     begin
-        OrderPlanning.CalculatePlan.Invoke();
-        OrderPlanning."Demand Order No.".AssertEquals(DequeueText());
+        OrderPlanning.CalculatePlan.Invoke;
+        OrderPlanning."Demand Order No.".AssertEquals(DequeueText);
     end;
 
     [ModalPageHandler]
@@ -6408,7 +6418,7 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure ReservationModalPageHandler(var Reservation: TestPage Reservation)
     begin
-        Reservation.CancelReservationCurrentLine.Invoke();
+        Reservation.CancelReservationCurrentLine.Invoke;
     end;
 
     [ModalPageHandler]
@@ -6421,11 +6431,11 @@ codeunit 137069 "SCM Production Orders"
         LibraryVariableStorage.Dequeue(ReserveFromCurrentLine);
         ReserveFromCurrentLine2 := ReserveFromCurrentLine;  // Assign Variant to Boolean.
         if ReserveFromCurrentLine2 then
-            Reservation."Reserve from Current Line".Invoke()
+            Reservation."Reserve from Current Line".Invoke
         else begin
             VerifyQuantityOnReservationPage(Reservation);
-            Reservation."Total Quantity".AssertEquals(DequeueNumber());
-            Reservation.TotalReservedQuantity.AssertEquals(DequeueNumber());
+            Reservation."Total Quantity".AssertEquals(DequeueNumber);
+            Reservation.TotalReservedQuantity.AssertEquals(DequeueNumber);
         end;
     end;
 
@@ -6433,15 +6443,15 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure SalesOrderPlanningPageHandler(var SalesOrderPlanning: TestPage "Sales Order Planning")
     begin
-        SalesOrderPlanning."Item No.".AssertEquals(DequeueText());
-        SalesOrderPlanning.Available.AssertEquals(DequeueNumber());
+        SalesOrderPlanning."Item No.".AssertEquals(DequeueText);
+        SalesOrderPlanning.Available.AssertEquals(DequeueNumber);
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure QuantityToCreatePageHandler(var EnterQuantityToCreate: TestPage "Enter Quantity to Create")
     begin
-        EnterQuantityToCreate.OK().Invoke();
+        EnterQuantityToCreate.OK.Invoke;
     end;
 
     [ModalPageHandler]
@@ -6472,11 +6482,11 @@ codeunit 137069 "SCM Production Orders"
     begin
         ProductionJournal.FILTER.SetFilter("Entry Type", Format(ItemJournalLine."Entry Type"::Consumption));
         Quantity := LibraryVariableStorage.PeekDecimal(3); // third index variable
-        ProductionJournal.ItemTrackingLines.Invoke();
+        ProductionJournal.ItemTrackingLines.Invoke;
         ProductionJournal.Quantity.SetValue(Quantity);
         LibraryVariableStorage.Enqueue(PostingQst); // Enqueued for ConfirmHandler
         LibraryVariableStorage.Enqueue(JournalPostedMsg); // Enqueued for MessageHandler
-        ProductionJournal.Post.Invoke();
+        ProductionJournal.Post.Invoke;
     end;
 
     [ModalPageHandler]
@@ -6487,15 +6497,15 @@ codeunit 137069 "SCM Production Orders"
     begin
         LibraryVariableStorage.Dequeue(ProductionOrderNo);
         ProductionJournal.FILTER.SetFilter("Document No.", ProductionOrderNo);
-        ProductionJournal.Post.Invoke();
+        ProductionJournal.Post.Invoke;
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure ProductionJournalViewFlushedCompModalPageHandler(var ProductionJournal: TestPage "Production Journal")
     begin
-        ProductionJournal.FILTER.SetFilter("Item No.", LibraryVariableStorage.DequeueText());
-        LibraryVariableStorage.Enqueue(ProductionJournal.Quantity.AsDecimal());
+        ProductionJournal.FILTER.SetFilter("Item No.", LibraryVariableStorage.DequeueText);
+        LibraryVariableStorage.Enqueue(ProductionJournal.Quantity.AsDEcimal);
     end;
 
     [ModalPageHandler]
@@ -6506,7 +6516,7 @@ codeunit 137069 "SCM Production Orders"
     begin
         LibraryVariableStorage.Dequeue(NewDimensionValueCode);
         EditDimensionSetEntries.DimensionValueCode.SetValue(NewDimensionValueCode);
-        EditDimensionSetEntries.OK().Invoke();
+        EditDimensionSetEntries.OK.Invoke;
     end;
 
     [FilterPageHandler]
@@ -6590,10 +6600,10 @@ codeunit 137069 "SCM Production Orders"
         LibraryVariableStorage.Dequeue(OutputQty);
         LibraryVariableStorage.Dequeue(SetupTime);
         LibraryVariableStorage.Enqueue(JournalLinePostedMsg); // Required inside MessageHandler.
-        ProductionJournal.First();
+        ProductionJournal.First;
         ProductionJournal."Output Quantity".SetValue(OutputQty);
         ProductionJournal."Setup Time".SetValue(SetupTime);
-        ProductionJournal.Post.Invoke();
+        ProductionJournal.Post.Invoke;
     end;
 
     [MessageHandler]
@@ -6606,7 +6616,7 @@ codeunit 137069 "SCM Production Orders"
     [Scope('OnPrem')]
     procedure HyperlinkHandler(Message: Text[1024])
     begin
-        LibraryVariableStorage.Enqueue(StrPos(Message, StrSubstNo('page=%1', LibraryVariableStorage.DequeueInteger())) > 0);
+        LibraryVariableStorage.Enqueue(StrPos(Message, StrSubstNo('page=%1', LibraryVariableStorage.DequeueInteger)) > 0);
     end;
 }
 

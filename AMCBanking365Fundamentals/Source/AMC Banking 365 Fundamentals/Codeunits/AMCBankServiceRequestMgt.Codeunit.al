@@ -61,6 +61,7 @@ codeunit 20118 "AMC Bank Service Request Mgt."
     end;
 
     procedure AddElement(VAR ParentElement: XmlElement; NameSpace: Text; ElementName: Text; ElementValue: Text; VAR CreatedChildElement: XmlElement; AttribName: Text; AttribNameSpace: Text; AttribValue: Text)
+    var
     begin
         CLEAR(CreatedChildElement);
         if (ElementValue <> '') then
@@ -107,6 +108,7 @@ codeunit 20118 "AMC Bank Service Request Mgt."
     end;
 
     local procedure SetHttpClientDefaults();
+    var
     begin
         if (GLBHeadersClientHttpClient.Contains('Accept')) THEN
             GLBHeadersClientHttpClient.Remove('Accept');
@@ -115,6 +117,7 @@ codeunit 20118 "AMC Bank Service Request Mgt."
     end;
 
     procedure SetHttpContentsDefaults(Var HeaderHttpRequestMessage: HttpRequestMessage);
+    var
     begin
         HeaderHttpRequestMessage.Content().GetHeaders(GLBHeadersContentHttp);
 

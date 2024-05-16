@@ -26,14 +26,15 @@ codeunit 5979 "Service-Post and Send"
     begin
         OnBeforeCode(ServiceHeader);
 
-        case ServiceHeader."Document Type" of
-            ServiceHeader."Document Type"::Invoice,
-              ServiceHeader."Document Type"::"Credit Memo":
-                if not ConfirmPostAndSend(ServiceHeader, TempDocumentSendingProfile) then
-                    exit;
-            else
-                Error(NotSupportedDocumentTypeErr, ServiceHeader."Document Type");
-        end;
+        with ServiceHeader do
+            case "Document Type" of
+                "Document Type"::Invoice,
+              "Document Type"::"Credit Memo":
+                    if not ConfirmPostAndSend(ServiceHeader, TempDocumentSendingProfile) then
+                        exit;
+                else
+                    Error(NotSupportedDocumentTypeErr, "Document Type");
+            end;
 
         TempDocumentSendingProfile.CheckElectronicSendingEnabled();
         ValidateElectronicFormats(TempDocumentSendingProfile);

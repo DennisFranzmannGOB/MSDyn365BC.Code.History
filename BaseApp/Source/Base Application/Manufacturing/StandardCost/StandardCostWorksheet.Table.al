@@ -8,7 +8,6 @@ using Microsoft.Projects.Resources.Resource;
 table 5841 "Standard Cost Worksheet"
 {
     Caption = 'Standard Cost Worksheet';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -15,7 +15,6 @@ table 7154 "Item Analysis View Entry"
     Caption = 'Item Analysis View Entry';
     DrillDownPageID = "Item Analysis View Entries";
     LookupPageID = "Item Analysis View Entries";
-    DataClassification = CustomerContent;
 
     fields
     {

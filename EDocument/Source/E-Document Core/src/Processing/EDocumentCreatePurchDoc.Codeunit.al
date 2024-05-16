@@ -14,12 +14,11 @@ codeunit 6136 "E-Document Create Purch. Doc."
         CreatePurchaseDocument(SourceEDocument, SourceDocumentHeader, SourceDocumentLine, CreatedDocumentHeader)
     end;
 
-    internal procedure SetSource(var SourceEDocument2: Record "E-Document"; var SourceDocumentHeader2: RecordRef; var SourceDocumentLine2: RecordRef; SourcePurchaseDocumentType2: Enum "Purchase Document Type")
+    internal procedure SetSource(var SourceEDocument2: Record "E-Document"; var SourceDocumentHeader2: RecordRef; var SourceDocumentLine2: RecordRef)
     begin
         SourceEDocument := SourceEDocument2;
         SourceDocumentHeader := SourceDocumentHeader2;
         SourceDocumentLine := SourceDocumentLine2;
-        SourcePurchaseDocumentType := SourcePurchaseDocumentType2;
     end;
 
     internal procedure GetCreatedDocument(): RecordRef;
@@ -45,7 +44,7 @@ codeunit 6136 "E-Document Create Purch. Doc."
         DefaultDocumentLine.GetTable(DefaultPurchaseLine);
 
         // Create header
-        EDocumentImportHelper.ProcessField(EDocument, DocumentHeader, PurchaseHeader.FieldNo("Document Type"), Format(SourcePurchaseDocumentType));
+        EDocumentImportHelper.ProcessField(EDocument, DocumentHeader, PurchaseHeader.FieldNo("Document Type"), TempDocumentHeader.Field(PurchaseHeader.FieldNo("Document Type")).Value());
 
         OnCreateNewPurchHdrOnBeforeRecRefInsert(EDocument, TempDocumentHeader, DocumentHeader);
         DocumentHeader.Insert(true);
@@ -189,7 +188,6 @@ codeunit 6136 "E-Document Create Purch. Doc."
         SourceEDocument: Record "E-Document";
         EDocumentImportHelper: Codeunit "E-Document Import Helper";
         SourceDocumentHeader, SourceDocumentLine, CreatedDocumentHeader : RecordRef;
-        SourcePurchaseDocumentType: Enum "Purchase Document Type";
 
     [IntegrationEvent(false, false)]
     local procedure OnCreateNewPurchHdrOnBeforeRecRefInsert(var EDocument: Record "E-Document"; var TempDocumentHeader: RecordRef; var DocumentHeader: RecordRef);

@@ -8,9 +8,8 @@ using Microsoft.Projects.Project.WIP;
 
 table 1017 "Job Buffer"
 {
-    Caption = 'Project Buffer';
+    Caption = 'Job Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

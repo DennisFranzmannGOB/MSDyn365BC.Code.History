@@ -1,4 +1,4 @@
-﻿#if not CLEAN23
+﻿#if not CLEAN21
 // ------------------------------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
@@ -139,7 +139,7 @@ report 7052 "Suggest Sales Price on Wksh."
                     end;
                 end;
 
-                if ToSalesType = ToSalesType::"Customer Price Group" then begin
+                If ToSalesType = ToSalesType::"Customer Price Group" then begin
                     SalesPriceWksh."Price Includes VAT" := ToCustPriceGr."Price Includes VAT";
                     SalesPriceWksh."VAT Bus. Posting Gr. (Price)" := ToCustPriceGr."VAT Bus. Posting Gr. (Price)";
                     SalesPriceWksh."Allow Invoice Disc." := ToCustPriceGr."Allow Invoice Disc.";

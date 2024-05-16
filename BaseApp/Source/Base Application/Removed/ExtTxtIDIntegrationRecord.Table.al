@@ -4,7 +4,6 @@ table 5377 "Ext Txt ID Integration Record"
     ObsoleteState = Removed;
     ObsoleteReason = 'This functionality will be replaced by the systemID field';
     ObsoleteTag = '22.0';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -27,7 +26,7 @@ table 5377 "Ext Txt ID Integration Record"
         }
         field(6; "Table ID"; Integer)
         {
-            CalcFormula = lookup("Integration Record"."Table ID" where("Integration ID" = field("Integration ID")));
+            CalcFormula = Lookup("Integration Record"."Table ID" where("Integration ID" = field("Integration ID")));
             Caption = 'Table ID';
             FieldClass = FlowField;
         }
@@ -98,11 +97,13 @@ table 5377 "Ext Txt ID Integration Record"
                 if ExtTxtIDIntegrationRecord2.FindIDFromRecordID(RecordID, ExternalID) then
                     Error(RecordIdAlreadyMappedErr, Format(RecordID, 0, 1), ExternalID);
 
-                ExtTxtIDIntegrationRecord.Reset();
-                ExtTxtIDIntegrationRecord.Init();
-                ExtTxtIDIntegrationRecord."External ID" := ExternalID;
-                ExtTxtIDIntegrationRecord."Integration ID" := IntegrationRecord."Integration ID";
-                ExtTxtIDIntegrationRecord.Insert(true);
+                with ExtTxtIDIntegrationRecord do begin
+                    Reset();
+                    Init();
+                    "External ID" := ExternalID;
+                    "Integration ID" := IntegrationRecord."Integration ID";
+                    Insert(true);
+                end;
                 exit;
             end;
 
@@ -157,9 +158,11 @@ table 5377 "Ext Txt ID Integration Record"
         if not FindRowFromExternalID(SourceExternalID, DestinationTableID, ExtTxtIDIntegrationRecord) then
             exit;
 
-        ExtTxtIDIntegrationRecord."Last Synch. Ext Modified On" := ExternalLastModifiedOn;
-        ExtTxtIDIntegrationRecord."Last Synch. Modified On" := LastModifiedOn;
-        ExtTxtIDIntegrationRecord.Modify(true);
+        with ExtTxtIDIntegrationRecord do begin
+            "Last Synch. Ext Modified On" := ExternalLastModifiedOn;
+            "Last Synch. Modified On" := LastModifiedOn;
+            Modify(true);
+        end;
     end;
 
     procedure FindIDFromRecordID(SourceRecordID: RecordID; var DestinationTextID: Text[250]): Boolean
@@ -214,7 +217,7 @@ table 5377 "Ext Txt ID Integration Record"
         IntegrationRecord: Record "Integration Record";
     begin
         IntegrationRecord.Init();
-        IntegrationRecord."Integration ID" := RecordRef.Field(RecordRef.SystemIdNo).Value();
+        IntegrationRecord."Integration ID" := RecordRef.Field(RecordRef.SystemIdNo).Value;
 
         IntegrationRecord."Record ID" := RecordRef.RecordId;
         IntegrationRecord."Table ID" := RecordRef.Number;

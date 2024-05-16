@@ -4,7 +4,6 @@ table 353 "Dimension ID Buffer"
 {
     Caption = 'Dimension ID Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

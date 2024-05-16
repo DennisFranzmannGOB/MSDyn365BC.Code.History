@@ -1,7 +1,6 @@
 table 130013 Snapshot
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

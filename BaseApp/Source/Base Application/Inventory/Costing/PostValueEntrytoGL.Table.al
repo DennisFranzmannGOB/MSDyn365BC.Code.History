@@ -6,7 +6,6 @@ using Microsoft.Inventory.Ledger;
 table 5811 "Post Value Entry to G/L"
 {
     Caption = 'Post Value Entry to G/L';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -6,7 +6,6 @@ table 5059 "Web Source"
 {
     Caption = 'Web Source';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Web Sources";
 
     fields
@@ -26,7 +25,7 @@ table 5059 "Web Source"
         }
         field(4; Comment; Boolean)
         {
-            CalcFormula = exist("Rlshp. Mgt. Comment Line" where("Table Name" = const("Web Source"),
+            CalcFormula = Exist("Rlshp. Mgt. Comment Line" where("Table Name" = const("Web Source"),
                                                                   "No." = field(Code),
                                                                   "Sub No." = const(0)));
             Caption = 'Comment';

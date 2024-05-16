@@ -3,7 +3,7 @@ namespace System.Security.AccessControl;
 
 using System.Azure.Identity;
 
-codeunit 9019 "User Groups"
+Codeunit 9019 "User Groups"
 {
     Permissions = TableData "User Group Member" = d;
     InherentEntitlements = X;

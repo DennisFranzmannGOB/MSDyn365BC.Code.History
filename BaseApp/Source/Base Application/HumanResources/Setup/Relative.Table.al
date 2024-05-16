@@ -5,7 +5,6 @@ table 5204 Relative
     Caption = 'Relative';
     DrillDownPageID = Relatives;
     LookupPageID = Relatives;
-    DataClassification = CustomerContent;
 
     fields
     {

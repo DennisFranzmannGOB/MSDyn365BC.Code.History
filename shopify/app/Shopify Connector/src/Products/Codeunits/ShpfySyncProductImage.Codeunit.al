@@ -24,7 +24,6 @@ codeunit 30184 "Shpfy Sync Product Image"
     var
         Shop: Record "Shpfy Shop";
         ProductImageExport: Codeunit "Shpfy Product Image Export";
-        ProductEvents: Codeunit "Shpfy Product Events";
         ProductFilter: Text;
 
     /// <summary> 
@@ -137,8 +136,7 @@ codeunit 30184 "Shpfy Sync Product Image"
             HttpResponseMessage.Content.ReadAs(InStream);
             Clear(Item.Picture);
             Item.Picture.ImportStream(InStream, Item.Description);
-            Item.Modify(true);
-            ProductEvents.OnAfterUpdateItemPicture(Item, ImageUrl, InStream);
+            Item.Modify();
         end;
     end;
 

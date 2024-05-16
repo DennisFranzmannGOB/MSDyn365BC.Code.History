@@ -24,7 +24,6 @@ table 5600 "Fixed Asset"
     LookupPageID = "Fixed Asset List";
     Permissions = TableData "Ins. Coverage Ledger Entry" = r,
                   TableData Employee = r;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -36,7 +35,7 @@ table 5600 "Fixed Asset"
             begin
                 if "No." <> xRec."No." then begin
                     FASetup.Get();
-                    NoSeries.TestManual(FASetup."Fixed Asset Nos.");
+                    NoSeriesMgt.TestManual(FASetup."Fixed Asset Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -457,7 +456,7 @@ table 5600 "Fixed Asset"
         MainAssetComp: Record "Main Asset Component";
         InsCoverageLedgEntry: Record "Ins. Coverage Ledger Entry";
         FAMoveEntries: Codeunit "FA MoveEntries";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         DimMgt: Codeunit DimensionManagement;
 
         Text000: Label 'A main asset cannot be deleted.';
@@ -479,22 +478,20 @@ table 5600 "Fixed Asset"
         if IsHandled then
             exit(Result);
 
-        FA := Rec;
-        FASetup.Get();
-        FASetup.TestField("Fixed Asset Nos.");
-        if NoSeries.LookupRelatedNoSeries(FASetup."Fixed Asset Nos.", OldFA."No. Series", FA."No. Series") then begin
-            FA."No." := NoSeries.GetNextNo(FA."No. Series");
-            Rec := FA;
-            exit(true);
+        with FA do begin
+            FA := Rec;
+            FASetup.Get();
+            FASetup.TestField("Fixed Asset Nos.");
+            if NoSeriesMgt.SelectSeries(FASetup."Fixed Asset Nos.", OldFA."No. Series", "No. Series") then begin
+                NoSeriesMgt.SetSeries("No.");
+                Rec := FA;
+                exit(true);
+            end;
         end;
     end;
 
     local procedure InitFANo()
     var
-        FixedAsset: Record "Fixed Asset";
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-#endif
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -505,31 +502,7 @@ table 5600 "Fixed Asset"
         if "No." = '' then begin
             FASetup.Get();
             FASetup.TestField("Fixed Asset Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(FASetup."Fixed Asset Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(FASetup."Fixed Asset Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := FASetup."Fixed Asset Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                FixedAsset.ReadIsolation(IsolationLevel::ReadUncommitted);
-                FixedAsset.SetLoadFields("No.");
-                while FixedAsset.Get("No.") do
-                    "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", FASetup."Fixed Asset Nos.", 0D, "No.");
-            end;
-#else
-			if NoSeries.AreRelated(FASetup."Fixed Asset Nos.", xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := FASetup."Fixed Asset Nos.";
-            "No." := NoSeries.GetNextNo("No. Series");
-            FixedAsset.ReadIsolation(IsolationLevel::ReadUncommitted);
-            FixedAsset.SetLoadFields("No.");
-            while FixedAsset.Get("No.") do
-                "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(FASetup."Fixed Asset Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
     end;
 

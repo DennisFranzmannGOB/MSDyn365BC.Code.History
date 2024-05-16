@@ -7,7 +7,6 @@ using System.Security.User;
 table 1804 "Approval Workflow Wizard"
 {
     Caption = 'Approval Workflow Wizard';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -54,7 +53,7 @@ table 1804 "Approval Workflow Wizard"
         }
         field(12; "Field Caption"; Text[250])
         {
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field(TableNo),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field(TableNo),
                                                               "No." = field(Field)));
             Caption = 'Field Caption';
             FieldClass = FlowField;

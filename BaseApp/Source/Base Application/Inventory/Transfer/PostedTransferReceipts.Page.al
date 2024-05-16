@@ -12,7 +12,7 @@ page 5753 "Posted Transfer Receipts"
     PageType = List;
     SourceTable = "Transfer Receipt Header";
     SourceTableView = sorting("Posting Date")
-                      order(descending);
+                      order(Descending);
     UsageCategory = History;
 
     layout

@@ -18,10 +18,9 @@ codeunit 6137 "E-Document Create Jnl. Line"
         CreateGeneralJournalLine(SourceEDocument, CreatedJnlLine);
     end;
 
-    internal procedure SetSource(var SourceEDocument2: Record "E-Document"; var SourceEDocumentService2: Record "E-Document Service")
+    internal procedure SetSource(var SourceEDocument2: Record "E-Document")
     begin
-        SourceEDocument.Copy(SourceEDocument2);
-        SourceEDocumentService.Copy(SourceEDocumentService2);
+        SourceEDocument := SourceEDocument2;
     end;
 
     internal procedure GetCreatedJnlLine(): RecordRef;
@@ -38,10 +37,11 @@ codeunit 6137 "E-Document Create Jnl. Line"
         GenJournalBatch: Record "Gen. Journal Batch";
         GeneralLedgerSetup: Record "General Ledger Setup";
         EDocService: Record "E-Document Service";
+        EDocumentLog: Codeunit "E-Document Log";
         TextToAccountMappingFound: Boolean;
         TempGenJournalLineInserted: Boolean;
     begin
-        EDocService := SourceEDocumentService;
+        EDocService := EDocumentLog.GetLastServiceFromLog(EDocument);
         if (EDocService."General Journal Template Name" = '') or (EDocService."General Journal Batch Name" = '') then
             EDocumentErrorHelper.LogErrorMessage(EDocument, EDocService, EDocService.FieldNo("General Journal Template Name"),
                 StrSubstNo(TemplateBatchNameMissingErr,
@@ -58,7 +58,7 @@ codeunit 6137 "E-Document Create Jnl. Line"
                 LastGenJournalLine.Validate("Journal Template Name", EDocService."General Journal Template Name");
                 LastGenJournalLine.Validate("Journal Batch Name", EDocService."General Journal Batch Name");
                 LastGenJournalLine."Line No." += 10000;
-                LastGenJournalLine.Validate("Document No.", NoSeriesBatch.GetNextNo(GenJournalBatch."No. Series", EDocument."Document Date"));
+                LastGenJournalLine.Validate("Document No.", NoSeriesMgt.GetNextNo(GenJournalBatch."No. Series", EDocument."Document Date", false));
                 TempGenJournalLineInserted := LastGenJournalLine.Insert();
             end;
 
@@ -196,8 +196,7 @@ codeunit 6137 "E-Document Create Jnl. Line"
 
     var
         SourceEDocument: Record "E-Document";
-        SourceEDocumentService: Record "E-Document Service";
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         EDocumentErrorHelper: Codeunit "E-Document Error Helper";
         SourceDocumentHeader, CreatedJnlLine : RecordRef;
         NoBalanceAccountMappingErr: Label 'Could not fill the Bal. Account No. field for vendor ''''%1''''. Choose the Map Text to Account button to map ''''%1'''' to the relevant G/L account.', Comment = '%1 - vendor name';

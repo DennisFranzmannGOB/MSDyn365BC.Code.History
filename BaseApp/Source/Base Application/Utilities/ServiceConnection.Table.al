@@ -1,14 +1,18 @@
 namespace Microsoft.Utilities;
 
-#if not CLEAN22
 #pragma warning disable AS0109
-#endif
 table 1400 "Service Connection"
+#pragma warning restore AS0109
 {
     Caption = 'Service Connection';
     ReplicateData = false;
+#if CLEAN21
     TableType = Temporary;
-    DataClassification = CustomerContent;
+#else
+    ObsoleteReason = 'Table will be marked as TableType=Temporary. Make sure you are not using this table to store records.';
+    ObsoleteState = Pending;
+    ObsoleteTag = '21.0';
+#endif
 
     fields
     {

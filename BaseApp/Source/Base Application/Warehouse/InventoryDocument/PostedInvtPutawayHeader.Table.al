@@ -26,7 +26,6 @@ table 7340 "Posted Invt. Put-away Header"
 {
     Caption = 'Posted Invt. Put-away Header';
     LookupPageID = "Posted Invt. Put-away List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -66,7 +65,7 @@ table 7340 "Posted Invt. Put-away Header"
         }
         field(10; Comment; Boolean)
         {
-            CalcFormula = exist("Warehouse Comment Line" where("Table Name" = const("Posted Invt. Put-Away"),
+            CalcFormula = Exist("Warehouse Comment Line" where("Table Name" = const("Posted Invt. Put-Away"),
                                                                 Type = const(" "),
                                                                 "No." = field("No.")));
             Caption = 'Comment';
@@ -190,33 +189,18 @@ table 7340 "Posted Invt. Put-away Header"
     end;
 
     trigger OnInsert()
-    var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesMgt: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         if "No." = '' then begin
             TestNoSeries();
             "No. Series" := GetNoSeriesCode();
-#if not CLEAN24
-            NoSeriesMgt.RaiseObsoleteOnBeforeInitSeries("No. Series", xRec."No. Series", "Posting Date", "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-#endif
-                if NoSeries.AreRelated("No. Series", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series";
-                "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
-#if not CLEAN24
-                NoSeriesMgt.RaiseObsoleteOnAfterInitSeries("No. Series", GetNoSeriesCode(), "Posting Date", "No.");
-            end;
-#endif
+            NoSeriesMgt.InitSeries("No. Series", xRec."No. Series", "Posting Date", "No.", "No. Series");
         end;
         "Registering Date" := WorkDate();
     end;
 
     var
         InvtSetup: Record "Inventory Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
 
     local procedure GetNoSeriesCode(): Code[20]
     begin

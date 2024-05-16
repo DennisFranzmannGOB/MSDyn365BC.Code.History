@@ -16,7 +16,6 @@ table 10901 "IRS Groups"
     ObsoleteState = Pending;
     ObsoleteTag = '24.0';
 #endif
-    DataClassification = CustomerContent;
 
     fields
     {

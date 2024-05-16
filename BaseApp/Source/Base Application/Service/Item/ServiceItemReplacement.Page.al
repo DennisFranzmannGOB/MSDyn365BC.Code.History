@@ -24,9 +24,7 @@ page 5985 "Service Item Replacement"
                         Caption = 'Service Item No.';
                         Editable = false;
                     }
-#pragma warning disable AA0100
                     field("Item.""No."""; Item."No.")
-#pragma warning restore AA0100
                     {
                         ApplicationArea = Service;
                         Caption = 'Item No.';
@@ -75,7 +73,6 @@ page 5985 "Service Item Replacement"
                         begin
                             ItemVariant.Reset();
                             ItemVariant.SetRange("Item No.", ItemNo);
-                            ItemVariant.SetRange(Blocked, false);
                             if PAGE.RunModal(PAGE::"Item Variants", ItemVariant) = ACTION::LookupOK then
                                 VariantCode := ItemVariant.Code;
                         end;
@@ -86,7 +83,6 @@ page 5985 "Service Item Replacement"
                                 ItemVariant.Reset();
                                 ItemVariant.SetRange("Item No.", ItemNo);
                                 ItemVariant.SetRange(Code, VariantCode);
-                                ItemVariant.SetRange(Blocked, false);
                                 if not ItemVariant.FindFirst() then
                                     Error(
                                       Text000,

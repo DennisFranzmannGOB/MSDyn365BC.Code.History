@@ -72,6 +72,7 @@ page 6520 "Item Tracing"
                     Caption = 'Package No. Filter';
                     CaptionClass = '6,3';
                     ToolTip = 'Specifies the package number or a filter on the package numbers that you would like to trace.';
+                    Visible = PackageTrackingVisible;
                     ExtendedDatatype = Barcode;
 
                     trigger OnLookup(var Text: Text): Boolean
@@ -205,6 +206,7 @@ page 6520 "Item Tracing"
                     Editable = false;
                     Style = Strong;
                     ToolTip = 'Specifies the traced package number.';
+                    Visible = PackageTrackingVisible;
                 }
                 field("Item No."; Rec."Item No.")
                 {
@@ -530,6 +532,24 @@ page 6520 "Item Tracing"
             {
                 Caption = 'Item', Comment = 'Generated from the PromotedActionCategories property index 4.';
 
+#if not CLEAN21
+                actionref(Card_Promoted; Card)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
+#if not CLEAN21
+                actionref(LedgerEntries_Promoted; LedgerEntries)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Report)
             {
@@ -559,6 +579,8 @@ page 6520 "Item Tracing"
             TraceMethod := TraceMethod::"Usage->Origin";
             ShowComponents := ShowComponents::"Item-tracked Only";
         end;
+
+        SetPackageTrackingVisibility();
     end;
 
     var
@@ -577,6 +599,7 @@ page 6520 "Item Tracing"
         FunctionsEnable: Boolean;
         PrintEnable: Boolean;
         NavigateEnable: Boolean;
+        PackageTrackingVisible: Boolean;
 
     protected var
         SerialNoFilter: Text;
@@ -713,6 +736,13 @@ page 6520 "Item Tracing"
             TempTrackEntry.FindFirst();
             CurrPage.SetRecord(TempTrackEntry);
         end;
+    end;
+
+    local procedure SetPackageTrackingVisibility()
+    var
+        PackageMgt: Codeunit "Package Management";
+    begin
+        PackageTrackingVisible := PackageMgt.IsEnabled();
     end;
 
     [IntegrationEvent(false, false)]

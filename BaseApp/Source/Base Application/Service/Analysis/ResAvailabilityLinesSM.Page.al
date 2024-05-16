@@ -60,9 +60,7 @@ page 6007 "Res. Availability Lines (SM)"
                         PAGE.RunModal(0, ResCapacityEntry);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Res.""Qty. on Service Order"""; Rec."Qty. on Service Order")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Service;
                     Caption = 'Qty. on Service Order';
@@ -85,7 +83,7 @@ page 6007 "Res. Availability Lines (SM)"
                     ApplicationArea = Basic, Suite;
                     Caption = 'Net Availability';
                     DecimalPlaces = 0 : 5;
-                    ToolTip = 'Specifies capacity, minus the quantity on order, minus the projects quotes allocation.';
+                    ToolTip = 'Specifies capacity, minus the quantity on order, minus the jobs quotes allocation.';
                 }
             }
         }
@@ -163,7 +161,7 @@ page 6007 "Res. Availability Lines (SM)"
         OnAfterCalcLine(Res, Rec);
     end;
 
-    [IntegrationEvent(true, false)]
+    [IntegrationEvent(TRUE, false)]
     local procedure OnAfterCalcLine(var Resource: Record Resource; var ResAvailabilityBuffer: Record "Res. Availability Buffer")
     begin
     end;

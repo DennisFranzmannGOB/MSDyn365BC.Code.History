@@ -91,9 +91,7 @@ report 1201 "Post Direct Debit Collection"
                     Editable = false;
                     ToolTip = 'Specifies the status of the collection.';
                 }
-#pragma warning disable AA0100
                 field("DirectDebitCollection.""To Bank Account No."""; DirectDebitCollection."To Bank Account No.")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Caption = 'Bank Account No.';
@@ -248,7 +246,7 @@ report 1201 "Post Direct Debit Collection"
     var
         CustLedgEntry: Record "Cust. Ledger Entry";
         GenJournalTemplate: Record "Gen. Journal Template";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
         CustLedgEntry.Get(DirectDebitCollectionEntry."Applies-to Entry No.");
         CustLedgEntry.CalcFields("Remaining Amount");
@@ -263,7 +261,7 @@ report 1201 "Post Direct Debit Collection"
             if CreateJnlOnly then
                 GenJnlLine.SetUpNewLine(GenJnlLine, GenJnlLine."Balance (LCY)", true)
             else begin
-                GenJnlLine."Document No." := NoSeries.GetNextNo(GenJnlBatch."No. Series", GenJnlLine."Posting Date");
+                GenJnlLine."Document No." := NoSeriesMgt.GetNextNo(GenJnlBatch."No. Series", GenJnlLine."Posting Date", true);
                 GenJournalTemplate.Get(GeneralJournalTemplateName);
                 GenJnlLine."Source Code" := GenJournalTemplate."Source Code";
             end;

@@ -1,12 +1,12 @@
 namespace Microsoft.Projects.Project.Analysis;
 
 using Microsoft.Projects.Project.Job;
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 730 "Job Act to Bud Cost Chart"
 {
-    Caption = 'Project Act to Bud Cost Chart';
+    Caption = 'Job Act to Bud Cost Chart';
     PageType = CardPart;
     SourceTable = Job;
 
@@ -14,17 +14,17 @@ page 730 "Job Act to Bud Cost Chart"
     {
         area(content)
         {
-            usercontrol(Chart; BusinessChart)
+            usercontrol(Chart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = Jobs;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
-                    BusChartBuf.SetDrillDownIndexes(Point);
+                    BusChartBuf.SetDrillDownIndexes(point);
                     JobChartMgt.DataPointClicked(BusChartBuf, TempJob);
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -126,7 +126,7 @@ page 730 "Job Act to Bud Cost Chart"
             exit;
 
         JobChartMgt.CreateChart(BusChartBuf, TempJob, NewChartType, Enum::"Job Chart Type"::"Actual to Budget Cost");
-        BusChartBuf.UpdateChart(CurrPage.Chart);
+        BusChartBuf.Update(CurrPage.Chart);
         CurrentChartType := NewChartType;
     end;
 

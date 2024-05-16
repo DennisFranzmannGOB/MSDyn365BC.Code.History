@@ -11,7 +11,6 @@ table 250 "Gen. Business Posting Group"
     DataCaptionFields = "Code", Description;
     LookupPageID = "Gen. Business Posting Groups";
     Permissions = tabledata "Gen. Business Posting Group" = r;
-    DataClassification = CustomerContent;
 
     fields
     {

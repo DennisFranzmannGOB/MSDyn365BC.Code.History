@@ -4,7 +4,6 @@ table 5073 "Campaign Status"
 {
     Caption = 'Campaign Status';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     LookupPageID = "Campaign Status";
 
     fields

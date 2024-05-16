@@ -586,7 +586,7 @@ page 9304 "Sales Return Order List"
                 {
                     ApplicationArea = SalesReturnOrder;
                     Caption = 'Send A&pproval Request';
-                    Enabled = not OpenApprovalEntriesExist;
+                    Enabled = NOT OpenApprovalEntriesExist;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval of the document.';
 
@@ -703,11 +703,8 @@ page 9304 "Sales Return Order List"
 
                     trigger OnAction()
                     var
-                        SelectedSalesHeader: Record "Sales Header";
                         SalesPostYesNo: Codeunit "Sales-Post (Yes/No)";
                     begin
-                        CurrPage.SetSelectionFilter(SelectedSalesHeader);
-                        SalesPostYesNo.MessageIfPostingPreviewMultipleDocuments(SelectedSalesHeader, Rec."No.");
                         SalesPostYesNo.Preview(Rec);
                     end;
                 }

@@ -1,4 +1,4 @@
-﻿#if not CLEAN23
+﻿#if not CLEAN21
 namespace Microsoft.Sales.Pricing;
 
 using Microsoft.CRM.Campaign;
@@ -13,7 +13,7 @@ using System.Globalization;
 page 7002 "Sales Prices"
 {
     Caption = 'Sales Prices';
-    DataCaptionExpression = PageCaptionText;
+    DataCaptionExpression = PageCaption;
     DelayedInsert = true;
     PageType = List;
     SaveValues = true;
@@ -30,7 +30,7 @@ page 7002 "Sales Prices"
             group(General)
             {
                 Caption = 'General';
-                Visible = not IsOnMobile;
+                Visible = NOT IsOnMobile;
                 field(SalesTypeFilter; SalesTypeFilter)
                 {
                     ApplicationArea = Basic, Suite;
@@ -323,7 +323,7 @@ page 7002 "Sales Prices"
                 Caption = 'Copy Prices';
                 Image = Copy;
                 ToolTip = 'Select prices and press OK to copy them to Customer No.';
-                Visible = not IsLookupMode;
+                Visible = NOT IsLookupMode;
 
                 trigger OnAction()
                 begin
@@ -386,7 +386,7 @@ page 7002 "Sales Prices"
         ClientTypeManagement: Codeunit "Client Type Management";
         StartingDateFilter: Text;
         CurrencyCodeFilter: Text;
-        PageCaptionText: Text;
+        PageCaption: Text;
         Text000: Label 'All Customers';
         Text001: Label 'No %1 within the filter %2.';
         SalesCodeFilterCtrlEnable: Boolean;
@@ -474,9 +474,9 @@ page 7002 "Sales Prices"
     local procedure SetCaption()
     begin
         if IsOnMobile then
-            PageCaptionText := ''
+            PageCaption := ''
         else
-            PageCaptionText := GetFilterDescription();
+            PageCaption := GetFilterDescription();
     end;
 
     local procedure GetFilterDescription(): Text

@@ -19,7 +19,6 @@ table 262 "Intrastat Jnl. Batch"
     ObsoleteTag = '25.0';
 #endif
     ObsoleteReason = 'Intrastat related functionalities are moved to Intrastat extensions.';
-    DataClassification = CustomerContent;
 
     fields
     {

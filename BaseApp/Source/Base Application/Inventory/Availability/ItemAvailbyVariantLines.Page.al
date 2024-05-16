@@ -96,9 +96,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowItemLedgerEntries(Item, false);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Qty. on Purch. Order"""; Item."Qty. on Purch. Order")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Qty. on Purch. Order';
@@ -113,9 +111,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowPurchLines(Item);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Qty. on Sales Order"""; Item."Qty. on Sales Order")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Qty. on Sales Order';
@@ -130,9 +126,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowSalesLines(Item);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Qty. on Service Order"""; Item."Qty. on Service Order")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Qty. on Service Order';
@@ -145,14 +139,12 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowServLines(Item);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Qty. on Job Order"""; Item."Qty. on Job Order")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
-                    Caption = 'Qty. on Project Order';
+                    Caption = 'Qty. on Job Order';
                     DecimalPlaces = 0 : 5;
-                    ToolTip = 'Specifies how many units of the item are allocated to projects, meaning listed on outstanding project planning lines. The field is automatically updated based on the Remaining Qty. field in the Project Planning Lines window.';
+                    ToolTip = 'Specifies how many units of the item are allocated to jobs, meaning listed on outstanding job planning lines. The field is automatically updated based on the Remaining Qty. field in the Job Planning Lines window.';
                     Visible = false;
 
                     trigger OnDrillDown()
@@ -160,9 +152,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowJobPlanningLines(Item);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Trans. Ord. Shipment (Qty.)"""; Item."Trans. Ord. Shipment (Qty.)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Trans. Ord. Shipment (Qty.)';
@@ -175,9 +165,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowTransLines(Item, Item.FieldNo("Trans. Ord. Shipment (Qty.)"));
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Qty. on Asm. Component"""; Item."Qty. on Asm. Component")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Qty. on Asm. Comp. Lines';
@@ -191,9 +179,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowAsmCompLines(Item);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Qty. on Assembly Order"""; Item."Qty. on Assembly Order")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Qty. on Assembly Order';
@@ -207,9 +193,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowAsmOrders(Item);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Qty. in Transit"""; Item."Qty. in Transit")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Qty. in Transit';
@@ -222,9 +206,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowTransLines(Item, Item.FieldNo("Qty. in Transit"));
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Trans. Ord. Receipt (Qty.)"""; Item."Trans. Ord. Receipt (Qty.)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Trans. Ord. Receipt (Qty.)';
@@ -255,9 +237,7 @@ page 5415 "Item Avail. by Variant Lines"
                     ToolTip = 'Specifies the quantity of the item that is currently in inventory and not reserved for other demand.';
                     Visible = false;
                 }
-#pragma warning disable AA0100
                 field("Item.""Scheduled Receipt (Qty.)"""; Item."Scheduled Receipt (Qty.)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Scheduled Receipt (Qty.)';
@@ -271,9 +251,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ItemAvailFormsMgt.ShowSchedReceipt(Item);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Scheduled Need (Qty.)"""; Item."Qty. on Component Lines")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Qty. on Component Lines';
@@ -297,9 +275,7 @@ page 5415 "Item Avail. by Variant Lines"
                         ShowItemAvailLineList(3);
                     end;
                 }
-#pragma warning disable AA0100
                 field("Item.""Net Change"""; Item."Net Change")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Planning;
                     Caption = 'Net Change';

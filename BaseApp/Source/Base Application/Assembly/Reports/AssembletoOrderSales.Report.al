@@ -240,14 +240,16 @@ report 915 "Assemble to Order - Sales"
     var
         ItemLedgEntry: Record "Item Ledger Entry";
     begin
-        ItemLedgEntry.SetCurrentKey("Order Type", "Order No.", "Order Line No.");
-        ItemLedgEntry.SetRange("Order Type", ItemLedgEntry."Order Type"::Assembly);
-        ItemLedgEntry.SetRange("Order No.", AsmOrderNo);
-        if ItemLedgEntry.FindSet() then
-            repeat
-                if ItemLedgEntry."Entry Type" = ItemLedgEntry."Entry Type"::"Assembly Consumption" then
-                    TempATOSalesBuffer.UpdateBufferWithItemLedgEntry(ItemLedgEntry, false);
-            until ItemLedgEntry.Next() = 0;
+        with ItemLedgEntry do begin
+            SetCurrentKey("Order Type", "Order No.", "Order Line No.");
+            SetRange("Order Type", "Order Type"::Assembly);
+            SetRange("Order No.", AsmOrderNo);
+            if FindSet() then
+                repeat
+                    if "Entry Type" = "Entry Type"::"Assembly Consumption" then
+                        TempATOSalesBuffer.UpdateBufferWithItemLedgEntry(ItemLedgEntry, false);
+                until Next() = 0;
+        end;
     end;
 
     local procedure ConvertAsmComponentsToSale(var ToATOSalesBuffer: Record "ATO Sales Buffer"; var FromCompATOSalesBuffer: Record "ATO Sales Buffer"; ProfitPct: Decimal)
@@ -257,31 +259,35 @@ report 915 "Assemble to Order - Sales"
         CopyOfATOSalesBuffer.Copy(ToATOSalesBuffer);
         ToATOSalesBuffer.Reset();
 
-        FromCompATOSalesBuffer.Reset();
-        if FromCompATOSalesBuffer.Find('-') then
-            repeat
-                ToATOSalesBuffer.UpdateBufferWithComp(FromCompATOSalesBuffer, ProfitPct, false);
-                ToATOSalesBuffer.UpdateBufferWithComp(FromCompATOSalesBuffer, ProfitPct, true);
-            until FromCompATOSalesBuffer.Next() = 0;
-        FromCompATOSalesBuffer.DeleteAll();
+        with FromCompATOSalesBuffer do begin
+            Reset();
+            if Find('-') then
+                repeat
+                    ToATOSalesBuffer.UpdateBufferWithComp(FromCompATOSalesBuffer, ProfitPct, false);
+                    ToATOSalesBuffer.UpdateBufferWithComp(FromCompATOSalesBuffer, ProfitPct, true);
+                until Next() = 0;
+            DeleteAll();
+        end;
 
         ToATOSalesBuffer.Copy(CopyOfATOSalesBuffer);
     end;
 
     local procedure IsInBOMComp(ItemNo: Code[20]): Boolean
     var
-        BOMComponent: Record "BOM Component";
+        BOMComp: Record "BOM Component";
         ParentItem: Record Item;
     begin
-        BOMComponent.SetCurrentKey(Type, "No.");
-        BOMComponent.SetRange(Type, BOMComponent.Type::Item);
-        BOMComponent.SetRange("No.", ItemNo);
-        if BOMComponent.FindSet() then
-            repeat
-                ParentItem.Get(BOMComponent."Parent Item No.");
-                if ParentItem."Assembly Policy" = ParentItem."Assembly Policy"::"Assemble-to-Order" then
-                    exit(true);
-            until BOMComponent.Next() = 0;
+        with BOMComp do begin
+            SetCurrentKey(Type, "No.");
+            SetRange(Type, Type::Item);
+            SetRange("No.", ItemNo);
+            if FindSet() then
+                repeat
+                    ParentItem.Get("Parent Item No.");
+                    if ParentItem."Assembly Policy" = ParentItem."Assembly Policy"::"Assemble-to-Order" then
+                        exit(true);
+                until Next() = 0;
+        end;
     end;
 
     local procedure FindNextRecord(var ATOSalesBuffer: Record "ATO Sales Buffer"; Position: Integer): Boolean

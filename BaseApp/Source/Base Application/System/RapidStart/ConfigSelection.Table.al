@@ -4,7 +4,6 @@ table 8621 "Config. Selection"
 {
     Caption = 'Config. Selection';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

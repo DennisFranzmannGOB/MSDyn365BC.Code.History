@@ -15,7 +15,6 @@ table 6301 "Power BI Report Configuration"
     ObsoleteState = Removed;
     ObsoleteTag = '26.0';
 #endif
-    DataClassification = CustomerContent;
 
     fields
     {

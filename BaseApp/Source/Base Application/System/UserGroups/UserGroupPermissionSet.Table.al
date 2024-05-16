@@ -15,7 +15,6 @@ table 9003 "User Group Permission Set"
     ObsoleteTag = '25.0';
 #endif 
     ObsoleteReason = '[220_UserGroups] The user groups functionality is deprecated. Use security groups (Security Group codeunit) or permission sets directly instead. To learn more, go to https://go.microsoft.com/fwlink/?linkid=2245709.';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -32,14 +31,14 @@ table 9003 "User Group Permission Set"
         }
         field(3; "User Group Name"; Text[50])
         {
-            CalcFormula = lookup("User Group".Name where(Code = field("User Group Code")));
+            CalcFormula = Lookup("User Group".Name where(Code = field("User Group Code")));
             Caption = 'User Group Name';
             Editable = false;
             FieldClass = FlowField;
         }
         field(4; "Role Name"; Text[30])
         {
-            CalcFormula = lookup("Permission Set".Name where("Role ID" = field("Role ID")));
+            CalcFormula = Lookup("Permission Set".Name where("Role ID" = field("Role ID")));
             Caption = 'Name';
             Editable = false;
             FieldClass = FlowField;
@@ -56,7 +55,7 @@ table 9003 "User Group Permission Set"
         }
         field(7; "Extension Name"; Text[250])
         {
-            CalcFormula = lookup("Published Application".Name where(ID = field("App ID"), "Tenant Visible" = const(true)));
+            CalcFormula = Lookup("Published Application".Name where(ID = field("App ID"), "Tenant Visible" = const(true)));
             Caption = 'Extension Name';
             Editable = false;
             FieldClass = FlowField;

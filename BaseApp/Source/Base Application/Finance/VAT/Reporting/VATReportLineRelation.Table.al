@@ -7,7 +7,6 @@ namespace Microsoft.Finance.VAT.Reporting;
 table 744 "VAT Report Line Relation"
 {
     Caption = 'VAT Report Line Relation';
-    DataClassification = CustomerContent;
 
     fields
     {

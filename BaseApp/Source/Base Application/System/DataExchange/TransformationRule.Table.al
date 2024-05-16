@@ -12,7 +12,6 @@ table 1237 "Transformation Rule"
     Caption = 'Transformation Rule';
     DataCaptionFields = "Code", Description;
     LookupPageID = "Transformation Rules";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -183,7 +182,7 @@ table 1237 "Transformation Rule"
         field(51; "Table Caption"; Text[250])
         {
             Caption = 'Table ID';
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Table ID")));
             Editable = false;
             FieldClass = FlowField;
@@ -203,7 +202,7 @@ table 1237 "Transformation Rule"
         field(53; "Source Field Caption"; Text[250])
         {
             Caption = 'Source Field Caption';
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table ID"),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table ID"),
                                                               "No." = field("Source Field ID")));
             Editable = false;
             FieldClass = FlowField;
@@ -223,7 +222,7 @@ table 1237 "Transformation Rule"
         field(55; "Target Field Caption"; Text[250])
         {
             Caption = 'Target Field Caption';
-            CalcFormula = lookup(Field."Field Caption" where(TableNo = field("Table ID"),
+            CalcFormula = Lookup(Field."Field Caption" where(TableNo = field("Table ID"),
                                                               "No." = field("Target Field ID")));
             Editable = false;
             FieldClass = FlowField;
@@ -493,7 +492,7 @@ table 1237 "Transformation Rule"
                     WholeExpressionGroup := false
                 else
                     foreach Capture in Group.Captures do
-                        NewString += Capture.Value();
+                        NewString += Capture.Value;
 
         exit(NewString);
     end;
@@ -598,7 +597,7 @@ table 1237 "Transformation Rule"
         RecRef.Open("Table ID");
         FieldRef := RecRef.Field("Source Field ID");
         FieldRef.SetRange(OldValue);
-        if RecRef.FindFirst() then begin
+        if RecRef.FindFirst then begin
             FieldRef := RecRef.Field("Target Field ID");
             case "Field Lookup Rule" of
                 "Field Lookup Rule"::Target:

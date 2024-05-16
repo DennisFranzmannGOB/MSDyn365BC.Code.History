@@ -900,8 +900,8 @@ report 215 "Archived Sales Quote"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 FormatAddressFields("Sales Header Archive");
@@ -989,7 +989,7 @@ report 215 "Archived Sales Quote"
         DimSetEntry2: Record "Dimension Set Entry";
         RespCenter: Record "Responsibility Center";
         CurrExchRate: Record "Currency Exchange Rate";
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         CustAddr: array[8] of Text[100];
@@ -1088,13 +1088,15 @@ report 215 "Archived Sales Quote"
 
     local procedure FormatDocumentFields(SalesHeaderArchive: Record "Sales Header Archive")
     begin
-        FormatDocument.SetTotalLabels(SalesHeaderArchive."Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
-        FormatDocument.SetSalesPerson(SalesPurchPerson, SalesHeaderArchive."Salesperson Code", SalesPersonText);
-        FormatDocument.SetPaymentTerms(PaymentTerms, SalesHeaderArchive."Payment Terms Code", SalesHeaderArchive."Language Code");
-        FormatDocument.SetShipmentMethod(ShipmentMethod, SalesHeaderArchive."Shipment Method Code", SalesHeaderArchive."Language Code");
+        with SalesHeaderArchive do begin
+            FormatDocument.SetTotalLabels("Currency Code", TotalText, TotalInclVATText, TotalExclVATText);
+            FormatDocument.SetSalesPerson(SalesPurchPerson, "Salesperson Code", SalesPersonText);
+            FormatDocument.SetPaymentTerms(PaymentTerms, "Payment Terms Code", "Language Code");
+            FormatDocument.SetShipmentMethod(ShipmentMethod, "Shipment Method Code", "Language Code");
 
-        ReferenceText := FormatDocument.SetText(SalesHeaderArchive."Your Reference" <> '', SalesHeaderArchive.FieldCaption("Your Reference"));
-        VATNoText := FormatDocument.SetText(SalesHeaderArchive."VAT Registration No." <> '', SalesHeaderArchive.FieldCaption("VAT Registration No."));
+            ReferenceText := FormatDocument.SetText("Your Reference" <> '', FieldCaption("Your Reference"));
+            VATNoText := FormatDocument.SetText("VAT Registration No." <> '', FieldCaption("VAT Registration No."));
+        end;
     end;
 
     local procedure InitTempLines(var TempSalesHeader: Record "Sales Header" temporary; var TempSalesLine: Record "Sales Line" temporary)

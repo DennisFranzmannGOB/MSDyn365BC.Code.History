@@ -3,13 +3,6 @@
   <file datatype="xml" source-language="en-US" target-language="da-DK" original="E-Document Core">
     <body>
       <group id="body">
-        <trans-unit id="EnumExtension 4197577775 - EnumValue 2622910582 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Matching Assistance</source>
-          <target state="translated">Hjælp til matchning af e-dokumenter</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Enum 3058546390</note>
-        </trans-unit>
         <trans-unit id="Table 2546100294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Doc. Service Data Exch. Def.</source>
           <target state="translated">Definition af service til dataudveksling af E-dokumenter</target>
@@ -183,933 +176,6 @@
           <target state="translated">Angiver det dataudvekslingsnavn, der bruges til indlæsning af dataene.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Service Data Exch. Sub - Control Impt. Data Exchange Def. Name - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Doc. PO Match Prop. Buffer</source>
-          <target state="translated">Buffer til egenskab af E-dok. købsordrematch</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 4104418200 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Proposal</source>
-          <target state="translated">Tilbud</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field AI Proposal - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 2480638018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Line No.</source>
-          <target state="translated">Dokumentlinjenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field Document Line No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 1447378298 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Order No.</source>
-          <target state="translated">Dokumentordrenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field Document Order No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 1382392403 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Line Description</source>
-          <target state="translated">Beskrivelse af e-dokumentlinje</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field E-Document Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 2667474473 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Direct Unit Cost</source>
-          <target state="translated">Direkte kostpris for e-dokument (LV)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field E-Document Direct Unit Cost - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 310582248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Entry No.</source>
-          <target state="translated">Løbenr. for e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field E-Document Entry No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 1520622344 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Line Discount</source>
-          <target state="translated">E-dokumentlinjerabat</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field E-Document Line Discount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 2098501554 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Line No.</source>
-          <target state="translated">E-dokumentlinjenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field E-Document Line No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 1838466219 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched Quantity</source>
-          <target state="translated">Matchet antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field Matched Quantity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 2599119859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Line Description</source>
-          <target state="translated">Beskrivelse af købsordrelinje</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field PO Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 2387386249 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Direct Unit Cost</source>
-          <target state="translated">Købsordre Direkte kostpris</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field PO Direct Unit Cost - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1659950427 - Field 1146768360 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Line Discount</source>
-          <target state="translated">Købsordrelinjerabat</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. PO Match Prop. Buffer - Field PO Line Discount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 986307084 - NamedType 860981884" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sorry, something went wrong. Please try again.</source>
-          <target state="translated">Noget gik galt. Prøv igen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. PO Copilot Matching - NamedType AzureOpenAIFailureErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 986307084 - NamedType 4035389019" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No matches were found for Copilot because the conditions regarding prices or quantities have not been met.</source>
-          <target state="translated">Der blev ikke fundet nogen match for Copilot, fordi betingelserne vedrørende priser eller mængder ikke er opfyldt.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. PO Copilot Matching - NamedType NoLinesCouldBeMatchedMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Match Order Lines with Copilot</source>
-          <target state="translated">E-dokument match ordrelinjer med Copilot</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - NamedType 2157519906" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>All lines (100%) are matched. Review match proposals.</source>
-          <target state="translated">Alle linjer (100 %) er matchet. Gennemgå matchforslag.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - NamedType AllLinesMatchedTxt</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - NamedType 3290455486" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 of %2 lines (%3%)</source>
-          <target state="translated">%1 af %2 linjer (%3%)</target>
-          <note from="Developer" annotates="general" priority="2">%1 - an integer; %2 - an integer; %3 a decimal between 0 and 100</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - NamedType AutoMatchedLinesLbl</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - NamedType 2198549901" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched to multiple entries. Drill down to see more.</source>
-          <target state="translated">Anvend på flere poster. Foretag detailudledning for at se mere.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - NamedType MultipleMatchTxt</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - NamedType 2053918396" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1% of lines are matched. Review match proposals.</source>
-          <target state="translated">%1% linjer er matchet. Gennemgå matchforslag.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - a decimal between 0 and 100</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - NamedType SubsetOfLinesMatchedTxt</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 1397307980 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the E-Document number</source>
-          <target state="translated">Angiver e-dokumentnummeret</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control E-Document No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 1397307980 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document No.</source>
-          <target state="translated">E-dokumentnr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control E-Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 467969401 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the total invoice amount excluding VAT</source>
-          <target state="translated">Angiver det samlede fakturabeløb, ekskl. moms</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Invoice Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 467969401 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice Total Amount Excl. VAT</source>
-          <target state="translated">Fakturatotal ekskl. moms</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Invoice Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 4092509174 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of matches proposed automatically</source>
-          <target state="translated">Angiver antallet af matches, der foreslås automatisk</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Lines matched Automatically - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 4092509174 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Auto-matched</source>
-          <target state="translated">Automatisk matchet</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Lines matched Automatically - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 1221906458 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of matches proposed by Copilot</source>
-          <target state="translated">Angiver antallet af matches, der foreslås af Copilot</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Lines matched by Copilot - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 1221906458 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copilot matched</source>
-          <target state="translated">Copilot matchet</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Lines matched by Copilot - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 2007041360 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the matched amount excluding VAT</source>
-          <target state="translated">Angiver det matchede beløb ekskl. moms</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Matched Total Amount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 2007041360 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched Total Amount Incl. VAT</source>
-          <target state="translated">Matchet totalbeløb inkl. moms</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Matched Total Amount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 1699088827 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the matching summary</source>
-          <target state="translated">Angiver den matchende oversigt</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Summary Text - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 1699088827 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Summary Text - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 888546298 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match proposals</source>
-          <target state="translated">Match forslag</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control ProposalDetails - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 3955473374 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Warning - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 2726838817 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies a warning text</source>
-          <target state="translated">Angiver en advarselstekst</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Warning Text - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Control 2726838817 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Control Warning Text - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Action 788258546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard purchase order line matching proposed by Copilot.</source>
-          <target state="translated">Kassér match af købsordrelinjer foreslået af Copilot.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Action Cancel - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Action 788258546 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard it</source>
-          <target state="translated">Kassér det</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Action Cancel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Action 2626368477 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Generate bank account reconciliation and run auto-matching with Copilot.</source>
-          <target state="translated">Generér bankkontoafstemning, og kør automatisk match med Copilot.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Action Generate - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Action 2626368477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Generate</source>
-          <target state="translated">Generér</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Action Generate - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Action 2079045816 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Save purchase order line matching proposed by Copilot.</source>
-          <target state="translated">Gem match af købsordrelinje foreslået af Copilot.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Action OK - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 942123106 - Action 2079045816 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Keep it</source>
-          <target state="translated">Behold det</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Copilot Prop - Action OK - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 34180935 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match Proposals</source>
-          <target state="translated">Match forslag</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Match Prop. Sub - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 34180935 - Control 4104418200 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the action proposed by the AI.</source>
-          <target state="translated">Angiver den handling, der foreslås af den kunstige intelligens.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Match Prop. Sub - Control AI Proposal - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 34180935 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the E-Document line description.</source>
-          <target state="translated">Angiver linjebeskrivelsen for e-dokumentet.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Match Prop. Sub - Control Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 34180935 - Control 2098501554 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the E-Document line number.</source>
-          <target state="translated">Angiver e-dokument-linjenummeret.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Match Prop. Sub - Control E-Document Line No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 34180935 - Control 435678736 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the quantity that will be applied to purchase order line.</source>
-          <target state="translated">Angiver det antal, der skal anvendes på købsordrelinjen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. PO Match Prop. Sub - Control Quantity to Apply - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Doc. Imported Line</source>
-          <target state="translated">E-dok. indlæst linje</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - NamedType 897777381" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The Matched Quantity should not exceed Quantity and cannot be less than zero.</source>
-          <target state="translated">Det matchede antal må ikke overstige antallet, og må ikke være mindre end nul.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - NamedType MatchedQtyErr</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="translated">Beskrivelse</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 4187992892 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Direct Unit Cost</source>
-          <target state="translated">Direkte kostpris</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Direct Unit Cost - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 310582248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Entry No.</source>
-          <target state="translated">Løbenr. for e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field E-Document Entry No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 3535839028 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fully Matched</source>
-          <target state="translated">Fuldt matchet</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Fully Matched - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 2702998682 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Line Discount %</source>
-          <target state="translated">Linjerabatprocent</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Line Discount % - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 3320823955 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Line No.</source>
-          <target state="translated">Linjenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Line No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 1838466219 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched Quantity</source>
-          <target state="translated">Matchet antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Matched Quantity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 4200184881 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No.</source>
-          <target state="translated">Nej</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 2704404533 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Quantity</source>
-          <target state="translated">Antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Quantity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 1878130204 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Type</source>
-          <target state="translated">Type</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 995181224 - Field 2443841526 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unit Of Measure</source>
-          <target state="translated">Måleenhed</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Imported Line - Field Unit Of Measure Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Doc. Order Match</source>
-          <target state="translated">E-dok. ordrematch</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 2480638018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Line No.</source>
-          <target state="translated">Dokumentlinjenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field Document Line No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 1447378298 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Order No.</source>
-          <target state="translated">Dokumentordrenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field Document Order No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 1382392403 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Description</source>
-          <target state="translated">Beskrivelse af e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field E-Document Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 2667474473 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Unit Cost</source>
-          <target state="translated">Kostpris for e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field E-Document Direct Unit Cost - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 310582248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Entry No.</source>
-          <target state="translated">Løbenr. for e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field E-Document Entry No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 2098501554 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Imported Line No.</source>
-          <target state="translated">E-dokument indlæst linjenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field E-Document Line No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 3535839028 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fully Matched</source>
-          <target state="translated">Fuldt matchet</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field Fully Matched - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 2702998682 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discount %</source>
-          <target state="translated">Rabatprocent</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field Line Discount % - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 2599119859 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Description</source>
-          <target state="translated">Beskrivelse af købsordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field PO Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 2387386249 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Unit Cost</source>
-          <target state="translated">Kostpris for købsordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field PO Direct Unit Cost - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 2704404533 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Quantity</source>
-          <target state="translated">Antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field Quantity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1134347109 - Field 2385270358 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unit of Measure</source>
-          <target state="translated">Måleenhed</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field Unit of Measure Code - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 1280775967" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Varied Discount found in existing matching for Import line %1. Please review and undo previous matching in order to match selection</source>
-          <target state="translated">Varieret rabat fundet i eksisterende matchning for indlæst linje %1. Gennemgå og fortryd forrige matchning for at matche valget</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Import line number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType DiscountDiffErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 479657420" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Varied Discount found among selected %1 entries. Please review and deselect entries with different Discount in order to match selection</source>
-          <target state="translated">Varieret rabat fundet blandt udvalgte %1 poster. Gennemgå og fravælg poster med forskellig rabat for at matche udvalget</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Table name for selected entries</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType DiscountErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 99919807" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Empty selection cannot be matched.</source>
-          <target state="translated">Tomt valg kan ikke matches.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType EmptyRecordErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 1885661306" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discrepancy detected in line amount for 1 or more matches for Purchase Line %1.</source>
-          <target state="translated">Der blev registreret uoverensstemmelser i linjebeløbet for 1 eller flere matches for købslinje %1.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Purchase Line No</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType MatchErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 3514702903" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There are lines for this e-document that are already matched with this purchase order.\\ Do you want to overwrite the existing matches?</source>
-          <target state="translated">'Der er linjer i dette kontoudtog, som allerede er matchet med finansposter.\\Vil du overskrive de eksisterende matches?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType OverwriteExistingMatchesTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 3181731938" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cannot apply to purchase order as it is already linked to E-Document</source>
-          <target state="translated">Kan ikke anvendes på købsordre, da den allerede er knyttet til e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType PurchaseHeaderAlreadyLinkedErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 960065663" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Varied Unit Cost found in existing matching for Import line %1. Please review and undo previous matching in order to match selection</source>
-          <target state="translated">Varierede kostpriser fundet i eksisterende matchning for indlæst linje %1. Gennemgå og fortryd forrige matchning for at matche valget</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Import line number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType UnitCostDiffErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 3041014380" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Varied Unit Costs found among selected %1 entries. Please review and deselect entries with different Unit Costs in order to match selection</source>
-          <target state="translated">Forskellige enhedsomkostninger fundet blandt udvalgte %1 poster. Gennemse og fravælg poster med forskellige enhedsomkostninger for at matche udvalget</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Table name for selected entries</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType UnitCostErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 3589311953" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matching of Imported Line %1 is incomplete. It is not fully matched to purchase order lines.</source>
-          <target state="translated">Matchningen af indlæste linje %1 er ufuldstændig. Den er ikke fuldt matchet med købsordrelinjer.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Imported Line No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType UnmatchedImportLineErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 327842246" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Varied Unit Of Measures found among selected %1 entries. Please review and deselect entries with different Unit Of Measures in order to match selection</source>
-          <target state="translated">Varieret enhed fundet blandt udvalgte %1 poster. Gennemgå og fravælg poster med forskellige enheder for at matche udvælgelsen</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Table name for selected entries</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType UOMErr</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Doc. Imported Line Sub</source>
-          <target state="translated">E-dok. indlæst linje Sub</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description of what was received.</source>
-          <target state="translated">Angiver beskrivelsen af, hvad der blev modtaget.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 3310956332 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the discount percentage that is granted for the line.</source>
-          <target state="translated">Angiver den rabatprocent, der tildeles varen på linjen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control Discount % - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 3320823955 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies imported line number.</source>
-          <target state="translated">Angiver indlæst linjenummer.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control Line No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 1838466219 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the quantity that matched to purchase order lines.</source>
-          <target state="translated">Angiver det antal, der svarer til købsordrelinjerne.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control Matched Quantity - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies what you received, such as a product or a general ledger account.</source>
-          <target state="translated">Angiver, hvad du har modtaget, f.eks. et produkt eller en finanskonto.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 2704404533 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the quantity that was received.</source>
-          <target state="translated">Angiver det antal, der er modtaget.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control Quantity - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 2704404533 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Quantity</source>
-          <target state="translated">Antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control Quantity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 2443841526 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies how each unit of the item or resource is measured, such as in pieces or hours.</source>
-          <target state="translated">Angiver, hvordan hver enhed af varen eller ressourcen måles, f.eks. i styk eller timer.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control Unit Of Measure Code - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2635202628 - Control 2937233469 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the price of one unit of what you received.</source>
-          <target state="translated">Angiver prisen på én enhed af det, du køber.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Imported Line Sub - Control Unit Price - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Matching</source>
-          <target state="translated">Matching af købsordrer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - NamedType 1993344797" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched e-document lines (%1) has Direct Unit Cost different from matched purchase order line. Please verify matches are correct.</source>
-          <target state="translated">Matchede e-dokumentlinjer (%1) har direkte kostpris, der adskiller sig fra matchede indkøbsordrelinjer. Kontroller, at matchene er korrekte.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Line number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - NamedType LineCostVaryMatchMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - NamedType 2707394903" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched e-document lines (%1) has Line Discount % different from matched purchase order line. Please verify matches are correct.</source>
-          <target state="translated">Matchede e-dokumentlinjer (%1) har linjerabatprocent, der er forskellig fra matchede indkøbsordrelinjer. Kontroller, at matchene er korrekte.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Line number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - NamedType LineDiscountVaryMatchMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - NamedType 350126237" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copilot could not find any line matches. Please review manually</source>
-          <target state="translated">Copilot kunne ikke finde nogen linjematches. Gennemgå manuelt</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - NamedType NoMatchesFoundMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 117364419 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Imported Lines</source>
-          <target state="translated">Indlæste linjer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control ImportedLines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 3886463941 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Lines</source>
-          <target state="translated">Købsordrelinjer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control OrderLines - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 3291406315 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the e-document amount including VAT.</source>
-          <target state="translated">Angiver beløbet for e-dokumentet ekskl. moms.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control Amount Incl. VAT - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 3291406315 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Amount</source>
-          <target state="translated">E-dokumentbeløb</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control Amount Incl. VAT - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 477910301 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the customer/vendor name of the electronic document.</source>
-          <target state="translated">Angiver kundens/leverandørens navn på det elektroniske dokument.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control Bill-to/Pay-to Name - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 477910301 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Vendor Name</source>
-          <target state="translated">Leverandørnavn</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control Bill-to/Pay-to Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 580412389 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the electronic document date.</source>
-          <target state="translated">Angiver det elektroniske dokuments dato.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control Document Date - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 580412389 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Date</source>
-          <target state="translated">E-dokumentdato</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control Document Date - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 947690026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the electronic document number.</source>
-          <target state="translated">Angiver det elektroniske dokumentnummer.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control Incoming E-Document No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Control 947690026 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document No.</source>
-          <target state="translated">E-dokumentnr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Control Incoming E-Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 1640572759 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Opens the Purchase Order page with the related order</source>
-          <target state="translated">Åbner siden Købsordre med den relaterede ordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action PurchaseOrder - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 1640572759 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order</source>
-          <target state="translated">Købsordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action PurchaseOrder - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 2365833324 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Applies the matching and updates purchase order lines</source>
-          <target state="translated">Anvender matchingen og opdaterer købsordrelinjerne</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action ApplyToPO - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 2365833324 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Apply To Purchase Order</source>
-          <target state="translated">Anvend på købsordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action ApplyToPO - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 214670546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Automatically search and match lines that have same Type, No., Unit Price, Discount and Unit Of Measure.</source>
-          <target state="translated">Søg automatisk efter og match linjer, der har samme type, nr., enhedspris, rabat og enhed.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action MatchAutomatic - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 214670546 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match Automatically</source>
-          <target state="translated">Match automatisk</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action MatchAutomatic - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3472643723 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match e-document lines with the assistance of Copilot</source>
-          <target state="translated">Match af e-dokumentlinjer med hjælp fra Copilot</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action MatchCopilot - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3472643723 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match with Copilot</source>
-          <target state="translated">Match med Copilot</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action MatchCopilot - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 94347291 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Manually match selected lines in both panes to link each imported line to one or more related purchase order lines.</source>
-          <target state="translated">Match udvalgte linjer manuelt i begge ruder for at knytte alle bankkontoudtogslinjer til én eller flere relaterede bankkontoposter.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action MatchManual - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 94347291 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match Manually</source>
-          <target state="translated">Match manuelt</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action MatchManual - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3595947872 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Removes all matches made for E-Document.</source>
-          <target state="translated">Fjerner alle matches, der er oprettet til e-dokument.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action RemoveAllMatch - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3595947872 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reset Matching</source>
-          <target state="translated">Nulstil matchning</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action RemoveAllMatch - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3623348999 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Remove selection of matched purchase order lines.</source>
-          <target state="translated">Fjern valg af matchede indkøbsordrelinjer.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action RemoveMatch - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3623348999 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Remove Match</source>
-          <target state="translated">Fjern match</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action RemoveMatch - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 580853590 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show all e-document lines.</source>
-          <target state="translated">Vis alle e-dokumentlinjer.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action ShowAll - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 580853590 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show All Lines</source>
-          <target state="translated">Vis alle linjer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action ShowAll - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3127938322 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show all e-document lines that have not been completely matched.</source>
-          <target state="translated">Vis alle e-dokumentlinjer, der endnu ikke er fuldstændigt matchet.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action ShowNonMatched - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3127938322 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Pending Lines</source>
-          <target state="translated">Vis igangsatte linjer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action ShowNonMatched - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Category_Process</source>
-          <target state="translated">Category_Process</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action Category_Process - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 1167507281 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document</source>
-          <target state="translated">Dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action Document - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 2258465125 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matching</source>
-          <target state="translated">Matching</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action Matching - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1476121647 - Action 366713437 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show</source>
-          <target state="translated">Vis</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Line Matching - Action Show - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Match Details</source>
-          <target state="translated">Oplysninger om e-dokumentmatch</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description of matched Purchase Order Line.</source>
-          <target state="translated">Angiver beskrivelsen af den matchede købsordrelinje.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 3461834954 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase order Description</source>
-          <target state="translated">Beskrivelse af købsordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 2480638018 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Purchase Order Line No.</source>
-          <target state="translated">Angiver købsordrelinjenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control Document Line No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 2480638018 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Line No.</source>
-          <target state="translated">Købsordrelinje</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control Document Line No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 2667474473 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the direct unit cost of the E-Document line.</source>
-          <target state="translated">Angiver e-dokumentlinjens direkte kostpris.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control E-Document Direct Unit Cost - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 2667474473 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Unit Cost</source>
-          <target state="translated">Kostpris for e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control E-Document Direct Unit Cost - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 4240038709 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the description of matched E-Document line.</source>
-          <target state="translated">Angiver beskrivelsen af den matchede e-dokumentlinje.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control EDoc Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 4240038709 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Description</source>
-          <target state="translated">Beskrivelse af e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control EDoc Description - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 1117282431 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies E-Document Imported Line No.</source>
-          <target state="translated">Angiver e-dokument indlæst linje nr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control Imported Line No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 1117282431 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Line No.</source>
-          <target state="translated">E-dokumentlinjenr.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control Imported Line No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 1838466219 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the quantity that was matched for the imported line to the purchase order line.</source>
-          <target state="translated">Angiver det antal, der blev matchet for den indlæste linje med købsordrelinjen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control Matched Quantity - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 1838466219 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched Quantity</source>
-          <target state="translated">Matchet antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control Matched Quantity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 2387386249 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the direct unit cost of the purchase order line.</source>
-          <target state="translated">Angiver købsordrelinjens direkte kostpris.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control PO Direct Unit Cost - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1134347109 - Control 2387386249 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Order Unit Cost</source>
-          <target state="translated">Kostpris for købsordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match - Control PO Direct Unit Cost - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Doc. Purchase Order Sub</source>
-          <target state="translated">E-dok. indkøbsordre Sub</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 621504254 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the quantity that can be matched to this line.</source>
-          <target state="translated">Angiver det antal, der kan matches med linjen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Available Quantity - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 621504254 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Available Quantity</source>
-          <target state="translated">Disponibelt antal</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Available Quantity - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 3461834954 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies what is being purchased.</source>
-          <target state="translated">Angiver, hvad der købes.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Description - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 4187992892 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the price of one unit of what you're buying.</source>
-          <target state="translated">Angiver prisen på én enhed af det, du køber.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Direct Unit Cost - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 2714664821 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the discount percentage that is granted for the item on the line.</source>
-          <target state="translated">Angiver den rabatprocent, der tildeles varen på linjen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Line Discount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 3320823955 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies purchase order line number.</source>
-          <target state="translated">Angiver købsordrelinjenummer.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Line No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 4200184881 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies what you are buying, such as a product or a general ledger account.</source>
-          <target state="translated">Angiver, hvad du køber, f.eks. et produkt eller en finanskonto.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 2330918820 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the quantity that is matched to this line. Matching imported lines to this line will increase its value with the quantity of the imported line.</source>
-          <target state="translated">Angiver det antal, der er matchet med linjen. Hvis du matcher indlæste linjer med denne linje, øges dens værdi med antallet af den indlæste linje.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Qty. to Invoice - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 1878130204 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the line type.</source>
-          <target state="translated">Angiver linjetypen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2164709409 - Control 2385270358 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies how each unit of the item or resource is measured, such as in pieces or hours.</source>
-          <target state="translated">Angiver, hvordan hver enhed af varen eller ressourcen måles, f.eks. i styk eller timer.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Purchase Order Sub - Control Unit of Measure Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 2069227321 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Doc. Data Storage</source>
@@ -1813,11 +879,11 @@
           <note from="Developer" annotates="general" priority="2">%1 - The workflow code, %2 - Enum value set in Electronic Document, %3 - Document Sending Profile Code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Export - NamedType DocumentSendingProfileWithWorkflowErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2936732589 - NamedType 961122707" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cannot process E-Document %1 with Purchase Order %2 before Purchase Order has been matched and posted for E-Document %3.</source>
-          <target state="translated">Kan ikke behandle %1 af e-dokumenter med købsordre %2, før købsordren er blevet matchet og bogført til %3 for e-dokumenter.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - E-Document entry no, %2 - Purchase Order number, %3 - EDocument entry no.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType CannotProcessEDocumentMsg</note>
+        <trans-unit id="Codeunit 2936732589 - NamedType 4019364308" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 %2 was already created for the electronic document %3. Do you want to create new document?</source>
+          <target state="translated">Den %1 %2 blev allerede oprettet til det elektroniske dokument %3. Vil du oprette et nyt dokument?</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Document Type, %2 - Document No., %3 - E-Document ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType DocAlreadyCreatedQst</note>
         </trans-unit>
         <trans-unit id="Codeunit 2936732589 - NamedType 4248764329" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The document already exists.</source>
@@ -1825,28 +891,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType DocAlreadyExistsMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2936732589 - NamedType 337582519" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Creating Purchase %1</source>
-          <target state="translated">Oprette køb %1</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Document type</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType DocCreateMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2936732589 - NamedType 2933397990" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Creating Purchase Order</source>
-          <target state="translated">Oprettelse af købsordre</target>
+        <trans-unit id="Codeunit 2936732589 - NamedType 2553710072" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The document was not created due to errors in the conversion process.</source>
+          <target state="translated">Dokumentet blev ikke oprettet på grund af fejl i konverteringsprocessen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType DocCreatePOMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2936732589 - NamedType 1172011499" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Linking to existing order</source>
-          <target state="translated">Link til eksisterende ordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType DocLinkMsg</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType DocNotCreatedMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 2936732589 - NamedType 2695649725" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to create new Purchase %1 from E-Document. Do you want to open E-Document to see reported errors?</source>
-          <target state="translated">Det var ikke muligt at oprette nye køb %1 fra e-dokument. Vil du åbne e-dokument for at se rapporterede fejl?</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Purchase Document Type</note>
+          <source>The document was not created due to errors in the conversion process. Do you want to open the document?</source>
+          <target state="translated">Dokumentet blev ikke oprettet på grund af fejl i konverteringsprocessen. Vil du åbne dokumentet?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType DocNotCreatedQst</note>
         </trans-unit>
         <trans-unit id="Codeunit 2936732589 - NamedType 3352437176" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
@@ -1854,18 +908,6 @@
           <target state="translated">Dokumenttypen %1 understøttes ikke.</target>
           <note from="Developer" annotates="general" priority="2">%1 - Document Type</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType DocTypeIsNotSupportedErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2936732589 - NamedType 4036847712" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No vendor is set for Edocument</source>
-          <target state="translated">Der er ikke angivet nogen leverandør for e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType FailedToFindVendorErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2936732589 - NamedType 3070983213" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Creating Journal Line</source>
-          <target state="translated">Oprette kladdelinje</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Import - NamedType JnlLineCreateMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 2348542397 - NamedType 364111688" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to get exported blob from EDocument %1</source>
@@ -2034,18 +1076,6 @@
           <target state="translated">Datalager for E-dok. kan ikke overskrives med ny post</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Document Log - NamedType EDocDataStorageAlreadySetErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1915268312 - NamedType 658144035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Deletion of Purchase Header linked to E-Document is not allowed.</source>
-          <target state="translated">Sletning af købsoverskrift, der er knyttet til e-dokument, er ikke tilladt.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Document Subscription - NamedType DeleteNotAllowedErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 1915268312 - NamedType 1074613222" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase Document cannot be released as Amount Incl. VAT: %1, is different from E-Document Amount Incl. VAT: %2</source>
-          <target state="translated">Købsdokument kan ikke frigives, da Beløb inkl. moms: %1, adskiller sig fra e-dokumentbeløb inkl. moms: %2</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Purchase document amount, %2 - E-document amount</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Document Subscription - NamedType WrongAmountErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 76040665 - NamedType 3422515851" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Batch Mode %1 is not supported in E-Document Framework.</source>
@@ -2329,95 +1359,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Mapping Part - Control Transformation Rule - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1468710883 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Activities</source>
-          <target state="translated">E-dokumentaktiviteter</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Map. Activities - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1468710883 - Control 3861416824 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Incoming E-Document</source>
-          <target state="translated">Indgående e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Map. Activities - Control IncomingEDocument - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1468710883 - Control 2515533928 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of e-documents that are linked to a purchase order and needs to be processed.</source>
-          <target state="translated">Angiver antallet af e-dokumenter, der er knyttet til en købsordre og skal behandles.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Map. Activities - Control MatchedPurchaseOrderCount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1468710883 - Control 2515533928 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Linked Purchase Orders</source>
-          <target state="translated">Sammenkædede købsordrer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Map. Activities - Control MatchedPurchaseOrderCount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1468710883 - Control 2906506487 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of received purchase e-documents that needs to be reviewed.</source>
-          <target state="translated">Angiver antallet af modtagne købs-e-dokumenter, der skal gennemgås.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Map. Activities - Control WaitingPurchaseOrderCount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 1468710883 - Control 2906506487 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Waiting Purchase E-Invoices</source>
-          <target state="translated">Afventer købs-e-fakturaer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Map. Activities - Control WaitingPurchaseOrderCount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2383089157 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Doc. Order Match Act.</source>
-          <target state="translated">Handlingen for e-dok. ordrematch</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match Act. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2383089157 - Control 2515533928 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of purchase orders that have matched to a received e-document.</source>
-          <target state="translated">Angiver antallet af købsordrer, der er matchet med et modtaget e-dokument.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match Act. - Control MatchedPurchaseOrderCount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2383089157 - Control 2515533928 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched Purchase Orders</source>
-          <target state="translated">Matchede købsordrer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match Act. - Control MatchedPurchaseOrderCount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2383089157 - Control 2906506487 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of received purchase e-documents that needs to be reviewed.</source>
-          <target state="translated">Angiver antallet af modtagne købs-e-dokumenter, der skal gennemgås.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match Act. - Control WaitingPurchaseOrderCount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2383089157 - Control 2906506487 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Waiting Purchase E-Documents</source>
-          <target state="translated">Afventer købs-e-dokumenter</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Doc. Order Match Act. - Control WaitingPurchaseOrderCount - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4128474945 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document</source>
           <target state="translated">E-dokument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4128474945 - NamedType 2553710072" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to create new %1 from E-Document. Please review errors below.</source>
-          <target state="translated">Der kunne ikke oprettes nye %1 fra e-dokument. Gennemgå fejlene nedenfor.</target>
-          <note from="Developer" annotates="general" priority="2">%1 - E-Document Document Type</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - NamedType DocNotCreatedMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - NamedType 1347420675" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Errors or warnings found for E-Document. Please review below in "Error Messages" section.</source>
-          <target state="translated">Der blev fundet fejl eller advarsler for e-dokument. Læs nedenfor i afsnittet "Fejlmeddelelser".</target>
+        <trans-unit id="Page 4128474945 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Edoc,Electronic Document</source>
+          <target state="translated">Edoc,Elektronisk dokument</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - NamedType EDocHasErrorOrWarningMsg</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Property AdditionalSearchTerms</note>
         </trans-unit>
-        <trans-unit id="Page 4128474945 - Control 3876792208 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Status</source>
-          <target state="translated">Servicestatus</target>
+        <trans-unit id="Page 4128474945 - Control 3936749593 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Errors and Warnings</source>
+          <target state="translated">Fejl og advarsler</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Control EdocoumentServiceStatus - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Control ErrorMessagesPart - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Control 4247437253 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the total amount of the electronic document excluding VAT.</source>
@@ -2485,12 +1443,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Control Electronic Document Status - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 4128474945 - Control 394320819 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Status</source>
-          <target state="translated">Dokumentstatus</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Control Electronic Document Status - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4128474945 - Control 947690026 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the electronic document number.</source>
           <target state="translated">Angiver det elektroniske dokumentnummer.</target>
@@ -2516,8 +1468,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Control Record - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Control 3875867463 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document</source>
-          <target state="translated">Dokument</target>
+          <source>Record</source>
+          <target state="translated">Record</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Control Record - Property Caption</note>
         </trans-unit>
@@ -2600,26 +1552,26 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action Incoming - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Action 1996628149 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reprocess the electronic file to a purchase document.</source>
-          <target state="translated">Behandl den elektroniske fil til et købsdokument igen.</target>
+          <source>Creates the document based on imported electronic document.</source>
+          <target state="translated">Opretter dokumentet baseret på indlæst elektronisk dokument.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action CreateDocument - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Action 1996628149 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reprocess Document</source>
-          <target state="translated">Behandl dokument igen</target>
+          <source>Create Document</source>
+          <target state="translated">Opret dokument</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action CreateDocument - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Action 2393384927 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reprocess the electronic file to a journal line.</source>
-          <target state="translated">Behandl den elektroniske fil igen til en kladdelinje.</target>
+          <source>Creates the journal line.</source>
+          <target state="translated">Opretter kladdelinjen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action CreateJournal - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Action 2393384927 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reprocess Journal Line</source>
-          <target state="translated">Behandl kladdelinje igen</target>
+          <source>Create Journal</source>
+          <target state="translated">Opret kladde</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action CreateJournal - Property Caption</note>
         </trans-unit>
@@ -2635,29 +1587,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action GetBasicInfo - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 3452444042 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match E-document lines to Purchase Order.</source>
-          <target state="translated">Match e-dokumentlinjer med købsordre.</target>
+        <trans-unit id="Page 4128474945 - Action 2888971102 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Imports the electronic document manually.</source>
+          <target state="translated">Indlæser det elektroniske dokument manuelt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action MatchToOrder - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action ImportManually - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 3452444042 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match Purchase Order</source>
-          <target state="translated">Match købsordre</target>
+        <trans-unit id="Page 4128474945 - Action 2888971102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Manually</source>
+          <target state="translated">Indlæs manuelt</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action MatchToOrder - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action ImportManually - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 3723518147 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match E-document lines to Purchase Order.</source>
-          <target state="translated">Match e-dokumentlinjer med købsordre.</target>
+        <trans-unit id="Page 4128474945 - Action 1457196661 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a mapping of text on electronic documents to identical text on specific debit, credit, and balancing accounts in the general ledger or on bank accounts so that the resulting document or journal lines are prefilled with the specified information.</source>
+          <target state="translated">Opret en tilknytning mellem tekst i elektroniske dokumenter og identisk tekst i specifikke debet-, kredit- og modkonti i finansmodulet, eller på bankkonti, så det færdige dokument eller kladdelinjer på forhånd er udfyldt med de angivne oplysninger.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action MatchToOrderCopilotEnabled - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action TextToAccountMapping - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 3723518147 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match Purchase Order</source>
-          <target state="translated">Match købsordre</target>
+        <trans-unit id="Page 4128474945 - Action 1457196661 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Map Text to Account</source>
+          <target state="translated">Knyt tekst til konto</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action MatchToOrderCopilotEnabled - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action TextToAccountMapping - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Action 3082677057 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Updates related order.</source>
@@ -2725,60 +1677,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action Send - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 3475559828 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Troubleshoot</source>
-          <target state="translated">Fejlfinding</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action Troubleshoot - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 2888971102 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Import and replace the electronic document.</source>
-          <target state="translated">Indlæs og erstat det elektroniske dokument.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action ImportManually - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 2888971102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Replace Source Document</source>
-          <target state="translated">Erstat kildedokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action ImportManually - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 178592202 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Updated Purchase Order link for E-Document to different Purchase Order.</source>
-          <target state="translated">Opdateret købsordrelink til e-dokument til anden købsordre.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action LinkOrder - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 178592202 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Update Purchase Order Link</source>
-          <target state="translated">Opdater link til købsordre</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action LinkOrder - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 1457196661 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create a mapping of text on electronic documents to identical text on specific debit, credit, and balancing accounts in the general ledger or on bank accounts so that the resulting document or journal lines are prefilled with the specified information.</source>
-          <target state="translated">Opret en tilknytning mellem tekst i elektroniske dokumenter og identisk tekst i specifikke debet-, kredit- og modkonti i finansmodulet, eller på bankkonti, så det færdige dokument eller kladdelinjer på forhånd er udfyldt med de angivne oplysninger.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action TextToAccountMapping - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 1457196661 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map Text to Account</source>
-          <target state="translated">Knyt tekst til konto</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action TextToAccountMapping - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 3383493608 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Category_Process</source>
-          <target state="translated">Category_Process</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action Category_Process - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4128474945 - Action 2773543545 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Troubleshoot</source>
-          <target state="translated">Fejlfinding</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action Category_Troubleshoot - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4128474945 - Action 884292305 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incoming</source>
           <target state="translated">Indgående</target>
@@ -2844,30 +1742,6 @@
           <target state="translated">Behandlet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Activities - Control IncomingEDocumentProcessedCount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3249427600 - Control 2515533928 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of e-documents that are linked to a purchase order and needs to be processed.</source>
-          <target state="translated">Angiver antallet af e-dokumenter, der er knyttet til en købsordre og skal behandles.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Activities - Control MatchedPurchaseOrderCount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3249427600 - Control 2515533928 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Linked Purchase Orders</source>
-          <target state="translated">Sammenkædede købsordrer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Activities - Control MatchedPurchaseOrderCount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3249427600 - Control 2906506487 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the number of received purchase e-documents that needs to be reviewed.</source>
-          <target state="translated">Angiver antallet af modtagne købs-e-dokumenter, der skal gennemgås.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Activities - Control WaitingPurchaseOrderCount - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 3249427600 - Control 2906506487 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Waiting Purchase E-Invoices</source>
-          <target state="translated">Afventer købs-e-fakturaer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Activities - Control WaitingPurchaseOrderCount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3249427600 - Control 1533828288 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Outgoing E-Document</source>
@@ -3170,8 +2044,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Control Apply Invoice Discount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4102148806 - Control 3116612316 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies if journal line must be created instead of purchase document. Only applicable if vendor receives e-document to purchase invoice.</source>
-          <target state="translated">Angiver, om der skal oprettes kladdelinje i stedet for købsdokument. Gælder kun, hvis leverandøren modtager e-dokument til købsfaktura.</target>
+          <source>Specifies if journal line must be created instead of purchase document.</source>
+          <target state="translated">Angiver, om der skal oprettes kladdelinje i stedet for købsdokument.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Service - Control Create Journal Lines - Property ToolTip</note>
         </trans-unit>
@@ -3421,18 +2295,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2429668632 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Edoc,Electronic Document</source>
-          <target state="translated">Edoc,Elektronisk dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Property AdditionalSearchTerms</note>
-        </trans-unit>
-        <trans-unit id="Page 2429668632 - NamedType 2695649725" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to create new %1 from E-Document. Do you want to open E-Document and see the reported errors?</source>
-          <target state="translated">Der kunne ikke oprettes nye %1 fra e-dokument. Vil du åbne e-dokument og se de rapporterede fejl?</target>
-          <note from="Developer" annotates="general" priority="2">%1 - E-Document Document Type</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - NamedType DocNotCreatedQst</note>
-        </trans-unit>
         <trans-unit id="Page 2429668632 - Control 477910301 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer/vendor name of the electronic document.</source>
           <target state="translated">Angiver debitorens/kreditorens navn på det elektroniske dokument.</target>
@@ -3456,12 +2318,6 @@
           <target state="translated">Angiver dokumentnummer det elektroniske dokument.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Control Document No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2429668632 - Control 2363328873 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the document type of the electronic document.</source>
-          <target state="translated">Angiver dokumenttypen for det elektroniske dokument.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Control Document Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2429668632 - Control 329134311 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the entry number.</source>
@@ -3506,13 +2362,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action ImportManually - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2429668632 - Action 2888971102 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New From File</source>
-          <target state="translated">Ny Fra-fil</target>
+          <source>Create From File</source>
+          <target state="translated">Opret fra fil</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Documents - Action ImportManually - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2687593492 - Control 1361173799 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies Electronic Service Flow that is used for sending documents.</source>
+          <source>Specifies Electronic Service FLow that is used for sending documents.</source>
           <target state="translated">Angiver Electronic Service FLow, der bruges til afsendelse af dokumenter.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
@@ -3584,13 +2440,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Approved - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 1140477700 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Batch imported</source>
+          <source>Batch Imported</source>
           <target state="translated">Batch indlæst</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Batch Imported - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 2103596658 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cancel error</source>
+          <source>Cancel Error</source>
           <target state="translated">Annuller fejl</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Cancel Error - Property Caption</note>
@@ -3608,7 +2464,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Created - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 307567640 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export error</source>
+          <source>Export Error</source>
           <target state="translated">Eksportfejl</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Export Error - Property Caption</note>
@@ -3626,50 +2482,38 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Imported - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 2569903701 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Imported document created</source>
+          <source>Imported Document Created</source>
           <target state="translated">Indlæst dokument oprettet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Imported Document Created - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 3891075692 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Imported document processing error</source>
+          <source>Imported Document Processing Error</source>
           <target state="translated">Fejl ved indlæsning af dokumentbehandling</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Imported Document Processing Error - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 3297075417 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Journal line created</source>
+          <source>Journal Line Created</source>
           <target state="translated">Kladdelinje oprettet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Journal Line Created - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 2161247858 - EnumValue 774679233 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order linked</source>
-          <target state="translated">Ordre tilknyttet</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Order Linked - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 2368730469 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order updated</source>
+          <source>Order Updated</source>
           <target state="translated">Ordren er opdateret</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Order Updated - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 2161247858 - EnumValue 3481143665 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Pending Document Link</source>
-          <target state="translated">Link til igangsat dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Pending - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 2566809421 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Pending batch</source>
+          <source>Pending Batch</source>
           <target state="translated">Igangsat batch</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Pending Batch - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 278274272 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Pending response</source>
-          <target state="translated">Igangsat svar</target>
+          <source>Pending Response</source>
+          <target state="translated">Afventer svar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Pending Response - Property Caption</note>
         </trans-unit>
@@ -3680,7 +2524,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Rejected - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2161247858 - EnumValue 3319046632 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sending error</source>
+          <source>Sending Error</source>
           <target state="translated">Afsendelsesfejl</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum E-Document Service Status - EnumValue Sending Error - Property Caption</note>
@@ -3746,13 +2590,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet E-Doc. Core - Objects - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2064077550 - Control 3397940365 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the maximum allowed percentage of cost differece when matching incoming E-Document line with Purchase Order line</source>
-          <target state="translated">Angiver den maksimalt tilladte procentdel af omkostningsdifferencen ved match af indgående e-dokumentlinje med købsordrelinje</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3921990236</note>
-        </trans-unit>
         <trans-unit id="PageExtension 4036036630 - Action 4128474945 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document</source>
           <target state="translated">E-dokument</target>
@@ -3802,34 +2639,6 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4281768669 - Action 3452444042 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map received E-Document to the Purchase Order</source>
-          <target state="translated">Knyt modtaget e-dokument til købsordren</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281768669 - Action 3452444042 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map E-Document Lines</source>
-          <target state="translated">Tilknyt e-dokumentlinjer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281768669 - Action 3723518147 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map received E-Document to the Purchase Order</source>
-          <target state="translated">Knyt modtaget e-dokument til købsordren</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4281768669 - Action 3723518147 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map E-Document Lines</source>
-          <target state="translated">Tilknyt e-dokumentlinjer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
-        </trans-unit>
         <trans-unit id="PageExtension 4281768669 - Action 2193525264 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Preview E-Document Mapping</source>
           <target state="translated">Forhåndsversion e-dokumenttilknytning</target>
@@ -3843,55 +2652,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1215286387 - Action 4128474945 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document</source>
-          <target state="translated">E-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1215286387 - Action 3452444042 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map received E-Document to the Purchase Order</source>
-          <target state="translated">Knyt modtaget e-dokument til købsordren</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1215286387 - Action 3452444042 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map E-Document Lines</source>
-          <target state="translated">Tilknyt e-dokumentlinjer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1215286387 - Action 3723518147 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map received E-Document to the Purchase Order</source>
-          <target state="translated">Knyt modtaget e-dokument til købsordren</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1215286387 - Action 3723518147 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map E-Document Lines</source>
-          <target state="translated">Tilknyt e-dokumentlinjer</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1215286387 - Action 2193525264 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Preview E-Document Mapping</source>
-          <target state="translated">Forhåndsversion af e-dokumenttilknytning</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1215286387 - Action 2193525264 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Preview E-Document Mapping</source>
-          <target state="translated">Forhåndsversion af e-dokumenttilknytning</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
         </trans-unit>
         <trans-unit id="PageExtension 2839142580 - Action 4128474945 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document</source>
@@ -4228,61 +2988,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 1778940791</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3421154871 - NamedType 2525007919" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Matched to Purchase Order Line %1</source>
-          <target state="translated">Matchet med købsordrelinje %1</target>
-          <note from="Developer" annotates="general" priority="2">Number of the order line that the E-Document line is matched to</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. PO AOAI Function - NamedType MatchLineTxt</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2535409267 - Control 445639089 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the default purchase document to be generated from received E-document. Users can select either a Purchase Invoice or Purchase Order. This selection does not affect the creation of corrective documents; in both scenarios, the system will generate a Credit Memo.</source>
-          <target state="translated">Angiver det standardkøbsdokument, der skal genereres fra modtaget e-dokument. Brugere kan vælge en købsfaktura eller købsordre. Dette valg påvirker ikke oprettelsen af korrigerende dokumenter; I begge scenarier genererer systemet en kreditnota.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2535409267 - Control 445639089 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Receive E-Document To</source>
-          <target state="translated">Modtag e-dokument til</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Page 4055858012</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2064077550 - Field 3397940365 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Matching Difference %</source>
-          <target state="translated">Forskel i match af e-dokument %</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 3921990236</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2836897854 - Field 2101901719 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Amount Incl. VAT To Inv.</source>
-          <target state="translated">Beløb inkl. moms til faktura</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2072992664</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2836897854 - Field 2226467329 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-Document Link</source>
-          <target state="translated">Link til e-dokument</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 2072992664</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 201979621 - Field 2101901719 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Amount Incl. VAT To Inv.</source>
-          <target state="translated">Beløb inkl. moms til faktura</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1519909599</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1150465373 - Field 445639089 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Receive E-Document To</source>
-          <target state="translated">Modtag e-dokument til</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">Table 1936001480</note>
         </trans-unit>
       </group>
     </body>

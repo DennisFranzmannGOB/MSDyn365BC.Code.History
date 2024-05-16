@@ -16,6 +16,7 @@ codeunit 139031 "Change Log"
         LibraryRandom: Codeunit "Library - Random";
         LibraryUtility: Codeunit "Library - Utility";
         LibraryMarketing: Codeunit "Library - Marketing";
+        LibraryLowerPermissions: Codeunit "Library - Lower Permissions";
         LibraryPermissions: Codeunit "Library - Permissions";
         Assert: Codeunit Assert;
         isInitialized: Boolean;
@@ -1013,27 +1014,27 @@ codeunit 139031 "Change Log"
     begin
         case FieldRef.Type of
             FieldType::Boolean:
-                FieldHasValue := FieldRef.Value();
+                FieldHasValue := FieldRef.Value;
             FieldType::Option:
                 FieldHasValue := true;
             FieldType::Integer:
                 begin
-                    Int := FieldRef.Value();
+                    Int := FieldRef.Value;
                     FieldHasValue := Int <> 0;
                 end;
             FieldType::Decimal:
                 begin
-                    Dec := FieldRef.Value();
+                    Dec := FieldRef.Value;
                     FieldHasValue := Dec <> 0;
                 end;
             FieldType::Date:
                 begin
-                    D := FieldRef.Value();
+                    D := FieldRef.Value;
                     FieldHasValue := D <> 0D;
                 end;
             FieldType::Time:
                 begin
-                    T := FieldRef.Value();
+                    T := FieldRef.Value;
                     FieldHasValue := T <> 0T;
                 end;
             FieldType::BLOB:
@@ -1340,21 +1341,21 @@ codeunit 139031 "Change Log"
 
         OffsetFromUtc := DateTimeOffset.Parse('2032-12-31T23:59:00Z').ToLocalTime().Offset;
         Assert.IsTrue(ChangeLogManagement.EvaluateTextToFieldRef('2032-12-31T23:59:00Z', FieldRef), ParseShouldSucceedErr);
-        TmpDateTime := FieldRef.Value();
+        TmpDateTime := FieldRef.Value;
         TmpDateTime := TmpDateTime - OffsetFromUtc;
         Assert.AreEqual(235900T, DT2Time(TmpDateTime), BadParsedValueErr);
         Assert.AreEqual(20321231D, DT2Date(TmpDateTime), BadParsedValueErr);
 
         OffsetFromUtc := DateTimeOffset.Parse('2032-12-31T23:59:00').ToLocalTime().Offset;
         Assert.IsTrue(ChangeLogManagement.EvaluateTextToFieldRef('2032-12-31T23:59:00', FieldRef), ParseShouldSucceedErr);
-        TmpDateTime := FieldRef.Value();
+        TmpDateTime := FieldRef.Value;
         TmpDateTime := TmpDateTime - OffsetFromUtc;
         Assert.AreEqual(235900T, DT2Time(TmpDateTime), BadParsedValueErr);
         Assert.AreEqual(20321231D, DT2Date(TmpDateTime), BadParsedValueErr);
 
         OffsetFromUtc := DateTimeOffset.Parse('2032-06-30T23:59:00Z').ToLocalTime().Offset;
         Assert.IsTrue(ChangeLogManagement.EvaluateTextToFieldRef('2032-06-30T23:59:00Z', FieldRef), ParseShouldSucceedErr);
-        TmpDateTime := FieldRef.Value();
+        TmpDateTime := FieldRef.Value;
         TmpDateTime := TmpDateTime - OffsetFromUtc;
         Assert.AreEqual(235900T, DT2Time(TmpDateTime), BadParsedValueErr);
         Assert.AreEqual(20320630D, DT2Date(TmpDateTime), BadParsedValueErr);
@@ -1401,15 +1402,15 @@ codeunit 139031 "Change Log"
 
         // Too big for a 32-bit integer
         Assert.IsTrue(ChangeLogManagement.EvaluateTextToFieldRef('5000000000', FieldRef), ParseShouldSucceedErr);
-        TmpBigInteger := FieldRef.Value();
+        TmpBigInteger := FieldRef.Value;
         Assert.IsTrue(5000000000.0 = TmpBigInteger, BadParsedValueErr);
 
         // Max and min NAV literal value
         Assert.IsTrue(ChangeLogManagement.EvaluateTextToFieldRef('999999999999999', FieldRef), ParseShouldSucceedErr);
-        TmpBigInteger := FieldRef.Value();
+        TmpBigInteger := FieldRef.Value;
         Assert.IsTrue(999999999999999.0 = TmpBigInteger, BadParsedValueErr);
         Assert.IsTrue(ChangeLogManagement.EvaluateTextToFieldRef('-999999999999999', FieldRef), ParseShouldSucceedErr);
-        TmpBigInteger := FieldRef.Value();
+        TmpBigInteger := FieldRef.Value;
         Assert.IsTrue(-999999999999999.0 = TmpBigInteger, BadParsedValueErr);
 
         Assert.IsFalse(ChangeLogManagement.EvaluateTextToFieldRef('50000000000000000000', FieldRef), ParseShouldSucceedErr);
@@ -1432,7 +1433,7 @@ codeunit 139031 "Change Log"
         Assert.IsTrue(
           ChangeLogManagement.EvaluateTextToFieldRef('43CA7638-EA6E-45A0-AF8D-414C1D46A012', FieldRef),
           ParseShouldSucceedErr);
-        TmpGuid := FieldRef.Value();
+        TmpGuid := FieldRef.Value;
         Assert.IsTrue('43CA7638-EA6E-45A0-AF8D-414C1D46A012' = TmpGuid, BadParsedValueErr);
 
         Assert.IsFalse(ChangeLogManagement.EvaluateTextToFieldRef('abc', FieldRef), ParseShouldFailErr);
@@ -1494,7 +1495,7 @@ codeunit 139031 "Change Log"
         Evaluate(TmpDateFormula, '<+1Y>');
 
         Assert.IsTrue(ChangeLogManagement.EvaluateTextToFieldRef('+1Y', FieldRef), ParseShouldSucceedErr);
-        TmpDateFormulaParsed := FieldRef.Value();
+        TmpDateFormulaParsed := FieldRef.Value;
         Assert.IsTrue(TmpDateFormula = TmpDateFormulaParsed, BadParsedValueErr);
 
         Assert.IsFalse(
@@ -1520,7 +1521,7 @@ codeunit 139031 "Change Log"
         TmpDuration := CreateDateTime(20000101D, 080000T) - CreateDateTime(20000101D, 000000T);
 
         Assert.IsTrue(ChangeLogManagement.EvaluateTextToFieldRef('P0DT8H0M0.0S', FieldRef), ParseShouldSucceedErr);
-        TmpDurationParsed := FieldRef.Value();
+        TmpDurationParsed := FieldRef.Value;
         Assert.IsTrue(TmpDuration = TmpDurationParsed, BadParsedValueErr);
 
         Assert.IsFalse(ChangeLogManagement.EvaluateTextToFieldRef('abc', FieldRef), ParseShouldFailErr);
@@ -1662,14 +1663,18 @@ codeunit 139031 "Change Log"
         TearDown();
     end;
 
+#if not CLEAN22
+#pragma warning disable AL0432
     [Test]
     [HandlerFunctions('REP510RequestPageHandlerFilterSet')]
     [Scope('OnPrem')]
+    [Obsolete('The functionality has been replaced with the retention policy module in system application.', '17.0')]
     procedure DeleteLogEntriesRequestPageFilterSet()
     begin
         // [SCENARIO] User wants to delete log entries (REP510). Date filter should be preset
         // [GIVEN] The user has admin rights
         DeleteAllLogEntries();
+        LibraryLowerPermissions.SetO365BusFull();
 
         // [WHEN] User Starts Delete Change Log Entries
         REPORT.RunModal(REPORT::"Change Log - Delete");
@@ -1681,11 +1686,13 @@ codeunit 139031 "Change Log"
     [Test]
     [HandlerFunctions('REP510RequestPageHandlerNoFilterSet,ConfirmHandlerREP510Cancel')]
     [Scope('OnPrem')]
+    [Obsolete('The functionality has been replaced with the retention policy module in system application.', '17.0')]
     procedure DeleteLogEntriesRequestPageNoFilterSet()
     begin
         // [SCENARIO] User wants to delete log entries (REP510). Warning should be shown if no date filter is shown
         // [GIVEN] The user has admin rights
         DeleteAllLogEntries();
+        LibraryLowerPermissions.SetO365BusFull();
 
         // [WHEN] User Starts Delete Change Log Entries and removes the date filter
         REPORT.RunModal(REPORT::"Change Log - Delete");
@@ -1697,11 +1704,13 @@ codeunit 139031 "Change Log"
     [Test]
     [HandlerFunctions('REP510RequestPageHandlerNothingToDelete,MessageHandlerNothingToDelete')]
     [Scope('OnPrem')]
+    [Obsolete('The functionality has been replaced with the retention policy module in system application.', '17.0')]
     procedure DeleteLogEntriesRequestPageNothingToDelete()
     begin
         // [SCENARIO] User wants to delete log entries (REP510). Error that no entries exist
         // [GIVEN] The user has admin rights
         DeleteAllLogEntries();
+        LibraryLowerPermissions.SetO365BusFull();
 
         // [WHEN] User Starts Delete Change Log Entries
         REPORT.RunModal(REPORT::"Change Log - Delete");
@@ -1713,6 +1722,7 @@ codeunit 139031 "Change Log"
     [Test]
     [HandlerFunctions('REP510RequestPageHandlerRunDeletion,MessageHandlerDeleted')]
     [Scope('OnPrem')]
+    [Obsolete('The functionality has been replaced with the retention policy module in system application.', '17.0')]
     procedure DeleteLogEntriesVerifyDeletion()
     var
         ChangeLogEntry: Record "Change Log Entry";
@@ -1722,6 +1732,7 @@ codeunit 139031 "Change Log"
         DeleteAllLogEntries();
         CreateChangeLogEntry(CalcDate('<-2Y>', Today));
         Commit();
+        LibraryLowerPermissions.SetO365BusFull();
         Assert.AreNotEqual(0, ChangeLogEntry.Count, 'No entries created');
 
         // [WHEN] User Starts Delete Change Log Entries
@@ -1730,6 +1741,8 @@ codeunit 139031 "Change Log"
         // [THEN] The entries are deleted
         Assert.AreEqual(0, ChangeLogEntry.Count, 'Not all entries deleted');
     end;
+#pragma warning restore AL0432
+#endif
 
     [Test]
     [Scope('OnPrem')]
@@ -1959,8 +1972,10 @@ codeunit 139031 "Change Log"
         Assert.IsTrue(StrPos(MessageText, NothingToDeleteErr) > 0, '');
     end;
 
+#if not CLEAN22
     [RequestPageHandler]
     [Scope('OnPrem')]
+    [Obsolete('The functionality has been replaced with the retention policy module in system application.', '17.0')]
     procedure REP510RequestPageHandlerFilterSet(var ChangeLogDelete: TestRequestPage "Change Log - Delete")
     begin
         Assert.AreNotEqual('', ChangeLogDelete."Change Log Entry".GetFilter("Date and Time"), '');
@@ -1969,6 +1984,7 @@ codeunit 139031 "Change Log"
 
     [RequestPageHandler]
     [Scope('OnPrem')]
+    [Obsolete('The functionality has been replaced with the retention policy module in system application.', '17.0')]
     procedure REP510RequestPageHandlerNoFilterSet(var ChangeLogDelete: TestRequestPage "Change Log - Delete")
     begin
         ChangeLogDelete."Change Log Entry".SetFilter("Date and Time", '');
@@ -1979,6 +1995,7 @@ codeunit 139031 "Change Log"
 
     [RequestPageHandler]
     [Scope('OnPrem')]
+    [Obsolete('The functionality has been replaced with the retention policy module in system application.', '17.0')]
     procedure REP510RequestPageHandlerNothingToDelete(var ChangeLogDelete: TestRequestPage "Change Log - Delete")
     begin
         ChangeLogDelete.OK().Invoke();
@@ -1987,10 +2004,12 @@ codeunit 139031 "Change Log"
 
     [RequestPageHandler]
     [Scope('OnPrem')]
+    [Obsolete('The functionality has been replaced with the retention policy module in system application.', '17.0')]
     procedure REP510RequestPageHandlerRunDeletion(var ChangeLogDelete: TestRequestPage "Change Log - Delete")
     begin
         ChangeLogDelete.OK().Invoke();
     end;
+#endif
 
     local procedure CreateTenantPermission(var TenantPermission: Record "Tenant Permission"; AppID: Guid; RoleID: Code[20]; ObjectType: Option; ObjectID: Integer);
     begin

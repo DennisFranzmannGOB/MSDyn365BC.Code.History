@@ -18,7 +18,6 @@ table 272 "Check Ledger Entry"
     Caption = 'Check Ledger Entry';
     DrillDownPageID = "Check Ledger Entries";
     LookupPageID = "Check Ledger Entries";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -152,24 +151,10 @@ table 272 "Check Ledger Entry"
         {
             Caption = 'Positive Pay Exported';
         }
-        field(26; "Record ID to Print"; RecordId)
+        field(26; "Record ID to Print"; RecordID)
         {
             Caption = 'Record ID to Print';
-            DataClassification = SystemMetadata;
-#if not CLEAN24            
-            ObsoleteState = Pending;
-            ObsoleteReason = 'Replaced by Print Gen Jnl Line SystemId field';
-            ObsoleteTag = '24.0';
-#else
-            ObsoleteState = Removed;
-            ObsoleteReason = 'Replaced by Print Gen Jnl Line SystemId field';
-            ObsoleteTag = '27.0';
-#endif
-        }
-        field(27; "Print Gen Jnl Line SystemId"; Guid)
-        {
-            Caption = 'SystemId to Print';
-            DataClassification = SystemMetadata;
+            DataClassification = CustomerContent;
         }
     }
 
@@ -192,9 +177,6 @@ table 272 "Check Ledger Entry"
         {
         }
         key(Key6; "Document No.", "Posting Date")
-        {
-        }
-        key(Key7; "Print Gen Jnl Line SystemId")
         {
         }
     }

@@ -4,8 +4,7 @@ using System.Security.AccessControl;
 
 table 9154 "My Job"
 {
-    Caption = 'My Project';
-    DataClassification = CustomerContent;
+    Caption = 'My Job';
 
     fields
     {
@@ -18,7 +17,7 @@ table 9154 "My Job"
         }
         field(2; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             NotBlank = true;
             TableRelation = Job;
         }

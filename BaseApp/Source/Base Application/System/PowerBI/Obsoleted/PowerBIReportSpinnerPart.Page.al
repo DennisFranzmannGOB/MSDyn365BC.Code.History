@@ -1,9 +1,8 @@
-#if not CLEAN23
+#if not CLEAN21
 namespace System.Integration.PowerBI;
 
 using System.Environment;
 using System.Utilities;
-using System.Integration;
 
 page 6303 "Power BI Report Spinner Part"
 {
@@ -28,7 +27,7 @@ page 6303 "Power BI Report Spinner Part"
                     Editable = false;
                     ShowCaption = false;
                     Style = StrongAccent;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies whether the Power BI functionality is enabled.';
 
                     trigger OnDrillDown()
@@ -38,6 +37,7 @@ page 6303 "Power BI Report Spinner Part"
                     begin
                         Session.LogMessage('0000B72', PowerBiOptInTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', PowerBiServiceMgt.GetPowerBiTelemetryCategory());
 
+                        SetPowerBIUserConfig.CreateOrReadUserConfigEntry(PowerBIUserConfiguration, Context);
                         Commit();
                         LastOpenedReportID := PowerBIUserConfiguration."Selected Report ID";
 
@@ -69,7 +69,7 @@ page 6303 "Power BI Report Spinner Part"
                     Editable = false;
                     ShowCaption = false;
                     Style = StrongAccent;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                     ToolTip = 'Specifies that the user can upload one or more demo reports for this page.';
 
                     trigger OnDrillDown()
@@ -84,7 +84,7 @@ page 6303 "Power BI Report Spinner Part"
                 ShowCaption = false;
                 Visible = PageState = PageState::ReportVisible;
 
-                usercontrol(WebReportViewer; WebPageViewer)
+                usercontrol(WebReportViewer; "Microsoft.Dynamics.Nav.Client.WebPageViewer")
                 {
                     ApplicationArea = All;
 
@@ -150,7 +150,7 @@ page 6303 "Power BI Report Spinner Part"
                             Editable = false;
                             ShowCaption = false;
                             Style = StrongAccent;
-                            StyleExpr = true;
+                            StyleExpr = TRUE;
                             ToolTip = 'Specifies that the user can select the reports to show from here.';
 
                             trigger OnDrillDown()
@@ -184,7 +184,7 @@ page 6303 "Power BI Report Spinner Part"
                             Editable = false;
                             ShowCaption = false;
                             Style = StrongAccent;
-                            StyleExpr = true;
+                            StyleExpr = TRUE;
                             ToolTip = 'Specifies that the user can select the reports to show from here.';
 
                             trigger OnDrillDown()
@@ -198,7 +198,7 @@ page 6303 "Power BI Report Spinner Part"
                             Editable = false;
                             ShowCaption = false;
                             Style = StrongAccent;
-                            StyleExpr = true;
+                            StyleExpr = TRUE;
                             ToolTip = 'Specifies that the user can refresh the page part. If reports have been deployed in the background, refreshing the page part will make them visible.';
 
                             trigger OnDrillDown()
@@ -217,7 +217,7 @@ page 6303 "Power BI Report Spinner Part"
 
                         // UserControls do not support Obsolete properties
                         // Bug 380401: UserControl elements in a page do not support Obsolete* properties, but app fails to build if they are removed.
-                        usercontrol(DeployTimer; PowerBIManagement)
+                        usercontrol(DeployTimer; "Microsoft.Dynamics.Nav.Client.PowerBIManagement")
                         {
                             ApplicationArea = All;
                             Visible = false;
@@ -367,6 +367,9 @@ page 6303 "Power BI Report Spinner Part"
 #endif
                     PowerBIUserConfiguration: Record "Power BI User Configuration";
                     PowerBICustomerReports: Record "Power BI Customer Reports";
+#if not CLEAN21
+                    PowerBIUserLicense: Record "Power BI User License";
+#endif
                     PowerBIUserStatus: Record "Power BI User Status";
                     ChosenOption: Integer;
                 begin
@@ -385,6 +388,9 @@ page 6303 "Power BI Report Spinner Part"
                         if ChosenOption = 2 then begin // Delete all
                             PowerBICustomerReports.DeleteAll();
                             PowerBIReportUploads.DeleteAll();
+#if not CLEAN21
+                            PowerBIUserLicense.DeleteAll();
+#endif
                         end;
 
                         Commit();
@@ -412,6 +418,7 @@ page 6303 "Power BI Report Spinner Part"
     var
         TempPowerBiReportBuffer: Record "Power BI Report Buffer" temporary;
         MediaResources: Record "Media Resources";
+        SetPowerBIUserConfig: Codeunit "Set Power BI User Config";
         PowerBiServiceMgt: Codeunit "Power BI Service Mgt.";
         ClientTypeManagement: Codeunit "Client Type Management";
         PowerBiEmbedHelper: Codeunit "Power BI Embed Helper";
@@ -469,6 +476,7 @@ page 6303 "Power BI Report Spinner Part"
             exit;
         end;
 
+        SetPowerBIUserConfig.CreateOrReadUserConfigEntry(PowerBIUserConfiguration, Context);
         LastOpenedReportID := PowerBIUserConfiguration."Selected Report ID";
         RefreshTempReportBuffer(); // Also points the record to last opened report id
 
@@ -496,12 +504,14 @@ page 6303 "Power BI Report Spinner Part"
 
     local procedure StartAutoDeployment()
     var
+        DummyPowerBIUserConfiguration: Record "Power BI User Configuration";
         PowerBIReportSynchronizer: Codeunit "Power BI Report Synchronizer";
     begin
         // Ensure user config for context before deployment
         if Context = '' then
             exit;
 
+        SetPowerBIUserConfig.CreateOrReadUserConfigEntry(DummyPowerBIUserConfiguration, Context);
         PowerBIReportSynchronizer.SelectDefaultReports();
         PowerBiServiceMgt.SynchronizeReportsInBackground();
     end;
@@ -566,6 +576,8 @@ page 6303 "Power BI Report Spinner Part"
         TempPowerBiReportBuffer.Reset();
         TempPowerBiReportBuffer.DeleteAll();
 
+        PowerBiServiceMgt.GetReportsForUserContext(TempPowerBiReportBuffer, Context);
+
         TempPowerBiReportBuffer.Reset();
         TempPowerBiReportBuffer.SetFilter(Enabled, '%1', true);
         if not IsNullGuid(LastOpenedReportID) then begin
@@ -608,6 +620,7 @@ page 6303 "Power BI Report Spinner Part"
     var
         PowerBIUserConfiguration: Record "Power BI User Configuration";
     begin
+        SetPowerBIUserConfig.CreateOrReadUserConfigEntry(PowerBIUserConfiguration, Context);
         PowerBIUserConfiguration."Selected Report ID" := LastOpenedReportIDInputValue;
         PowerBIUserConfiguration.Modify();
 
@@ -626,6 +639,8 @@ page 6303 "Power BI Report Spinner Part"
 
         PowerBIWSReportSelection.RunModal();
         if PowerBIWSReportSelection.IsPageClosedOkay() then begin
+            PowerBIWSReportSelection.GetSelectedReports(TempPowerBiReportBuffer);
+
             if TempPowerBiReportBuffer.Enabled then begin
                 LastOpenedReportID := TempPowerBiReportBuffer.ReportID; // RefreshAvailableReports handles fallback logic on invalid selection.
                 SetLastOpenedReportID(LastOpenedReportID); // Resolves bug to set last selected report

@@ -6,7 +6,6 @@ table 360 "Dimension Buffer"
 {
     Caption = 'Dimension Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

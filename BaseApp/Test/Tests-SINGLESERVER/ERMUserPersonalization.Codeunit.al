@@ -9,23 +9,18 @@ codeunit 134912 "ERM User Personalization"
     end;
 
     var
-#if not CLEAN22
         LibraryPermissions: Codeunit "Library - Permissions";
-#endif
         LibraryUtility: Codeunit "Library - Utility";
         Assert: Codeunit Assert;
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         ProfileDefaultRCMustBeUniqueErr: Label 'There must be one default Role Center.';
         WrongExpectedRoleCenter: Label 'Unexpected Default Role Center.';
-#if not CLEAN22
         UserGroupAccountantTxt: Label 'USERGROUP-ACCOUNTANT';
         UserGroupSalesTxt: Label 'USERGROUP-SALES';
-#endif
         UserCassieTxt: Label 'USER-CASSIE';
-#if not CLEAN22
         ProfileIdAccountantTxt: Label 'PROFILEID-ACCOUNTANT';
         ProfileIdSalesTxt: Label 'PROFILEID-SALES';
-#endif
+        OrderProcessorTxt: Label 'TEST ORDER PROCESSOR';
         ProfilesErr: Label 'Wrong profiles in the list.';
         NotDefaultRoleCenterIDErr: Label 'Default Role Center ID wasn''t assigned to a newly created Profile.';
 
@@ -125,11 +120,11 @@ codeunit 134912 "ERM User Personalization"
         AllProfile.SetRange(Enabled, true);
         AllProfile.FindFirst();
         // [GIVEN] Open Profile List page and focus on Profile 'B'
-        ProfileList.OpenView();
+        ProfileList.OpenView;
         ProfileList.GotoRecord(AllProfile);
 
         // [WHEN] Run action 'Set Default Role Center'
-        ProfileList.SetDefaultRoleCenterAction.Invoke();
+        ProfileList.SetDefaultRoleCenterAction.Invoke;
 
         // [THEN] the Profile 'B', where 'Default Role Center' is 'Yes'
         ProfileList.DefaultRoleCenterField.AssertEquals(true);
@@ -160,7 +155,7 @@ codeunit 134912 "ERM User Personalization"
         CreateProfile(AllObjWithCaption);
 
         // Verify: Verify created Role Center ID.
-        ProfileCard.OpenView();
+        ProfileCard.OpenView;
         ProfileCard.FILTER.SetFilter("Profile ID", Format(AllObjWithCaption."Object ID"));
         ProfileCard.RoleCenterIdField.AssertEquals(AllObjWithCaption."Object ID");
 
@@ -185,7 +180,7 @@ codeunit 134912 "ERM User Personalization"
         CreateProfileDefault(AllObjWithCaption);
 
         // [WHEN] Open its 'Profile Card'
-        ProfileCard.OpenView();
+        ProfileCard.OpenView;
         ProfileCard.FILTER.SetFilter("Profile ID", Format(AllObjWithCaption."Object ID"));
 
         // [THEN] 'Role Center ID' is set for Default one
@@ -294,7 +289,7 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN PROFILEID-ACCOUNTANT Profile]
-        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), true);
+        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID, true);
 
         // [GIVEN] User with no rolecenter (i.e. Profile ID) assigned
         Cassie := LibraryPermissions.CreateUserWithName(UserCassieTxt);
@@ -321,8 +316,8 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN PROFILEID-ACCOUNTANT, PROFILEID-SALES Profiles]
-        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), true);
-        CreateNewProfile(ProfileIdSalesTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), false);
+        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID, true);
+        CreateNewProfile(ProfileIdSalesTxt, ConfPersonalizationMgt.DefaultRoleCenterID, false);
 
         // [GIVEN] User who already has a profile ID assigned in user personalization
         Cassie := LibraryPermissions.CreateUserWithName(UserCassieTxt);
@@ -352,7 +347,7 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN PROFILEID-ACCOUNTANT Profile]
-        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), true);
+        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID, true);
 
         // [GIVEN] User Cassie
         Cassie := LibraryPermissions.CreateUserWithName(UserCassieTxt);
@@ -385,8 +380,8 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN PROFILEID-ACCOUNTANT, PROFILEID-SALES Profiles]
-        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), true);
-        CreateNewProfile(ProfileIdSalesTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), false);
+        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID, true);
+        CreateNewProfile(ProfileIdSalesTxt, ConfPersonalizationMgt.DefaultRoleCenterID, false);
 
         // [GIVEN] User Cassie
         Cassie := LibraryPermissions.CreateUserWithName(UserCassieTxt);
@@ -423,8 +418,8 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN PROFILEID-ACCOUNTANT, PROFILEID-SALES Profiles]
-        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), true);
-        CreateNewProfile(ProfileIdSalesTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), false);
+        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID, true);
+        CreateNewProfile(ProfileIdSalesTxt, ConfPersonalizationMgt.DefaultRoleCenterID, false);
         // [GIVEN] User Cassie
         Cassie := LibraryPermissions.CreateUserWithName(UserCassieTxt);
 
@@ -467,8 +462,8 @@ codeunit 134912 "ERM User Personalization"
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(true);
 
         // [GIVEN PROFILEID-ACCOUNTANT, PROFILEID-SALES Profiles]
-        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), true);
-        CreateNewProfile(ProfileIdSalesTxt, ConfPersonalizationMgt.DefaultRoleCenterID(), false);
+        CreateNewProfile(ProfileIdAccountantTxt, ConfPersonalizationMgt.DefaultRoleCenterID, true);
+        CreateNewProfile(ProfileIdSalesTxt, ConfPersonalizationMgt.DefaultRoleCenterID, false);
 
         // [GIVEN] User group Sales, assigned to Cassie
         LibraryPermissions.CreateUserGroupWithCode(UserGroupSalesTxt);
@@ -517,7 +512,7 @@ codeunit 134912 "ERM User Personalization"
         SetCompanyToEvaluation(false);
 
         // [WHEN] Open Company
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
 
         // [THEN] "Thirty Day Trial Dialog" page is shown (ThirtyDayTrialDialogPageHandler)
         EnvironmentInfoTestLibrary.SetTestabilitySoftwareAsAService(OldTestability);
@@ -540,7 +535,7 @@ codeunit 134912 "ERM User Personalization"
         SetCompanyToEvaluation(false);
 
         // [WHEN] Open Company
-        LogInManagement.CompanyOpen();
+        LogInManagement.CompanyOpen;
 
         // [THEN] "Thirty Day Trial Dialog" page is not shown
         // No Handler
@@ -564,14 +559,14 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN] A user and a system Default Profile ID
-        CreateOrFindDefaultProfileID();
+        CreateOrFindDefaultProfileID;
         LibraryPermissions.CreateUser(User, 'Frank', false);
         EnsureUserPersonalizationExists(User."User Security ID");
 
         // [GIVEN] Two User Groups: X, Y - User is a member. User Personalization is created with Default Profile ID of X
         for i := 1 to 2 do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
-            AddProfileIDToUserGroup(CreateProfileID(), UserGroup[i].Code);
+            AddProfileIDToUserGroup(CreateProfileID, UserGroup[i].Code);
             LibraryPermissions.AddUserToUserGroupByCode(User."User Security ID", UserGroup[i].Code);
         end;
         UserGroup[1].Get(UserGroup[1].Code);
@@ -605,14 +600,14 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN] A user and a system Default Profile ID
-        CreateOrFindDefaultProfileID();
+        CreateOrFindDefaultProfileID;
         LibraryPermissions.CreateUser(User, 'Frank', false);
         EnsureUserPersonalizationExists(User."User Security ID");
 
         // [GIVEN] Two User Groups: X, Y
         for i := 1 to 2 do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
-            AddProfileIDToUserGroup(CreateProfileID(), UserGroup[i].Code);
+            AddProfileIDToUserGroup(CreateProfileID, UserGroup[i].Code);
         end;
 
         // [GIVEN] User is a member of Y. User Personalization is created with Default Profile ID of Y
@@ -626,7 +621,7 @@ codeunit 134912 "ERM User Personalization"
         // [THEN] Profile changed to the new group membership default
         UserGroup[1].Get(UserGroup[1].Code);
         VerifyUserPersonalization(User."User Security ID", UserGroup[1]."Default Profile ID");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
 
         // Cleanup
         DeleteUser('Frank');
@@ -649,14 +644,14 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN] A user, and a system Default Profile ID
-        CreateOrFindDefaultProfileID();
+        CreateOrFindDefaultProfileID;
         LibraryPermissions.CreateUser(User, '', false);
         EnsureUserPersonalizationExists(User."User Security ID");
 
         // [GIVEN] Two User Groups: X, Y
         for i := 1 to 2 do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
-            AddProfileIDToUserGroup(CreateProfileID(), UserGroup[i].Code);
+            AddProfileIDToUserGroup(CreateProfileID, UserGroup[i].Code);
         end;
 
         // [GIVEN] User is a member of Y. User Personalization is created with Default Profile ID of Y
@@ -670,7 +665,7 @@ codeunit 134912 "ERM User Personalization"
         // [THEN] Profile didn't change
         UserGroup[2].Get(UserGroup[2].Code);
         VerifyUserPersonalization(User."User Security ID", UserGroup[2]."Default Profile ID");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
 
         // Cleanup
         DeleteUser(User."User Name");
@@ -692,14 +687,14 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN] A user, and a system Default Profile ID
-        CreateOrFindDefaultProfileID();
+        CreateOrFindDefaultProfileID;
         LibraryPermissions.CreateUser(User, '', false);
         EnsureUserPersonalizationExists(User."User Security ID");
 
         // [GIVEN] Two User Groups: X, Y - User is a member. User Personalization is created with Default Profile ID of X
         for i := 1 to 2 do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
-            AddProfileIDToUserGroup(CreateProfileID(), UserGroup[i].Code);
+            AddProfileIDToUserGroup(CreateProfileID, UserGroup[i].Code);
             LibraryPermissions.AddUserToUserGroupByCode(User."User Security ID", UserGroup[i].Code);
         end;
 
@@ -735,12 +730,12 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN] A user, and a system Default Profile ID
-        CreateOrFindDefaultProfileID();
+        CreateOrFindDefaultProfileID;
         LibraryPermissions.CreateUser(User, '', false);
         EnsureUserPersonalizationExists(User."User Security ID");
 
         // [GIVEN] Two User Groups: X, Y with the same Default Profile ID. User is member X,Y.
-        DefProfileID := CreateProfileID();
+        DefProfileID := CreateProfileID;
         for i := 1 to 2 do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
             AddProfileIDToUserGroup(DefProfileID, UserGroup[i].Code);
@@ -778,14 +773,14 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN] A user, and a system Default Profile ID
-        SystemProfileID := CreateOrFindDefaultProfileID();
+        SystemProfileID := CreateOrFindDefaultProfileID;
         LibraryPermissions.CreateUser(User, '', false);
         EnsureUserPersonalizationExists(User."User Security ID");
 
         // [GIVEN] Two User Groups: X, Y with different Default Profile ID. User is member X,Y, Personalization associated with X
         for i := 1 to 2 do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
-            AddProfileIDToUserGroup(CreateProfileID(), UserGroup[i].Code);
+            AddProfileIDToUserGroup(CreateProfileID, UserGroup[i].Code);
             LibraryPermissions.AddUserToUserGroupByCode(User."User Security ID", UserGroup[i].Code);
         end;
 
@@ -799,7 +794,7 @@ codeunit 134912 "ERM User Personalization"
 
         // [THEN] Profile changed
         VerifyUserPersonalization(User."User Security ID", SystemProfileID);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
 
         // Cleanup
         DeleteUser(User."User Name");
@@ -822,14 +817,14 @@ codeunit 134912 "ERM User Personalization"
         Initialize();
 
         // [GIVEN] A user, and a system Default Profile ID
-        CreateOrFindDefaultProfileID();
+        CreateOrFindDefaultProfileID;
         LibraryPermissions.CreateUser(User, '', false);
         EnsureUserPersonalizationExists(User."User Security ID");
 
         // [GIVEN] Two User Groups: X, Y with different Default Profile ID. User is member X,Y, Personalization associated with X
         for i := 1 to 2 do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
-            AddProfileIDToUserGroup(CreateProfileID(), UserGroup[i].Code);
+            AddProfileIDToUserGroup(CreateProfileID, UserGroup[i].Code);
             LibraryPermissions.AddUserToUserGroupByCode(User."User Security ID", UserGroup[i].Code);
         end;
 
@@ -844,7 +839,7 @@ codeunit 134912 "ERM User Personalization"
         // [THEN] Profile didn't change
         UserGroup[1].Get(UserGroup[1].Code);
         VerifyUserPersonalization(User."User Security ID", UserGroup[1]."Default Profile ID");
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
 
         // Cleanup
         DeleteUser(User."User Name");
@@ -873,22 +868,22 @@ codeunit 134912 "ERM User Personalization"
 
         // [GIVEN] User Group with Default Profile ID
         LibraryPermissions.CreateUserGroup(UserGroup, '');
-        PersonalizationProfileID := CreateProfileID();
+        PersonalizationProfileID := CreateProfileID;
         AddProfileIDToUserGroup(PersonalizationProfileID, UserGroup.Code);
         LibraryPermissions.AddUserToUserGroupByCode(User."User Security ID", UserGroup.Code);
         VerifyUserPersonalization(User."User Security ID", PersonalizationProfileID);
 
         // [WHEN] Change Default Profile ID for User Group
-        PersonalizationProfileID1 := CreateProfileID();
+        PersonalizationProfileID1 := CreateProfileID;
         LibraryVariableStorage.Enqueue(PersonalizationProfileID1);
-        UserGroups.OpenEdit();
+        UserGroups.OpenEdit;
         UserGroups.FILTER.SetFilter(Code, UserGroup.Code);
         UserGroups.YourProfileID.Lookup();
 
         // [THEN] User's Personalization change for new profile
         UserGroup.Get(UserGroup.Code);
         VerifyUserPersonalizationFromUserGroup(User."User Security ID", UserGroup);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
 
         // Cleanup
         DeleteUser(User."User Name");
@@ -920,7 +915,7 @@ codeunit 134912 "ERM User Personalization"
         // [GIVEN] "Profile ID" = "X-P" in User personalization
         for i := 1 to ArrayLen(UserGroup) do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
-            AddProfileIDToUserGroup(CreateProfileID(), UserGroup[i].Code);
+            AddProfileIDToUserGroup(CreateProfileID, UserGroup[i].Code);
             LibraryPermissions.AddUserToUserGroupByCode(User."User Security ID", UserGroup[i].Code);
         end;
         UserGroup[1].Get(UserGroup[1].Code);
@@ -928,14 +923,14 @@ codeunit 134912 "ERM User Personalization"
         VerifyUserPersonalization(User."User Security ID", PersonalizationProfileID);
 
         // [WHEN] Set "Default Profile ID" = "Y-New" in User Group "Y"
-        LibraryVariableStorage.Enqueue(CreateProfileID());
-        UserGroups.OpenEdit();
+        LibraryVariableStorage.Enqueue(CreateProfileID);
+        UserGroups.OpenEdit;
         UserGroups.FILTER.SetFilter(Code, UserGroup[2].Code);
         UserGroups.YourProfileID.Lookup();
 
         // [THEN] User's Personalization doesn't change for new profile
         VerifyUserPersonalization(User."User Security ID", PersonalizationProfileID);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
 
         // Cleanup
         DeleteUser(User."User Name");
@@ -968,8 +963,8 @@ codeunit 134912 "ERM User Personalization"
         // [GIVEN] User Group "Y" with "Default Profile ID" = "Y-P"
         // [GIVEN] User Group "XX" with "Default Profile ID" = "X-P"
         // [GIVEN] "Profile ID" = "X-P" in User personalization
-        PersonalizationProfileID[1] := CreateProfileID();
-        PersonalizationProfileID[2] := CreateProfileID();
+        PersonalizationProfileID[1] := CreateProfileID;
+        PersonalizationProfileID[2] := CreateProfileID;
         PersonalizationProfileID[3] := PersonalizationProfileID[1];
         for i := 1 to ArrayLen(UserGroup) do begin
             LibraryPermissions.CreateUserGroup(UserGroup[i], '');
@@ -979,15 +974,15 @@ codeunit 134912 "ERM User Personalization"
         VerifyUserPersonalization(User."User Security ID", PersonalizationProfileID[1]);
 
         // [WHEN] Set "Default Profile ID" = "X-New" in User Group "X"
-        OtherProfileID := CreateProfileID();
+        OtherProfileID := CreateProfileID;
         LibraryVariableStorage.Enqueue(OtherProfileID);
-        UserGroups.OpenEdit();
+        UserGroups.OpenEdit;
         UserGroups.FILTER.SetFilter(Code, UserGroup[1].Code);
         UserGroups.YourProfileID.Lookup();
 
         // [THEN] User's Personalization doesn't change for new profile
         VerifyUserPersonalization(User."User Security ID", PersonalizationProfileID[1]);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
 
         // Cleanup
         DeleteUser(User."User Name");
@@ -1016,9 +1011,9 @@ codeunit 134912 "ERM User Personalization"
         AddProfileIDToUserGroup(OtherProfileID, UserGroup.Code);
 
         // [WHEN] Change Default Profile ID for User Group
-        PersonalizationProfileID := CreateProfileID();
+        PersonalizationProfileID := CreateProfileID;
         LibraryVariableStorage.Enqueue(PersonalizationProfileID);
-        UserGroups.OpenEdit();
+        UserGroups.OpenEdit;
         UserGroups.FILTER.SetFilter(Code, UserGroup.Code);
         UserGroups.YourProfileID.Lookup();
         UserGroups.Close();
@@ -1026,7 +1021,7 @@ codeunit 134912 "ERM User Personalization"
         // [THEN] User group's default profile successfully changed
         UserGroup.Get(UserGroup.Code);
         UserGroup.TestField("Default Profile ID", PersonalizationProfileID);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
 
         // Cleanup
         DeleteProfileById(PersonalizationProfileID);
@@ -1038,6 +1033,7 @@ codeunit 134912 "ERM User Personalization"
 
     local procedure Initialize()
     var
+        User: Record User;
         AllProfile: Record "All Profile";
     begin
         DeleteUser(UserCassieTxt);
@@ -1075,7 +1071,7 @@ codeunit 134912 "ERM User Personalization"
         ProfileCard.DescriptionField.SetValue(AllObjWithCaption."Object ID");
         ProfileCard.CaptionField.SetValue(AllObjWithCaption."Object ID");
         ProfileCard.RoleCenterIdField.SetValue(AllObjWithCaption."Object ID");
-        ProfileCard.OK().Invoke();
+        ProfileCard.OK.Invoke;
     end;
 
     local procedure CreateProfileDefault(AllObjWithCaption: Record AllObjWithCaption)
@@ -1089,7 +1085,7 @@ codeunit 134912 "ERM User Personalization"
         ProfileCard.ProfileIdField.SetValue(AllObjWithCaption."Object ID");
         ProfileCard.DescriptionField.SetValue(AllObjWithCaption."Object ID");
         ProfileCard.CaptionField.SetValue(AllObjWithCaption."Object ID");
-        ProfileCard.OK().Invoke();
+        ProfileCard.OK.Invoke;
     end;
 
     local procedure CreateProfileID(): Code[30]
@@ -1101,8 +1097,8 @@ codeunit 134912 "ERM User Personalization"
         ProfileCard.ProfileIdField.SetValue(LibraryUtility.GenerateGUID());
         ProfileCard.DescriptionField.SetValue(LibraryUtility.GenerateGUID());
         ProfileCard.CaptionField.SetValue(LibraryUtility.GenerateGUID());
-        ProfileID := ProfileCard.ProfileIdField.Value();
-        ProfileCard.OK().Invoke();
+        ProfileID := ProfileCard.ProfileIdField.Value;
+        ProfileCard.OK.Invoke;
         exit(ProfileID);
     end;
 
@@ -1136,7 +1132,7 @@ codeunit 134912 "ERM User Personalization"
             DefProfileID := AllProfile."Profile ID"
         else begin
             DefProfileID := LibraryUtility.GenerateGUID();
-            CreateNewProfile(DefProfileID, ConfPersonalizationMgt.DefaultRoleCenterID(), true);
+            CreateNewProfile(DefProfileID, ConfPersonalizationMgt.DefaultRoleCenterID, true);
         end;
         exit(DefProfileID);
     end;
@@ -1253,7 +1249,7 @@ codeunit 134912 "ERM User Personalization"
     var
         I: Integer;
     begin
-        ProfileListPage.First();
+        ProfileListPage.First;
         repeat
             I += 1;
         until ProfileListPage.Next() = false;
@@ -1400,7 +1396,7 @@ codeunit 134912 "ERM User Personalization"
     procedure ThirtyDayTrialDialogPageHandler(var ThirtyDayTrialDialog: TestPage "Thirty Day Trial Dialog")
     begin
         ThirtyDayTrialDialog.TermsAndConditionsCheckBox.SetValue(true);
-        ThirtyDayTrialDialog.ActionStartTrial.Invoke();
+        ThirtyDayTrialDialog.ActionStartTrial.Invoke;
     end;
 
     [ModalPageHandler]
@@ -1422,7 +1418,7 @@ codeunit 134912 "ERM User Personalization"
     [Scope('OnPrem')]
     procedure ConfirmHandler(Question: Text[1024]; var Reply: Boolean)
     begin
-        Reply := LibraryVariableStorage.DequeueBoolean();
+        Reply := LibraryVariableStorage.DequeueBoolean;
     end;
 
     [MessageHandler]

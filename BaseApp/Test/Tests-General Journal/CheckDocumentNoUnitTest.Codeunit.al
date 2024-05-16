@@ -41,7 +41,7 @@ codeunit 134073 "Check Document No. Unit Test"
         GenJnlLine.SetRange("Journal Batch Name", GenJnlBatch.Name);
 
         // Exercise
-        GenJnlLine.CheckDocNoOnLines();
+        GenJnlLine.CheckDocNoOnLines;
 
         // Verify
         BatchPostJournalLines(GenJnlBatch);
@@ -69,7 +69,7 @@ codeunit 134073 "Check Document No. Unit Test"
         GenJnlLine.SetRange("Journal Batch Name", GenJnlBatch.Name);
 
         // Exercise
-        GenJnlLine.CheckDocNoOnLines();
+        GenJnlLine.CheckDocNoOnLines;
 
         // Verify
         BatchPostJournalLines(GenJnlBatch);
@@ -95,7 +95,7 @@ codeunit 134073 "Check Document No. Unit Test"
         GenJnlLine.SetRange("Journal Batch Name", GenJnlBatch.Name);
 
         // Exercise
-        GenJnlLine.CheckDocNoOnLines();
+        GenJnlLine.CheckDocNoOnLines;
 
         // Verify
         BatchPostJournalLines(GenJnlBatch);
@@ -122,7 +122,7 @@ codeunit 134073 "Check Document No. Unit Test"
         GenJnlLine.SetRange("Journal Batch Name", GenJnlBatch.Name);
 
         // Exercise
-        asserterror GenJnlLine.CheckDocNoOnLines();
+        asserterror GenJnlLine.CheckDocNoOnLines;
 
         // Verify
         Assert.ExpectedError(StrSubstNo(DocumentNoErr, IncStr(CorrectDocumentNo)));
@@ -135,8 +135,7 @@ codeunit 134073 "Check Document No. Unit Test"
     var
         NoSeries: Record "No. Series";
         NoSeriesLine: Record "No. Series Line";
-        NoSeriesCodeunit: Codeunit "No. Series";
-        NextNo: Code[20];
+        NoSeriesManagement: Codeunit NoSeriesManagement;
     begin
         // [FEATURE] [No. Series]
         // [SCENARIO 201310] Getting next No. Series when number encoded exceeds limit for type "decimal"
@@ -151,10 +150,10 @@ codeunit 134073 "Check Document No. Unit Test"
         NoSeriesLine.Modify();
 
         // [WHEN] Get next No. Series
-        NextNo := NoSeriesCodeunit.GetNextNo(NoSeries.Code);
+        NoSeriesManagement.IncrementNoText(NoSeriesLine."Last No. Used", NoSeriesLine."Increment-by No.");
 
         // [THEN] Returns Next No. generated = "T09000000000000011"
-        Assert.AreEqual('T09000000000000011', NextNo, 'Next No. Series is not as expected');
+        NoSeriesLine.TestField("Last No. Used", 'T09000000000000011');
     end;
 
     [Test]
@@ -163,6 +162,7 @@ codeunit 134073 "Check Document No. Unit Test"
     var
         NoSeries: Record "No. Series";
         RelatedNoSeries: Record "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         ActualNoSeries: Code[20];
     begin
         // [FEATURE] [No. Series]
@@ -172,27 +172,9 @@ codeunit 134073 "Check Document No. Unit Test"
         LibraryUtility.CreateNoSeries(RelatedNoSeries, true, false, false);
         LibraryUtility.CreateNoSeriesRelationship(NoSeries.Code, RelatedNoSeries.Code);
 
-        ActualNoSeries := GetNoSeriesWithCheck(NoSeries.Code, false, '');
+        ActualNoSeries := NoSeriesManagement.GetNoSeriesWithCheck(NoSeries.Code, false, '');
 
         Assert.AreEqual(NoSeries.Code, ActualNoSeries, IncorrectNoSeriesCodeErr);
-    end;
-
-    local procedure GetNoSeriesWithCheck(NoSeriesCode: Code[20]; SelectNoSeriesAllowed: Boolean; CurrentNoSeriesCode: Code[20]): Code[20]
-    var
-        NoSeries: Codeunit "No. Series";
-    begin
-
-        if not SelectNoSeriesAllowed then
-            exit(NoSeriesCode);
-
-        if NoSeries.IsAutomatic(NoSeriesCode) then
-            exit(NoSeriesCode);
-
-        if NoSeries.HasRelatedSeries(NoSeriesCode) then
-            if NoSeries.LookupRelatedNoSeries(NoSeriesCode, CurrentNoSeriesCode) then
-                exit(CurrentNoSeriesCode);
-
-        exit(NoSeriesCode);
     end;
 
     [Test]
@@ -201,6 +183,7 @@ codeunit 134073 "Check Document No. Unit Test"
     var
         NoSeries: Record "No. Series";
         RelatedNoSeries: Record "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         ActualNoSeries: Code[20];
     begin
         // [FEATURE] [No. Series]
@@ -210,7 +193,7 @@ codeunit 134073 "Check Document No. Unit Test"
         LibraryUtility.CreateNoSeries(RelatedNoSeries, true, false, false);
         LibraryUtility.CreateNoSeriesRelationship(NoSeries.Code, RelatedNoSeries.Code);
 
-        ActualNoSeries := GetNoSeriesWithCheck(NoSeries.Code, true, '');
+        ActualNoSeries := NoSeriesManagement.GetNoSeriesWithCheck(NoSeries.Code, true, '');
 
         Assert.AreEqual(NoSeries.Code, ActualNoSeries, IncorrectNoSeriesCodeErr);
     end;
@@ -220,6 +203,7 @@ codeunit 134073 "Check Document No. Unit Test"
     procedure DefaultNoSeriesIfSelectNoSeriesAllowedNotDefaultNosNoRelations()
     var
         NoSeries: Record "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         ActualNoSeries: Code[20];
     begin
         // [FEATURE] [No. Series]
@@ -227,7 +211,7 @@ codeunit 134073 "Check Document No. Unit Test"
 
         LibraryUtility.CreateNoSeries(NoSeries, false, false, false);
 
-        ActualNoSeries := GetNoSeriesWithCheck(NoSeries.Code, true, '');
+        ActualNoSeries := NoSeriesManagement.GetNoSeriesWithCheck(NoSeries.Code, true, '');
 
         Assert.AreEqual(NoSeries.Code, ActualNoSeries, IncorrectNoSeriesCodeErr);
     end;
@@ -239,6 +223,7 @@ codeunit 134073 "Check Document No. Unit Test"
     var
         NoSeries: Record "No. Series";
         RelatedNoSeries: Record "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         ActualNoSeries: Code[20];
     begin
         // [FEATURE] [No. Series]
@@ -249,7 +234,7 @@ codeunit 134073 "Check Document No. Unit Test"
         LibraryUtility.CreateNoSeriesRelationship(NoSeries.Code, RelatedNoSeries.Code);
         LibraryVariableStorage.Enqueue(RelatedNoSeries.Code);
 
-        ActualNoSeries := GetNoSeriesWithCheck(NoSeries.Code, true, '');
+        ActualNoSeries := NoSeriesManagement.GetNoSeriesWithCheck(NoSeries.Code, true, '');
 
         Assert.AreEqual(RelatedNoSeries.Code, ActualNoSeries, IncorrectNoSeriesCodeErr);
     end;
@@ -261,6 +246,7 @@ codeunit 134073 "Check Document No. Unit Test"
     var
         NoSeries: Record "No. Series";
         RelatedNoSeries: Record "No. Series";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
         ActualNoSeries: Code[20];
     begin
         // [FEATURE] [No. Series]
@@ -271,16 +257,13 @@ codeunit 134073 "Check Document No. Unit Test"
         LibraryUtility.CreateNoSeriesRelationship(NoSeries.Code, RelatedNoSeries.Code);
         LibraryVariableStorage.Enqueue(RelatedNoSeries.Code);
 
-        ActualNoSeries := GetNoSeriesWithCheck(NoSeries.Code, true, '');
+        ActualNoSeries := NoSeriesManagement.GetNoSeriesWithCheck(NoSeries.Code, true, '');
 
         Assert.AreEqual(NoSeries.Code, ActualNoSeries, IncorrectNoSeriesCodeErr);
     end;
 
-#if not CLEAN24
-#pragma warning disable AL0432
     [Test]
     [Scope('OnPrem')]
-    [Obsolete('CheckDocNoBasedOnNoSeries is removed', '24.0')]
     procedure LastNoUsedForExportedPmtLine()
     var
         GenJournalLine: Record "Gen. Journal Line";
@@ -290,7 +273,7 @@ codeunit 134073 "Check Document No. Unit Test"
         // [FEATURE] [No. Series] [UT]
         // [SCENARIO 261484] TAB81.CheckDocNoBasedOnNoSeries updates internal "No Series" instance of NoSeriesManagement without modification. Further modification can be done by NoSeriesManagement.SaveNoSeries
 
-        NoSeriesLine.SetRange("Series Code", LibraryERM.CreateNoSeriesCode());
+        NoSeriesLine.SetRange("Series Code", LibraryERM.CreateNoSeriesCode);
         NoSeriesLine.FindFirst();
 
         Commit();
@@ -309,7 +292,6 @@ codeunit 134073 "Check Document No. Unit Test"
 
     [Test]
     [Scope('OnPrem')]
-    [Obsolete('CheckDocNoBasedOnNoSeries is removed', '24.0')]
     procedure LastNoUsedNotIncrementedWhenManualNosTrueAndDocNoManual()
     var
         GenJournalLine: Record "Gen. Journal Line";
@@ -337,7 +319,6 @@ codeunit 134073 "Check Document No. Unit Test"
 
     [Test]
     [Scope('OnPrem')]
-    [Obsolete('CheckDocNoBasedOnNoSeries is removed', '24.0')]
     procedure ErrorWhenManualNosFalseAndDocNoManual()
     var
         GenJournalLine: Record "Gen. Journal Line";
@@ -363,7 +344,6 @@ codeunit 134073 "Check Document No. Unit Test"
 
     [Test]
     [Scope('OnPrem')]
-    [Obsolete('CheckDocNoBasedOnNoSeries is removed', '24.0')]
     procedure LastNoUsedIncrementedWhenDocNoIsNextNoFromNoSeries()
     var
         GenJournalLine: Record "Gen. Journal Line";
@@ -389,14 +369,14 @@ codeunit 134073 "Check Document No. Unit Test"
         NoSeriesMgt.IncrementNoText(DocumentNo, 1);
         Assert.AreEqual(DocumentNo, NoSeriesMgt.GetNextNo(NoSeriesCode, WorkDate(), false), '');
     end;
-#pragma warning restore AL0432
-#endif
+
     [Test]
     [Scope('OnPrem')]
     procedure LastNoUsedNotIncrementedWhenPostGenJnlLineDocNoManual()
     var
         GenJournalLine: Record "Gen. Journal Line";
         GenJournalBatch: Record "Gen. Journal Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         NoSeriesCode: Code[20];
         LastNoUsed: Code[20];
         GenJournalAccountType: Enum "Gen. Journal Account Type";
@@ -431,6 +411,7 @@ codeunit 134073 "Check Document No. Unit Test"
     var
         GenJournalLine: Record "Gen. Journal Line";
         GenJournalBatch: Record "Gen. Journal Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         NoSeriesCode: Code[20];
         DocumentNo: Code[20];
         GenJournalAccountType: Enum "Gen. Journal Account Type";
@@ -443,7 +424,7 @@ codeunit 134073 "Check Document No. Unit Test"
         // [GIVEN] General Journal Line with Document No. = 'A002', i.e. number is the next No from No Series.
         NoSeriesCode := CreateNoSeriesWithManualNos(true);
         DocumentNo := GetLastNoUsedFromNoSeries(NoSeriesCode);
-        DocumentNo := IncStr(DocumentNo);
+        NoSeriesMgt.IncrementNoText(DocumentNo, 1);
 
         CreateGenJournalBatchWithNoSeries(GenJournalBatch, NoSeriesCode);
         LibraryJournals.CreateGenJournalLine(
@@ -460,11 +441,8 @@ codeunit 134073 "Check Document No. Unit Test"
         Assert.AreEqual(DocumentNo, GetLastNoUsedFromNoSeries(NoSeriesCode), '');
     end;
 
-#if not CLEAN24
-#pragma warning disable AL0432
     [Test]
     [Scope('OnPrem')]
-    [Obsolete('CheckDocNoBasedOnNoSeries is removed', '24.0')]
     procedure NoSeriesMgtInstanceIsNotClearedAfterRunCheckDocNoBasedOnNoSeries()
     var
         GenJournalLine: Record "Gen. Journal Line";
@@ -491,8 +469,7 @@ codeunit 134073 "Check Document No. Unit Test"
         Assert.ExpectedError(StrSubstNo('The No. Series does not exist. Identification fields and values: Code=''%1''', TryNoSeriesCode));
         Assert.ExpectedErrorCode('DB:RecordNotFound');
     end;
-#pragma warning restore AL0432
-#endif
+
     [Test]
     [Scope('OnPrem')]
     procedure ErrorWhenManualNosEnabledAndPostingDateOrderReversedInGenJournalLines()
@@ -557,7 +534,7 @@ codeunit 134073 "Check Document No. Unit Test"
         NoSeries: Record "No. Series";
         NoSeriesLine: Record "No. Series Line";
     begin
-        LibraryERM.CreateGenJournalBatch(GenJnlBatch, LibraryERM.SelectGenJnlTemplate());
+        LibraryERM.CreateGenJournalBatch(GenJnlBatch, LibraryERM.SelectGenJnlTemplate);
 
         LibraryERM.CreateBankAccount(BankAcc);
         GenJnlBatch.Validate("Bal. Account Type", GenJnlBatch."Bal. Account Type"::"Bank Account");
@@ -645,7 +622,7 @@ codeunit 134073 "Check Document No. Unit Test"
     local procedure CreateNoSeriesWithManualNos(ManualNos: Boolean) NoSeriesCode: Code[20]
     var
         NoSeries: Record "No. Series";
-        NoSeriesCodeunit: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
         NoSeriesCode := LibraryERM.CreateNoSeriesCode();
 
@@ -653,7 +630,7 @@ codeunit 134073 "Check Document No. Unit Test"
         NoSeries.Validate("Manual Nos.", ManualNos);
         NoSeries.Modify(true);
 
-        NoSeriesCodeunit.GetNextNo(NoSeriesCode);  // initialize Last No. Used
+        NoSeriesMgt.GetNextNo(NoSeriesCode, WorkDate(), true);  // initialize Last No. Used
     end;
 
     local procedure GetLastNoUsedFromNoSeries(NoSeriesCode: Code[20]) LastNoUsed: Code[20]
@@ -671,15 +648,15 @@ codeunit 134073 "Check Document No. Unit Test"
     [Scope('OnPrem')]
     procedure NoSeriesListModalPageHandler(var NoSeriesList: TestPage "No. Series")
     begin
-        NoSeriesList.FILTER.SetFilter(Code, LibraryVariableStorage.DequeueText());
-        NoSeriesList.OK().Invoke();
+        NoSeriesList.FILTER.SetFilter(Code, LibraryVariableStorage.DequeueText);
+        NoSeriesList.OK.Invoke();
     end;
 
     [ModalPageHandler]
     [Scope('OnPrem')]
     procedure NoSeriesListSelectNothingModalPageHandler(var NoSeriesList: TestPage "No. Series")
     begin
-        NoSeriesList.Cancel().Invoke();
+        NoSeriesList.Cancel.Invoke();
     end;
 }
 

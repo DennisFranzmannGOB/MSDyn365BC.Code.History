@@ -50,6 +50,7 @@ codeunit 137909 "SCM Resource Usage Type"
     procedure OneResource10()
     var
         ParentItem: Record Item;
+        BOMComp: Record "BOM Component";
         resource: Record Resource;
     begin
         Initialize();
@@ -66,6 +67,7 @@ codeunit 137909 "SCM Resource Usage Type"
     procedure OneResource10Fixed()
     var
         ParentItem: Record Item;
+        BOMComp: Record "BOM Component";
         resource: Record Resource;
     begin
         Initialize();
@@ -81,6 +83,7 @@ codeunit 137909 "SCM Resource Usage Type"
     procedure TwoResources()
     var
         ParentItem: Record Item;
+        BOMComp: Record "BOM Component";
         resource: Record Resource;
     begin
         Initialize();

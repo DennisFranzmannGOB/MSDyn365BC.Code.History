@@ -5,7 +5,6 @@ using System;
 table 7710 "ADCS User"
 {
     Caption = 'ADCS User';
-    DataClassification = CustomerContent;
 
     fields
     {

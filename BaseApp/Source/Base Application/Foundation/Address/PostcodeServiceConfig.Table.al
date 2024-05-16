@@ -8,7 +8,6 @@ table 9091 "Postcode Service Config"
 {
     Caption = 'Postcode Service Config';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

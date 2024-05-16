@@ -5,7 +5,6 @@
     ObsoleteState = Removed;
     ObsoleteTag = '23.0';
     ObsoleteReason = 'These objects will be removed';
-    DataClassification = CustomerContent;
 
     fields
     {

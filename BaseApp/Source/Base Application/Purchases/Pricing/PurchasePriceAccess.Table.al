@@ -6,8 +6,6 @@ namespace Microsoft.Purchases.Pricing;
 /// </summary>
 table 7017 "Purchase Price Access"
 {
-    DataClassification = CustomerContent;
-
     fields
     {
         field(1; Code; Code[20])

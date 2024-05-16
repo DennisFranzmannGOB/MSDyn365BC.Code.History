@@ -70,11 +70,13 @@ codeunit 4500 "Current User Connector" implements "Email Connector", "Default Em
         User: Record User;
         EmailOutlookAPIHelper: Codeunit "Email - Outlook API Helper";
         EnvironmentInformation: Codeunit "Environment Information";
-        APIClient: interface "Email - Outlook API Client v2";
-        OAuthClient: interface "Email - OAuth Client v2";
+        APIClient: interface "Email - Outlook API Client";
+        OAuthClient: interface "Email - OAuth Client";
         CurrentUserName: Text[250];
         CurrentUserEmail: Text[250];
-        AccessToken: SecretText;
+
+        [NonDebuggable]
+        AccessToken: Text;
     begin
         if EnvironmentInformation.IsSaaS() then begin
             if not User.Get(UserSecurityId()) then

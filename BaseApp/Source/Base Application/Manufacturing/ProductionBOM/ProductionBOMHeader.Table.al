@@ -13,7 +13,6 @@ table 99000771 "Production BOM Header"
     DataCaptionFields = "No.", Description;
     DrillDownPageID = "Production BOM List";
     LookupPageID = "Production BOM List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -113,7 +112,7 @@ table 99000771 "Production BOM Header"
                 if Status = Status::Closed then begin
                     IsHandled := false;
                     OnValidateStatusOnBeforeConfirm(Rec, xRec, IsHandled);
-                    if not IsHandled then
+                    If not IsHandled then
                         if Confirm(Text001, false) then begin
                             ProdBOMVersion.SetRange("Production BOM No.", "No.");
                             if ProdBOMVersion.Find('-') then
@@ -183,34 +182,11 @@ table 99000771 "Production BOM Header"
     end;
 
     trigger OnInsert()
-    var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
-
     begin
         MfgSetup.Get();
         if "No." = '' then begin
             MfgSetup.TestField("Production BOM Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(MfgSetup."Production BOM Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(MfgSetup."Production BOM Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := MfgSetup."Production BOM Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", MfgSetup."Production BOM Nos.", 0D, "No.");
-            end;
-#else
-            if NoSeries.AreRelated(MfgSetup."Production BOM Nos.", xRec."No. Series") then
-                "No. Series" := xRec."No. Series"
-            else
-                "No. Series" := MfgSetup."Production BOM Nos.";
-            "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(MfgSetup."Production BOM Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
         "Creation Date" := Today;
@@ -235,11 +211,11 @@ table 99000771 "Production BOM Header"
         ProdBOMVersion: Record "Production BOM Version";
         ProdBOMLine: Record "Production BOM Line";
         MfgComment: Record "Manufacturing Comment Line";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Text002: Label 'You cannot rename the %1 when %2 is %3.';
 
     procedure AssistEdit(OldProdBOMHeader: Record "Production BOM Header"): Boolean
     var
-        NoSeries: Codeunit "No. Series";
         SeriesSelected: Boolean;
         IsHandled: Boolean;
     begin
@@ -247,13 +223,15 @@ table 99000771 "Production BOM Header"
         if IsHandled then
             exit(SeriesSelected);
 
-        ProdBOMHeader := Rec;
-        MfgSetup.Get();
-        MfgSetup.TestField("Production BOM Nos.");
-        if NoSeries.LookupRelatedNoSeries(MfgSetup."Production BOM Nos.", OldProdBOMHeader."No. Series", ProdBOMHeader."No. Series") then begin
-            ProdBOMHeader."No." := NoSeries.GetNextNo(ProdBOMHeader."No. Series");
-            Rec := ProdBOMHeader;
-            exit(true);
+        with ProdBOMHeader do begin
+            ProdBOMHeader := Rec;
+            MfgSetup.Get();
+            MfgSetup.TestField("Production BOM Nos.");
+            if NoSeriesMgt.SelectSeries(MfgSetup."Production BOM Nos.", OldProdBOMHeader."No. Series", "No. Series") then begin
+                NoSeriesMgt.SetSeries("No.");
+                Rec := ProdBOMHeader;
+                exit(true);
+            end;
         end;
     end;
 

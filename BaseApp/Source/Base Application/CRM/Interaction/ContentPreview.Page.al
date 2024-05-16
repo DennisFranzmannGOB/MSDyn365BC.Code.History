@@ -1,7 +1,5 @@
 namespace Microsoft.CRM.Interaction;
 
-using System.Integration;
-
 page 5084 "Content Preview"
 {
     Caption = 'Content Preview';
@@ -13,7 +11,7 @@ page 5084 "Content Preview"
             group(EmailBody)
             {
                 Caption = 'Email Body';
-                usercontrol(BodyHTMLMessage; WebPageViewer)
+                usercontrol(BodyHTMLMessage; "Microsoft.Dynamics.Nav.Client.WebPageViewer")
                 {
                     ApplicationArea = RelationshipMgmt;
 

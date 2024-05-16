@@ -353,12 +353,14 @@ page 522 "View Applied Entries"
         ItemLedgEntry: Record "Item Ledger Entry";
         Apprec: Record "Item Application Entry";
     begin
-        ItemLedgEntry.Get(RecordToShow."Entry No.");
-        ShowQuantity := not ((ItemLedgEntry."Entry Type" in [ItemLedgEntry."Entry Type"::Sale, ItemLedgEntry."Entry Type"::Consumption, ItemLedgEntry."Entry Type"::Output]) and ItemLedgEntry.Positive);
+        with ItemLedgEntry do begin
+            Get(RecordToShow."Entry No.");
+            ShowQuantity := not (("Entry Type" in ["Entry Type"::Sale, "Entry Type"::Consumption, "Entry Type"::Output]) and Positive);
 
-        MaxToApply := 0;
-        if not ShowQuantity then
-            MaxToApply := ItemLedgEntry.Quantity + Apprec.Returned(ItemLedgEntry."Entry No.");
+            MaxToApply := 0;
+            if not ShowQuantity then
+                MaxToApply := Quantity + Apprec.Returned("Entry No.");
+        end;
         SetMyView(RecordToShow, ShowApplied, ShowQuantity, MaxToApply);
     end;
 
@@ -404,25 +406,26 @@ page 522 "View Applied Entries"
         ItemApplnEntry: Record "Item Application Entry";
     begin
         InitApplied();
-        if ItemLedgEntry.Positive then begin
-            ItemApplnEntry.Reset();
-            ItemApplnEntry.SetCurrentKey("Inbound Item Entry No.", "Outbound Item Entry No.", "Cost Application");
-            ItemApplnEntry.SetRange("Inbound Item Entry No.", ItemLedgEntry."Entry No.");
-            ItemApplnEntry.SetFilter("Outbound Item Entry No.", '<>%1&<>%2', ItemLedgEntry."Entry No.", 0);
-            if ItemApplnEntry.Find('-') then
-                repeat
-                    InsertTempEntry(ItemApplnEntry."Outbound Item Entry No.", ItemApplnEntry.Quantity, true);
-                until ItemApplnEntry.Next() = 0;
-        end else begin
-            ItemApplnEntry.Reset();
-            ItemApplnEntry.SetCurrentKey("Outbound Item Entry No.", "Item Ledger Entry No.", "Cost Application");
-            ItemApplnEntry.SetRange("Outbound Item Entry No.", ItemLedgEntry."Entry No.");
-            ItemApplnEntry.SetRange("Item Ledger Entry No.", ItemLedgEntry."Entry No.");
-            if ItemApplnEntry.Find('-') then
-                repeat
-                    InsertTempEntry(ItemApplnEntry."Inbound Item Entry No.", -ItemApplnEntry.Quantity, true);
-                until ItemApplnEntry.Next() = 0;
-        end;
+        with ItemLedgEntry do
+            if Positive then begin
+                ItemApplnEntry.Reset();
+                ItemApplnEntry.SetCurrentKey("Inbound Item Entry No.", "Outbound Item Entry No.", "Cost Application");
+                ItemApplnEntry.SetRange("Inbound Item Entry No.", "Entry No.");
+                ItemApplnEntry.SetFilter("Outbound Item Entry No.", '<>%1&<>%2', "Entry No.", 0);
+                if ItemApplnEntry.Find('-') then
+                    repeat
+                        InsertTempEntry(ItemApplnEntry."Outbound Item Entry No.", ItemApplnEntry.Quantity, true);
+                    until ItemApplnEntry.Next() = 0;
+            end else begin
+                ItemApplnEntry.Reset();
+                ItemApplnEntry.SetCurrentKey("Outbound Item Entry No.", "Item Ledger Entry No.", "Cost Application");
+                ItemApplnEntry.SetRange("Outbound Item Entry No.", "Entry No.");
+                ItemApplnEntry.SetRange("Item Ledger Entry No.", "Entry No.");
+                if ItemApplnEntry.Find('-') then
+                    repeat
+                        InsertTempEntry(ItemApplnEntry."Inbound Item Entry No.", -ItemApplnEntry.Quantity, true);
+                    until ItemApplnEntry.Next() = 0;
+            end;
     end;
 
     local procedure ShowQuantityOpen(ItemLedgEntry: Record "Item Ledger Entry")
@@ -430,20 +433,21 @@ page 522 "View Applied Entries"
         ItemApplnEntry: Record "Item Application Entry";
         ItemLedgEntry2: Record "Item Ledger Entry";
     begin
-        if ItemLedgEntry."Remaining Quantity" <> 0 then begin
-            ItemLedgEntry2.SetCurrentKey("Item No.", Open, "Variant Code", Positive, "Location Code", "Posting Date");
-            ItemLedgEntry2.SetRange("Item No.", ItemLedgEntry."Item No.");
-            ItemLedgEntry2.SetRange("Location Code", ItemLedgEntry."Location Code");
-            ItemLedgEntry2.SetRange(Positive, not ItemLedgEntry.Positive);
-            ItemLedgEntry2.SetRange(Open, true);
-            if ItemLedgEntry2.Find('-') then
-                repeat
-                    if (QuantityAvailable(ItemLedgEntry2) <> 0) and
-                       not ItemApplnEntry.ExistsBetween(ItemLedgEntry."Entry No.", ItemLedgEntry2."Entry No.")
-                    then
-                        InsertTempEntry(ItemLedgEntry2."Entry No.", 0, true);
-                until ItemLedgEntry2.Next() = 0;
-        end;
+        with ItemLedgEntry do
+            if "Remaining Quantity" <> 0 then begin
+                ItemLedgEntry2.SetCurrentKey("Item No.", Open, "Variant Code", Positive, "Location Code", "Posting Date");
+                ItemLedgEntry2.SetRange("Item No.", "Item No.");
+                ItemLedgEntry2.SetRange("Location Code", "Location Code");
+                ItemLedgEntry2.SetRange(Positive, not Positive);
+                ItemLedgEntry2.SetRange(Open, true);
+                if ItemLedgEntry2.Find('-') then
+                    repeat
+                        if (QuantityAvailable(ItemLedgEntry2) <> 0) and
+                           not ItemApplnEntry.ExistsBetween("Entry No.", ItemLedgEntry2."Entry No.")
+                        then
+                            InsertTempEntry(ItemLedgEntry2."Entry No.", 0, true);
+                    until ItemLedgEntry2.Next() = 0;
+            end;
     end;
 
     local procedure ShowCostApplied(ItemLedgEntry: Record "Item Ledger Entry")
@@ -451,30 +455,29 @@ page 522 "View Applied Entries"
         ItemApplnEntry: Record "Item Application Entry";
     begin
         InitApplied();
-        if ItemLedgEntry.Positive then begin
-            ItemApplnEntry.Reset();
-            ItemApplnEntry.SetCurrentKey("Inbound Item Entry No.", "Outbound Item Entry No.", "Cost Application");
-            ItemApplnEntry.SetRange("Inbound Item Entry No.", ItemLedgEntry."Entry No.");
-            ItemApplnEntry.SetFilter("Item Ledger Entry No.", '<>%1', ItemLedgEntry."Entry No.");
-            ItemApplnEntry.SetFilter("Outbound Item Entry No.", '<>%1', 0);
-            ItemApplnEntry.SetRange("Cost Application", true);
-            // we want to show even average cost application
-            if ItemApplnEntry.Find('-') then
-                repeat
-                    InsertTempEntry(ItemApplnEntry."Outbound Item Entry No.", ItemApplnEntry.Quantity, false);
-                until ItemApplnEntry.Next() = 0;
-        end else begin
-            ItemApplnEntry.Reset();
-            ItemApplnEntry.SetCurrentKey("Outbound Item Entry No.", "Item Ledger Entry No.", "Cost Application");
-            ItemApplnEntry.SetRange("Outbound Item Entry No.", ItemLedgEntry."Entry No.");
-            ItemApplnEntry.SetFilter("Item Ledger Entry No.", '<>%1', ItemLedgEntry."Entry No.");
-            ItemApplnEntry.SetRange("Cost Application", true);
-            // we want to show even average cost application
-            if ItemApplnEntry.Find('-') then
-                repeat
-                    InsertTempEntry(ItemApplnEntry."Inbound Item Entry No.", -ItemApplnEntry.Quantity, false);
-                until ItemApplnEntry.Next() = 0;
-        end;
+        with ItemLedgEntry do
+            if Positive then begin
+                ItemApplnEntry.Reset();
+                ItemApplnEntry.SetCurrentKey("Inbound Item Entry No.", "Outbound Item Entry No.", "Cost Application");
+                ItemApplnEntry.SetRange("Inbound Item Entry No.", "Entry No.");
+                ItemApplnEntry.SetFilter("Item Ledger Entry No.", '<>%1', "Entry No.");
+                ItemApplnEntry.SetFilter("Outbound Item Entry No.", '<>%1', 0);
+                ItemApplnEntry.SetRange("Cost Application", true); // we want to show even average cost application
+                if ItemApplnEntry.Find('-') then
+                    repeat
+                        InsertTempEntry(ItemApplnEntry."Outbound Item Entry No.", ItemApplnEntry.Quantity, false);
+                    until ItemApplnEntry.Next() = 0;
+            end else begin
+                ItemApplnEntry.Reset();
+                ItemApplnEntry.SetCurrentKey("Outbound Item Entry No.", "Item Ledger Entry No.", "Cost Application");
+                ItemApplnEntry.SetRange("Outbound Item Entry No.", "Entry No.");
+                ItemApplnEntry.SetFilter("Item Ledger Entry No.", '<>%1', "Entry No.");
+                ItemApplnEntry.SetRange("Cost Application", true); // we want to show even average cost application
+                if ItemApplnEntry.Find('-') then
+                    repeat
+                        InsertTempEntry(ItemApplnEntry."Inbound Item Entry No.", -ItemApplnEntry.Quantity, false);
+                    until ItemApplnEntry.Next() = 0;
+            end;
     end;
 
     local procedure ShowCostOpen(ItemLedgEntry: Record "Item Ledger Entry"; MaxToApply: Decimal)
@@ -482,20 +485,22 @@ page 522 "View Applied Entries"
         ItemApplnEntry: Record "Item Application Entry";
         ItemLedgEntry2: Record "Item Ledger Entry";
     begin
-        ItemLedgEntry2.SetCurrentKey("Item No.", Positive, "Location Code", "Variant Code");
-        ItemLedgEntry2.SetRange("Item No.", ItemLedgEntry."Item No.");
-        ItemLedgEntry2.SetRange("Location Code", ItemLedgEntry."Location Code");
-        ItemLedgEntry2.SetRange(Positive, not ItemLedgEntry.Positive);
-        ItemLedgEntry2.SetFilter("Shipped Qty. Not Returned", '<%1&>=%2', 0, -MaxToApply);
-        if (MaxToApply <> 0) and ItemLedgEntry.Positive then
-            ItemLedgEntry2.SetFilter("Shipped Qty. Not Returned", '<=%1', -MaxToApply);
-        if ItemLedgEntry2.Find('-') then
-            repeat
-                if (CostAvailable(ItemLedgEntry2) <> 0) and
-                   not ItemApplnEntry.ExistsBetween(ItemLedgEntry."Entry No.", ItemLedgEntry2."Entry No.")
-                then
-                    InsertTempEntry(ItemLedgEntry2."Entry No.", 0, true);
-            until ItemLedgEntry2.Next() = 0;
+        with ItemLedgEntry do begin
+            ItemLedgEntry2.SetCurrentKey("Item No.", Positive, "Location Code", "Variant Code");
+            ItemLedgEntry2.SetRange("Item No.", "Item No.");
+            ItemLedgEntry2.SetRange("Location Code", "Location Code");
+            ItemLedgEntry2.SetRange(Positive, not Positive);
+            ItemLedgEntry2.SetFilter("Shipped Qty. Not Returned", '<%1&>=%2', 0, -MaxToApply);
+            if (MaxToApply <> 0) and Positive then
+                ItemLedgEntry2.SetFilter("Shipped Qty. Not Returned", '<=%1', -MaxToApply);
+            if ItemLedgEntry2.Find('-') then
+                repeat
+                    if (CostAvailable(ItemLedgEntry2) <> 0) and
+                       not ItemApplnEntry.ExistsBetween("Entry No.", ItemLedgEntry2."Entry No.")
+                    then
+                        InsertTempEntry(ItemLedgEntry2."Entry No.", 0, true);
+                until ItemLedgEntry2.Next() = 0;
+        end;
     end;
 
     local procedure InsertTempEntry(EntryNo: Integer; AppliedQty: Decimal; ShowQuantity: Boolean)
@@ -595,14 +600,16 @@ page 522 "View Applied Entries"
     var
         ItemApplicationEntry: Record "Item Application Entry";
     begin
-        ItemApplicationEntry.SetCurrentKey("Inbound Item Entry No.", "Item Ledger Entry No.", "Outbound Item Entry No.", "Cost Application");
-        ItemApplicationEntry.SetRange("Inbound Item Entry No.", ItemLedgerEntryNo);
-        ItemApplicationEntry.SetRange("Item Ledger Entry No.", ItemLedgerEntryNo);
-        ItemApplicationEntry.SetFilter("Outbound Item Entry No.", '<>0');
-        if not ItemApplicationEntry.IsEmpty() then begin
-            ItemApplicationEntry.SetRange("Outbound Item Entry No.", 0);
-            ItemApplicationEntry.DeleteAll();
-        end
+        with ItemApplicationEntry do begin
+            SetCurrentKey("Inbound Item Entry No.", "Item Ledger Entry No.", "Outbound Item Entry No.", "Cost Application");
+            SetRange("Inbound Item Entry No.", ItemLedgerEntryNo);
+            SetRange("Item Ledger Entry No.", ItemLedgerEntryNo);
+            SetFilter("Outbound Item Entry No.", '<>0');
+            if not IsEmpty() then begin
+                SetRange("Outbound Item Entry No.", 0);
+                DeleteAll();
+            end
+        end;
     end;
 
     local procedure BlockItem(ItemNo: Code[20])
@@ -634,18 +641,22 @@ page 522 "View Applied Entries"
 
     local procedure QuantityAvailable(ILE: Record "Item Ledger Entry"): Decimal
     begin
-        ILE.CalcFields("Reserved Quantity");
-        exit(ILE."Remaining Quantity" - ILE."Reserved Quantity");
+        with ILE do begin
+            CalcFields("Reserved Quantity");
+            exit("Remaining Quantity" - "Reserved Quantity");
+        end;
     end;
 
     local procedure CostAvailable(ILE: Record "Item Ledger Entry"): Decimal
     var
         Apprec: Record "Item Application Entry";
     begin
-        if ILE."Shipped Qty. Not Returned" <> 0 then
-            exit(-ILE."Shipped Qty. Not Returned");
+        with ILE do begin
+            if "Shipped Qty. Not Returned" <> 0 then
+                exit(-"Shipped Qty. Not Returned");
 
-        exit(ILE."Remaining Quantity" + Apprec.Returned(ILE."Entry No."));
+            exit("Remaining Quantity" + Apprec.Returned("Entry No."));
+        end;
     end;
 
     procedure CaptionExpr(): Text

@@ -165,7 +165,7 @@ codeunit 5060 DuplicateManagement
         end;
     end;
 
-    procedure ComposeIndexString(var RecRef: RecordRef; FieldNo: Integer; "Part": Option First,Last; ChrToCopy: Integer): Text[10]
+    local procedure ComposeIndexString(var RecRef: RecordRef; FieldNo: Integer; "Part": Option First,Last; ChrToCopy: Integer): Text[10]
     var
         FieldRef: FieldRef;
         InString: Text[260];

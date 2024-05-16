@@ -15,7 +15,6 @@ table 1301 "Item Template"
     ObsoleteReason = 'Deprecate mini templates. Use table "Item Templ." instead and for extensions.';
     ObsoleteState = Removed;
     ObsoleteTag = '21.0';
-    DataClassification = CustomerContent;
 
     fields
     {

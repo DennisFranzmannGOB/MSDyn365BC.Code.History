@@ -13,7 +13,8 @@ codeunit 1382 "DESCryptoServiceProvider Impl."
     InherentEntitlements = X;
     InherentPermissions = X;
 
-    procedure EncryptText(VarInput: Text; Password: SecretText; Salt: Text) VarOutput: Text
+    [NonDebuggable]
+    procedure EncryptText(VarInput: Text; Password: Text; Salt: Text) VarOutput: Text
     var
         ByteArray: DotNet Array;
         SymmetricAlgorithm: DotNet "Cryptography.SymmetricAlgorithm";
@@ -28,7 +29,8 @@ codeunit 1382 "DESCryptoServiceProvider Impl."
         VarOutput := Encoding.GetEncoding(0).GetString(ByteArray, 0, ByteArray.Length);
     end;
 
-    procedure DecryptText(VarInput: Text; Password: SecretText; Salt: Text) VarOutput: Text
+    [NonDebuggable]
+    procedure DecryptText(VarInput: Text; Password: Text; Salt: Text) VarOutput: Text
     var
         ByteArray: DotNet Array;
         Encoding: DotNet Encoding;
@@ -43,7 +45,8 @@ codeunit 1382 "DESCryptoServiceProvider Impl."
         VarOutput := Encoding.GetEncoding(0).GetString(ByteArray, 0, ByteArray.Length);
     end;
 
-    procedure EncryptStream(Password: SecretText; Salt: Text; InputInstream: InStream; var OutputOutstream: OutStream)
+    [NonDebuggable]
+    procedure EncryptStream(Password: Text; Salt: Text; InputInstream: InStream; var OutputOutstream: OutStream)
     var
         MemoryStream: DotNet MemoryStream;
         ByteArray: DotNet Array;
@@ -58,7 +61,8 @@ codeunit 1382 "DESCryptoServiceProvider Impl."
         CopyStream(OutputOutstream, MemoryStream);
     end;
 
-    procedure DecryptStream(Password: SecretText; Salt: Text; InputInstream: InStream; var OutputOutstream: OutStream)
+    [NonDebuggable]
+    procedure DecryptStream(Password: Text; Salt: Text; InputInstream: InStream; var OutputOutstream: OutStream)
     var
         MemoryStream: DotNet MemoryStream;
         ByteArray: DotNet Array;
@@ -82,13 +86,13 @@ codeunit 1382 "DESCryptoServiceProvider Impl."
     end;
 
     [NonDebuggable]
-    local procedure ConstructDESCryptoServiceProvider(var SymmetricAlgorithm: DotNet "Cryptography.SymmetricAlgorithm"; Password: SecretText; Salt: Text)
+    local procedure ConstructDESCryptoServiceProvider(var SymmetricAlgorithm: DotNet "Cryptography.SymmetricAlgorithm"; Password: Text; Salt: Text)
     var
         Encoding: DotNet Encoding;
         DESCryptoServiceProvider: DotNet "Cryptography.DESCryptoServiceProvider";
         Rfc2898DeriveBytes: DotNet Rfc2898DeriveBytes;
     begin
-        Rfc2898DeriveBytes := Rfc2898DeriveBytes.Rfc2898DeriveBytes(Password.Unwrap(), Encoding.ASCII.GetBytes(Salt));
+        Rfc2898DeriveBytes := Rfc2898DeriveBytes.Rfc2898DeriveBytes(Password, Encoding.ASCII.GetBytes(Salt));
 
         SymmetricAlgorithm := DESCryptoServiceProvider.DESCryptoServiceProvider();
         SymmetricAlgorithm.Key := Rfc2898DeriveBytes.GetBytes(8);

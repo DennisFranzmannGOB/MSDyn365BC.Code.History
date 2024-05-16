@@ -382,21 +382,23 @@ report 1123 "Cost Acctg. Stmt. per Period"
 
     local procedure CalcAmount(CostType: Record "Cost Type"; FromDate: Date; ToDate: Date; AmountType: Option): Decimal
     begin
-        CostType.SetRange("Date Filter", FromDate, ToDate);
-        if AmountType = AmtType::Movement then begin
-            if ShowAddCurr then begin
-                CostType.CalcFields("Add. Currency Net Change");
-                exit(CostType."Add. Currency Net Change");
+        with CostType do begin
+            SetRange("Date Filter", FromDate, ToDate);
+            if AmountType = AmtType::Movement then begin
+                if ShowAddCurr then begin
+                    CalcFields("Add. Currency Net Change");
+                    exit("Add. Currency Net Change");
+                end;
+                CalcFields("Net Change");
+                exit("Net Change");
             end;
-            CostType.CalcFields("Net Change");
-            exit(CostType."Net Change");
+            if ShowAddCurr then begin
+                CalcFields("Add. Currency Balance at Date");
+                exit("Add. Currency Balance at Date");
+            end;
+            CalcFields("Balance at Date");
+            exit("Balance at Date");
         end;
-        if ShowAddCurr then begin
-            CostType.CalcFields("Add. Currency Balance at Date");
-            exit(CostType."Add. Currency Balance at Date");
-        end;
-        CostType.CalcFields("Balance at Date");
-        exit(CostType."Balance at Date");
     end;
 }
 

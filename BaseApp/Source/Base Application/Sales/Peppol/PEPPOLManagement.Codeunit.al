@@ -732,18 +732,19 @@ codeunit 1605 "PEPPOL Management"
             exit;
         end;
 
-        case SalesLine.Type of
-            SalesLine.Type::Item, SalesLine.Type::Resource:
-                if UOM.Get(SalesLine."Unit of Measure Code") then
-                    unitCode := UOM."International Standard Code"
-                else
-                    Error(NoUnitOfMeasureErr, SalesLine."Document Type", SalesLine."Document No.", SalesLine.FieldCaption("Unit of Measure Code"));
-            SalesLine.Type::"G/L Account", SalesLine.Type::"Fixed Asset", SalesLine.Type::"Charge (Item)":
-                if UOM.Get(SalesLine."Unit of Measure Code") then
-                    unitCode := UOM."International Standard Code"
-                else
-                    unitCode := UoMforPieceINUNECERec20ListIDTxt;
-        end;
+        with SalesLine do
+            case Type of
+                Type::Item, Type::Resource:
+                    if UOM.Get("Unit of Measure Code") then
+                        unitCode := UOM."International Standard Code"
+                    else
+                        Error(NoUnitOfMeasureErr, "Document Type", "Document No.", FieldCaption("Unit of Measure Code"));
+                Type::"G/L Account", Type::"Fixed Asset", Type::"Charge (Item)":
+                    if UOM.Get("Unit of Measure Code") then
+                        unitCode := UOM."International Standard Code"
+                    else
+                        unitCode := UoMforPieceINUNECERec20ListIDTxt;
+            end;
     end;
 
     procedure GetLineInvoicePeriodInfo(var InvLineInvoicePeriodStartDate: Text; var InvLineInvoicePeriodEndDate: Text)
@@ -947,25 +948,27 @@ codeunit 1605 "PEPPOL Management"
     begin
         if not VATPostingSetup.Get(SalesLine."VAT Bus. Posting Group", SalesLine."VAT Prod. Posting Group") then
             VATPostingSetup.Init();
-        VATAmtLine.Init();
-        VATAmtLine."VAT Identifier" := FORMAT(SalesLine."VAT %");
-        VATAmtLine."VAT Calculation Type" := SalesLine."VAT Calculation Type";
-        VATAmtLine."Tax Group Code" := SalesLine."Tax Group Code";
-        VATAmtLine."Tax Category" := VATPostingSetup."Tax Category";
-        VATAmtLine."VAT %" := SalesLine."VAT %";
-        VATAmtLine."VAT Base" := SalesLine.Amount;
-        VATAmtLine."Amount Including VAT" := SalesLine."Amount Including VAT";
-        if SalesLine."Allow Invoice Disc." then
-            VATAmtLine."Inv. Disc. Base Amount" := SalesLine."Line Amount";
-        VATAmtLine."Invoice Discount Amount" := SalesLine."Inv. Discount Amount";
+        with VATAmtLine do begin
+            Init();
+            "VAT Identifier" := FORMAT(SalesLine."VAT %");
+            "VAT Calculation Type" := SalesLine."VAT Calculation Type";
+            "Tax Group Code" := SalesLine."Tax Group Code";
+            "Tax Category" := VATPostingSetup."Tax Category";
+            "VAT %" := SalesLine."VAT %";
+            "VAT Base" := SalesLine.Amount;
+            "Amount Including VAT" := SalesLine."Amount Including VAT";
+            if SalesLine."Allow Invoice Disc." then
+                "Inv. Disc. Base Amount" := SalesLine."Line Amount";
+            "Invoice Discount Amount" := SalesLine."Inv. Discount Amount";
 
-        IsHandled := false;
-        OnGetTotalsOnBeforeInsertVATAmtLine(SalesLine, VATAmtLine, VATPostingSetup, IsHandled);
-        if not IsHandled then
-            if VATAmtLine.InsertLine() then begin
-                VATAmtLine."Line Amount" += SalesLine."Line Amount";
-                VATAmtLine.Modify();
-            end;
+            IsHandled := false;
+            OnGetTotalsOnBeforeInsertVATAmtLine(SalesLine, VATAmtLine, VATPostingSetup, IsHandled);
+            if not IsHandled then
+                if InsertLine() then begin
+                    "Line Amount" += SalesLine."Line Amount";
+                    Modify();
+                end;
+        end;
     end;
 
     procedure GetTaxCategories(SalesLine: Record "Sales Line"; var VATProductPostingGroupCategory: Record "VAT Product Posting Group")
@@ -1069,7 +1072,7 @@ codeunit 1605 "PEPPOL Management"
         exit(GetVATScheme(CountryRegionCode));
     end;
 
-    procedure GetVATScheme(CountryRegionCode: Code[10]): Text
+    local procedure GetVATScheme(CountryRegionCode: Code[10]): Text
     var
         CountryRegion: Record "Country/Region";
         CompanyInfo: Record "Company Information";
@@ -1142,7 +1145,7 @@ codeunit 1605 "PEPPOL Management"
             OutFile.Open(XmlServerPath);
     end;
 
-    procedure IsRoundingLine(SalesLine: Record "Sales Line"; CustomerNo: Code[20]): Boolean;
+    local procedure IsRoundingLine(SalesLine: Record "Sales Line"; CustomerNo: Code[20]): Boolean;
     var
         Customer: Record Customer;
         CustomerPostingGroup: Record "Customer Posting Group";
@@ -1246,7 +1249,7 @@ codeunit 1605 "PEPPOL Management"
         if FromFieldRef.Length > ToFieldRef.Length then
             exit;
 
-        ToFieldRef.Value := FromFieldRef.Value();
+        ToFieldRef.Value := FromFieldRef.Value;
     end;
 
     procedure FindNextInvoiceRec(var SalesInvoiceHeader: Record "Sales Invoice Header"; var ServiceInvoiceHeader: Record "Service Invoice Header"; var SalesHeader: Record "Sales Header"; ProcessedDocType: Option Sale,Service; Position: Integer) Found: Boolean

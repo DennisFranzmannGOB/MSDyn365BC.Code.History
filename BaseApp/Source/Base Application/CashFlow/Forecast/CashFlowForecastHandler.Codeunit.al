@@ -96,15 +96,17 @@ codeunit 850 "Cash Flow Forecast Handler"
     begin
         Total := 0;
 
-        CustLedgerEntry.SetCurrentKey("Due Date");
-        CustLedgerEntry.SetRange("Due Date", StartingDate, GetPeriodEndingDate(StartingDate, PeriodType));
+        with CustLedgerEntry do begin
+            SetCurrentKey("Due Date");
+            SetRange("Due Date", StartingDate, GetPeriodEndingDate(StartingDate, PeriodType));
 
-        if CustLedgerEntry.FindSet() then
-            repeat
-                CustLedgerEntry.CalcFields("Amount (LCY)");
-                Total := Total + CustLedgerEntry."Amount (LCY)";
-            until CustLedgerEntry.Next() = 0;
-        exit(Abs(Round(Total, 0.01)));
+            if FindSet() then
+                repeat
+                    CalcFields("Amount (LCY)");
+                    Total := Total + "Amount (LCY)";
+                until Next() = 0;
+            exit(Abs(Round(Total, 0.01)));
+        end
     end;
 
     local procedure CalculatePostedPurchDocsSumAmountInPeriod(StartingDate: Date; PeriodType: Option): Decimal
@@ -114,15 +116,17 @@ codeunit 850 "Cash Flow Forecast Handler"
     begin
         Total := 0;
 
-        VendorLedgerEntry.SetCurrentKey("Due Date");
-        VendorLedgerEntry.SetRange("Due Date", StartingDate, GetPeriodEndingDate(StartingDate, PeriodType));
+        with VendorLedgerEntry do begin
+            SetCurrentKey("Due Date");
+            SetRange("Due Date", StartingDate, GetPeriodEndingDate(StartingDate, PeriodType));
 
-        if VendorLedgerEntry.FindSet() then
-            repeat
-                VendorLedgerEntry.CalcFields("Amount (LCY)");
-                Total := Total + VendorLedgerEntry."Amount (LCY)";
-            until VendorLedgerEntry.Next() = 0;
-        exit(Abs(Round(Total, 0.01)));
+            if FindSet() then
+                repeat
+                    CalcFields("Amount (LCY)");
+                    Total := Total + "Amount (LCY)";
+                until Next() = 0;
+            exit(Abs(Round(Total, 0.01)));
+        end
     end;
 
     local procedure CalculatePostedDocsSumTaxInPeriod(EndingDate: Date; IsSales: Boolean): Decimal
@@ -134,19 +138,21 @@ codeunit 850 "Cash Flow Forecast Handler"
     begin
         Total := 0;
 
-        VATEntry.SetCurrentKey("Document Date");
-        CashFlowSetup.GetTaxPeriodStartEndDates(EndingDate, StartDate, EndDate);
-        VATEntry.SetRange("Document Date", StartDate, EndDate);
-        if IsSales then
-            VATEntry.SetRange(Type, VATEntry.Type::Sale)
-        else
-            VATEntry.SetRange(Type, VATEntry.Type::Purchase);
+        with VATEntry do begin
+            SetCurrentKey("Document Date");
+            CashFlowSetup.GetTaxPeriodStartEndDates(EndingDate, StartDate, EndDate);
+            SetRange("Document Date", StartDate, EndDate);
+            if IsSales then
+                SetRange(Type, Type::Sale)
+            else
+                SetRange(Type, Type::Purchase);
 
-        if VATEntry.FindSet() then
-            repeat
-                Total := Total + VATEntry.Amount;
-            until VATEntry.Next() = 0;
-        exit(Abs(Round(Total, 0.01)));
+            if FindSet() then
+                repeat
+                    Total := Total + Amount;
+                until Next() = 0;
+            exit(Abs(Round(Total, 0.01)));
+        end
     end;
 
     local procedure CalculateNotPostedSalesOrderSumAmountInPeriod(StartingDate: Date; PeriodType: Option; IsTax: Boolean): Decimal
@@ -158,28 +164,30 @@ codeunit 850 "Cash Flow Forecast Handler"
         AmountValue: Decimal;
     begin
         Total := 0;
-        // in case of tax starting Date is tax payment due Date
-        if IsTax then begin
-            SalesHeader.SetCurrentKey("Document Date");
-            CashFlowSetup.GetTaxPeriodStartEndDates(StartingDate, TaxStartingDate, TaxEndingDate);
-            SalesHeader.SetRange("Document Date", TaxStartingDate, TaxEndingDate)
-        end else begin
-            SalesHeader.SetCurrentKey("Due Date");
-            SalesHeader.SetRange("Due Date", StartingDate, GetPeriodEndingDate(StartingDate, PeriodType));
-        end;
-        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
+        with SalesHeader do begin
+            // in case of tax starting Date is tax payment due Date
+            if IsTax then begin
+                SetCurrentKey("Document Date");
+                CashFlowSetup.GetTaxPeriodStartEndDates(StartingDate, TaxStartingDate, TaxEndingDate);
+                SetRange("Document Date", TaxStartingDate, TaxEndingDate)
+            end else begin
+                SetCurrentKey("Due Date");
+                SetRange("Due Date", StartingDate, GetPeriodEndingDate(StartingDate, PeriodType));
+            end;
+            SetRange("Document Type", "Document Type"::Order);
 
-        if SalesHeader.FindSet() then
-            repeat
-                if IsTax then
-                    AmountValue := -CashFlowManagement.GetTaxAmountFromSalesOrder(SalesHeader)
-                else
-                    AmountValue := CashFlowManagement.GetTotalAmountFromSalesOrder(SalesHeader);
-                Total := Total + AmountValue;
-            until SalesHeader.Next() = 0;
-        if Total < 0 then
-            Total := 0;
-        exit(Abs(Round(Total, 0.01)));
+            if FindSet() then
+                repeat
+                    if IsTax then
+                        AmountValue := -CashFlowManagement.GetTaxAmountFromSalesOrder(SalesHeader)
+                    else
+                        AmountValue := CashFlowManagement.GetTotalAmountFromSalesOrder(SalesHeader);
+                    Total := Total + AmountValue;
+                until Next() = 0;
+            if Total < 0 then
+                Total := 0;
+            exit(Abs(Round(Total, 0.01)));
+        end
     end;
 
     local procedure CalculateNotPostedPurchOrderSumAmountInPeriod(StartingDate: Date; PeriodType: Option; IsTax: Boolean): Decimal
@@ -191,29 +199,31 @@ codeunit 850 "Cash Flow Forecast Handler"
         TaxStartingDate: Date;
     begin
         Total := 0;
-        PurchaseHeader.SetCurrentKey("Due Date");
-        // in case of tax starting Date is tax payment due Date
-        if IsTax then begin
-            PurchaseHeader.SetCurrentKey("Document Date");
-            CashFlowSetup.GetTaxPeriodStartEndDates(StartingDate, TaxStartingDate, TaxEndingDate);
-            PurchaseHeader.SetRange("Document Date", TaxStartingDate, TaxEndingDate)
-        end else begin
-            PurchaseHeader.SetCurrentKey("Due Date");
-            PurchaseHeader.SetRange("Due Date", StartingDate, GetPeriodEndingDate(StartingDate, PeriodType));
-        end;
-        PurchaseHeader.SetRange("Document Type", PurchaseHeader."Document Type"::Order);
+        with PurchaseHeader do begin
+            SetCurrentKey("Due Date");
+            // in case of tax starting Date is tax payment due Date
+            if IsTax then begin
+                SetCurrentKey("Document Date");
+                CashFlowSetup.GetTaxPeriodStartEndDates(StartingDate, TaxStartingDate, TaxEndingDate);
+                SetRange("Document Date", TaxStartingDate, TaxEndingDate)
+            end else begin
+                SetCurrentKey("Due Date");
+                SetRange("Due Date", StartingDate, GetPeriodEndingDate(StartingDate, PeriodType));
+            end;
+            SetRange("Document Type", "Document Type"::Order);
 
-        if PurchaseHeader.FindSet() then
-            repeat
-                if IsTax then
-                    AmountValue := CashFlowManagement.GetTaxAmountFromPurchaseOrder(PurchaseHeader)
-                else
-                    AmountValue := CashFlowManagement.GetTotalAmountFromPurchaseOrder(PurchaseHeader);
-                Total := Total - AmountValue;
-            until PurchaseHeader.Next() = 0;
-        if Total > 0 then
-            Total := 0;
-        exit(Abs(Round(Total, 0.01)));
+            if FindSet() then
+                repeat
+                    if IsTax then
+                        AmountValue := CashFlowManagement.GetTaxAmountFromPurchaseOrder(PurchaseHeader)
+                    else
+                        AmountValue := CashFlowManagement.GetTotalAmountFromPurchaseOrder(PurchaseHeader);
+                    Total := Total - AmountValue;
+                until Next() = 0;
+            if Total > 0 then
+                Total := 0;
+            exit(Abs(Round(Total, 0.01)));
+        end
     end;
 
     procedure PrepareForecast(var TimeSeriesBuffer: Record "Time Series Buffer"): Boolean
@@ -450,13 +460,14 @@ codeunit 850 "Cash Flow Forecast Handler"
             until SourceTimeSeriesBuffer.Next() = 0;
     end;
 
+    [NonDebuggable]
     [Scope('OnPrem')]
     procedure Initialize(): Boolean
     var
         AzureAIUsage: Codeunit "Azure AI Usage";
         AzureAIService: Enum "Azure AI Service";
         APIURL: Text[250];
-        APIKey: SecretText;
+        APIKey: Text[200];
         LimitValue: Decimal;
         IsInitialized: Boolean;
         TimeSeriesLibState: Option Uninitialized,Initialized,"Data Prepared",Done;
@@ -530,16 +541,18 @@ codeunit 850 "Cash Flow Forecast Handler"
     var
         CashFlowAzureAIBuffer: Record "Cash Flow Azure AI Buffer";
     begin
-        CashFlowAzureAIBuffer.Init();
-        CashFlowAzureAIBuffer.Validate("Group Id", GroupIdValue);
-        CashFlowAzureAIBuffer.Validate(Amount, AmountValue);
-        CashFlowAzureAIBuffer.Validate("Delta %", DeltaPercentValue);
-        CashFlowAzureAIBuffer.Validate(Delta, DeltaValue);
-        CashFlowAzureAIBuffer.Validate(Type, TypeValue);
-        CashFlowAzureAIBuffer.Validate("Period Start", PeriodStartValue);
-        CashFlowAzureAIBuffer.Validate("Period Type", PeriodTypeValue);
-        CashFlowAzureAIBuffer.Validate("Period No.", PeriodNoValue);
-        CashFlowAzureAIBuffer.Insert();
+        with CashFlowAzureAIBuffer do begin
+            Init();
+            Validate("Group Id", GroupIdValue);
+            Validate(Amount, AmountValue);
+            Validate("Delta %", DeltaPercentValue);
+            Validate(Delta, DeltaValue);
+            Validate(Type, TypeValue);
+            Validate("Period Start", PeriodStartValue);
+            Validate("Period Type", PeriodTypeValue);
+            Validate("Period No.", PeriodNoValue);
+            Insert();
+        end;
     end;
 
     local procedure NewCorrectionRecord(var ForecastedRemainingAmount: Decimal; TimeSeriesForecast: Record "Time Series Forecast"; GroupIDValue: Text[100]; PeriodTypeValue: Option)
@@ -563,15 +576,18 @@ codeunit 850 "Cash Flow Forecast Handler"
             ForecastedRemainingAmount -= CorrectionAmount;
 
         ConvertValueBasedOnType(CorrectionAmount, TimeSeriesForecast."Group ID");
+
         // insert correction
-        CashFlowAzureAIBuffer.Init();
-        CashFlowAzureAIBuffer.Validate("Group Id", GroupIDValue);
-        CashFlowAzureAIBuffer.Validate(Amount, CorrectionAmount);
-        CashFlowAzureAIBuffer.Validate(Type, CashFlowAzureAIBuffer.Type::Correction);
-        CashFlowAzureAIBuffer.Validate("Period Start", TimeSeriesForecast."Period Start Date");
-        CashFlowAzureAIBuffer.Validate("Period Type", PeriodTypeValue);
-        CashFlowAzureAIBuffer.Validate("Period No.", TimeSeriesForecast."Period No.");
-        CashFlowAzureAIBuffer.Insert();
+        with CashFlowAzureAIBuffer do begin
+            Init();
+            Validate("Group Id", GroupIDValue);
+            Validate(Amount, CorrectionAmount);
+            Validate(Type, Type::Correction);
+            Validate("Period Start", TimeSeriesForecast."Period Start Date");
+            Validate("Period Type", PeriodTypeValue);
+            Validate("Period No.", TimeSeriesForecast."Period No.");
+            Insert();
+        end;
     end;
 
     local procedure GetCorrectionAmount(TimeSeriesForecast: Record "Time Series Forecast"; GroupIDValue: Text[100]; PeriodType: Option): Decimal
@@ -598,11 +614,13 @@ codeunit 850 "Cash Flow Forecast Handler"
 
     local procedure IsAmountValid(TimeSeriesForecast: Record "Time Series Forecast"): Boolean
     begin
-        if ((TimeSeriesForecast."Group ID" = XPAYABLESTxt) or (TimeSeriesForecast."Group ID" = XTAXRECEIVABLESTxt)) and (TimeSeriesForecast.Value < 0) then
-            exit(true);
-        if ((TimeSeriesForecast."Group ID" = XRECEIVABLESTxt) or (TimeSeriesForecast."Group ID" = XTAXPAYABLESTxt)) and (TimeSeriesForecast.Value > 0) then
-            exit(true);
-        exit(false);
+        with TimeSeriesForecast do begin
+            if (("Group ID" = XPAYABLESTxt) or ("Group ID" = XTAXRECEIVABLESTxt)) and (Value < 0) then
+                exit(true);
+            if (("Group ID" = XRECEIVABLESTxt) or ("Group ID" = XTAXPAYABLESTxt)) and (Value > 0) then
+                exit(true);
+            exit(false);
+        end
     end;
 
     local procedure GetForecastStartDate(PeriodType: Option Day,Week,Month,Quarter,Year): Date

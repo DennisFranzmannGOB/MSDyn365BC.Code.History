@@ -13,7 +13,6 @@ table 5509 "Attachment Entity Buffer"
     Caption = 'Attachment Entity Buffer';
     ReplicateData = false;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

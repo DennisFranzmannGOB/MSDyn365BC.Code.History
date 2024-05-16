@@ -16,7 +16,6 @@ table 10900 "IRS Numbers"
     ObsoleteState = Pending;
     ObsoleteTag = '24.0';
 #endif
-    DataClassification = CustomerContent;
 
     fields
     {

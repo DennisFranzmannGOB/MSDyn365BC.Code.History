@@ -8,7 +8,6 @@ table 1222 "Data Exch. Def"
     Caption = 'Data Exch. Def';
     DrillDownPageId = "Data Exch Def List";
     LookupPageId = "Data Exch Def List";
-    DataClassification = CustomerContent;
 
     fields
     {

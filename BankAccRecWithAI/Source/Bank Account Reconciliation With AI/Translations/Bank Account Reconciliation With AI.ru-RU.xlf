@@ -438,7 +438,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Action Attach - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3767244041 - Action 745909125 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
+          <source>Attach</source>
+          <target state="translated">Прикрепить</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Action Attach - Property Caption</note>
         </trans-unit>
@@ -449,7 +450,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Action Cancel - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3767244041 - Action 788258546 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard it</source>
+          <source>Discard</source>
           <target state="translated">Удалить</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal - Action Cancel - Property Caption</note>
@@ -533,8 +534,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Acc. Rec. AI Proposal Sub - Control Transaction Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copilot Proposals for Posting Differences to G/L Accounts</source>
-          <target state="translated">Предложения Copilot по учету разниц на счетах ГК</target>
+          <source>Copilot G/L Account Transfer Proposals</source>
+          <target state="translated">Предложенные Copilot переносы на счета ГК</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Property Caption</note>
         </trans-unit>
@@ -710,13 +711,13 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control Statement No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Action 788258546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard the Copilot proposals for posting difference amounts to G/L Accounts.</source>
-          <target state="translated">Отклонение предложений Copilot по учету сумм разниц на счетах ГК.</target>
+          <source>Discard transfers to G/L Accounts proposed by Copilot.</source>
+          <target state="translated">Удаление переносов на счета ГК, предложенных Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Action Cancel - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Action 788258546 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard it</source>
+          <source>Discard</source>
           <target state="translated">Удалить</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Action Cancel - Property Caption</note>
@@ -734,8 +735,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Action Generate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2697158489 - Action 2079045816 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Post the difference amounts to G/L Accounts as proposed by Copilot.</source>
-          <target state="translated">Учет сумм разниц на счетах ГК в соответствии с предложениями Copilot.</target>
+          <source>Save transfers to G/L Accounts proposed by Copilot.</source>
+          <target state="translated">Сохранение переносов на счета ГК, предложенных Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Action OK - Property ToolTip</note>
         </trans-unit>
@@ -759,23 +760,16 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">PageExtension 658008251</note>
         </trans-unit>
-        <trans-unit id="PageExtension 658008251 - NamedType 691098144" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must specify the transaction date on all the selected statement lines.</source>
-          <target state="translated">Необходимо указать дату транзакции во всех выбранных строках выписки.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3" />
-          <note from="ObjectTarget" annotates="general" priority="5">PageExtension 658008251</note>
-        </trans-unit>
         <trans-unit id="PageExtension 658008251 - Action 2702344231 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Find suitable G/L Accounts for selected statement lines, post their differences as new payments and reconcile statement lines with the new payments</source>
-          <target state="translated">Поиск подходящих счетов ГК для выбранных строк выписки, учет разниц по ним в качестве новых платежей и выверка строк выписки с новыми платежами.</target>
+          <source>Find suitable G/L Accounts for selected statement lines, post new payments and reconcile statement lines with the new payments</source>
+          <target state="translated">Поиск подходящих счетов ГК для выбранных строк выписки, учет новых платежей и выверка строк выписки с новыми платежами.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3012722930</note>
         </trans-unit>
         <trans-unit id="PageExtension 658008251 - Action 2702344231 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Post Difference to G/L Account</source>
-          <target state="translated">Учесть разницу на счете ГК</target>
+          <source>Transfer to G/L Account</source>
+          <target state="translated">Перенести на счет ГК</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3012722930</note>

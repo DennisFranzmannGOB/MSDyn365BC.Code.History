@@ -1,7 +1,6 @@
 table 132460 "Test Data Exch. Dest Table"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

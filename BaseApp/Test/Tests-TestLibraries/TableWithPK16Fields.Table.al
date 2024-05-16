@@ -1,7 +1,6 @@
 table 134399 "Table With PK 16 Fields"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

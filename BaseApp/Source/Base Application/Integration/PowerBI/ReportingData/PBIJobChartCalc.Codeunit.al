@@ -33,13 +33,15 @@ codeunit 6308 "PBI Job Chart Calc."
     begin
         JobChartType := pJobChartType;
 
-        MyJob.SetRange("User ID", UserId);
-        MyJob.SetRange("Exclude from Business Chart", false);
-        if MyJob.FindSet() then
-            repeat
-                if Job.Get(MyJob."Job No.") then
-                    CalculateValues(TempPowerBIChartBuffer);
-            until MyJob.Next() = 0;
+        with MyJob do begin
+            SetRange("User ID", UserId);
+            SetRange("Exclude from Business Chart", false);
+            if FindSet() then
+                repeat
+                    if Job.Get("Job No.") then
+                        CalculateValues(TempPowerBIChartBuffer);
+                until Next() = 0;
+        end;
     end;
 
     local procedure CalculateValues(var TempPowerBIChartBuffer: Record "Power BI Chart Buffer" temporary)
@@ -85,14 +87,16 @@ codeunit 6308 "PBI Job Chart Calc."
 
     local procedure InsertToBuffer(var TempPowerBIChartBuffer: Record "Power BI Chart Buffer" temporary; pValue: Decimal; pMeasureName: Text[111])
     begin
-        if TempPowerBIChartBuffer.FindLast() then
-            TempPowerBIChartBuffer.ID += 1
-        else
-            TempPowerBIChartBuffer.ID := 1;
-        TempPowerBIChartBuffer.Value := pValue;
-        TempPowerBIChartBuffer."Measure Name" := pMeasureName;
-        TempPowerBIChartBuffer."Measure No." := Job."No.";
-        TempPowerBIChartBuffer.Insert();
+        with TempPowerBIChartBuffer do begin
+            if FindLast() then
+                ID += 1
+            else
+                ID := 1;
+            Value := pValue;
+            "Measure Name" := pMeasureName;
+            "Measure No." := Job."No.";
+            Insert();
+        end;
     end;
 }
 

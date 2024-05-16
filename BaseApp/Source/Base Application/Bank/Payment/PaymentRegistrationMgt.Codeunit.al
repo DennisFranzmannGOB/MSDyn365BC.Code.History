@@ -82,15 +82,17 @@ codeunit 980 "Payment Registration Mgt."
         GenJournalLine: Record "Gen. Journal Line";
         GenJnlBatch: Record "Gen. Journal Batch";
         GenJnlTemplate: Record "Gen. Journal Template";
-        NoSeriesBatch: Codeunit "No. Series - Batch";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         GenJnlPostBatch: Codeunit "Gen. Jnl.-Post Batch";
         PaymentToleranceManagement: Codeunit "Payment Tolerance Management";
     begin
         OnBeforePost(TempPaymentRegistrationBuffer);
-        PaymentRegistrationSetup.Get(UserId);
-        PaymentRegistrationSetup.ValidateMandatoryFields(true);
-        GenJnlTemplate.Get(PaymentRegistrationSetup."Journal Template Name");
-        GenJnlBatch.Get(PaymentRegistrationSetup."Journal Template Name", PaymentRegistrationSetup."Journal Batch Name");
+        with PaymentRegistrationSetup do begin
+            Get(UserId);
+            ValidateMandatoryFields(true);
+            GenJnlTemplate.Get("Journal Template Name");
+            GenJnlBatch.Get("Journal Template Name", "Journal Batch Name");
+        end;
 
         GenJournalLine.SetRange("Journal Template Name", PaymentRegistrationSetup."Journal Template Name");
         GenJournalLine.SetRange("Journal Batch Name", PaymentRegistrationSetup."Journal Batch Name");
@@ -104,44 +106,46 @@ codeunit 980 "Payment Registration Mgt."
                 Error(EmptyDateReceivedErr, TempPaymentRegistrationBuffer."Document No.");
             if not LumpPayment then
                 UpdatePmtDiscountDateOnCustLedgerEntry(TempPaymentRegistrationBuffer);
-            GenJournalLine.Init();
-            GenJournalLine.SetSuppressCommit(PreviewMode);
+            with GenJournalLine do begin
+                Init();
+                GenJournalLine.SetSuppressCommit(PreviewMode);
 
-            GenJournalLine."Journal Template Name" := PaymentRegistrationSetup."Journal Template Name";
-            GenJournalLine."Journal Batch Name" := PaymentRegistrationSetup."Journal Batch Name";
-            GenJournalLine."Line No." += 10000;
+                "Journal Template Name" := PaymentRegistrationSetup."Journal Template Name";
+                "Journal Batch Name" := PaymentRegistrationSetup."Journal Batch Name";
+                "Line No." += 10000;
 
-            GenJournalLine."Source Code" := GenJnlTemplate."Source Code";
-            GenJournalLine."Reason Code" := GenJnlBatch."Reason Code";
-            GenJournalLine."Posting No. Series" := GenJnlBatch."Posting No. Series";
+                "Source Code" := GenJnlTemplate."Source Code";
+                "Reason Code" := GenJnlBatch."Reason Code";
+                "Posting No. Series" := GenJnlBatch."Posting No. Series";
 
-            GenJournalLine.Validate("Posting Date", TempPaymentRegistrationBuffer."Date Received");
-            GenJournalLine.Validate("Account Type", GenJournalLine."Account Type"::Customer);
-            if TempPaymentRegistrationBuffer."Document Type" = TempPaymentRegistrationBuffer."Document Type"::"Credit Memo" then
-                GenJournalLine.Validate("Document Type", GenJournalLine."Document Type"::Refund)
-            else
-                GenJournalLine.Validate("Document Type", GenJournalLine."Document Type"::Payment);
-            GenJournalLine."Document No." := NoSeriesBatch.GetNextNo(GenJnlBatch."No. Series", GenJournalLine."Posting Date");
-            GenJournalLine.Validate("Bal. Account Type", PaymentRegistrationSetup.GetGLBalAccountType());
-            GenJournalLine.Validate("Account No.", TempPaymentRegistrationBuffer."Source No.");
-            GenJournalLine.Validate(Amount, -TempPaymentRegistrationBuffer."Amount Received");
-            GenJournalLine.Validate("Bal. Account No.", PaymentRegistrationSetup."Bal. Account No.");
-            GenJournalLine.Validate("Payment Method Code", TempPaymentRegistrationBuffer."Payment Method Code");
-            if GenJournalLine."Bal. Account Type" = GenJournalLine."Bal. Account Type"::"Bank Account" then begin
-                BankAcc.Get(GenJournalLine."Bal. Account No.");
-                GenJournalLine.Validate("Currency Code", BankAcc."Currency Code");
+                Validate("Posting Date", TempPaymentRegistrationBuffer."Date Received");
+                Validate("Account Type", "Account Type"::Customer);
+                if TempPaymentRegistrationBuffer."Document Type" = TempPaymentRegistrationBuffer."Document Type"::"Credit Memo" then
+                    Validate("Document Type", "Document Type"::Refund)
+                else
+                    Validate("Document Type", "Document Type"::Payment);
+                "Document No." := NoSeriesMgt.GetNextNo(GenJnlBatch."No. Series", "Posting Date", false);
+                Validate("Bal. Account Type", PaymentRegistrationSetup.GetGLBalAccountType());
+                Validate("Account No.", TempPaymentRegistrationBuffer."Source No.");
+                Validate(Amount, -TempPaymentRegistrationBuffer."Amount Received");
+                Validate("Bal. Account No.", PaymentRegistrationSetup."Bal. Account No.");
+                Validate("Payment Method Code", TempPaymentRegistrationBuffer."Payment Method Code");
+                if "Bal. Account Type" = "Bal. Account Type"::"Bank Account" then begin
+                    BankAcc.Get("Bal. Account No.");
+                    Validate("Currency Code", BankAcc."Currency Code");
+                end;
+                CheckCurrencyCode(TempPaymentRegistrationBuffer, GenJournalLine, PaymentRegistrationSetup, LumpPayment);
+                if LumpPayment then begin
+                    "Applies-to ID" := "Document No.";
+                    PaymentToleranceManagement.PmtTolGenJnl(GenJournalLine);
+                end else begin
+                    Validate("Applies-to Doc. Type", TempPaymentRegistrationBuffer."Document Type");
+                    Validate("Applies-to Doc. No.", TempPaymentRegistrationBuffer."Document No.");
+                end;
+                Validate("External Document No.", TempPaymentRegistrationBuffer."External Document No.");
+                OnBeforeGenJnlLineInsert(GenJournalLine, TempPaymentRegistrationBuffer);
+                Insert(true);
             end;
-            CheckCurrencyCode(TempPaymentRegistrationBuffer, GenJournalLine, PaymentRegistrationSetup, LumpPayment);
-            if LumpPayment then begin
-                GenJournalLine."Applies-to ID" := GenJournalLine."Document No.";
-                PaymentToleranceManagement.PmtTolGenJnl(GenJournalLine);
-            end else begin
-                GenJournalLine.Validate("Applies-to Doc. Type", TempPaymentRegistrationBuffer."Document Type");
-                GenJournalLine.Validate("Applies-to Doc. No.", TempPaymentRegistrationBuffer."Document No.");
-            end;
-            GenJournalLine.Validate("External Document No.", TempPaymentRegistrationBuffer."External Document No.");
-            OnBeforeGenJnlLineInsert(GenJournalLine, TempPaymentRegistrationBuffer);
-            GenJournalLine.Insert(true);
         until TempPaymentRegistrationBuffer.Next() = 0;
 
         if not PreviewMode then begin
@@ -153,10 +157,12 @@ codeunit 980 "Payment Registration Mgt."
 
     procedure ConfirmClose(var PaymentRegistrationBuffer: Record "Payment Registration Buffer"): Boolean
     begin
-        PaymentRegistrationBuffer.Reset();
-        PaymentRegistrationBuffer.SetRange(PaymentRegistrationBuffer."Payment Made", true);
-        if not PaymentRegistrationBuffer.IsEmpty() then
-            exit(Confirm(StrSubstNo(CloseQst, PaymentRegistrationBuffer.FieldCaption("Payment Made"))));
+        with PaymentRegistrationBuffer do begin
+            Reset();
+            SetRange("Payment Made", true);
+            if not IsEmpty() then
+                exit(Confirm(StrSubstNo(CloseQst, FieldCaption("Payment Made"))));
+        end;
 
         exit(true);
     end;
@@ -167,15 +173,17 @@ codeunit 980 "Payment Registration Mgt."
         Confirmed: Boolean;
     begin
         PaymentRegistrationBuffer2.CopyFilters(PaymentRegistrationBuffer);
-        CheckPaymentsToPost(PaymentRegistrationBuffer);
-        if not PreviewMode then
-            Confirmed := Confirm(StrSubstNo(ConfirmPostPaymentsQst, PaymentRegistrationBuffer.Count), true);
+        with PaymentRegistrationBuffer do begin
+            CheckPaymentsToPost(PaymentRegistrationBuffer);
+            if not PreviewMode then
+                Confirmed := Confirm(StrSubstNo(ConfirmPostPaymentsQst, Count), true);
 
-        if PreviewMode or Confirmed then begin
-            Post(PaymentRegistrationBuffer, false);
-            PaymentRegistrationBuffer.PopulateTable();
-        end;
-        PaymentRegistrationBuffer.CopyFilters(PaymentRegistrationBuffer2);
+            if PreviewMode or Confirmed then begin
+                Post(PaymentRegistrationBuffer, false);
+                PopulateTable();
+            end;
+            CopyFilters(PaymentRegistrationBuffer2);
+        end
     end;
 
     procedure FindRecords(var TempDocumentSearchResult: Record "Document Search Result" temporary; DocNoFilter: Code[20]; AmountFilter: Decimal; AmountTolerancePerc: Decimal)
@@ -357,29 +365,33 @@ codeunit 980 "Payment Registration Mgt."
     begin
         CopyPaymentRegistrationBuffer.Copy(SourcePaymentRegistrationBuffer);
 
-        SourcePaymentRegistrationBuffer.Reset();
-        if SourcePaymentRegistrationBuffer.FindSet() then
-            repeat
-                TempPaymentRegistrationBuffer := SourcePaymentRegistrationBuffer;
-                TempPaymentRegistrationBuffer.Insert();
-            until SourcePaymentRegistrationBuffer.Next() = 0;
+        with SourcePaymentRegistrationBuffer do begin
+            Reset();
+            if FindSet() then
+                repeat
+                    TempPaymentRegistrationBuffer := SourcePaymentRegistrationBuffer;
+                    TempPaymentRegistrationBuffer.Insert();
+                until Next() = 0;
+        end;
 
-        CheckPaymentsToPost(TempPaymentRegistrationBuffer);
-        CreateLumpPayment(TempPaymentRegistrationBuffer);
-        if not PreviewMode then
-            Confirmed := Confirm(
-                StrSubstNo(
-                  ConfirmLumpPaymentQst,
-                  TempPaymentRegistrationBuffer.Count,
-                  Format(TempPaymentRegistrationBuffer."Amount Received", 0, '<Precision,2><Standard Format,0>')), true);
+        with TempPaymentRegistrationBuffer do begin
+            CheckPaymentsToPost(TempPaymentRegistrationBuffer);
+            CreateLumpPayment(TempPaymentRegistrationBuffer);
+            if not PreviewMode then
+                Confirmed := Confirm(
+                    StrSubstNo(
+                      ConfirmLumpPaymentQst,
+                      Count,
+                      Format("Amount Received", 0, '<Precision,2><Standard Format,0>')), true);
 
-        if PreviewMode or Confirmed then begin
-            TempPaymentRegistrationBuffer.Modify();
-            TempPaymentRegistrationBuffer.SetRange(TempPaymentRegistrationBuffer."Ledger Entry No.", TempPaymentRegistrationBuffer."Ledger Entry No.");
-            Post(TempPaymentRegistrationBuffer, true);
-            SourcePaymentRegistrationBuffer.PopulateTable();
-        end else
-            ClearApplicationFieldsOnCustLedgerEntry(TempPaymentRegistrationBuffer);
+            if PreviewMode or Confirmed then begin
+                Modify();
+                SetRange("Ledger Entry No.", "Ledger Entry No.");
+                Post(TempPaymentRegistrationBuffer, true);
+                SourcePaymentRegistrationBuffer.PopulateTable();
+            end else
+                ClearApplicationFieldsOnCustLedgerEntry(TempPaymentRegistrationBuffer);
+        end;
 
         SourcePaymentRegistrationBuffer.Copy(CopyPaymentRegistrationBuffer);
     end;
@@ -471,7 +483,7 @@ codeunit 980 "Payment Registration Mgt."
         PaymentRegistrationSetup: Record "Payment Registration Setup";
         CustLedgerEntry: Record "Cust. Ledger Entry";
         GenJnlBatch: Record "Gen. Journal Batch";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
         PaymentRegistrationSetup.Get(UserId);
         GenJnlBatch.Get(PaymentRegistrationSetup."Journal Template Name", PaymentRegistrationSetup."Journal Batch Name");
@@ -479,9 +491,9 @@ codeunit 980 "Payment Registration Mgt."
         CustLedgerEntry.LockTable();
         CustLedgerEntry.Get(TempPaymentRegistrationBuffer."Ledger Entry No.");
         CustLedgerEntry."Applies-to ID" :=
-          NoSeries.PeekNextNo(GenJnlBatch."No. Series", TempPaymentRegistrationBuffer."Date Received");
+          NoSeriesMgt.GetNextNo(GenJnlBatch."No. Series", TempPaymentRegistrationBuffer."Date Received", false);
         CustLedgerEntry.CalcFields("Remaining Amount");
-        if (TempPaymentRegistrationBuffer."Amount Received" > CustLedgerEntry."Remaining Amount") then
+        If (TempPaymentRegistrationBuffer."Amount Received" > CustLedgerEntry."Remaining Amount") then
             CustLedgerEntry."Amount to Apply" := CustLedgerEntry."Remaining Amount"
         else
             CustLedgerEntry."Amount to Apply" := TempPaymentRegistrationBuffer."Amount Received";

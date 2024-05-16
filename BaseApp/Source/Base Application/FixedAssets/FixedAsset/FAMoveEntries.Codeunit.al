@@ -114,28 +114,32 @@ codeunit 5623 "FA MoveEntries"
 
     procedure MoveInsuranceEntries(Insurance: Record Insurance)
     begin
-        InsCoverageLedgEntry.Reset();
-        InsCoverageLedgEntry.LockTable();
-        InsCoverageLedgEntry.SetCurrentKey("Insurance No.");
-        InsCoverageLedgEntry.SetRange("Insurance No.", Insurance."No.");
-        if InsCoverageLedgEntry.Find('-') then
-            repeat
-                InsCoverageLedgEntry."FA No." := '';
-                InsCoverageLedgEntry."Insurance No." := '';
-                InsCoverageLedgEntry.Modify();
-            until InsCoverageLedgEntry.Next() = 0;
+        with InsCoverageLedgEntry do begin
+            Reset();
+            LockTable();
+            SetCurrentKey("Insurance No.");
+            SetRange("Insurance No.", Insurance."No.");
+            if Find('-') then
+                repeat
+                    "FA No." := '';
+                    "Insurance No." := '';
+                    Modify();
+                until Next() = 0;
+        end;
     end;
 
     procedure MoveFAInsuranceEntries(FANo: Code[20])
     begin
-        InsCoverageLedgEntry.SetCurrentKey("FA No.");
-        InsCoverageLedgEntry.SetRange("FA No.", FANo);
-        if InsCoverageLedgEntry.Find('-') then
-            repeat
-                InsCoverageLedgEntry."Insurance No." := '';
-                InsCoverageLedgEntry."FA No." := '';
-                InsCoverageLedgEntry.Modify();
-            until InsCoverageLedgEntry.Next() = 0;
+        with InsCoverageLedgEntry do begin
+            SetCurrentKey("FA No.");
+            SetRange("FA No.", FANo);
+            if Find('-') then
+                repeat
+                    "Insurance No." := '';
+                    "FA No." := '';
+                    Modify();
+                until Next() = 0;
+        end;
     end;
 
     procedure ChangeBudget(FA: Record "Fixed Asset")

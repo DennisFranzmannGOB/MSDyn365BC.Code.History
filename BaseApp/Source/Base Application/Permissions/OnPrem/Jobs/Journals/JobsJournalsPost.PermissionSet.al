@@ -16,7 +16,7 @@ permissionset 3414 "Jobs Journals - Post"
 {
     Access = Public;
     Assignable = false;
-    Caption = 'Post project journals';
+    Caption = 'Post job journals';
 
     Permissions = tabledata "Accounting Period" = R,
                   tabledata "Dimension Combination" = R,

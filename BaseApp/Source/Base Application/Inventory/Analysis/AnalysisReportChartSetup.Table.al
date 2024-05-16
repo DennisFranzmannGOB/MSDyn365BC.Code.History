@@ -6,7 +6,6 @@ table 770 "Analysis Report Chart Setup"
 {
     Caption = 'Analysis Report Chart Setup';
     LookupPageID = "Analysis Report Chart List";
-    DataClassification = CustomerContent;
 
     fields
     {

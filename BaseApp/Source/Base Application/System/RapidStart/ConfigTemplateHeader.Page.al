@@ -46,7 +46,7 @@ page 8618 "Config. Template Header"
                 ApplicationArea = Basic, Suite;
                 SubPageLink = "Data Template Code" = field(Code);
                 SubPageView = sorting("Data Template Code", "Line No.")
-                              order(ascending);
+                              order(Ascending);
             }
         }
         area(factboxes)

@@ -560,7 +560,7 @@ page 50 "Purchase Order"
                         {
                             ApplicationArea = Basic, Suite;
                             Caption = 'Ship-to';
-                            HideValue = not ShowShippingOptionsWithLocation and (ShipToOptions = ShipToOptions::Location);
+                            HideValue = NOT ShowShippingOptionsWithLocation AND (ShipToOptions = ShipToOptions::Location);
                             OptionCaption = 'Default (Company Address),Location,Customer Address,Custom Address';
                             ToolTip = 'Specifies the address that the products on the purchase document are shipped to. Default (Company Address): The same as the company address specified in the Company Information window. Location: One of the company''s location addresses. Customer Address: Used in connection with drop shipment. Custom Address: Any ship-to address that you specify in the fields below.';
 
@@ -703,7 +703,7 @@ page 50 "Purchase Order"
                     group(Control95)
                     {
                         ShowCaption = false;
-                        Visible = not (PayToOptions = PayToOptions::"Default (Vendor)");
+                        Visible = NOT (PayToOptions = PayToOptions::"Default (Vendor)");
                         field("Pay-to Name"; Rec."Pay-to Name")
                         {
                             ApplicationArea = Basic, Suite;
@@ -1687,7 +1687,7 @@ page 50 "Purchase Order"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Send A&pproval Request';
-                    Enabled = not OpenApprovalEntriesExist and CanRequestApprovalForFlow;
+                    Enabled = NOT OpenApprovalEntriesExist AND CanRequestApprovalForFlow;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval of the document.';
 
@@ -1703,7 +1703,7 @@ page 50 "Purchase Order"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Cancel Approval Re&quest';
-                    Enabled = CanCancelApprovalForRecord or CanCancelApprovalForFlow;
+                    Enabled = CanCancelApprovalForRecord OR CanCancelApprovalForFlow;
                     Image = CancelApprovalRequest;
                     ToolTip = 'Cancel the approval request.';
 
@@ -1755,6 +1755,20 @@ page 50 "Purchase Order"
                             FlowTemplateSelector.SetSearchText(FlowServiceManagement.GetPurchasingTemplateFilter());
                             FlowTemplateSelector.Run();
                         end;
+                    }
+#endif
+#if not CLEAN21
+                    action(SeeFlows)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'See my flows';
+                        Image = Flow;
+                        RunObject = Page "Flow Selector";
+                        ToolTip = 'View and configure Power Automate flows that you created.';
+                        Visible = false;
+                        ObsoleteState = Pending;
+                        ObsoleteReason = 'This action has been moved to the tab dedicated to Power Automate';
+                        ObsoleteTag = '21.0';
                     }
 #endif
                 }
@@ -2195,6 +2209,24 @@ page 50 "Purchase Order"
                 actionref(CancelApprovalRequest_Promoted; CancelApprovalRequest)
                 {
                 }
+#if not CLEAN21
+                actionref(CreateFlow_Promoted; CreateFlow)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'Action is being demoted based on overall low usage.';
+                    ObsoleteTag = '21.0';
+                }
+#endif
+#if not CLEAN21
+                actionref(SeeFlows_Promoted; SeeFlows)
+                {
+                    Visible = false;
+                    ObsoleteState = Pending;
+                    ObsoleteReason = 'This action has been moved to the tab dedicated to Power Automate';
+                    ObsoleteTag = '21.0';
+                }
+#endif
             }
             group(Category_Category8)
             {
@@ -2493,7 +2525,7 @@ page 50 "Purchase Order"
         CurrPage.PurchLines.PAGE.ApproveCalcInvDisc();
     end;
 
-    protected procedure SaveInvoiceDiscountAmount()
+    local procedure SaveInvoiceDiscountAmount()
     var
         DocumentTotals: Codeunit "Document Totals";
     begin

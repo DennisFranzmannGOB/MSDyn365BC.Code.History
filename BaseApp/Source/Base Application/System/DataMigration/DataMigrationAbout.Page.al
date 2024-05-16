@@ -48,7 +48,7 @@ page 1798 "Data Migration About"
                 Lookup = false;
                 ShowCaption = false;
                 Style = StandardAccent;
-                StyleExpr = true;
+                StyleExpr = TRUE;
 
                 trigger OnDrillDown()
                 var

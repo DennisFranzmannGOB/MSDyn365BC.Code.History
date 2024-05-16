@@ -8,7 +8,6 @@ table 5634 "Insurance Journal Batch"
     Caption = 'Insurance Journal Batch';
     DataCaptionFields = Name, Description;
     LookupPageID = "Insurance Journal Batches";
-    DataClassification = CustomerContent;
 
     fields
     {

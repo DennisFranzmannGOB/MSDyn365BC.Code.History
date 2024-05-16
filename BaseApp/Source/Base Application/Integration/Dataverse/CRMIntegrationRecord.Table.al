@@ -13,7 +13,6 @@ using System.Reflection;
 table 5331 "CRM Integration Record"
 {
     Caption = 'CRM Integration Record';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -443,7 +442,7 @@ table 5331 "CRM Integration Record"
         RecRef.Open(TableId);
         FldRef := RecRef.FIELD(RecRef.SystemIdNo());
         FldRef.SetRange("Integration ID");
-        if RecRef.FindFirst() then
+        If RecRef.FindFirst() then
             FoundRecId := RecRef.RecordId();
 
         if FoundRecId <> EmptyRecId then

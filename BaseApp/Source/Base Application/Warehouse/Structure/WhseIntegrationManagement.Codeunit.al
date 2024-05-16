@@ -24,22 +24,7 @@ codeunit 7317 "Whse. Integration Management"
         Text004: Label 'You cannot enter a bin code of bin type %1, %2, or %3.', Comment = 'You cannot enter a bin code of bin type Receive, Ship, or Pick.';
         Text005: Label 'You cannot enter a bin code of bin type %1 or %2.';
 
-#if not CLEAN24
-    [Obsolete('Replaced by procedure CheckBinTypeAndCode()', '24.0')]
     procedure CheckBinTypeCode(SourceTable: Integer; BinCodeFieldCaption: Text[30]; LocationCode: Code[10]; BinCode: Code[20]; AdditionalIdentifier: Option)
-    var
-        IsHandled: Boolean;
-    begin
-        IsHandled := false;
-        OnStartCheckBinTypeCode(SourceTable, BinCodeFieldCaption, LocationCode, BinCode, AdditionalIdentifier, IsHandled);
-        if IsHandled then
-            exit;
-
-        CheckBinTypeAndCode(SourceTable, BinCodeFieldCaption, LocationCode, BinCode, AdditionalIdentifier);
-    end;
-#endif
-
-    procedure CheckBinTypeAndCode(SourceTable: Integer; BinCodeFieldCaption: Text; LocationCode: Code[10]; BinCode: Code[20]; AdditionalIdentifier: Option)
     var
         BinType: Record "Bin Type";
         MachineCenter: Record "Machine Center";
@@ -51,7 +36,7 @@ codeunit 7317 "Whse. Integration Management"
         IsHandled: Boolean;
     begin
         IsHandled := false;
-        OnBeforeCheckBinTypeAndCode(SourceTable, BinCodeFieldCaption, LocationCode, BinCode, AdditionalIdentifier, IsHandled);
+        OnStartCheckBinTypeCode(SourceTable, BinCodeFieldCaption, LocationCode, BinCode, AdditionalIdentifier, IsHandled);
         if IsHandled then
             exit;
 
@@ -64,14 +49,8 @@ codeunit 7317 "Whse. Integration Management"
         if BinCode = Location."Adjustment Bin Code" then
             Error(Text000, BinCodeFieldCaption, LocationCode);
 
-#if not CLEAN24
         IsHandled := false;
-        OnBeforeCheckBinTypeCode(SourceTable, CopyStr(BinCodeFieldCaption, 1, 30), LocationCode, BinCode, AdditionalIdentifier, IsHandled);
-        if IsHandled then
-            exit;
-#endif
-        IsHandled := false;
-        OnCheckBinTypeCodeOnBeforeCheckPerSource(SourceTable, BinCodeFieldCaption, LocationCode, BinCode, AdditionalIdentifier, IsHandled);
+        OnBeforeCheckBinTypeCode(SourceTable, BinCodeFieldCaption, LocationCode, BinCode, AdditionalIdentifier, IsHandled);
         if IsHandled then
             exit;
 
@@ -129,14 +108,7 @@ codeunit 7317 "Whse. Integration Management"
                 if AdditionalIdentifier = ServiceLine."Document Type"::Invoice.AsInteger() then
                     BinType.TestField(Pick, true);
             else
-#if not CLEAN24
-                begin
-                OnCheckBinTypeCode(Location, Bin, BinType, SourceTable, CopyStr(BinCodeFieldCaption, 1, 30), AdditionalIdentifier);
-#endif
-                OnCheckBinTypeAndCode(Location, Bin, BinType, SourceTable, BinCodeFieldCaption, AdditionalIdentifier);
-#if not CLEAN24
-            end;
-#endif
+                OnCheckBinTypeCode(Location, Bin, BinType, SourceTable, BinCodeFieldCaption, AdditionalIdentifier);
         end;
     end;
 
@@ -192,7 +164,10 @@ codeunit 7317 "Whse. Integration Management"
             Location.Get(LocationCode);
             CheckLocationCode(Location, SourceTable, Number);
             Bin.Get(LocationCode, BinCode);
-            CheckBinTypeAndCode(SourceTable, BinCaption, LocationCode, BinCode, 0);
+            CheckBinTypeCode(SourceTable,
+              BinCaption,
+              LocationCode,
+              BinCode, 0);
         end;
     end;
 
@@ -229,12 +204,12 @@ codeunit 7317 "Whse. Integration Management"
 
         WorkCenter.SetRange("Location Code", LocationCode);
         WorkCenter.SetRange("Open Shop Floor Bin Code", BinCode);
-        if not WorkCenter.IsEmpty() then
+        if WorkCenter.Count > 0 then
             exit(true);
 
         MachineCenter.SetRange("Location Code", LocationCode);
         MachineCenter.SetRange("Open Shop Floor Bin Code", BinCode);
-        if not MachineCenter.IsEmpty() then
+        if MachineCenter.Count > 0 then
             exit(true);
 
         exit(false);
@@ -261,41 +236,19 @@ codeunit 7317 "Whse. Integration Management"
     begin
     end;
 
-#if not CLEAN24
-    [Obsolete('Replaced by event OnCheckBinTypeCodeOnBeforeCheckPerSource', '24.0')]
     [IntegrationEvent(false, false)]
     local procedure OnBeforeCheckBinTypeCode(SourceTable: Integer; BinCodeFieldCaption: Text[30]; LocationCode: Code[10]; BinCode: Code[20]; AdditionalIdentifier: Option; var IsHandled: Boolean);
     begin
     end;
-#endif
 
-    [IntegrationEvent(false, false)]
-    local procedure OnCheckBinTypeCodeOnBeforeCheckPerSource(SourceTable: Integer; BinCodeFieldCaption: Text; LocationCode: Code[10]; BinCode: Code[20]; AdditionalIdentifier: Option; var IsHandled: Boolean);
-    begin
-    end;
-
-#if not CLEAN24
-    [Obsolete('Replaced by event OnBeforeCheckBinTypeAndCode', '24.0')]
     [IntegrationEvent(false, false)]
     local procedure OnCheckBinTypeCode(Location: Record Location; Bin: Record Bin; BinType: Record "Bin Type"; SourceTable: Integer; BinCodeFieldCaption: Text[30]; AdditionalIdentifier: Option)
     begin
     end;
-#endif
-    [IntegrationEvent(false, false)]
-    local procedure OnCheckBinTypeAndCode(Location: Record Location; Bin: Record Bin; BinType: Record "Bin Type"; SourceTable: Integer; BinCodeFieldCaption: Text; AdditionalIdentifier: Option)
-    begin
-    end;
 
-#if not CLEAN24
-    [Obsolete('Replaced by event OnBeforeCheckBinTypeAndCode', '24.0')]
     [IntegrationEvent(false, false)]
     local procedure OnStartCheckBinTypeCode(SourceTable: Integer; BinCodeFieldCaption: Text[30]; LocationCode: Code[10]; BinCode: Code[20]; AdditionalIdentifier: Option; var IsHandled: Boolean);
     begin
     end;
-#endif
-
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeCheckBinTypeAndCode(SourceTable: Integer; BinCodeFieldCaption: Text; LocationCode: Code[10]; BinCode: Code[20]; AdditionalIdentifier: Option; var IsHandled: Boolean);
-    begin
-    end;
 }
+

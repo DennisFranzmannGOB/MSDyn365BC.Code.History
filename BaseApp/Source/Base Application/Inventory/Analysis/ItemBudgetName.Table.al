@@ -6,7 +6,6 @@ table 7132 "Item Budget Name"
 {
     Caption = 'Item Budget Name';
     LookupPageID = "Item Budget Names";
-    DataClassification = CustomerContent;
 
     fields
     {

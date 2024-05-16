@@ -1,7 +1,6 @@
 table 130150 "Generate Test Data Line"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -19,7 +18,7 @@ table 130150 "Generate Test Data Line"
 
             trigger OnValidate()
             begin
-                CalcProgress();
+                CalcProgress;
             end;
         }
         field(5; Progress; Decimal)
@@ -68,7 +67,7 @@ table 130150 "Generate Test Data Line"
 
     trigger OnInsert()
     begin
-        FillData();
+        FillData;
     end;
 
     local procedure CalcProgress()

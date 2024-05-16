@@ -233,7 +233,7 @@ report 214 "Pick Instruction"
     begin
         IsHandled := false;
         OnBeforeGetUOM(UOMCode, Result, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(Result);
 
         if UnitOfMeasure.Get(UOMCode) then

@@ -7,7 +7,6 @@ using Microsoft.CRM.Campaign;
 using Microsoft.CRM.Team;
 using Microsoft.EServices.EDocument;
 using Microsoft.Finance.Consolidation;
-using System.Threading;
 using Microsoft.Finance.Currency;
 using Microsoft.Finance.Deferral;
 using Microsoft.Finance.Dimension;
@@ -45,7 +44,6 @@ table 181 "Posted Gen. Journal Line"
     Caption = 'Posted Gen. Journal Line';
     LookupPageId = "Posted General Journal";
     DrillDownPageId = "Posted General Journal";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -262,7 +260,7 @@ table 181 "Posted Gen. Journal Line"
         }
         field(42; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = Job;
         }
         field(43; Quantity; Decimal)
@@ -717,10 +715,12 @@ table 181 "Posted Gen. Journal Line"
             else
             if ("Bal. Account Type" = const("IC Partner"), "IC Account Type" = const("Bank Account")) "IC Bank Account" where("IC Partner Code" = field("Bal. Account No."), Blocked = const(false));
         }
-        field(160; "Job Queue Status"; Enum "Document Job Queue Status")
+        field(160; "Job Queue Status"; Option)
         {
             Caption = 'Job Queue Status';
             Editable = false;
+            OptionCaption = ' ,Scheduled for Posting,Error,Posting';
+            OptionMembers = " ","Scheduled for Posting",Error,Posting;
         }
         field(161; "Job Queue Entry ID"; Guid)
         {
@@ -785,71 +785,71 @@ table 181 "Posted Gen. Journal Line"
         }
         field(1001; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
         }
         field(1002; "Job Unit Price (LCY)"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatType = 2;
-            Caption = 'Project Unit Price (LCY)';
+            Caption = 'Job Unit Price (LCY)';
             Editable = false;
         }
         field(1003; "Job Total Price (LCY)"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatType = 1;
-            Caption = 'Project Total Price (LCY)';
+            Caption = 'Job Total Price (LCY)';
             Editable = false;
         }
         field(1004; "Job Quantity"; Decimal)
         {
             AccessByPermission = TableData Job = R;
-            Caption = 'Project Quantity';
+            Caption = 'Job Quantity';
             DecimalPlaces = 0 : 5;
         }
         field(1005; "Job Unit Cost (LCY)"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatType = 2;
-            Caption = 'Project Unit Cost (LCY)';
+            Caption = 'Job Unit Cost (LCY)';
             Editable = false;
         }
         field(1006; "Job Line Discount %"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatType = 1;
-            Caption = 'Project Line Discount %';
+            Caption = 'Job Line Discount %';
         }
         field(1007; "Job Line Disc. Amount (LCY)"; Decimal)
         {
             AutoFormatType = 1;
-            Caption = 'Project Line Disc. Amount (LCY)';
+            Caption = 'Job Line Disc. Amount (LCY)';
             Editable = false;
         }
         field(1008; "Job Unit Of Measure Code"; Code[10])
         {
-            Caption = 'Project Unit Of Measure Code';
+            Caption = 'Job Unit Of Measure Code';
             TableRelation = "Unit of Measure";
         }
         field(1009; "Job Line Type"; Enum "Job Line Type")
         {
             AccessByPermission = TableData Job = R;
-            Caption = 'Project Line Type';
+            Caption = 'Job Line Type';
         }
         field(1010; "Job Unit Price"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 2;
-            Caption = 'Project Unit Price';
+            Caption = 'Job Unit Price';
         }
         field(1011; "Job Total Price"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
-            Caption = 'Project Total Price';
+            Caption = 'Job Total Price';
             Editable = false;
         }
         field(1012; "Job Unit Cost"; Decimal)
@@ -857,7 +857,7 @@ table 181 "Posted Gen. Journal Line"
             AccessByPermission = TableData Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 2;
-            Caption = 'Project Unit Cost';
+            Caption = 'Job Unit Cost';
             Editable = false;
         }
         field(1013; "Job Total Cost"; Decimal)
@@ -865,7 +865,7 @@ table 181 "Posted Gen. Journal Line"
             AccessByPermission = TableData Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
-            Caption = 'Project Total Cost';
+            Caption = 'Job Total Cost';
             Editable = false;
         }
         field(1014; "Job Line Discount Amount"; Decimal)
@@ -873,47 +873,47 @@ table 181 "Posted Gen. Journal Line"
             AccessByPermission = TableData Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
-            Caption = 'Project Line Discount Amount';
+            Caption = 'Job Line Discount Amount';
         }
         field(1015; "Job Line Amount"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
-            Caption = 'Project Line Amount';
+            Caption = 'Job Line Amount';
         }
         field(1016; "Job Total Cost (LCY)"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatType = 1;
-            Caption = 'Project Total Cost (LCY)';
+            Caption = 'Job Total Cost (LCY)';
             Editable = false;
         }
         field(1017; "Job Line Amount (LCY)"; Decimal)
         {
             AccessByPermission = TableData Job = R;
             AutoFormatType = 1;
-            Caption = 'Project Line Amount (LCY)';
+            Caption = 'Job Line Amount (LCY)';
             Editable = false;
         }
         field(1018; "Job Currency Factor"; Decimal)
         {
-            Caption = 'Project Currency Factor';
+            Caption = 'Job Currency Factor';
         }
         field(1019; "Job Currency Code"; Code[10])
         {
-            Caption = 'Project Currency Code';
+            Caption = 'Job Currency Code';
         }
         field(1020; "Job Planning Line No."; Integer)
         {
             AccessByPermission = TableData Job = R;
             BlankZero = true;
-            Caption = 'Project Planning Line No.';
+            Caption = 'Job Planning Line No.';
         }
         field(1030; "Job Remaining Qty."; Decimal)
         {
             AccessByPermission = TableData Job = R;
-            Caption = 'Project Remaining Qty.';
+            Caption = 'Job Remaining Qty.';
             DecimalPlaces = 0 : 5;
         }
         field(1200; "Direct Debit Mandate ID"; Code[35])

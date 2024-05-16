@@ -16,8 +16,6 @@ using Microsoft.HumanResources.Setup;
 using Microsoft.Projects.Resources.Resource;
 using Microsoft.Projects.Resources.Setup;
 using System.Email;
-using Microsoft.Finance.Currency;
-
 
 table 5200 Employee
 {
@@ -25,7 +23,6 @@ table 5200 Employee
     DataCaptionFields = "No.", "First Name", "Middle Name", "Last Name";
     DrillDownPageID = "Employee List";
     LookupPageID = "Employee List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -37,7 +34,7 @@ table 5200 Employee
             begin
                 if "No." <> xRec."No." then begin
                     HumanResSetup.Get();
-                    NoSeries.TestManual(HumanResSetup."Employee Nos.");
+                    NoSeriesMgt.TestManual(HumanResSetup."Employee Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -423,13 +420,11 @@ table 5200 Employee
         }
         field(59; Balance; Decimal)
         {
-            AutoFormatExpression = "Currency Code";
             AutoFormatType = 1;
             CalcFormula = - sum("Detailed Employee Ledger Entry".Amount where("Employee No." = field("No."),
                                                                               "Initial Entry Global Dim. 1" = field("Global Dimension 1 Filter"),
                                                                               "Initial Entry Global Dim. 2" = field("Global Dimension 2 Filter"),
-                                                                              "Posting Date" = field("Date Filter"),
-                                                                              "Currency Code" = field("Currency Filter")));
+                                                                              "Posting Date" = field("Date Filter")));
             Caption = 'Balance';
             Editable = false;
             FieldClass = FlowField;
@@ -440,32 +435,9 @@ table 5200 Employee
             TableRelation = "SWIFT Code";
             ValidateTableRelation = false;
         }
-        field(70; "Balance (LCY)"; Decimal)
-        {
-            AutoFormatType = 1;
-            CalcFormula = - sum("Detailed Employee Ledger Entry"."Amount (LCY)" where("Employee No." = field("No."),
-                                                                              "Initial Entry Global Dim. 1" = field("Global Dimension 1 Filter"),
-                                                                              "Initial Entry Global Dim. 2" = field("Global Dimension 2 Filter"),
-                                                                              "Posting Date" = field("Date Filter"),
-                                                                              "Currency Code" = field("Currency Filter")));
-            Caption = 'Balance (LCY)';
-            Editable = false;
-            FieldClass = FlowField;
-        }
-        field(75; "Currency Code"; Code[10])
-        {
-            Caption = 'Currency Code';
-            TableRelation = Currency;
-        }
         field(80; "Application Method"; Enum "Application Method")
         {
             Caption = 'Application Method';
-        }
-        field(90; "Currency Filter"; Code[10])
-        {
-            Caption = 'Currency Filter';
-            FieldClass = FlowFilter;
-            TableRelation = Currency;
         }
         field(140; Image; Media)
         {
@@ -553,12 +525,8 @@ table 5200 Employee
 
     trigger OnInsert()
     var
-        Employee: Record Employee;
         ResourcesSetup: Record "Resources Setup";
         Resource: Record Resource;
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-#endif
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -570,36 +538,12 @@ table 5200 Employee
         HumanResSetup.Get();
         if "No." = '' then begin
             HumanResSetup.TestField("Employee Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(HumanResSetup."Employee Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(HumanResSetup."Employee Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := HumanResSetup."Employee Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                Employee.ReadIsolation(IsolationLevel::ReadUncommitted);
-                Employee.SetLoadFields("No.");
-                while Employee.Get("No.") do
-                    "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", HumanResSetup."Employee Nos.", 0D, "No.");
-            end;
-#else
-			if NoSeries.AreRelated(HumanResSetup."Employee Nos.", xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := HumanResSetup."Employee Nos.";
-            "No." := NoSeries.GetNextNo("No. Series");
-            Employee.ReadIsolation(IsolationLevel::ReadUncommitted);
-            Employee.SetLoadFields("No.");
-            while Employee.Get("No.") do
-                "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(HumanResSetup."Employee Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
         if HumanResSetup."Automatically Create Resource" then begin
             ResourcesSetup.Get();
             Resource.Init();
-            if NoSeries.IsManual(ResourcesSetup."Resource Nos.") then begin
+            if NoSeriesMgt.ManualNoAllowed(ResourcesSetup."Resource Nos.") then begin
                 Resource."No." := "No.";
                 Resource.Insert(true);
             end else
@@ -654,7 +598,7 @@ table 5200 Employee
         ConfidentialInformation: Record "Confidential Information";
         HumanResComment: Record "Human Resource Comment Line";
         SalespersonPurchaser: Record "Salesperson/Purchaser";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         EmployeeResUpdate: Codeunit "Employee/Resource Update";
         EmployeeSalespersonUpdate: Codeunit "Employee/Salesperson Update";
         DimMgt: Codeunit DimensionManagement;
@@ -673,8 +617,8 @@ table 5200 Employee
 
         HumanResSetup.Get();
         HumanResSetup.TestField("Employee Nos.");
-        if NoSeries.LookupRelatedNoSeries(HumanResSetup."Employee Nos.", xRec."No. Series", "No. Series") then begin
-            "No." := NoSeries.GetNextNo("No. Series");
+        if NoSeriesMgt.SelectSeries(HumanResSetup."Employee Nos.", xRec."No. Series", "No. Series") then begin
+            NoSeriesMgt.SetSeries("No.");
             exit(true);
         end;
     end;

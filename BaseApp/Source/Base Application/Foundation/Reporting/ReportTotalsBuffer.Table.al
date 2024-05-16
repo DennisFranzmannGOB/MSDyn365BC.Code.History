@@ -10,7 +10,6 @@ table 1150 "Report Totals Buffer"
 {
     Caption = 'Report Totals Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

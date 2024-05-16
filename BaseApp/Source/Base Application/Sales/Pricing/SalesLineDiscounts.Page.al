@@ -1,4 +1,4 @@
-#if not CLEAN23
+#if not CLEAN21
 namespace Microsoft.Sales.Pricing;
 
 using Microsoft.CRM.Campaign;
@@ -13,7 +13,7 @@ using System.Globalization;
 page 7004 "Sales Line Discounts"
 {
     Caption = 'Sales Line Discounts';
-    DataCaptionExpression = PageCaptionText;
+    DataCaptionExpression = PageCaption;
     DelayedInsert = true;
     PageType = List;
     SaveValues = true;
@@ -30,7 +30,7 @@ page 7004 "Sales Line Discounts"
             group(General)
             {
                 Caption = 'General';
-                Visible = not IsOnMobile;
+                Visible = NOT IsOnMobile;
                 field(SalesTypeFilter; SalesTypeFilter)
                 {
                     ApplicationArea = Basic, Suite;
@@ -368,7 +368,7 @@ page 7004 "Sales Line Discounts"
         ItemDiscGr: Record "Item Discount Group";
         ClientTypeManagement: Codeunit "Client Type Management";
         Text000: Label 'All Customers';
-        PageCaptionText: Text;
+        PageCaption: Text;
         SalesCodeEditable: Boolean;
         SalesCodeFilterCtrlEnable: Boolean;
         CodeFilterCtrlEnable: Boolean;
@@ -439,9 +439,9 @@ page 7004 "Sales Line Discounts"
     local procedure SetCaption()
     begin
         if IsOnMobile then
-            PageCaptionText := ''
+            PageCaption := ''
         else
-            PageCaptionText := GetFilterDescription();
+            PageCaption := GetFilterDescription();
     end;
 
     local procedure GetFilterDescription(): Text

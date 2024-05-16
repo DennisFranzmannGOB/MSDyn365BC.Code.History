@@ -116,7 +116,7 @@ codeunit 1545 "Workflow Webhook Notification"
     end;
 
     [TryFunction]
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(TRUE, TRUE)]
     [Scope('OnPrem')]
     procedure OnPostNotificationRequest(DataID: Guid; WorkflowStepInstanceID: Guid; NotificationUrl: Text; RequestedByUserEmail: Text)
     begin

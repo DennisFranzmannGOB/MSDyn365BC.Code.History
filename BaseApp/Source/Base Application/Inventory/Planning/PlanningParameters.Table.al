@@ -6,7 +6,6 @@ table 99000865 "Planning Parameters"
 {
     Caption = 'Planning Component';
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -6,6 +6,7 @@ codeunit 138696 "Page Troubleshooting Test"
 
     var
         Assert: Codeunit Assert;
+        LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryRandom: Codeunit "Library - Random";
         LibraryLowerPermissions: Codeunit "Library - Lower Permissions";
         PageSuccessfullyValidatedTxt: Label 'OK';

@@ -40,7 +40,7 @@ codeunit 149104 "BCPT Create SO with N Lines" implements "BCPT Test Param. Provi
         repeat
             if NoSeriesLine."Ending No." <> '' then begin
                 NoSeriesLine."Ending No." := '';
-                NoSeriesLine.Validate(Implementation, Enum::"No. Series Implementation"::Sequence);
+                NoSeriesLine.Validate("Allow Gaps in Nos.", true);
                 NoSeriesLine.Modify(true);
             end;
         until NoSeriesLine.Next() = 0;

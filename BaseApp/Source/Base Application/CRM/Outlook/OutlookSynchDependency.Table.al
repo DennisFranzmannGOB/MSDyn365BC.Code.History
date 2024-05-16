@@ -4,7 +4,6 @@ table 5311 "Outlook Synch. Dependency"
 {
     Caption = 'Outlook Synch. Dependency';
     DataCaptionFields = "Synch. Entity Code";
-    DataClassification = CustomerContent;
     PasteIsValid = false;
     ReplicateData = false;
     ObsoleteState = Removed;

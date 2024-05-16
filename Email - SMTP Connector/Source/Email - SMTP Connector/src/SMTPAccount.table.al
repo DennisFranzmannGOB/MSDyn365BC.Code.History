@@ -135,7 +135,7 @@ table 4511 "SMTP Account"
     end;
 
     [NonDebuggable]
-    procedure SetPassword(Password: SecretText)
+    procedure SetPassword(Password: Text)
     begin
         if IsNullGuid(Rec."Password Key") then
             Rec."Password Key" := CreateGuid();
@@ -145,7 +145,7 @@ table 4511 "SMTP Account"
     end;
 
     [NonDebuggable]
-    procedure GetPassword(PasswordKey: Guid) Password: SecretText
+    procedure GetPassword(PasswordKey: Guid) Password: Text
     begin
         if not IsolatedStorage.Get(Format(PasswordKey), DataScope::Company, Password) then
             Error(UnableToGetPasswordMsg);

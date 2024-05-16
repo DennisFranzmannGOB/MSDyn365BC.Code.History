@@ -394,7 +394,7 @@ page 9300 "Sales Quotes"
                     Enabled = QuoteActionsEnabled;
                     Image = Print;
                     ToolTip = 'Prepare to print the document. A report request window for the document opens where you can specify what to include on the print-out.';
-                    Visible = not IsOfficeAddin;
+                    Visible = NOT IsOfficeAddin;
 
                     trigger OnAction()
                     begin
@@ -485,7 +485,7 @@ page 9300 "Sales Quotes"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'C&reate Customer';
-                    Enabled = ContactSelected and not CustomerSelected;
+                    Enabled = ContactSelected AND NOT CustomerSelected;
                     Image = NewCustomer;
                     ToolTip = 'Create a new customer card for the contact.';
 
@@ -556,7 +556,7 @@ page 9300 "Sales Quotes"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Send A&pproval Request';
-                    Enabled = QuoteActionsEnabled and not OpenApprovalEntriesExist and CanRequestApprovalForFlow;
+                    Enabled = QuoteActionsEnabled AND NOT OpenApprovalEntriesExist AND CanRequestApprovalForFlow;
                     Image = SendApprovalRequest;
                     ToolTip = 'Request approval of the document.';
 
@@ -572,7 +572,7 @@ page 9300 "Sales Quotes"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Cancel Approval Re&quest';
-                    Enabled = QuoteActionsEnabled and (CanCancelApprovalForRecord or CanCancelApprovalForFlow);
+                    Enabled = QuoteActionsEnabled AND (CanCancelApprovalForRecord OR CanCancelApprovalForFlow);
                     Image = CancelApprovalRequest;
                     ToolTip = 'Cancel the approval request.';
 

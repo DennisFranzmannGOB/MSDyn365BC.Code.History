@@ -5,7 +5,6 @@ using Microsoft.Finance.GeneralLedger.Account;
 table 326 "Tax Setup"
 {
     Caption = 'Tax Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

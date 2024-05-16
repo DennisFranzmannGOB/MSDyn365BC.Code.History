@@ -8,7 +8,7 @@ using Microsoft.Finance.Dimension;
 
 page 1006 "Job Task Dimensions Multiple"
 {
-    Caption = 'Project Task Dimensions Multiple';
+    Caption = 'Job Task Dimensions Multiple';
     PageType = List;
     SourceTable = "Job Task Dimension";
     SourceTableTemporary = true;
@@ -138,12 +138,13 @@ page 1006 "Job Task Dimensions Multiple"
     begin
         TempJobTaskDim2.DeleteAll();
         TempJobTask.DeleteAll();
-        if JobTask.Find('-') then
-            repeat
-                CopyJobTaskDimToJobTaskDim(JobTask."Job No.", JobTask."Job Task No.");
-                TempJobTask.TransferFields(JobTask);
-                TempJobTask.Insert();
-            until JobTask.Next() = 0;
+        with JobTask do
+            if Find('-') then
+                repeat
+                    CopyJobTaskDimToJobTaskDim("Job No.", "Job Task No.");
+                    TempJobTask.TransferFields(JobTask);
+                    TempJobTask.Insert();
+                until Next() = 0;
     end;
 
     local procedure CopyJobTaskDimToJobTaskDim(JobNo: Code[20]; JobTaskNo: Code[20])

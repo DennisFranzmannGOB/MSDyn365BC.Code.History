@@ -9,11 +9,11 @@ using System.Utilities;
 
 report 1008 "Job Analysis"
 {
-    AdditionalSearchTerms = 'project overview, Job Analysis';
     DefaultLayout = RDLC;
     RDLCLayout = './Projects/Project/Reports/JobAnalysis.rdlc';
+    AdditionalSearchTerms = 'project overview';
     ApplicationArea = Jobs;
-    Caption = 'Project Analysis';
+    Caption = 'Job Analysis';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
 
@@ -327,9 +327,9 @@ report 1008 "Job Analysis"
         PrintSection: Boolean;
         I: Integer;
         CurrReportPageNoCaptionLbl: Label 'Page';
-        JobAnalysisCaptLbl: Label 'Project Analysis';
+        JobAnalysisCaptLbl: Label 'Job Analysis';
         DescriptionCaptionLbl: Label 'Description';
-        JobTaskNoCaptLbl: Label 'Project Task No.';
+        JobTaskNoCaptLbl: Label 'Job Task No.';
 
     procedure InitializeRequest(NewAmountField: array[8] of Option " ","Budget Price","Usage Price","Billable Price","Invoiced Price","Budget Cost","Usage Cost","Billable Cost","Invoiced Cost","Budget Profit","Usage Profit","Billable Profit","Invoiced Profit"; NewCurrencyField: array[8] of Option "Local Currency","Foreign Currency"; NewExcludeJobTask: Boolean)
     begin

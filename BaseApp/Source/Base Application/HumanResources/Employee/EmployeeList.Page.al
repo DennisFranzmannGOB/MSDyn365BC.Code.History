@@ -129,11 +129,6 @@ page 5201 "Employee List"
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies an alternate name that you can use to search for the record in question when you cannot remember the value in the Name field.';
                 }
-                field("Balance (LCY)"; Rec."Balance (LCY)")
-                {
-                    ApplicationArea = Basic, Suite;
-                    ToolTip = 'Specifies the value of the the employee''s balance.';
-                }
                 field(Comment; Rec.Comment)
                 {
                     ApplicationArea = Comments;
@@ -363,7 +358,7 @@ page 5201 "Employee List"
                 RunObject = Page "Employee Ledger Entries";
                 RunPageLink = "Employee No." = field("No.");
                 RunPageView = sorting("Employee No.")
-                              order(descending);
+                              order(Descending);
                 ShortCutKey = 'Ctrl+F7';
                 ToolTip = 'View the history of transactions that have been posted for the selected record.';
             }

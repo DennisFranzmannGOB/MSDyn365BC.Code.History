@@ -13,7 +13,7 @@ page 186 "Exch.Rate Adjmt. Ledg.Entries"
     PageType = List;
     SourceTable = "Exch. Rate Adjmt. Ledg. Entry";
     SourceTableView = sorting("Register No.", "Entry No.")
-                      order(descending);
+                      order(Descending);
     UsageCategory = History;
 
     layout

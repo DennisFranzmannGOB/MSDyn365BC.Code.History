@@ -42,8 +42,8 @@ codeunit 138073 "O365 Role Center Notifications"
     var
         RoleCenterNotifications: Record "Role Center Notifications";
     begin
-        if RoleCenterNotifications.IsFirstLogon() then begin
-            RoleCenterNotifications.Get(UserSecurityId());
+        if RoleCenterNotifications.IsFirstLogon then begin
+            RoleCenterNotifications.Get(UserSecurityId);
             RoleCenterNotifications."First Session ID" := -2;
             RoleCenterNotifications."Last Session ID" := -1;
             RoleCenterNotifications.Modify();
@@ -80,6 +80,53 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState.Insert();
     end;
 
+#if not CLEAN21
+    [Test]
+    [HandlerFunctions('SendEvaluationNotificationHandler')]
+    [TransactionModel(TransactionModel::AutoRollback)]
+    [Scope('OnPrem')]
+    procedure TestEvaluationNotification()
+    var
+        TenantLicenseState: Record "Tenant License State";
+    begin
+        Initialize();
+        SetLicenseState(TenantLicenseState.State::Evaluation, GetUtcNow);
+        RoleCenterNotificationMgt.ShowEvaluationNotification();
+    end;
+
+    [Test]
+    [HandlerFunctions('SendNoNotificationHandler')]
+    [TransactionModel(TransactionModel::AutoRollback)]
+    [Scope('OnPrem')]
+    procedure TestEvaluationNotificationPhone()
+    var
+        TenantLicenseState: Record "Tenant License State";
+        TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
+    begin
+        Initialize();
+        SetLicenseState(TenantLicenseState.State::Evaluation, GetUtcNow);
+        BindSubscription(TestClientTypeSubscriber);
+        TestClientTypeSubscriber.SetClientType(CLIENTTYPE::Phone);
+        RoleCenterNotificationMgt.ShowEvaluationNotification();
+    end;
+
+    [Test]
+    [HandlerFunctions('SendNoNotificationHandler')]
+    [TransactionModel(TransactionModel::AutoRollback)]
+    [Scope('OnPrem')]
+    procedure TestEvaluationNotificationTablet()
+    var
+        TenantLicenseState: Record "Tenant License State";
+        TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
+    begin
+        Initialize();
+        SetLicenseState(TenantLicenseState.State::Evaluation, GetUtcNow);
+        BindSubscription(TestClientTypeSubscriber);
+        TestClientTypeSubscriber.SetClientType(CLIENTTYPE::Tablet);
+        RoleCenterNotificationMgt.ShowEvaluationNotification();
+    end;
+#endif
+
     [Test]
     [TransactionModel(TransactionModel::AutoRollback)]
     [Scope('OnPrem')]
@@ -88,8 +135,8 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow());
-        RoleCenterNotificationMgt.ShowTrialNotification();
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow);
+        RoleCenterNotificationMgt.ShowTrialNotification;
     end;
 
     [Test]
@@ -101,8 +148,8 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 16 * MillisecondsPerDay);
-        RoleCenterNotificationMgt.ShowTrialNotification();
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 16 * MillisecondsPerDay);
+        RoleCenterNotificationMgt.ShowTrialNotification;
     end;
 
     [Test]
@@ -115,11 +162,11 @@ codeunit 138073 "O365 Role Center Notifications"
         TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 16 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 16 * MillisecondsPerDay);
         BindSubscription(TestClientTypeSubscriber);
         TestClientTypeSubscriber.SetClientType(CLIENTTYPE::Phone);
         // [WHEN]
-        RoleCenterNotificationMgt.ShowTrialNotification();
+        RoleCenterNotificationMgt.ShowTrialNotification;
 
         // [THEN] No notification is shown
     end;
@@ -133,9 +180,9 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow());
-        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow() + MillisecondsPerDay);
-        RoleCenterNotificationMgt.ShowTrialSuspendedNotification();
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow);
+        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow + MillisecondsPerDay);
+        RoleCenterNotificationMgt.ShowTrialSuspendedNotification;
     end;
 
     [Test]
@@ -148,12 +195,12 @@ codeunit 138073 "O365 Role Center Notifications"
         TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow());
-        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow() + MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow);
+        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow + MillisecondsPerDay);
         BindSubscription(TestClientTypeSubscriber);
         TestClientTypeSubscriber.SetClientType(CLIENTTYPE::Phone);
         // [WHEN]
-        RoleCenterNotificationMgt.ShowTrialSuspendedNotification();
+        RoleCenterNotificationMgt.ShowTrialSuspendedNotification;
 
         // [THEN] No notification is shown
     end;
@@ -167,9 +214,9 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 17 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 16 * MillisecondsPerDay);
-        RoleCenterNotificationMgt.ShowTrialExtendedNotification();
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 17 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 16 * MillisecondsPerDay);
+        RoleCenterNotificationMgt.ShowTrialExtendedNotification;
     end;
 
     [Test]
@@ -182,12 +229,12 @@ codeunit 138073 "O365 Role Center Notifications"
         TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 17 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 16 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 17 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 16 * MillisecondsPerDay);
         BindSubscription(TestClientTypeSubscriber);
         TestClientTypeSubscriber.SetClientType(CLIENTTYPE::Phone);
         // [WHEN]
-        RoleCenterNotificationMgt.ShowTrialExtendedNotification();
+        RoleCenterNotificationMgt.ShowTrialExtendedNotification;
 
         // [THEN] No notification is shown
     end;
@@ -201,11 +248,11 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 3 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 2 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 1 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow());
-        RoleCenterNotificationMgt.ShowTrialExtendedSuspendedNotification();
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 3 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 2 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 1 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow);
+        RoleCenterNotificationMgt.ShowTrialExtendedSuspendedNotification;
     end;
 
     [Test]
@@ -218,14 +265,14 @@ codeunit 138073 "O365 Role Center Notifications"
         TestClientTypeSubscriber: Codeunit "Test Client Type Subscriber";
     begin
         Initialize();
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 3 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 2 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow() - 1 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow());
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 3 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 2 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Trial, GetUtcNow - 1 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow);
         BindSubscription(TestClientTypeSubscriber);
         TestClientTypeSubscriber.SetClientType(CLIENTTYPE::Phone);
         // [WHEN]
-        RoleCenterNotificationMgt.ShowTrialExtendedSuspendedNotification();
+        RoleCenterNotificationMgt.ShowTrialExtendedSuspendedNotification;
 
         // [THEN] No notification is shown
     end;
@@ -239,10 +286,10 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SimulateSecondLogon();
-        SetLicenseState(TenantLicenseState.State::Paid, GetUtcNow() - 1 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Warning, GetUtcNow());
-        RoleCenterNotificationMgt.ShowPaidWarningNotification();
+        SimulateSecondLogon;
+        SetLicenseState(TenantLicenseState.State::Paid, GetUtcNow - 1 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Warning, GetUtcNow);
+        RoleCenterNotificationMgt.ShowPaidWarningNotification;
     end;
 
     [Test]
@@ -254,10 +301,10 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SimulateSecondLogon();
-        SetLicenseState(TenantLicenseState.State::Paid, GetUtcNow());
-        SetLicenseState(TenantLicenseState.State::Warning, GetUtcNow() + MillisecondsPerDay);
-        RoleCenterNotificationMgt.ShowPaidWarningNotification();
+        SimulateSecondLogon;
+        SetLicenseState(TenantLicenseState.State::Paid, GetUtcNow);
+        SetLicenseState(TenantLicenseState.State::Warning, GetUtcNow + MillisecondsPerDay);
+        RoleCenterNotificationMgt.ShowPaidWarningNotification;
     end;
 
     [Test]
@@ -269,10 +316,10 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SimulateSecondLogon();
-        SetLicenseState(TenantLicenseState.State::Paid, GetUtcNow() - 1 * MillisecondsPerDay);
-        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow());
-        RoleCenterNotificationMgt.ShowPaidSuspendedNotification();
+        SimulateSecondLogon;
+        SetLicenseState(TenantLicenseState.State::Paid, GetUtcNow - 1 * MillisecondsPerDay);
+        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow);
+        RoleCenterNotificationMgt.ShowPaidSuspendedNotification;
     end;
 
     [Test]
@@ -284,11 +331,27 @@ codeunit 138073 "O365 Role Center Notifications"
         TenantLicenseState: Record "Tenant License State";
     begin
         Initialize();
-        SimulateSecondLogon();
-        SetLicenseState(TenantLicenseState.State::Paid, GetUtcNow());
-        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow() + MillisecondsPerDay);
-        RoleCenterNotificationMgt.ShowPaidSuspendedNotification();
+        SimulateSecondLogon;
+        SetLicenseState(TenantLicenseState.State::Paid, GetUtcNow);
+        SetLicenseState(TenantLicenseState.State::Suspended, GetUtcNow + MillisecondsPerDay);
+        RoleCenterNotificationMgt.ShowPaidSuspendedNotification;
     end;
+
+#if not CLEAN21
+    [Test]
+    [TransactionModel(TransactionModel::AutoRollback)]
+    [Scope('OnPrem')]
+    procedure TestNoNotificationInSandbox()
+    var
+        TenantLicenseState: Record "Tenant License State";
+    begin
+        Initialize();
+        EnableSandbox;
+        SetLicenseState(TenantLicenseState.State::Evaluation, GetUtcNow);
+        RoleCenterNotificationMgt.ShowEvaluationNotification();
+        DisableSandbox;
+    end;
+#endif
 
     [Test]
     [HandlerFunctions('SendSandboxNotificationHandler')]
@@ -300,10 +363,10 @@ codeunit 138073 "O365 Role Center Notifications"
     begin
         // [SCENARIO 218238] User is getting notification when logs into a sandbox environment
         Initialize();
-        EnableSandbox();
-        SetLicenseState(TenantLicenseState.State::Evaluation, GetUtcNow());
-        RoleCenterNotificationMgt.ShowSandboxNotification();
-        DisableSandbox();
+        EnableSandbox;
+        SetLicenseState(TenantLicenseState.State::Evaluation, GetUtcNow);
+        RoleCenterNotificationMgt.ShowSandboxNotification;
+        DisableSandbox;
     end;
 
     [Test]
@@ -317,23 +380,23 @@ codeunit 138073 "O365 Role Center Notifications"
     begin
         // [SCENARIO 218896] User can disable sandbox notification by clicking on 'Don't show this again.'
         Initialize();
-        EnableSandbox();
-        SetLicenseState(TenantLicenseState.State::Evaluation, GetUtcNow());
+        EnableSandbox;
+        SetLicenseState(TenantLicenseState.State::Evaluation, GetUtcNow);
         // [GIVEN] Open role center once and see the notification
         LibraryVariableStorage.Enqueue(0); // to count calls of DontShowSandboxNotificationHandler
-        RoleCenterNotificationMgt.ShowSandboxNotification();
+        RoleCenterNotificationMgt.ShowSandboxNotification;
         // [WHEN] Click on "Don't show this again." on the notification
-        Assert.AreEqual(1, LibraryVariableStorage.DequeueInteger(), 'Notification should be called once.');
+        Assert.AreEqual(1, LibraryVariableStorage.DequeueInteger, 'Notification should be called once.');
         // [THEN] Sandbox notification is disabled.
-        Assert.IsFalse(MyNotifications.IsEnabled(RoleCenterNotificationMgt.GetSandboxNotificationId()), 'Notification should be disabled');
+        Assert.IsFalse(MyNotifications.IsEnabled(RoleCenterNotificationMgt.GetSandboxNotificationId), 'Notification should be disabled');
 
         // [WHEN] Open role center again
         LibraryVariableStorage.Enqueue(0); // to count calls of DontShowSandboxNotificationHandler
-        RoleCenterNotificationMgt.ShowSandboxNotification();
+        RoleCenterNotificationMgt.ShowSandboxNotification;
         // [THEN] see no notification
-        Assert.AreEqual(0, LibraryVariableStorage.DequeueInteger(), 'Notification should not be called.');
+        Assert.AreEqual(0, LibraryVariableStorage.DequeueInteger, 'Notification should not be called.');
 
-        DisableSandbox();
+        DisableSandbox;
     end;
 
     [SendNotificationHandler(true)]
@@ -342,6 +405,24 @@ codeunit 138073 "O365 Role Center Notifications"
     begin
         Error(UnexpectedNotificationErr, Notification.Message);
     end;
+
+#if not CLEAN21
+    [SendNotificationHandler]
+    [Scope('OnPrem')]
+    procedure SendEvaluationNotificationHandler(var Notification: Notification): Boolean
+    var
+        NotificationId: Guid;
+        TrialTotalDays: Integer;
+    begin
+        Evaluate(NotificationId, Format(Notification.Id));
+        TrialTotalDays := RoleCenterNotificationMgt.GetTrialTotalDays;
+        Assert.AreEqual(
+          Format(RoleCenterNotificationMgt.GetEvaluationNotificationId), Format(NotificationId), UnexpectedNotificationIdTxt);
+        Assert.AreEqual(
+          StrSubstNo(RoleCenterNotificationMgt.EvaluationNotificationMessage, TrialTotalDays), Notification.Message,
+          UnexpectedNotificationMsgTxt);
+    end;
+#endif
 
     [SendNotificationHandler]
     [Scope('OnPrem')]
@@ -353,9 +434,9 @@ codeunit 138073 "O365 Role Center Notifications"
         Evaluate(NotificationId, Format(Notification.Id));
         RemainingDays := RoleCenterNotificationMgt.GetLicenseRemainingDays();
         Assert.AreEqual(
-          Format(RoleCenterNotificationMgt.GetTrialNotificationId()), Format(NotificationId), UnexpectedNotificationIdTxt);
+          Format(RoleCenterNotificationMgt.GetTrialNotificationId), Format(NotificationId), UnexpectedNotificationIdTxt);
         Assert.AreEqual(
-          StrSubstNo(RoleCenterNotificationMgt.TrialNotificationMessage(), RemainingDays), Notification.Message,
+          StrSubstNo(RoleCenterNotificationMgt.TrialNotificationMessage, RemainingDays), Notification.Message,
           UnexpectedNotificationMsgTxt);
         RoleCenterNotificationMgt.TrialNotificationAction(Notification);
     end;
@@ -368,9 +449,9 @@ codeunit 138073 "O365 Role Center Notifications"
     begin
         Evaluate(NotificationId, Format(Notification.Id));
         Assert.AreEqual(
-          Format(RoleCenterNotificationMgt.GetTrialSuspendedNotificationId()), Format(NotificationId), UnexpectedNotificationIdTxt);
+          Format(RoleCenterNotificationMgt.GetTrialSuspendedNotificationId), Format(NotificationId), UnexpectedNotificationIdTxt);
         Assert.AreEqual(
-          RoleCenterNotificationMgt.TrialSuspendedNotificationMessage(), Notification.Message,
+          RoleCenterNotificationMgt.TrialSuspendedNotificationMessage, Notification.Message,
           UnexpectedNotificationMsgTxt);
         RoleCenterNotificationMgt.TrialSuspendedNotificationAction(Notification);
     end;
@@ -385,9 +466,9 @@ codeunit 138073 "O365 Role Center Notifications"
         Evaluate(NotificationId, Format(Notification.Id));
         RemainingDays := RoleCenterNotificationMgt.GetLicenseRemainingDays();
         Assert.AreEqual(
-          Format(RoleCenterNotificationMgt.GetTrialExtendedNotificationId()), Format(NotificationId), UnexpectedNotificationIdTxt);
+          Format(RoleCenterNotificationMgt.GetTrialExtendedNotificationId), Format(NotificationId), UnexpectedNotificationIdTxt);
         Assert.AreEqual(
-          StrSubstNo(RoleCenterNotificationMgt.TrialExtendedNotificationMessage(), RemainingDays), Notification.Message,
+          StrSubstNo(RoleCenterNotificationMgt.TrialExtendedNotificationMessage, RemainingDays), Notification.Message,
           UnexpectedNotificationMsgTxt);
         RoleCenterNotificationMgt.TrialExtendedNotificationSubscribeAction(Notification);
         RoleCenterNotificationMgt.TrialExtendedNotificationPartnerAction(Notification);
@@ -401,9 +482,9 @@ codeunit 138073 "O365 Role Center Notifications"
     begin
         Evaluate(NotificationId, Format(Notification.Id));
         Assert.AreEqual(
-          Format(RoleCenterNotificationMgt.GetTrialExtendedSuspendedNotificationId()), Format(NotificationId), UnexpectedNotificationIdTxt);
+          Format(RoleCenterNotificationMgt.GetTrialExtendedSuspendedNotificationId), Format(NotificationId), UnexpectedNotificationIdTxt);
         Assert.AreEqual(
-          RoleCenterNotificationMgt.TrialExtendedSuspendedNotificationMessage(), Notification.Message,
+          RoleCenterNotificationMgt.TrialExtendedSuspendedNotificationMessage, Notification.Message,
           UnexpectedNotificationMsgTxt);
         RoleCenterNotificationMgt.TrialExtendedNotificationSubscribeAction(Notification);
         RoleCenterNotificationMgt.TrialExtendedNotificationPartnerAction(Notification);
@@ -419,9 +500,9 @@ codeunit 138073 "O365 Role Center Notifications"
         Evaluate(NotificationId, Format(Notification.Id));
         RemainingDays := RoleCenterNotificationMgt.GetLicenseRemainingDays();
         Assert.AreEqual(
-          Format(RoleCenterNotificationMgt.GetPaidWarningNotificationId()), Format(NotificationId), UnexpectedNotificationIdTxt);
+          Format(RoleCenterNotificationMgt.GetPaidWarningNotificationId), Format(NotificationId), UnexpectedNotificationIdTxt);
         Assert.AreEqual(
-          StrSubstNo(RoleCenterNotificationMgt.PaidWarningNotificationMessage(), RemainingDays), Notification.Message,
+          StrSubstNo(RoleCenterNotificationMgt.PaidWarningNotificationMessage, RemainingDays), Notification.Message,
           UnexpectedNotificationMsgTxt);
         RoleCenterNotificationMgt.PaidWarningNotificationAction(Notification);
     end;
@@ -436,9 +517,9 @@ codeunit 138073 "O365 Role Center Notifications"
         Evaluate(NotificationId, Format(Notification.Id));
         RemainingDays := RoleCenterNotificationMgt.GetLicenseRemainingDays();
         Assert.AreEqual(
-          Format(RoleCenterNotificationMgt.GetPaidSuspendedNotificationId()), Format(NotificationId), UnexpectedNotificationIdTxt);
+          Format(RoleCenterNotificationMgt.GetPaidSuspendedNotificationId), Format(NotificationId), UnexpectedNotificationIdTxt);
         Assert.AreEqual(
-          StrSubstNo(RoleCenterNotificationMgt.PaidSuspendedNotificationMessage(), RemainingDays), Notification.Message,
+          StrSubstNo(RoleCenterNotificationMgt.PaidSuspendedNotificationMessage, RemainingDays), Notification.Message,
           UnexpectedNotificationMsgTxt);
         RoleCenterNotificationMgt.PaidSuspendedNotificationAction(Notification);
     end;
@@ -448,7 +529,7 @@ codeunit 138073 "O365 Role Center Notifications"
     procedure SendSandboxNotificationHandler(var Notification: Notification): Boolean
     begin
         Assert.AreEqual(
-          RoleCenterNotificationMgt.SandboxNotificationMessage(), Notification.Message, UnexpectedNotificationMsgTxt);
+          RoleCenterNotificationMgt.SandboxNotificationMessage, Notification.Message, UnexpectedNotificationMsgTxt);
     end;
 
     [SendNotificationHandler]
@@ -457,9 +538,9 @@ codeunit 138073 "O365 Role Center Notifications"
     var
         RoleCenterNotificationMgt: Codeunit "Role Center Notification Mgt.";
     begin
-        LibraryVariableStorage.Enqueue(LibraryVariableStorage.DequeueInteger() + 1);
+        LibraryVariableStorage.Enqueue(LibraryVariableStorage.DequeueInteger + 1);
         Assert.AreEqual(
-          RoleCenterNotificationMgt.SandboxNotificationMessage(), Notification.Message, UnexpectedNotificationMsgTxt);
+          RoleCenterNotificationMgt.SandboxNotificationMessage, Notification.Message, UnexpectedNotificationMsgTxt);
         // Simulate click on "Don't show this again"
         RoleCenterNotificationMgt.DisableSandboxNotification(Notification);
     end;
@@ -469,7 +550,7 @@ codeunit 138073 "O365 Role Center Notifications"
     procedure SendChangeToPremiumExpNotificationHandler(var Notification: Notification): Boolean
     begin
         Assert.AreEqual(
-          RoleCenterNotificationMgt.ChangeToPremiumExpNotificationMessage(), Notification.Message, UnexpectedNotificationMsgTxt);
+          RoleCenterNotificationMgt.ChangeToPremiumExpNotificationMessage, Notification.Message, UnexpectedNotificationMsgTxt);
     end;
 
     [SendNotificationHandler]
@@ -478,9 +559,9 @@ codeunit 138073 "O365 Role Center Notifications"
     var
         RoleCenterNotificationMgt: Codeunit "Role Center Notification Mgt.";
     begin
-        LibraryVariableStorage.Enqueue(LibraryVariableStorage.DequeueInteger() + 1);
+        LibraryVariableStorage.Enqueue(LibraryVariableStorage.DequeueInteger + 1);
         Assert.AreEqual(
-          RoleCenterNotificationMgt.ChangeToPremiumExpNotificationMessage(), Notification.Message, UnexpectedNotificationMsgTxt);
+          RoleCenterNotificationMgt.ChangeToPremiumExpNotificationMessage, Notification.Message, UnexpectedNotificationMsgTxt);
         // Simulate click on "Don't show this again"
         RoleCenterNotificationMgt.DisableChangeToPremiumExpNotification(Notification);
     end;

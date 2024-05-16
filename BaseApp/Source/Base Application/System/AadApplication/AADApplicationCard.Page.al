@@ -97,7 +97,7 @@ page 9861 "AAD Application Card"
                     ShowCaption = false;
                     AssistEdit = false;
                     Editable = false;
-                    Enabled = not EditableByNotEnabled;
+                    Enabled = NOT EditableByNotEnabled;
                     trigger OnDrillDown()
                     begin
                         DrilldownCode();
@@ -230,13 +230,13 @@ page 9861 "AAD Application Card"
         if CurrPage.Editable and (Rec.State = Rec.State::Enabled) then
             ShowEnableWarning := EnabledWarningTok;
         UserName := '';
-        if User.Get(Rec."User Id") then
+        If User.Get(Rec."User Id") then
             UserName := USer."User Name";
     end;
 
     local procedure DrilldownCode()
     begin
-        if Confirm(DisableEnableQst, true) then begin
+        IF Confirm(DisableEnableQst, true) then begin
             Rec.Validate(Rec.State, Rec.State::Disabled);
             UpdateControl();
             CurrPage.Update();

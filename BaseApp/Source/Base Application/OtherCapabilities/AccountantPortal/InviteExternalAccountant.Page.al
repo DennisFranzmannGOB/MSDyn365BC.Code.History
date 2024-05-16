@@ -131,7 +131,7 @@ page 9033 "Invite External Accountant"
                     Enabled = false;
                     ShowCaption = false;
                     Style = Strong;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
                 }
                 field(InviteProgress; InviteProgress)
                 {
@@ -416,6 +416,7 @@ page 9033 "Invite External Accountant"
         EmailAccount: Record "Email Account";
         Email: Codeunit Email;
         EmailMessage: Codeunit "Email Message";
+        MailManagement: Codeunit "Mail Management";
         EmailScenario: Codeunit "Email Scenario";
         SendToList: List of [Text];
     begin

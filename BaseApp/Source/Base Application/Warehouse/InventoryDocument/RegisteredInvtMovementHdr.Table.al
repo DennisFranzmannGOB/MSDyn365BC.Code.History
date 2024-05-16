@@ -25,7 +25,6 @@ table 7344 "Registered Invt. Movement Hdr."
 {
     Caption = 'Registered Invt. Movement Hdr.';
     LookupPageID = "Registered Invt. Movement List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -65,7 +64,7 @@ table 7344 "Registered Invt. Movement Hdr."
         }
         field(10; Comment; Boolean)
         {
-            CalcFormula = exist("Warehouse Comment Line" where("Table Name" = const("Registered Invt. Movement"),
+            CalcFormula = Exist("Warehouse Comment Line" where("Table Name" = const("Registered Invt. Movement"),
                                                                 Type = const(" "),
                                                                 "No." = field("No.")));
             Caption = 'Comment';

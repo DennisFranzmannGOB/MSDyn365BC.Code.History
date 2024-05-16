@@ -137,9 +137,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total quantity of G/L account entries, items, and/or resources in the sales document. If the amount is rounded, because the Invoice Rounding check box is selected in the Sales & Receivables Setup window, this field will contain the quantity of items in the sales document plus one.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[1].""Units per Parcel"""; TotalSalesLine[1]."Units per Parcel")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Parcels';
@@ -148,9 +146,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total number of parcels in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[1].""Net Weight"""; TotalSalesLine[1]."Net Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Net Weight';
@@ -159,9 +155,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total net weight of the items in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[1].""Gross Weight"""; TotalSalesLine[1]."Gross Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Gross Weight';
@@ -170,9 +164,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total gross weight of the items in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[1].""Unit Volume"""; TotalSalesLine[1]."Unit Volume")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Volume';
@@ -181,9 +173,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total volume of the items in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLineLCY[1].""Unit Cost (LCY)"""; TotalSalesLineLCY[1]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
@@ -201,9 +191,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total cost, in LCY, of the items in the sales document, adjusted for any changes in the original costs of these items. If this field contains zero, it means that there were no entries to calculate, possibly because of date compression or because the adjustment batch job has not yet been run.';
                 }
-#pragma warning disable AA0100
                 field("TotalAdjCostLCY[1] - TotalSalesLineLCY[1].""Unit Cost (LCY)"""; TotalAdjCostLCY[1] - TotalSalesLineLCY[1]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
@@ -212,7 +200,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the difference between the original cost and the total adjusted cost of the items in the sales document.';
 
-                    trigger OnLookup(var Text: Text): Boolean
+                    trigger OnDrillDown()
                     begin
                         Rec.LookupAdjmtValueEntries(0);
                     end;
@@ -349,9 +337,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total quantity of G/L account entries, items, and/or resources in the sales document. If the amount is rounded, because the Invoice Rounding check box is selected in the Sales & Receivables Setup window, this field will contain the quantity of items in the sales document plus one.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[2].""Units per Parcel"""; TotalSalesLine[2]."Units per Parcel")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Parcels';
@@ -360,9 +346,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total number of parcels in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[2].""Net Weight"""; TotalSalesLine[2]."Net Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Net Weight';
@@ -371,9 +355,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total net weight of the items in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[2].""Gross Weight"""; TotalSalesLine[2]."Gross Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Gross Weight';
@@ -382,9 +364,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total gross weight of the items in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[2].""Unit Volume"""; TotalSalesLine[2]."Unit Volume")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Volume';
@@ -393,9 +373,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total volume of the items in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLineLCY[2].""Unit Cost (LCY)"""; TotalSalesLineLCY[2]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
@@ -413,9 +391,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total cost, in LCY, of the items in the sales document, adjusted for any changes in the original costs of these items. If this field contains zero, it means that there were no entries to calculate, possibly because of date compression or because the adjustment batch job has not yet been run.';
                 }
-#pragma warning disable AA0100
                 field("TotalAdjCostLCY[2] - TotalSalesLineLCY[2].""Unit Cost (LCY)"""; TotalAdjCostLCY[2] - TotalSalesLineLCY[2]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
@@ -424,7 +400,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the difference between the original cost and the total adjusted cost of the items in the sales document.';
 
-                    trigger OnLookup(var Text: Text): Boolean
+                    trigger OnDrillDown()
                     begin
                         Rec.LookupAdjmtValueEntries(1);
                     end;
@@ -453,9 +429,7 @@ page 402 "Sales Order Statistics"
             group(Shipping)
             {
                 Caption = 'Shipping';
-#pragma warning disable AA0100
                 field("TotalSalesLine[3].""Line Amount"""; TotalSalesLine[3]."Line Amount")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatExpression = Rec."Currency Code";
@@ -463,9 +437,7 @@ page 402 "Sales Order Statistics"
                     CaptionClass = GetCaptionClass(Text002, false);
                     Editable = false;
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[3].""Inv. Discount Amount"""; TotalSalesLine[3]."Inv. Discount Amount")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatExpression = Rec."Currency Code";
@@ -506,9 +478,7 @@ page 402 "Sales Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies your total sales turnover in the fiscal year. It is calculated from amounts excluding VAT on all completed and open sales invoices and credit memos.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLineLCY[3].""Unit Cost (LCY)"""; TotalSalesLineLCY[3]."Unit Cost (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
@@ -544,9 +514,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total quantity of G/L account entries, items, and/or resources in the sales document. If the amount is rounded, because the Invoice Rounding check box is selected in the Sales & Receivables Setup window, this field will contain the quantity of items in the sales document plus one.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[3].""Units per Parcel"""; TotalSalesLine[3]."Units per Parcel")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Parcels';
@@ -555,9 +523,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total number of parcels in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[3].""Net Weight"""; TotalSalesLine[3]."Net Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Net Weight';
@@ -566,9 +532,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total net weight of the items in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[3].""Gross Weight"""; TotalSalesLine[3]."Gross Weight")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Gross Weight';
@@ -577,9 +541,7 @@ page 402 "Sales Order Statistics"
                     Importance = Additional;
                     ToolTip = 'Specifies the total gross weight of the items in the sales document.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[3].""Unit Volume"""; TotalSalesLine[3]."Unit Volume")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Volume';
@@ -643,9 +605,7 @@ page 402 "Sales Order Statistics"
                         UpdatePrepmtAmount();
                     end;
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[1].""Prepmt. Amt. Inv."""; TotalSalesLine[1]."Prepmt. Amt. Inv.")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Prepayments;
                     AutoFormatExpression = Rec."Currency Code";
@@ -660,9 +620,7 @@ page 402 "Sales Order Statistics"
                     ExtendedDatatype = Ratio;
                     ToolTip = 'Specifies Invoiced Percentage of Prepayment Amt.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[1].""Prepmt Amt Deducted"""; TotalSalesLine[1]."Prepmt Amt Deducted")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Prepayments;
                     AutoFormatExpression = Rec."Currency Code";
@@ -677,9 +635,7 @@ page 402 "Sales Order Statistics"
                     ExtendedDatatype = Ratio;
                     ToolTip = 'Specifies the deducted percentage of the prepayment amount to deduct.';
                 }
-#pragma warning disable AA0100
                 field("TotalSalesLine[1].""Prepmt Amt to Deduct"""; TotalSalesLine[1]."Prepmt Amt to Deduct")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Prepayments;
                     AutoFormatExpression = Rec."Currency Code";
@@ -703,9 +659,7 @@ page 402 "Sales Order Statistics"
             group(Customer)
             {
                 Caption = 'Customer';
-#pragma warning disable AA0100
                 field("Cust.""Balance (LCY)"""; Cust."Balance (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
@@ -713,9 +667,7 @@ page 402 "Sales Order Statistics"
                     Editable = false;
                     ToolTip = 'Specifies the balance on the customer''s account.';
                 }
-#pragma warning disable AA0100
                 field("Cust.""Credit Limit (LCY)"""; Cust."Credit Limit (LCY)")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     AutoFormatType = 1;
@@ -1018,7 +970,8 @@ page 402 "Sales Order Statistics"
             TotalAmount1[IndexNo] := SaveTotalAmount;
         end;
 
-        TotalSalesLine[IndexNo]."Inv. Discount Amount" := TotalSalesLine[IndexNo]."Line Amount" - TotalAmount1[IndexNo];
+        with TotalSalesLine[IndexNo] do
+            "Inv. Discount Amount" := "Line Amount" - TotalAmount1[IndexNo];
         UpdateInvDiscAmount(IndexNo);
     end;
 
@@ -1068,36 +1021,37 @@ page 402 "Sales Order Statistics"
             else
                 TotalSalesLine[1]."Inv. Discount Amount" := TotalSalesLine[2]."Inv. Discount Amount";
 
-        for i := 1 to MaxIndexNo do begin
-            if (i = 1) or not PartialInvoicing then
-                if IndexNo[i] = 1 then
-                    TempVATAmountLine1.SetInvoiceDiscountAmount(
-                      TotalSalesLine[IndexNo[i]]."Inv. Discount Amount", TotalSalesLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %")
-                else
-                    TempVATAmountLine2.SetInvoiceDiscountAmount(
-                      TotalSalesLine[IndexNo[i]]."Inv. Discount Amount", TotalSalesLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %");
+        for i := 1 to MaxIndexNo do
+            with TotalSalesLine[IndexNo[i]] do begin
+                if (i = 1) or not PartialInvoicing then
+                    if IndexNo[i] = 1 then
+                        TempVATAmountLine1.SetInvoiceDiscountAmount(
+                          "Inv. Discount Amount", "Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %")
+                    else
+                        TempVATAmountLine2.SetInvoiceDiscountAmount(
+                          "Inv. Discount Amount", "Currency Code", Rec."Prices Including VAT", Rec."VAT Base Discount %");
 
-            if (i = 2) and PartialInvoicing then
-                if IndexNo[i] = 1 then begin
-                    InvDiscBaseAmount := TempVATAmountLine2.GetTotalInvDiscBaseAmount(false, TotalSalesLine[IndexNo[i]]."Currency Code");
-                    if InvDiscBaseAmount = 0 then
-                        TempVATAmountLine1.SetInvoiceDiscountPercent(
-                          0, TotalSalesLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
-                    else
-                        TempVATAmountLine1.SetInvoiceDiscountPercent(
-                          100 * TempVATAmountLine2.GetTotalInvDiscAmount() / InvDiscBaseAmount,
-                          TotalSalesLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
-                end else begin
-                    InvDiscBaseAmount := TempVATAmountLine1.GetTotalInvDiscBaseAmount(false, TotalSalesLine[IndexNo[i]]."Currency Code");
-                    if InvDiscBaseAmount = 0 then
-                        TempVATAmountLine2.SetInvoiceDiscountPercent(
-                          0, TotalSalesLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
-                    else
-                        TempVATAmountLine2.SetInvoiceDiscountPercent(
-                          100 * TempVATAmountLine1.GetTotalInvDiscAmount() / InvDiscBaseAmount,
-                          TotalSalesLine[IndexNo[i]]."Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
-                end;
-        end;
+                if (i = 2) and PartialInvoicing then
+                    if IndexNo[i] = 1 then begin
+                        InvDiscBaseAmount := TempVATAmountLine2.GetTotalInvDiscBaseAmount(false, "Currency Code");
+                        if InvDiscBaseAmount = 0 then
+                            TempVATAmountLine1.SetInvoiceDiscountPercent(
+                              0, "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
+                        else
+                            TempVATAmountLine1.SetInvoiceDiscountPercent(
+                              100 * TempVATAmountLine2.GetTotalInvDiscAmount() / InvDiscBaseAmount,
+                              "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
+                    end else begin
+                        InvDiscBaseAmount := TempVATAmountLine1.GetTotalInvDiscBaseAmount(false, "Currency Code");
+                        if InvDiscBaseAmount = 0 then
+                            TempVATAmountLine2.SetInvoiceDiscountPercent(
+                              0, "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %")
+                        else
+                            TempVATAmountLine2.SetInvoiceDiscountPercent(
+                              100 * TempVATAmountLine1.GetTotalInvDiscAmount() / InvDiscBaseAmount,
+                              "Currency Code", Rec."Prices Including VAT", false, Rec."VAT Base Discount %");
+                    end;
+            end;
 
         UpdateHeaderInfo(1, TempVATAmountLine1);
         UpdateHeaderInfo(2, TempVATAmountLine2);
@@ -1190,10 +1144,12 @@ page 402 "Sales Order Statistics"
 
     local procedure TotalAmount21OnAfterValidate()
     begin
-        if Rec."Prices Including VAT" then
-            TotalSalesLine[1]."Inv. Discount Amount" := TotalSalesLine[1]."Line Amount" - TotalSalesLine[1]."Amount Including VAT"
-        else
-            TotalSalesLine[1]."Inv. Discount Amount" := TotalSalesLine[1]."Line Amount" - TotalSalesLine[1].Amount;
+        with TotalSalesLine[1] do begin
+            if Rec."Prices Including VAT" then
+                "Inv. Discount Amount" := "Line Amount" - "Amount Including VAT"
+            else
+                "Inv. Discount Amount" := "Line Amount" - Amount;
+        end;
         UpdateInvDiscAmount(1);
     end;
 

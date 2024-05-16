@@ -23,7 +23,6 @@ table 5105 "Customer Template"
     ObsoleteReason = 'Deprecate mini and customer templates. Use table "Customer Templ." instead and for extensions.';
     ObsoleteState = Removed;
     ObsoleteTag = '23.0';
-    DataClassification = CustomerContent;
 
     fields
     {

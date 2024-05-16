@@ -3,7 +3,6 @@
 using Microsoft.Finance.Dimension;
 using Microsoft.Finance.GeneralLedger.Setup;
 using Microsoft.Foundation.Navigate;
-using Microsoft.Inventory.Costing;
 using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Tracking;
 using Microsoft.Manufacturing.Document;
@@ -130,7 +129,7 @@ page 38 "Item Ledger Entries"
                 {
                     ApplicationArea = ItemTracking;
                     ToolTip = 'Specifies a package number if the posted item carries such a number.';
-                    Visible = false;
+                    Visible = PackageTrackingVisible;
 
                     trigger OnDrillDown()
                     var
@@ -274,7 +273,7 @@ page 38 "Item Ledger Entries"
                 {
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies whether there is one or more applied entries, which need to be adjusted.';
-                    Visible = AdjustCostActionsVisible;
+                    Visible = false;
                 }
                 field("Order Type"; Rec."Order Type")
                 {
@@ -307,13 +306,13 @@ page 38 "Item Ledger Entries"
                 field("Job No."; Rec."Job No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project.';
+                    ToolTip = 'Specifies the number of the related job.';
                     Visible = false;
                 }
                 field("Job Task No."; Rec."Job Task No.")
                 {
                     ApplicationArea = Jobs;
-                    ToolTip = 'Specifies the number of the related project task.';
+                    ToolTip = 'Specifies the number of the related job task.';
                     Visible = false;
                 }
                 field("Dimension Set ID"; Rec."Dimension Set ID")
@@ -484,18 +483,6 @@ page 38 "Item Ledger Entries"
                         ApplicationWorksheet.Run();
                     end;
                 }
-                action("Mark For Adjustment")
-                {
-                    Caption = 'Mark for adjustment';
-                    Image = SelectEntries;
-                    Visible = AdjustCostActionsVisible;
-                    ToolTip = 'Mark that it is necessary to run the cost adjustment for the selected item ledger entries.';
-
-                    trigger OnAction()
-                    begin
-                        SetAppliedEntriesToAdjust();
-                    end;
-                }
             }
         }
         area(processing)
@@ -570,9 +557,6 @@ page 38 "Item Ledger Entries"
                 actionref("Application Worksheet_Promoted"; "Application Worksheet")
                 {
                 }
-                actionref("Mark For Adjustment_Promoted"; "Mark For Adjustment")
-                {
-                }
             }
             group(Category_Report)
             {
@@ -588,6 +572,7 @@ page 38 "Item Ledger Entries"
         if (Rec.GetFilters() <> '') and not Rec.Find() then
             if Rec.FindFirst() then;
 
+        SetPackageTrackingVisibility();
         SetDimVisibility();
     end;
 
@@ -595,8 +580,7 @@ page 38 "Item Ledger Entries"
         CalcRunningInvBalance: Codeunit "Calc. Running Inv. Balance";
         Navigate: Page Navigate;
         DimensionSetIDFilter: Page "Dimension Set ID Filter";
-        AdjustCostActionsVisible: Boolean;
-        AppliedEntriesMarkedToAdjustMsg: Label 'The applied entries have been marked to be adjusted. You can run the cost adjustment from the Adjust Cost - Item Entries batch job.';
+        PackageTrackingVisible: Boolean;
 
     protected var
         Dim1Visible: Boolean;
@@ -709,19 +693,11 @@ page 38 "Item Ledger Entries"
         exit(StrSubstNo('%1 %2 %3', SourceTableName, SourceFilter, Description));
     end;
 
-    local procedure SetAppliedEntriesToAdjust()
+    local procedure SetPackageTrackingVisibility()
     var
-        ItemLedgerEntry: Record "Item Ledger Entry";
-        ItemLedgerEntryEdit: Codeunit "Item Ledger Entry-Edit";
+        PackageMgt: Codeunit "Package Management";
     begin
-        CurrPage.SetSelectionFilter(ItemLedgerEntry);
-        ItemLedgerEntryEdit.SetAppliedEntriesToAdjust(ItemLedgerEntry);
-        Message(AppliedEntriesMarkedToAdjustMsg);
-    end;
-
-    procedure ShowCostAdjustmentActions()
-    begin
-        AdjustCostActionsVisible := true;
+        PackageTrackingVisible := PackageMgt.IsEnabled();
     end;
 
     [IntegrationEvent(false, false)]

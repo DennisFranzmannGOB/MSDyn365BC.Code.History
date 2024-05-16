@@ -1,4 +1,4 @@
-namespace System.Security.User;
+﻿namespace System.Security.User;
 
 using Microsoft.FixedAssets.Journal;
 using Microsoft.Inventory.Item;
@@ -233,14 +233,6 @@ page 9800 Users
                     ObsoleteTag = '22.0';
                 }
 #endif
-                action("User Details")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'User Identifier Overview';
-                    RunObject = page "User Details";
-                    Image = Users;
-                    ToolTip = 'View the list of users with additional details.';
-                }
                 action("Security Groups")
                 {
                     ApplicationArea = Basic, Suite;
@@ -462,8 +454,15 @@ page 9800 Users
                 AboutText = 'When licenses or user accounts change in the Microsoft 365 admin center, you must sync the changes back to this list.';
 
                 trigger OnAction()
+                var
+                    UserCountBeforeUpdate: Integer;
                 begin
+                    UserCountBeforeUpdate := Rec.Count();
+
                     Page.RunModal(Page::"Azure AD User Update Wizard");
+
+                    if Rec.Count() > UserCountBeforeUpdate then
+                        CurrPage."Inherited Permission Sets".Page.Refresh(); // "User Security Groups" part is updated as part of this refresh as well
                 end;
             }
             action(Email)
@@ -511,9 +510,6 @@ page 9800 Users
             {
                 Caption = 'Navigate', Comment = 'Generated from the PromotedActionCategories property index 3.';
 
-                actionref("User Details_Promoted"; "User Details")
-                {
-                }
                 actionref("Security Groups_Promoted"; "Security Groups")
                 {
                 }
@@ -562,35 +558,9 @@ page 9800 Users
         view(OnlyEnabled)
         {
             Caption = 'Enabled';
-            Filters = where(State = const(Enabled));
+            Filters = where(State = Const(Enabled));
         }
     }
-
-    var
-        IdentityManagement: Codeunit "Identity Management";
-        UserCard: Page "User Card";
-#if not CLEAN23
-        BasicAuthUsedNotification: Notification;
-#endif
-        WindowsUserName: Text[208];
-        Text001Err: Label 'The account %1 is not a valid Windows account.', Comment = '%1=user name';
-        Text002Err: Label 'The account %1 already exists.', Comment = '%1=user name';
-        Text003Err: Label 'The account %1 is not allowed.', Comment = '%1=user name';
-        Text004Err: Label '%1 cannot be empty.', Comment = '%1=user name';
-        CreateUserInSaaSErr: Label 'Creating users is not allowed in the online environment.';
-        DeleteUserInSaaSErr: Label 'Deleting users is not allowed in the online environment.';
-        MissingUserSettingsMsg: Label 'Some user settings, such as language, region, or time zone, weren''t specified when %1 was created, so default values were assigned. You can change them if needed.', Comment = '%1=user name';
-        NoUserExists: Boolean;
-        CreateQst: Label 'Do you want to create %1 as super user?', Comment = '%1=user name, e.g. europe\myaccountname';
-        CanSendEmail: Boolean;
-        RestoreUserGroupsToDefaultQst: Label 'Do you want to restore the default permissions for user %1?', Comment = 'Do you want to restore the default permissions for user Annie?';
-        CanManageUsersOnTenant: Boolean;
-        HasSuperForAllCompanies: Boolean;
-        IsSaaS: Boolean;
-        IsOwnUser: Boolean;
-#if not CLEAN22
-        LegacyUserGroupsVisible: Boolean;
-#endif
 
     trigger OnAfterGetCurrRecord()
     var
@@ -644,11 +614,12 @@ page 9800 Users
 #if not CLEAN23
         MyNotification: Record "My Notifications";
 #endif
+        SecurityGroupMemberBuffer: Record "Security Group Member Buffer";
         UserSelection: Codeunit "User Selection";
 #if not CLEAN23
         UserManagement: Codeunit "User Management";
-        EnvironmentInfo: Codeunit "Environment Information";
 #endif
+        EnvironmentInfo: Codeunit "Environment Information";
 #if not CLEAN22
         LegacyUserGroups: Codeunit "Legacy User Groups";
 #endif
@@ -662,6 +633,10 @@ page 9800 Users
         NoUserExists := Rec.IsEmpty();
         UserSelection.HideExternalUsers(Rec);
 
+        // Set "User Security Groups" to refresh as part of "Inherited Permission Sets" refresh (to avoid fetching security group memberships twice).
+        CurrPage."User Security Groups".Page.GetSourceRecord(SecurityGroupMemberBuffer);
+        CurrPage."Inherited Permission Sets".Page.SetRecordToRefresh(SecurityGroupMemberBuffer);
+
 #if not CLEAN23
         if UserWithWebServiceKeyExist() then begin
             Usermanagement.BasicAuthDepricationNotificationDefault(false);
@@ -672,6 +647,30 @@ page 9800 Users
         end;
 #endif
     end;
+
+    var
+        IdentityManagement: Codeunit "Identity Management";
+        UserCard: Page "User Card";
+        BasicAuthUsedNotification: Notification;
+        WindowsUserName: Text[208];
+        Text001Err: Label 'The account %1 is not a valid Windows account.', Comment = '%1=user name';
+        Text002Err: Label 'The account %1 already exists.', Comment = '%1=user name';
+        Text003Err: Label 'The account %1 is not allowed.', Comment = '%1=user name';
+        Text004Err: Label '%1 cannot be empty.', Comment = '%1=user name';
+        CreateUserInSaaSErr: Label 'Creating users is not allowed in the online environment.';
+        DeleteUserInSaaSErr: Label 'Deleting users is not allowed in the online environment.';
+        MissingUserSettingsMsg: Label 'Some user settings, such as language, region, or time zone, weren''t specified when %1 was created, so default values were assigned. You can change them if needed.', Comment = '%1=user name';
+        NoUserExists: Boolean;
+        CreateQst: Label 'Do you want to create %1 as super user?', Comment = '%1=user name, e.g. europe\myaccountname';
+        CanSendEmail: Boolean;
+        RestoreUserGroupsToDefaultQst: Label 'Do you want to restore the default permissions for user %1?', Comment = 'Do you want to restore the default permissions for user Annie?';
+        CanManageUsersOnTenant: Boolean;
+        HasSuperForAllCompanies: Boolean;
+        IsSaaS: Boolean;
+        IsOwnUser: Boolean;
+#if not CLEAN22
+        LegacyUserGroupsVisible: Boolean;
+#endif
 
     local procedure ValidateSid()
     var
@@ -717,7 +716,7 @@ page 9800 Users
         UserWithWebServiceKeyFound: Boolean;
     begin
         if User.Count > MaxNumberOfUsersToScanWebServcieAccessKey() then
-            exit(false);
+            Exit(false);
         UserWithWebServiceKeyFound := false;
         if User.FindSet() then
             repeat

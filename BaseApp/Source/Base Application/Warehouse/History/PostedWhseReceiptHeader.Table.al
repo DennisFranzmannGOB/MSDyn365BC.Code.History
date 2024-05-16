@@ -12,7 +12,6 @@ table 7318 "Posted Whse. Receipt Header"
 {
     Caption = 'Posted Whse. Receipt Header';
     LookupPageID = "Posted Whse. Receipt List";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -62,7 +61,7 @@ table 7318 "Posted Whse. Receipt Header"
         }
         field(11; Comment; Boolean)
         {
-            CalcFormula = exist("Warehouse Comment Line" where("Table Name" = const("Posted Whse. Receipt"),
+            CalcFormula = Exist("Warehouse Comment Line" where("Table Name" = const("Posted Whse. Receipt"),
                                                                 Type = const(" "),
                                                                 "No." = field("No.")));
             Caption = 'Comment';
@@ -121,10 +120,6 @@ table 7318 "Posted Whse. Receipt Header"
 
     trigger OnInsert()
     var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesMgt: Codeunit NoSeriesManagement;
-#endif
         IsHandled: Boolean;
     begin
         WhseSetup.Get();
@@ -133,23 +128,14 @@ table 7318 "Posted Whse. Receipt Header"
             OnInsertOnBeforeTestWhseReceiptNos(WhseSetup, IsHandled);
             if not IsHandled then
                 WhseSetup.TestField("Whse. Receipt Nos.");
-#if not CLEAN24
-            NoSeriesMgt.RaiseObsoleteOnBeforeInitSeries(WhseSetup."Posted Whse. Receipt Nos.", xRec."No. Series", "Posting Date", "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-#endif
-                "No. Series" := WhseSetup."Posted Whse. Receipt Nos.";
-                if NoSeries.AreRelated("No. Series", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series";
-                "No." := NoSeries.GetNextNo("No. Series", "Posting Date");
-#if not CLEAN24
-                NoSeriesMgt.RaiseObsoleteOnAfterInitSeries("No. Series", WhseSetup."Posted Whse. Receipt Nos.", "Posting Date", "No.");
-            end;
-#endif
+            NoSeriesMgt.InitSeries(
+              WhseSetup."Posted Whse. Receipt Nos.", xRec."No. Series", "Posting Date", "No.", "No. Series");
         end;
     end;
 
     var
         WhseSetup: Record "Warehouse Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
 
     procedure GetHeaderStatus(LineNo: Integer): Integer
     var
@@ -159,24 +145,26 @@ table 7318 "Posted Whse. Receipt Header"
     begin
         First := true;
         PostedWhseRcptLine2.SetRange("No.", "No.");
-        if LineNo <> 0 then
-            PostedWhseRcptLine2.SetFilter("Line No.", '<>%1', LineNo);
-        if PostedWhseRcptLine2.Find('-') then
-            repeat
-                case OrderStatus of
-                    OrderStatus::" ":
-                        if (PostedWhseRcptLine2.Status = PostedWhseRcptLine2.Status::"Completely Put Away") and
-                           (not First)
-                        then
-                            OrderStatus := OrderStatus::"Partially Put Away"
-                        else
-                            OrderStatus := PostedWhseRcptLine2.Status;
-                    OrderStatus::"Completely Put Away":
-                        if PostedWhseRcptLine2.Status <> PostedWhseRcptLine2.Status::"Completely Put Away" then
-                            OrderStatus := OrderStatus::"Partially Put Away";
-                end;
-                First := false;
-            until PostedWhseRcptLine2.Next() = 0;
+        with PostedWhseRcptLine2 do begin
+            if LineNo <> 0 then
+                SetFilter("Line No.", '<>%1', LineNo);
+            if Find('-') then
+                repeat
+                    case OrderStatus of
+                        OrderStatus::" ":
+                            if (Status = Status::"Completely Put Away") and
+                               (not First)
+                            then
+                                OrderStatus := OrderStatus::"Partially Put Away"
+                            else
+                                OrderStatus := Status;
+                        OrderStatus::"Completely Put Away":
+                            if Status <> Status::"Completely Put Away" then
+                                OrderStatus := OrderStatus::"Partially Put Away";
+                    end;
+                    First := false;
+                until Next() = 0;
+        end;
         exit(OrderStatus);
     end;
 

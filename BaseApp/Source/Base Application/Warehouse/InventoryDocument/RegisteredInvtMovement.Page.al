@@ -50,9 +50,7 @@ page 7384 "Registered Invt. Movement"
                     Editable = false;
                     ToolTip = 'Specifies the same as the field with the same name in the Registered Whse. Activity Hdr. table.';
                 }
-#pragma warning disable AA0100
                 field("WMSMgt.GetDestinationName(""Destination Type"",""Destination No."")"; WMSMgt.GetDestinationEntityName(Rec."Destination Type", Rec."Destination No."))
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Warehouse;
                     CaptionClass = Format(WMSMgt.GetCaptionClass(Rec."Destination Type", Rec."Source Document", 1));

@@ -75,10 +75,6 @@ page 30014 "APIV2 - Accounts"
                 {
                     Caption = 'Consolidation Credit Account';
                 }
-                field(excludeFromConsolidation; Rec."Exclude From Consolidation")
-                {
-                    Caption = 'Exclude from Consolidation';
-                }
                 field(lastModifiedDateTime; Rec.SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';

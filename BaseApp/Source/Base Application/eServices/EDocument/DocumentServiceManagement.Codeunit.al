@@ -153,7 +153,7 @@ codeunit 9510 "Document Service Management"
 
         SourceFile.CreateInStream(SourceStream);
 
-        exit(SaveStream(SourceStream, TargetName, "Doc. Sharing Conflict Behavior".FromInteger(ConflictBehavior.AsInteger())));
+        exit(SaveStream(SourceStream, TargetName, ConflictBehavior.AsInteger()));
     end;
 #endif
 
@@ -214,14 +214,16 @@ codeunit 9510 "Document Service Management"
         if not DocumentServiceScenario.IsEmpty() then
             exit(false);
 
-        if DocumentServiceRec.Count > 1 then
-            Error(MultipleConfigsErr);
+        with DocumentServiceRec do begin
+            if Count > 1 then
+                Error(MultipleConfigsErr);
 
-        if not DocumentServiceRec.FindFirst() then
-            exit(false);
+            if not FindFirst() then
+                exit(false);
 
-        if (DocumentServiceRec.Location = '') or (DocumentServiceRec.Folder = '') then
-            exit(false);
+            if (Location = '') or (Folder = '') then
+                exit(false);
+        end;
 
         exit(true);
     end;
@@ -291,14 +293,15 @@ codeunit 9510 "Document Service Management"
         if TargetURI = '' then
             exit(false);
 
-        if DocumentServiceRec.FindLast() then
-            if DocumentServiceRec.Location <> '' then begin
-                SetDocumentService();
-                SetProperties(true, DocumentServiceRec);
-                IsValid := DocumentService.IsValidUri(TargetURI);
-                CheckError();
-                exit(IsValid);
-            end;
+        with DocumentServiceRec do
+            if FindLast() then
+                if Location <> '' then begin
+                    SetDocumentService();
+                    SetProperties(true, DocumentServiceRec);
+                    IsValid := DocumentService.IsValidUri(TargetURI);
+                    CheckError();
+                    exit(IsValid);
+                end;
 
         exit(false);
     end;
@@ -503,24 +506,26 @@ codeunit 9510 "Document Service Management"
         AccessToken: Text;
     begin
         OnBeforeSetProperties(DocumentServiceRec);
-        // The Document Service will throw an exception if the property is not known to the service type provider.
-        DocumentService.Properties.SetProperty(DocumentServiceRec.FieldName(Description), DocumentServiceRec.Description);
-        DocumentService.Properties.SetProperty(DocumentServiceRec.FieldName(Location), DocumentServiceRec.Location);
-        DocumentService.Properties.SetProperty(DocumentServiceRec.FieldName("Document Repository"), DocumentServiceRec."Document Repository");
-        DocumentService.Properties.SetProperty(DocumentServiceRec.FieldName(Folder), DocumentServiceRec.Folder);
-        DocumentService.Properties.SetProperty(DocumentServiceRec.FieldName("Authentication Type"), DocumentServiceRec."Authentication Type");
-        DocumentService.Properties.SetProperty(DocumentServiceRec.FieldName("User Name"), DocumentServiceRec."User Name");
+        with DocumentServiceRec do begin
+            // The Document Service will throw an exception if the property is not known to the service type provider.
+            DocumentService.Properties.SetProperty(FieldName(Description), Description);
+            DocumentService.Properties.SetProperty(FieldName(Location), Location);
+            DocumentService.Properties.SetProperty(FieldName("Document Repository"), "Document Repository");
+            DocumentService.Properties.SetProperty(FieldName(Folder), Folder);
+            DocumentService.Properties.SetProperty(FieldName("Authentication Type"), "Authentication Type");
+            DocumentService.Properties.SetProperty(FieldName("User Name"), "User Name");
 
-        if (DocumentServiceRec."Authentication Type" = DocumentServiceRec."Authentication Type"::Legacy) then begin
-            DocumentService.Properties.SetProperty(DocumentServiceRec.FieldName(Password), DocumentServiceRec.Password);
-            DocumentService.Credentials := DocumentServiceHelper.ProvideCredentials();
-        end else begin
-            GetAccessToken(DocumentServiceRec.Location, AccessToken, GetTokenFromCache);
-            DocumentService.Properties.SetProperty('Token', AccessToken);
+            if ("Authentication Type" = "Authentication Type"::Legacy) then begin
+                DocumentService.Properties.SetProperty(FieldName(Password), Password);
+                DocumentService.Credentials := DocumentServiceHelper.ProvideCredentials();
+            end else begin
+                GetAccessToken(Location, AccessToken, GetTokenFromCache);
+                DocumentService.Properties.SetProperty('Token', AccessToken);
+            end;
+
+            if not (DocumentServiceHelper.LastErrorMessage = '') then
+                Error(DocumentServiceHelper.LastErrorMessage);
         end;
-
-        if not (DocumentServiceHelper.LastErrorMessage = '') then
-            Error(DocumentServiceHelper.LastErrorMessage);
     end;
 
     procedure GetMyBusinessCentralFilesLink(): Text

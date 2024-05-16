@@ -11,7 +11,7 @@ using Microsoft.Projects.Resources.Resource;
 
 report 952 "Suggest Job Jnl. Lines"
 {
-    Caption = 'Suggest Project Jnl. Lines';
+    Caption = 'Suggest Job Jnl. Lines';
     ProcessingOnly = true;
 
     dataset
@@ -46,20 +46,20 @@ report 952 "Suggest Job Jnl. Lines"
                         ApplicationArea = Jobs;
                         Caption = 'Resource No. Filter';
                         TableRelation = Resource;
-                        ToolTip = 'Specifies the resource number that the batch job will suggest project lines for.';
+                        ToolTip = 'Specifies the resource number that the batch job will suggest job lines for.';
                     }
                     field(JobNoFilter; JobNoFilter)
                     {
                         ApplicationArea = Jobs;
-                        Caption = 'Project No. Filter';
+                        Caption = 'Job No. Filter';
                         TableRelation = Job;
-                        ToolTip = 'Specifies a filter for the project numbers that will be included in the report.';
+                        ToolTip = 'Specifies a filter for the job numbers that will be included in the report.';
                     }
                     field(JobTaskNoFilter; JobTaskNoFilter)
                     {
                         ApplicationArea = Jobs;
-                        Caption = 'Project Task No. Filter';
-                        ToolTip = 'Specifies a filter for the project task numbers that will be included in the report.';
+                        Caption = 'Job Task No. Filter';
+                        ToolTip = 'Specifies a filter for the job task numbers that will be included in the report.';
 
                         trigger OnLookup(var Text: Text): Boolean
                         var
@@ -89,7 +89,7 @@ report 952 "Suggest Job Jnl. Lines"
 
     trigger OnPostReport()
     var
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         TimeSheetMgt: Codeunit "Time Sheet Management";
         NextDocNo: Code[20];
         LineNo: Integer;
@@ -105,7 +105,7 @@ report 952 "Suggest Job Jnl. Lines"
             if JobJnlBatch."No. Series" = '' then
                 NextDocNo := ''
             else
-                NextDocNo := NoSeries.PeekNextNo(JobJnlBatch."No. Series", TempTimeSheetLine."Time Sheet Starting Date");
+                NextDocNo := NoSeriesMgt.GetNextNo(JobJnlBatch."No. Series", TempTimeSheetLine."Time Sheet Starting Date", false);
 
             JobJnlLine.SetRange("Journal Template Name", JobJnlLine."Journal Template Name");
             JobJnlLine.SetRange("Journal Batch Name", JobJnlLine."Journal Batch Name");
@@ -229,7 +229,7 @@ report 952 "Suggest Job Jnl. Lines"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnOnPostReportOnTempTimeSheetLineEndLoop(var JobJournalLine: Record "Job Journal Line"; var NextDocNo: Code[20]; var LineNo: Integer)
+    local procedure OnOnPostReportOnTempTimeSheetLineEndLoop(var JobJournalLine: Record "Job Journal Line"; var NextDocNo: Code[20]; VAR LineNo: Integer)
     begin
     end;
 }

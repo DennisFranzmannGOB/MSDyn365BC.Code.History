@@ -103,6 +103,7 @@ codeunit 5064 "Email Logging Dispatcher"
         NoLinkAttachmentMessageTxt: Label 'There is no link to the email because it could not be copied from the queue to the storage folder.';
         TextFileExtentionTxt: Label 'TXT', Locked = true;
 
+    [NonDebuggable]
     local procedure RunJob(var JobQueueEntry: Record "Job Queue Entry")
     var
         MarketingSetup: Record "Marketing Setup";
@@ -111,7 +112,7 @@ codeunit 5064 "Email Logging Dispatcher"
         QueueFolder: DotNet IEmailFolder;
         WebCredentials: DotNet WebCredentials;
         OAuthCredentials: DotNet OAuthCredentials;
-        Token: SecretText;
+        Token: Text;
         TenantId: Text;
         Initialized: Boolean;
     begin
@@ -133,7 +134,7 @@ codeunit 5064 "Email Logging Dispatcher"
         TenantId := MarketingSetup.GetExchangeTenantId();
         if TenantId <> '' then begin
             SetupEmailLogging.GetClientCredentialsAccessToken(TenantId, Token);
-            CreateOAuthCredentials(OAuthCredentials, Token);
+            OAuthCredentials := OAuthCredentials.OAuthCredentials(Token);
             Initialized := ExchangeWebServicesServer.Initialize2010WithUserImpersonation(MarketingSetup."Autodiscovery E-Mail Address",
                 MarketingSetup."Exchange Service URL", OAuthCredentials, false);
         end else
@@ -164,13 +165,6 @@ codeunit 5064 "Email Logging Dispatcher"
         RunEMailBatch(MarketingSetup."Email Batch Size", QueueFolder, StorageFolder);
 
         Session.LogMessage('0000BVS', EmailLoggingDispatcherFinishedTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', EmailLoggingTelemetryCategoryTxt);
-    end;
-
-    [NonDebuggable]
-    [Scope('OnPrem')]
-    local procedure CreateOAuthCredentials(var OAuthCredentials: DotNet OAuthCredentials; Token: SecretText)
-    begin
-        OAuthCredentials := OAuthCredentials.OAuthCredentials(Token.Unwrap());
     end;
 
     [Scope('OnPrem')]

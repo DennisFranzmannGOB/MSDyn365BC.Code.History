@@ -19,7 +19,6 @@ table 5911 "Service Mgt. Setup"
 {
     Caption = 'Service Mgt. Setup';
     DrillDownPageID = "Service Mgt. Setup";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -193,10 +192,6 @@ table 5911 "Service Mgt. Setup"
             Caption = 'Default Response Time (Hours)';
             DecimalPlaces = 0 : 5;
             MinValue = 0;
-        }
-        field(46; "Ext. Doc. No. Mandatory"; Boolean)
-        {
-            Caption = 'Ext. Doc. No. Mandatory';
         }
         field(52; "Default Warranty Duration"; DateFormula)
         {

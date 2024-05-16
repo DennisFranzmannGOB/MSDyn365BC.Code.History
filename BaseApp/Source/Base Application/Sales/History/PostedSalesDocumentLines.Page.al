@@ -77,9 +77,7 @@ page 5850 "Posted Sales Document Lines"
                                 x0CurrentMenuTypeOptOnValidate();
                         end;
                     }
-#pragma warning disable AA0100
                     field("STRSUBSTNO('(%1)',""No. of Pstd. Shipments"")"; StrSubstNo('(%1)', Rec."No. of Pstd. Shipments"))
-#pragma warning restore AA0100
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = '&Posted Shipments';
@@ -93,9 +91,7 @@ page 5850 "Posted Sales Document Lines"
                         Editable = false;
                         ToolTip = 'Specifies the lines that represent posted invoices.';
                     }
-#pragma warning disable AA0100
                     field("STRSUBSTNO('(%1)',""No. of Pstd. Return Receipts"")"; StrSubstNo('(%1)', Rec."No. of Pstd. Return Receipts"))
-#pragma warning restore AA0100
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Posted Ret&urn Receipts';

@@ -5,7 +5,6 @@ table 7823 "MS-QBO Modified Field List"
     ObsoleteState = Removed;
     ObsoleteTag = '18.0';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

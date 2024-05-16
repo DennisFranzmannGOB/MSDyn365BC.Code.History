@@ -8,7 +8,6 @@ table 284 "Area"
 {
     Caption = 'Area';
     LookupPageID = Areas;
-    DataClassification = CustomerContent;
 
     fields
     {

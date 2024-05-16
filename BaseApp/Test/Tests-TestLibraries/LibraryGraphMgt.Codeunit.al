@@ -22,7 +22,7 @@ codeunit 130618 "Library - Graph Mgt"
         if WebService.Get(WebService."Object Type"::Page, ServiceNameTxt) then begin
             WebService.Validate("Object ID", PageNumber);
             WebService.Validate(Published, true);
-            WebService.Modify();
+            WebService.Modify
         end else begin
             WebService.Validate("Object Type", WebService."Object Type"::Page);
             WebService.Validate("Object ID", PageNumber);
@@ -197,6 +197,7 @@ codeunit 130618 "Library - Graph Mgt"
     procedure CreateQueryTargetURL(QueryNumber: Integer; ServiceNameTxt: Text): Text
     var
         TargetURL: Text;
+        ReplaceWith: Text;
     begin
         TargetURL := GetODataTargetURL(ObjectType::Query, QueryNumber);
         TargetURL += ServiceNameTxt;
@@ -343,7 +344,7 @@ codeunit 130618 "Library - Graph Mgt"
 
         HttpStatusCode := WebExceptionResponse.StatusCode;
         ResponseHeaders := WebExceptionResponse.Headers;
-        WebExceptionResponse.GetResponseStream().CopyTo(ResponseInStream);
+        WebExceptionResponse.GetResponseStream.CopyTo(ResponseInStream);
         while ResponseInStream.ReadText(TextLine) > 0 do
             WebExceptionResponseText += TextLine;
 
@@ -613,7 +614,7 @@ codeunit 130618 "Library - Graph Mgt"
     begin
         JsonMgt.InitializeCollection(JSON);
         JsonMgt.GetJSONObject(JsonObject);
-        exit(JsonMgt.GetCollectionCount());
+        exit(JsonMgt.GetCollectionCount);
     end;
 
     procedure GetObjectFromCollectionByIndex(JSON: Text; Index: Integer): Text
@@ -681,6 +682,7 @@ codeunit 130618 "Library - Graph Mgt"
         JSONManagement: Codeunit "JSON Management";
         JObject: DotNet JObject;
         IdValue: Text;
+        BlankGuid: Guid;
     begin
         JSONManagement.InitializeObject(JSONTxt);
         JSONManagement.GetJSONObject(JObject);
@@ -769,7 +771,7 @@ codeunit 130618 "Library - Graph Mgt"
         Method: Text;
         Successful: Boolean;
     begin
-        Method := HttpWebRequestMgt.GetMethod();
+        Method := HttpWebRequestMgt.GetMethod;
         Successful := ExecuteWebRequestAndReadTextResponse(HttpWebRequestMgt, ResponseText, ResponseError, HttpStatusCode, ResponseHeaders);
         CheckResponseForErrors(Method, Successful, ResponseError, HttpStatusCode, ExpectedResponseCode);
     end;
@@ -788,7 +790,7 @@ codeunit 130618 "Library - Graph Mgt"
         Method: Text;
         Successful: Boolean;
     begin
-        Method := HttpWebRequestMgt.GetMethod();
+        Method := HttpWebRequestMgt.GetMethod;
         Successful := ExecuteWebRequestAndReadResponse(HttpWebRequestMgt, TempBlob, ResponseError, HttpStatusCode, ResponseHeaders);
         CheckResponseForErrors(Method, Successful, ResponseError, HttpStatusCode, ExpectedResponseCode);
     end;

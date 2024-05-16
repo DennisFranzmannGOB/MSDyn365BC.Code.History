@@ -8,7 +8,7 @@ using Microsoft.Manufacturing.Setup;
 page 5530 "Item Availability by Event"
 {
     Caption = 'Item Availability by Event';
-    DataCaptionExpression = GetPageCaption();
+    DataCaptionExpression = PageCaption();
     DeleteAllowed = false;
     InsertAllowed = false;
     LinksAllowed = false;
@@ -17,7 +17,7 @@ page 5530 "Item Availability by Event"
     SourceTable = "Inventory Page Data";
     SourceTableTemporary = true;
     SourceTableView = sorting("Period Start", "Line No.")
-                      order(ascending);
+                      order(Ascending);
 
     layout
     {
@@ -155,7 +155,7 @@ page 5530 "Item Availability by Event"
                 {
                     ApplicationArea = Suite;
                     Caption = 'Include Blanket Sales Orders';
-                    Editable = not IncludePlanningSuggestions;
+                    Editable = NOT IncludePlanningSuggestions;
                     ToolTip = 'Specifies that anticipated demand from blanket sales orders is included in availability figures.';
 
                     trigger OnValidate()
@@ -536,7 +536,7 @@ page 5530 "Item Availability by Event"
         Item.SetRange("Drop Shipment Filter", false);
         IsHandled := false;
         OnBeforeInitialize(Item, ForecastName, IncludeBlanketOrders, IncludePlanningSuggestions, IsHandled);
-        if not IsHandled then
+        If not IsHandled then
             CalcInventoryPageData.Initialize(Item, ForecastName, IncludeBlanketOrders, 0D, IncludePlanningSuggestions);
         LastUpdateTime := CurrentDateTime;
     end;
@@ -596,16 +596,27 @@ page 5530 "Item Availability by Event"
         exit(Item."No." <> '');
     end;
 
-    local procedure GetPageCaption(): Text[250]
+    local procedure PageCaption(): Text[250]
     begin
         exit(StrSubstNo('%1 %2', Item."No.", Item.Description));
     end;
 
     procedure SetItem(var NewItem: Record Item)
     begin
+        CheckItemRecordIsAccessible(NewItem);
         Item.Copy(NewItem);
         UpdateItemRequestFields(Item);
         OnAfterSetItem(Item);
+    end;
+
+    local procedure CheckItemRecordIsAccessible(var NewItem: Record Item)
+    var
+        CheckItem: Record Item;
+    begin
+        if (NewItem."No." <> '') then begin
+            CheckItem.SetLoadFields("No.");
+            CheckItem.Get(NewItem."No.");
+        end;
     end;
 
     procedure SetForecastName(NewForcastName: Code[10])

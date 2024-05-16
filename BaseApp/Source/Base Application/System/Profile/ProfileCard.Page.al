@@ -6,7 +6,7 @@ using System.Reflection;
 page 9170 "Profile Card"
 {
     Caption = 'Profile (Role)';
-    DataCaptionExpression = Rec.Caption;
+    DataCaptionExpression = Caption;
     PageType = Card;
     SourceTable = "All Profile";
     DelayedInsert = true;

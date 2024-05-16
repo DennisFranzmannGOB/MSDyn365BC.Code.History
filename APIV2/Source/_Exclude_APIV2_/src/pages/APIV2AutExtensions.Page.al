@@ -2,6 +2,7 @@ namespace Microsoft.API.V2;
 
 using System.Apps;
 using System.Environment;
+using System.Environment.Configuration;
 
 page 30002 "APIV2 - Aut. Extensions"
 {

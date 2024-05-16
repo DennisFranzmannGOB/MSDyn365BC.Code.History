@@ -17,14 +17,13 @@ page 5330 "CRM Connection Setup"
 {
     AccessByPermission = TableData "CRM Connection Setup" = IM;
     ApplicationArea = Suite;
-    Caption = 'Dynamics 365 Sales Integration Setup';
+    Caption = 'Microsoft Dynamics 365 Connection Setup';
     DeleteAllowed = false;
     InsertAllowed = false;
     LinksAllowed = false;
     ShowFilter = false;
     SourceTable = "CRM Connection Setup";
     UsageCategory = Administration;
-    AdditionalSearchTerms = 'Dynamics 365 Sales Connection Setup, CRM Connection Setup';
 
     layout
     {
@@ -153,7 +152,6 @@ page 5330 "CRM Connection Setup"
             {
                 Caption = 'Dynamics 365 Sales Settings';
                 Visible = Rec."Is Enabled";
-#if not CLEAN24
                 field("CRM Version"; Rec."CRM Version")
                 {
                     ApplicationArea = Suite;
@@ -161,19 +159,6 @@ page 5330 "CRM Connection Setup"
                     Editable = false;
                     StyleExpr = CRMVersionStyleExpr;
                     ToolTip = 'Specifies the version of Dynamics 365 Sales.';
-                    Visible = false;
-                    ObsoleteState = Pending;
-                    ObsoleteReason = 'Replaced with field Dynamics 365 Sales Version checked';
-                    ObsoleteTag = '24.0';
-                }
-#endif
-                field("CRM Version Status"; CRMVersionStatus)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Dynamics 365 Sales Version checked';
-                    Editable = false;
-                    StyleExpr = CRMVersionStyleExpr;
-                    ToolTip = 'Specifies whether the version of Dynamics 365 Sales that you are connected to is valid.';
 
                     trigger OnDrillDown()
                     begin
@@ -280,7 +265,7 @@ page 5330 "CRM Connection Setup"
             group(AuthTypeDetails)
             {
                 Caption = 'Authentication Type Details';
-                Visible = not SoftwareAsAService;
+                Visible = NOT SoftwareAsAService;
                 field("Authentication Type"; Rec."Authentication Type")
                 {
                     ApplicationArea = Advanced;
@@ -658,8 +643,6 @@ page 5330 "CRM Connection Setup"
     var
         CRMIntegrationManagement: Codeunit "CRM Integration Management";
         FeatureTelemetry: Codeunit "Feature Telemetry";
-        CDSIntegrationImpl: Codeunit "CDS Integration Impl.";
-        MultipleCompaniesDetected: Boolean;
     begin
         FeatureTelemetry.LogUptake('0000H7B', 'Dataverse', Enum::"Feature Uptake Status"::Discovered);
         FeatureTelemetry.LogUptake('0000H7C', 'Dynamics 365 Sales', Enum::"Feature Uptake Status"::Discovered);
@@ -683,10 +666,8 @@ page 5330 "CRM Connection Setup"
             end;
             if Rec."Is Enabled" then begin
                 // just try notifying, because the setup may be broken, and we are in OnOpenPage
-                if TryDetectMultipleCompanies(MultipleCompaniesDetected) then
-                    if MultipleCompaniesDetected then
-                        CDSIntegrationImpl.SendMultipleCompaniesNotification()
-
+                if TryNotifyAboutMultipleCompanies() then
+                    exit;
             end else
                 if Rec."Disable Reason" <> '' then
                     CRMIntegrationManagement.SendConnectionDisabledNotification(Rec."Disable Reason");
@@ -701,13 +682,14 @@ page 5330 "CRM Connection Setup"
     end;
 
     [TryFunction]
-    local procedure TryDetectMultipleCompanies(var MultipleCompaniesDetected: Boolean)
+    local procedure TryNotifyAboutMultipleCompanies()
     var
         CDSIntegrationImpl: Codeunit "CDS Integration Impl.";
     begin
         Rec.RegisterConnection();
         if (Rec."Server Address" <> '') and (Rec."Server Address" <> TestServerAddressTok) then
-            MultipleCompaniesDetected := CDSIntegrationImpl.MultipleCompaniesConnected();
+            if CDSIntegrationImpl.MultipleCompaniesConnected() then
+                CDSIntegrationImpl.SendMultipleCompaniesNotification()
     end;
 
     var
@@ -751,7 +733,6 @@ page 5330 "CRM Connection Setup"
         SoftwareAsAService: Boolean;
         IsAutoCreateSalesOrdersEditable: Boolean;
         IsBidirectionalSalesOrderIntegrationEnabled: Boolean;
-        CRMVersionStatus: Boolean;
 
     local procedure RefreshData()
     begin
@@ -759,7 +740,6 @@ page 5330 "CRM Connection Setup"
         SetAutoCreateSalesOrdersEditable();
         RefreshSynchJobsData();
         UpdateEnableFlags();
-        CRMVersionStatus := Rec.IsVersionValid();
         SetStyleExpr();
         IsBidirectionalSalesOrderIntegrationEnabled := Rec."Bidirectional Sales Order Int.";
     end;
@@ -774,7 +754,7 @@ page 5330 "CRM Connection Setup"
     local procedure SetStyleExpr()
     begin
         CRMSolutionInstalledStyleExpr := GetStyleExpr(Rec."Is CRM Solution Installed");
-        CRMVersionStyleExpr := GetStyleExpr(CRMVersionStatus);
+        CRMVersionStyleExpr := GetStyleExpr(Rec.IsVersionValid());
     end;
 
     local procedure SetAutoCreateSalesOrdersEditable()

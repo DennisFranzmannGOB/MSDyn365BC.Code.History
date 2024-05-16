@@ -21,7 +21,6 @@ using Microsoft.Warehouse.Structure;
 table 7345 "Registered Invt. Movement Line"
 {
     Caption = 'Registered Invt. Movement Line';
-    DataClassification = CustomerContent;
 
     fields
     {

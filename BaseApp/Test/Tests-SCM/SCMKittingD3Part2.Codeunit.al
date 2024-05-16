@@ -12,6 +12,7 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
         AssemblySetup: Record "Assembly Setup";
         InventorySetup: Record "Inventory Setup";
         AssemblyLine: Record "Assembly Line";
+        Item: Record Item;
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryUtility: Codeunit "Library - Utility";
@@ -19,9 +20,9 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
         LibraryAssembly: Codeunit "Library - Assembly";
         LibraryInventory: Codeunit "Library - Inventory";
         LibraryWarehouse: Codeunit "Library - Warehouse";
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
         LibraryRandom: Codeunit "Library - Random";
         AdjSource: Option Purchase,Revaluation,"Item Card","Order Lines",Resource,"None";
+        CreatePer: Option Location,Variant,"Location & Variant";
         isInitialized: Boolean;
         WorkDate2: Date;
         NothingToPostTxt: Label 'There is nothing to post to the general ledger.';
@@ -37,7 +38,7 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
         // Initialize setup.
         ClearLastError();
         LibraryAssembly.UpdateAssemblySetup(AssemblySetup, '', AssemblySetup."Copy Component Dimensions from"::"Item/Resource Card",
-          LibraryUtility.GetGlobalNoSeriesCode());
+          LibraryUtility.GetGlobalNoSeriesCode);
 
         if isInitialized then
             exit;
@@ -51,8 +52,10 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
 
         MfgSetup.Get();
         WorkDate2 := CalcDate(MfgSetup."Default Safety Lead Time", WorkDate()); // to avoid Due Date Before Work Date message.
+        LibraryCosting.AdjustCostItemEntries('', '');
+        LibraryCosting.PostInvtCostToGL(false, WorkDate2, '');
         LibraryAssembly.UpdateAssemblySetup(AssemblySetup, '', AssemblySetup."Copy Component Dimensions from"::"Item/Resource Card",
-          LibraryUtility.GetGlobalNoSeriesCode());
+          LibraryUtility.GetGlobalNoSeriesCode);
 
         Commit();
         LibraryTestInitialize.OnAfterTestSuiteInitialize(CODEUNIT::"SCM Kitting - D3 - Part 2");
@@ -75,7 +78,7 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
 
         // Create Assembly BOM structure.
         LibraryAssembly.SetupAssemblyData(AssemblyHeader, WorkDate2, ParentCostingMethod, CompCostingMethod,
-          Enum::"Replenishment System"::Assembly, '', not AdjustHeader);
+          Item."Replenishment System"::Assembly, '', not AdjustHeader);
         ItemFilter := LibraryAssembly.GetCompsToAdjust(ItemNo, ResourceNo, AssemblyHeader);
 
         // Add inventory for components to allow posting.
@@ -98,125 +101,133 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
         LibraryAssembly.VerifyPostedComments(AssemblyHeader);
         LibraryAssembly.VerifyResEntries(TempAssemblyLine, AssemblyHeader);
         LibraryAssembly.VerifyCapEntries(TempAssemblyLine, AssemblyHeader);
-
-        // VerifyAdjustmentEntries ignores the final adjustment source on the assembly header, it applies only to lines
-        if AdjustHeader then AdjSource2 := AdjSource::None;
         LibraryAssembly.VerifyAdjustmentEntries(AssemblyHeader, AdjSource2);
         LibraryAssembly.VerifyItemRegister(AssemblyHeader);
 
         // Tear down.
         LibraryAssembly.UpdateInventorySetup(InventorySetup, false, false, InventorySetup."Automatic Cost Adjustment"::Never,
           InventorySetup."Average Cost Calc. Type"::Item, InventorySetup."Average Cost Period"::Day);
-        NotificationLifecycleMgt.RecallAllNotifications();
 
         exit(AssemblyHeader."No.");
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler,NothingPostedMessageHandler')]
     [Scope('OnPrem')]
     procedure AdjAVGCompBeforePostPurchase()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::Purchase, AdjSource::None);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjFIFOCompBeforePostReval()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::Revaluation, AdjSource::None);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjSTDCompAfterPostReval()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::None, AdjSource::Revaluation);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjAVGCompAfterPostPurchase()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::None, AdjSource::Purchase);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjAVGCompAfterPostItemCard()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::None, AdjSource::"Item Card");
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjSTDParentBeforePostItemCard()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::"Item Card", AdjSource::None);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjSTDParentBeforePostVariance()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::"Order Lines", AdjSource::None);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjAVGParentBeforePostPurchase()
     begin
         Adjustment(
-          Enum::"Costing Method"::Average, Enum::"Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Average, Item."Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::Purchase, AdjSource::None);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjAVGParentAfterPostResource()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::None, AdjSource::Resource);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjFIFOParentAfterPostReval()
     begin
         Adjustment(
-          Enum::"Costing Method"::FIFO, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::FIFO, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::None, AdjSource::Revaluation);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjAVGParentAfterPostPurchase()
     begin
         Adjustment(
-          Enum::"Costing Method"::Average, Enum::"Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Average, Item."Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::None, AdjSource::Purchase);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure AdjSTDParentAfterPostItemCard()
     begin
         Adjustment(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::None, AdjSource::"Item Card");
     end;
 
@@ -256,48 +267,48 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure PostGLAdjAVGCompBeforePost()
     begin
         AdjPostGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, false, false, AdjSource::Purchase, AdjSource::None);
+          Item."Costing Method"::Standard, Item."Costing Method"::Average, false, false, AdjSource::Purchase, AdjSource::None);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure PostGLAdjFIFOCompBeforePost()
     begin
         AdjPostGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::FIFO, false, false, AdjSource::Revaluation, AdjSource::None);
+          Item."Costing Method"::Standard, Item."Costing Method"::FIFO, false, false, AdjSource::Revaluation, AdjSource::None);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure PostGLAdjAVGCompAfterPost()
     begin
         AdjPostGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, false, false, AdjSource::None, AdjSource::Purchase);
+          Item."Costing Method"::Standard, Item."Costing Method"::Average, false, false, AdjSource::None, AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure PostGLAdjAVGParentAfterPost()
     begin
         AdjPostGL(
-          Enum::"Costing Method"::Average, Enum::"Costing Method"::Average, false, true, AdjSource::None, AdjSource::Purchase);
+          Item."Costing Method"::Average, Item."Costing Method"::Average, false, true, AdjSource::None, AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure PostGLAdjAVGParentPerPostGr()
     begin
         AdjPostGL(
-          Enum::"Costing Method"::Average, Enum::"Costing Method"::Average, true, true, AdjSource::None, AdjSource::Purchase);
+          Item."Costing Method"::Average, Item."Costing Method"::Average, true, true, AdjSource::None, AdjSource::Purchase);
     end;
 
     [Normal]
@@ -317,7 +328,7 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
 
         // First Assembly Order and its adjustment events, before and after posting.
         LibraryAssembly.SetupAssemblyData(AssemblyHeader, WorkDate2, ParentCostingMethod, CompCostingMethod,
-          Enum::"Replenishment System"::Assembly, '', true);
+          Item."Replenishment System"::Assembly, '', true);
         ItemFilter := LibraryAssembly.GetCompsToAdjust(ItemNo, ResourceNo, AssemblyHeader);
         LibraryAssembly.AddCompInventory(AssemblyHeader, WorkDate2, LibraryRandom.RandDec(10, 2));
         LibraryAssembly.CreateAdjustmentSource(AssemblyHeader, WorkDate2, AdjustHeader, AdjSource1, ItemNo[1], ResourceNo[1]);
@@ -328,7 +339,7 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
 
         // Second Assembly Order and its adjustment events, before and after posting.
         LibraryAssembly.SetupAssemblyData(AssemblyHeader, WorkDate2, ParentCostingMethod, CompCostingMethod,
-          Enum::"Replenishment System"::Assembly, '', true);
+          Item."Replenishment System"::Assembly, '', true);
         ItemFilter += '|' + CopyStr(LibraryAssembly.GetCompsToAdjust(ItemNo, ResourceNo, AssemblyHeader), 1, 1022);
         LibraryAssembly.AddCompInventory(AssemblyHeader, WorkDate2, LibraryRandom.RandDec(10, 2));
         LibraryAssembly.CreateAdjustmentSource(AssemblyHeader, WorkDate2, AdjustHeader, AdjSource1, ItemNo[1], ResourceNo[1]);
@@ -352,47 +363,50 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
         // Tear down.
         LibraryAssembly.UpdateInventorySetup(InventorySetup, false, false, InventorySetup."Automatic Cost Adjustment"::Never,
           InventorySetup."Average Cost Calc. Type"::Item, InventorySetup."Average Cost Period"::Day);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure BatchAdjCompSTDParentAVGComp()
     begin
         BatchAdjustment(AssemblyLine."Document No.", AssemblyLine."Document No.",
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::Purchase, AdjSource::Purchase);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure BatchAdjCompAVGParentFIFOComp()
     begin
         BatchAdjustment(AssemblyLine."Document No.", AssemblyLine."Document No.",
-          Enum::"Costing Method"::Average, Enum::"Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Average, Item."Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::Revaluation, AdjSource::Purchase);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure BatchAdjParentSTDParentSTDComp()
     begin
         BatchAdjustment(AssemblyLine."Document No.", AssemblyLine."Document No.",
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::"Order Lines", AdjSource::"Item Card");
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure BatchAdjParenFIFOParentAVGComp()
     begin
         BatchAdjustment(AssemblyLine."Document No.", AssemblyLine."Document No.",
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Average, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::Purchase, AdjSource::Revaluation);
     end;
 
     [Normal]
-    local procedure BatchPostToGL(ParentCostingMethod: Enum "Costing Method"; CompCostingMethod: Enum "Costing Method"; AutCostPosting: Boolean; AutCostAdj: Enum "Automatic Cost Adjustment Type"; AdjustHeader: Boolean; BatchAdjmtSource: Option)
+    local procedure BatchPostToGL(ParentCostingMethod: Enum "Costing Method"; CompCostingMethod: Enum "Costing Method"; AutCostPosting: Boolean; AutCostAdj: Enum "Automatic Cost Adjustment Type"; AdjustHeader: Boolean; AdjSource: Option)
     var
         PostedAssemblyHeader: Record "Posted Assembly Header";
         AssemblyHeaderNo1: Code[20];
@@ -401,7 +415,7 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
         // Setup. Perform adjustment scenario.
         Initialize();
         BatchAdjustment(AssemblyHeaderNo1, AssemblyHeaderNo2,
-          ParentCostingMethod, CompCostingMethod, AutCostPosting, AutCostAdj, AdjustHeader, BatchAdjmtSource, BatchAdjmtSource);
+          ParentCostingMethod, CompCostingMethod, AutCostPosting, AutCostAdj, AdjustHeader, AdjSource, AdjSource);
         LibraryAssembly.UpdateInventorySetup(InventorySetup, AutCostPosting, false, AutCostAdj,
           InventorySetup."Average Cost Calc. Type"::"Item & Location & Variant",
           InventorySetup."Average Cost Period"::Day);
@@ -424,117 +438,117 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure BatchPostAdjComp()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure BatchPostAdjParent()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure BatchPostNoAdj()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::None);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure AutPostAdjComp()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::FIFO, true, InventorySetup."Automatic Cost Adjustment"::Never, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::FIFO, true, InventorySetup."Automatic Cost Adjustment"::Never, false,
           AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure AutPostAdjParent()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, true, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, true, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure AutPostNoAdj()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, true, InventorySetup."Automatic Cost Adjustment"::Never, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, true, InventorySetup."Automatic Cost Adjustment"::Never, true,
           AdjSource::None);
     end;
 
     [Test]
-    [HandlerFunctions('NothingPostedMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,NothingPostedMessageHandler')]
     [Scope('OnPrem')]
     procedure AutPostAutAdjComp()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::FIFO, true, InventorySetup."Automatic Cost Adjustment"::Always, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::FIFO, true, InventorySetup."Automatic Cost Adjustment"::Always, false,
           AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('NothingPostedMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,NothingPostedMessageHandler')]
     [Scope('OnPrem')]
     procedure AutPostAutAdjParent()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, true, InventorySetup."Automatic Cost Adjustment"::Always, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, true, InventorySetup."Automatic Cost Adjustment"::Always, true,
           AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure BatchPostNoAutAdj()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Always, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Always, true,
           AdjSource::None);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure BatchPostAutAdjComp()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Always, false,
+          Item."Costing Method"::Standard, Item."Costing Method"::FIFO, false, InventorySetup."Automatic Cost Adjustment"::Always, false,
           AdjSource::Purchase);
     end;
 
     [Test]
-    [HandlerFunctions('StatisticsMessageHandler')]
+    [HandlerFunctions('AvailabilityWindowHandler,StatisticsMessageHandler')]
     [Scope('OnPrem')]
     procedure BatchPostAutAdjParent()
     begin
         BatchPostToGL(
-          Enum::"Costing Method"::Standard, Enum::"Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Always, true,
+          Item."Costing Method"::Standard, Item."Costing Method"::Standard, false, InventorySetup."Automatic Cost Adjustment"::Always, true,
           AdjSource::Purchase);
     end;
 
     [Normal]
-    local procedure SKUPosting(ParentCostingMethod: Enum "Costing Method"; CompCostingMethod: Enum "Costing Method"; CreateSKUPer: Enum "SKU Creation Method")
+    local procedure SKUPosting(ParentCostingMethod: Enum "Costing Method"; CompCostingMethod: Enum "Costing Method"; CreatePer: Option Location,Variant,"Location & Variant")
     var
         Item: Record Item;
         Item1: Record Item;
@@ -555,10 +569,10 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
           InventorySetup."Average Cost Calc. Type"::"Item & Location & Variant", InventorySetup."Average Cost Period"::Day);
 
         // Prepare setup for creating SKU per Location.
-        if CreateSKUPer <> CreateSKUPer::Variant then begin
+        if CreatePer <> CreatePer::Variant then begin
             LibraryWarehouse.CreateLocation(Location);
             LibraryAssembly.UpdateAssemblySetup(AssemblySetup,
-              Location.Code, AssemblySetup."Copy Component Dimensions from"::"Order Header", LibraryUtility.GetGlobalNoSeriesCode());
+              Location.Code, AssemblySetup."Copy Component Dimensions from"::"Order Header", LibraryUtility.GetGlobalNoSeriesCode);
             LocationCode := Location.Code;
         end;
 
@@ -567,9 +581,9 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
         BlankLocation.Init();
         LibraryInventory.UpdateInventoryPostingSetup(BlankLocation);
         LibraryAssembly.CreateItemWithSKU(
-          Item, ParentCostingMethod, Enum::"Replenishment System"::Assembly, CreateSKUPer, GenProdPostingGr, AsmInvtPostingGr, LocationCode);
+          Item, ParentCostingMethod, Item."Replenishment System"::Assembly, CreatePer, GenProdPostingGr, AsmInvtPostingGr, LocationCode);
         LibraryAssembly.CreateItemWithSKU(
-          Item1, CompCostingMethod, Enum::"Replenishment System"::Purchase, CreateSKUPer, GenProdPostingGr, CompInvtPostingGr, LocationCode);
+          Item1, CompCostingMethod, Item."Replenishment System"::Purchase, CreatePer, GenProdPostingGr, CompInvtPostingGr, LocationCode);
         LibraryAssembly.CreateAssemblyListComponent(
           BOMComponent.Type::Item, Item1."No.", Item."No.", LibraryInventory.GetVariant(Item1."No.", ''),
           BOMComponent."Resource Usage Type"::Direct, LibraryRandom.RandDec(20, 5), true);
@@ -593,58 +607,62 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
 
         // Tear down.
         LibraryAssembly.UpdateAssemblySetup(AssemblySetup, '', AssemblySetup."Copy Component Dimensions from"::"Order Header",
-          LibraryUtility.GetGlobalNoSeriesCode());
+          LibraryUtility.GetGlobalNoSeriesCode);
         LibraryAssembly.UpdateInventorySetup(InventorySetup, false, false, InventorySetup."Automatic Cost Adjustment"::Never,
           "Average Cost Calculation Type"::Item, InventorySetup."Average Cost Period"::Day);
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure SKUSTDParentAVGCompVariant()
     begin
-        SKUPosting(Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, "SKU Creation Method"::Variant);
+        SKUPosting(Item."Costing Method"::Standard, Item."Costing Method"::Average, CreatePer::Variant);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure SKUFIFOParentSTDCompVariant()
     begin
-        SKUPosting(Enum::"Costing Method"::FIFO, Enum::"Costing Method"::Standard, "SKU Creation Method"::Variant);
+        SKUPosting(Item."Costing Method"::FIFO, Item."Costing Method"::Standard, CreatePer::Variant);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure SKUAVGParentFIFOCompVariant()
     begin
-        SKUPosting(Enum::"Costing Method"::Average, Enum::"Costing Method"::FIFO, "SKU Creation Method"::Variant);
+        SKUPosting(Item."Costing Method"::Average, Item."Costing Method"::FIFO, CreatePer::Variant);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure SKUSTDParentAVGCompLocVar()
     begin
-        SKUPosting(Enum::"Costing Method"::Standard, Enum::"Costing Method"::Average, "SKU Creation Method"::"Location & Variant");
+        SKUPosting(Item."Costing Method"::Standard, Item."Costing Method"::Average, CreatePer::"Location & Variant");
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure SKUFIFOParentSTDCompLoc()
     begin
-        SKUPosting(Enum::"Costing Method"::FIFO, Enum::"Costing Method"::Standard, "SKU Creation Method"::Location);
+        SKUPosting(Item."Costing Method"::FIFO, Item."Costing Method"::Standard, CreatePer::Location);
     end;
 
     [Test]
+    [HandlerFunctions('AvailabilityWindowHandler')]
     [Scope('OnPrem')]
     procedure SKUAVGParentFIFOCompLocVar()
     begin
-        SKUPosting(Enum::"Costing Method"::Average, Enum::"Costing Method"::FIFO, "SKU Creation Method"::"Location & Variant");
+        SKUPosting(Item."Costing Method"::Average, Item."Costing Method"::FIFO, CreatePer::"Location & Variant");
     end;
 
     [Normal]
     local procedure CircularRef(CostingMethod: Enum "Costing Method"; UseVariant: Boolean)
     var
-        Item: Record Item;
         ItemVariant: Record "Item Variant";
         AssemblyHeader: Record "Assembly Header";
         TempAssemblyLine: Record "Assembly Line" temporary;
@@ -655,11 +673,11 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
         // Setup.
         Initialize();
         LibraryAssembly.UpdateAssemblySetup(AssemblySetup, '', AssemblySetup."Copy Component Dimensions from"::"Order Header",
-          LibraryUtility.GetGlobalNoSeriesCode());
+          LibraryUtility.GetGlobalNoSeriesCode);
 
         // Create circular assembly order and inventory.
         LibraryAssembly.SetupPostingToGL(GenProdPostingGr, AsmInvtPostingGr, CompInvtPostingGr, '');
-        LibraryAssembly.CreateItem(Item, CostingMethod, Enum::"Replenishment System"::Purchase, GenProdPostingGr, AsmInvtPostingGr);
+        LibraryAssembly.CreateItem(Item, CostingMethod, Item."Replenishment System"::Purchase, GenProdPostingGr, AsmInvtPostingGr);
         if UseVariant then
             LibraryInventory.CreateVariant(ItemVariant, Item);
         LibraryAssembly.CreateAssemblyHeader(
@@ -686,28 +704,35 @@ codeunit 137094 "SCM Kitting - D3 - Part 2"
     [Scope('OnPrem')]
     procedure STDLoop()
     begin
-        CircularRef(Enum::"Costing Method"::Standard, false);
+        CircularRef(Item."Costing Method"::Standard, false);
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure AVGLoop()
     begin
-        CircularRef(Enum::"Costing Method"::Average, false);
+        CircularRef(Item."Costing Method"::Average, false);
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure STDLoopVar()
     begin
-        CircularRef(Enum::"Costing Method"::Standard, true);
+        CircularRef(Item."Costing Method"::Standard, true);
     end;
 
     [Test]
     [Scope('OnPrem')]
     procedure AVGLoopVar()
     begin
-        CircularRef(Enum::"Costing Method"::Average, true);
+        CircularRef(Item."Costing Method"::Average, true);
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure AvailabilityWindowHandler(var AsmAvailability: Page "Assembly Availability"; var Response: Action)
+    begin
+        Response := ACTION::Yes; // always confirm
     end;
 
     [MessageHandler]

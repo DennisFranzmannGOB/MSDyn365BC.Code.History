@@ -4,7 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 namespace Microsoft.Sales.Analysis;
 
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 760 "Trailing Sales Orders Chart"
@@ -25,18 +25,17 @@ page 760 "Trailing Sales Orders Chart"
                 ShowCaption = false;
                 ToolTip = 'Specifies the status of the chart.';
             }
-            usercontrol(BusinessChart; BusinessChart)
+            usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = Basic, Suite;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
-                    Rec.SetDrillDownIndexes(Point);
-
+                    Rec.SetDrillDownIndexes(point);
                     TrailingSalesOrdersMgt.DrillDown(Rec);
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -333,7 +332,7 @@ page 760 "Trailing Sales Orders Chart"
         if not IsChartAddInReady then
             exit;
         TrailingSalesOrdersMgt.UpdateData(Rec);
-        Rec.UpdateChart(CurrPage.BusinessChart);
+        Rec.Update(CurrPage.BusinessChart);
         UpdateStatus();
         NeedsUpdate := false;
     end;

@@ -9,9 +9,9 @@ using Microsoft.Projects.Project.Setup;
 
 report 1085 "Job Post WIP to G/L"
 {
-    AdditionalSearchTerms = 'posted work in process to general ledger,posted work in progress to general ledger, Job Post WIP to G/L';
+    AdditionalSearchTerms = 'posted work in process to general ledger,posted work in progress to general ledger';
     ApplicationArea = Jobs;
-    Caption = 'Project Post WIP to G/L';
+    Caption = 'Job Post WIP to G/L';
     ProcessingOnly = true;
     UsageCategory = Tasks;
 
@@ -58,7 +58,7 @@ report 1085 "Job Post WIP to G/L"
                     {
                         ApplicationArea = Jobs;
                         Caption = 'Reverse Only';
-                        ToolTip = 'Specifies that you want to reverse previously posted WIP, but not to post new WIP to the general ledger. This is useful, for example, when you have calculated and posted WIP for a project with an incorrect date and want to reverse the incorrect postings without posting new WIP entries.';
+                        ToolTip = 'Specifies that you want to reverse previously posted WIP, but not to post new WIP to the general ledger. This is useful, for example, when you have calculated and posted WIP for a job with an incorrect date and want to reverse the incorrect postings without posting new WIP entries.';
                     }
                     field(UseReversalDate; ReplacePostDate)
                     {
@@ -113,11 +113,6 @@ report 1085 "Job Post WIP to G/L"
 
         trigger OnOpenPage()
         var
-            NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-            NoSeriesManagement: Codeunit NoSeriesManagement;
-            IsHandled: Boolean;
-#endif
             NewNoSeriesCode: Code[20];
         begin
             GLSetup.Get();
@@ -135,16 +130,7 @@ report 1085 "Job Post WIP to G/L"
             JobsSetup.Get();
 
             JobsSetup.TestField("Job Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(JobsSetup."Job WIP Nos.", '', 0D, DocNo, NewNoSeriesCode, IsHandled);
-            if not IsHandled then begin
-#endif
-                NewNoSeriesCode := JobsSetup."Job WIP Nos.";
-                DocNo := NoSeries.GetNextNo(NewNoSeriesCode);
-#if not CLEAN24
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries(NewNoSeriesCode, JobsSetup."Job WIP Nos.", 0D, DocNo);
-            end;
-#endif
+            NoSeriesMgt.InitSeries(JobsSetup."Job WIP Nos.", JobsSetup."Job WIP Nos.", 0D, DocNo, NewNoSeriesCode);
 
             ReplacePostDate := false;
             JustReverse := false;
@@ -163,27 +149,13 @@ report 1085 "Job Post WIP to G/L"
 
     trigger OnPreReport()
     var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
         NewNoSeriesCode: Code[20];
     begin
         JobsSetup.Get();
 
         if DocNo = '' then begin
             JobsSetup.TestField("Job Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(JobsSetup."Job WIP Nos.", '', 0D, DocNo, NewNoSeriesCode, IsHandled);
-            if not IsHandled then begin
-#endif
-                NewNoSeriesCode := JobsSetup."Job WIP Nos.";
-                DocNo := NoSeries.GetNextNo(NewNoSeriesCode);
-#if not CLEAN24
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries(NewNoSeriesCode, JobsSetup."Job WIP Nos.", 0D, DocNo);
-            end;
-#endif
+            NoSeriesMgt.InitSeries(JobsSetup."Job WIP Nos.", JobsSetup."Job WIP Nos.", 0D, DocNo, NewNoSeriesCode);
         end;
 
         if PostingDate = 0D then
@@ -192,7 +164,7 @@ report 1085 "Job Post WIP to G/L"
         GLSetup.Get();
         if GLSetup."Journal Templ. Name Mandatory" then begin
             GenJnlBatch.TestField("No. Series");
-            DocNo := NoSeries.GetNextNo(GenJnlBatch."No. Series", PostingDate);
+            DocNo := NoSeriesMgt.GetNextNo(GenJnlBatch."No. Series", PostingDate, true);
         end;
 
         JobCalculateBatches.BatchError(PostingDate, DocNo);
@@ -205,6 +177,7 @@ report 1085 "Job Post WIP to G/L"
         GenJnlBatch: Record "Gen. Journal Batch";
         JobCalculateWIP: Codeunit "Job Calculate WIP";
         JobCalculateBatches: Codeunit "Job Calculate Batches";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         WIPSuccessfullyPostedMsg: Label 'WIP was successfully posted to G/L.';
         IsJournalTemplNameVisible: Boolean;
 

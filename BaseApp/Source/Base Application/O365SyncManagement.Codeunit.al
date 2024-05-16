@@ -73,17 +73,19 @@ codeunit 6700 "O365 Sync. Management"
         Password: Text;
         Token: Text;
     begin
-        if GetUser(User, UserId()) then
-            AuthenticationEmail := User."Authentication Email";
+        with LocalExchangeSync do begin
+            if GetUser(User, UserId()) then
+                AuthenticationEmail := User."Authentication Email";
 
-        if not LocalExchangeSync.Get(UserId) or
-            (AuthenticationEmail = '') or (LocalExchangeSync."Folder ID" = '') or not GetPasswordOrToken(LocalExchangeSync, Password, Token)
-        then
-            if AddOnTheFly then begin
-                if not OpenSetupWindow() then
-                    Error(O365RecordMissingErr)
-            end else
-                Error(O365RecordMissingErr);
+            if not Get(UserId) or
+               (AuthenticationEmail = '') or ("Folder ID" = '') or not GetPasswordOrToken(LocalExchangeSync, Password, Token)
+            then
+                if AddOnTheFly then begin
+                    if not OpenSetupWindow() then
+                        Error(O365RecordMissingErr)
+                end else
+                    Error(O365RecordMissingErr);
+        end;
 
         exit(true);
     end;
@@ -102,18 +104,20 @@ codeunit 6700 "O365 Sync. Management"
         JobQueueEntry: Record "Job Queue Entry";
         TwentyFourHours: Integer;
     begin
-        if TASKSCHEDULER.CanCreateTask() then begin
-            JobQueueEntry.SetRange("Object Type to Run", JobQueueEntry."Object Type to Run"::Codeunit);
-            JobQueueEntry.SetRange("Object ID to Run", CODEUNIT::"O365 Sync. Management");
-            if JobQueueEntry.IsEmpty() then begin
-                TwentyFourHours := 24 * 60;
-                JobQueueEntry.InitRecurringJob(TwentyFourHours);
-                JobQueueEntry."Object Type to Run" := JobQueueEntry."Object Type to Run"::Codeunit;
-                JobQueueEntry."Object ID to Run" := CODEUNIT::"O365 Sync. Management";
-                JobQueueEntry.Description := CopyStr(JobQueueEntryDescTxt, 1, MaxStrLen(JobQueueEntry.Description));
-                CODEUNIT.Run(CODEUNIT::"Job Queue - Enqueue", JobQueueEntry);
+        if TASKSCHEDULER.CanCreateTask() then
+            with JobQueueEntry do begin
+                SetRange("Object Type to Run", "Object Type to Run"::Codeunit);
+                SetRange("Object ID to Run", CODEUNIT::"O365 Sync. Management");
+
+                if IsEmpty() then begin
+                    TwentyFourHours := 24 * 60;
+                    InitRecurringJob(TwentyFourHours);
+                    "Object Type to Run" := "Object Type to Run"::Codeunit;
+                    "Object ID to Run" := CODEUNIT::"O365 Sync. Management";
+                    Description := CopyStr(JobQueueEntryDescTxt, 1, MaxStrLen(Description));
+                    CODEUNIT.Run(CODEUNIT::"Job Queue - Enqueue", JobQueueEntry);
+                end;
             end;
-        end;
     end;
 
     [Scope('OnPrem')]
@@ -305,11 +309,12 @@ codeunit 6700 "O365 Sync. Management"
 
     local procedure ConnectionFailure(ExchangeSync: Record "Exchange Sync")
     begin
-        LogActivityFailed(
-            ExchangeSync.RecordId, RegisterConnectionTxt, StrSubstNo(ConnectionErr, ExchangeSync."User ID"), ExchangeSync."User ID");
-        if GuiAllowed() then begin
-            CloseProgress();
-            Error(ConnectionErr, ExchangeSync."User ID");
+        with ExchangeSync do begin
+            LogActivityFailed(RecordId, RegisterConnectionTxt, StrSubstNo(ConnectionErr, "User ID"), "User ID");
+            if GuiAllowed then begin
+                CloseProgress();
+                Error(ConnectionErr, "User ID");
+            end;
         end;
     end;
 
@@ -339,17 +344,19 @@ codeunit 6700 "O365 Sync. Management"
         Token: Text;
         Password: Text;
     begin
-        if GetUser(User, ExchangeSync."User ID") then
-            AuthenticationEmail := User."Authentication Email";
-        if AuthenticationEmail = '' then
-            Error(O365RecordMissingErr);
-        if not GetPasswordOrToken(ExchangeSync, Password, Token) then
-            Error(O365RecordMissingErr);
+        with ExchangeSync do begin
+            if GetUser(User, "User ID") then
+                AuthenticationEmail := User."Authentication Email";
+            if AuthenticationEmail = '' then
+                Error(O365RecordMissingErr);
+            if not GetPasswordOrToken(ExchangeSync, Password, Token) then
+                Error(O365RecordMissingErr);
 
-        if Token <> '' then
-            Credentials := OAuthCredentials.OAuthCredentials(Token)
-        else
-            Credentials := WebCredentials.WebCredentials(AuthenticationEmail, Password);
+            if Token <> '' then
+                Credentials := OAuthCredentials.OAuthCredentials(Token)
+            else
+                Credentials := WebCredentials.WebCredentials(AuthenticationEmail, Password);
+        end;
     end;
 
     local procedure GetUser(var User: Record User; UserID: Text[50]): Boolean

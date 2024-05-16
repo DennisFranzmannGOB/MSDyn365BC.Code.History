@@ -7,7 +7,6 @@ table 275 "Bank Account Statement"
     Caption = 'Bank Account Statement';
     DataCaptionFields = "Bank Account No.", "Statement No.";
     LookupPageID = "Bank Account Statement List";
-    DataClassification = CustomerContent;
 
     fields
     {

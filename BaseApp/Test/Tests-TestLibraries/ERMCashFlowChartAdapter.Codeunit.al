@@ -139,7 +139,7 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
         // Set chart type to staircase chart
         SetCFChartSetupShow(CashFlowChartSetup.Show::"Accumulated Cash");
 
-        FillAndPostJournalWithDemoData();
+        FillAndPostJournalWithDemoData;
 
         // Trigger updating chart data source
         CFChartMgt.UpdateData(BusChartBuf);
@@ -172,20 +172,21 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
         // Set chart type to stack chart
         SetCFChartSetupShow(CashFlowChartSetup.Show::"Change in Cash");
 
-        FillAndPostJournalWithDemoData();
+        FillAndPostJournalWithDemoData;
 
         // Trigger updating chart data source
         CFChartMgt.UpdateData(BusChartBuf);
 
         // Calculated expected amounts and verify actuals based on the selected group stack option and periods
-        case CashFlowChartSetup."Group By" of
-            CashFlowChartSetup."Group By"::"Positive/Negative":
-                VerifyPositiveNegativeStackTypeAmounts(BusChartBuf);
-            CashFlowChartSetup."Group By"::"Account No.":
+        if CashFlowChartSetup."Group By" = CashFlowChartSetup."Group By"::"Positive/Negative" then begin
+            VerifyPositiveNegativeStackTypeAmounts(BusChartBuf);
+        end else
+            if CashFlowChartSetup."Group By" = CashFlowChartSetup."Group By"::"Account No." then begin
                 VerifyAccountStackTypeAmounts(BusChartBuf);
-            CashFlowChartSetup."Group By"::"Source Type":
-                VerifySourceTypeStackTypeAmounts(BusChartBuf);
-        end;
+            end else
+                if CashFlowChartSetup."Group By" = CashFlowChartSetup."Group By"::"Source Type" then begin
+                    VerifySourceTypeStackTypeAmounts(BusChartBuf);
+                end;
     end;
 
     local procedure FillAndPostJournalWithDemoData()
@@ -198,7 +199,7 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
             for I := 1 to MaxSourceType.AsInteger() do
                 ConsiderSource[I] := true;
             LibraryCF.FillJournal(ConsiderSource, CashFlowForecast."No.", false);
-            LibraryCF.PostJournal();
+            LibraryCF.PostJournal;
         end;
     end;
 
@@ -345,10 +346,11 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
             CashFlowChartSetup."Period Length"::Week:
                 case Period of
                     1:
-                        if CashFlowChartSetup."Start Date" = CashFlowChartSetup."Start Date"::"Working Date" then
-                            exit(ReferenceDate)
-                        else
+                        if CashFlowChartSetup."Start Date" = CashFlowChartSetup."Start Date"::"Working Date" then begin
+                            exit(ReferenceDate);
+                        end else begin
                             exit(CalcDate('<CW-3D>', ReferenceDate)); // middle of the week
+                        end;
                     2:
                         exit(CalcDate('<CW>', ReferenceDate)); // last day of current week
                     3:
@@ -357,10 +359,11 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
             CashFlowChartSetup."Period Length"::Month:
                 case Period of
                     1:
-                        if CashFlowChartSetup."Start Date" = CashFlowChartSetup."Start Date"::"Working Date" then
-                            exit(ReferenceDate)
-                        else
+                        if CashFlowChartSetup."Start Date" = CashFlowChartSetup."Start Date"::"Working Date" then begin
+                            exit(ReferenceDate);
+                        end else begin
                             exit(CalcDate('<CM-2W>', ReferenceDate)); // middle of the month
+                        end;
                     2:
                         exit(CalcDate('<CM>', ReferenceDate)); // last day of current month
                     3:
@@ -369,10 +372,11 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
             CashFlowChartSetup."Period Length"::Quarter:
                 case Period of
                     1:
-                        if CashFlowChartSetup."Start Date" = CashFlowChartSetup."Start Date"::"Working Date" then
+                        if CashFlowChartSetup."Start Date" = CashFlowChartSetup."Start Date"::"Working Date" then begin
                             exit(ReferenceDate)
-                        else
+                        end else begin
                             exit(CalcDate('<CQ-1W>', ReferenceDate)); // middle of the quarter
+                        end;
                     2:
                         exit(CalcDate('<CQ>', ReferenceDate)); // last day of current quarter
                     3:
@@ -381,10 +385,11 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
             CashFlowChartSetup."Period Length"::Year:
                 case Period of
                     1:
-                        if CashFlowChartSetup."Start Date" = CashFlowChartSetup."Start Date"::"Working Date" then
-                            exit(ReferenceDate)
-                        else
+                        if CashFlowChartSetup."Start Date" = CashFlowChartSetup."Start Date"::"Working Date" then begin
+                            exit(ReferenceDate);
+                        end else begin
                             exit(CalcDate('<CY-6M>', ReferenceDate)); // middle of the year
+                        end;
                     2:
                         exit(CalcDate('<CY>', ReferenceDate)); // last day of current year
                     3:
@@ -426,8 +431,9 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
         if CurrSourceType <> CurrSourceType::" " then begin
             BusChartBuf."Period Length" := CashFlowChartSetup."Period Length";
             exit(BusChartBuf.CalcNumberOfPeriods(FromDate, ToDate));
-        end else
+        end else begin
             exit(2); // multi-source; based on the [1,2][3] test periods, 2 is a boundary test within period 1
+        end;
     end;
 
     [Scope('OnPrem')]
@@ -452,32 +458,36 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
 
     local procedure InitializeCashFlowChartSetup(ChartSetupShow: Option)
     begin
-        if CashFlowChartSetup.Get(UserId) then
-            CashFlowChartSetup.Delete();
+        with CashFlowChartSetup do begin
+            if Get(UserId) then
+                Delete();
 
-        CashFlowChartSetup.Init();
-        CashFlowChartSetup."User ID" := CopyStr(UserId(), 1, MaxStrLen(CashFlowChartSetup."User ID"));
-        CashFlowChartSetup."Start Date" := CashFlowChartSetup."Start Date"::"Working Date";
-        CashFlowChartSetup."Period Length" := CashFlowChartSetup."Period Length"::Day;
-        CashFlowChartSetup.Show := ChartSetupShow;
-        CashFlowChartSetup.Insert();
+            Init();
+            "User ID" := UserId;
+            "Start Date" := "Start Date"::"Working Date";
+            "Period Length" := "Period Length"::Day;
+            Show := ChartSetupShow;
+            Insert();
+        end;
     end;
 
     local procedure InsertCFLedgerEntry(CFNo: Code[20]; SourceType: Enum "Cash Flow Source Type"; CFDate: Date; Amount: Decimal)
     var
         EntryNo: Integer;
     begin
-        if CFForecastEntry.FindLast() then
-            EntryNo := CFForecastEntry."Entry No.";
+        with CFForecastEntry do begin
+            if FindLast() then
+                EntryNo := "Entry No.";
 
-        CFForecastEntry.Init();
-        CFForecastEntry."Entry No." := EntryNo + 1;
-        CFForecastEntry."Cash Flow Forecast No." := CFNo;
-        CFForecastEntry."Source Type" := SourceType;
-        CFForecastEntry."Cash Flow Date" := CFDate;
-        CFForecastEntry."Cash Flow Account No." := GetCFAccountFromSourceType(SourceType);
-        CFForecastEntry.Validate("Amount (LCY)", Amount);
-        CFForecastEntry.Insert();
+            Init();
+            "Entry No." := EntryNo + 1;
+            "Cash Flow Forecast No." := CFNo;
+            "Source Type" := SourceType;
+            "Cash Flow Date" := CFDate;
+            "Cash Flow Account No." := GetCFAccountFromSourceType(SourceType);
+            Validate("Amount (LCY)", Amount);
+            Insert();
+        end;
     end;
 
     local procedure SetCFChartSetupPeriodLength(PeriodLength: Option)
@@ -526,7 +536,7 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
         NegActualAmount: Decimal;
         Positive: Boolean;
     begin
-        NoOfActualPeriods := GetNoOfActualPeriods();
+        NoOfActualPeriods := GetNoOfActualPeriods;
 
         for I := 1 to NoOfActualPeriods do begin
             // test periods are [1,2],[3], where 2 represents a boundary within actual period 1
@@ -558,7 +568,7 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
         I: Integer;
         J: Integer;
     begin
-        NoOfActualPeriods := GetNoOfActualPeriods();
+        NoOfActualPeriods := GetNoOfActualPeriods;
 
         for I := 1 to NoOfActualPeriods do begin
             CFForecastEntry.Reset();
@@ -597,7 +607,7 @@ codeunit 130090 "ERM Cash Flow Chart Adapter"
         ActualAmount: Decimal;
     begin
         // Get available periods
-        NoOfActualPeriods := GetNoOfActualPeriods();
+        NoOfActualPeriods := GetNoOfActualPeriods;
 
         // Loop through available periods
         for I := 1 to NoOfActualPeriods do begin

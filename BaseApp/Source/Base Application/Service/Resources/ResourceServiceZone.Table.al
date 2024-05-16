@@ -7,7 +7,6 @@ table 5958 "Resource Service Zone"
 {
     Caption = 'Resource Service Zone';
     LookupPageID = "Resource Service Zones";
-    DataClassification = CustomerContent;
 
     fields
     {

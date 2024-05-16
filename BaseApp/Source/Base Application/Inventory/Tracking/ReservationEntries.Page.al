@@ -78,7 +78,7 @@ page 497 "Reservation Entries"
                     ApplicationArea = ItemTracking;
                     Editable = false;
                     ToolTip = 'Specifies the package number of the item that is being handled with the associated document line.';
-                    Visible = false;
+                    Visible = PackageTrackingVisible;
 
                     trigger OnDrillDown()
                     var
@@ -282,9 +282,11 @@ page 497 "Reservation Entries"
 
     trigger OnOpenPage()
     begin
+        SetPackageTrackingVisibility();
     end;
 
     var
+        PackageTrackingVisible: Boolean;
         CancelReservationQst: Label 'Cancel reservation of %1 of item number %2, reserved for %3 from %4?', Comment = '%1 - quantity, %2 - item number, %3 - from table name, %4 - to table name';
 
     protected var
@@ -316,6 +318,13 @@ page 497 "Reservation Entries"
     protected procedure QuantityBaseOnAfterValidate()
     begin
         CurrPage.Update();
+    end;
+
+    local procedure SetPackageTrackingVisibility()
+    var
+        PackageManagement: Codeunit "Package Management";
+    begin
+        PackageTrackingVisible := PackageManagement.IsEnabled();
     end;
 
     [IntegrationEvent(false, false)]

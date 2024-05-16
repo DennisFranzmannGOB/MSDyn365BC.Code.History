@@ -272,8 +272,7 @@ pageextension 4703 "VAT Report Setup Extension" extends "VAT Report Setup"
                 var
                     VATGroupCommunication: Codeunit "VAT Group Communication";
                 begin
-                    GetClientSecrets();
-                    VATGroupCommunication.GetBearerToken(ClientIDText, ClientSecretText, Rec."Authority URL", Rec."Redirect URL", Rec."Resource URL");
+                    VATGroupCommunication.GetBearerToken(Rec.GetSecret(Rec."Client ID Key"), Rec.GetSecret(Rec."Client Secret Key"), Rec."Authority URL", Rec."Redirect URL", Rec."Resource URL");
                 end;
             }
         }
@@ -291,7 +290,10 @@ pageextension 4703 "VAT Report Setup Extension" extends "VAT Report Setup"
     var
         RedirectURLText: Text;
     begin
-        GetSecrets();
+        ClientSecretText := Rec.GetSecret(Rec."Client Secret Key");
+        ClientIDText := Rec.GetSecret(Rec."Client ID Key");
+        UserNameText := Rec.GetSecret(Rec."User Name Key");
+        WebServiceAccessKeyText := Rec.GetSecret(Rec."Web Service Access Key Key");
         IsSaas := EnvironmentInformation.IsSaaSInfrastructure();
 
         if (Rec."VAT Group Role" = Rec."VAT Group Role"::Member) and IsNullGuid(Rec."Group Member ID") then
@@ -315,22 +317,5 @@ pageextension 4703 "VAT Report Setup Extension" extends "VAT Report Setup"
             AuthenticationType::WebServiceAccessKey:
                 AuthenticationTypeSaaS := AuthenticationTypeSaaS::WebServiceAccessKey;
         end;
-    end;
-
-    [NonDebuggable]
-    local procedure GetSecrets()
-    begin
-        GetClientSecrets();
-        UserNameText := Rec.GetSecretAsSecretText(Rec."User Name Key").Unwrap();
-        if not Rec.GetSecretAsSecretText(Rec."Web Service Access Key Key").IsEmpty() then
-            WebServiceAccessKeyText := '*';
-    end;
-
-    [NonDebuggable]
-    local procedure GetClientSecrets()
-    begin
-        if not Rec.GetSecretAsSecretText(Rec."Client Secret Key").IsEmpty() then
-            ClientSecretText := '*';
-        ClientIDText := Rec.GetSecretAsSecretText(Rec."Client ID Key").Unwrap();
     end;
 }

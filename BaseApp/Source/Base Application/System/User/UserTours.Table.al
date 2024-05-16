@@ -7,7 +7,6 @@ table 1314 "User Tours"
     Caption = 'User Tours';
     DataPerCompany = false;
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

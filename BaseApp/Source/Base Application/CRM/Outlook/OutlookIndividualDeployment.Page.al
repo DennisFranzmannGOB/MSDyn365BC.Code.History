@@ -23,7 +23,7 @@ page 1832 "Outlook Individual Deployment"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and IntroStepVisible;
+                Visible = TopBannerVisible AND IntroStepVisible;
                 field(MediaResourcesOutlook; MediaResourcesOutlook."Media Reference")
                 {
                     ApplicationArea = Basic, Suite;

@@ -7,7 +7,6 @@ using System.Reflection;
 table 442 "IC Document Dimension"
 {
     Caption = 'IC Document Dimension';
-    DataClassification = CustomerContent;
 
     fields
     {

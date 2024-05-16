@@ -1,7 +1,6 @@
 table 132591 "All-Keys Type"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

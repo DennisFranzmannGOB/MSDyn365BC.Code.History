@@ -9,7 +9,6 @@ table 9041 "Date Compr. Retain Fields"
     Access = Public;
     Extensible = true;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

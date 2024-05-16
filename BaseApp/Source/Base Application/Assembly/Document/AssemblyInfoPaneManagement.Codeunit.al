@@ -125,12 +125,14 @@ codeunit 915 "Assembly Info-Pane Management"
 
     local procedure GetItem(AsmLine: Record "Assembly Line"): Boolean
     begin
-        if (AsmLine.Type <> AsmLine.Type::Item) or (AsmLine."No." = '') then
-            exit(false);
+        with Item do begin
+            if (AsmLine.Type <> AsmLine.Type::Item) or (AsmLine."No." = '') then
+                exit(false);
 
-        if AsmLine."No." <> Item."No." then
-            Item.Get(AsmLine."No.");
-        exit(true);
+            if AsmLine."No." <> "No." then
+                Get(AsmLine."No.");
+            exit(true);
+        end;
     end;
 
     local procedure SetItemFilter(var Item: Record Item; AsmLine: Record "Assembly Line")

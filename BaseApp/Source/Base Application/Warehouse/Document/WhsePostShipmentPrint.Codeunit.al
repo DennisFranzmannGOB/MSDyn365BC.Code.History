@@ -31,20 +31,22 @@ codeunit 5765 "Whse.-Post Shipment + Print"
         if IsPosted then
             exit;
 
-        if WhseShptLine.Find() then
-            if not HideDialog then begin
-                if not PostingSelectionManagement.ConfirmPostWhseShipment(WhseShptLine, Selection) then
-                    exit;
-                Invoice := (Selection = 2);
-            end;
+        with WhseShptLine do begin
+            if Find() then
+                if not HideDialog then begin
+                    if not PostingSelectionManagement.ConfirmPostWhseShipment(WhseShptLine, Selection) then
+                        exit;
+                    Invoice := (Selection = 2);
+                end;
 
-        OnAfterConfirmPost(WhseShptLine, Invoice);
+            OnAfterConfirmPost(WhseShptLine, Invoice);
 
-        WhsePostShipment.SetPostingSettings(Invoice);
-        WhsePostShipment.SetPrint(true);
-        WhsePostShipment.Run(WhseShptLine);
-        WhsePostShipment.GetResultMessage();
-        Clear(WhsePostShipment);
+            WhsePostShipment.SetPostingSettings(Invoice);
+            WhsePostShipment.SetPrint(true);
+            WhsePostShipment.Run(WhseShptLine);
+            WhsePostShipment.GetResultMessage();
+            Clear(WhsePostShipment);
+        end;
         OnAfterCode(WhseShptLine);
     end;
 

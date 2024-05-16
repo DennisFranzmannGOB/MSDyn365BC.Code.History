@@ -12,7 +12,6 @@ table 6520 "Item Tracing Buffer"
 {
     Caption = 'Item Tracing Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

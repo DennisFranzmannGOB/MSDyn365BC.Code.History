@@ -236,39 +236,45 @@ codeunit 5751 "Get Source Doc. Inbound"
 
     local procedure FindWarehouseRequestForPurchaseOrder(var WhseRqst: Record "Warehouse Request"; PurchHeader: Record "Purchase Header")
     begin
-        PurchHeader.TestField(Status, PurchHeader.Status::Released);
-        WhseRqst.SetRange(Type, WhseRqst.Type::Inbound);
-        WhseRqst.SetRange("Source Type", Database::"Purchase Line");
-        WhseRqst.SetRange("Source Subtype", PurchHeader."Document Type");
-        WhseRqst.SetRange("Source No.", PurchHeader."No.");
-        WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
-        GetRequireReceiveRqst(WhseRqst);
+        with PurchHeader do begin
+            TestField(Status, Status::Released);
+            WhseRqst.SetRange(Type, WhseRqst.Type::Inbound);
+            WhseRqst.SetRange("Source Type", Database::"Purchase Line");
+            WhseRqst.SetRange("Source Subtype", "Document Type");
+            WhseRqst.SetRange("Source No.", "No.");
+            WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
+            GetRequireReceiveRqst(WhseRqst);
+        end;
 
         OnAfterFindWarehouseRequestForPurchaseOrder(WhseRqst, PurchHeader);
     end;
 
     local procedure FindWarehouseRequestForSalesReturnOrder(var WhseRqst: Record "Warehouse Request"; SalesHeader: Record "Sales Header")
     begin
-        SalesHeader.TestField(Status, SalesHeader.Status::Released);
-        WhseRqst.SetRange(Type, WhseRqst.Type::Inbound);
-        WhseRqst.SetRange("Source Type", Database::"Sales Line");
-        WhseRqst.SetRange("Source Subtype", SalesHeader."Document Type");
-        WhseRqst.SetRange("Source No.", SalesHeader."No.");
-        WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
-        GetRequireReceiveRqst(WhseRqst);
+        with SalesHeader do begin
+            TestField(Status, Status::Released);
+            WhseRqst.SetRange(Type, WhseRqst.Type::Inbound);
+            WhseRqst.SetRange("Source Type", Database::"Sales Line");
+            WhseRqst.SetRange("Source Subtype", "Document Type");
+            WhseRqst.SetRange("Source No.", "No.");
+            WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
+            GetRequireReceiveRqst(WhseRqst);
+        end;
 
         OnAfterFindWarehouseRequestForSalesReturnOrder(WhseRqst, SalesHeader);
     end;
 
     local procedure FindWarehouseRequestForInbndTransferOrder(var WhseRqst: Record "Warehouse Request"; TransHeader: Record "Transfer Header")
     begin
-        TransHeader.TestField(Status, TransHeader.Status::Released);
-        WhseRqst.SetRange(Type, WhseRqst.Type::Inbound);
-        WhseRqst.SetRange("Source Type", Database::"Transfer Line");
-        WhseRqst.SetRange("Source Subtype", 1);
-        WhseRqst.SetRange("Source No.", TransHeader."No.");
-        WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
-        GetRequireReceiveRqst(WhseRqst);
+        with TransHeader do begin
+            TestField(Status, Status::Released);
+            WhseRqst.SetRange(Type, WhseRqst.Type::Inbound);
+            WhseRqst.SetRange("Source Type", Database::"Transfer Line");
+            WhseRqst.SetRange("Source Subtype", 1);
+            WhseRqst.SetRange("Source No.", "No.");
+            WhseRqst.SetRange("Document Status", WhseRqst."Document Status"::Released);
+            GetRequireReceiveRqst(WhseRqst);
+        end;
 
         OnAfterFindWarehouseRequestForInbndTransferOrder(WhseRqst, TransHeader);
     end;
@@ -287,9 +293,11 @@ codeunit 5751 "Get Source Doc. Inbound"
 
     local procedure UpdateReceiptHeaderStatus(var WarehouseReceiptHeader: Record "Warehouse Receipt Header")
     begin
-        WarehouseReceiptHeader.Find();
-        WarehouseReceiptHeader."Document Status" := WarehouseReceiptHeader.GetHeaderStatus(0);
-        WarehouseReceiptHeader.Modify();
+        with WarehouseReceiptHeader do begin
+            Find();
+            "Document Status" := GetHeaderStatus(0);
+            Modify();
+        end;
     end;
 
     local procedure ShowDialog(WhseReceiptCreated: Boolean)

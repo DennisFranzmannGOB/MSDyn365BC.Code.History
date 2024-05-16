@@ -47,6 +47,7 @@ codeunit 136613 "Res. Jnl. Error Handling"
     procedure ResourceJournalNumberOfBatchErrors()
     var
         ResJournalLine: Record "Res. Journal Line";
+        Resource: Record Resource;
         ResJournalBatch: Record "Res. Journal Batch";
         ResourceJournal: TestPage "Resource Journal";
         i: Integer;
@@ -321,6 +322,7 @@ codeunit 136613 "Res. Jnl. Error Handling"
     local procedure MockFullBatchCheck(TemplateName: Code[10]; BatchName: Code[10]; var TempErrorMessage: Record "Error Message" temporary)
     var
         ErrorHandlingParameters: Record "Error Handling Parameters";
+        BackgroundErrorHandlingMgt: Codeunit "Background Error Handling Mgt.";
     begin
         ClearTempErrorMessage(TempErrorMessage);
 

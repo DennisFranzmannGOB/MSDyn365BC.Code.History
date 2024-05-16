@@ -12,7 +12,7 @@ using System.Utilities;
 
 page 1817 "CRM Connection Setup Wizard"
 {
-    Caption = 'Dynamics 365 Sales Integration Setup';
+    Caption = 'Dynamics 365 Connection Setup';
     PageType = NavigatePage;
     SourceTable = "CRM Connection Setup";
     SourceTableTemporary = true;
@@ -25,10 +25,8 @@ page 1817 "CRM Connection Setup Wizard"
             {
                 Caption = '';
                 Editable = false;
-                Visible = TopBannerVisible and not CredentialsStepVisible;
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND NOT CredentialsStepVisible;
                 field("MediaResourcesStandard.""Media Reference"""; MediaResourcesStandard."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Editable = false;
@@ -39,10 +37,8 @@ page 1817 "CRM Connection Setup Wizard"
             {
                 Caption = '';
                 Editable = false;
-                Visible = TopBannerVisible and CredentialsStepVisible;
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND CredentialsStepVisible;
                 field("MediaResourcesDone.""Media Reference"""; MediaResourcesDone."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Suite;
                     Editable = false;

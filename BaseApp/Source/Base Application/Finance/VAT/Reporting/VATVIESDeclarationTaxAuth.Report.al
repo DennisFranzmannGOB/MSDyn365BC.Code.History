@@ -25,7 +25,7 @@ report 19 "VAT- VIES Declaration Tax Auth"
     {
         dataitem("Integer"; "Integer")
         {
-            DataItemTableView = sorting(Number) order(ascending) where(Number = filter(1 ..));
+            DataItemTableView = sorting(Number) ORDER(Ascending) where(Number = filter(1 ..));
             column(CompanyAddr1; CompanyAddr[1])
             {
             }
@@ -101,39 +101,41 @@ report 19 "VAT- VIES Declaration Tax Auth"
                 TotalValueofItemSupplies := 0;
                 EU3PartyItemTradeAmt := 0;
                 EU3PartyServiceTradeAmt := 0;
-                if not VATEntriesBaseAmtSum.Read() then
-                    CurrReport.Break();
+                with VATEntriesBaseAmtSum do begin
+                    if not Read() then
+                        CurrReport.Break();
 
-                if VATEntriesBaseAmtSum.EU_Service then begin
-                    if UseAmtsInAddCurr then
-                        TotalValueofServiceSupplies := VATEntriesBaseAmtSum.Sum_Additional_Currency_Base
-                    else
-                        TotalValueofServiceSupplies := VATEntriesBaseAmtSum.Sum_Base
-                end else
-                    if UseAmtsInAddCurr then
-                        TotalValueofItemSupplies := VATEntriesBaseAmtSum.Sum_Additional_Currency_Base
-                    else
-                        TotalValueofItemSupplies := VATEntriesBaseAmtSum.Sum_Base;
+                    if EU_Service then begin
+                        if UseAmtsInAddCurr then
+                            TotalValueofServiceSupplies := Sum_Additional_Currency_Base
+                        else
+                            TotalValueofServiceSupplies := Sum_Base
+                    end else
+                        if UseAmtsInAddCurr then
+                            TotalValueofItemSupplies := Sum_Additional_Currency_Base
+                        else
+                            TotalValueofItemSupplies := Sum_Base;
 
-                if VATEntriesBaseAmtSum.EU_3_Party_Trade then begin
-                    EU3PartyItemTradeAmt := TotalValueofItemSupplies;
-                    EU3PartyServiceTradeAmt := TotalValueofServiceSupplies;
-                end;
+                    if EU_3_Party_Trade then begin
+                        EU3PartyItemTradeAmt := TotalValueofItemSupplies;
+                        EU3PartyServiceTradeAmt := TotalValueofServiceSupplies;
+                    end;
 
-                CountryBlank := true;
-                if not ((VATEntriesBaseAmtSum.Sum_Base <> 0) or (VATEntriesBaseAmtSum.Sum_Additional_Currency_Base <> 0)) and
-                        (VATEntriesBaseAmtSum.Bill_to_Pay_to_No <> '') and (VATEntriesBaseAmtSum.EU_Country_Region_Code <> '')
-                then
-                    CountryBlank := false;
+                    CountryBlank := true;
+                    if not ((Sum_Base <> 0) or (Sum_Additional_Currency_Base <> 0)) and
+                       (Bill_to_Pay_to_No <> '') and (EU_Country_Region_Code <> '')
+                    then
+                        CountryBlank := false;
 
-                if VATEntriesBaseAmtSum.Country_Region_Code = CompanyInfo."Country/Region Code" then
-                    CurrReport.Skip();
+                    if Country_Region_Code = CompanyInfo."Country/Region Code" then
+                        CurrReport.Skip();
 
-                ShowError := false;
-                ErrorText := '';
-                if VATEntriesBaseAmtSum.VAT_Registration_No = '' then begin
-                    ShowError := true;
-                    ErrorText := StrSubstNo(Text001, VATEntriesBaseAmtSum.Bill_to_Pay_to_No);
+                    ShowError := false;
+                    ErrorText := '';
+                    if VAT_Registration_No = '' then begin
+                        ShowError := true;
+                        ErrorText := StrSubstNo(Text001, Bill_to_Pay_to_No);
+                    end;
                 end;
             end;
 

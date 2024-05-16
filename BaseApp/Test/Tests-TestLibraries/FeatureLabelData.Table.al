@@ -1,7 +1,6 @@
 table 135301 "Feature Label Data"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

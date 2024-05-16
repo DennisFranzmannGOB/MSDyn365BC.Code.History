@@ -4,7 +4,6 @@ table 9179 "Application Area Buffer"
 {
     Caption = 'Application Area Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

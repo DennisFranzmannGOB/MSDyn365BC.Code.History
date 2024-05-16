@@ -7,7 +7,6 @@ table 5211 "Employment Contract"
     Caption = 'Employment Contract';
     DrillDownPageID = "Employment Contracts";
     LookupPageID = "Employment Contracts";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -22,7 +21,7 @@ table 5211 "Employment Contract"
         }
         field(3; "No. of Contracts"; Integer)
         {
-            CalcFormula = count(Employee where(Status = const(Active),
+            CalcFormula = Count(Employee where(Status = const(Active),
                                                 "Emplymt. Contract Code" = field(Code)));
             Caption = 'No. of Contracts';
             Editable = false;

@@ -3,7 +3,6 @@ namespace Microsoft.Foundation.Address;
 table 9090 "Autocomplete Address"
 {
     Caption = 'Autocomplete Address';
-    DataClassification = CustomerContent;
 
     fields
     {

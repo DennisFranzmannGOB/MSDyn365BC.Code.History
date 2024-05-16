@@ -15,12 +15,6 @@ codeunit 14602 "IS Core Upgrade"
 
     trigger OnUpgradePerCompany()
     var
-    begin
-        TransferISCpecificData();
-    end;
-
-    local procedure TransferISCpecificData()
-    var
 #if CLEAN24
         UpgradeTag: Codeunit "Upgrade Tag";
         EnableISCoreApp: Codeunit "Enable IS Core App";

@@ -34,7 +34,7 @@ codeunit 5470 "Graph Collection Mgt - Item"
         RecordRef: RecordRef;
         ItemModified: Boolean;
     begin
-        if IsNullGuid(Item.SystemId) then
+        If IsNullGuid(Item.SystemId) then
             Item.Insert(true)
         else
             Item.Insert(true, true);
@@ -54,7 +54,7 @@ codeunit 5470 "Graph Collection Mgt - Item"
         GraphMgtGeneralTools: Codeunit "Graph Mgt - General Tools";
         RecordRef: RecordRef;
     begin
-        if IsNullGuid(Item.SystemId) then
+        If IsNullGuid(Item.SystemId) then
             Item.Insert(true)
         else
             Item.Insert(true, true);
@@ -73,7 +73,7 @@ codeunit 5470 "Graph Collection Mgt - Item"
     [Scope('Cloud')]
     procedure InsertItem(var Item: Record Item; var TempFieldSet: Record "Field" temporary)
     begin
-        if IsNullGuid(Item.SystemId) then
+        If IsNullGuid(Item.SystemId) then
             Item.Insert(true)
         else
             Item.Insert(true, true);
@@ -205,7 +205,7 @@ codeunit 5470 "Graph Collection Mgt - Item"
             exit;
         end;
 
-        PreviousUOMCode := UnitOfMeasureFieldRef.Value();
+        PreviousUOMCode := UnitOfMeasureFieldRef.Value;
         PreviousUnitOfMeasureJSONString := ItemUnitOfMeasureToJSON(Item, PreviousUOMCode);
 
         if UnitOfMeasureJSONString = PreviousUnitOfMeasureJSONString then

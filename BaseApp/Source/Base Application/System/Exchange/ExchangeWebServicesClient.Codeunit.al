@@ -100,13 +100,15 @@ codeunit 5320 "Exchange Web Services Client"
                         if not TempExchangeFolder.Get(CopyStr(SubFolders.Current.FullPath, 1, 250)) then
                             if IsAllowedFolderType(SubFolders.Current.FolderClass) then begin
                                 FoundAny := true;
-                                TempExchangeFolder.Init();
-                                TempExchangeFolder.FullPath := SubFolders.Current.FullPath;
-                                TempExchangeFolder.Depth := SubFolders.Current.Depth;
-                                TempExchangeFolder.SetUniqueID(SubFolders.Current.UniqueId);
-                                TempExchangeFolder.Name := SubFolders.Current.Name;
-                                TempExchangeFolder.Cached := false;
-                                TempExchangeFolder.Insert();
+                                with TempExchangeFolder do begin
+                                    Init();
+                                    FullPath := SubFolders.Current.FullPath;
+                                    Depth := SubFolders.Current.Depth;
+                                    SetUniqueID(SubFolders.Current.UniqueId);
+                                    Name := SubFolders.Current.Name;
+                                    Cached := false;
+                                    Insert();
+                                end;
                             end;
             if LongPathsDetected then
                 Message(Text002);
@@ -151,13 +153,15 @@ codeunit 5320 "Exchange Web Services Client"
                         if not TempExchangeFolder.Get(CopyStr(SubFolders.Current.FullPath, 1, 250)) then
                             if IsAllowedFolderType(SubFolders.Current.FolderClass) then begin
                                 FoundAny := true;
-                                TempExchangeFolder.Init();
-                                TempExchangeFolder.FullPath := SubFolders.Current.FullPath;
-                                TempExchangeFolder.Depth := SubFolders.Current.Depth;
-                                TempExchangeFolder.SetUniqueID(SubFolders.Current.UniqueId);
-                                TempExchangeFolder.Name := SubFolders.Current.Name;
-                                TempExchangeFolder.Cached := false;
-                                TempExchangeFolder.Insert();
+                                with TempExchangeFolder do begin
+                                    Init();
+                                    FullPath := SubFolders.Current.FullPath;
+                                    Depth := SubFolders.Current.Depth;
+                                    SetUniqueID(SubFolders.Current.UniqueId);
+                                    Name := SubFolders.Current.Name;
+                                    Cached := false;
+                                    Insert();
+                                end;
                             end;
             if LongPathsDetected then
                 Message(Text002);

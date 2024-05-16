@@ -9,7 +9,6 @@ using System.Globalization;
 table 463 "Shipment Method Translation"
 {
     Caption = 'Shipment Method Translation';
-    DataClassification = CustomerContent;
 
     fields
     {

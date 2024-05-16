@@ -1655,9 +1655,7 @@ xmlport 1603 "Sales Credit Memo - PEPPOL 2.0"
                 group(Control2)
                 {
                     ShowCaption = false;
-#pragma warning disable AA0100
                     field("SalesCrMemoHeader.""No."""; SalesCrMemoHeader."No.")
-#pragma warning restore AA0100
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Sales Credit Memo No.';
@@ -1699,23 +1697,23 @@ xmlport 1603 "Sales Credit Memo - PEPPOL 2.0"
     begin
         case ProcessedDocType of
             ProcessedDocType::Sale:
-                begin
-                    SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHeader."No.");
-                    if SalesCrMemoLine.FindSet() then
+                with SalesCrMemoLine do begin
+                    SetRange("Document No.", SalesCrMemoHeader."No.");
+                    if FindSet() then
                         repeat
                             SalesLine.TransferFields(SalesCrMemoLine);
                             PEPPOLMgt.GetTotals(SalesLine, TempVATAmtLine);
-                        until SalesCrMemoLine.Next() = 0;
+                        until Next() = 0;
                 end;
             ProcessedDocType::Service:
-                begin
-                    ServiceCrMemoLine.SetRange("Document No.", ServiceCrMemoHeader."No.");
-                    if ServiceCrMemoLine.FindSet() then
+                with ServiceCrMemoLine do begin
+                    SetRange("Document No.", ServiceCrMemoHeader."No.");
+                    if FindSet() then
                         repeat
                             PEPPOLMgt.TransferLineToSalesLine(ServiceCrMemoLine, SalesLine);
-                            SalesLine.Type := PEPPOLMgt.MapServiceLineTypeToSalesLineTypeEnum(ServiceCrMemoLine.Type);
+                            SalesLine.Type := PEPPOLMgt.MapServiceLineTypeToSalesLineTypeEnum(Type);
                             PEPPOLMgt.GetTotals(SalesLine, TempVATAmtLine);
-                        until ServiceCrMemoLine.Next() = 0;
+                        until Next() = 0;
                 end;
         end;
     end;

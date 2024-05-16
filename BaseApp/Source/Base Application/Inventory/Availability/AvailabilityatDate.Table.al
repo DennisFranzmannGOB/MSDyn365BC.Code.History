@@ -3,7 +3,6 @@ namespace Microsoft.Inventory.Availability;
 table 390 "Availability at Date"
 {
     Caption = 'Availability at Date';
-    DataClassification = CustomerContent;
 
     fields
     {

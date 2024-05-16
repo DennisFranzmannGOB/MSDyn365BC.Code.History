@@ -15,7 +15,6 @@ table 5856 "Direct Trans. Header"
     Caption = 'Direct Transfer Header';
     DataCaptionFields = "No.";
     LookupPageID = "Posted Direct Transfers";
-    DataClassification = CustomerContent;
 
     fields
     {

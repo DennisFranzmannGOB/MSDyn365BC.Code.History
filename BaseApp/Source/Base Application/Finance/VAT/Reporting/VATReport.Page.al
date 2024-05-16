@@ -40,7 +40,7 @@ page 740 "VAT Report"
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Version';
-                    Editable = not ReturnPeriodEnabled;
+                    Editable = NOT ReturnPeriodEnabled;
                     NotBlank = true;
                     ToolTip = 'Specifies version of the report.';
 

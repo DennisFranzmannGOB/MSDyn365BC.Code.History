@@ -10,24 +10,24 @@ codeunit 132200 "Library - Costing"
     end;
 
     var
+        TempPathTxt: Label '%1%2.html', Comment = '%1 = Temporary Path, %2 = Document No.';
         Assert: Codeunit Assert;
-        LibraryERM: Codeunit "Library - ERM";
         IncorrectCostTxt: Label 'Incorrect Cost Amount in Entry No. %1.';
         IncorrectRoundingTxt: Label 'Rounding mismatch of %1 for Inbound Entry No. %2.';
         OutputConsumpMismatchTxt: Label 'Output Cost in Prod. Order %1, line %2 does not match Consumption.';
         OutputVarianceMismatchTxt: Label 'Output Cost including Variance in Prod. Order %1, line %2 does not match total Standard Cost of Produced Item.';
+        LibraryERM: Codeunit "Library - ERM";
         ShouldBeOfRecordTypeErr: Label 'Applies-To should be of type Record.';
-        TempPathTxt: Label '%1%2.html', Comment = '%1 = Temporary Path, %2 = Document No.';
         WrongRecordTypeErr: Label 'Wrong Record Type.';
 
     procedure AdjustCostItemEntries(ItemNoFilter: Text[250]; ItemCategoryFilter: Text[250])
     var
-        AdjustCostItemEntriesReport: Report "Adjust Cost - Item Entries";
+        AdjustCostItemEntries: Report "Adjust Cost - Item Entries";
     begin
         Commit();
-        AdjustCostItemEntriesReport.InitializeRequest(ItemNoFilter, ItemCategoryFilter);
-        AdjustCostItemEntriesReport.UseRequestPage(false);
-        AdjustCostItemEntriesReport.RunModal();
+        AdjustCostItemEntries.InitializeRequest(ItemNoFilter, ItemCategoryFilter);
+        AdjustCostItemEntries.UseRequestPage(false);
+        AdjustCostItemEntries.RunModal();
     end;
 
     local procedure CalculateApplUnitCost(ItemLedgerEntryNo: Integer; PostingDate: Date; FirstOutboundValuePostingDate: Date; FirstOutboundValueEntryNo: Integer): Decimal
@@ -85,27 +85,27 @@ codeunit 132200 "Library - Costing"
         exit(RefCostAmount);
     end;
 
-    procedure CalculateInventoryValue(var ItemJournalLine: Record "Item Journal Line"; var Item: Record Item; NewPostingDate: Date; NewDocNo: Code[20]; NewCalculatePer: Enum "Inventory Value Calc. Per"; NewByLocation: Boolean; NewByVariant: Boolean; NewUpdStdCost: Boolean; NewCalcBase: Enum "Inventory Value Calc. Base"; NewShowDialog: Boolean)
+    procedure CalculateInventoryValue(var ItemJournalLine: Record "Item Journal Line"; var Item: Record Item; NewPostingDate: Date; NewDocNo: Code[20]; NewCalculatePer: Option; NewByLocation: Boolean; NewByVariant: Boolean; NewUpdStdCost: Boolean; NewCalcBase: Option; NewShowDialog: Boolean)
     var
-        CalculateInventoryValueReport: Report "Calculate Inventory Value";
+        CalculateInventoryValue: Report "Calculate Inventory Value";
     begin
-        CalculateInventoryValueReport.SetParameters(
+        CalculateInventoryValue.InitializeRequest(
           NewPostingDate, NewDocNo, true, NewCalculatePer, NewByLocation, NewByVariant, NewUpdStdCost, NewCalcBase, NewShowDialog);
         Commit();
-        CalculateInventoryValueReport.UseRequestPage(false);
-        CalculateInventoryValueReport.SetItemJnlLine(ItemJournalLine);
-        CalculateInventoryValueReport.SetTableView(Item);
-        CalculateInventoryValueReport.RunModal();
+        CalculateInventoryValue.UseRequestPage(false);
+        CalculateInventoryValue.SetItemJnlLine(ItemJournalLine);
+        CalculateInventoryValue.SetTableView(Item);
+        CalculateInventoryValue.RunModal();
     end;
 
     procedure CopyStandardCostWorksheet(FromStandardCostWorksheetName: Code[10]; ToStandardCostWorksheetName: Code[10])
     var
-        CopyStandardCostWorksheetReport: Report "Copy Standard Cost Worksheet";
+        CopyStandardCostWorksheet: Report "Copy Standard Cost Worksheet";
     begin
-        Clear(CopyStandardCostWorksheetReport);
-        CopyStandardCostWorksheetReport.Initialize(FromStandardCostWorksheetName, ToStandardCostWorksheetName, true);
-        CopyStandardCostWorksheetReport.UseRequestPage(false);
-        CopyStandardCostWorksheetReport.Run();
+        Clear(CopyStandardCostWorksheet);
+        CopyStandardCostWorksheet.Initialize(FromStandardCostWorksheetName, ToStandardCostWorksheetName, true);
+        CopyStandardCostWorksheet.UseRequestPage(false);
+        CopyStandardCostWorksheet.Run
     end;
 
     procedure CheckAdjustment(Item: Record Item)
@@ -140,9 +140,6 @@ codeunit 132200 "Library - Costing"
         RefCostAmountwoReval: Decimal;
         PeriodStartDate: Date;
     begin
-        PrevPeriodCost := 0;
-        PrevPeriodQty := 0;
-        PeriodStartDate := 0D;
         AvgCostAdjmtEntryPoint.SetRange("Item No.", Item."No.");
         AvgCostAdjmtEntryPoint.FindSet();
         ValueEntry.SetCurrentKey("Item No.", "Valuation Date", "Location Code", "Variant Code");
@@ -174,7 +171,7 @@ codeunit 132200 "Library - Costing"
                             CurrPeriodInboundCost +=
                               Round((FixedAppValueEntry."Cost Amount (Expected)" + FixedAppValueEntry."Cost Amount (Actual)") /
                                 FixedAppValueEntry."Item Ledger Entry Quantity" * FixedAppItemLedgerEntry.Quantity,
-                                LibraryERM.GetAmountRoundingPrecision());
+                                LibraryERM.GetAmountRoundingPrecision);
                             CurrPeriodInboundQty += FixedAppItemLedgerEntry.Quantity;
                         end;
                     end;
@@ -218,15 +215,15 @@ codeunit 132200 "Library - Costing"
                         RefCostAmountwoReval := (CurrPeriodInboundCost / CurrPeriodInboundQty) * OutboundItemLedgerEntry.Quantity;
                         RefCostAmount :=
                           Round(
-                            RevaluationUnitCost * OutboundItemLedgerEntry.Quantity + RefCostAmountwoReval, LibraryERM.GetAmountRoundingPrecision());
+                            RevaluationUnitCost * OutboundItemLedgerEntry.Quantity + RefCostAmountwoReval, LibraryERM.GetAmountRoundingPrecision);
 
                         OutboundItemLedgerEntry.CalcFields("Cost Amount (Expected)", "Cost Amount (Actual)");
                         OutboundCostAmount := OutboundItemLedgerEntry."Cost Amount (Expected)" + OutboundItemLedgerEntry."Cost Amount (Actual)";
 
                         // Reduce the inbound cost and quantity for validating with the next outboud ILE
-                        CurrPeriodInboundCost += Round(RefCostAmountwoReval, LibraryERM.GetAmountRoundingPrecision());
+                        CurrPeriodInboundCost += Round(RefCostAmountwoReval, LibraryERM.GetAmountRoundingPrecision);
                         CurrPeriodInboundQty += OutboundItemLedgerEntry.Quantity;
-                        Assert.AreNearlyEqual(RefCostAmount, OutboundCostAmount, LibraryERM.GetAmountRoundingPrecision(),
+                        Assert.AreNearlyEqual(RefCostAmount, OutboundCostAmount, LibraryERM.GetAmountRoundingPrecision,
                           StrSubstNo(IncorrectCostTxt, OutboundItemLedgerEntry."Entry No."));
                     end else begin
                         // If fixed applied, verification is same as non-average cost items
@@ -294,7 +291,7 @@ codeunit 132200 "Library - Costing"
         while TempItemLedgerEntry.Next() <> 0 do begin
             TempItemLedgerEntry.CalcFields("Cost Amount (Expected)", "Cost Amount (Actual)");
             ActualCost := TempItemLedgerEntry."Cost Amount (Expected)" + TempItemLedgerEntry."Cost Amount (Actual)";
-            RefCost := Round(RefCostPerUnit * TempItemLedgerEntry.Quantity, LibraryERM.GetAmountRoundingPrecision());
+            RefCost := Round(RefCostPerUnit * TempItemLedgerEntry.Quantity, LibraryERM.GetAmountRoundingPrecision);
             Assert.AreEqual(RefCost, ActualCost, StrSubstNo(IncorrectCostTxt, TempItemLedgerEntry."Entry No."));
         end;
     end;
@@ -329,7 +326,7 @@ codeunit 132200 "Library - Costing"
                                 if VerifyVarianceinOutput then begin
                                     ValueEntry.SetRange("Item Ledger Entry No.", ItemLedgerEntry."Entry No.");
                                     ValueEntry.CalcSums("Cost Amount (Actual)");
-                                    OutputCostinclVariance := Round(ValueEntry."Cost Amount (Actual)", LibraryERM.GetAmountRoundingPrecision());
+                                    OutputCostinclVariance := Round(ValueEntry."Cost Amount (Actual)", LibraryERM.GetAmountRoundingPrecision);
                                 end;
                                 ValueEntry.SetFilter("Entry Type", '<>%1', ValueEntry."Entry Type"::Variance);
                                 ValueEntry.CalcSums("Cost Amount (Actual)");
@@ -341,7 +338,7 @@ codeunit 132200 "Library - Costing"
                   StrSubstNo(OutputConsumpMismatchTxt, ProdOrderLine."Prod. Order No.", ProdOrderLine."Line No."));
                 if VerifyVarianceinOutput then begin
                     RefOutputCostinclVariance :=
-                      Round(ProdOrderLine."Unit Cost" * ProdOrderLine.Quantity, LibraryERM.GetAmountRoundingPrecision());
+                      Round(ProdOrderLine."Unit Cost" * ProdOrderLine.Quantity, LibraryERM.GetAmountRoundingPrecision);
                     Assert.AreEqual(
                       -RefOutputCostinclVariance, OutputCostinclVariance,
                       StrSubstNo(OutputVarianceMismatchTxt, ProdOrderLine."Prod. Order No.", ProdOrderLine."Line No."));
@@ -350,7 +347,7 @@ codeunit 132200 "Library - Costing"
         end;
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     procedure CreatePurchasePrice(var PurchasePrice: Record "Purchase Price"; VendorNo: Code[20]; ItemNo: Code[20]; StartingDate: Date; CurrencyCode: Code[10]; VariantCode: Code[10]; UnitOfMeasureCode: Code[10]; MinimumQuantity: Decimal)
     begin
         PurchasePrice.Init();
@@ -364,8 +361,7 @@ codeunit 132200 "Library - Costing"
         PurchasePrice.Insert(true);
     end;
 #endif
-
-    procedure CreateRevaluationJournal(var ItemJournalBatch: Record "Item Journal Batch"; var Item: Record Item; NewPostingDate: Date; NewDocNo: Code[20]; NewCalculatePer: Enum "Inventory Value Calc. Per"; NewByLocation: Boolean; NewByVariant: Boolean; NewUpdStdCost: Boolean; NewCalcBase: Enum "Inventory Value Calc. Base"; NewShowDialog: Boolean)
+    procedure CreateRevaluationJournal(var ItemJournalBatch: Record "Item Journal Batch"; var Item: Record Item; NewPostingDate: Date; NewDocNo: Code[20]; NewCalculatePer: Option; NewByLocation: Boolean; NewByVariant: Boolean; NewUpdStdCost: Boolean; NewCalcBase: Option; NewShowDialog: Boolean)
     var
         ItemJournalLine: Record "Item Journal Line";
     begin
@@ -376,7 +372,7 @@ codeunit 132200 "Library - Costing"
           NewByVariant, NewUpdStdCost, NewCalcBase, NewShowDialog);
     end;
 
-    procedure CreateRevaluationJnlLines(var Item: Record Item; ItemJournalLine: Record "Item Journal Line"; DocNo: Code[20]; CalculatePer: Enum "Inventory Value Calc. Per"; ReCalcStdCost: Enum "Inventory Value Calc. Base"; ByLocation: Boolean; ByVariant: Boolean; UpdStdCost: Boolean; PostingDate: Date)
+    procedure CreateRevaluationJnlLines(var Item: Record Item; ItemJournalLine: Record "Item Journal Line"; DocNo: Code[20]; CalculatePer: Option; ReCalcStdCost: Option; ByLocation: Boolean; ByVariant: Boolean; UpdStdCost: Boolean; PostingDate: Date)
     var
         TmpItem: Record Item;
         CalcInvtValue: Report "Calculate Inventory Value";
@@ -390,12 +386,12 @@ codeunit 132200 "Library - Costing"
             TmpItem.SetRange("No.", Item."No.");
         end;
         CalcInvtValue.SetTableView(TmpItem);
-        CalcInvtValue.SetParameters(PostingDate, DocNo, true, CalculatePer, ByLocation, ByVariant, UpdStdCost, ReCalcStdCost, true);
+        CalcInvtValue.InitializeRequest(PostingDate, DocNo, true, CalculatePer, ByLocation, ByVariant, UpdStdCost, ReCalcStdCost, true);
         CalcInvtValue.UseRequestPage(false);
         CalcInvtValue.RunModal();
     end;
 
-#if not CLEAN23
+#if not CLEAN21
     procedure CreateSalesPrice(var SalesPrice: Record "Sales Price"; SalesType: Enum "Sales Price Type"; SalesCode: Code[20]; ItemNo: Code[20]; StartingDate: Date; CurrencyCode: Code[10]; VariantCode: Code[10]; UnitOfMeasureCode: Code[10]; MinimumQuantity: Decimal)
     begin
         SalesPrice.Init();
@@ -412,13 +408,13 @@ codeunit 132200 "Library - Costing"
 
     procedure ImplementPriceChange(SalesPriceWorksheet: Record "Sales Price Worksheet")
     var
-        ImplementPriceChangeReport: Report "Implement Price Change";
+        ImplementPriceChange: Report "Implement Price Change";
     begin
-        Clear(ImplementPriceChangeReport);
-        ImplementPriceChangeReport.InitializeRequest(true);
-        ImplementPriceChangeReport.UseRequestPage(false);
-        ImplementPriceChangeReport.SetTableView(SalesPriceWorksheet);
-        ImplementPriceChangeReport.RunModal();
+        Clear(ImplementPriceChange);
+        ImplementPriceChange.InitializeRequest(true);
+        ImplementPriceChange.UseRequestPage(false);
+        ImplementPriceChange.SetTableView(SalesPriceWorksheet);
+        ImplementPriceChange.RunModal();
     end;
 #endif
 
@@ -477,13 +473,13 @@ codeunit 132200 "Library - Costing"
     procedure PostInvtCostToGLTest(PostMethod: Option; ItemNo: Code[20]; DocumentNo: Code[20]; ShowDim: Boolean; ShowOnlyWarnings: Boolean)
     var
         PostValueEntryToGL: Record "Post Value Entry to G/L";
-        PostInvtCostToGLTestReport: Report "Post Invt. Cost to G/L - Test";
+        PostInvtCostToGLTest: Report "Post Invt. Cost to G/L - Test";
     begin
         Commit();
         PostValueEntryToGL.SetRange("Item No.", ItemNo);
-        PostInvtCostToGLTestReport.InitializeRequest(PostMethod, DocumentNo, ShowDim, ShowOnlyWarnings);
-        PostInvtCostToGLTestReport.SetTableView(PostValueEntryToGL);
-        PostInvtCostToGLTestReport.UseRequestPage(false);
+        PostInvtCostToGLTest.InitializeRequest(PostMethod, DocumentNo, ShowDim, ShowOnlyWarnings);
+        PostInvtCostToGLTest.SetTableView(PostValueEntryToGL);
+        PostInvtCostToGLTest.UseRequestPage(false);
     end;
 
     local procedure PrepareBufferforRoundingCheck(Item: Record Item; var TempItemJnlBuffer: Record "Item Journal Buffer" temporary)
@@ -509,17 +505,17 @@ codeunit 132200 "Library - Costing"
 
     local procedure RoundAmount(Amount: Decimal): Decimal
     begin
-        exit(Round(Amount, LibraryERM.GetAmountRoundingPrecision(), '='));
+        exit(Round(Amount, LibraryERM.GetAmountRoundingPrecision, '='));
     end;
 
     procedure SuggestCapacityStandardCost(var WorkCenter: Record "Work Center"; var MachineCenter: Record "Machine Center"; StandardCostWorksheetName: Code[10]; StandardCostAdjustmentFactor: Integer; StandardCostRoundingMethod: Code[10])
     var
         TmpWorkCenter: Record "Work Center";
         TmpMachineCenter: Record "Machine Center";
-        SuggestCapacityStandardCostReport: Report "Suggest Capacity Standard Cost";
+        SuggestCapacityStandardCost: Report "Suggest Capacity Standard Cost";
     begin
-        Clear(SuggestCapacityStandardCostReport);
-        SuggestCapacityStandardCostReport.Initialize(
+        Clear(SuggestCapacityStandardCost);
+        SuggestCapacityStandardCost.Initialize(
           StandardCostWorksheetName, StandardCostAdjustmentFactor, 0, 0, StandardCostRoundingMethod, '', '');
         if WorkCenter.HasFilter then
             TmpWorkCenter.CopyFilters(WorkCenter)
@@ -527,7 +523,7 @@ codeunit 132200 "Library - Costing"
             WorkCenter.Get(WorkCenter."No.");
             TmpWorkCenter.SetRange("No.", WorkCenter."No.");
         end;
-        SuggestCapacityStandardCostReport.SetTableView(TmpWorkCenter);
+        SuggestCapacityStandardCost.SetTableView(TmpWorkCenter);
 
         if MachineCenter.HasFilter then
             TmpMachineCenter.CopyFilters(MachineCenter)
@@ -535,15 +531,12 @@ codeunit 132200 "Library - Costing"
             MachineCenter.Get(MachineCenter."No.");
             TmpMachineCenter.SetRange("No.", MachineCenter."No.");
         end;
-        SuggestCapacityStandardCostReport.SetTableView(TmpMachineCenter);
-        SuggestCapacityStandardCostReport.UseRequestPage(false);
-        SuggestCapacityStandardCostReport.Run();
+        SuggestCapacityStandardCost.SetTableView(TmpMachineCenter);
+        SuggestCapacityStandardCost.UseRequestPage(false);
+        SuggestCapacityStandardCost.Run();
     end;
 
-#if not CLEAN23
-#pragma warning disable AS0072
-    [Obsolete('Not used', '23.0')]
-#pragma warning restore AS0072
+#if not CLEAN21
     procedure SuggestSalesPriceWorksheet(Item: Record Item; SalesCode: Code[20]; SalesType: Enum "Sales Price Type"; PriceLowerLimit: Decimal; UnitPriceFactor: Decimal)
     var
         SalesPrice: Record "Sales Price";
@@ -551,32 +544,26 @@ codeunit 132200 "Library - Costing"
     begin
         Clear(SuggestSalesPriceOnWksh);
         SuggestSalesPriceOnWksh.InitializeRequest2(
-          SalesType.AsInteger(), SalesCode, WorkDate(), WorkDate(), '', Item."Base Unit of Measure", false, PriceLowerLimit, UnitPriceFactor, '');
+          SalesType.AsInteger(), SalesCode, WorkDate(), WorkDate, '', Item."Base Unit of Measure", false, PriceLowerLimit, UnitPriceFactor, '');
         SuggestSalesPriceOnWksh.UseRequestPage(false);
         SalesPrice.SetRange("Item No.", Item."No.");
         SuggestSalesPriceOnWksh.SetTableView(SalesPrice);
         SuggestSalesPriceOnWksh.RunModal();
     end;
 
-#pragma warning disable AS0072
-    [Obsolete('Not used', '23.0')]
-#pragma warning restore AS0072
     procedure SuggestItemPriceWorksheet(Item: Record Item; SalesCode: Code[20]; SalesType: Enum "Sales Price Type"; PriceLowerLimit: Decimal; UnitPriceFactor: Decimal)
     var
         SuggestItemPriceOnWksh: Report "Suggest Item Price on Wksh.";
     begin
         Clear(SuggestItemPriceOnWksh);
         SuggestItemPriceOnWksh.InitializeRequest2(
-          SalesType.AsInteger(), SalesCode, WorkDate(), WorkDate(), '', Item."Base Unit of Measure", PriceLowerLimit, UnitPriceFactor, '', true);
+          SalesType.AsInteger(), SalesCode, WorkDate(), WorkDate, '', Item."Base Unit of Measure", PriceLowerLimit, UnitPriceFactor, '', true);
         SuggestItemPriceOnWksh.UseRequestPage(false);
         Item.SetRange("No.", Item."No.");
         SuggestItemPriceOnWksh.SetTableView(Item);
         SuggestItemPriceOnWksh.RunModal();
     end;
 
-#pragma warning disable AS0072
-    [Obsolete('Not used', '23.0')]
-#pragma warning restore AS0072
     procedure SuggestItemPriceWorksheet2(Item: Record Item; SalesCode: Code[20]; SalesType: Enum "Sales Price Type"; PriceLowerLimit: Decimal; UnitPriceFactor: Decimal; CurrencyCode: Code[10])
     var
         TmpItem: Record Item;
@@ -584,7 +571,7 @@ codeunit 132200 "Library - Costing"
     begin
         Clear(SuggestItemPriceOnWksh);
         SuggestItemPriceOnWksh.InitializeRequest2(
-          SalesType.AsInteger(), SalesCode, WorkDate(), WorkDate(), CurrencyCode, Item."Base Unit of Measure", PriceLowerLimit, UnitPriceFactor, '', true);
+          SalesType.AsInteger(), SalesCode, WorkDate(), WorkDate, CurrencyCode, Item."Base Unit of Measure", PriceLowerLimit, UnitPriceFactor, '', true);
         if Item.HasFilter then
             TmpItem.CopyFilters(Item)
         else begin
@@ -600,28 +587,28 @@ codeunit 132200 "Library - Costing"
     procedure SuggestItemStandardCost(var Item: Record Item; StandardCostWorksheetName: Code[10]; StandardCostAdjustmentFactor: Integer; StandardCostRoundingMethod: Code[10])
     var
         TmpItem: Record Item;
-        SuggestItemStandardCostReport: Report "Suggest Item Standard Cost";
+        SuggestItemStandardCost: Report "Suggest Item Standard Cost";
     begin
-        Clear(SuggestItemStandardCostReport);
-        SuggestItemStandardCostReport.Initialize(StandardCostWorksheetName, StandardCostAdjustmentFactor, 0, 0, StandardCostRoundingMethod, '', '');
+        Clear(SuggestItemStandardCost);
+        SuggestItemStandardCost.Initialize(StandardCostWorksheetName, StandardCostAdjustmentFactor, 0, 0, StandardCostRoundingMethod, '', '');
         if Item.HasFilter then
             TmpItem.CopyFilters(Item)
         else begin
             Item.Get(Item."No.");
             TmpItem.SetRange("No.", Item."No.");
         end;
-        SuggestItemStandardCostReport.SetTableView(TmpItem);
-        SuggestItemStandardCostReport.UseRequestPage(false);
-        SuggestItemStandardCostReport.Run();
+        SuggestItemStandardCost.SetTableView(TmpItem);
+        SuggestItemStandardCost.UseRequestPage(false);
+        SuggestItemStandardCost.Run();
     end;
 
     procedure UpdateUnitCost(var ProductionOrder: Record "Production Order"; CalcMethod: Option; UpdateReservations: Boolean)
     var
         TmpProductionOrder: Record "Production Order";
-        UpdateUnitCostReport: Report "Update Unit Cost";
+        UpdateUnitCost: Report "Update Unit Cost";
     begin
-        Clear(UpdateUnitCostReport);
-        UpdateUnitCostReport.InitializeRequest(CalcMethod, UpdateReservations);
+        Clear(UpdateUnitCost);
+        UpdateUnitCost.InitializeRequest(CalcMethod, UpdateReservations);
         if ProductionOrder.HasFilter then
             TmpProductionOrder.CopyFilters(ProductionOrder)
         else begin
@@ -629,9 +616,9 @@ codeunit 132200 "Library - Costing"
             TmpProductionOrder.SetRange(Status, ProductionOrder.Status);
             TmpProductionOrder.SetRange("No.", ProductionOrder."No.");
         end;
-        UpdateUnitCostReport.SetTableView(TmpProductionOrder);
-        UpdateUnitCostReport.UseRequestPage(false);
-        UpdateUnitCostReport.Run();
+        UpdateUnitCost.SetTableView(TmpProductionOrder);
+        UpdateUnitCost.UseRequestPage(false);
+        UpdateUnitCost.Run();
     end;
 
     local procedure UpdateBufferforRoundingCheck(var TempItemJournalBuffer: Record "Item Journal Buffer" temporary; EntryNo: Integer; Quantity: Decimal; CostAmount: Decimal)
@@ -664,20 +651,22 @@ codeunit 132200 "Library - Costing"
         LineNo: Integer;
     begin
         GetAppliesToValues(AppliesTo, DocumentType, DocumentNo, LineNo, ItemNo);
-        ItemChargeAssignmentPurch.Init();
-        ItemChargeAssignmentPurch.Validate("Document Type", PurchaseLineCharge."Document Type");
-        ItemChargeAssignmentPurch.Validate("Document No.", PurchaseLineCharge."Document No.");
-        ItemChargeAssignmentPurch.Validate("Document Line No.", PurchaseLineCharge."Line No.");
-        ItemChargeAssignmentPurch.Validate("Item Charge No.", PurchaseLineCharge."No.");
+        with ItemChargeAssignmentPurch do begin
+            Init();
+            Validate("Document Type", PurchaseLineCharge."Document Type");
+            Validate("Document No.", PurchaseLineCharge."Document No.");
+            Validate("Document Line No.", PurchaseLineCharge."Line No.");
+            Validate("Item Charge No.", PurchaseLineCharge."No.");
 
-        ItemChargeAssignmentPurch.Validate("Applies-to Doc. Type", DocumentType);
-        ItemChargeAssignmentPurch.Validate("Applies-to Doc. No.", DocumentNo);
-        ItemChargeAssignmentPurch.Validate("Applies-to Doc. Line No.", LineNo);
+            Validate("Applies-to Doc. Type", DocumentType);
+            Validate("Applies-to Doc. No.", DocumentNo);
+            Validate("Applies-to Doc. Line No.", LineNo);
 
-        ItemChargeAssignmentPurch.Validate("Unit Cost", PurchaseLineCharge."Unit Cost");
-        ItemChargeAssignmentPurch.Validate("Item No.", ItemNo);
-        ItemChargeAssignmentPurch.Validate("Qty. to Assign", PurchaseLineCharge.Quantity);
-        ItemChargeAssignmentPurch.Insert(true);
+            Validate("Unit Cost", PurchaseLineCharge."Unit Cost");
+            Validate("Item No.", ItemNo);
+            Validate("Qty. to Assign", PurchaseLineCharge.Quantity);
+            Insert(true);
+        end;
     end;
 
     procedure AssignItemChargeSales(SalesLineCharge: Record "Sales Line"; AppliesTo: Variant)
@@ -689,20 +678,22 @@ codeunit 132200 "Library - Costing"
         LineNo: Integer;
     begin
         GetAppliesToValues(AppliesTo, DocumentType, DocumentNo, LineNo, ItemNo);
-        ItemChargeAssignmentSales.Init();
-        ItemChargeAssignmentSales.Validate("Document Type", SalesLineCharge."Document Type");
-        ItemChargeAssignmentSales.Validate("Document No.", SalesLineCharge."Document No.");
-        ItemChargeAssignmentSales.Validate("Document Line No.", SalesLineCharge."Line No.");
-        ItemChargeAssignmentSales.Validate("Item Charge No.", SalesLineCharge."No.");
+        with ItemChargeAssignmentSales do begin
+            Init();
+            Validate("Document Type", SalesLineCharge."Document Type");
+            Validate("Document No.", SalesLineCharge."Document No.");
+            Validate("Document Line No.", SalesLineCharge."Line No.");
+            Validate("Item Charge No.", SalesLineCharge."No.");
 
-        ItemChargeAssignmentSales.Validate("Applies-to Doc. Type", DocumentType);
-        ItemChargeAssignmentSales.Validate("Applies-to Doc. No.", DocumentNo);
-        ItemChargeAssignmentSales.Validate("Applies-to Doc. Line No.", LineNo);
+            Validate("Applies-to Doc. Type", DocumentType);
+            Validate("Applies-to Doc. No.", DocumentNo);
+            Validate("Applies-to Doc. Line No.", LineNo);
 
-        ItemChargeAssignmentSales.Validate("Unit Cost", SalesLineCharge."Unit Cost");
-        ItemChargeAssignmentSales.Validate("Item No.", ItemNo);
-        ItemChargeAssignmentSales.Validate("Qty. to Assign", SalesLineCharge.Quantity);
-        ItemChargeAssignmentSales.Insert(true);
+            Validate("Unit Cost", SalesLineCharge."Unit Cost");
+            Validate("Item No.", ItemNo);
+            Validate("Qty. to Assign", SalesLineCharge.Quantity);
+            Insert(true);
+        end;
     end;
 
     local procedure GetAppliesToValues(AppliesTo: Variant; var DocumentType: Option; var DocumentNo: Code[20]; var LineNo: Integer; var ItemNo: Code[20])

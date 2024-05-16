@@ -24,7 +24,6 @@ using System.Security.AccessControl;
 table 5065 "Interaction Log Entry"
 {
     Caption = 'Interaction Log Entry';
-    DataClassification = CustomerContent;
     DrillDownPageID = "Interaction Log Entries";
     LookupPageID = "Interaction Log Entries";
     ReplicateData = true;
@@ -205,14 +204,14 @@ table 5065 "Interaction Log Entry"
         }
         field(39; "Contact Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact No.")));
             Caption = 'Contact Name';
             Editable = false;
             FieldClass = FlowField;
         }
         field(40; "Contact Company Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact Company No."),
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact Company No."),
                                                      Type = const(Company)));
             Caption = 'Contact Company Name';
             Editable = false;

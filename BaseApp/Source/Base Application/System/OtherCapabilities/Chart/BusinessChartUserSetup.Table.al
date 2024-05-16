@@ -8,7 +8,6 @@ table 487 "Business Chart User Setup"
 {
     Caption = 'Business Chart User Setup';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

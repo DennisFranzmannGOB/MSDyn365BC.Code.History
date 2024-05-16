@@ -45,7 +45,7 @@ codeunit 452 "Report Distribution Management"
         ServiceCrMemoDocTypeTxt: Label 'Service Credit Memo';
         ServiceQuoteDocTypeTxt: Label 'Service Quote';
         ServiceOrderDocTypeTxt: Label 'Service Order';
-        JobQuoteDocTypeTxt: Label 'Project Quote';
+        JobQuoteDocTypeTxt: Label 'Job Quote';
         IssuedReminderDocTypeTxt: Label 'Issued Reminder';
         IssuedFinChargeMemoDocTypeTxt: Label 'Issued Finance Charge Memo';
 
@@ -390,11 +390,6 @@ codeunit 452 "Report Distribution Management"
         DocumentMailing.EmailFile(
           AttachmentStream, AttachmentFileName, ServerEmailBodyFilePath, PostedDocumentNo,
           SendEmailAddress, DocumentType, HideDialog, ReportUsage.AsInteger(), SourceTableIDs, SourceIDs, SourceRelationTypes);
-    end;
-
-    internal procedure GetIssuedReminderDocTypeTxt(): Text
-    begin
-        exit(IssuedReminderDocTypeTxt);
     end;
 
     [Scope('OnPrem')]

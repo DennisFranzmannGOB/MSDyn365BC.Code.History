@@ -15,6 +15,7 @@ codeunit 138017 "O365 Miscellaneous"
         LibraryLowerPermissions: Codeunit "Library - Lower Permissions";
         LibraryTemplates: Codeunit "Library - Templates";
         GenProductPostingGroup_Code: Code[10];
+        EnvironmentErr: Label 'This feature is only available in the online production version of the product.';
         FieldShouldBeVisibleErr: Label 'Field should be visible in On-prem installation';
         FieldVisibleSuiteAreaErr: Label 'Field must be visible for #Suite Application Area.';
         IsInitialized: Boolean;
@@ -102,17 +103,17 @@ codeunit 138017 "O365 Miscellaneous"
     begin
         // Setup
         Initialize();
-        LibraryLowerPermissions.AddO365INVSetup();
+        LibraryLowerPermissions.AddO365INVSetup;
 
         InventorySetup.Get();
         InventorySetup."Default Costing Method" := InventorySetup."Default Costing Method"::Standard;
         InventorySetup.Modify(true);
 
         // Exercise
-        LibraryLowerPermissions.SetItemEdit();
+        LibraryLowerPermissions.SetItemEdit;
         ItemCard.OpenNew();
-        ItemCard.Description.Activate();
-        ItemNo := ItemCard."No.".Value();
+        ItemCard.Description.Activate;
+        ItemNo := ItemCard."No.".Value;
         ItemCard.Close();
 
         // Verify
@@ -128,7 +129,7 @@ codeunit 138017 "O365 Miscellaneous"
     begin
         // Setup
         Initialize();
-        LibraryLowerPermissions.SetItemEdit();
+        LibraryLowerPermissions.SetItemEdit;
         Item.Init();
         Item.Insert(true);
 
@@ -147,7 +148,7 @@ codeunit 138017 "O365 Miscellaneous"
     begin
         // Setup
         Initialize();
-        LibraryLowerPermissions.SetItemEdit();
+        LibraryLowerPermissions.SetItemEdit;
         Item.Init();
         Item.Insert(true);
 
@@ -169,7 +170,7 @@ codeunit 138017 "O365 Miscellaneous"
     begin
         // Setup
         Initialize();
-        LibraryLowerPermissions.SetO365BusFull();
+        LibraryLowerPermissions.SetO365BusFull;
         Item.Init();
         Item.Insert(true);
 
@@ -193,7 +194,7 @@ codeunit 138017 "O365 Miscellaneous"
     begin
         // Setup
         Initialize();
-        LibraryLowerPermissions.SetItemEdit();
+        LibraryLowerPermissions.SetItemEdit;
         Item.Init();
         Item.Insert(true);
 
@@ -213,7 +214,7 @@ codeunit 138017 "O365 Miscellaneous"
     begin
         // Setup
         Initialize();
-        LibraryLowerPermissions.SetItemEdit();
+        LibraryLowerPermissions.SetItemEdit;
         Item.Init();
         Item.Insert(true);
 
@@ -236,8 +237,8 @@ codeunit 138017 "O365 Miscellaneous"
         // [SCENARIO 256466] 'Evaluation Company' field is visible for SaaS client
         Initialize();
 
-        Companies.OpenView();
-        Assert.IsTrue(Companies."Evaluation Company".Visible(), '');
+        Companies.OpenView;
+        Assert.IsTrue(Companies."Evaluation Company".Visible, '');
     end;
 
     [Test]
@@ -249,10 +250,10 @@ codeunit 138017 "O365 Miscellaneous"
     begin
         // [FEATURE] [UI] [UT]
         // [SCENARIO 256466] 'Evaluation Company' field is not visible for OnPrem client
-        LibraryApplicationArea.DeleteExistingFoundationSetup();
+        LibraryApplicationArea.DeleteExistingFoundationSetup;
 
-        Companies.OpenView();
-        Assert.IsFalse(Companies."Evaluation Company".Visible(), '');
+        Companies.OpenView;
+        Assert.IsFalse(Companies."Evaluation Company".Visible, '');
     end;
 
     [Test]
@@ -264,11 +265,11 @@ codeunit 138017 "O365 Miscellaneous"
         // [FEATURE] [Item] [UI] [UT]
         // [SCENARIO 257573] Field "Type" in the item card should be visible in On-Prem installation
 
-        LibraryLowerPermissions.SetItemView();
-        LibraryApplicationArea.DeleteExistingFoundationSetup();
+        LibraryLowerPermissions.SetItemView;
+        LibraryApplicationArea.DeleteExistingFoundationSetup;
 
-        ItemCard.OpenView();
-        Assert.IsTrue(ItemCard.Type.Visible(), FieldShouldBeVisibleErr);
+        ItemCard.OpenView;
+        Assert.IsTrue(ItemCard.Type.Visible, FieldShouldBeVisibleErr);
     end;
 
     [Test]
@@ -282,10 +283,10 @@ codeunit 138017 "O365 Miscellaneous"
 
         Initialize();
 
-        LibraryLowerPermissions.SetO365INVSetup();
-        InventorySetup.OpenView();
+        LibraryLowerPermissions.SetO365INVSetup;
+        InventorySetup.OpenView;
 
-        Assert.IsTrue(InventorySetup."Expected Cost Posting to G/L".Visible(), FieldVisibleSuiteAreaErr);
+        Assert.IsTrue(InventorySetup."Expected Cost Posting to G/L".Visible, FieldVisibleSuiteAreaErr);
 
         InventorySetup.Close();
     end;
@@ -297,7 +298,7 @@ codeunit 138017 "O365 Miscellaneous"
 
         ClearTables();
         GenProductPostingGroup_Code := 'New Line';
-        PrepareVatProductPostingGroup();
+        PrepareVatProductPostingGroup;
 
         if IsInitialized then
             exit;
@@ -319,7 +320,7 @@ codeunit 138017 "O365 Miscellaneous"
     var
         ItemCard: TestPage "Item Card";
     begin
-        ItemCard.OpenEdit();
+        ItemCard.OpenEdit;
         ItemCard.GotoRecord(Item);
         ItemCard."Costing Method".SetValue(CostingMethodOption);
         ItemCard.Close();

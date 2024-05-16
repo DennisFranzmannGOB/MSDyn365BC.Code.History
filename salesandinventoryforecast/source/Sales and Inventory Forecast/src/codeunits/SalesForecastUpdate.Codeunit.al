@@ -4,6 +4,7 @@
 // ------------------------------------------------------------------------------------------------
 namespace Microsoft.Inventory.InventoryForecast;
 
+using Microsoft;
 using Microsoft.Inventory.Item;
 using System.AI;
 using System.Environment;

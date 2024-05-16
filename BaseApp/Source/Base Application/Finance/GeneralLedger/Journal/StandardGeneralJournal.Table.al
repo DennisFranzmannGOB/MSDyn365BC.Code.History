@@ -6,7 +6,6 @@ table 750 "Standard General Journal"
 {
     Caption = 'Standard General Journal';
     LookupPageID = "Standard General Journals";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -181,13 +180,13 @@ table 750 "Standard General Journal"
     local procedure TryGetNextDocumentNo(TemplateName: Code[10]; BatchName: Code[10]): Code[20]
     var
         GenJournalBatch: Record "Gen. Journal Batch";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
         GenJournalBatch.Get(TemplateName, BatchName);
         if GenJournalBatch."No. Series" = '' then
             exit('');
 
-        exit(NoSeries.PeekNextNo(GenJournalBatch."No. Series"));
+        exit(NoSeriesMgt.TryGetNextNo(GenJournalBatch."No. Series", WorkDate()));
     end;
 
     local procedure OpenWindow(DisplayText: Text[250]; NoOfJournalsToBeCreated2: Integer)

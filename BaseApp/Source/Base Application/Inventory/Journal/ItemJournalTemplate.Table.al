@@ -16,7 +16,6 @@ table 82 "Item Journal Template"
     Caption = 'Item Journal Template';
     LookupPageID = "Item Journal Template List";
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -153,7 +152,7 @@ table 82 "Item Journal Template"
         }
         field(15; "Test Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Test Report ID")));
             Caption = 'Test Report Caption';
             Editable = false;
@@ -161,7 +160,7 @@ table 82 "Item Journal Template"
         }
         field(16; "Page Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
                                                                            "Object ID" = field("Page ID")));
             Caption = 'Page Caption';
             Editable = false;
@@ -169,7 +168,7 @@ table 82 "Item Journal Template"
         }
         field(17; "Posting Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Posting Report ID")));
             Caption = 'Posting Report Caption';
             Editable = false;
@@ -212,7 +211,7 @@ table 82 "Item Journal Template"
         field(22; "Whse. Register Report Caption"; Text[250])
         {
             AccessByPermission = TableData "Bin Content" = R;
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Whse. Register Report ID")));
             Caption = 'Whse. Register Report Caption';
             Editable = false;
@@ -229,9 +228,6 @@ table 82 "Item Journal Template"
         key(Key1; Name)
         {
             Clustered = true;
-        }
-        key(Key2; Type)
-        {
         }
     }
 

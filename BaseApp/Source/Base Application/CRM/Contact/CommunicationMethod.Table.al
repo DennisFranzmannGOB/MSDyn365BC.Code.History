@@ -5,7 +5,6 @@ using System.Email;
 table 5100 "Communication Method"
 {
     Caption = 'Communication Method';
-    DataClassification = CustomerContent;
 
     fields
     {

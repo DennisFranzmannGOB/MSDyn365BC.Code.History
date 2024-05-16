@@ -23,7 +23,6 @@ table 5475 "Sales Invoice Entity Aggregate"
 {
     Caption = 'Sales Invoice Entity Aggregate';
     Permissions = tabledata "VAT Posting Setup" = R;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -430,21 +429,6 @@ table 5475 "Sales Invoice Entity Aggregate"
             Caption = 'Invoice Discount Amount';
             DataClassification = CustomerContent;
         }
-        field(1340; "Dispute Status"; Code[10])
-        {
-            Caption = 'Dispute Status';
-            TableRelation = "Dispute Status";
-            DataClassification = CustomerContent;
-            trigger OnValidate()
-            begin
-                UpdateDisputeStatusId();
-            end;
-        }
-        field(1341; "Promised Pay Date"; Date)
-        {
-            Caption = 'Promised Pay Date';
-            DataClassification = CustomerContent;
-        }
         field(5052; "Sell-to Contact No."; Code[20])
         {
             Caption = 'Sell-to Contact No.';
@@ -455,15 +439,6 @@ table 5475 "Sales Invoice Entity Aggregate"
         {
             Caption = 'Id';
             DataClassification = SystemMetadata;
-        }
-        field(8010; "Dispute Status Id"; Guid)
-        {
-            Caption = 'Dispute Status Id';
-            TableRelation = "Dispute Status".SystemId;
-            trigger OnValidate()
-            begin
-                UpdateDisputeStatus();
-            end;
         }
         field(9600; "Total Tax Amount"; Decimal)
         {
@@ -709,28 +684,6 @@ table 5475 "Sales Invoice Entity Aggregate"
         "Payment Terms Id" := PaymentTerms.SystemId;
     end;
 
-    procedure UpdateDisputeStatusId()
-    var
-        DisputeStatus: Record "Dispute Status";
-    begin
-        if "Dispute Status" = '' then begin
-            Clear("Dispute Status Id");
-            exit;
-        end;
-        if not DisputeStatus.Get("Dispute Status") then
-            exit;
-        "Dispute Status Id" := DisputeStatus.SystemId;
-    end;
-
-    procedure UpdateDisputeStatus()
-    var
-        DisputeStatus: Record "Dispute Status";
-    begin
-        if not IsNullGuid("Dispute Status Id") then
-            DisputeStatus.GetBySystemId("Dispute Status Id");
-        Validate("Dispute Status", DisputeStatus.Code);
-    end;
-
     procedure UpdateShipmentMethodId()
     var
         ShipmentMethod: Record "Shipment Method";
@@ -822,7 +775,6 @@ table 5475 "Sales Invoice Entity Aggregate"
         UpdateCurrencyId();
         UpdatePaymentTermsId();
         UpdateShipmentMethodId();
-        UpdateDisputeStatusId();
 
         if ("Order No." <> '') and IsNullGuid("Order Id") then
             UpdateOrderId();
@@ -904,8 +856,13 @@ table 5475 "Sales Invoice Entity Aggregate"
 
     procedure GetParentRecordNativeInvoicing(var SalesHeader: Record "Sales Header"; var SalesInvoiceHeader: Record "Sales Invoice Header"): Boolean
     begin
+#if not CLEAN21
+        SalesInvoiceHeader.SetAutoCalcFields("Last Email Sent Time", "Last Email Sent Status", "Work Description");
+        SalesHeader.SetAutoCalcFields("Last Email Sent Time", "Last Email Sent Status", "Work Description");
+#else
         SalesInvoiceHeader.SetAutoCalcFields("Work Description");
         SalesHeader.SetAutoCalcFields("Work Description");
+#endif
         exit(GetParentRecord(SalesHeader, SalesInvoiceHeader));
     end;
 

@@ -15,12 +15,14 @@ codeunit 5803 "Show Avg. Calc. - Item"
     var
         ValueEntry: Record "Value Entry";
     begin
-        ValueEntry.SetCurrentKey("Item No.", "Valuation Date", "Location Code", "Variant Code");
-        ValueEntry.SetRange("Item No.", Rec."No.");
-        ValueEntry.SetFilter("Valuation Date", Rec.GetFilter("Date Filter"));
-        ValueEntry.SetFilter("Location Code", Rec.GetFilter("Location Filter"));
-        ValueEntry.SetFilter("Variant Code", Rec.GetFilter("Variant Filter"));
-        OnRunOnAfterValueEntrySetFilters(ValueEntry, Rec);
+        with ValueEntry do begin
+            SetCurrentKey("Item No.", "Valuation Date", "Location Code", "Variant Code");
+            SetRange("Item No.", Rec."No.");
+            SetFilter("Valuation Date", Rec.GetFilter("Date Filter"));
+            SetFilter("Location Code", Rec.GetFilter("Location Filter"));
+            SetFilter("Variant Code", Rec.GetFilter("Variant Filter"));
+            OnRunOnAfterValueEntrySetFilters(ValueEntry, Rec);
+        end;
         PAGE.RunModal(PAGE::"Value Entries", ValueEntry, ValueEntry."Cost Amount (Actual)");
     end;
 

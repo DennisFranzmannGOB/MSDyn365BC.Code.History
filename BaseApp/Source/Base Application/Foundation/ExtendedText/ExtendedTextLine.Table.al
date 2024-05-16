@@ -10,7 +10,6 @@ using System.Globalization;
 table 280 "Extended Text Line"
 {
     Caption = 'Extended Text Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -27,9 +26,9 @@ table 280 "Extended Text Line"
             else
             if ("Table Name" = const(Item)) Item
             else
-            if ("Table Name" = const(Resource)) Resource
+            if ("Table Name" = CONST(Resource)) Resource
             else
-            if ("Table Name" = const("VAT Clause")) "VAT Clause";
+            if ("Table Name" = CONST("VAT Clause")) "VAT Clause";
         }
         field(3; "Language Code"; Code[10])
         {

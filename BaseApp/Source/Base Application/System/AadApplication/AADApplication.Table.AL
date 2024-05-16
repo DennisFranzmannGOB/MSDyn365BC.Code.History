@@ -11,7 +11,6 @@ table 9012 "AAD Application"
     DataPerCompany = false;
     ReplicateData = false;
     DataCaptionFields = Description;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -177,7 +176,7 @@ table 9012 "AAD Application"
     var
         User: Record User;
     begin
-        if not UserExists() then
+        If not UserExists() then
             exit;
         User.Get("User Id");
         User.State := User.State::Disabled;

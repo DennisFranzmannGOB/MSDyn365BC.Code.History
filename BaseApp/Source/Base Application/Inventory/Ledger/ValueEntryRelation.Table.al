@@ -3,7 +3,6 @@ namespace Microsoft.Inventory.Ledger;
 table 6508 "Value Entry Relation"
 {
     Caption = 'Value Entry Relation';
-    DataClassification = CustomerContent;
 
     fields
     {

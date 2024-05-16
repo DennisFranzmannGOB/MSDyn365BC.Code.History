@@ -21,7 +21,6 @@ table 5092 Opportunity
 {
     Caption = 'Opportunity';
     DataCaptionFields = "No.", Description;
-    DataClassification = CustomerContent;
     DrillDownPageID = "Opportunity List";
     LookupPageID = "Opportunity List";
 
@@ -35,7 +34,7 @@ table 5092 Opportunity
             begin
                 if "No." <> xRec."No." then begin
                     RMSetup.Get();
-                    NoSeries.TestManual(RMSetup."Opportunity Nos.");
+                    NoSeriesMgt.TestManual(RMSetup."Opportunity Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -369,7 +368,7 @@ table 5092 Opportunity
         field(17; "Current Sales Cycle Stage"; Integer)
         {
             BlankZero = true;
-            CalcFormula = lookup("Opportunity Entry"."Sales Cycle Stage" where("Opportunity No." = field("No."),
+            CalcFormula = Lookup("Opportunity Entry"."Sales Cycle Stage" where("Opportunity No." = field("No."),
                                                                                 Active = const(true)));
             Caption = 'Current Sales Cycle Stage';
             Editable = false;
@@ -386,7 +385,7 @@ table 5092 Opportunity
         }
         field(19; "Probability %"; Decimal)
         {
-            CalcFormula = lookup("Opportunity Entry"."Probability %" where("Opportunity No." = field("No."),
+            CalcFormula = Lookup("Opportunity Entry"."Probability %" where("Opportunity No." = field("No."),
                                                                             Active = const(true)));
             Caption = 'Probability %';
             DecimalPlaces = 1 : 1;
@@ -404,7 +403,7 @@ table 5092 Opportunity
         }
         field(21; "Chances of Success %"; Decimal)
         {
-            CalcFormula = lookup("Opportunity Entry"."Chances of Success %" where("Opportunity No." = field("No."),
+            CalcFormula = Lookup("Opportunity Entry"."Chances of Success %" where("Opportunity No." = field("No."),
                                                                                    Active = const(true)));
             Caption = 'Chances of Success %';
             DecimalPlaces = 0 : 0;
@@ -413,7 +412,7 @@ table 5092 Opportunity
         }
         field(22; "Completed %"; Decimal)
         {
-            CalcFormula = lookup("Opportunity Entry"."Completed %" where("Opportunity No." = field("No."),
+            CalcFormula = Lookup("Opportunity Entry"."Completed %" where("Opportunity No." = field("No."),
                                                                           Active = const(true)));
             Caption = 'Completed %';
             DecimalPlaces = 0 : 0;
@@ -422,28 +421,28 @@ table 5092 Opportunity
         }
         field(23; "Contact Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact No.")));
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact No.")));
             Caption = 'Contact Name';
             Editable = false;
             FieldClass = FlowField;
         }
         field(24; "Contact Company Name"; Text[100])
         {
-            CalcFormula = lookup(Contact.Name where("No." = field("Contact Company No.")));
+            CalcFormula = Lookup(Contact.Name where("No." = field("Contact Company No.")));
             Caption = 'Contact Company Name';
             Editable = false;
             FieldClass = FlowField;
         }
         field(25; "Salesperson Name"; Text[50])
         {
-            CalcFormula = lookup("Salesperson/Purchaser".Name where(Code = field("Salesperson Code")));
+            CalcFormula = Lookup("Salesperson/Purchaser".Name where(Code = field("Salesperson Code")));
             Caption = 'Salesperson Name';
             Editable = false;
             FieldClass = FlowField;
         }
         field(26; "Campaign Description"; Text[100])
         {
-            CalcFormula = lookup(Campaign.Description where("No." = field("Campaign No.")));
+            CalcFormula = Lookup(Campaign.Description where("No." = field("Campaign No.")));
             Caption = 'Campaign Description';
             Editable = false;
             FieldClass = FlowField;
@@ -471,7 +470,7 @@ table 5092 Opportunity
         }
         field(28; "Estimated Closing Date"; Date)
         {
-            CalcFormula = lookup("Opportunity Entry"."Estimated Close Date" where("Opportunity No." = field("No."),
+            CalcFormula = Lookup("Opportunity Entry"."Estimated Close Date" where("Opportunity No." = field("No."),
                                                                                    Active = const(true)));
             Caption = 'Estimated Closing Date';
             Editable = false;
@@ -491,7 +490,7 @@ table 5092 Opportunity
         }
         field(30; "No. of Interactions"; Integer)
         {
-            CalcFormula = count("Interaction Log Entry" where("Opportunity No." = field(filter("No.")),
+            CalcFormula = count("Interaction Log Entry" where("Opportunity No." = field(FILTER("No.")),
                                                                Canceled = const(false),
                                                                Postponed = const(false)));
             Caption = 'No. of Interactions';
@@ -618,32 +617,11 @@ table 5092 Opportunity
     end;
 
     trigger OnInsert()
-#if not CLEAN24
-    var
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         if "No." = '' then begin
             RMSetup.Get();
             RMSetup.TestField("Opportunity Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(RMSetup."Opportunity Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(RMSetup."Opportunity Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := RMSetup."Opportunity Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", RMSetup."Opportunity Nos.", 0D, "No.");
-            end;
-#else
-			if NoSeries.AreRelated(RMSetup."Opportunity Nos.", xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := RMSetup."Opportunity Nos.";
-            "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(RMSetup."Opportunity Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
         if "Salesperson Code" = '' then
@@ -663,7 +641,7 @@ table 5092 Opportunity
         RMCommentLine: Record "Rlshp. Mgt. Comment Line";
         OppEntry: Record "Opportunity Entry";
         TempRlshpMgtCommentLine: Record "Rlshp. Mgt. Comment Line" temporary;
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Text006: Label 'Sales %1 %2 is already assigned to opportunity %3.';
         ChangeConfirmQst: Label 'Do you want to change %1 on the related open tasks with the same %1?', Comment = '%1 = Field Caption';
         Text009: Label 'Contact %1 %2 is related to another company.';
@@ -988,7 +966,7 @@ table 5092 Opportunity
     begin
         IsHandled := false;
         OnBeforeCheckStatus(Rec, OppEntry, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit;
 
         if "Creation Date" = 0D then

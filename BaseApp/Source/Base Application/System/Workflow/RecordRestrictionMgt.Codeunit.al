@@ -335,11 +335,7 @@ codeunit 1550 "Record Restriction Mgt."
         if Rec.IsTemporary() then
             exit;
 
-        if IsNullGuid(Rec."Print Gen Jnl Line SystemId") then
-            exit;
-
-        RecRef.Open(Database::"Gen. Journal Line");
-        if not RecRef.GetBySystemId(Rec."Print Gen Jnl Line SystemId") then
+        if not RecRef.Get(Rec."Record ID to Print") then
             exit;
 
         CheckRecordHasUsageRestrictions(RecRef);
@@ -352,15 +348,9 @@ codeunit 1550 "Record Restriction Mgt."
     begin
         if Rec.IsTemporary() then
             exit;
-
         if GetExecutionContext() = ExecutionContext::Upgrade then
             exit;
-
-        if IsNullGuid(Rec."Print Gen Jnl Line SystemId") then
-            exit;
-
-        RecRef.Open(Database::"Gen. Journal Line");
-        if not RecRef.GetBySystemId(Rec."Print Gen Jnl Line SystemId") then
+        if not RecRef.Get(Rec."Record ID to Print") then
             exit;
 
         CheckRecordHasUsageRestrictions(RecRef);

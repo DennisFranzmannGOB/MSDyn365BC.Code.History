@@ -15,7 +15,6 @@ table 5628 Insurance
     DrillDownPageID = "Insurance List";
     LookupPageID = "Insurance List";
     Permissions = TableData "Ins. Coverage Ledger Entry" = r;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -27,7 +26,7 @@ table 5628 Insurance
             begin
                 if "No." <> xRec."No." then begin
                     FASetup.Get();
-                    NoSeries.TestManual(FASetup."Insurance Nos.");
+                    NoSeriesMgt.TestManual(FASetup."Insurance Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -196,32 +195,11 @@ table 5628 Insurance
     end;
 
     trigger OnInsert()
-#if not CLEAN24
-    var
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         if "No." = '' then begin
             FASetup.Get();
             FASetup.TestField("Insurance Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(FASetup."Insurance Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(FASetup."Insurance Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := FASetup."Insurance Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", FASetup."Insurance Nos.", 0D, "No.");
-            end;
-#else
-			if NoSeries.AreRelated(FASetup."Insurance Nos.", xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := FASetup."Insurance Nos.";
-            "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(FASetup."Insurance Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
         DimMgt.UpdateDefaultDim(
@@ -245,7 +223,7 @@ table 5628 Insurance
         CommentLine: Record "Comment Line";
         FASetup: Record "FA Setup";
         Insurance: Record Insurance;
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         FAMoveEntries: Codeunit "FA MoveEntries";
         DimMgt: Codeunit DimensionManagement;
 
@@ -258,13 +236,15 @@ table 5628 Insurance
         if IsHandled then
             exit(Result);
 
-        Insurance := Rec;
-        FASetup.Get();
-        FASetup.TestField("Insurance Nos.");
-        if NoSeries.LookupRelatedNoSeries(FASetup."Insurance Nos.", OldInsurance."No. Series", Insurance."No. Series") then begin
-            Insurance."No." := NoSeries.GetNextNo(Insurance."No. Series");
-            Rec := Insurance;
-            exit(true);
+        with Insurance do begin
+            Insurance := Rec;
+            FASetup.Get();
+            FASetup.TestField("Insurance Nos.");
+            if NoSeriesMgt.SelectSeries(FASetup."Insurance Nos.", OldInsurance."No. Series", "No. Series") then begin
+                NoSeriesMgt.SetSeries("No.");
+                Rec := Insurance;
+                exit(true);
+            end;
         end;
     end;
 

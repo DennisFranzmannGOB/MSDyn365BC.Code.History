@@ -5,7 +5,6 @@ using System.Security.AccessControl;
 table 701 "Error Message Register"
 {
     Caption = 'Error Message Register';
-    DataClassification = CustomerContent;
 
     fields
     {

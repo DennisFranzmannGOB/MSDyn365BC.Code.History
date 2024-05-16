@@ -2,7 +2,7 @@ namespace Microsoft.Purchases.Vendor;
 
 using Microsoft.Finance.ReceivablesPayables;
 using Microsoft.Utilities;
-using System.Integration;
+using System;
 using System.Visualization;
 
 page 769 "Aged Acc. Payable Chart"
@@ -27,17 +27,17 @@ page 769 "Aged Acc. Payable Chart"
                 ShowCaption = false;
                 ToolTip = 'Specifies the status of the chart.';
             }
-            usercontrol(BusinessChart; BusinessChart)
+            usercontrol(BusinessChart; "Microsoft.Dynamics.Nav.Client.BusinessChart")
             {
                 ApplicationArea = Basic, Suite;
 
-                trigger DataPointClicked(Point: JsonObject)
+                trigger DataPointClicked(point: DotNet BusinessChartDataPoint)
                 begin
-                    BusinessChartBuffer.SetDrillDownIndexes(Point);
+                    BusinessChartBuffer.SetDrillDownIndexes(point);
                     AgedAccPayable.DrillDown(BusinessChartBuffer, VendorNo, TempEntryNoAmountBuf);
                 end;
 
-                trigger DataPointDoubleClicked(Point: JsonObject)
+                trigger DataPointDoubleClicked(point: DotNet BusinessChartDataPoint)
                 begin
                 end;
 
@@ -214,7 +214,7 @@ page 769 "Aged Acc. Payable Chart"
 
         BusinessChartBuffer."Period Filter Start Date" := WorkDate();
         AgedAccPayable.UpdateDataPerVendor(BusinessChartBuffer, VendorNo, TempEntryNoAmountBuf);
-        BusinessChartBuffer.UpdateChart(CurrPage.BusinessChart);
+        BusinessChartBuffer.Update(CurrPage.BusinessChart);
         UpdatedVendorNo := VendorNo;
     end;
 

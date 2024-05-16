@@ -42,7 +42,6 @@ table 123 "Purch. Inv. Line"
     LookupPageID = "Posted Purchase Invoice Lines";
     Permissions = TableData "Item Ledger Entry" = r,
                   TableData "Value Entry" = r;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -204,7 +203,7 @@ table 123 "Purch. Inv. Line"
         }
         field(45; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = Job;
         }
         field(54; "Indirect Cost %"; Decimal)
@@ -413,41 +412,41 @@ table 123 "Purch. Inv. Line"
         }
         field(1001; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
         }
         field(1002; "Job Line Type"; Enum "Job Line Type")
         {
-            Caption = 'Project Line Type';
+            Caption = 'Job Line Type';
         }
         field(1003; "Job Unit Price"; Decimal)
         {
             BlankZero = true;
-            Caption = 'Project Unit Price';
+            Caption = 'Job Unit Price';
         }
         field(1004; "Job Total Price"; Decimal)
         {
             BlankZero = true;
-            Caption = 'Project Total Price';
+            Caption = 'Job Total Price';
         }
         field(1005; "Job Line Amount"; Decimal)
         {
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
             BlankZero = true;
-            Caption = 'Project Line Amount';
+            Caption = 'Job Line Amount';
         }
         field(1006; "Job Line Discount Amount"; Decimal)
         {
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
             BlankZero = true;
-            Caption = 'Project Line Discount Amount';
+            Caption = 'Job Line Discount Amount';
         }
         field(1007; "Job Line Discount %"; Decimal)
         {
             BlankZero = true;
-            Caption = 'Project Line Discount %';
+            Caption = 'Job Line Discount %';
             DecimalPlaces = 0 : 5;
             MaxValue = 100;
             MinValue = 0;
@@ -455,33 +454,33 @@ table 123 "Purch. Inv. Line"
         field(1008; "Job Unit Price (LCY)"; Decimal)
         {
             BlankZero = true;
-            Caption = 'Project Unit Price (LCY)';
+            Caption = 'Job Unit Price (LCY)';
         }
         field(1009; "Job Total Price (LCY)"; Decimal)
         {
             BlankZero = true;
-            Caption = 'Project Total Price (LCY)';
+            Caption = 'Job Total Price (LCY)';
         }
         field(1010; "Job Line Amount (LCY)"; Decimal)
         {
             AutoFormatType = 1;
             BlankZero = true;
-            Caption = 'Project Line Amount (LCY)';
+            Caption = 'Job Line Amount (LCY)';
         }
         field(1011; "Job Line Disc. Amount (LCY)"; Decimal)
         {
             AutoFormatType = 1;
             BlankZero = true;
-            Caption = 'Project Line Disc. Amount (LCY)';
+            Caption = 'Job Line Disc. Amount (LCY)';
         }
         field(1012; "Job Currency Factor"; Decimal)
         {
             BlankZero = true;
-            Caption = 'Project Currency Factor';
+            Caption = 'Job Currency Factor';
         }
         field(1013; "Job Currency Code"; Code[20])
         {
-            Caption = 'Project Currency Code';
+            Caption = 'Job Currency Code';
         }
         field(1700; "Deferral Code"; Code[10])
         {

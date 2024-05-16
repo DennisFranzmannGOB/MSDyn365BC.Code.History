@@ -9,7 +9,6 @@ using Microsoft.Sales.Customer;
 table 5329 "CRM Redirect"
 {
     Caption = 'CRM Redirect';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -4,7 +4,6 @@ table 99000777 "Routing Link"
 {
     Caption = 'Routing Link';
     LookupPageID = "Routing Links";
-    DataClassification = CustomerContent;
 
     fields
     {

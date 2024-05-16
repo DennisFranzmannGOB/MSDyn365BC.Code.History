@@ -9,7 +9,6 @@ table 5327 "Coupling Fields Buffer"
     Caption = 'Coupling Field Buffer';
     ReplicateData = false;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

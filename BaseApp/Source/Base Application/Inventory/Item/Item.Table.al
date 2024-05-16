@@ -1,4 +1,4 @@
-namespace Microsoft.Inventory.Item;
+﻿namespace Microsoft.Inventory.Item;
 
 using Microsoft.Assembly.Document;
 using Microsoft.Assembly.Setup;
@@ -77,7 +77,6 @@ table 27 Item
                   TableData "Service Item Component" = rm,
                   TableData "Bin Content" = d,
                   TableData "Planning Assignment" = d;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -87,22 +86,15 @@ table 27 Item
 
             trigger OnValidate()
             var
-#if not CLEAN24
-                NoSeriesMgt: Codeunit NoSeriesManagement;
-#endif
                 IsHandled: Boolean;
             begin
                 IsHandled := false;
-#if not CLEAN24
                 OnBeforeValidateNo(IsHandled, Rec, xRec, InventorySetup, NoSeriesMgt);
-#else
-                OnBeforeValidateNo(IsHandled, Rec, xRec, InventorySetup);
-#endif
                 if IsHandled then
                     exit;
                 if "No." <> xRec."No." then begin
                     GetInvtSetup();
-                    NoSeries.TestManual(InventorySetup."Item Nos.");
+                    NoSeriesMgt.TestManual(InventorySetup."Item Nos.");
                     "No. Series" := '';
                     if xRec."No." = '' then
                         "Costing Method" := InventorySetup."Default Costing Method";
@@ -360,7 +352,7 @@ table 27 Item
             begin
                 IsHandled := false;
                 OnBeforeValidateUnitCost(Rec, xRec, CurrFieldNo, IsHandled);
-                if IsHandled then
+                If IsHandled then
                     exit;
 
                 if IsNonInventoriableType() then
@@ -610,7 +602,7 @@ table 27 Item
         }
         field(55; "Cost is Posted to G/L"; Boolean)
         {
-            CalcFormula = - exist("Post Value Entry to G/L" where("Item No." = field("No.")));
+            CalcFormula = - Exist("Post Value Entry to G/L" where("Item No." = field("No.")));
             Caption = 'Cost is Posted to G/L';
             Editable = false;
             FieldClass = FlowField;
@@ -1315,7 +1307,7 @@ table 27 Item
                                                                                  "Variant Code" = field("Variant Filter"),
                                                                                  "Planning Date" = field("Date Filter"),
                                                                                  "Unit of Measure Code" = field("Unit of Measure Filter")));
-            Caption = 'Qty. on Project Order';
+            Caption = 'Qty. on Job Order';
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
@@ -1330,7 +1322,7 @@ table 27 Item
                                                                             "Location Code" = field("Location Filter"),
                                                                             "Variant Code" = field("Variant Filter"),
                                                                             "Shipment Date" = field("Date Filter")));
-            Caption = 'Res. Qty. on Project Order';
+            Caption = 'Res. Qty. on Job Order';
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
@@ -1832,11 +1824,6 @@ table 27 Item
             Editable = false;
             FieldClass = FlowField;
         }
-        field(5801; "Excluded from Cost Adjustment"; Boolean)
-        {
-            Caption = 'Excluded from Cost Adjustment';
-            DataClassification = CustomerContent;
-        }
         field(5900; "Service Item Group"; Code[10])
         {
             Caption = 'Service Item Group';
@@ -2122,6 +2109,9 @@ table 27 Item
             Caption = 'Next Counting End Date';
             Editable = false;
         }
+#if not CLEAN21
+#pragma warning disable AL0432
+#endif
         field(7387; "Unit Group Exists"; Boolean)
         {
             CalcFormula = exist("Unit Group" where("Source Id" = field(SystemId),
@@ -2130,9 +2120,12 @@ table 27 Item
             Editable = false;
             FieldClass = FlowField;
         }
+#if not CLEAN21
+#pragma warning restore AL0432
+#endif
         field(7700; "Identifier Code"; Code[20])
         {
-            CalcFormula = lookup("Item Identifier".Code where("Item No." = field("No.")));
+            CalcFormula = Lookup("Item Identifier".Code where("Item No." = field("No.")));
             Caption = 'Identifier Code';
             Editable = false;
             FieldClass = FlowField;
@@ -2161,7 +2154,7 @@ table 27 Item
 
             trigger OnValidate()
             begin
-                UpdateTaxGroupCode();
+                UpdateTaxGroupCode;
             end;
         }
         field(8003; "Sales Blocked"; Boolean)
@@ -2182,7 +2175,7 @@ table 27 Item
 
             trigger OnValidate()
             begin
-                UpdateItemCategoryCode();
+                UpdateItemCategoryCode;
             end;
         }
         field(8006; "Inventory Posting Group Id"; Guid)
@@ -2222,11 +2215,6 @@ table 27 Item
                     Validate("Gen. Prod. Posting Group", '')
             end;
         }
-        field(8010; "Service Blocked"; Boolean)
-        {
-            Caption = 'Service Blocked';
-            DataClassification = CustomerContent;
-        }
         field(8510; "Over-Receipt Code"; Code[20])
         {
             Caption = 'Over-Receipt Code';
@@ -2262,7 +2250,7 @@ table 27 Item
             begin
                 IsHandled := false;
                 OnBeforeValidateProductionBOMNo(Rec, xRec, IsHandled);
-                if not IsHandled then begin
+                If not IsHandled then begin
                     if "Production BOM No." <> '' then
                         TestField(Type, Type::Inventory);
 
@@ -2634,7 +2622,6 @@ table 27 Item
         }
         key(Key13; "Cost is Adjusted", "Allow Online Adjustment")
         {
-            IncludedFields = "Excluded from Cost Adjustment";
         }
         key(Key14; Description)
         {
@@ -2687,17 +2674,13 @@ table 27 Item
 
         MoveEntries.MoveItemEntries(Rec);
 
-        DeleteRelatedData();
+        DeleteRelatedData;
 
         DeleteItemUnitGroup();
     end;
 
     trigger OnInsert()
     var
-        Item: Record Item;
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-#endif
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -2706,31 +2689,7 @@ table 27 Item
             if "No." = '' then begin
                 GetInvtSetup();
                 InventorySetup.TestField("Item Nos.");
-#if not CLEAN24
-                NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(InventorySetup."Item Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-                if not IsHandled then begin
-                    if NoSeries.AreRelated(InventorySetup."Item Nos.", xRec."No. Series") then
-                        "No. Series" := xRec."No. Series"
-                    else
-                        "No. Series" := InventorySetup."Item Nos.";
-                    "No." := NoSeries.GetNextNo("No. Series");
-                    Item.ReadIsolation(IsolationLevel::ReadUncommitted);
-                    Item.SetLoadFields("No.");
-                    while Item.Get("No.") do
-                        "No." := NoSeries.GetNextNo("No. Series");
-                    NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", InventorySetup."Item Nos.", 0D, "No.");
-                end;
-#else
-			if NoSeries.AreRelated(InventorySetup."Item Nos.", xRec."No. Series") then
-				"No. Series" := xRec."No. Series"
-			else
-				"No. Series" := InventorySetup."Item Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                Item.ReadIsolation(IsolationLevel::ReadUncommitted);
-                Item.SetLoadFields("No.");
-                while Item.Get("No.") do
-                   "No." := NoSeries.GetNextNo("No. Series");
-#endif
+                NoSeriesMgt.InitSeries(InventorySetup."Item Nos.", xRec."No. Series", 0D, "No.", "No. Series");
                 "Costing Method" := InventorySetup."Default Costing Method";
             end;
 
@@ -2839,9 +2798,11 @@ table 27 Item
         ItemAnalysisViewEntry: Record "Item Analysis View Entry";
         ItemAnalysisBudgViewEntry: Record "Item Analysis View Budg. Entry";
         TroubleshSetup: Record "Troubleshooting Setup";
+        ServiceItem: Record "Service Item";
         ServiceContractLine: Record "Service Contract Line";
+        ServiceItemComponent: Record "Service Item Component";
         InventoryPostingGroup: Record "Inventory Posting Group";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         MoveEntries: Codeunit MoveEntries;
         DimMgt: Codeunit DimensionManagement;
         CatalogItemMgt: Codeunit "Catalog Item Management";
@@ -2866,6 +2827,9 @@ table 27 Item
         ItemTrackingCodeIgnoresExpirationDateErr: Label 'The settings for expiration dates do not match on the item tracking code and the item. Both must either use, or not use, expiration dates.', Comment = '%1 is the Item number';
         ReplenishmentSystemTransferErr: Label 'The Replenishment System Transfer cannot be used for item.';
         WhseEntriesExistErr: Label 'You cannot change %1 because there are one or more warehouse entries for this item.', Comment = '%1: Changed field name';
+#if not CLEAN21
+        DeprecatedFuncTxt: Label 'This function has been deprecated.';
+#endif        
 
     protected var
         ItemTrackingCode: Record "Item Tracking Code";
@@ -2986,8 +2950,8 @@ table 27 Item
 
         GetInvtSetup();
         InventorySetup.TestField("Item Nos.");
-        if NoSeries.LookupRelatedNoSeries(InventorySetup."Item Nos.", xRec."No. Series", "No. Series") then begin
-            "No." := NoSeries.GetNextNo("No. Series");
+        if NoSeriesMgt.SelectSeries(InventorySetup."Item Nos.", xRec."No. Series", "No. Series") then begin
+            NoSeriesMgt.SetSeries("No.");
             if xRec."No." = '' then
                 "Costing Method" := InventorySetup."Default Costing Method";
             exit(true);
@@ -3073,7 +3037,7 @@ table 27 Item
         end;
     end;
 
-    procedure TestNoWhseEntriesExist(CurrentFieldName: Text)
+    local procedure TestNoWhseEntriesExist(CurrentFieldName: Text)
     var
         WarehouseEntry: Record "Warehouse Entry";
         IsHandled: Boolean;
@@ -3259,6 +3223,19 @@ table 27 Item
             Error(Text028, "No.", ApplicationWorksheet.Caption, "Application Wksh. User ID");
     end;
 
+#if not CLEAN21
+    [Obsolete('This procedure is discontinued because the TimelineVisualizer control has been deprecated.', '21.0')]
+    procedure ShowTimelineFromItem(var Item: Record Item)
+    begin
+        Message(DeprecatedFuncTxt);
+    end;
+
+    [Obsolete('This procedure is discontinued because the TimelineVisualizer control has been deprecated.', '21.0')]
+    procedure ShowTimelineFromSKU(ItemNo: Code[20]; LocationCode: Code[10]; VariantCode: Code[10])
+    begin
+        Message(DeprecatedFuncTxt);
+    end;
+#endif    
     procedure CheckJournalsAndWorksheets(CurrFieldNo: Integer)
     begin
         CheckItemJnlLine(CurrFieldNo, FieldNo(Type), FieldCaption(Type));
@@ -3599,7 +3576,7 @@ table 27 Item
         end;
     end;
 
-    procedure CheckUpdateFieldsForNonInventoriableItem()
+    local procedure CheckUpdateFieldsForNonInventoriableItem()
     var
         IsHandled: Boolean;
     begin
@@ -3690,7 +3667,7 @@ table 27 Item
     procedure CalcUnitPriceExclVAT(): Decimal
     begin
         GetGLSetup();
-        if 1 + CalcVAT() = 0 then
+        if 1 + CalcVAT = 0 then
             exit(0);
         exit(Round("Unit Price" / (1 + CalcVAT()), GLSetup."Unit-Amount Rounding Precision"));
     end;
@@ -3945,7 +3922,7 @@ table 27 Item
         if IsHandled then
             exit;
 
-        // Reset Rounding Precision in old Base UOM
+        // Reset Rounding Percision in old Base UOM
         if BaseItemUnitOfMeasure.Get("No.", xRec."Base Unit of Measure") then begin
             BaseItemUnitOfMeasure.Validate("Qty. Rounding Precision", 0);
             BaseItemUnitOfMeasure.Modify(true);
@@ -4133,7 +4110,13 @@ table 27 Item
 
     local procedure UpdateItemUnitGroup()
     var
+#if not CLEAN21
+#pragma warning disable AL0432
+#endif
         UnitGroup: Record "Unit Group";
+#if not CLEAN21
+#pragma warning restore AL0432
+#endif
         CRMIntegrationManagement: Codeunit "CRM Integration Management";
     begin
         if CRMIntegrationManagement.IsIntegrationEnabled() then begin
@@ -4151,7 +4134,13 @@ table 27 Item
 
     local procedure DeleteItemUnitGroup()
     var
+#if not CLEAN21
+#pragma warning disable AL0432
+#endif
         UnitGroup: Record "Unit Group";
+#if not CLEAN21
+#pragma warning restore AL0432
+#endif
     begin
         if UnitGroup.Get(UnitGroup."Source Type"::Item, Rec.SystemId) then
             UnitGroup.Delete();
@@ -4457,18 +4446,10 @@ table 27 Item
     begin
     end;
 
-#if not CLEAN24
-    [Obsolete('Parameter NoSeriesMgt is obsolete and will be removed, update your subscriber accordingly.', '24.0')]
     [IntegrationEvent(false, false)]
     local procedure OnBeforeValidateNo(var IsHandled: Boolean; var Item: Record Item; xItem: Record Item; InventorySetup: Record "Inventory Setup"; var NoSeriesMgt: Codeunit NoSeriesManagement)
     begin
     end;
-#else
-    [IntegrationEvent(false, false)]
-    local procedure OnBeforeValidateNo(var IsHandled: Boolean; var Item: Record Item; xItem: Record Item; InventorySetup: Record "Inventory Setup")
-    begin
-    end;
-#endif
 
     [IntegrationEvent(false, false)]
     local procedure OnValidateProductionBOMNoOnAfterProcessStatusCertified(ProductionBOMHeader: Record "Production BOM Header"; var Item: Record Item)

@@ -291,10 +291,12 @@ report 910 "Posted Assembly Order"
     var
         PostedAssembleToOrderLink: Record "Posted Assemble-to-Order Link";
     begin
-        if PostedAssembleToOrderLink.Get(PostedAssembleToOrderLink."Assembly Document Type"::Assembly, PostedAsmOrderNo) then
-            if PostedAssembleToOrderLink."Document Type" = PostedAssembleToOrderLink."Document Type"::"Sales Shipment" then
-                exit(PostedAssembleToOrderLink."Document No.");
-        exit('');
+        with PostedAssembleToOrderLink do begin
+            if Get("Assembly Document Type"::Assembly, PostedAsmOrderNo) then
+                if "Document Type" = "Document Type"::"Sales Shipment" then
+                    exit("Document No.");
+            exit('');
+        end;
     end;
 
     local procedure GetUomDescription(UOMCode: Code[10]): Text[50]
@@ -305,7 +307,7 @@ report 910 "Posted Assembly Order"
     begin
         IsHandled := false;
         OnBeforeGetUomDescription(UOMCode, Result, IsHandled);
-        if IsHandled then
+        If IsHandled then
             exit(Result);
 
         if UnitOfMeasure.Get(UOMCode) then

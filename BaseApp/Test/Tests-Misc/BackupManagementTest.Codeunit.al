@@ -13,6 +13,7 @@ codeunit 132533 "Backup Management Test"
         BackupMgt: Codeunit "Backup Management";
         Assert: Codeunit Assert;
         LibraryRandom: Codeunit "Library - Random";
+        LibraryTestInitialize: Codeunit "Library - Test Initialize";
         Initialized: Boolean;
         BackupName: Label 'Backup-Restore Test';
         SelfDescribingValue: Label 'Self-describing value';
@@ -37,12 +38,12 @@ codeunit 132533 "Backup Management Test"
             exit;
 
         // every test codeunit needs to call DefaultFixture
-        BackupMgt.DefaultFixture();
+        BackupMgt.DefaultFixture;
 
-        BackupMgt.DeleteAllData();
+        BackupMgt.DeleteAllData;
         for i := 1 to 5 do begin
-            CreateItem();
-            CreateCustomer();
+            CreateItem;
+            CreateCustomer
         end;
 
         Commit();
@@ -61,14 +62,14 @@ codeunit 132533 "Backup Management Test"
         Initialize();
 
         // Exercise
-        for i := 1 to MaxUserBackups() do
+        for i := 1 to MaxUserBackups do
             BackupMgt.BackupTable(Format(i), DATABASE::Item);
         BackupMgt.DeleteBackup('1');
         BackupMgt.BackupTable('1', DATABASE::Item);
 
         // Exercise, Verify
         asserterror BackupMgt.BackupTable(BackupName, DATABASE::Item);
-        Assert.AreEqual(GetLastErrorText, StrSubstNo(MaxBackupError, MaxUserBackups()), UnExpectedErrorError)
+        Assert.AreEqual(GetLastErrorText, StrSubstNo(MaxBackupError, MaxUserBackups), UnExpectedErrorError)
     end;
 
     [Test]
@@ -110,7 +111,7 @@ codeunit 132533 "Backup Management Test"
 
         // Setup
         Initialize();
-        Assert.IsTrue(Item.FindSet(), StrSubstNo(TableEmptyError, 'Item'));
+        Assert.IsTrue(Item.FindSet, StrSubstNo(TableEmptyError, 'Item'));
         Item.Next(LibraryRandom.RandInt(Item.Count));
         ItemDescription := Item.Description;
 
@@ -137,7 +138,7 @@ codeunit 132533 "Backup Management Test"
 
         // Setup
         Initialize();
-        Assert.IsTrue(Item.FindSet(), StrSubstNo(TableEmptyError, 'Item'));
+        Assert.IsTrue(Item.FindSet, StrSubstNo(TableEmptyError, 'Item'));
         Item.Next(LibraryRandom.RandInt(Item.Count));
         ItemNo := Item."No.";
         Item.Description := SelfDescribingValue;
@@ -246,7 +247,7 @@ codeunit 132533 "Backup Management Test"
 
         // Setup
         Initialize();
-        Assert.IsTrue(Item.FindSet(), StrSubstNo(TableEmptyError, 'Item'));
+        Assert.IsTrue(Item.FindSet, StrSubstNo(TableEmptyError, 'Item'));
         Item.Next(LibraryRandom.RandInt(Item.Count));
         ItemDescription := Item.Description;
 
@@ -273,7 +274,7 @@ codeunit 132533 "Backup Management Test"
 
         // Setup
         Initialize();
-        Assert.IsTrue(Item.FindSet(), StrSubstNo(TableEmptyError, 'Item'));
+        Assert.IsTrue(Item.FindSet, StrSubstNo(TableEmptyError, 'Item'));
         Item.Next(LibraryRandom.RandInt(Item.Count));
         ItemNo := Item."No.";
         Item.Description := SelfDescribingValue;
@@ -568,7 +569,7 @@ codeunit 132533 "Backup Management Test"
 
         Item."No." := ItemNo;
         Item.Description := ItemNo;
-        Item.Insert();
+        Item.Insert
     end;
 
     [Normal]
@@ -582,7 +583,7 @@ codeunit 132533 "Backup Management Test"
         until not Customer.Get(CustomerNo);
 
         Customer."No." := CustomerNo;
-        Customer.Insert();
+        Customer.Insert
     end;
 
     [Normal]

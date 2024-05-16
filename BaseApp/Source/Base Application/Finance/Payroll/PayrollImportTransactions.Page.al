@@ -27,10 +27,8 @@ page 1661 "Payroll Import Transactions"
             {
                 Editable = false;
                 ShowCaption = false;
-                Visible = TopBannerVisible and not FinalStepVisible;
-#pragma warning disable AA0100
+                Visible = TopBannerVisible AND NOT FinalStepVisible;
                 field("MediaResourcesStandard.""Media Reference"""; MediaResourcesStandard."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -41,9 +39,7 @@ page 1661 "Payroll Import Transactions"
             {
                 Editable = false;
                 ShowCaption = false;
-#pragma warning disable AA0100
                 field("MediaResourcesDone.""Media Reference"""; MediaResourcesDone."Media Reference")
-#pragma warning restore AA0100
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;

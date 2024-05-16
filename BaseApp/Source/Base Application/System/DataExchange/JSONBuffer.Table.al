@@ -8,7 +8,6 @@ table 1236 "JSON Buffer"
 {
     Caption = 'JSON Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

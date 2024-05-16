@@ -40,7 +40,6 @@ table 115 "Sales Cr.Memo Line"
     LookupPageID = "Posted Sales Credit Memo Lines";
     Permissions = TableData "Item Ledger Entry" = r,
                   TableData "Value Entry" = r;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -203,7 +202,7 @@ table 115 "Sales Cr.Memo Line"
         }
         field(45; "Job No."; Code[20])
         {
-            Caption = 'Project No.';
+            Caption = 'Job No.';
             TableRelation = Job;
         }
         field(52; "Work Type Code"; Code[10])
@@ -408,13 +407,13 @@ table 115 "Sales Cr.Memo Line"
         }
         field(1001; "Job Task No."; Code[20])
         {
-            Caption = 'Project Task No.';
+            Caption = 'Job Task No.';
             Editable = false;
             TableRelation = "Job Task"."Job Task No." where("Job No." = field("Job No."));
         }
         field(1002; "Job Contract Entry No."; Integer)
         {
-            Caption = 'Project Contract Entry No.';
+            Caption = 'Job Contract Entry No.';
             Editable = false;
         }
         field(1700; "Deferral Code"; Code[10])

@@ -11,16 +11,15 @@ using Microsoft.Purchases.Vendor;
 table 7014 "Purchase Line Discount"
 {
     Caption = 'Purchase Line Discount';
-#if not CLEAN23
+#if not CLEAN21
     LookupPageID = "Purchase Line Discounts";
     ObsoleteState = Pending;
     ObsoleteTag = '16.0';
 #else
     ObsoleteState = Removed;
-    ObsoleteTag = '26.0';
+    ObsoleteTag = '24.0';
 #endif    
     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation: table Price List Line';
-    DataClassification = CustomerContent;
 
     fields
     {

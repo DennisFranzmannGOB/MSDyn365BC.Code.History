@@ -303,8 +303,9 @@ codeunit 1280 "Map Currency Exchange Rate"
                     InStream.Read(ServiceURL);
                 end;
 
-                ServiceConnection.InsertServiceConnection(
-                      ServiceConnection, RecRef.RecordId, CurrExchRateUpdateSetup.Description, ServiceURL, PAGE::"Curr. Exch. Rate Service Card");
+                with CurrExchRateUpdateSetup do
+                    ServiceConnection.InsertServiceConnection(
+                      ServiceConnection, RecRef.RecordId, Description, ServiceURL, PAGE::"Curr. Exch. Rate Service Card");
             until CurrExchRateUpdateSetup.Next() = 0;
     end;
 

@@ -10,7 +10,6 @@ table 7310 "Warehouse Journal Batch"
     Caption = 'Warehouse Journal Batch';
     DataCaptionFields = Name, Description;
     LookupPageID = "Whse. Journal Batches";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -95,7 +94,7 @@ table 7310 "Warehouse Journal Batch"
         }
         field(21; "Template Type"; Enum "Warehouse Journal Template Type")
         {
-            CalcFormula = lookup("Warehouse Journal Template".Type where(Name = field("Journal Template Name")));
+            CalcFormula = Lookup("Warehouse Journal Template".Type where(Name = field("Journal Template Name")));
             Caption = 'Template Type';
             Editable = false;
             FieldClass = FlowField;

@@ -2,6 +2,7 @@ namespace Microsoft.Bank.Reconciliation;
 
 using System.AI;
 using System.Environment;
+using System.Environment.Configuration;
 using System.Telemetry;
 
 pageextension 7253 BankAccReconciliationExt extends "Bank Acc. Reconciliation"
@@ -13,11 +14,11 @@ pageextension 7253 BankAccReconciliationExt extends "Bank Acc. Reconciliation"
             action("Transfer to G/L Account")
             {
                 ApplicationArea = All;
-                Caption = 'Post Difference to G/L Account';
+                Caption = 'Transfer to G/L Account';
 #pragma warning disable AL0482
                 Image = SparkleFilled;
 #pragma warning restore AL0482
-                ToolTip = 'Find suitable G/L Accounts for selected statement lines, post their differences as new payments and reconcile statement lines with the new payments';
+                ToolTip = 'Find suitable G/L Accounts for selected statement lines, post new payments and reconcile statement lines with the new payments';
                 Visible = CopilotActionsVisible;
 
                 trigger OnAction()
@@ -48,15 +49,6 @@ pageextension 7253 BankAccReconciliationExt extends "Bank Acc. Reconciliation"
 #pragma warning restore AA0210
                     if TempBankAccReconciliationLine.IsEmpty() then
                         error(NoBankAccReconcilliationLnWithDiffSellectedErr);
-
-#pragma warning disable AA0210
-                    TempBankAccReconciliationLine.SetRange("Transaction Date", 0D);
-#pragma warning restore AA0210
-                    if not TempBankAccReconciliationLine.IsEmpty() then
-                        error(NoTransactionDateErr);
-#pragma warning disable AA0210
-                    TempBankAccReconciliationLine.SetRange("Transaction Date");
-#pragma warning restore AA0210
 
                     TempBankAccReconciliationLine.FindSet();
                     BankAccReconciliationLine.SetRange("Statement Type", TempBankAccReconciliationLine."Statement Type");
@@ -142,14 +134,22 @@ pageextension 7253 BankAccReconciliationExt extends "Bank Acc. Reconciliation"
 
     trigger OnOpenPage()
     var
+        FeatureKey: Record "Feature Key";
+        FeatureManagementFacade: Codeunit "Feature Management Facade";
         EnvironmentInformation: Codeunit "Environment Information";
     begin
-        CopilotActionsVisible := EnvironmentInformation.IsSaaSInfrastructure();
+        if not FeatureKey.Get(BankAccRecWithAILbl) then
+            CopilotActionsVisible := true
+        else
+            CopilotActionsVisible := FeatureManagementFacade.IsEnabled(BankAccRecWithAILbl);
+        
+        if CopilotActionsVisible then
+            CopilotActionsVisible := EnvironmentInformation.IsSaaSInfrastructure();
     end;
 
     var
         CopilotActionsVisible: Boolean;
-        NoTransactionDateErr: Label 'You must specify the transaction date on all the selected statement lines.';
+        BankAccRecWithAILbl: label 'BankAccRecWithAI', Locked = true;
         NoBankAccReconcilliationLnWithDiffSellectedErr: Label 'Select the bank statement lines that have differences to transfer to the general journal.';
         ContentAreaCaptionTxt: label 'Reconciling %1 statement %2 for %3', Comment = '%1 - bank account code, %2 - statement number, %3 - statement date';
 

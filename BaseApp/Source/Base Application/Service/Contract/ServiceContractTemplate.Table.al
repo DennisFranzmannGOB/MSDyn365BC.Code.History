@@ -14,7 +14,6 @@ table 5968 "Service Contract Template"
     DrillDownPageID = "Service Contract Template List";
     LookupPageID = "Service Contract Template List";
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -26,7 +25,7 @@ table 5968 "Service Contract Template"
             begin
                 if "No." <> xRec."No." then begin
                     ServMgtSetup.Get();
-                    NoSeries.TestManual(ServMgtSetup."Contract Template Nos.");
+                    NoSeriesMgt.TestManual(ServMgtSetup."Contract Template Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -166,27 +165,12 @@ table 5968 "Service Contract Template"
     end;
 
     trigger OnInsert()
-#if not CLEAN24
-    var
-        NoSeriesMgt: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         ServMgtSetup.Get();
         if "No." = '' then begin
             ServMgtSetup.TestField("Contract Template Nos.");
-#if not CLEAN24
-            NoSeriesMgt.RaiseObsoleteOnBeforeInitSeries(ServMgtSetup."Contract Template Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-#endif
-                "No. Series" := ServMgtSetup."Contract Template Nos.";
-                if NoSeries.AreRelated("No. Series", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series";
-                "No." := NoSeries.GetNextNo("No. Series");
-#if not CLEAN24
-                NoSeriesMgt.RaiseObsoleteOnAfterInitSeries("No. Series", ServMgtSetup."Contract Template Nos.", 0D, "No.");
-            end;
-#endif
+            NoSeriesMgt.InitSeries(ServMgtSetup."Contract Template Nos.", xRec."No. Series", 0D,
+              "No.", "No. Series");
         end;
     end;
 
@@ -197,23 +181,25 @@ table 5968 "Service Contract Template"
 
     var
         ServHeader: Record "Service Header";
-        ServContractTemplate: Record "Service Contract Template";
+        ServContractTmplt: Record "Service Contract Template";
         ServContract: Record "Service Contract Header";
         ServMgtSetup: Record "Service Mgt. Setup";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         DimMgt: Codeunit DimensionManagement;
         Text000: Label 'You cannot checkmark this field because you do not have permissions for the Service Order Management Area.';
         Text001: Label 'You cannot select both %1 and %2 check boxes.';
 
     procedure AssistEdit(OldServContractTmplt: Record "Service Contract Template"): Boolean
     begin
-        ServContractTemplate := Rec;
-        ServMgtSetup.Get();
-        ServMgtSetup.TestField("Contract Template Nos.");
-        if NoSeries.LookupRelatedNoSeries(ServMgtSetup."Contract Template Nos.", OldServContractTmplt."No. Series", ServContractTemplate."No. Series") then begin
-            ServContractTemplate."No." := NoSeries.GetNextNo(ServContractTemplate."No. Series");
-            Rec := ServContractTemplate;
-            exit(true);
+        with ServContractTmplt do begin
+            ServContractTmplt := Rec;
+            ServMgtSetup.Get();
+            ServMgtSetup.TestField("Contract Template Nos.");
+            if NoSeriesMgt.SelectSeries(ServMgtSetup."Contract Template Nos.", OldServContractTmplt."No. Series", "No. Series") then begin
+                NoSeriesMgt.SetSeries("No.");
+                Rec := ServContractTmplt;
+                exit(true);
+            end;
         end;
     end;
 }

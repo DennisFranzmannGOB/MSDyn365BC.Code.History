@@ -11,7 +11,7 @@ page 5930 "Fault/Resol. Cod. Relationship"
     PageType = Worksheet;
     SourceTable = "Fault/Resol. Cod. Relationship";
     SourceTableView = sorting("Service Item Group Code", "Fault Code", Occurrences)
-                      order(descending);
+                      order(Descending);
     UsageCategory = Administration;
 
     layout

@@ -8,7 +8,7 @@ page 2021 "Office Attachments"
     SourceTable = "Exchange Object";
     SourceTableTemporary = true;
     SourceTableView = sorting(Name)
-                      order(ascending);
+                      order(Ascending);
 
     layout
     {

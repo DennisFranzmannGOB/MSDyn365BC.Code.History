@@ -8,7 +8,6 @@ table 293 "Reminder Level"
     DataCaptionFields = "Reminder Terms Code", "No.";
     DrillDownPageID = "Reminder Levels";
     LookupPageID = "Reminder Levels";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -57,16 +56,6 @@ table 293 "Reminder Level"
             OptionCaption = 'Fixed,Single Dynamic,Accumulated Dynamic';
             OptionMembers = "Fixed","Single Dynamic","Accumulated Dynamic";
         }
-        field(20; "Reminder Attachment Text"; Guid)
-        {
-            Caption = 'Reminder Attachment Text';
-            TableRelation = "Reminder Attachment Text".Id;
-        }
-        field(21; "Reminder Email Text"; Guid)
-        {
-            Caption = 'Reminder Email Text';
-            TableRelation = "Reminder Email Text".Id;
-        }
     }
 
     keys
@@ -82,9 +71,6 @@ table 293 "Reminder Level"
     }
 
     trigger OnDelete()
-    var
-        ReminderAttachmentText: Record "Reminder Attachment Text";
-        ReminderEmailText: Record "Reminder Email Text";
     begin
         AdditionalFeeSetup.SetRange("Reminder Terms Code", "Reminder Terms Code");
         AdditionalFeeSetup.SetRange("Reminder Level No.", "No.");
@@ -97,12 +83,6 @@ table 293 "Reminder Level"
         CurrencyForReminderLevel.SetRange("Reminder Terms Code", "Reminder Terms Code");
         CurrencyForReminderLevel.SetRange("No.", "No.");
         CurrencyForReminderLevel.DeleteAll();
-
-        ReminderAttachmentText.SetRange(Id, "Reminder Attachment Text");
-        ReminderAttachmentText.DeleteAll();
-
-        ReminderEmailText.SetRange(Id, "Reminder Email Text");
-        ReminderEmailText.DeleteAll();
     end;
 
     trigger OnRename()

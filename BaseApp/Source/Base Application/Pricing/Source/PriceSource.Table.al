@@ -13,7 +13,6 @@ table 7005 "Price Source"
 #pragma warning disable AS0034
     TableType = Temporary;
 #pragma warning restore AS0034
-    DataClassification = CustomerContent;
 
     fields
     {

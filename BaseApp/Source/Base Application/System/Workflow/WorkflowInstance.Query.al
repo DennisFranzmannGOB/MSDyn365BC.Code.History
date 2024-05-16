@@ -3,7 +3,7 @@ namespace System.Automation;
 query 1501 "Workflow Instance"
 {
     Caption = 'Workflow Instance';
-    OrderBy = ascending(Sequence_No);
+    OrderBy = Ascending(Sequence_No);
 
     elements
     {

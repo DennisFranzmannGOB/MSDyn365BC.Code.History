@@ -84,6 +84,7 @@ codeunit 134346 "Skipped Document Lines"
     var
         Item: Record Item;
         ItemVariant: Record "Item Variant";
+        TempErrorMessage: Record "Error Message" temporary;
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
@@ -139,6 +140,7 @@ codeunit 134346 "Skipped Document Lines"
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
+        ActualErrorMgs: Text[250];
     begin
         // [FEATURE] [Sales] [Item] [UT]
         Initialize();
@@ -188,6 +190,7 @@ codeunit 134346 "Skipped Document Lines"
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
+        ActualErrorMgs: Text[250];
     begin
         // [FEATURE] [Sales] [Item] [UT]
         Initialize();
@@ -241,6 +244,7 @@ codeunit 134346 "Skipped Document Lines"
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
+        ActualErrorMgs: Text[250];
     begin
         // [FEATURE] [Purchase] [Item] [UT]
         Initialize();
@@ -290,6 +294,7 @@ codeunit 134346 "Skipped Document Lines"
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
+        ActualErrorMgs: Text[250];
     begin
         // [FEATURE] [Purchase] [Item] [UT]
         Initialize();
@@ -393,7 +398,7 @@ codeunit 134346 "Skipped Document Lines"
         // [FEATURE] [G/L Account] [UT]
         Initialize();
         // [GIVEN] G/L Account 'X', where "Blocked" is 'Yes'
-        GLAccount."No." := LibraryERM.CreateGLAccountNoWithDirectPosting();
+        GLAccount."No." := LibraryERM.CreateGLAccountNoWithDirectPosting;
         GLAccount.Blocked := true;
         GLAccount.Modify();
 
@@ -417,7 +422,7 @@ codeunit 134346 "Skipped Document Lines"
         // [FEATURE] [G/L Account] [UT]
         Initialize();
         // [GIVEN] G/L Account 'X', where "Blocked" is 'No'
-        GLAccount."No." := LibraryERM.CreateGLAccountNoWithDirectPosting();
+        GLAccount."No." := LibraryERM.CreateGLAccountNoWithDirectPosting;
 
         // [THEN] IsEntityBlocked() returns 'No'
         ErrorMessageMgt.Activate(ErrorMessageHandler);
@@ -462,7 +467,7 @@ codeunit 134346 "Skipped Document Lines"
         // [FEATURE] [G/L Account] [UT]
         Initialize();
         // [GIVEN] G/L Account 'X', where "Direct Posting" is 'Yes'
-        GLAccount."No." := LibraryERM.CreateGLAccountNoWithDirectPosting();
+        GLAccount."No." := LibraryERM.CreateGLAccountNoWithDirectPosting;
 
         // [THEN] IsEntityBlocked() returns 'No'
         ErrorMessageMgt.Activate(ErrorMessageHandler);
@@ -568,6 +573,7 @@ codeunit 134346 "Skipped Document Lines"
     var
         Item: Record Item;
         SalesLine: Record "Sales Line";
+        TempErrorMessage: Record "Error Message" temporary;
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
@@ -596,6 +602,7 @@ codeunit 134346 "Skipped Document Lines"
     var
         Item: Record Item;
         PurchaseLine: Record "Purchase Line";
+        TempErrorMessage: Record "Error Message" temporary;
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
@@ -625,6 +632,7 @@ codeunit 134346 "Skipped Document Lines"
         Item: Record Item;
         ItemVariant: Record "Item Variant";
         SalesLine: Record "Sales Line";
+        TempErrorMessage: Record "Error Message" temporary;
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
@@ -655,6 +663,7 @@ codeunit 134346 "Skipped Document Lines"
         Item: Record Item;
         ItemVariant: Record "Item Variant";
         PurchaseLine: Record "Purchase Line";
+        TempErrorMessage: Record "Error Message" temporary;
         CopyDocumentMgt: Codeunit "Copy Document Mgt.";
         ErrorMessageMgt: Codeunit "Error Message Management";
         ErrorMessageHandler: Codeunit "Error Message Handler";
@@ -714,19 +723,19 @@ codeunit 134346 "Skipped Document Lines"
         Item.Modify(true);
 
         // [WHEN] Copy Sales Document
-        ErrorMessagesPage.Trap();
+        ErrorMessagesPage.Trap;
         CopyDocumentMgt.SetProperties(true, false, false, false, false, false, false);
         CopyDocumentMgt.CopySalesDoc("Sales Document Type From"::Quote, FromSalesHeader."No.", ToSalesHeader);
 
         // [THEN] Notification: "An error or warning occured during operation Copying sales document."
         Assert.AreEqual(
           StrSubstNo(NotificationMsg, StrSubstNo(SalesErrorContextMsg, FromSalesHeader."No.")),
-          LibraryVariableStorage.DequeueText(), 'wrong notification message');
-        Assert.IsTrue(Evaluate(RegisterID, LibraryVariableStorage.DequeueText()), 'register id evaluation');
+          LibraryVariableStorage.DequeueText, 'wrong notification message');
+        Assert.IsTrue(Evaluate(RegisterID, LibraryVariableStorage.DequeueText), 'register id evaluation');
         Assert.IsFalse(IsNullGuid(RegisterID), 'register id is null');
         // [THEN] On action 'Show skipped lines' see the Error Messages list with one item 'X'
         ErrorMessagesPage.Source.AssertEquals(Item.RecordId);
-        Assert.IsFalse(ErrorMessagesPage.Next(), 'should be one line in the item list');
+        Assert.IsFalse(ErrorMessagesPage.Next, 'should be one line in the item list');
         // [THEN] Adedd line to Error Message Register, where "Description" is 'Copying sales document 1001', "Errors" is 0, "Warnings" is 1.
         ErrorMessageRegister.Get(RegisterID);
         ErrorMessageRegister.CalcFields(Errors, Warnings);
@@ -735,7 +744,7 @@ codeunit 134346 "Skipped Document Lines"
         Assert.AreEqual(StrSubstNo(SalesErrorContextMsg, FromSalesHeader."No."), ErrorMessageRegister."Message", 'Register.Description');
 
         LibraryNotificationMgt.RecallNotificationsForRecord(ToSalesHeader);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -774,22 +783,22 @@ codeunit 134346 "Skipped Document Lines"
         Resource.Modify(true);
 
         // [WHEN] Copy Sales Document
-        ErrorMessagesPage.Trap();
+        ErrorMessagesPage.Trap;
         CopyDocumentMgt.SetProperties(true, false, false, false, false, false, false);
         CopyDocumentMgt.CopySalesDoc("Sales Document Type From"::Quote, FromSalesHeader."No.", ToSalesHeader);
 
         // [THEN] Notification: "An error or warning occured during operation Copying sales document."
         Assert.AreEqual(
-          StrSubstNo(NotificationMsg, StrSubstNo(SalesErrorContextMsg, FromSalesHeader."No.")), LibraryVariableStorage.DequeueText(),
+          StrSubstNo(NotificationMsg, StrSubstNo(SalesErrorContextMsg, FromSalesHeader."No.")), LibraryVariableStorage.DequeueText,
           'wrong notification message');
-        Assert.IsTrue(Evaluate(RegisterID, LibraryVariableStorage.DequeueText()), 'register id evaluation');
+        Assert.IsTrue(Evaluate(RegisterID, LibraryVariableStorage.DequeueText), 'register id evaluation');
         Assert.IsFalse(IsNullGuid(RegisterID), 'register id is null');
         // [THEN] On action 'Show skipped resources' see the Item List with one resource 'X'
         ErrorMessagesPage.Source.AssertEquals(Resource.RecordId);
-        Assert.IsFalse(ErrorMessagesPage.Next(), 'should be one line in the item list');
+        Assert.IsFalse(ErrorMessagesPage.Next, 'should be one line in the item list');
 
         LibraryNotificationMgt.RecallNotificationsForRecord(ToSalesHeader);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Test]
@@ -825,19 +834,19 @@ codeunit 134346 "Skipped Document Lines"
         Item.Modify(true);
 
         // [WHEN] Copy Purchase Document
-        ErrorMessagesPage.Trap();
+        ErrorMessagesPage.Trap;
         CopyDocumentMgt.SetProperties(true, false, false, false, false, false, false);
         CopyDocumentMgt.CopyPurchDoc("Sales Document Type From"::Quote, FromPurchaseHeader."No.", ToPurchaseHeader);
 
         // [THEN] Notification: "An error or warning occured during operation Copying purchase document."
         Assert.AreEqual(
           StrSubstNo(NotificationMsg, StrSubstNo(PurchErrorContextMsg, FromPurchaseHeader."No.")),
-          LibraryVariableStorage.DequeueText(), 'wrong notification message');
-        Assert.IsTrue(Evaluate(RegisterID, LibraryVariableStorage.DequeueText()), 'register id evaluation');
+          LibraryVariableStorage.DequeueText, 'wrong notification message');
+        Assert.IsTrue(Evaluate(RegisterID, LibraryVariableStorage.DequeueText), 'register id evaluation');
         Assert.IsFalse(IsNullGuid(RegisterID), 'register id is null');
         // [THEN] On action 'Show skipped items' see the Item List with one item 'X'
         ErrorMessagesPage.Source.AssertEquals(Item.RecordId);
-        Assert.IsFalse(ErrorMessagesPage.Next(), 'should be one line in the item list');
+        Assert.IsFalse(ErrorMessagesPage.Next, 'should be one line in the item list');
         // [THEN] Adedd line to Error Message Register, where "Description" is 'Copying purchase document 1001', "Errors" is 0, "Warnings" is 1.
         ErrorMessageRegister.Get(RegisterID);
         ErrorMessageRegister.CalcFields(Errors, Warnings);
@@ -847,7 +856,7 @@ codeunit 134346 "Skipped Document Lines"
           StrSubstNo(PurchErrorContextMsg, FromPurchaseHeader."No."), ErrorMessageRegister."Message", 'Register.Description');
 
         LibraryNotificationMgt.RecallNotificationsForRecord(ToPurchaseHeader);
-        LibraryVariableStorage.AssertEmpty();
+        LibraryVariableStorage.AssertEmpty;
     end;
 
     [Scope('OnPrem')]

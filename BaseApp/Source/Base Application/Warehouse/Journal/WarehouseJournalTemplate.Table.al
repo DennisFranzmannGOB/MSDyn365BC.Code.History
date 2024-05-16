@@ -10,7 +10,6 @@ table 7309 "Warehouse Journal Template"
     Caption = 'Warehouse Journal Template';
     LookupPageID = "Whse. Journal Template List";
     ReplicateData = true;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -95,7 +94,7 @@ table 7309 "Warehouse Journal Template"
         }
         field(15; "Test Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Test Report ID")));
             Caption = 'Test Report Caption';
             Editable = false;
@@ -103,7 +102,7 @@ table 7309 "Warehouse Journal Template"
         }
         field(16; "Page Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Page),
                                                                            "Object ID" = field("Page ID")));
             Caption = 'Page Caption';
             Editable = false;
@@ -111,7 +110,7 @@ table 7309 "Warehouse Journal Template"
         }
         field(17; "Registering Report Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Report),
                                                                            "Object ID" = field("Registering Report ID")));
             Caption = 'Registering Report Caption';
             Editable = false;

@@ -12,7 +12,6 @@ table 5343 "CRM Opportunity"
     Description = 'Potential revenue-generating event, or sale to an account, which needs to be tracked through a sales process to completion.';
     ExternalName = 'opportunity';
     TableType = CRM;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -261,7 +260,7 @@ table 5343 "CRM Opportunity"
         }
         field(29; ContactIdName; Text[160])
         {
-            CalcFormula = lookup("CRM Contact".FullName where(ContactId = field(ContactId)));
+            CalcFormula = Lookup("CRM Contact".FullName where(ContactId = field(ContactId)));
             Caption = 'ContactIdName';
             ExternalAccess = Read;
             ExternalName = 'contactidname';
@@ -270,7 +269,7 @@ table 5343 "CRM Opportunity"
         }
         field(30; AccountIdName; Text[160])
         {
-            CalcFormula = lookup("CRM Account".Name where(AccountId = field(AccountId)));
+            CalcFormula = Lookup("CRM Account".Name where(AccountId = field(AccountId)));
             Caption = 'AccountIdName';
             ExternalAccess = Read;
             ExternalName = 'accountidname';
@@ -279,7 +278,7 @@ table 5343 "CRM Opportunity"
         }
         field(31; PriceLevelIdName; Text[100])
         {
-            CalcFormula = lookup("CRM Pricelevel".Name where(PriceLevelId = field(PriceLevelId)));
+            CalcFormula = Lookup("CRM Pricelevel".Name where(PriceLevelId = field(PriceLevelId)));
             Caption = 'PriceLevelIdName';
             ExternalAccess = Read;
             ExternalName = 'pricelevelidname';
@@ -288,7 +287,7 @@ table 5343 "CRM Opportunity"
         }
         field(32; CreatedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedBy)));
             Caption = 'CreatedByName';
             ExternalAccess = Read;
             ExternalName = 'createdbyname';
@@ -297,7 +296,7 @@ table 5343 "CRM Opportunity"
         }
         field(33; ModifiedByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedBy)));
             Caption = 'ModifiedByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedbyname';
@@ -390,7 +389,7 @@ table 5343 "CRM Opportunity"
         }
         field(44; TransactionCurrencyIdName; Text[100])
         {
-            CalcFormula = lookup("CRM Transactioncurrency".CurrencyName where(TransactionCurrencyId = field(TransactionCurrencyId)));
+            CalcFormula = Lookup("CRM Transactioncurrency".CurrencyName where(TransactionCurrencyId = field(TransactionCurrencyId)));
             Caption = 'TransactionCurrencyIdName';
             ExternalAccess = Read;
             ExternalName = 'transactioncurrencyidname';
@@ -557,7 +556,7 @@ table 5343 "CRM Opportunity"
         }
         field(65; CreatedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(CreatedOnBehalfBy)));
             Caption = 'CreatedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'createdonbehalfbyname';
@@ -575,7 +574,7 @@ table 5343 "CRM Opportunity"
         }
         field(67; ModifiedOnBehalfByName; Text[200])
         {
-            CalcFormula = lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
+            CalcFormula = Lookup("CRM Systemuser".FullName where(SystemUserId = field(ModifiedOnBehalfBy)));
             Caption = 'ModifiedOnBehalfByName';
             ExternalAccess = Read;
             ExternalName = 'modifiedonbehalfbyname';
@@ -656,7 +655,7 @@ table 5343 "CRM Opportunity"
         }
         field(76; ParentAccountIdName; Text[160])
         {
-            CalcFormula = lookup("CRM Account".Name where(AccountId = field(ParentAccountId)));
+            CalcFormula = Lookup("CRM Account".Name where(AccountId = field(ParentAccountId)));
             Caption = 'ParentAccountIdName';
             ExternalAccess = Read;
             ExternalName = 'parentaccountidname';
@@ -673,7 +672,7 @@ table 5343 "CRM Opportunity"
         }
         field(78; ParentContactIdName; Text[160])
         {
-            CalcFormula = lookup("CRM Contact".FullName where(ContactId = field(ParentContactId)));
+            CalcFormula = Lookup("CRM Contact".FullName where(ContactId = field(ParentContactId)));
             Caption = 'ParentContactIdName';
             ExternalAccess = Read;
             ExternalName = 'parentcontactidname';

@@ -6,7 +6,6 @@ table 5300 "Outlook Synch. Entity"
 {
     Caption = 'Outlook Synch. Entity';
     DataCaptionFields = "Code", Description;
-    DataClassification = CustomerContent;
     PasteIsValid = false;
     ReplicateData = false;
     ObsoleteState = Removed;
@@ -33,7 +32,7 @@ table 5300 "Outlook Synch. Entity"
         }
         field(4; "Table Caption"; Text[250])
         {
-            CalcFormula = lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" where("Object Type" = const(Table),
                                                                            "Object ID" = field("Table No.")));
             Caption = 'Table Caption';
             Editable = false;

@@ -22,7 +22,6 @@ table 5507 "Sales Cr. Memo Entity Buffer"
 {
     Caption = 'Sales Cr. Memo Entity Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

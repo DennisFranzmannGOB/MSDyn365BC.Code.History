@@ -12,7 +12,6 @@ table 5504 "Tax Area Buffer"
 {
     Caption = 'Tax Area Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -8,7 +8,6 @@ table 5456 "Graph Business Profile"
     Caption = 'Graph Business Profile';
     ExternalName = 'BusinessProfile';
     TableType = MicrosoftGraph;
-    DataClassification = CustomerContent;
 
     fields
     {

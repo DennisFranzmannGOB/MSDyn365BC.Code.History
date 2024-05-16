@@ -1,7 +1,6 @@
 table 130203 "Enabled Test Method"
 {
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

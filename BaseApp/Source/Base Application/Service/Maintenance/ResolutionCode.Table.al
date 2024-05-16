@@ -5,7 +5,6 @@ table 5919 "Resolution Code"
     Caption = 'Resolution Code';
     DrillDownPageID = "Resolution Codes";
     LookupPageID = "Resolution Codes";
-    DataClassification = CustomerContent;
 
     fields
     {

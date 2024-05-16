@@ -10,7 +10,6 @@ using System.Visualization;
 table 869 "Cash Flow Chart Setup"
 {
     Caption = 'Cash Flow Chart Setup';
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -15,7 +15,6 @@ table 7114 "Analysis Line"
     Caption = 'Analysis Line';
     DrillDownPageID = "Inventory Analysis Lines";
     LookupPageID = "Inventory Analysis Lines";
-    DataClassification = CustomerContent;
 
     fields
     {

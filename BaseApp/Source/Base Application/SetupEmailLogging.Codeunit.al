@@ -236,50 +236,21 @@ codeunit 1641 "Setup Email Logging"
         Session.LogMessage('0000D9N', AdminAccessTokenReceivedTxt, Verbosity::Normal, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', EmailLoggingTelemetryCategoryTxt);
     end;
 
-#if not CLEAN24
-    [NonDebuggable]
-    [Obsolete('Use "GetClientCredentialsAccessToken(TenantId: SecretText; var AccessToken: SecretText)" instead.', '24.0')]
-    procedure GetClientCredentialsAccessToken(TenantId: Text; var AccessToken: Text)
-    var
-        AccessTokenAsSecret: SecretText;
-    begin
-        AccessTokenAsSecret := AccessToken;
-        GetClientCredentialsAccessToken(TenantId, AccessTokenAsSecret);
-        AccessToken := AccessTokenAsSecret.Unwrap();
-    end;
-#endif
     [Scope('OnPrem')]
-    procedure GetClientCredentialsAccessToken(TenantId: SecretText; var AccessToken: SecretText)
-    var
-        EmptyTxt: Text;
+    [NonDebuggable]
+    procedure GetClientCredentialsAccessToken(TenantId: Text; var AccessToken: Text)
     begin
-        EmptyTxt := '';
-        GetClientCredentialsAccessToken(EmptyTxt, EmptyTxt, EmptyTxt, TenantId, AccessToken);
+        GetClientCredentialsAccessToken('', '', '', TenantId, AccessToken);
     end;
 
-#if not CLEAN24
     [Scope('OnPrem')]
     [NonDebuggable]
-    [Obsolete('Use "GetClientCredentialsAccessToken(ClientId: SecretText; ClientSecret: SecretText; RedirectURL: Text; TenantId: SecretText; var AccessToken: SecretText)" instead.', '24.0')]
     procedure GetClientCredentialsAccessToken(ClientId: Text; ClientSecret: Text; RedirectURL: Text; TenantId: Text; var AccessToken: Text)
-    var
-        AccessTokenAsSecret: SecretText;
-    begin
-        AccessTokenAsSecret := AccessToken;
-        GetClientCredentialsAccessToken(ClientId, ClientSecret, RedirectURL, TenantId, AccessToken);
-        AccessToken := AccessTokenAsSecret.Unwrap();
-    end;
-#endif
-    [Scope('OnPrem')]
-    [NonDebuggable]
-    procedure GetClientCredentialsAccessToken(ClientId: SecretText; ClientSecret: SecretText; RedirectURL: Text; TenantId: SecretText; var AccessToken: SecretText)
     var
         OAuth2: Codeunit OAuth2;
         Scopes: List of [Text];
-        AccesTokenAsText: Text;
     begin
-        AccesTokenAsText := AccessToken.Unwrap();
-        if ClientId.IsEmpty() or ClientSecret.IsEmpty() then begin
+        if (ClientId = '') or (ClientSecret = '') then begin
             ClientId := GetClientId();
             ClientSecret := GetClientSecret();
         end;
@@ -287,17 +258,15 @@ codeunit 1641 "Setup Email Logging"
             RedirectURL := GetRedirectURL();
 
         Scopes.Add(ScopesLbl);
-
         OAuth2.AcquireTokenWithClientCredentials(
-                    ClientId.Unwrap(),
-                    ClientSecret.Unwrap(),
-                    StrSubstNo(TenantOAuthAuthorityUrlLbl, TenantId.Unwrap()),
+                    ClientId,
+                    ClientSecret,
+                    StrSubstNo(TenantOAuthAuthorityUrlLbl, TenantId),
                     RedirectURL,
                     Scopes,
-                    AccesTokenAsText
+                    AccessToken
                 );
-        AccessToken := AccesTokenAsText;
-        if AccessToken.IsEmpty() then begin
+        if AccessToken = '' then begin
             Session.LogMessage('0000CFC', ClientCredentialsAccessTokenErr, Verbosity::Error, DataClassification::SystemMetadata, TelemetryScope::ExtensionPublisher, 'Category', EmailLoggingTelemetryCategoryTxt);
             Error(AccessTokenErrMsg);
         end;

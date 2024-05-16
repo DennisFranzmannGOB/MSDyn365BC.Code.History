@@ -14,7 +14,6 @@ codeunit 137089 "SCM Kitting - Planning"
         LibraryRandom: Codeunit "Library - Random";
         LibrarySales: Codeunit "Library - Sales";
         LibraryUtility: Codeunit "Library - Utility";
-        NotificationLifecycleMgt: Codeunit "Notification Lifecycle Mgt.";
         Assert: Codeunit Assert;
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         LibraryApplicationArea: Codeunit "Library - Application Area";
@@ -29,7 +28,7 @@ codeunit 137089 "SCM Kitting - Planning"
     begin
         LibraryTestInitialize.OnTestInitialize(CODEUNIT::"SCM Kitting - Planning");
 
-        LibraryApplicationArea.EnableEssentialSetup();
+        LibraryApplicationArea.EnableEssentialSetup;
 
         // Initialize setup.
         if IsInitialized then
@@ -52,7 +51,7 @@ codeunit 137089 "SCM Kitting - Planning"
     var
         AssemblySetup: Record "Assembly Setup";
     begin
-        LibraryAssembly.CreateAssemblySetup(AssemblySetup, '', 0, LibraryUtility.GetGlobalNoSeriesCode());
+        LibraryAssembly.CreateAssemblySetup(AssemblySetup, '', 0, LibraryUtility.GetGlobalNoSeriesCode);
     end;
 
     local procedure SetupItems(var ParentNo: Code[20]; var ChildNo: Code[20]; var QtyPer: Decimal)
@@ -84,7 +83,7 @@ codeunit 137089 "SCM Kitting - Planning"
         SalesLine: Record "Sales Line";
     begin
         KitItem.Get(KitItemNo);
-        CreateSalesOrder(SalesLine, KitItem, SalesLineShipmentDate(), DemandQty, VarCode);
+        CreateSalesOrder(SalesLine, KitItem, SalesLineShipmentDate, DemandQty, VarCode);
         if InventoryQty > 0 then
             AddToInventoryWithVariantCodeAndLocation(KitItem, InventoryQty, VarCode, '');
     end;
@@ -93,9 +92,8 @@ codeunit 137089 "SCM Kitting - Planning"
     var
         AssemblyHeader: Record "Assembly Header";
     begin
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, SalesLineShipmentDate() - 3, ChildItemNo, '', ChildQty, '');
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, SalesLineShipmentDate() - 2, ParentItemNo, '', ParentQty, '');
-        NotificationLifecycleMgt.RecallAllNotifications();
+        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, SalesLineShipmentDate - 3, ChildItemNo, '', ChildQty, '');
+        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, SalesLineShipmentDate - 2, ParentItemNo, '', ParentQty, '');
     end;
 
     [Normal]
@@ -104,7 +102,7 @@ codeunit 137089 "SCM Kitting - Planning"
         PlanningFilterItem: Record Item;
     begin
         PlanningFilterItem.SetFilter("No.", '%1|%2', ParentNo, ChildNo);
-        RunPlanning(PlanningFilterItem, SalesLineShipmentDate() + 20, UsePlanningWorksheet);
+        RunPlanning(PlanningFilterItem, SalesLineShipmentDate + 20, UsePlanningWorksheet);
     end;
 
     [Normal]
@@ -142,12 +140,12 @@ codeunit 137089 "SCM Kitting - Planning"
     [Normal]
     local procedure AssemblyOrderDueDate(): Date
     begin
-        exit(WorkDate() + 8);
+        exit(WorkDate + 8);
     end;
 
     local procedure SalesLineShipmentDate(): Date
     begin
-        exit(WorkDate() + 10);
+        exit(WorkDate + 10);
     end;
 
     [Normal]
@@ -194,7 +192,7 @@ codeunit 137089 "SCM Kitting - Planning"
         BOMCompItem: Record "BOM Component";
     begin
         LibraryAssembly.CreateAssemblyList(
-          Item."Costing Method"::Standard, ParentItem."No.", true, 1, 0, 0, 1, SelectGenProdPostingGroupCode(), InventoryPostingGroupCode());
+          Item."Costing Method"::Standard, ParentItem."No.", true, 1, 0, 0, 1, SelectGenProdPostingGroupCode, InventoryPostingGroupCode);
 
         BOMCompItem.SetRange("Parent Item No.", ParentItem."No.");
         BOMCompItem.FindFirst();
@@ -238,10 +236,12 @@ codeunit 137089 "SCM Kitting - Planning"
     var
         GeneralPostingSetup: Record "General Posting Setup";
     begin
-        GeneralPostingSetup.SetFilter("Gen. Prod. Posting Group", GenProdPostingGroupCode);
-        GeneralPostingSetup.SetFilter("Gen. Bus. Posting Group", '<>%1', '');
-        GeneralPostingSetup.FindFirst();
-        exit(GeneralPostingSetup."Gen. Bus. Posting Group");
+        with GeneralPostingSetup do begin
+            SetFilter("Gen. Prod. Posting Group", GenProdPostingGroupCode);
+            SetFilter("Gen. Bus. Posting Group", '<>%1', '');
+            FindFirst();
+            exit("Gen. Bus. Posting Group");
+        end;
     end;
 
     [Normal]
@@ -297,7 +297,7 @@ codeunit 137089 "SCM Kitting - Planning"
         ReqLine: Record "Requisition Line";
     begin
         ReqLine.SetRange("No.", No);
-        Assert.IsTrue(ReqLine.FindFirst(), 'No requisition line create for item');
+        Assert.IsTrue(ReqLine.FindFirst, 'No requisition line create for item');
         Assert.AreEqual(VariantCode, ReqLine."Variant Code", 'Variant code on requisition line didn''t have expected value');
         Assert.AreEqual(ActionMessage, ReqLine."Action Message", 'Action Message on requisition line didn''t have expected value');
         Assert.AreEqual(
@@ -317,6 +317,13 @@ codeunit 137089 "SCM Kitting - Planning"
         RequisitionWkshName.Next(LibraryRandom.RandInt(RequisitionWkshName.Count));
         LibraryPlanning.CalculatePlanForReqWksh(
           Item, RequisitionWkshName."Worksheet Template Name", RequisitionWkshName.Name, StartDate, EndDate);
+    end;
+
+    [ModalPageHandler]
+    [Scope('OnPrem')]
+    procedure ModalFormClickYes(var AssemblyAvailabilityPage: Page "Assembly Availability"; var Response: Action)
+    begin
+        Response := ACTION::Yes;
     end;
 
     [Test]
@@ -349,8 +356,8 @@ codeunit 137089 "SCM Kitting - Planning"
         VerifyNumberOfReqLines(1, ChildNo);
 
         // VerifyReqLineExists(No,VariantCode,ActionMessage,Quantity,originalQuantity,DueDate)
-        VerifyReqLineExists(ParentNo, '', "Action Message Type"::New, QtyOnSalesOrder, 0, SalesLineShipmentDate());
-        VerifyReqLineExists(ChildNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyPer * QtyOnSalesOrder, ChildQtyOnAO, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists(ParentNo, '', "Action Message Type"::New, QtyOnSalesOrder, 0, SalesLineShipmentDate);
+        VerifyReqLineExists(ChildNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyPer * QtyOnSalesOrder, ChildQtyOnAO, SalesLineShipmentDate - 1);
     end;
 
     [Test]
@@ -384,8 +391,8 @@ codeunit 137089 "SCM Kitting - Planning"
         VerifyNumberOfReqLines(1, ChildNo);
 
         // VerifyReqLineExists(No,VariantCode,ActionMessage,Quantity,originalQuantity,DueDate)
-        VerifyReqLineExists(ParentNo, VarCode, "Action Message Type"::New, QtyOnSalesOrder - QtyOnInventory, 0, SalesLineShipmentDate());
-        VerifyReqLineExists(ChildNo, '', "Action Message Type"::New, QtyPer * (QtyOnSalesOrder - QtyOnInventory), 0, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists(ParentNo, VarCode, "Action Message Type"::New, QtyOnSalesOrder - QtyOnInventory, 0, SalesLineShipmentDate);
+        VerifyReqLineExists(ChildNo, '', "Action Message Type"::New, QtyPer * (QtyOnSalesOrder - QtyOnInventory), 0, SalesLineShipmentDate - 1);
     end;
 
     [Test]
@@ -420,6 +427,7 @@ codeunit 137089 "SCM Kitting - Planning"
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure Worksheet_KiK_ParentItemsOnAO()
     var
@@ -449,8 +457,8 @@ codeunit 137089 "SCM Kitting - Planning"
         VerifyNumberOfReqLines(1, ChildNo);
 
         // VerifyReqLineExists(No,VariantCode,ActionMessage,Quantity,originalQuantity,DueDate)
-        VerifyReqLineExists(ParentNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyOnSalesOrder, ParentQtyOnAO, SalesLineShipmentDate());
-        VerifyReqLineExists(ChildNo, '', "Action Message Type"::New, QtyPer * QtyOnSalesOrder, 0, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists(ParentNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyOnSalesOrder, ParentQtyOnAO, SalesLineShipmentDate);
+        VerifyReqLineExists(ChildNo, '', "Action Message Type"::New, QtyPer * QtyOnSalesOrder, 0, SalesLineShipmentDate - 1);
     end;
 
     [Test]
@@ -483,12 +491,13 @@ codeunit 137089 "SCM Kitting - Planning"
         VerifyNumberOfReqLines(1, ChildNo);
 
         // VerifyReqLineExists(No,VariantCode,ActionMessage,Quantity,originalQuantity,DueDate)
-        VerifyReqLineExists(ParentNo, '', "Action Message Type"::New, QtyOnSalesOrder - QtyOnInventory, 0, SalesLineShipmentDate());
+        VerifyReqLineExists(ParentNo, '', "Action Message Type"::New, QtyOnSalesOrder - QtyOnInventory, 0, SalesLineShipmentDate);
         VerifyReqLineExists(
-          ChildNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyPer * (QtyOnSalesOrder - QtyOnInventory), ChildQtyOnAO, SalesLineShipmentDate() - 1);
+          ChildNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyPer * (QtyOnSalesOrder - QtyOnInventory), ChildQtyOnAO, SalesLineShipmentDate - 1);
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure Worksheet_KiK_ChildAndParentItemsOnAO()
     var
@@ -518,11 +527,12 @@ codeunit 137089 "SCM Kitting - Planning"
         VerifyNumberOfReqLines(1, ChildNo);
 
         // VerifyReqLineExists(No,VariantCode,ActionMessage,Quantity,originalQuantity,DueDate)
-        VerifyReqLineExists(ParentNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyOnSalesOrder, 4, SalesLineShipmentDate());
-        VerifyReqLineExists(ChildNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyPer * QtyOnSalesOrder, ChildQtyOnAO, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists(ParentNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyOnSalesOrder, 4, SalesLineShipmentDate);
+        VerifyReqLineExists(ChildNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyPer * QtyOnSalesOrder, ChildQtyOnAO, SalesLineShipmentDate - 1);
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure Worksheet_KiK_ItemsOnAOAndInventory()
     var
@@ -554,9 +564,9 @@ codeunit 137089 "SCM Kitting - Planning"
 
         // VerifyReqLineExists(No,VariantCode,ActionMessage,Quantity,originalQuantity,DueDate)
         VerifyReqLineExists(
-          ParentNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyOnSalesOrder - QtyOnInventory, ParentQtyOnAO, SalesLineShipmentDate());
+          ParentNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyOnSalesOrder - QtyOnInventory, ParentQtyOnAO, SalesLineShipmentDate);
         VerifyReqLineExists(
-          ChildNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyPer * (QtyOnSalesOrder - QtyOnInventory), ChildQtyOnAO, SalesLineShipmentDate() - 1);
+          ChildNo, '', "Action Message Type"::"Resched. & Chg. Qty.", QtyPer * (QtyOnSalesOrder - QtyOnInventory), ChildQtyOnAO, SalesLineShipmentDate - 1);
     end;
 
     [Test]
@@ -590,6 +600,7 @@ codeunit 137089 "SCM Kitting - Planning"
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure Worksheet_KiK_EnoughInventoryAndAOs()
     var
@@ -619,11 +630,12 @@ codeunit 137089 "SCM Kitting - Planning"
         VerifyNumberOfReqLines(1, ChildNo);
 
         // VerifyReqLineExists(No,VariantCode,ActionMessage,Quantity,originalQuantity,DueDate)
-        VerifyReqLineExists(ParentNo, '', "Action Message Type"::Reschedule, ParentQtyOnAO, 0, SalesLineShipmentDate());
-        VerifyReqLineExists(ChildNo, '', "Action Message Type"::New, QtyPer * ParentQtyOnAO, 0, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists(ParentNo, '', "Action Message Type"::Reschedule, ParentQtyOnAO, 0, SalesLineShipmentDate);
+        VerifyReqLineExists(ChildNo, '', "Action Message Type"::New, QtyPer * ParentQtyOnAO, 0, SalesLineShipmentDate - 1);
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure Worksheet_KiK_TestCancel()
     var
@@ -653,8 +665,8 @@ codeunit 137089 "SCM Kitting - Planning"
         VerifyNumberOfReqLines(1, ChildNo);
 
         // VerifyReqLineExists(No,VariantCode,ActionMessage,Quantity,originalQuantity,DueDate)
-        VerifyReqLineExists(ParentNo, '', "Action Message Type"::Cancel, 0, ParentQtyOnAO, WorkDate() + 8);
-        VerifyReqLineExists(ChildNo, '', "Action Message Type"::Cancel, 0, ChildQtyOnAO, WorkDate() + 7);
+        VerifyReqLineExists(ParentNo, '', "Action Message Type"::Cancel, 0, ParentQtyOnAO, WorkDate + 8);
+        VerifyReqLineExists(ChildNo, '', "Action Message Type"::Cancel, 0, ChildQtyOnAO, WorkDate + 7);
     end;
 
     [Test]
@@ -719,6 +731,7 @@ codeunit 137089 "SCM Kitting - Planning"
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure Worksheet_PurchasedItemsInKit()
     var
@@ -745,23 +758,22 @@ codeunit 137089 "SCM Kitting - Planning"
         CreateChildItem(ChildItem, ParentAssemblyItem, "Replenishment System"::Purchase, QtyPer);
 
         // A SO, with a line of TS1-KIT, Qty.=10, Shipment Date=W + 10D
-        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate(), QtyOnSalesOrder, '');
+        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate, QtyOnSalesOrder, '');
 
         Clear(AssemblyHeader);
 
         // Create an AO for parent item
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, SalesLineShipmentDate(), ParentAssemblyItem."No.", '', ParentQtyOnAO, '');
+        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, SalesLineShipmentDate, ParentAssemblyItem."No.", '', ParentQtyOnAO, '');
 
         // Run Req. Worksheet from W to W + 30D, No. = ParentAssemblyItem."No."|ChildItem."No."
         PlanningFilterItem.SetFilter("No.", '%1|%2', ParentAssemblyItem."No.", ChildItem."No.");
-        LibraryPlanning.CalcRegenPlanForPlanWksh(PlanningFilterItem, WorkDate(), WorkDate() + 30);
+        LibraryPlanning.CalcRegenPlanForPlanWksh(PlanningFilterItem, WorkDate(), WorkDate + 30);
 
         VerifyNumberOfReqLines(0, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(1, ChildItem."No.");
 
-        // Works with: VerifyReqLineExists(ChildItem."No.",'',ReqLine."Action Message"::New,BOMCompItem."Quantity per" * 10,0,WorkDate() + 9);
-        VerifyReqLineExists(ChildItem."No.", '', "Action Message Type"::New, QtyPer * ParentQtyOnAO, 0, SalesLineShipmentDate() - 1);
-        NotificationLifecycleMgt.RecallAllNotifications();
+        // Works with: VerifyReqLineExists(ChildItem."No.",'',ReqLine."Action Message"::New,BOMCompItem."Quantity per" * 10,0,WORKDATE + 9);
+        VerifyReqLineExists(ChildItem."No.", '', "Action Message Type"::New, QtyPer * ParentQtyOnAO, 0, SalesLineShipmentDate - 1);
     end;
 
     [Test]
@@ -788,16 +800,16 @@ codeunit 137089 "SCM Kitting - Planning"
         // A kit item TS1-COMP1, Replenishment System=Assembly, UOM=PCS, Item Category Code=FURNITUE, Reorder Policy=LFL, Include Inventory=TRUE, Resched. Period=2M
         CreateChildItem(ChildItem, ParentAssemblyItem, "Replenishment System"::Assembly, QtyPer);
 
-        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate(), QtyOnSalesOrder, '');
+        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate, QtyOnSalesOrder, '');
 
         // Run Planning Worksheet from W to W + 30D, No. = ParentAssemblyItem."No."|ChildItem."No."
         PlanningFilterItem.SetFilter("No.", '%1|%2', ParentAssemblyItem."No.", ChildItem."No.");
-        LibraryPlanning.CalcRegenPlanForPlanWksh(PlanningFilterItem, WorkDate(), WorkDate() + 30);
+        LibraryPlanning.CalcRegenPlanForPlanWksh(PlanningFilterItem, WorkDate(), WorkDate + 30);
 
         VerifyNumberOfReqLines(0, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(1, ChildItem."No.");
 
-        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, SalesLineShipmentDate - 1);
     end;
 
     [Test]
@@ -828,17 +840,17 @@ codeunit 137089 "SCM Kitting - Planning"
         ChildItem.Modify(true);
 
         // A SO, TS1-SO1, with a line of TS1-KIT, Qty.=10, Shipment Date=W + 10D
-        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate(), QtyOnSalesOrder, '');
+        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate, QtyOnSalesOrder, '');
 
         // Run Planning Worksheet from W to W + 30D, No. = ParentAssemblyItem."No."|ChildItem."No."
         PlanningFilterItem.SetFilter("No.", '%1|%2', ParentAssemblyItem."No.", ChildItem."No.");
-        LibraryPlanning.CalcRegenPlanForPlanWksh(PlanningFilterItem, WorkDate(), WorkDate() + 30);
+        LibraryPlanning.CalcRegenPlanForPlanWksh(PlanningFilterItem, WorkDate(), WorkDate + 30);
 
         VerifyNumberOfReqLines(1, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(1, ChildItem."No.");
 
-        VerifyReqLineExists(ParentAssemblyItem."No.", '', "Action Message Type"::New, QtyOnSalesOrder, 0, SalesLineShipmentDate());
-        VerifyReqLineExists(ChildItem."No.", '', "Action Message Type"::New, QtyPer * QtyOnSalesOrder, 0, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists(ParentAssemblyItem."No.", '', "Action Message Type"::New, QtyOnSalesOrder, 0, SalesLineShipmentDate);
+        VerifyReqLineExists(ChildItem."No.", '', "Action Message Type"::New, QtyPer * QtyOnSalesOrder, 0, SalesLineShipmentDate - 1);
     end;
 
     [Test]
@@ -868,20 +880,20 @@ codeunit 137089 "SCM Kitting - Planning"
         CreateChildItem(ChildItem, ParentAssemblyItem, "Replenishment System"::Assembly, QtyPer);
 
         // A SO, TS1-SO1, with a line of TS1-KIT, Qty.=10, Shipment Date=W + 10D
-        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate(), QtyOnSalesOrder, '');
+        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate, QtyOnSalesOrder, '');
 
         SalesLine.Validate("Qty. to Assemble to Order", QtyToAssembleToOrder);
         SalesLine.Modify(true);
 
         // Run Planning Worksheet from W to W + 30D, No. = ParentAssemblyItem."No."|ChildItem."No."
         PlanningFilterItem.SetFilter("No.", '%1|%2', ParentAssemblyItem."No.", ChildItem."No.");
-        LibraryPlanning.CalcRegenPlanForPlanWksh(PlanningFilterItem, WorkDate(), WorkDate() + 30);
+        LibraryPlanning.CalcRegenPlanForPlanWksh(PlanningFilterItem, WorkDate(), WorkDate + 30);
 
         VerifyNumberOfReqLines(1, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(1, ChildItem."No.");
 
-        VerifyReqLineExists(ParentAssemblyItem."No.", '', "Action Message Type"::New, QtyOnSalesOrder - QtyToAssembleToOrder, 0, SalesLineShipmentDate());
-        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists(ParentAssemblyItem."No.", '', "Action Message Type"::New, QtyOnSalesOrder - QtyToAssembleToOrder, 0, SalesLineShipmentDate);
+        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, SalesLineShipmentDate - 1);
     end;
 
     [Normal]
@@ -890,7 +902,7 @@ codeunit 137089 "SCM Kitting - Planning"
         RequisitionLine: Record "Requisition Line";
         OrderPlanningMgt: Codeunit "Order Planning Mgt.";
     begin
-        OrderPlanningMgt.SetAsmOrder();
+        OrderPlanningMgt.SetAsmOrder;
         OrderPlanningMgt.GetOrdersToPlan(RequisitionLine);
     end;
 
@@ -917,16 +929,17 @@ codeunit 137089 "SCM Kitting - Planning"
         AddToInventory(ChildItem, 1500);
 
         // Create an AO for parent
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, AssemblyOrderDueDate(), ParentAssemblyItem."No.", '', 5, '');
+        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, AssemblyOrderDueDate, ParentAssemblyItem."No.", '', 5, '');
         AssemblyHeader.Modify(true);
 
-        RunOrderPlanningAsm();
+        RunOrderPlanningAsm;
 
         VerifyNumberOfReqLines(0, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(0, ChildItem."No.");
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure OrderPlanning_PurchasedItemInKitVariant()
     var
@@ -953,18 +966,18 @@ codeunit 137089 "SCM Kitting - Planning"
         AddToInventory(ChildItem, 7);
 
         // Create an AO for parent
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, WorkDate() + 8, ParentAssemblyItem."No.", '', 10, ItemVariant.Code);
+        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, WorkDate + 8, ParentAssemblyItem."No.", '', 10, ItemVariant.Code);
 
-        RunOrderPlanningAsm();
+        RunOrderPlanningAsm;
 
         VerifyNumberOfReqLines(0, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(1, ChildItem."No.");
 
-        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, AssemblyOrderDueDate() - 1);
-        NotificationLifecycleMgt.RecallAllNotifications();
+        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, AssemblyOrderDueDate - 1);
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure OrderPlanning_TwoProducedComps()
     var
@@ -984,13 +997,13 @@ codeunit 137089 "SCM Kitting - Planning"
 
         // A kit item TS1-COMP1, Replenishment System=Purchase, UOM=PCS, Item Category Code=FURNITUE, Reorder Policy=LFL, Include Inventory=TRUE
         LibraryAssembly.CreateAssemblyList(
-          ParentAssemblyItem."Costing Method"::Standard, ParentAssemblyItem."No.", true, 1, 0, 0, 1, SelectGenProdPostingGroupCode(),
-          InventoryPostingGroupCode());
+          ParentAssemblyItem."Costing Method"::Standard, ParentAssemblyItem."No.", true, 1, 0, 0, 1, SelectGenProdPostingGroupCode,
+          InventoryPostingGroupCode);
 
         // A kit item TS1-COMP2, Replenishment System=Purchase, UOM=PCS, Item Category Code=FURNITUE, Reorder Policy=LFL, Include Inventory=TRUE
         LibraryAssembly.CreateAssemblyList(
-          ParentAssemblyItem."Costing Method"::Standard, ParentAssemblyItem."No.", true, 1, 0, 0, 1, SelectGenProdPostingGroupCode(),
-          InventoryPostingGroupCode());
+          ParentAssemblyItem."Costing Method"::Standard, ParentAssemblyItem."No.", true, 1, 0, 0, 1, SelectGenProdPostingGroupCode,
+          InventoryPostingGroupCode);
 
         BOMCompItem.SetRange("Parent Item No.", ParentAssemblyItem."No.");
         BOMCompItem.FindSet();
@@ -1006,22 +1019,21 @@ codeunit 137089 "SCM Kitting - Planning"
         ChildItem2.Modify(true);
 
         // Create an AO for parent
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, AssemblyOrderDueDate(), ParentAssemblyItem."No.", '', 10, '');
+        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, AssemblyOrderDueDate, ParentAssemblyItem."No.", '', 10, '');
         AssemblyHeader.Modify(true);
 
-        RunOrderPlanningAsm();
+        RunOrderPlanningAsm;
 
         VerifyNumberOfReqLines(0, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(1, ChildItem1."No.");
         VerifyNumberOfReqLines(1, ChildItem2."No.");
 
-        VerifyReqLineExists2(ChildItem1."No.", '', "Action Message Type"::New, 0, AssemblyOrderDueDate() - 1);
-        VerifyReqLineExists2(ChildItem2."No.", '', "Action Message Type"::New, 0, AssemblyOrderDueDate() - 1);
-
-        NotificationLifecycleMgt.RecallAllNotifications();
+        VerifyReqLineExists2(ChildItem1."No.", '', "Action Message Type"::New, 0, AssemblyOrderDueDate - 1);
+        VerifyReqLineExists2(ChildItem2."No.", '', "Action Message Type"::New, 0, AssemblyOrderDueDate - 1);
     end;
 
     [Test]
+    [HandlerFunctions('ModalFormClickYes')]
     [Scope('OnPrem')]
     procedure OrderPlanning_ChangeBeforeCarryOut()
     var
@@ -1049,15 +1061,15 @@ codeunit 137089 "SCM Kitting - Planning"
         CreateChildItem2(ChildItem, ParentAssemblyItem, "Replenishment System"::Assembly, QtyPer);
 
         // Create an AO for parent
-        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, AssemblyOrderDueDate(), ParentAssemblyItem."No.", '', ParentQtyOnAO, '');
+        LibraryAssembly.CreateAssemblyHeader(AssemblyHeader, AssemblyOrderDueDate, ParentAssemblyItem."No.", '', ParentQtyOnAO, '');
         AssemblyHeader.Modify(true);
 
-        RunOrderPlanningAsm();
+        RunOrderPlanningAsm;
 
         VerifyNumberOfReqLines(0, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(1, ChildItem."No.");
 
-        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, AssemblyOrderDueDate() - 1);
+        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, AssemblyOrderDueDate - 1);
 
         AssemblyHeader.Validate(Quantity, NewQtyOnAO);
         AssemblyHeader.Modify(true);
@@ -1074,7 +1086,6 @@ codeunit 137089 "SCM Kitting - Planning"
         Assert.IsTrue(
           StrPos(GetLastErrorText, 'Demand Quantity (Base) must be equal to ') = 1, 'Carry out did not give the expected error message');
         ClearLastError();
-        NotificationLifecycleMgt.RecallAllNotifications();
     end;
 
     [Test]
@@ -1098,14 +1109,14 @@ codeunit 137089 "SCM Kitting - Planning"
         CreateChildItem(ChildItem, ParentAssemblyItem, "Replenishment System"::Assembly, QtyPer);
 
         // A SO, TS1-SO1, with a line of TS1-KIT, Qty.=10, Shipment Date=W + 10D
-        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate(), 10, '');
+        CreateSalesOrder(SalesLine, ParentAssemblyItem, SalesLineShipmentDate, 10, '');
 
-        RunOrderPlanningAsm();
+        RunOrderPlanningAsm;
 
         VerifyNumberOfReqLines(0, ParentAssemblyItem."No.");
         VerifyNumberOfReqLines(1, ChildItem."No.");
 
-        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, SalesLineShipmentDate() - 1);
+        VerifyReqLineExists2(ChildItem."No.", '', "Action Message Type"::New, 0, SalesLineShipmentDate - 1);
     end;
 
     [Test]
@@ -1148,7 +1159,7 @@ codeunit 137089 "SCM Kitting - Planning"
     begin
         // 5 items on inventory and 5 on AO. SO of 10. ATP should be able to produce the earliest shipment date which should be the due date of the AO.
 
-        AODueDate := WorkDate() + 3;
+        AODueDate := WorkDate + 3;
 
         Initialize();
 
@@ -1181,7 +1192,7 @@ codeunit 137089 "SCM Kitting - Planning"
     begin
         // 10 ATO items on SO. ATP should be able to produce the earliest shipment date which should be the due date of the AO that was produced by the SO.
 
-        SODueDate := WorkDate() + 5;
+        SODueDate := WorkDate + 5;
 
         Initialize();
 
@@ -1211,7 +1222,7 @@ codeunit 137089 "SCM Kitting - Planning"
         // 10 ATO items on SO. ATP should be able to produce the earliest shipment date which should be the due date of the AO that was produced by the SO.
         // FAILS DUE TO BUG 267049
 
-        AODueDate := WorkDate() + 2;
+        AODueDate := WorkDate + 2;
 
         Initialize();
 
@@ -1265,7 +1276,7 @@ codeunit 137089 "SCM Kitting - Planning"
         AvailabilityMgt.CalcCapableToPromise(OrderPromisingLine, SalesHeader."No.");
 
         Assert.AreEqual(
-          WorkDate() + 2 + HandlingTime(Location), OrderPromisingLine."Earliest Shipment Date",
+          WorkDate + 2 + HandlingTime(Location), OrderPromisingLine."Earliest Shipment Date",
           'Capable to promise produced the wrong earliest shipment date');
     end;
 
@@ -1301,12 +1312,12 @@ codeunit 137089 "SCM Kitting - Planning"
         AvailabilityMgt.CalcCapableToPromise(OrderPromisingLine, SalesHeader."No.");
 
         Assert.AreEqual(
-          WorkDate() + 2 + HandlingTime(Location), OrderPromisingLine."Earliest Shipment Date",
+          WorkDate + 2 + HandlingTime(Location), OrderPromisingLine."Earliest Shipment Date",
           'Capable to promise produced the wrong earliest shipment date');
 
         VerifyNumberOfReqLines(1, AssemblyItem."No.");
 
-        VerifyReqLineExists(AssemblyItem."No.", '', "Action Message Type"::New, 2, 0, WorkDate() + 2 + HandlingTime(Location));
+        VerifyReqLineExists(AssemblyItem."No.", '', "Action Message Type"::New, 2, 0, WorkDate + 2 + HandlingTime(Location));
     end;
 
     [Test]
@@ -1343,11 +1354,11 @@ codeunit 137089 "SCM Kitting - Planning"
         AvailabilityMgt.CalcCapableToPromise(OrderPromisingLine, SalesHeader."No.");
 
         Assert.AreEqual(
-          WorkDate() + 2, OrderPromisingLine."Earliest Shipment Date", 'Capable to promise produced the wrong earliest shipment date');
+          WorkDate + 2, OrderPromisingLine."Earliest Shipment Date", 'Capable to promise produced the wrong earliest shipment date');
 
         VerifyNumberOfReqLines(1, AssemblyItem."No.");
 
-        VerifyReqLineExists(AssemblyItem."No.", ItemVariant.Code, "Action Message Type"::New, QtyOnSalesOrder - QtyOnInventory, 0, WorkDate() + 2);
+        VerifyReqLineExists(AssemblyItem."No.", ItemVariant.Code, "Action Message Type"::New, QtyOnSalesOrder - QtyOnInventory, 0, WorkDate + 2);
     end;
 }
 

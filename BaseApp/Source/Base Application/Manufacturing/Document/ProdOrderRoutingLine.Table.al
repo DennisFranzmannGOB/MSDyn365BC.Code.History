@@ -19,7 +19,6 @@ table 5409 "Prod. Order Routing Line"
     DrillDownPageID = "Prod. Order Routing";
     LookupPageID = "Prod. Order Routing";
     Permissions = TableData "Prod. Order Capacity Need" = rimd;
-    DataClassification = CustomerContent;
 
     fields
     {

@@ -77,13 +77,15 @@ codeunit 8610 "Questionnaire Management"
         RecRef: RecordRef;
         FieldRef: FieldRef;
     begin
-        if ConfigQuestion.Question <> '' then
-            exit;
-        if ConfigQuestion."Table ID" = 0 then
-            exit;
-        RecRef.Open(ConfigQuestion."Table ID");
-        FieldRef := RecRef.Field(ConfigQuestion."Field ID");
-        ConfigQuestion.Question := FieldRef.Caption + '?';
+        with ConfigQuestion do begin
+            if Question <> '' then
+                exit;
+            if "Table ID" = 0 then
+                exit;
+            RecRef.Open("Table ID");
+            FieldRef := RecRef.Field("Field ID");
+            Question := FieldRef.Caption + '?';
+        end;
     end;
 
     procedure UpdateQuestionnaire(ConfigQuestionnaire: Record "Config. Questionnaire"): Boolean

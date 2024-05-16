@@ -4,7 +4,6 @@ table 8610 "Config. Questionnaire"
 {
     Caption = 'Config. Questionnaire';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

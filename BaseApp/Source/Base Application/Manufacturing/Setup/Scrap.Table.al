@@ -5,7 +5,6 @@ table 99000762 Scrap
     Caption = 'Scrap';
     DrillDownPageID = "Scrap Codes";
     LookupPageID = "Scrap Codes";
-    DataClassification = CustomerContent;
 
     fields
     {

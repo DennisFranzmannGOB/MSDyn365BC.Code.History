@@ -429,7 +429,7 @@ codeunit 6060 "Hybrid Deployment"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterDisableReplication(var InstanceId: Text);
+    local procedure OnAfterDisableReplication(VAR InstanceId: Text);
     begin
     end;
 

@@ -95,16 +95,18 @@ codeunit 781 "Sales Pipeline Chart Mgt."
     var
         I: Integer;
     begin
-        BusinessChartBuffer.Initialize();
-        BusinessChartBuffer.AddIntegerMeasure(TempSalesCycleStage.FieldCaption("No. of Opportunities"), 1, BusinessChartBuffer."Chart Type"::Funnel);
-        BusinessChartBuffer.SetXAxis(TempSalesCycleStage.TableCaption(), BusinessChartBuffer."Data Type"::String);
-        InsertTempSalesCycleStage(TempSalesCycleStage, SalesCycle);
-        if TempSalesCycleStage.FindSet() then
-            repeat
-                I += 1;
-                BusinessChartBuffer.AddColumn(TempSalesCycleStage.Description);
-                BusinessChartBuffer.SetValueByIndex(0, I - 1, GetOppEntryCount(TempSalesCycleStage."Sales Cycle Code", TempSalesCycleStage.Stage));
-            until TempSalesCycleStage.Next() = 0;
+        with BusinessChartBuffer do begin
+            Initialize();
+            AddIntegerMeasure(TempSalesCycleStage.FieldCaption("No. of Opportunities"), 1, "Chart Type"::Funnel);
+            SetXAxis(TempSalesCycleStage.TableCaption(), "Data Type"::String);
+            InsertTempSalesCycleStage(TempSalesCycleStage, SalesCycle);
+            if TempSalesCycleStage.FindSet() then
+                repeat
+                    I += 1;
+                    AddColumn(TempSalesCycleStage.Description);
+                    SetValueByIndex(0, I - 1, GetOppEntryCount(TempSalesCycleStage."Sales Cycle Code", TempSalesCycleStage.Stage));
+                until TempSalesCycleStage.Next() = 0;
+        end;
     end;
 
     [IntegrationEvent(false, false)]

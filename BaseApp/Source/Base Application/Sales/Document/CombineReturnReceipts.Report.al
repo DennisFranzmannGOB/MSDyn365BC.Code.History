@@ -74,8 +74,8 @@ report 6653 "Combine Return Receipts"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
 
                 Window.Update(1, "Bill-to Customer No.");
                 Window.Update(2, "No.");
@@ -204,7 +204,7 @@ report 6653 "Combine Return Receipts"
         ReturnRcptLine: Record "Return Receipt Line";
         SalesSetup: Record "Sales & Receivables Setup";
         Cust: Record Customer;
-        LanguageMgt: Codeunit Language;
+        Language: Codeunit Language;
         SalesCalcDisc: Codeunit "Sales-Calc. Discount";
         SalesPost: Codeunit "Sales-Post";
         Window: Dialog;
@@ -238,19 +238,21 @@ report 6653 "Combine Return Receipts"
     begin
         OnBeforeFinalizeSalesInvHeader(SalesHeader);
 
-        if CalcInvDisc then
-            SalesCalcDisc.Run(SalesLine);
-        SalesHeader.Find();
-        Commit();
-        Clear(SalesCalcDisc);
-        Clear(SalesPost);
-        NoOfSalesInv := NoOfSalesInv + 1;
-        ShouldPostInv := PostInv;
-        OnFinalizeSalesInvHeaderOnAfterCalcShouldPostInv(SalesHeader, NoOfSalesInv, ShouldPostInv);
-        if ShouldPostInv then begin
+        with SalesHeader do begin
+            if CalcInvDisc then
+                SalesCalcDisc.Run(SalesLine);
+            Find();
+            Commit();
+            Clear(SalesCalcDisc);
             Clear(SalesPost);
-            if not SalesPost.Run(SalesHeader) then
-                NoOfSalesInvErrors := NoOfSalesInvErrors + 1;
+            NoOfSalesInv := NoOfSalesInv + 1;
+            ShouldPostInv := PostInv;
+            OnFinalizeSalesInvHeaderOnAfterCalcShouldPostInv(SalesHeader, NoOfSalesInv, ShouldPostInv);
+            if ShouldPostInv then begin
+                Clear(SalesPost);
+                if not SalesPost.Run(SalesHeader) then
+                    NoOfSalesInvErrors := NoOfSalesInvErrors + 1;
+            end;
         end;
     end;
 
@@ -260,28 +262,29 @@ report 6653 "Combine Return Receipts"
     begin
         IsHandled := false;
         OnBeforeInsertSalesInvHeader(SalesHeader, SalesOrderHeader, "Return Receipt Header", "Return Receipt Line", NoOfSalesInv, IsHandled);
-        if not IsHandled then begin
-            SalesHeader.Init();
-            SalesHeader."Document Type" := SalesHeader."Document Type"::"Credit Memo";
-            SalesHeader."No." := '';
+        if not IsHandled then
+            with SalesHeader do begin
+                Init();
+                "Document Type" := "Document Type"::"Credit Memo";
+                "No." := '';
 
-            OnBeforeSalesCrMemoHeaderInsert(SalesHeader, SalesOrderHeader);
+                OnBeforeSalesCrMemoHeaderInsert(SalesHeader, SalesOrderHeader);
 
-            SalesHeader.Insert(true);
-            ValidateCustomerNoFromOrder(SalesHeader, SalesOrderHeader);
-            SalesHeader.Validate("Currency Code", SalesOrderHeader."Currency Code");
-            SalesHeader.Validate("Posting Date", PostingDateReq);
-            SalesHeader.Validate("Document Date", DocDateReq);
-            SalesHeader.Validate("VAT Reporting Date", VATDateReq);
+                Insert(true);
+                ValidateCustomerNoFromOrder(SalesHeader, SalesOrderHeader);
+                Validate("Currency Code", SalesOrderHeader."Currency Code");
+                Validate("Posting Date", PostingDateReq);
+                Validate("Document Date", DocDateReq);
+                Validate("VAT Reporting Date", VATDateReq);
 
-            SalesHeader."Shortcut Dimension 1 Code" := SalesOrderHeader."Shortcut Dimension 1 Code";
-            SalesHeader."Shortcut Dimension 2 Code" := SalesOrderHeader."Shortcut Dimension 2 Code";
-            SalesHeader."Dimension Set ID" := SalesOrderHeader."Dimension Set ID";
-            OnBeforeSalesCrMemoHeaderModify(SalesHeader, SalesOrderHeader);
+                "Shortcut Dimension 1 Code" := SalesOrderHeader."Shortcut Dimension 1 Code";
+                "Shortcut Dimension 2 Code" := SalesOrderHeader."Shortcut Dimension 2 Code";
+                "Dimension Set ID" := SalesOrderHeader."Dimension Set ID";
+                OnBeforeSalesCrMemoHeaderModify(SalesHeader, SalesOrderHeader);
 
-            SalesHeader.Modify();
-            Commit();
-        end;
+                Modify();
+                Commit();
+            end;
 
         OnAfterInsertSalesInvHeader(SalesHeader, "Return Receipt Header");
     end;

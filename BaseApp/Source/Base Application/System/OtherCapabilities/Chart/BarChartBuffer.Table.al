@@ -4,7 +4,6 @@ table 450 "Bar Chart Buffer"
 {
     Caption = 'Bar Chart Buffer';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

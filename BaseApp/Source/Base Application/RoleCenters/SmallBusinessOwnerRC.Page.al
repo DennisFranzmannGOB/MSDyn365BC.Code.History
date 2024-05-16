@@ -40,7 +40,7 @@ using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Journal;
 using Microsoft.Inventory.Reports;
 using Microsoft.Inventory.Requisition;
-#if CLEAN23
+#if CLEAN21
 using Microsoft.Pricing.Reports;
 using Microsoft.Pricing.Worksheet;
 #endif
@@ -93,30 +93,20 @@ page 9020 "Small Business Owner RC"
                 {
                     ApplicationArea = Basic, Suite;
                 }
-#if not CLEAN24                
                 part(Control66; "Finance Performance")
                 {
-                    ApplicationArea = Advanced;
+                    ApplicationArea = Basic, Suite;
                     Visible = false;
-                    ObsoleteState = Pending;
-                    ObsoleteTag = '24.0';
-                    ObsoleteReason = 'Duplicate - see control 69';
                 }
-#endif
                 part(Control70; "Sales Performance")
                 {
                     ApplicationArea = Basic, Suite;
                 }
-#if not CLEAN24                
                 part(Control68; "Sales Performance")
                 {
-                    ApplicationArea = Advanced;
+                    ApplicationArea = Basic, Suite;
                     Visible = false;
-                    ObsoleteState = Pending;
-                    ObsoleteTag = '24.0';
-                    ObsoleteReason = 'Duplicate - see control 70';
                 }
-#endif
                 part(Control2; "Trailing Sales Orders Chart")
                 {
                     ApplicationArea = Basic, Suite;
@@ -204,7 +194,7 @@ page 9020 "Small Business Owner RC"
                 RunObject = Report "Salesperson - Sales Statistics";
                 ToolTip = 'View amounts for sales, profit, invoice discount, and payment discount, as well as profit percentage, for each salesperson for a selected period. The report also shows the adjusted profit and adjusted profit percentage, which reflect any changes to the original costs of the items in the sales.';
             }
-#if not CLEAN23
+#if not CLEAN21
             action("Price &List")
             {
                 ApplicationArea = Basic, Suite;
@@ -800,7 +790,7 @@ page 9020 "Small Business Owner RC"
                     RunObject = Page "Resource Groups";
                     ToolTip = 'View all resource groups.';
                 }
-#if not CLEAN23
+#if not CLEAN21
                 action("Resource Price Changes")
                 {
                     ApplicationArea = Basic, Suite;
@@ -992,7 +982,7 @@ page 9020 "Small Business Owner RC"
                 RunObject = Page "Payment Journal";
                 ToolTip = 'Pay your vendors by filling the payment journal automatically according to payments due, and potentially export all payment to your bank for automatic processing.';
             }
-#if not CLEAN23
+#if not CLEAN21
             action("Sales Price &Worksheet")
             {
                 ApplicationArea = Basic, Suite;

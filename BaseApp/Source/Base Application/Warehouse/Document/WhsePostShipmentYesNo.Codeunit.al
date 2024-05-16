@@ -33,20 +33,22 @@ codeunit 5764 "Whse.-Post Shipment (Yes/No)"
         if IsPosted then
             exit;
 
-        if WhseShptLine.Find() then
-            if not HideDialog then begin
-                if not PostingSelectionManagement.ConfirmPostWhseShipment(WhseShptLine, Selection) then
-                    exit;
-                Invoice := (Selection = 2);
-            end;
+        with WhseShptLine do begin
+            if Find() then
+                if not HideDialog then begin
+                    if not PostingSelectionManagement.ConfirmPostWhseShipment(WhseShptLine, Selection) then
+                        exit;
+                    Invoice := (Selection = 2);
+                end;
 
-        OnAfterConfirmPost(WhseShptLine, Invoice);
+            OnAfterConfirmPost(WhseShptLine, Invoice);
 
-        WhsePostShipment.SetPostingSettings(Invoice);
-        WhsePostShipment.SetPrint(false);
-        WhsePostShipment.Run(WhseShptLine);
-        WhsePostShipment.GetResultMessage();
-        Clear(WhsePostShipment);
+            WhsePostShipment.SetPostingSettings(Invoice);
+            WhsePostShipment.SetPrint(false);
+            WhsePostShipment.Run(WhseShptLine);
+            WhsePostShipment.GetResultMessage();
+            Clear(WhsePostShipment);
+        end;
 
         OnAfterCode(WhseShptLine);
     end;
@@ -60,17 +62,6 @@ codeunit 5764 "Whse.-Post Shipment (Yes/No)"
         GenJnlPostPreview.Preview(WhsePostShipmentYesNo, WarehouseShipmentLine);
     end;
 
-    procedure MessageIfPostingPreviewMultipleDocuments(var WarehouseShipmentHeaderToPreview: Record "Warehouse Shipment Header"; DocumentNo: Code[20])
-    var
-        GenJnlPostPreview: Codeunit "Gen. Jnl.-Post Preview";
-        RecordRefToPreview: RecordRef;
-    begin
-        RecordRefToPreview.Open(Database::"Warehouse Shipment Header");
-        RecordRefToPreview.Copy(WarehouseShipmentHeaderToPreview);
-
-        GenJnlPostPreview.MessageIfPostingPreviewMultipleDocuments(RecordRefToPreview, DocumentNo);
-    end;
-
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Preview", 'OnRunPreview', '', false, false)]
     local procedure OnRunPreview(var Result: Boolean; Subscriber: Variant; RecVar: Variant)
     var
@@ -79,7 +70,6 @@ codeunit 5764 "Whse.-Post Shipment (Yes/No)"
     begin
         WarehouseShipmentLine.Copy(RecVar);
         WhsePostShipment.SetPreviewMode(true);
-        WhsePostShipment.SetSuppressCommit(true);
         WhsePostShipment.SetPostingSettings(true);
         WhsePostShipment.SetPrint(false);
         Result := WhsePostShipment.Run(WarehouseShipmentLine);

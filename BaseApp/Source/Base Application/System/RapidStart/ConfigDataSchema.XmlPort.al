@@ -127,7 +127,7 @@ xmlport 8610 "Config. Data Schema"
                                                     LinkFields = "Package Code" = field("Package Code"), "Table ID" = field("Table ID");
                                                     LinkTable = "Config. Package Table";
                                                     XmlName = 'xsd:element';
-                                                    SourceTableView = sorting("Package Code", "Table ID", "Processing Order") order(ascending);
+                                                    SourceTableView = sorting("Package Code", "Table ID", "Processing Order") order(Ascending);
                                                     textattribute(type1)
                                                     {
                                                         XmlName = 'type';

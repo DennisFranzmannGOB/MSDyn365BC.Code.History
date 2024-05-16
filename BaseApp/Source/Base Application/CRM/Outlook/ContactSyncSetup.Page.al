@@ -1,6 +1,8 @@
 namespace Microsoft.CRM.Outlook;
 
 using Microsoft.Utilities;
+using System.Privacy;
+using System.Security.AccessControl;
 
 page 6701 "Contact Sync. Setup"
 {
@@ -40,8 +42,16 @@ page 6701 "Contact Sync. Setup"
                     ApplicationArea = Basic, Suite;
                     Caption = 'Enable Background Synchronization';
                     ToolTip = 'Specifies that data synchronization can occur while users perform related tasks.';
-                    Enabled = Rec.Enabled;
-                    Editable = Rec.Enabled;
+
+                    trigger OnValidate()
+                    var
+                        PrivacyNotice: Codeunit "Privacy Notice";
+                        PrivacyNoticeRegistrations: Codeunit "Privacy Notice Registrations";
+                    begin
+                        if Rec.Enabled then
+                            if not PrivacyNotice.ConfirmPrivacyNoticeApproval(PrivacyNoticeRegistrations.GetExchangePrivacyNoticeId()) then
+                                Rec.Enabled := false; // Privacy notice was not approved
+                    end;
                 }
             }
         }
@@ -55,7 +65,6 @@ page 6701 "Contact Sync. Setup"
             {
                 Caption = 'Process';
                 Image = "Action";
-
                 action("Validate Exchange Connection")
                 {
                     ApplicationArea = Basic, Suite;
@@ -93,26 +102,12 @@ page 6701 "Contact Sync. Setup"
                             O365SyncManagement.SyncExchangeContacts(Rec, false);
                     end;
                 }
-                action(FullSyncO365)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Full Sync with Office 365';
-                    Image = RefreshLines;
-                    ToolTip = 'Synchronize, but ignore the last synchronized and last modified dates. All changes will be pushed to Office 365 and take all contacts from your Exchange folder and sync back.';
-
-                    trigger OnAction()
-                    begin
-                        Clear(O365SyncManagement);
-                        if O365SyncManagement.IsO365Setup(false) then
-                            O365SyncManagement.SyncExchangeContacts(Rec, true);
-                    end;
-                }
                 action(SetSyncFilter)
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Set Sync Filter';
                     Image = "Filter";
-                    ToolTip = 'Set a filter to use when syncing with Office 365.';
+                    ToolTip = 'Synchronize, but ignore the last synchronized and last modified dates. All changes will be pushed to Office 365 and take all contacts from your Exchange folder and sync back.';
 
                     trigger OnAction()
                     var
@@ -191,13 +186,11 @@ page 6701 "Contact Sync. Setup"
 
     trigger OnOpenPage()
     var
-        Notif: Notification;
+        User: Record User;
     begin
+        GetUser(User);
         if not O365SyncManagement.IsO365Setup(false) then
             Error(EmailMissingErr);
-
-        Notif.Message := CannotEnableBackgroundMsg;
-        Notif.Send();
     end;
 
     var
@@ -207,7 +200,12 @@ page 6701 "Contact Sync. Setup"
         ConnectionSuccessMsg: Label 'Connected successfully to Exchange.';
         ConnectionFailureErr: Label 'Cannot connect to Exchange. Check your user name, password and Folder ID, and then try again.';
         EmailMissingErr: Label 'An authentication email and Exchange password must be set in order to set up contact synchronization.';
-        CannotEnableBackgroundMsg: Label 'Background contact synchronization can no longer be activated. If you activated it in the past and deactivate it, you won''t be able to activate it again.';
         SetupTelemetryTxt: Label 'Contact Sync has been set up and validated.', Locked = true;
 
+    local procedure GetUser(var User: Record User): Boolean
+    begin
+        User.SetRange("User Name", UserId);
+        exit(User.FindFirst());
+    end;
 }
+

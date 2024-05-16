@@ -5,7 +5,6 @@ table 5414 "Prod. Order Comment Line"
     Caption = 'Prod. Order Comment Line';
     DrillDownPageID = "Prod. Order Comment List";
     LookupPageID = "Prod. Order Comment List";
-    DataClassification = CustomerContent;
 
     fields
     {

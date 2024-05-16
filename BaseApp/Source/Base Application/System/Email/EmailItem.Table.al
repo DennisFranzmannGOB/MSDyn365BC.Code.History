@@ -9,7 +9,6 @@ using System.Utilities;
 table 9500 "Email Item"
 {
     Caption = 'Email Item';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -234,6 +233,9 @@ table 9500 "Email Item"
     }
 
     var
+#if not CLEAN21
+        O365EmailSetup: Record "O365 Email Setup";
+#endif
         Attachments: Codeunit "Temp Blob List";
         AttachmentNames: List of [Text];
         SourceTables: List of [Integer];
@@ -301,6 +303,14 @@ table 9500 "Email Item"
     procedure Initialize()
     begin
         ID := CreateGuid();
+    end;
+
+    [Obsolete('Replaced with the overload containing Email Scenario', '17.0')]
+    procedure Send(HideMailDialog: Boolean): Boolean
+    var
+        MailManagement: Codeunit "Mail Management";
+    begin
+        exit(Send(HideMailDialog, Enum::"Email Scenario"::Default));
     end;
 
     procedure Send(HideMailDialog: Boolean; EmailScenario: Enum "Email Scenario"): Boolean
@@ -388,6 +398,14 @@ table 9500 "Email Item"
         MailManagement.CheckValidEmailAddresses(EmailAddresses);
     end;
 
+#if not CLEAN21
+    [Obsolete('Microsoft Invoicing has been discontinued.', '21.0')]
+    procedure AddCcBcc()
+    begin
+        "Send CC" := O365EmailSetup.GetCCAddressesFromO365EmailSetup();
+        "Send BCC" := O365EmailSetup.GetBCCAddressesFromO365EmailSetup();
+    end;
+#endif
     procedure SendAsHTML(SendAsHTML: Boolean)
     begin
         Rec."Send As HTML" := SendAsHTML;

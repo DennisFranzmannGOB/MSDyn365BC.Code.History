@@ -1,4 +1,4 @@
-#if not CLEAN23
+#if not CLEAN21
 namespace System.Integration.PowerBI;
 
 table 6302 "Power BI Report Buffer"
@@ -16,7 +16,6 @@ table 6302 "Power BI Report Buffer"
 #pragma warning restore AS0072
 
     Description = 'This table will be marked as obsolete. Use table 6313 "Power BI Selection Element" instead.';
-    DataClassification = CustomerContent;
 
     fields
     {

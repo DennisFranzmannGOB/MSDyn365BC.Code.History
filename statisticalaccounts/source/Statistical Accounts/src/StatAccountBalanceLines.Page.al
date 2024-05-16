@@ -1,5 +1,6 @@
 namespace Microsoft.Finance.Analysis.StatisticalAccount;
 
+using Microsoft.Finance.GeneralLedger.Setup;
 using System.Utilities;
 using Microsoft.Foundation.Enums;
 using Microsoft.Foundation.Period;

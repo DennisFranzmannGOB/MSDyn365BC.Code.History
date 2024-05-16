@@ -15,7 +15,6 @@ table 7332 "Whse. Internal Put-away Line"
 {
     Caption = 'Whse. Internal Put-away Line';
     LookupPageID = "Whse. Internal Put-away Lines";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -417,7 +416,7 @@ table 7332 "Whse. Internal Put-away Line"
     begin
         GetInternalPutAwayHeader("No.");
         WhseInternalPutAwayLine.SetRange("No.", WhseInternalPutAwayHeader."No.");
-        if not WhseInternalPutAwayLine.IsEmpty() then
+        if WhseInternalPutAwayLine.Count > 0 then
             LastLineNo := LastWhseInternalPutAwayLine."Line No."
         else
             LastLineNo := 0;

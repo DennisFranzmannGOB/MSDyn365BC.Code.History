@@ -1,7 +1,6 @@
 namespace Microsoft.Service.Document;
 
 using Microsoft.Finance.Dimension;
-using Microsoft.Foundation.Attachment;
 using Microsoft.Foundation.Reporting;
 using Microsoft.Sales.Customer;
 using Microsoft.Service.Comment;
@@ -59,11 +58,6 @@ page 9317 "Service Quotes"
                 {
                     ApplicationArea = Service;
                     ToolTip = 'Specifies the name of the customer to whom the items on the document will be shipped.';
-                }
-                field("External Document No."; Rec."External Document No.")
-                {
-                    ApplicationArea = Service;
-                    ToolTip = 'Specifies a document number that refers to the customer''s numbering system.';
                 }
                 field("Location Code"; Rec."Location Code")
                 {
@@ -174,14 +168,6 @@ page 9317 "Service Quotes"
         }
         area(factboxes)
         {
-            part("Attached Documents"; "Document Attachment Factbox")
-            {
-                ApplicationArea = Service;
-                Caption = 'Attachments';
-                SubPageLink = "Table ID" = const(Database::"Service Header"),
-                              "No." = field("No."),
-                              "Document Type" = field("Document Type");
-            }
             part(Control1902018507; "Customer Statistics FactBox")
             {
                 ApplicationArea = Service;
@@ -308,28 +294,10 @@ page 9317 "Service Quotes"
 
                 trigger OnAction()
                 var
-                    DocumentPrint: Codeunit "Document-Print";
+                    DocPrint: Codeunit "Document-Print";
                 begin
                     CurrPage.Update(true);
-                    DocumentPrint.PrintServiceHeader(Rec);
-                end;
-            }
-            action(AttachAsPDF)
-            {
-                ApplicationArea = Service;
-                Caption = 'Attach as PDF';
-                Ellipsis = true;
-                Image = PrintAttachment;
-                ToolTip = 'Create a PDF file and attach it to the document.';
-
-                trigger OnAction()
-                var
-                    ServiceHeader: Record "Service Header";
-                    DocumentPrint: Codeunit "Document-Print";
-                begin
-                    ServiceHeader := Rec;
-                    ServiceHeader.SetRecFilter();
-                    DocumentPrint.PrintServiceHeaderToDocumentAttachment(ServiceHeader);
+                    DocPrint.PrintServiceHeader(Rec);
                 end;
             }
         }
@@ -342,16 +310,8 @@ page 9317 "Service Quotes"
                 actionref("Make &Order_Promoted"; "Make &Order")
                 {
                 }
-                group(Category_CategoryPrint)
+                actionref("&Print_Promoted"; "&Print")
                 {
-                    ShowAs = SplitButton;
-
-                    actionref("&Print_Promoted"; "&Print")
-                    {
-                    }
-                    actionref(AttachAsPDF_Promoted; AttachAsPDF)
-                    {
-                    }
                 }
                 group(Category_Quote)
                 {

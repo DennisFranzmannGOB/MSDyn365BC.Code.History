@@ -382,7 +382,7 @@ page 5124 "Opportunity Card"
                     Caption = 'Activate First Stage';
                     Image = "Action";
                     ToolTip = 'Specify if the opportunity is to be activated. The status is set to In Progress.';
-                    Visible = not Started;
+                    Visible = NOT Started;
 
                     trigger OnAction()
                     begin

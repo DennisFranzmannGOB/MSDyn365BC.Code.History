@@ -75,9 +75,7 @@ report 9200 "Void/Transmit Elec. Pmnts"
                 group(Options)
                 {
                     Caption = 'Options';
-#pragma warning disable AA0100
                     field("BankAccount.""No."""; BankAccount."No.")
-#pragma warning restore AA0100
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Bank Account No.';
@@ -166,9 +164,9 @@ report 9200 "Void/Transmit Elec. Pmnts"
 
         if BalAccountType = BalAccountType::"Bank Account" then
             if BalAccountNo <> BankAccountNo then
-                exit(true);
+            exit(true);
 
-        if (AccountType <> AccountType::"Bank Account") and (BalAccountType <> BalAccountType::"Bank Account") then
+        if(AccountType <> AccountType::"Bank Account") and (BalAccountType <> BalAccountType::"Bank Account") then
             exit(true);
     end;
 }

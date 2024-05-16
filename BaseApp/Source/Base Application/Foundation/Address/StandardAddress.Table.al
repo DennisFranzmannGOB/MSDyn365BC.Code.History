@@ -8,7 +8,6 @@ using Microsoft.Sales.History;
 table 730 "Standard Address"
 {
     Caption = 'Standard Address';
-    DataClassification = CustomerContent;
 
     fields
     {

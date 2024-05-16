@@ -22,19 +22,20 @@ codeunit 137060 "SCM Inventory 7.0"
         LibraryRandom: Codeunit "Library - Random";
         LibraryDimension: Codeunit "Library - Dimension";
         LibraryPurchase: Codeunit "Library - Purchase";
+        LibrarySales: Codeunit "Library - Sales";
         LibraryCosting: Codeunit "Library - Costing";
         LibraryUtility: Codeunit "Library - Utility";
         LibraryWarehouse: Codeunit "Library - Warehouse";
         LibraryVariableStorage: Codeunit "Library - Variable Storage";
         LibraryTestInitialize: Codeunit "Library - Test Initialize";
         Assert: Codeunit Assert;
-        ReservationManagement: Codeunit "Reservation Management";
         ErrorDoNotMatchErr: Label 'Expected error: ''%1''\Actual error: ''%2''', Comment = '%1 = Error Text, %2 = Error Text';
         DivideByZeroErr: Label 'Attempted to divide by zero.';
         DimErr: Label 'Expected DimSetID: %1, Actual DimSetID: %2 ', Comment = 'Expected DimSetID: %1, Actual DimSetID: %2 ';
         ConfirmQst: Label 'Do you really want to change the Average Cost Period?';
         AdjustCostMsg: Label 'Average Cost Period has been changed to Accounting Period. You should now run Adjust Cost - Item Entries.';
         AdjustCost2Msg: Label 'Average Cost Period has been changed to Day. You should now run Adjust Cost - Item Entries.';
+        ReservationManagement: Codeunit "Reservation Management";
         Initialized: Boolean;
         RoundingPrecisionErr: Label 'Rounding Precision must be greater than 0.';
         DecimalPlacesErr: Label 'The field can have a maximum of 5 decimal places.';
@@ -126,13 +127,13 @@ codeunit 137060 "SCM Inventory 7.0"
         LibraryWarehouse.CreateLocation(Location);
         VendorNo := LibraryUtility.GenerateGUID();
         CreateItem(Item, Location.Code, Item."Costing Method"::FIFO);
-        LibraryInventory.CreateStockKeepingUnit(Item, "SKU Creation Method"::Location, false, false);
+        LibraryInventory.CreateStockKeepingUnit(Item, 0, false, false);
         StockkeepingUnit.Get(Location.Code, Item."No.", '');
 
         // Exercise: Create Stock Keeping Unit to generate error.
         asserterror StockkeepingUnit.Validate("Vendor No.", VendorNo);
 
-        Assert.AssertPrimRecordNotFound();
+        Assert.AssertPrimRecordNotFound;
     end;
 
     [Test]
@@ -188,7 +189,7 @@ codeunit 137060 "SCM Inventory 7.0"
         // Calculate inventory on Revaluation journal- calculate per ILE.
         Item.SetRange("No.", Item."No.");
         CreateRevaluationJournal(ItemJournalLine);
-        LibraryCosting.CalculateInventoryValue(ItemJournalLine, Item, WorkDate(), LibraryUtility.GenerateGUID(), "Inventory Value Calc. Per"::"Item Ledger Entry", false, false, false, "Inventory Value Calc. Per"::Item, false);
+        LibraryCosting.CalculateInventoryValue(ItemJournalLine, Item, WorkDate(), LibraryUtility.GenerateGUID, 0, false, false, false, 0, false);
 
         // Verify: verify that the dimensions entered above are there.
         VerifyDimensions(
@@ -220,7 +221,7 @@ codeunit 137060 "SCM Inventory 7.0"
         CreateRevaluationJournal(ItemJournalLine);
 
         // Exercise.
-        LibraryCosting.CalculateInventoryValue(ItemJournalLine, Item, WorkDate(), LibraryUtility.GenerateGUID(), "Inventory Value Calc. Per"::"Item Ledger Entry", false, false, false, "Inventory Value Calc. Base"::" ", false);
+        LibraryCosting.CalculateInventoryValue(ItemJournalLine, Item, WorkDate(), LibraryUtility.GenerateGUID, 0, false, false, false, 0, false);
 
         // Verify: verify dimension values are still the ones chosen on the Purchase Invoice line.
         VerifyDimensions(
@@ -251,7 +252,7 @@ codeunit 137060 "SCM Inventory 7.0"
         CreateRevaluationJournal(ItemJournalLine);
 
         // Exercise.
-        LibraryCosting.CalculateInventoryValue(ItemJournalLine, Item, WorkDate(), LibraryUtility.GenerateGUID(), "Inventory Value Calc. Per"::Item, false, false, false, "Inventory Value Calc. Base"::" ", false);
+        LibraryCosting.CalculateInventoryValue(ItemJournalLine, Item, WorkDate(), LibraryUtility.GenerateGUID, 1, false, false, false, 0, false);
 
         // Verify: verify dimension values are the ones chosen on the item.
         VerifyDimensions(
@@ -358,7 +359,7 @@ codeunit 137060 "SCM Inventory 7.0"
         OpenItemCard(ItemCard, Item."No.");
 
         // Exercise: Update Rounding Precision with more than five decimal place value on Item Card. Use page because Rounding Precision Field Property Decimal Places defined as 0:5.
-        asserterror ItemCard."Rounding Precision".SetValue(Format(0.000001));    // Six decimal place value required.
+        asserterror ItemCard."Rounding Precision".SetValue(Format(LibraryRandom.RandDec(10, 6)));    // Six decimal place value required.
 
         // Verify: Verify error message for Rounding Precision.
         Assert.ExpectedError(DecimalPlacesErr);
@@ -381,7 +382,7 @@ codeunit 137060 "SCM Inventory 7.0"
 
         // Exercise: Update Rounding Precision with range of one to Five decimal place value on Item Card.
         ItemCard."Rounding Precision".SetValue(Format(RoundingPrecision));  // Use page because Rounding Precision Field Property Decimal Places defined as 0:5.
-        ItemCard.OK().Invoke();
+        ItemCard.OK.Invoke;
 
         // Verify: Verify Updated Rounding Precision on Item.
         Item.Get(Item."No.");
@@ -418,8 +419,8 @@ codeunit 137060 "SCM Inventory 7.0"
         UnitOfMeasure: Record "Unit of Measure";
         Vendor: Record Vendor;
         ItemVendor: Record "Item Vendor";
-        LeadTimeFormula: DateFormula;
         VendorItemNo: Text[20];
+        LeadTimeFormula: DateFormula;
     begin
         // [FEATURE] [Item Reference]
         // [SCENARIO 361680] Lead time calculation in Vendor Item is not changed after changing "Ref. No." in linked item reference when two item ref. with diff. units of measure
@@ -1005,7 +1006,7 @@ codeunit 137060 "SCM Inventory 7.0"
         Vendor: Record Vendor;
         ItemVendor: Record "Item Vendor";
         RequisitionLine: Record "Requisition Line";
-        ItemTranslationDescription: Text[100];
+        ItemTranslationDescription: Text[50];
     begin
         // [FEATURE] [Description] [Item Translation]
         // [SCENARIO 378078] Item Description in Requisition Line must be validated from Item Translation when it exists
@@ -1039,6 +1040,7 @@ codeunit 137060 "SCM Inventory 7.0"
     var
         Item: Record Item;
         ItemUnitOfMeasure: Record "Item Unit of Measure";
+        UnitOfMeasure: Record "Unit of Measure";
     begin
         // [SCENARIO 462492]: Users are able to import blank records and this leads to setup issue "Unit of Measure Code must have a value in Warehouse Journal Line
         Initialize(true);
@@ -1124,12 +1126,12 @@ codeunit 137060 "SCM Inventory 7.0"
     begin
         ItemJournalTemplate.Init();
         LibraryInventory.SelectItemJournalTemplateName(ItemJournalTemplate, ItemJournalTemplate.Type::Item);
-        ItemJournalTemplate.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode());
+        ItemJournalTemplate.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode);
         ItemJournalTemplate.Modify(true);
 
         ItemJournalBatch.Init();
         LibraryInventory.SelectItemJournalBatchName(ItemJournalBatch, ItemJournalTemplate.Type, ItemJournalTemplate.Name);
-        ItemJournalBatch.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode());
+        ItemJournalBatch.Validate("No. Series", LibraryUtility.GetGlobalNoSeriesCode);
         ItemJournalBatch.Modify(true);
     end;
 
@@ -1139,11 +1141,11 @@ codeunit 137060 "SCM Inventory 7.0"
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         SalesReceivablesSetup.Get();
-        SalesReceivablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        SalesReceivablesSetup.Validate("Order Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         SalesReceivablesSetup.Modify(true);
 
         PurchasesPayablesSetup.Get();
-        PurchasesPayablesSetup.Validate("Invoice Nos.", LibraryUtility.GetGlobalNoSeriesCode());
+        PurchasesPayablesSetup.Validate("Invoice Nos.", LibraryUtility.GetGlobalNoSeriesCode);
         PurchasesPayablesSetup.Modify(true);
     end;
 
@@ -1197,7 +1199,7 @@ codeunit 137060 "SCM Inventory 7.0"
         LibraryDimension.CreateDimensionValue(DimensionValue, Dimension.Code);
     end;
 
-    local procedure CreateVendorWithItemTranslationDescription(var Vendor: Record Vendor; ItemNo: Code[20]): Text[100]
+    local procedure CreateVendorWithItemTranslationDescription(var Vendor: Record Vendor; ItemNo: Code[20]): Text[50]
     var
         Language: Record Language;
     begin
@@ -1253,7 +1255,7 @@ codeunit 137060 "SCM Inventory 7.0"
         end;
     end;
 
-    local procedure CreateItemTranslation(ItemNo: Code[20]; LanguageCode: Code[10]): Text[100]
+    local procedure CreateItemTranslation(ItemNo: Code[20]; LanguageCode: Code[10]): Text[50]
     var
         ItemTranslation: Record "Item Translation";
     begin
@@ -1365,7 +1367,7 @@ codeunit 137060 "SCM Inventory 7.0"
         LineDimSetID: Integer;
         VendorNo: Code[20];
     begin
-        VendorNo := SelectVendorWithDimension();
+        VendorNo := SelectVendorWithDimension;
         CreateItem(Item, '', Item."Costing Method"::FIFO);
 
         // Create purchase invoice.
@@ -1418,9 +1420,9 @@ codeunit 137060 "SCM Inventory 7.0"
         LibraryVariableStorage.Enqueue(DimensionValue.Code);  // Enqueue Value for Page Handler - EditDimensionSetEntriesPageHandler.
 
         // Use Page Testability to Update Dimension on Transfer Order. Dimension Set ID - OnLookup trigger code required.
-        TransferOrder.OpenEdit();
+        TransferOrder.OpenEdit;
         TransferOrder.FILTER.SetFilter("No.", No);
-        TransferOrder.Dimensions.Invoke();
+        TransferOrder.Dimensions.Invoke;
     end;
 
     local procedure FindTransferShipmentHeader(var TransferShipmentHeader: Record "Transfer Shipment Header"; TransferOrderNo: Code[20])
@@ -1441,7 +1443,7 @@ codeunit 137060 "SCM Inventory 7.0"
 
     local procedure OpenItemCard(var ItemCard: TestPage "Item Card"; No: Code[20])
     begin
-        ItemCard.OpenEdit();
+        ItemCard.OpenEdit;
         ItemCard.FILTER.SetFilter("No.", No);
     end;
 
@@ -1583,7 +1585,7 @@ codeunit 137060 "SCM Inventory 7.0"
 
         EditDimensionSetEntries."Dimension Code".SetValue(DimensionCode);
         EditDimensionSetEntries.DimensionValueCode.SetValue(DimensionValue);
-        EditDimensionSetEntries.OK().Invoke();
+        EditDimensionSetEntries.OK.Invoke;
     end;
 
     local procedure ModifyShipmentDateOnTransferHeader(DocumentNo: Code[20])

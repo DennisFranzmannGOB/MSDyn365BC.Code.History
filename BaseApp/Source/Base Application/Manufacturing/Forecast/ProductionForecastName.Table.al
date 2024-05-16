@@ -11,7 +11,6 @@ table 99000851 "Production Forecast Name"
     DrillDownPageID = "Demand Forecast Names";
     LookupPageID = "Demand Forecast Names";
     DataCaptionFields = Name, Description;
-    DataClassification = CustomerContent;
 
     fields
     {

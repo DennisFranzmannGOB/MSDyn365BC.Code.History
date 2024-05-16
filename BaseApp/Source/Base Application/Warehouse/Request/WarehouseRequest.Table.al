@@ -17,7 +17,6 @@ table 5765 "Warehouse Request"
 {
     Caption = 'Warehouse Request';
     LookupPageID = "Source Documents";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -138,7 +137,7 @@ table 5765 "Warehouse Request"
         }
         field(20; "Put-away / Pick No."; Code[20])
         {
-            CalcFormula = lookup("Warehouse Activity Line"."No." where("Source Type" = field("Source Type"),
+            CalcFormula = Lookup("Warehouse Activity Line"."No." where("Source Type" = field("Source Type"),
                                                                         "Source Subtype" = field("Source Subtype"),
                                                                         "Source No." = field("Source No."),
                                                                         "Location Code" = field("Location Code")));

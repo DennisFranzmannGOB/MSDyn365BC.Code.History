@@ -155,12 +155,12 @@ report 7318 "Whse.-Shipment - Create Pick"
             var
                 CreatePickParameters: Record "Create Pick Parameters";
             begin
-                CreatePickParameters."Assigned ID" := AssignedIDReq;
+                CreatePickParameters."Assigned ID" := AssignedID;
                 CreatePickParameters."Sorting Method" := SortActivity;
                 CreatePickParameters."Max No. of Lines" := 0;
                 CreatePickParameters."Max No. of Source Doc." := 0;
-                CreatePickParameters."Do Not Fill Qty. to Handle" := DoNotFillQtytoHandleReq;
-                CreatePickParameters."Breakbulk Filter" := BreakbulkFilterReq;
+                CreatePickParameters."Do Not Fill Qty. to Handle" := DoNotFillQtytoHandle;
+                CreatePickParameters."Breakbulk Filter" := BreakbulkFilter;
                 CreatePickParameters."Per Bin" := false;
                 CreatePickParameters."Per Zone" := false;
                 CreatePickParameters."Whse. Document" := CreatePickParameters."Whse. Document"::Shipment;
@@ -188,7 +188,7 @@ report 7318 "Whse.-Shipment - Create Pick"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(AssignedID; AssignedIDReq)
+                    field(AssignedID; AssignedID)
                     {
                         ApplicationArea = Warehouse;
                         Caption = 'Assigned User ID';
@@ -206,7 +206,7 @@ report 7318 "Whse.-Shipment - Create Pick"
                             LookupWhseEmployee.SetTableView(WhseEmployee);
                             if LookupWhseEmployee.RunModal() = ACTION::LookupOK then begin
                                 LookupWhseEmployee.GetRecord(WhseEmployee);
-                                AssignedIDReq := WhseEmployee."User ID";
+                                AssignedID := WhseEmployee."User ID";
                             end;
                         end;
 
@@ -214,8 +214,8 @@ report 7318 "Whse.-Shipment - Create Pick"
                         var
                             WhseEmployee: Record "Warehouse Employee";
                         begin
-                            if AssignedIDReq <> '' then
-                                WhseEmployee.Get(AssignedIDReq, Location.Code);
+                            if AssignedID <> '' then
+                                WhseEmployee.Get(AssignedID, Location.Code);
                         end;
                     }
                     field(SortingMethodForActivityLines; SortActivity)
@@ -225,13 +225,13 @@ report 7318 "Whse.-Shipment - Create Pick"
                         MultiLine = true;
                         ToolTip = 'Specifies the method by which the lines in the instruction will be sorted. The options are by item, document, shelf or bin (if the location uses bins, this functions as the bin code), due date, bin ranking, or action type.';
                     }
-                    field(BreakbulkFilter; BreakbulkFilterReq)
+                    field(BreakbulkFilter; BreakbulkFilter)
                     {
                         ApplicationArea = Warehouse;
                         Caption = 'Set Breakbulk Filter';
                         ToolTip = 'Specifies if you want the program to hide intermediate break-bulk lines when an entire larger unit of measure is converted to a smaller unit of measure and picked completely.';
                     }
-                    field(DoNotFillQtytoHandle; DoNotFillQtytoHandleReq)
+                    field(DoNotFillQtytoHandle; DoNotFillQtytoHandle)
                     {
                         ApplicationArea = Warehouse;
                         Caption = 'Do Not Fill Qty. to Handle';
@@ -243,7 +243,7 @@ report 7318 "Whse.-Shipment - Create Pick"
                         Caption = 'Prioritize lines with item tracking';
                         ToolTip = 'Specifies if you want to pick the shipment lines with item tracking first.';
                     }
-                    field(PrintDoc; PrintDocReq)
+                    field(PrintDoc; PrintDoc)
                     {
                         ApplicationArea = Warehouse;
                         Caption = 'Print Document';
@@ -266,9 +266,8 @@ report 7318 "Whse.-Shipment - Create Pick"
         trigger OnOpenPage()
         begin
             if Location."Use ADCS" then
-                DoNotFillQtytoHandleReq := true;
-
-            OnAfterOpenPage(DoNotFillQtytoHandleReq);
+                DoNotFillQtytoHandle := true;
+            OnAfterOpenPage(DoNotFillQtytoHandle);
         end;
     }
 
@@ -298,7 +297,7 @@ report 7318 "Whse.-Shipment - Create Pick"
                     WhseActivHeader.SortWhseDoc();
             until WhseActivHeader.Next() = 0;
 
-            if PrintDocReq then begin
+            if PrintDoc then begin
                 // new pick has been created - in order to run a report to print it, a COMMIT is needed.
                 Commit();
 
@@ -333,12 +332,15 @@ report 7318 "Whse.-Shipment - Create Pick"
         CreatePick: Codeunit "Create Pick";
         FirstActivityNo: Code[20];
         LastActivityNo: Code[20];
-        AssignedIDReq: Code[50];
+        AssignedID: Code[50];
+        SortActivity: Enum "Whse. Activity Sorting Method";
+        PrintDoc: Boolean;
         ShowSummary: Boolean;
         EverythingHandled: Boolean;
         WhseWkshLineFound: Boolean;
         HideNothingToHandleErr: Boolean;
-        BreakbulkFilterReq: Boolean;
+        DoNotFillQtytoHandle: Boolean;
+        BreakbulkFilter: Boolean;
         EmptyGuid: Guid;
         SingleActivCreatedMsg: Label '%1 activity no. %2 has been created.%3', Comment = '%1=WhseActivHeader.Type;%2=Whse. Activity No.;%3=Concatenates ExpiredItemMessageText';
         SingleActivAndWhseShptCreatedMsg: Label '%1 activity no. %2 has been created. For Warehouse Shipment lines that have existing Pick Worksheet lines, no %3 lines have been created.%4', Comment = '%1=WhseActivHeader.Type;%2=Whse. Activity No.;%3=WhseActivHeader.Type;%4=Concatenates ExpiredItemMessageText';
@@ -348,10 +350,7 @@ report 7318 "Whse.-Shipment - Create Pick"
         ApplyCustomSorting: Boolean;
 
     protected var
-        DoNotFillQtytoHandleReq: Boolean;
         HideValidationDialog: Boolean;
-        PrintDocReq: Boolean;
-        SortActivity: Enum "Whse. Activity Sorting Method";
 
     procedure SetWhseShipmentLine(var WhseShptLine2: Record "Warehouse Shipment Line"; WhseShptHeader2: Record "Warehouse Shipment Header")
     var
@@ -359,7 +358,7 @@ report 7318 "Whse.-Shipment - Create Pick"
     begin
         WhseShptLine.Copy(WhseShptLine2);
         WhseShptHeader := WhseShptHeader2;
-        AssignedIDReq := WhseShptHeader2."Assigned User ID";
+        AssignedID := WhseShptHeader2."Assigned User ID";
         GetLocation(WhseShptLine."Location Code");
 
         SortingMethod := SortActivity.AsInteger();
@@ -435,11 +434,11 @@ report 7318 "Whse.-Shipment - Create Pick"
 
     procedure Initialize(AssignedID2: Code[50]; SortActivity2: Enum "Whse. Activity Sorting Method"; PrintDoc2: Boolean; DoNotFillQtytoHandle2: Boolean; BreakbulkFilter2: Boolean; ShowSummary2: Boolean)
     begin
-        AssignedIDReq := AssignedID2;
+        AssignedID := AssignedID2;
         SortActivity := SortActivity2;
-        PrintDocReq := PrintDoc2;
-        DoNotFillQtytoHandleReq := DoNotFillQtytoHandle2;
-        BreakbulkFilterReq := BreakbulkFilter2;
+        PrintDoc := PrintDoc2;
+        DoNotFillQtytoHandle := DoNotFillQtytoHandle2;
+        BreakbulkFilter := BreakbulkFilter2;
         ShowSummary := ShowSummary2;
     end;
 

@@ -28,7 +28,7 @@ codeunit 135201 "Cash Flow Frcst. Handler Tests"
         // [SCENARIO] Normal prediction of item with history
         LibraryLowerPermissions.SetOutsideO365Scope();
 
-        CreateCashFlowSetup();
+        CreateCashFlowSetup;
         CashFlowForecastHandler.Initialize();
 
         // [GIVEN] There are 6 historical periods
@@ -36,7 +36,7 @@ codeunit 135201 "Cash Flow Frcst. Handler Tests"
         CreateVATTestData(WorkDate(), true);
 
         // [THEN] Forecast is prepared and there are 12 Forecast entries 6 for payables and 6 for receivables
-        LibraryLowerPermissions.SetAccountReceivables();
+        LibraryLowerPermissions.SetAccountReceivables;
         Assert.IsTrue(CashFlowForecastHandler.PrepareForecast(TempTimeSeriesBuffer), 'Forecast failed');
 
         // [THEN] There are 12 Forecast entries 6 for payables and 6 for receivables
@@ -59,8 +59,6 @@ codeunit 135201 "Cash Flow Frcst. Handler Tests"
         CustLedgerEntry: Record "Cust. Ledger Entry";
         TempTimeSeriesBuffer: Record "Time Series Buffer" temporary;
         oldWorkDate: Date;
-        ApiUrl: Text;
-        ApiKey: Text;
     begin
         // [SCENARIO] MaximumHistoricalPeriods limits the historical periods
         LibraryLowerPermissions.SetOutsideO365Scope();
@@ -72,10 +70,8 @@ codeunit 135201 "Cash Flow Frcst. Handler Tests"
         WorkDate := CalcDate('<+20Y>', WorkDate());
         CreateTestData(WorkDate(), false);
 
-        LibraryLowerPermissions.SetAccountReceivables();
-        ApiUrl := 'https://ussouthcentral.services.azureml.net';
-        ApiKey := 'dummykey';
-        TimeSeriesManagement.Initialize(ApiUrl, ApiKey, 120, false);
+        LibraryLowerPermissions.SetAccountReceivables;
+        TimeSeriesManagement.Initialize('https://ussouthcentral.services.azureml.net', 'dummykey', 120, false);
 
         // [GIVEN] Maximum historical periods is 24 (default value)
         CustLedgerEntry.Init();
@@ -193,11 +189,9 @@ codeunit 135201 "Cash Flow Frcst. Handler Tests"
     local procedure CreateCashFlowSetup()
     var
         CashFlowSetup: Record "Cash Flow Setup";
-        ApiKey: Text;
     begin
         CashFlowSetup.Get();
-        ApiKey := 'dummykey';
-        CashFlowSetup.SaveUserDefinedAPIKey(ApiKey);
+        CashFlowSetup.SaveUserDefinedAPIKey('dummykey');
         CashFlowSetup.Validate("API URL", 'https://ussouthcentral.services.azureml.net');
         CashFlowSetup.Validate("Period Type", CashFlowSetup."Period Type"::Year);
         CashFlowSetup.Validate("Historical Periods", 18);
@@ -219,7 +213,7 @@ codeunit 135201 "Cash Flow Frcst. Handler Tests"
             CustLedgerEntry,
             CustLedgerEntry.FieldNo("Due Date"),
             Date."Period Type"::Year,
-            WorkDate()),
+            WorkDate),
           'There should be at least 5 periods with history');
 
         TimeSeriesManagement.PrepareData(
@@ -228,7 +222,7 @@ codeunit 135201 "Cash Flow Frcst. Handler Tests"
           CustLedgerEntry.FieldNo("Due Date"),
           CustLedgerEntry.FieldNo("Amount (LCY)"),
           Date."Period Type"::Year,
-          WorkDate(),
+          WorkDate,
           NumberOfPeriodsWithHistory);
 
         TimeSeriesManagement.GetPreparedData(TempTimeSeriesBuffer);

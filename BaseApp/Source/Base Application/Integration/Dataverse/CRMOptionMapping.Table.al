@@ -11,7 +11,6 @@ using System.Reflection;
 table 5334 "CRM Option Mapping"
 {
     Caption = 'CRM Option Mapping';
-    DataClassification = CustomerContent;
 
     fields
     {

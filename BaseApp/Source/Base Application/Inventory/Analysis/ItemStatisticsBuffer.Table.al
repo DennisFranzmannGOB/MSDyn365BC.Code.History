@@ -14,7 +14,6 @@ table 5821 "Item Statistics Buffer"
     Caption = 'Item Statistics Buffer';
     DataCaptionFields = "Code";
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

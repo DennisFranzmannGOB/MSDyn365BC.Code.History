@@ -46,13 +46,15 @@ codeunit 1811 "Excel Post Processor"
     var
         ConfigPackageData: Record "Config. Package Data";
     begin
-        ConfigPackageData.Get(ConfigPackageRecord."Package Code", ConfigPackageRecord."Table ID", ConfigPackageRecord."No.", Item.FieldNo("No."));
-        if not Item.Get(ConfigPackageData.Value) then
-            exit(false);
-        if not ConfigPackageData.Get(ConfigPackageRecord."Package Code", ConfigPackageRecord."Table ID", ConfigPackageRecord."No.", Item.FieldNo(Inventory)) then
-            exit(false);
-        if not Evaluate(QuantityOnInventory, ConfigPackageData.Value) then
-            exit(false);
+        with ConfigPackageRecord do begin
+            ConfigPackageData.Get("Package Code", "Table ID", "No.", Item.FieldNo("No."));
+            if not Item.Get(ConfigPackageData.Value) then
+                exit(false);
+            if not ConfigPackageData.Get("Package Code", "Table ID", "No.", Item.FieldNo(Inventory)) then
+                exit(false);
+            if not Evaluate(QuantityOnInventory, ConfigPackageData.Value) then
+                exit(false);
+        end;
 
         exit(true);
     end;

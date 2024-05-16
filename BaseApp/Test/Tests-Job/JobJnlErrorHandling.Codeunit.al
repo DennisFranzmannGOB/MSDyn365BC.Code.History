@@ -55,6 +55,7 @@ codeunit 136316 "Job Jnl. Error Handling"
     procedure JobJournalNumberOfBatchErrors()
     var
         JobJournalLine: Record "Job Journal Line";
+        Job: Record Job;
         JobJournalBatch: Record "Job Journal Batch";
         JobJournal: TestPage "Job Journal";
         i: Integer;
@@ -243,6 +244,32 @@ codeunit 136316 "Job Jnl. Error Handling"
     [Test]
     [HandlerFunctions('MessageHandler,ConfirmHandlerTrue')]
     [Scope('OnPrem')]
+    procedure CustomerNoCantBeChangedWithAssosEntries()
+    var
+        Job: Record Job;
+        JobCard: TestPage "Job Card";
+        NewCustomerNo: Code[20];
+    begin
+        // [BUG 457148] Changing Customer No. on Job Card throws error
+        Initialize();
+
+        // [GIVEN] We open the Job Card of a Job in progress with Planning Lines and Tasks
+        CreateElaborateJob(Job, SkipCheckText);
+        JobCard.OpenEdit();
+        JobCard.Filter.SetFilter("No.", Job."No.");
+
+        // [WHEN] We try to change the Customer No.
+        NewCustomerNo := LibrarySales.CreateCustomerNo();
+        asserterror JobCard."Sell-to Customer No.".SetValue(NewCustomerNo);
+
+        // [THEN] We get an error, saying that there are associated entries
+        Assert.ExpectedError('one or more entries are associated');
+        JobCard.Close();
+    end;
+
+    [Test]
+    [HandlerFunctions('MessageHandler,ConfirmHandlerTrue')]
+    [Scope('OnPrem')]
     procedure CustomerNoCanBeChangedWhenSkippingAssosEntriesValidation()
     var
         Job: Record Job;
@@ -293,6 +320,7 @@ codeunit 136316 "Job Jnl. Error Handling"
         JobDefaultDimension: Record "Default Dimension";
         DimensionValue: Record "Dimension Value";
         JobJournalLine: Record "Job Journal Line";
+        Resource: Record Resource;
     begin
         LibraryJob.CreateJob(Job);
 
@@ -342,7 +370,7 @@ codeunit 136316 "Job Jnl. Error Handling"
     var
         Job: Record Job;
         JobTask: Record "Job Task";
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
         LibraryJob.CreateJob(Job);
         LibraryJob.CreateJobTask(Job, JobTask);
@@ -357,7 +385,7 @@ codeunit 136316 "Job Jnl. Error Handling"
         JobJournalLine.Validate("Posting Date", WorkDate());
         JobJournalLine.Validate("Job No.", JobTask."Job No.");
         JobJournalLine.Validate("Job Task No.", JobTask."Job Task No.");
-        JobJournalLine.Validate("Document No.", NoSeries.PeekNextNo(JobJournalBatch."No. Series", JobJournalLine."Posting Date"));
+        JobJournalLine.Validate("Document No.", NoSeriesMgt.GetNextNo(JobJournalBatch."No. Series", JobJournalLine."Posting Date", false));
 
         JobJournalLine.Validate("Line Type", "Job Planning Line Type"::Resource);
         JobJournalLine.Validate("No.", LibraryResource.CreateResourceNo());
@@ -410,6 +438,7 @@ codeunit 136316 "Job Jnl. Error Handling"
     local procedure MockFullBatchCheck(TemplateName: Code[10]; BatchName: Code[10]; var TempErrorMessage: Record "Error Message" temporary)
     var
         ErrorHandlingParameters: Record "Error Handling Parameters";
+        BackgroundErrorHandlingMgt: Codeunit "Background Error Handling Mgt.";
     begin
         ClearTempErrorMessage(TempErrorMessage);
 

@@ -28,7 +28,7 @@ codeunit 132588 "DESCryptoServiceProvider Test"
         ExpectedEncryptedTextLength := 8;
 
         // [WHEN] Encrypt Text 
-        EncryptedText := DESCryptoServiceProvider.EncryptText('Test', GetPassword(), 'ABitofSalt');
+        EncryptedText := DESCryptoServiceProvider.EncryptText('Test', 'Test1234', 'ABitofSalt');
 
         // [THEN] Verify Result 
         LibraryAssert.IsTrue(EncryptedText.EndsWith(ExpectedEncryptedTextEnding), 'Unexpected value when encrypting text using DESCryptoServiceProvider');
@@ -47,7 +47,7 @@ codeunit 132588 "DESCryptoServiceProvider Test"
         ExpectedDecryptedText := 'Test';
 
         // [WHEN] Encrypt Text 
-        DecryptedText := DESCryptoServiceProvider.DecryptText(EncryptedText, GetPassword(), 'ABitofSalt');
+        DecryptedText := DESCryptoServiceProvider.DecryptText(EncryptedText, 'Test1234', 'ABitofSalt');
 
         // [THEN] Verify Result 
         LibraryAssert.AreEqual(ExpectedDecryptedText, DecryptedText, 'Unexpected value when decrypting text using DESCryptoServiceProvider');
@@ -66,10 +66,12 @@ codeunit 132588 "DESCryptoServiceProvider Test"
         Pixel: Text;
         ExpectedEncryptedText: Text;
         EncryptedStreamText: Text;
+        Password: Text;
         Salt: Text;
     begin
         // [GIVEN] With Encryption Key
         ExpectedEncryptedText := 'xkSRTuW2xetrKER7vZiWFxrUU0I86+69aWshKgRxiLdGI8CvfreYzsBa+OIvneALcgJfZeGp5XTmJ4tFkUUXts5JuzoxFoVn';
+        Password := 'Test1234';
         Salt := 'Test1234';
         Pixel := 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==';
 
@@ -79,7 +81,7 @@ codeunit 132588 "DESCryptoServiceProvider Test"
         TempBlob.CreateOutStream(OutputOutstream);
 
         // [WHEN] Encrypt Stream
-        DESCryptoServiceProvider.EncryptStream(GetPassword(), Salt, InputInstream, OutputOutstream);
+        DESCryptoServiceProvider.EncryptStream(Password, Salt, InputInstream, OutputOutstream);
 
         TempBlob.CreateInStream(OutputInstream);
         EncryptedStreamText := Base64Convert.ToBase64(OutputInstream);
@@ -100,11 +102,13 @@ codeunit 132588 "DESCryptoServiceProvider Test"
         EncryptedStreamText: Text;
         DecryptedStreamText: Text;
         ExpectedDecryptedStreamText: Text;
+        Password: Text;
         Salt: Text;
         InputInstream: InStream;
     begin
         // [GIVEN] With Encryption Key
         EncryptedStreamText := 'xkSRTuW2xetrKER7vZiWFxrUU0I86+69aWshKgRxiLdGI8CvfreYzsBa+OIvneALcgJfZeGp5XTmJ4tFkUUXts5JuzoxFoVn';
+        Password := 'Test1234';
         Salt := 'Test1234';
         ExpectedDecryptedStreamText := 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==';
 
@@ -114,21 +118,13 @@ codeunit 132588 "DESCryptoServiceProvider Test"
         TempBlob.CreateOutStream(OutputOutstream);
 
         // [WHEN] Decrypt Stream
-        DESCryptoServiceProvider.DecryptStream(GetPassword(), Salt, InputInstream, OutputOutstream);
+        DESCryptoServiceProvider.DecryptStream(Password, Salt, InputInstream, OutputOutstream);
 
         // [THEN] Verify Result 
         TempBlob.CreateInStream(OutputInstream);
         DecryptedStreamText := Base64Convert.ToBase64(OutputInstream);
 
         LibraryAssert.AreEqual(ExpectedDecryptedStreamText, DecryptedStreamText, 'Unexpected value when decrypting stream text using DESCryptoServiceProvider');
-    end;
-
-    local procedure GetPassword(): SecretText
-    var
-        Password: Text;
-    begin
-        Password := 'Test1234';
-        exit(Password);
     end;
 
 }

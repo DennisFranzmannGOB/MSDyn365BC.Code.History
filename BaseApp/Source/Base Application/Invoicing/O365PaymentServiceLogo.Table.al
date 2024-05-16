@@ -2,7 +2,6 @@ table 2119 "O365 Payment Service Logo"
 {
     Caption = 'O365 Payment Service Logo';
     ReplicateData = false;
-    DataClassification = CustomerContent;
 
     fields
     {

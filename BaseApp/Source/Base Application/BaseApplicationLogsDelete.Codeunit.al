@@ -5,7 +5,6 @@
 namespace Microsoft;
 
 using System.DataAdministration;
-using Microsoft.Projects.Project.Archive;
 using System.Diagnostics;
 using System.Threading;
 using System.Automation;
@@ -36,7 +35,6 @@ codeunit 3995 "Base Application Logs Delete"
                 tabledata "Report Inbox" = rd,
                 tabledata "Sales Header Archive" = rd,
                 tabledata "Workflow Step Instance Archive" = rd,
-                tabledata "Job Archive" = rd,
                 tabledata "Sent Notification Entry" = rd;
 
     var
@@ -59,7 +57,6 @@ codeunit 3995 "Base Application Logs Delete"
             Database::"Integration Synch. Job Errors",
             Database::"Report Inbox",
             Database::"Sales Header Archive",
-            Database::"Job Archive",
             Database::"Purchase Header Archive",
             Database::"Dataverse Entity Change",
             Database::"Sent Notification Entry",

@@ -6,7 +6,6 @@ table 7153 "Item Analysis View Filter"
 {
     Caption = 'Item Analysis View Filter';
     LookupPageID = "Item Analysis View Filter";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -54,9 +53,11 @@ table 7153 "Item Analysis View Filter"
     begin
         ItemAnalysisView.Get("Analysis Area", "Analysis View Code");
         ItemAnalysisView.TestField(Blocked, false);
-        ItemAnalysisView.ValidateDelete(ItemAnalysisViewFilter.FieldCaption("Dimension Code"));
-        ItemAnalysisView.ItemAnalysisViewReset();
-        ItemAnalysisView.Modify();
+        with ItemAnalysisView do begin
+            ValidateDelete(ItemAnalysisViewFilter.FieldCaption("Dimension Code"));
+            ItemAnalysisViewReset();
+            Modify();
+        end;
     end;
 
     trigger OnInsert()
@@ -84,17 +85,19 @@ table 7153 "Item Analysis View Filter"
     begin
         ItemAnalysisView.Get("Analysis Area", "Analysis View Code");
         ItemAnalysisView.TestField(Blocked, false);
-        if (ItemAnalysisView."Last Entry No." <> 0) and (xRec."Dimension Code" <> "Dimension Code") then begin
-            ItemAnalysisView.ValidateDelete(ItemAnalysisViewFilter.FieldCaption("Dimension Code"));
-            ItemAnalysisView.ItemAnalysisViewReset();
-            "Dimension Value Filter" := '';
-            ItemAnalysisView.Modify();
-        end;
-        if (ItemAnalysisView."Last Entry No." <> 0) and (xRec."Dimension Value Filter" <> "Dimension Value Filter") then begin
-            ItemAnalysisView.ValidateDelete(ItemAnalysisViewFilter.FieldCaption("Dimension Value Filter"));
-            ItemAnalysisView.ItemAnalysisViewReset();
-            ItemAnalysisView.Modify();
-        end;
+        if (ItemAnalysisView."Last Entry No." <> 0) and (xRec."Dimension Code" <> "Dimension Code") then
+            with ItemAnalysisView do begin
+                ValidateDelete(ItemAnalysisViewFilter.FieldCaption("Dimension Code"));
+                ItemAnalysisViewReset();
+                "Dimension Value Filter" := '';
+                Modify();
+            end;
+        if (ItemAnalysisView."Last Entry No." <> 0) and (xRec."Dimension Value Filter" <> "Dimension Value Filter") then
+            with ItemAnalysisView do begin
+                ValidateDelete(ItemAnalysisViewFilter.FieldCaption("Dimension Value Filter"));
+                ItemAnalysisViewReset();
+                Modify();
+            end;
     end;
 }
 

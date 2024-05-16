@@ -111,7 +111,7 @@ page 130401 "CAL Test Tool"
                     DrillDown = true;
                     Editable = false;
                     Style = Unfavorable;
-                    StyleExpr = true;
+                    StyleExpr = TRUE;
 
                     trigger OnDrillDown()
                     begin

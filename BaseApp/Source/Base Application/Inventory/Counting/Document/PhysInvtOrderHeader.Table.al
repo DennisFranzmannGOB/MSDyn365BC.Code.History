@@ -19,7 +19,6 @@ table 5875 "Phys. Invt. Order Header"
     DataCaptionFields = "No.", Description;
     DrillDownPageID = "Physical Inventory Orders";
     LookupPageID = "Physical Inventory Orders";
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -31,7 +30,7 @@ table 5875 "Phys. Invt. Order Header"
             begin
                 if "No." <> xRec."No." then begin
                     InvtSetup.Get();
-                    NoSeries.TestManual(GetNoSeriesCode());
+                    NoSeriesMgt.TestManual(GetNoSeriesCode());
                     "No. Series" := '';
                 end;
             end;
@@ -142,12 +141,14 @@ table 5875 "Phys. Invt. Order Header"
 
             trigger OnLookup()
             begin
-                PhysInvtOrderHeader := Rec;
-                InvtSetup.Get();
-                TestNoSeries();
-                if NoSeries.LookupRelatedNoSeries(GetPostingNoSeriesCode(), PhysInvtOrderHeader."Posting No. Series", PhysInvtOrderHeader."Posting No. Series") then
-                    PhysInvtOrderHeader.Validate("Posting No. Series");
-                Rec := PhysInvtOrderHeader;
+                with PhysInvtOrderHeader do begin
+                    PhysInvtOrderHeader := Rec;
+                    InvtSetup.Get();
+                    TestNoSeries();
+                    if NoSeriesMgt.LookupSeries(GetPostingNoSeriesCode(), "Posting No. Series") then
+                        Validate("Posting No. Series");
+                    Rec := PhysInvtOrderHeader;
+                end;
             end;
 
             trigger OnValidate()
@@ -155,7 +156,7 @@ table 5875 "Phys. Invt. Order Header"
                 if "Posting No. Series" <> '' then begin
                     InvtSetup.Get();
                     TestNoSeries();
-                    NoSeries.TestAreRelated(GetPostingNoSeriesCode(), "Posting No. Series");
+                    NoSeriesMgt.TestSeries(GetPostingNoSeriesCode(), "Posting No. Series");
                 end;
                 TestField("Posting No.", '');
             end;
@@ -307,7 +308,7 @@ table 5875 "Phys. Invt. Order Header"
         PhysInvtOrderHeader: Record "Phys. Invt. Order Header";
         PhysInvtOrderLine: Record "Phys. Invt. Order Line";
         Location: Record Location;
-        NoSeries: Codeunit "No. Series";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         DimManagement: Codeunit DimensionManagement;
         UpdateDimQst: Label 'You may have changed a dimension.\\Do you want to update the lines?';
         MoreThanOneLineErr: Label 'There are more than one order lines in Order %1 for Item No. %2, Variant Code %3, Location Code %4, Bin Code %5.', Comment = '%1 Order No. %2 Item No. %3 Variant Code %4 Location Code %5 Bin Code';
@@ -315,10 +316,6 @@ table 5875 "Phys. Invt. Order Header"
 
     local procedure InitInsert()
     var
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        DefaultNoSeriesCode: Code[20];
-#endif
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -326,24 +323,7 @@ table 5875 "Phys. Invt. Order Header"
         if not IsHandled then
             if "No." = '' then begin
                 TestNoSeries();
-#if not CLEAN24
-                DefaultNoSeriesCode := GetNoSeriesCode();
-                NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(DefaultNoSeriesCode, xRec."No. Series", "Order Date", "No.", "No. Series", IsHandled);
-                if not IsHandled then begin
-                    if NoSeries.AreRelated(DefaultNoSeriesCode, xRec."No. Series") then
-                        "No. Series" := xRec."No. Series"
-                    else
-                        "No. Series" := DefaultNoSeriesCode;
-                    "No." := NoSeries.GetNextNo("No. Series", "Order Date");
-                    NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", DefaultNoSeriesCode, "Order Date", "No.");
-                end;
-#else
-                if NoSeries.AreRelated(GetNoSeriesCode(), xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := GetNoSeriesCode();
-                "No." := NoSeries.GetNextNo("No. Series", "Order Date");
-#endif
+                NoSeriesMgt.InitSeries(GetNoSeriesCode(), xRec."No. Series", "Order Date", "No.", "No. Series");
             end;
 
         OnInitInsertOnBeforeInitRecord(xRec);
@@ -362,8 +342,7 @@ table 5875 "Phys. Invt. Order Header"
             then
                 "Posting No. Series" := "No. Series"
             else
-                if NoSeries.IsAutomatic(InvtSetup."Posted Phys. Invt. Order Nos.") then
-                    "Posting No. Series" := InvtSetup."Posted Phys. Invt. Order Nos.";
+                NoSeriesMgt.SetDefaultSeries("Posting No. Series", InvtSetup."Posted Phys. Invt. Order Nos.");
 
             if "Posting Date" = 0D then
                 Validate("Posting Date", WorkDate());
@@ -374,13 +353,17 @@ table 5875 "Phys. Invt. Order Header"
 
     procedure AssistEdit(OldPhysInvtOrderHeader: Record "Phys. Invt. Order Header"): Boolean
     begin
-        PhysInvtOrderHeader := Rec;
-        InvtSetup.Get();
-        TestNoSeries();
-        if NoSeries.LookupRelatedNoSeries(GetNoSeriesCode(), OldPhysInvtOrderHeader."No. Series", PhysInvtOrderHeader."No. Series") then begin
-            PhysInvtOrderHeader."No." := NoSeries.GetNextNo(PhysInvtOrderHeader."No. Series");
-            Rec := PhysInvtOrderHeader;
-            exit(true);
+        with PhysInvtOrderHeader do begin
+            PhysInvtOrderHeader := Rec;
+            InvtSetup.Get();
+            TestNoSeries();
+            if NoSeriesMgt.SelectSeries(GetNoSeriesCode(), OldPhysInvtOrderHeader."No. Series", "No. Series") then begin
+                InvtSetup.Get();
+                TestNoSeries();
+                NoSeriesMgt.SetSeries("No.");
+                Rec := PhysInvtOrderHeader;
+                exit(true);
+            end;
         end;
     end;
 

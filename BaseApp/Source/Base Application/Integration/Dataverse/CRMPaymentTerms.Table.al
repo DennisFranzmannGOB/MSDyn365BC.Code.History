@@ -13,7 +13,6 @@ table 7203 "CRM Payment Terms"
     Description = 'Payment Terms';
     Access = Internal;
     TableType = Temporary;
-    DataClassification = CustomerContent;
 
     fields
     {

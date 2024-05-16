@@ -4,7 +4,6 @@ using Microsoft.Inventory.Item;
 using System;
 using System.Reflection;
 using System.Security.AccessControl;
-using System.Utilities;
 
 codeunit 8617 "Config. Validate Management"
 {
@@ -240,8 +239,6 @@ codeunit 8617 "Config. Validate Management"
             FieldType::MediaSet,
             FieldType::Media:
                 exit(EvaluateValueToGuid(FieldRef, Value, Validate));
-            FieldType::Blob:
-                exit(EvaluateValueToBlob(FieldRef, Value));
             FieldType::TableFilter:
                 exit(EvaluateValueToTableFilter(FieldRef, Value));
             FieldType::RecordId:
@@ -458,16 +455,6 @@ codeunit 8617 "Config. Validate Management"
             FieldRef.Validate(Guid)
         else
             FieldRef.Value := Guid;
-    end;
-
-    local procedure EvaluateValueToBlob(var FieldRef: FieldRef; Value: Text): Text
-    var
-        TempBlob: Codeunit "Temp Blob";
-        OutStream: OutStream;
-    begin
-        TempBlob.CreateOutStream(OutStream);
-        OutStream.WriteText(Value);
-        TempBlob.ToFieldRef(FieldRef);
     end;
 
     local procedure EvaluateValueToTableFilter(var FieldRef: FieldRef; Value: Text): Text

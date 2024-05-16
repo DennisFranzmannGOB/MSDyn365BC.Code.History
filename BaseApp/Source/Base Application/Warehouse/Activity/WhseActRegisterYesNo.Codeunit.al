@@ -30,18 +30,20 @@ codeunit 7306 "Whse.-Act.-Register (Yes/No)"
         if IsHandled then
             exit;
 
-        CheckSourceDocument();
+        with WhseActivLine do begin
+            CheckSourceDocument();
 
-        WMSMgt.CheckBalanceQtyToHandle(WhseActivLine);
+            WMSMgt.CheckBalanceQtyToHandle(WhseActivLine);
 
-        if not ConfirmRegister(WhseActivLine) then
-            exit;
+            if not ConfirmRegister(WhseActivLine) then
+                exit;
 
-        IsHandled := false;
-        OnBeforeRegisterRun(WhseActivLine, IsHandled);
-        if not IsHandled then
-            WhseActivityRegister.Run(WhseActivLine);
-        Clear(WhseActivityRegister);
+            IsHandled := false;
+            OnBeforeRegisterRun(WhseActivLine, IsHandled);
+            if not IsHandled then
+                WhseActivityRegister.Run(WhseActivLine);
+            Clear(WhseActivityRegister);
+        end;
 
         OnAfterCode(WhseActivLine);
     end;
@@ -67,12 +69,13 @@ codeunit 7306 "Whse.-Act.-Register (Yes/No)"
         if IsHandled then
             exit;
 
-        if (WhseActivLine."Activity Type" = WhseActivLine."Activity Type"::"Invt. Movement") and
-            not (WhseActivLine."Source Document" in [WhseActivLine."Source Document"::" ",
-                                        WhseActivLine."Source Document"::"Prod. Consumption",
-                                        WhseActivLine."Source Document"::"Assembly Consumption"])
-        then
-            Error(Text002, WhseActivLine."Source Document");
+        with WhseActivLine do
+            if ("Activity Type" = "Activity Type"::"Invt. Movement") and
+               not ("Source Document" in ["Source Document"::" ",
+                                          "Source Document"::"Prod. Consumption",
+                                          "Source Document"::"Assembly Consumption"])
+            then
+                Error(Text002, "Source Document");
     end;
 
     [IntegrationEvent(false, false)]

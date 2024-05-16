@@ -21,7 +21,6 @@ table 99000758 "Machine Center"
     DrillDownPageID = "Machine Center List";
     LookupPageID = "Machine Center List";
     Permissions = TableData "Prod. Order Capacity Need" = rm;
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -640,33 +639,11 @@ table 99000758 "Machine Center"
     end;
 
     trigger OnInsert()
-    var
-        NoSeries: Codeunit "No. Series";
-#if not CLEAN24
-        NoSeriesManagement: Codeunit NoSeriesManagement;
-        IsHandled: Boolean;
-#endif
     begin
         MfgSetup.Get();
         if "No." = '' then begin
             MfgSetup.TestField("Machine Center Nos.");
-#if not CLEAN24
-            NoSeriesManagement.RaiseObsoleteOnBeforeInitSeries(MfgSetup."Machine Center Nos.", xRec."No. Series", 0D, "No.", "No. Series", IsHandled);
-            if not IsHandled then begin
-                if NoSeries.AreRelated(MfgSetup."Machine Center Nos.", xRec."No. Series") then
-                    "No. Series" := xRec."No. Series"
-                else
-                    "No. Series" := MfgSetup."Machine Center Nos.";
-                "No." := NoSeries.GetNextNo("No. Series");
-                NoSeriesManagement.RaiseObsoleteOnAfterInitSeries("No. Series", MfgSetup."Machine Center Nos.", 0D, "No.");
-            end;
-#else
-            if NoSeries.AreRelated(MfgSetup."Machine Center Nos.", xRec."No. Series") then
-                "No. Series" := xRec."No. Series"
-            else
-                "No. Series" := MfgSetup."Machine Center Nos.";
-            "No." := NoSeries.GetNextNo("No. Series");
-#endif
+            NoSeriesMgt.InitSeries(MfgSetup."Machine Center Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
     end;
 
@@ -695,6 +672,7 @@ table 99000758 "Machine Center"
         MfgCommentLine: Record "Manufacturing Comment Line";
         RtngLine: Record "Routing Line";
         GLSetup: Record "General Ledger Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Window: Dialog;
         i: Integer;
         NoOfRecords: Integer;
@@ -705,7 +683,6 @@ table 99000758 "Machine Center"
 
     procedure AssistEdit(OldMachineCenter: Record "Machine Center"): Boolean
     var
-        NoSeries: Codeunit "No. Series";
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -713,13 +690,15 @@ table 99000758 "Machine Center"
         if IsHandled then
             exit;
 
-        MachineCenter := Rec;
-        MfgSetup.Get();
-        MfgSetup.TestField("Machine Center Nos.");
-        if NoSeries.LookupRelatedNoSeries(MfgSetup."Machine Center Nos.", OldMachineCenter."No. Series", MachineCenter."No. Series") then begin
-            MachineCenter."No." := NoSeries.GetNextNo(MachineCenter."No. Series");
-            Rec := MachineCenter;
-            exit(true);
+        with MachineCenter do begin
+            MachineCenter := Rec;
+            MfgSetup.Get();
+            MfgSetup.TestField("Machine Center Nos.");
+            if NoSeriesMgt.SelectSeries(MfgSetup."Machine Center Nos.", OldMachineCenter."No. Series", "No. Series") then begin
+                NoSeriesMgt.SetSeries("No.");
+                Rec := MachineCenter;
+                exit(true);
+            end;
         end;
     end;
 
@@ -740,6 +719,14 @@ table 99000758 "Machine Center"
 
         exit(AutoUpdate);
     end;
+
+#if not CLEAN21
+    [Obsolete('Replaced by procedure GetBinCodeForFlushingMethod()', '21.0')]
+    procedure GetBinCode(UseFlushingMethod: Boolean; FlushingMethod: Option Manual,Forward,Backward,"Pick + Forward","Pick + Backward"): Code[20]
+    begin
+        exit(GetBinCodeForFlushingMethod(UseFlushingMethod, FlushingMethod));
+    end;
+#endif
 
     procedure GetBinCodeForFlushingMethod(UseFlushingMethod: Boolean; FlushingMethod: Enum "Flushing Method") Result: Code[20]
     begin

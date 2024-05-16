@@ -15,7 +15,6 @@ table 6502 "Item Tracking Code"
     DataCaptionFields = "Code", Description;
     DrillDownPageID = "Item Tracking Codes";
     LookupPageID = "Item Tracking Codes";
-    DataClassification = CustomerContent;
 
     fields
     {

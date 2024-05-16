@@ -26,7 +26,6 @@ using Microsoft.Warehouse.Tracking;
 table 336 "Tracking Specification"
 {
     Caption = 'Tracking Specification';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -208,7 +207,7 @@ table 336 "Tracking Specification"
 
                 IsHandled := false;
                 OnValidateExpirationDateOnBeforeResetExpirationDate(Rec, xRec, IsHandled);
-                if not IsHandled then
+                If not IsHandled then
                     if "Buffer Status2" = "Buffer Status2"::"ExpDate blocked" then begin
                         "Expiration Date" := xRec."Expiration Date";
                         Message(Text004);
@@ -493,10 +492,6 @@ table 336 "Tracking Specification"
 
     fieldgroups
     {
-        fieldgroup(Brick; "Lot No.", "Serial No.", "Quantity (Base)", "Package No.", "Expiration Date")
-        {
-
-        }
     }
 
     trigger OnDelete()
@@ -525,7 +520,7 @@ table 336 "Tracking Specification"
         Text003: Label '%1 must be -1, 0 or 1 when %2 is stated.';
         Text004: Label 'Expiration date has been established by existing entries and cannot be changed.';
         RemainingQtyErr: Label 'The %1 in item ledger entry %2 is too low to cover quantity available to handle.';
-        WrongQtyForItemErr: Label '%1 in the item tracking assigned to the document line for item %2 is currently %3. It must be %4.\\Check the assignment for serial number %5, lot number %6, package number %7.', Comment = '%1 - Qty. to Handle or Qty. to Invoice, %2 - Item No., %3 - actual value, %4 - expected value, %5 - Serial No., %6 - Lot No., %7 - Package No.';
+        WrongQtyForItemErr: Label '%1 in the item tracking assigned to the document line for item %2 is currently %3. It must be %4.\\Check the assignment for serial number %5, lot number %6.', Comment = '%1 - Qty. to Handle or Qty. to Invoice, %2 - Item No., %3 - actual value, %4 - expected value, %5 - Serial No., %6 - Lot No.';
 
     procedure GetLastEntryNo(): Integer;
     var
@@ -1052,7 +1047,7 @@ table 336 "Tracking Specification"
 
         Error(
           WrongQtyForItemErr,
-          FieldCaptionText, "Item No.", Abs(CurrFieldValue), Abs(CompareValue), "Serial No.", "Lot No.", "Package No.");
+          FieldCaptionText, "Item No.", Abs(CurrFieldValue), Abs(CompareValue), "Serial No.", "Lot No.");
     end;
 
     procedure SetItemData(ItemNo: Code[20]; ItemDescription: Text[100]; LocationCode: Code[10]; VariantCode: Code[10]; BinCode: Code[20]; QtyPerUoM: Decimal)
@@ -1105,7 +1100,7 @@ table 336 "Tracking Specification"
     procedure SetSourceFromPurchLine(PurchLine: Record "Purchase Line")
     begin
         "Source Type" := Database::"Purchase Line";
-        "Source Subtype" := PurchLine."Document Type".AsInteger();
+        "Source Subtype" := PurchLine."Document Type";
         "Source ID" := PurchLine."Document No.";
         "Source Batch Name" := '';
         "Source Prod. Order Line" := 0;
@@ -1117,7 +1112,7 @@ table 336 "Tracking Specification"
     procedure SetSourceFromSalesLine(SalesLine: Record "Sales Line")
     begin
         "Source Type" := Database::"Sales Line";
-        "Source Subtype" := SalesLine."Document Type".AsInteger();
+        "Source Subtype" := SalesLine."Document Type";
         "Source ID" := SalesLine."Document No.";
         "Source Batch Name" := '';
         "Source Prod. Order Line" := 0;
@@ -1383,20 +1378,14 @@ table 336 "Tracking Specification"
             Invoice := false;
         if not (Handle or Invoice) then
             exit;
-
         ReservationEntry.SetSourceFilter(TableNo, DocumentType, DocumentNo, LineNo, true);
         if ProdOrderLineNo >= 0 then
             ReservationEntry.SetSourceFilter('', ProdOrderLineNo);
-        ReservationEntry.SetFilter("Item Tracking", '%1|%2|%3|%4',
-            ReservationEntry."Item Tracking"::"Lot and Serial No.",
-            ReservationEntry."Item Tracking"::"Serial No.",
-            ReservationEntry."Item Tracking"::"Serial and Package No.",
-            ReservationEntry."Item Tracking"::"Lot and Serial and Package No.");
+        ReservationEntry.SetFilter("Item Tracking", '%1|%2',
+          ReservationEntry."Item Tracking"::"Lot and Serial No.",
+          ReservationEntry."Item Tracking"::"Serial No.");
         CheckItemTrackingByType(ReservationEntry, QtyToHandleBase, QtyToInvoiceBase, false, Handle, Invoice);
-        ReservationEntry.SetFilter("Item Tracking", '%1|%2|%3',
-            ReservationEntry."Item Tracking"::"Lot No.",
-            ReservationEntry."Item Tracking"::"Package No.",
-            ReservationEntry."Item Tracking"::"Lot and Package No.");
+        ReservationEntry.SetRange("Item Tracking", ReservationEntry."Item Tracking"::"Lot No.");
         CheckItemTrackingByType(ReservationEntry, QtyToHandleBase, QtyToInvoiceBase, true, Handle, Invoice);
 
         OnAfterCheckItemTrackingQuantity(Rec, ReservationEntry, TableNo, DocumentType, DocumentNo, LineNo);
@@ -1407,6 +1396,8 @@ table 336 "Tracking Specification"
         TrackingSpecification: Record "Tracking Specification";
         HandleQtyBase: Decimal;
         InvoiceQtyBase: Decimal;
+        LotsToHandleUndefined: Boolean;
+        LotsToInvoiceUndefined: Boolean;
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -1415,10 +1406,11 @@ table 336 "Tracking Specification"
         if IsHandled then
             exit;
 
-        if OnlyLot then
-            // OnlyLot = Non-serial number tracking scenarios
-            if CheckNonSerialTrackingIsUndefinedOrSingleSet(ReservationEntry, Handle, Invoice) then
+        if OnlyLot then begin
+            GetUndefinedLots(ReservationEntry, Handle, Invoice, LotsToHandleUndefined, LotsToInvoiceUndefined);
+            if not (LotsToHandleUndefined or LotsToInvoiceUndefined) then
                 exit;
+        end;
 
         if Handle then begin
             ReservationEntry.SetFilter("Qty. to Handle (Base)", '<>%1', 0);
@@ -1448,43 +1440,42 @@ table 336 "Tracking Specification"
         end;
     end;
 
-    local procedure CheckNonSerialTrackingIsUndefinedOrSingleSet(var ReservationEntry: Record "Reservation Entry"; Handle: Boolean; Invoice: Boolean): Boolean
+    local procedure GetUndefinedLots(var ReservationEntry: Record "Reservation Entry"; Handle: Boolean; Invoice: Boolean; var LotsToHandleUndefined: Boolean; var LotsToInvoiceUndefined: Boolean)
     var
-        TempReservationEntryToHandleFirstFound: Record "Reservation Entry" temporary;
-        TempReservationEntryToInvoiceFirstFound: Record "Reservation Entry" temporary;
-        TrackingToHandleInMultipleSets: Boolean;
-        TrackingToInvoiceInMultipleSets: Boolean;
+        HandleLotNo: Code[50];
+        InvoiceLotNo: Code[50];
+        StopLoop: Boolean;
     begin
+        LotsToHandleUndefined := false;
+        LotsToInvoiceUndefined := false;
         if not ReservationEntry.FindSet() then
-            exit(true);
-
+            exit;
         repeat
-            if Handle and (ReservationEntry."Qty. to Handle (Base)" <> 0) then begin
-                CheckNonSerialTrackingInMultipleSets(ReservationEntry."Qty. to Handle (Base)", ReservationEntry, TempReservationEntryToHandleFirstFound, TrackingToHandleInMultipleSets);
-                if TrackingToHandleInMultipleSets then
-                    exit(false);
+            if Handle then begin
+                CheckLot(ReservationEntry."Qty. to Handle (Base)", ReservationEntry."Lot No.", HandleLotNo, LotsToHandleUndefined);
+                if LotsToHandleUndefined and not Invoice then
+                    StopLoop := true;
             end;
-            if Invoice and (ReservationEntry."Qty. to Invoice (Base)" <> 0) then begin
-                CheckNonSerialTrackingInMultipleSets(ReservationEntry."Qty. to Invoice (Base)", ReservationEntry, TempReservationEntryToInvoiceFirstFound, TrackingToInvoiceInMultipleSets);
-                if TrackingToInvoiceInMultipleSets then
-                    exit(false);
+            if Invoice then begin
+                CheckLot(ReservationEntry."Qty. to Invoice (Base)", ReservationEntry."Lot No.", InvoiceLotNo, LotsToInvoiceUndefined);
+                if LotsToInvoiceUndefined and not Handle then
+                    StopLoop := true;
             end;
-        until ReservationEntry.Next() = 0;
-        exit(true);
+            if LotsToHandleUndefined and LotsToInvoiceUndefined then
+                StopLoop := true;
+        until StopLoop or (ReservationEntry.Next() = 0);
     end;
 
-    local procedure CheckNonSerialTrackingInMultipleSets(ReservationEntryQty: Decimal; var ReservationEntry: Record "Reservation Entry"; var TempReservationEntryFirstFound: Record "Reservation Entry" temporary; var TrackingInMultipleSets: Boolean)
+    local procedure CheckLot(ReservQty: Decimal; ReservLotNo: Code[50]; var LotNo: Code[50]; var Undefined: Boolean)
     begin
-        if ReservationEntryQty = 0 then
+        Undefined := false;
+        if ReservQty = 0 then
             exit;
-
-        if (TempReservationEntryFirstFound."Lot No." = '') and (TempReservationEntryFirstFound."Package No." = '') then begin
-            TempReservationEntryFirstFound."Lot No." := ReservationEntry."Lot No.";
-            TempReservationEntryFirstFound."Package No." := ReservationEntry."Package No.";
-            TrackingInMultipleSets := false;
-        end else
-            if (ReservationEntry."Lot No." <> TempReservationEntryFirstFound."Lot No.") or (ReservationEntry."Package No." <> TempReservationEntryFirstFound."Package No.") then
-                TrackingInMultipleSets := true;
+        if LotNo = '' then
+            LotNo := ReservLotNo
+        else
+            if ReservLotNo <> LotNo then
+                Undefined := true;
     end;
 
     local procedure QuantityToInvoiceIsSufficient(): Boolean

@@ -16,7 +16,7 @@ report 5937 "Service Items Out of Warranty"
         {
             CalcFields = "No. of Active Contracts";
             DataItemTableView = sorting("Warranty Ending Date (Parts)", "Customer No.", "Ship-to Code");
-            RequestFilterFields = "Warranty Ending Date (Parts)", "Customer No.", "Ship-to Code", Blocked;
+            RequestFilterFields = "Warranty Ending Date (Parts)", "Customer No.", "Ship-to Code";
             column(CompanyName; COMPANYPROPERTY.DisplayName())
             {
             }

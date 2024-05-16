@@ -3,10 +3,6 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // ------------------------------------------------------------------------------------------------
 
-namespace Microsoft.Shared.Error;
-
-using System.Utilities;
-
 /// <summary>
 /// An error message fix interface for setting additional properties and executing the fix from error message page.
 /// </summary>

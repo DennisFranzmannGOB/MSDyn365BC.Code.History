@@ -7,16 +7,15 @@ using Microsoft.Purchases.Vendor;
 table 7012 "Purchase Price"
 {
     Caption = 'Purchase Price';
-#if not CLEAN23
+#if not CLEAN21
     LookupPageID = "Purchase Prices";
     ObsoleteState = Pending;
     ObsoleteTag = '16.0';
 #else
     ObsoleteState = Removed;
-    ObsoleteTag = '26.0';
+    ObsoleteTag = '24.0';
 #endif    
     ObsoleteReason = 'Replaced by the new implementation (V16) of price calculation: table Price List Line';
-    DataClassification = CustomerContent;
 
     fields
     {
@@ -129,7 +128,7 @@ table 7012 "Purchase Price"
         Vend: Record Vendor;
         Text000: Label '%1 cannot be after %2';
 
-#if not CLEAN23
+#if not CLEAN21
     procedure CopyPurchPriceToVendorsPurchPrice(var PurchPrice: Record "Purchase Price"; VendNo: Code[20])
     var
         NewPurchasePrice: Record "Purchase Price";

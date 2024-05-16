@@ -11,7 +11,6 @@ using System.Utilities;
 table 1109 "Cost Budget Entry"
 {
     Caption = 'Cost Budget Entry';
-    DataClassification = CustomerContent;
     DrillDownPageID = "Cost Budget Entries";
     LookupPageID = "Cost Budget Entries";
 
