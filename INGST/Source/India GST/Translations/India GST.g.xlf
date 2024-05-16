@@ -32003,6 +32003,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension GST Resource Ext - Field HSN/SAC Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4277001836 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 461465832">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Blank. Purch Ord Arch Ext - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3115180186 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4198988281">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Purch Ord Archive Ext - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 359959127 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 294608717">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Purch Quote Archive Ext - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 303549154 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1367327215">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Purch Return Ord Arch Ext - Control Attached Documents - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1554068066 - Field 1939056418 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 146271610">
           <source>Associated Enterprises</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -35357,6 +35377,26 @@
           <source>Vendor Location</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension GST Vendor Ext - Field Vendor Location - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 251070350 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1833997609">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Blank Sales Ord Arch Ext - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2014627278 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2079885696">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Sales Ord Archive Ext - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2609632011 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 327261204">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Sales Quote Archive Ext - Control Attached Documents - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2951420982 - Control 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 388992258">
+          <source>Attachments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GST Sales Return Ord Arch Ext - Control Attached Documents - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1783851184 - Field 2117080758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Bill Of Export Date</source>
