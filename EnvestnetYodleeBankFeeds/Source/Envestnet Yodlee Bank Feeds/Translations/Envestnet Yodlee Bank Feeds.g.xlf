@@ -73,6 +73,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Yodlee Bank Service Setup - Field Accept Terms of Use - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1268761635 - Field 3414395125 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Admin Login Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table MS - Yodlee Bank Service Setup - Field Admin Login Name - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1268761635 - Field 1534934302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Acc. Linking URL</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -82,6 +87,16 @@
           <source>Bank Feed Import Format</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Yodlee Bank Service Setup - Field Bank Feed Import Format - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1268761635 - Field 3879241928 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table MS - Yodlee Bank Service Setup - Field Client Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1268761635 - Field 2529110793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table MS - Yodlee Bank Service Setup - Field Client Secret - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1268761635 - Field 1468013839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cobrand Environment Name</source>
@@ -434,12 +449,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType LoggingConstTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 2591510851" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The password is missing in the Envestnet Yodlee Bank Feeds Service Setup window.</source>
+          <source>The client secret is missing in the Envestnet Yodlee Bank Feeds Service Setup window.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType MissingCredentialsErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 3164795350" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The password is missing in the Envestnet Yodlee Bank Feeds Service Setup window.\\Do you want to open the Envestnet Yodlee Bank Feeds Service Setup window?</source>
+          <source>The client secret is missing in the Envestnet Yodlee Bank Feeds Service Setup window.\\Do you want to open the Envestnet Yodlee Bank Feeds Service Setup window?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType MissingCredentialsQst</note>
         </trans-unit>
@@ -603,6 +618,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType VideoBankintegrationNameTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 758984636 - NamedType 153393368" size-unit="char" translate="yes" xml:space="preserve">
+          <source>YodleeAdminLoginName</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType YodleeAdminLoginNameSecretNameTok</note>
+        </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 1750935242" size-unit="char" translate="yes" xml:space="preserve">
           <source>Turns the user's attention to the capabilities of Envestnet Yodlee Bank Feeds extension.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -627,6 +647,16 @@
           <source>Finance,Bank Feeds,Yodlee,Payment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType YodleeBusinessSetupKeywordsTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 758984636 - NamedType 3693075669" size-unit="char" translate="yes" xml:space="preserve">
+          <source>YodleeClientId</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType YodleeClientIdSecretNameTok</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 758984636 - NamedType 1830064396" size-unit="char" translate="yes" xml:space="preserve">
+          <source>YodleeClientSecret</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType YodleeClientSecretSecretNameTok</note>
         </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 1419457009" size-unit="char" translate="yes" xml:space="preserve">
           <source>YodleeCobrandPassword</source>
@@ -732,6 +762,36 @@
           <source>Cobrand</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Bank Service Setup - Control Cobrand - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1268761635 - Control 2163863453 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the admin login name.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Bank Service Setup - Control AdminLoginName - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268761635 - Control 2163863453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Admin Login</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Bank Service Setup - Control AdminLoginName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1268761635 - Control 2788077256 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the client id.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Bank Service Setup - Control ClientId - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268761635 - Control 2788077256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Bank Service Setup - Control ClientId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1268761635 - Control 4069789961 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the client secret.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Bank Service Setup - Control ClientSecret - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1268761635 - Control 4069789961 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page MS - Yodlee Bank Service Setup - Control ClientSecret - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1268761635 - Control 378604519 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the cobrand name.</source>
