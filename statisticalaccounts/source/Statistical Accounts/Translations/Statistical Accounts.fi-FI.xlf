@@ -239,25 +239,25 @@
         </trans-unit>
         <trans-unit id="Table 3703212798 - Field 1303377601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Code</source>
-          <target state="translated">Globaalin dimension 1 koodi</target>
+          <target state="translated">Yleisen dimension 1 koodi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Account - Field Global Dimension 1 Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3703212798 - Field 1861213814 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Filter</source>
-          <target state="translated">Globaalin dimension 1 suodatus</target>
+          <target state="translated">Yleisen dimension 1 suodatus</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Account - Field Global Dimension 1 Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3703212798 - Field 1337243520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
-          <target state="translated">Globaalin dimension 2 koodi</target>
+          <target state="translated">Yleisen dimension 2 koodi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Account - Field Global Dimension 2 Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3703212798 - Field 588326355 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Filter</source>
-          <target state="translated">Globaalin dimension 2 suodatus</target>
+          <target state="translated">Yleisen dimension 2 suodatus</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Account - Field Global Dimension 2 Filter - Property Caption</note>
         </trans-unit>
@@ -317,13 +317,13 @@
         </trans-unit>
         <trans-unit id="Table 420906942 - Field 1303377601 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Code</source>
-          <target state="translated">Globaalin dimension 1 koodi</target>
+          <target state="translated">Yleisen dimension 1 koodi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Ledger Entry - Field Global Dimension 1 Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 420906942 - Field 1337243520 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
-          <target state="translated">Globaalin dimension 2 koodi</target>
+          <target state="translated">Yleisen dimension 2 koodi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Statistical Ledger Entry - Field Global Dimension 2 Code - Property Caption</note>
         </trans-unit>
@@ -1301,13 +1301,13 @@
         </trans-unit>
         <trans-unit id="Page 2694828564 - Control 1577567912 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup page.</source>
-          <target state="translated">Määrittää pikadimension 1 koodin, joka on toinen Pääkirjanpidon asetukset -sivulla määritettävistä yleisistä dimensiokoodeista.</target>
+          <target state="translated">Määrittää pikadimension 1 koodin, joka on toinen Pääkirjanpidon asetukset -sivulla määritettävistä yleisen dimension koodeista.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Accounts Journal - Control Shortcut Dimension 1 Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2694828564 - Control 1003760969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup page.</source>
-          <target state="translated">Määrittää pikadimension 2 koodin, joka on toinen Pääkirjanpidon asetukset -sivulla määritettävistä yleisistä dimensiokoodeista.</target>
+          <target state="translated">Määrittää pikadimension 2 koodin, joka on toinen Pääkirjanpidon asetukset -sivulla määritettävistä yleisen dimension koodeista.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Accounts Journal - Control Shortcut Dimension 2 Code - Property ToolTip</note>
         </trans-unit>
@@ -1541,13 +1541,13 @@
         </trans-unit>
         <trans-unit id="Page 1472770300 - Control 1303377601 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Global Dimension 1, which is one of dimension codes that you set up in the General Ledger Setup window.</source>
-          <target state="translated">Määrittää globaalin dimension 1 koodin, joka on yksi Pääkirjanpidon asetukset -ikkunassa määritettävistä dimensiokoodeista.</target>
+          <target state="translated">Määrittää yleisen dimension 1 koodin, joka on yksi Pääkirjanpidon asetukset -ikkunassa määritettävistä dimensiokoodeista.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Ledger Entry List - Control Global Dimension 1 Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1472770300 - Control 1337243520 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Global Dimension 2, which is one of dimension codes that you set up in the General Ledger Setup window.</source>
-          <target state="translated">Määrittää globaalin dimension 2 koodin, joka on yksi Pääkirjanpidon asetukset -ikkunassa määritettävistä dimensiokoodeista.</target>
+          <target state="translated">Määrittää yleisen dimension 2 koodin, joka on yksi Pääkirjanpidon asetukset -ikkunassa määritettävistä dimensiokoodeista.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Ledger Entry List - Control Global Dimension 2 Code - Property ToolTip</note>
         </trans-unit>
