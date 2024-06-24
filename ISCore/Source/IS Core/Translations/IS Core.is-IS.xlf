@@ -538,7 +538,7 @@
         </trans-unit>
         <trans-unit id="Report 2168282849 - Control 2828919711 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>to</source>
-          <target state="translated">til</target>
+          <target state="translated">Til</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report IS VAT Reconciliation A - Control DTil - Property Caption</note>
         </trans-unit>
