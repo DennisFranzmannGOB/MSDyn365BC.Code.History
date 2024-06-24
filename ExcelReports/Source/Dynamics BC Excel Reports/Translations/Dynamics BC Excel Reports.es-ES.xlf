@@ -345,6 +345,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4115778593 - NamedType 3325815678" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 (Month)</source>
+          <target state="translated">%1 (mes)</target>
+          <note from="Developer" annotates="general" priority="2">%1 is Document Date, Due Date or Posting Date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - NamedType MonthLbl</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - NamedType 2112959922" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 (Quarter)</source>
+          <target state="translated">%1 (trimestre)</target>
+          <note from="Developer" annotates="general" priority="2">%1 is Document Date, Due Date or Posting Date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - NamedType QuarterLbl</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - NamedType 3763079727" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 (Year)</source>
+          <target state="translated">%1 (año)</target>
+          <note from="Developer" annotates="general" priority="2">%1 is Document Date, Due Date or Posting Date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - NamedType YearLbl</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 155957560 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged By</source>
+          <target state="translated">Vencido por</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Aged By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 155957560 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date, Posting Date, Document Date</source>
+          <target state="translated">Fecha vencimiento, Fecha registro, Fecha documento</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Aged By - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Table 4115778593 - Field 4198939294 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency Code</source>
           <target state="translated">Código de divisa</target>
@@ -428,6 +458,30 @@
           <target state="translated">Importe pendiente (ML)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Remaining Amount (LCY</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 77769166 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reporting Date</source>
+          <target state="translated">Fecha informe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Reporting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 437572246 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reporting Date (Month)</source>
+          <target state="translated">Fecha informe (mes)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Reporting Date Month - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 4287302186 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reporting Date (Quarter)</source>
+          <target state="translated">Fecha informe (trimestre)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Reporting Date Quarter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4115778593 - Field 2487742111 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reporting Date (Year)</source>
+          <target state="translated">Fecha informe (año)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table EXR Aging Report Buffer - Field Reporting Date Year - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4115778593 - Field 1343707150 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Source Name</source>
@@ -765,6 +819,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DataRetrieved</note>
         </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 2539208701" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date (Month)</source>
+          <target state="translated">Fecha de documento (mes)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DocumentDateMonth</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 1540937185" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date (Quarter)</source>
+          <target state="translated">Fecha de documento (trimestre)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DocumentDateQuarter</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLabel 3735651648" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date (Year)</source>
+          <target state="translated">Fecha de documento (año)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel DocumentDateYear</note>
+        </trans-unit>
         <trans-unit id="Report 565153984 - ReportLabel 713467898" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due by Currencies</source>
           <target state="translated">Vencimiento por divisas</target>
@@ -824,6 +896,18 @@
           <target state="translated">Fecha de registro (año)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLabel PostingDateYear</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable Excel</source>
+          <target state="translated">Excel de Antigüedad de pagos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report contains aggregated aging data based on vendor ledger entries. The data is aggregated and bucketed according to the ‘Aged as of' and ‘period length' parameters in the reports request page. The aggregated data is summarized per the 2 global dimensions.</source>
+          <target state="translated">Este informe contiene datos de antigüedad agregados basados en movimientos de proveedores. Los datos se agregan y agrupan según los parámetros "Vencido desde" y "Duración del periodo" en la página de solicitud de informes. Los datos agregados se resumen según las dos dimensiones globales.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - RequestPage RequestOptionsPage - Property AboutText</note>
         </trans-unit>
         <trans-unit id="Report 565153984 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
@@ -897,6 +981,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - Control Skip Zero Balance Vendors - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLayout 329920356 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for Aged Account Payable. Pivot tables can be used to view the data per LCY and FCY and analyse amounts due by currency. Report uses Query connections.</source>
+          <target state="translated">Diseño integrado para Antigüedad pagos. Las tablas dinámicas se pueden utilizar para ver los datos por ML y ME y analizar los importes adeudados por divisa. El informe usa conexiones de consulta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLayout AgedAccountsPayableExcel - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 565153984 - ReportLayout 329920356 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Payable Excel</source>
+          <target state="translated">Excel de Antigüedad de pagos</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Acc Payable Excel - ReportLayout AgedAccountsPayableExcel - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2405914747 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Aged Accounts Receivable Excel (Preview)</source>
           <target state="translated">Excel de Antigüedad de cobros (versión preliminar)</target>
@@ -957,6 +1053,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DataRetrieved</note>
         </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 2539208701" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date (Month)</source>
+          <target state="translated">Fecha de documento (mes)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DocumentDateMonth</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 1540937185" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date (Quarter)</source>
+          <target state="translated">Fecha de documento (trimestre)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DocumentDateQuarter</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLabel 3735651648" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date (Year)</source>
+          <target state="translated">Fecha de documento (año)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel DocumentDateYear</note>
+        </trans-unit>
         <trans-unit id="Report 2405914747 - ReportLabel 713467898" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due by Currencies</source>
           <target state="translated">Vencimiento por divisas</target>
@@ -1016,6 +1130,18 @@
           <target state="translated">Fecha de registro (año)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLabel PostingDateYear</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable Excel</source>
+          <target state="translated">Excel de Antigüedad cobros</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report contains aggregated aging data based on customer ledger entries. The data is aggregated and bucketed according to the ‘Aged as of' and ‘period length' parameters in the reports request page. The aggregated data is summarized per the 2 global dimensions.</source>
+          <target state="translated">Este informe contiene datos de antigüedad agregados basados en movimientos de clientes. Los datos se agregan y agrupan según los parámetros "Vencido desde" y "Duración del periodo" en la página de solicitud de informes. Los datos agregados se resumen según las dos dimensiones globales.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - RequestPage RequestOptionsPage - Property AboutText</note>
         </trans-unit>
         <trans-unit id="Report 2405914747 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
@@ -1089,6 +1215,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - Control Skip Zero Balance Customers - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLayout 412074890 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for Aged Account Receivable. Pivot tables can be used to view the data per LCY and FCY and analyse amounts due by currency. Report uses Query connections.</source>
+          <target state="translated">Diseño integrado para Antigüedad cobros. Las tablas dinámicas se pueden utilizar para ver los datos por ML y ME y analizar los importes adeudados por divisa. El informe usa conexiones de consulta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLayout AgedAccountsReceivableExcel - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2405914747 - ReportLayout 412074890 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aged Accounts Receivable Excel</source>
+          <target state="translated">Excel de Antigüedad cobros</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Aged Accounts Rec Excel - ReportLayout AgedAccountsReceivableExcel - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2543906325 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Trial Balance by Period Excel (Preview)</source>
           <target state="translated">Excel de Bal. comprobación/periodo (versión preliminar)</target>
@@ -1113,6 +1251,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - ReportLabel YearPeriodStart</note>
         </trans-unit>
+        <trans-unit id="Report 2543906325 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period Excel</source>
+          <target state="translated">Excel de Bal. comprobación/periodo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report contains aggregated general ledger data per accounting period for the trial balance with a net debit/credit net change column for each period. The periods covered are specified in the report's request page's Datefilter parameter and summarized per the 2 global dimensions per g/l account category.</source>
+          <target state="translated">Este informe contiene datos de contabilidad general agregados por periodo contable para el saldo de comprobación con una columna de cambio neto de débito y crédito neto para cada periodo. Los periodos cubiertos se especifican en el parámetro Datefilter de la página de solicitud del informe y se resumen según las dos dimensiones globales por categoría de cuenta C/G.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
         <trans-unit id="Report 2543906325 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
           <target state="translated">Opciones</target>
@@ -1130,6 +1280,18 @@
           <target state="translated">Duración del periodo</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - Control PeriodLengthField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - ReportLayout 2897484849 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Trial Balance by Period report. This report contains aggregated general ledger data per accounting period for the trial balance with a net debit/credit net change column for each period. Report uses Query connections.</source>
+          <target state="translated">Diseño integrado para el informe Bal. comprobación/periodo. Este informe contiene datos de contabilidad general agregados por periodo contable para el saldo de comprobación con una columna de cambio neto de débito y crédito neto para cada periodo. El informe usa conexiones de consulta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - ReportLayout TrialBalancebyPeriodExcelLayout - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2543906325 - ReportLayout 2897484849 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance by Period Excel</source>
+          <target state="translated">Excel de Bal. comprobación/periodo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal by Period Excel - ReportLayout TrialBalancebyPeriodExcelLayout - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 832924415 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Trial Balance/Previous Year Excel (Preview)</source>
@@ -1167,6 +1329,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - ReportLabel TrialBalancevsLastPeriodACY</note>
         </trans-unit>
+        <trans-unit id="Report 832924415 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Previous Year Excel</source>
+          <target state="translated">Excel de Balance comprob./año anterior</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report contains aggregated general ledger data for the trial balance with debit/credit columns for net change and balance. A report is shown for both local currency (LCY) and additional reporting currency (ACY, the latter only showing data if Additional Reporting Currency is in use. In addition to debit/credit for net change and balance the report shows the net debit/credit amount for both net change and balance for comparison. The aggregation is for the period specified in the report's request page's Datefilter parameter and summarized per the 2 global dimensions per g/l account category.</source>
+          <target state="translated">Este informe contiene datos agregados de contabilidad general para el balance de comprobación con columnas de débito y crédito para el cambio neto y el saldo. Se muestra un informe tanto para la moneda local (ML) como para la divisa de informe adicional (DA, que solo muestra datos si se usa divisa de notificación adicional). Además del débito y crédito para el cambio neto y el saldo, el informe muestra el importe neto de débito y crédito tanto para el cambio neto como para el saldo de la comparación. La agregación corresponde al periodo especificado en el parámetro Datefilter de la página de solicitud del informe y se resume según las dos dimensiones globales por categoría de cuenta C/G.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - ReportLayout 1368441425 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Trial Balance/Previous Year Excel report.This report contains aggregated general ledger data for the trial balance with debit/credit columns for net change and balance. Report uses Query connections.</source>
+          <target state="translated">Diseño integrado para el informe Excel de Balance comprob./año anterior. Este informe contiene datos de contabilidad general agregados para el saldo de comprobación con columnas de débito y crédito para el cambio neto y el balance. El informe usa conexiones de consulta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - ReportLayout TrialBalancePrevYearExcelLayout - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 832924415 - ReportLayout 1368441425 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Previous Year Excel</source>
+          <target state="translated">Excel de Balance comprob./año anterior</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Bal. Prev Year Excel - ReportLayout TrialBalancePrevYearExcelLayout - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2951443352 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Trial Balance Excel (Preview)</source>
           <target state="translated">Excel de Balance de comprobación (versión preliminar)</target>
@@ -1203,6 +1389,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - ReportLabel TrialBalanceLCY</note>
         </trans-unit>
+        <trans-unit id="Report 2951443352 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance Excel</source>
+          <target state="translated">Excel de Balance de comprobación</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report contains aggregated general ledger data for the trial balance with debit/credit columns for net change and balance. A report is shown for both local currency (LCY) and additional reporting currency (ACY), the latter only showing data if Additional Reporting Currency is in use. The aggregation is for the period specified in the report's request page's Datefilter parameter and summarized per the 2 global dimensions per g/l account category.</source>
+          <target state="translated">Este informe contiene datos agregados de contabilidad general para el balance de comprobación con columnas de débito y crédito para el cambio neto y el saldo. Se muestra un informe tanto para la moneda local (ML) como para la divisa adicional de informes (DA), que solo muestra datos si se utiliza la divisa adicional de informes. La agregación es para el periodo especificado en el parámetro Datefilter de la página de solicitud del informe y se resume según las dos dimensiones globales por categoría de cuenta C/G.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - ReportLayout 16208115 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for Trial Balance Excel. This report contains aggregated general ledger data for the trial balance with debit/credit columns for net change and balance. Report uses Query connections.</source>
+          <target state="translated">Diseño integrado para el Excel de Balance de comprobación. Este informe contiene datos de contabilidad general agregados para el saldo de comprobación con columnas de débito y crédito para el cambio neto y el balance. El informe usa conexiones de consulta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - ReportLayout TrialBalanceExcelLayout - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2951443352 - ReportLayout 16208115 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance Excel</source>
+          <target state="translated">Excel de Balance de comprobación</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial Balance Excel - ReportLayout TrialBalanceExcelLayout - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2265219475 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Trial Balance/Budget Excel (Preview)</source>
           <target state="translated">Excel de Bal. comprobación/presupuesto (versión preliminar)</target>
@@ -1232,6 +1442,30 @@
           <target state="translated">Balance comprobación vs. presupuesto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - ReportLabel TrialBalancevsBudget</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Budget Excel</source>
+          <target state="translated">Excel de Bal. comprobación/presupuesto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report contains aggregated general ledger data for the trial balance with debit/credit columns for net change and balance. A report is shown for both local currency (LCY) and additional reporting currency (ACY, the latter only showing data if Additional Reporting Currency is in use. In addition to debit/credit for net change and balance the report shows the net debit/credit amount for both net change and balance for comparison. The aggregation is for the period specified in the report's request page's Datefilter parameter and summarized per the 2 global dimensions per g/l account category.</source>
+          <target state="translated">Este informe contiene datos agregados de contabilidad general para el balance de comprobación con columnas de débito y crédito para el cambio neto y el saldo. Se muestra un informe tanto para la moneda local (ML) como para la divisa de informe adicional (DA, que solo muestra datos si se usa divisa de notificación adicional). Además del débito y crédito para el cambio neto y el saldo, el informe muestra el importe neto de débito y crédito tanto para el cambio neto como para el saldo de la comparación. La agregación corresponde al periodo especificado en el parámetro Datefilter de la página de solicitud del informe y se resume según las dos dimensiones globales por categoría de cuenta C/G.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - ReportLayout 2069248168 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for Trial Balance/Budget Excel. Customer facing sheet contains a pivot table that shows the account balance in local currency and additional reporting currencies. Report uses Query connections.</source>
+          <target state="translated">Diseño integrado para Excel de Bal. comprobación/presupuesto. La hoja orientada al cliente contiene una tabla dinámica que muestra el saldo de la cuenta en la moneda local y las monedas de informes adicionales. El informe usa conexiones de consulta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - ReportLayout TrialBalanceBudgetExcelLayout - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 2265219475 - ReportLayout 2069248168 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trial Balance/Budget Excel</source>
+          <target state="translated">Excel de Bal. comprobación/presupuesto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Trial BalanceBudgetExcel - ReportLayout TrialBalanceBudgetExcelLayout - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2567779906 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Top Vendor Data</source>
@@ -1372,8 +1606,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - RequestPage RequestOptionsPage - Property AboutTitle</note>
         </trans-unit>
         <trans-unit id="Report 4199566814 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This report shows purchase information for vendors over the selected period of time, summarized by the supplied period length, limited by how many vendors you would like included.</source>
-          <target state="translated">Este informe muestra la información de compra de los proveedores durante el periodo de tiempo seleccionado, resumida por la duración del periodo proporcionado, limitada por el número de proveedores que desea incluir.</target>
+          <source>This report contains aggregated purchase (LCY) and balance (LCY) data for the top number of vendors selected. The data is aggregated for the period specified in the request page's Datefilter parameter.</source>
+          <target state="translated">Este informe contiene datos agregados de compras (moneda local) y saldos (moneda local) para los mejores proveedores seleccionados. Los datos se agregan para el periodo especificado en el parámetro Datefilter de la página de solicitud.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - RequestPage RequestOptionsPage - Property AboutText</note>
         </trans-unit>
@@ -1413,9 +1647,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - Control Show - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Report 4199566814 - ReportLayout 2771570707 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Vendor - Top Trends excel report. This report contains aggregated purchase (LCY) and balance (LCY) data for the top number of vendors selected. Report uses Query connections.</source>
+          <target state="translated">Diseño integrado para el informe Proveedor: Excel de Principales tendencias. Este informe contiene datos agregados de compras (moneda local) y saldos (moneda local) para los mejores proveedores seleccionados. El informe usa conexiones de consulta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - ReportLayout VendorTopTrendExcel - Property Summary</note>
+        </trans-unit>
         <trans-unit id="Report 4199566814 - ReportLayout 2771570707 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Vendor - Top Trends Excel (Preview)</source>
-          <target state="translated">Proveedor: Excel de Principales tendencias (versión preliminar)</target>
+          <source>Vendor - Top Trends Excel</source>
+          <target state="translated">Proveedor: Excel de Principales tendencias</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Vendor Top List - ReportLayout VendorTopTrendExcel - Property Caption</note>
         </trans-unit>
@@ -1570,8 +1810,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - RequestPage RequestOptionsPage - Property AboutTitle</note>
         </trans-unit>
         <trans-unit id="Report 2081705526 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This report shows sale information for Customers over the selected period of time, summarized by the supplied period length, limited by how many Customers you would like included.</source>
-          <target state="translated">Este informe muestra información de ventas para los clientes durante el periodo de tiempo seleccionado, resumida por la duración del periodo proporcionado, limitada por la cantidad de clientes que desea incluir.</target>
+          <source>This report contains aggregated sales (LCY) and balance (LCY) data for the top number of customers selected. The data is aggregated for the period specified in the request page's Datefilter parameter.</source>
+          <target state="translated">Este informe contiene datos agregados de ventas (moneda local) y saldos (moneda local) para los mejores clientes seleccionados. Los datos se agregan para el periodo especificado en el parámetro Datefilter de la página de solicitud.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - RequestPage RequestOptionsPage - Property AboutText</note>
         </trans-unit>
@@ -1611,9 +1851,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - Control Show - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Report 2081705526 - ReportLayout 1529034891 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Customer - Top Trends excel report. This report contains aggregated sales (LCY) and balance (LCY) data for the top number of customers selected. Report uses Query connections.</source>
+          <target state="translated">Diseño integrado para el informe Cliente: Excel de Principales tendencias. Este informe contiene datos agregados de ventas (moneda local) y saldos (moneda local) para los mejores clientes seleccionados. El informe usa conexiones de consulta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - ReportLayout CustomerTopTrendExcel - Property Summary</note>
+        </trans-unit>
         <trans-unit id="Report 2081705526 - ReportLayout 1529034891 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer - Top Trends Excel (Preview)</source>
-          <target state="translated">Cliente: Excel de Principales tendencias (versión preliminar)</target>
+          <source>Customer - Top Trends Excel</source>
+          <target state="translated">Cliente: Excel de Principales tendencias</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report EXR Customer Top List - ReportLayout CustomerTopTrendExcel - Property Caption</note>
         </trans-unit>

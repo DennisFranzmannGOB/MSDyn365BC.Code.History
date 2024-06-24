@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Codeunit 4167256840 - NamedType 4031674565" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default Sustainability Journal Batch</source>
-          <target state="translated">Standardmäßiger Nachhaltigkeits-Buch.-Blattstapel</target>
+          <target state="translated">Standardmässiger Nachhaltigkeits-Buch.-Blattstapel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustain. Jnl. Setup - NamedType DefaultBatchDescriptionLbl</note>
         </trans-unit>
@@ -293,7 +293,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2564497867 - NamedType 4031354508" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Car - Large</source>
-          <target state="translated">Firmenwagen – Groß</target>
+          <target state="translated">Firmenwagen – Gross</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustain. Subcategory - NamedType CompanyCarLargeLbl</note>
         </trans-unit>
@@ -305,7 +305,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2564497867 - NamedType 249342908" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Car - Medium</source>
-          <target state="translated">Firmenwagen – Mittlere Größe</target>
+          <target state="translated">Firmenwagen – Mittlere Grösse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustain. Subcategory - NamedType CompanyCarMediumLbl</note>
         </trans-unit>
@@ -581,7 +581,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2564497867 - NamedType 1705583225" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contoso Rental Car - Medium Car</source>
-          <target state="translated">Contoso Mietwagen – Mittelgroßes Auto</target>
+          <target state="translated">Contoso Mietwagen – Mittelgrosses Auto</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustain. Subcategory - NamedType RentalCarMediumLbl</note>
         </trans-unit>
@@ -767,19 +767,19 @@
         </trans-unit>
         <trans-unit id="Codeunit 1074751012 - NamedType 461507727" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Car - Large size</source>
-          <target state="translated">Firmenwagen – Große Größe</target>
+          <target state="translated">Firmenwagen – Grosse Grösse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustainability Account - NamedType CompanyCarLargeSizeLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1074751012 - NamedType 1454162495" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Car - Medium size</source>
-          <target state="translated">Firmenwagen – Mittlere Größe</target>
+          <target state="translated">Firmenwagen – Mittlere Grösse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustainability Account - NamedType CompanyCarMediumSizeLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1074751012 - NamedType 3291840981" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Car - Premium size</source>
-          <target state="translated">Firmenwagen – Premium-Größe</target>
+          <target state="translated">Firmenwagen – Premium-Grösse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustainability Account - NamedType CompanyCarPremiumSizeLbl</note>
         </trans-unit>
@@ -869,7 +869,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1074751012 - NamedType 2043315856" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>NonRoad Vehicles (Backhoes)</source>
-          <target state="translated">Nichtstraßenfahrzeuge (Baggerlader)</target>
+          <target state="translated">Nichtstrassenfahrzeuge (Baggerlader)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustainability Account - NamedType NonRoadVehiclesBackhoesLbl</note>
         </trans-unit>
@@ -881,25 +881,25 @@
         </trans-unit>
         <trans-unit id="Codeunit 1074751012 - NamedType 1854133868" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>NonRoad Vehicles (Tractors)</source>
-          <target state="translated">Nichtstraßenfahrzeuge (Traktoren)</target>
+          <target state="translated">Nichtstrassenfahrzeuge (Traktoren)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustainability Account - NamedType NonRoadVehiclesTractorsLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1074751012 - NamedType 2838224102" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>OnRoad Vehicles (Buses)</source>
-          <target state="translated">Straßenfahrzeuge (Busse)</target>
+          <target state="translated">Strassenfahrzeuge (Busse)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustainability Account - NamedType OnRoadVehiclesBusesLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1074751012 - NamedType 3791257726" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>OnRoad Vehicles (Trucks: long-haul trailer)</source>
-          <target state="translated">Straßenfahrzeuge (LKWs: Fernverkehrsanhänger)</target>
+          <target state="translated">Strassenfahrzeuge (LKWs: Fernverkehrsanhänger)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustainability Account - NamedType OnRoadVehiclesLongHaulLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 1074751012 - NamedType 755972918" maxwidth="100" size-unit="char" translate="yes" xml:space="preserve">
           <source>OnRoad Vehicles (Trucks: urban)</source>
-          <target state="translated">Straßenfahrzeuge (LKW: innerorts)</target>
+          <target state="translated">Strassenfahrzeuge (LKW: innerorts)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Sustainability Account - NamedType OnRoadVehiclesUrbanLbl</note>
         </trans-unit>

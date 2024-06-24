@@ -215,19 +215,19 @@
         </trans-unit>
         <trans-unit id="Codeunit 2354095198 - NamedType 312753440" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copilot could not find the requested Posted Sales Shipment for %1. Please rephrase the description and try again.</source>
-          <target state="translated">Copilot no ha podido encontrar el histórico de remisiones de venta solicitado para %1. Reformule la descripción e inténtelo de nuevo.</target>
+          <target state="translated">Copilot no ha podido encontrar el histórico Remisiones venta solicitado para %1. Reformule la descripción e inténtelo de nuevo.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Customer Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesShipmentLookup - NamedType NoDocumentFound1Err</note>
         </trans-unit>
         <trans-unit id="Codeunit 2354095198 - NamedType 660472785" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copilot could not find the requested Posted Sales Shipment %1. Please rephrase the description and try again.</source>
-          <target state="translated">Copilot no ha podido encontrar el histórico de remisiones de venta %1 solicitado. Reformule la descripción e inténtelo de nuevo.</target>
+          <target state="translated">Copilot no ha podido encontrar el histórico Remisiones venta %1 solicitado. Reformule la descripción e inténtelo de nuevo.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesShipmentLookup - NamedType NoDocumentFound2Err</note>
         </trans-unit>
         <trans-unit id="Codeunit 2354095198 - NamedType 2590881762" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copilot found the Posted Sales Shipment %1, but it does not have any relevant lines.</source>
-          <target state="translated">Copilot ha encontrado el histórico de remisiones de venta %1, pero no tiene ninguna línea relevante.</target>
+          <target state="translated">Copilot ha encontrado el histórico Remisiones venta %1, pero no tiene ninguna línea relevante.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit SalesShipmentLookup - NamedType NoLinesFoundInTheDocumentErr</note>
         </trans-unit>
@@ -465,6 +465,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action CopyFromOrderPrompts - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3823360411 - Action 3025385953 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sample prompt for copying line items from another sales document. Text in brackets specifies the document no.</source>
+          <target state="translated">Ejemplo de solicitud para copiar productos de líneas de otro documento de venta. El texto entre paréntesis especifica el n.º de documento.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromInvoicePrompt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3823360411 - Action 3025385953 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy from invoice [No.]</source>
+          <target state="translated">Copiar desde factura [N.º]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromInvoicePrompt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3823360411 - Action 3025385953 - Method 1377591017 - NamedType 884482731" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy from invoice </source>
+          <target state="translated">Copiar desde factura </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromInvoicePrompt - Method OnAction - NamedType CopyFromLbl</note>
+        </trans-unit>
         <trans-unit id="Page 3823360411 - Action 55328991 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sample prompt for copying line items from the customer's latest posted sales invoice.</source>
           <target state="translated">Ejemplo de solicitud para copiar productos de línea de la última factura venta reg.</target>
@@ -490,20 +508,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromOrderPrompt - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 3383781020 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copy from [order no.]</source>
-          <target state="translated">Copiar desde [n.º de pedido]</target>
+          <source>Copy from order [No.]</source>
+          <target state="translated">Copiar desde pedido [N.º]</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromOrderPrompt - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 3383781020 - Method 1377591017 - NamedType 884482731" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copy from </source>
-          <target state="translated">Copiar desde </target>
+          <source>Copy from order </source>
+          <target state="translated">Copiar desde pedido </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromOrderPrompt - Method OnAction - NamedType CopyFromLbl</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 788258546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard sales line suggestions proposed by Dynamics 365 Copilot.</source>
-          <target state="translated">Permite descartar las sugerencias de línea de venta propuestas por Dynamics 365 Copilot.</target>
+          <source>Discard sales line suggestions proposed by Copilot.</source>
+          <target state="translated">Permite descartar las sugerencias de línea de venta propuestas por Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action Cancel - Property ToolTip</note>
         </trans-unit>
@@ -514,8 +532,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action Cancel - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 2626368477 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Generate sales line suggestions from Dynamics 365 Copilot.</source>
-          <target state="translated">Permite generar sugerencias de líneas de ventas desde Dynamics 365 Copilot.</target>
+          <source>Generate sales line suggestions from Copilot.</source>
+          <target state="translated">Permite generar las sugerencias de líneas de ventas de Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action Generate - Property ToolTip</note>
         </trans-unit>
@@ -538,8 +556,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action Generate - Method OnAction - NamedType SearchQueryNotProvidedErr</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 2079045816 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Keep sales line suggestions proposed by Dynamics 365 Copilot.</source>
-          <target state="translated">Permite mantener las sugerencias de líneas de venta propuestas por Dynamics 365 Copilot.</target>
+          <source>Keep sales line suggestions proposed by Copilot.</source>
+          <target state="translated">Permite mantener las sugerencias de líneas de ventas propuestas por Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action OK - Property ToolTip</note>
         </trans-unit>
@@ -550,8 +568,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action OK - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3554963199 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Lines proposed by Dynamics 365 Copilot</source>
-          <target state="translated">Líneas propuestas por Dynamics 365 Copilot</target>
+          <source>Lines proposed by Copilot</source>
+          <target state="translated">Líneas propuestas por Copilot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions Sub - Property Caption</note>
         </trans-unit>

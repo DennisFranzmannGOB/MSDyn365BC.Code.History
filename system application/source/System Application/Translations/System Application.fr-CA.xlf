@@ -111,6 +111,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI TextCompletionParams Impl - NamedType TemperatureErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4063503383 - NamedType 3806683035" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Function with the name, %1, already exists.</source>
+          <target state="translated">La fonction portant le nom %1 existe déjà.</target>
+          <note from="Developer" annotates="general" priority="2">%1 is the function name.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Tools Impl - NamedType FunctionAlreadyExistsErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4063503383 - NamedType 4250359517" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tool id does not exist.</source>
           <target state="translated">Le code outil n’existe pas.</target>
@@ -128,6 +134,12 @@
           <target state="translated">Le type d’outil doit être de type fonction.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Tools Impl - NamedType ToolTypeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4063503383 - NamedType 1009169373" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Too many functions have been added. Maximum number of functions is %1</source>
+          <target state="translated">Trop de fonctions ont été ajoutées. Le nombre maximum de fonctions est %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 is the maximum number of tools that can be added.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AOAI Tools Impl - NamedType TooManyFunctionsAddedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 223636344" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The authentication was not configured.</source>
@@ -195,6 +207,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType EmptyMetapromptErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 900695912" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Function call not found, %1.</source>
+          <target state="translated">Appel de fonction introuvable, %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 is the name of the function</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType FunctionCallingFunctionNotFoundErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 2242774872" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The request did not return a success status code.</source>
           <target state="translated">La requête n’a pas renvoyé de code d'état de succès.</target>
@@ -206,6 +224,12 @@
           <target state="translated">Le type de modèle sélectionné n’est pas pris en charge.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType InvalidModelTypeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2076688375 - NamedType 90528310" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The messages must contain the word 'json' in some form, to use 'response format' of type 'json_object'.</source>
+          <target state="translated">Les messages doivent contenir le mot « json » sous une forme quelconque, pour utiliser le « format de réponse » de type « json_object ».</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Azure OpenAI Impl - NamedType MessagesMustContainJsonWordWhenResponseFormatIsJsonErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2076688375 - NamedType 766920966" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Metaprompt not found.</source>
@@ -220,8 +244,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copilot Capability Impl - NamedType AlreadyRegisteredErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 84388174 - NamedType 3217465303" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Note that copilot and AI capabilities published by Microsoft are not available on-premises.</source>
-          <target state="translated">Notez que les fonctionnalités du Copilot et d’IA publiées par Microsoft ne sont pas disponibles localement.</target>
+          <source>Copilot capabilities published by Microsoft are not available on-premises. You can extend Copilot with custom capabilities and use them on-premises for development purposes only.</source>
+          <target state="translated">Les fonctionnalités Copilot publiées par Microsoft ne sont pas disponibles localement. Vous pouvez étendre Copilot avec des fonctionnalités personnalisées et les utiliser localement à des fins de développement uniquement.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Copilot Capability Impl - NamedType CapabilitiesNotAvailableOnPremNotificationMessageLbl</note>
         </trans-unit>
@@ -586,8 +610,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - Control DeactivateReason - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1095148238 - Control 1785554304 - Property 62802879" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>,Not relevant to our business,Users are not ready for it yet,Performance is not good enough,There are privacy concerns,Suggestions not accurate enough,Suggestions are not helpful,Suggestions are offensive or inappropriate,Prefer not to give a reason,Our reason is not listed here</source>
-          <target state="translated">,Non pertinent pour notre entreprise,Les utilisateurs ne sont pas encore prêts pour cela,Les performances ne sont pas assez bonnes,Il y a des problèmes de confidentialité,Les suggestions ne sont pas assez précises,Les suggestions ne sont pas utiles,Les suggestions sont offensantes ou inappropriées,Je préfère ne pas donner de raison,Notre raison n’est pas répertoriée ici</target>
+          <source>,Not relevant to our business,Users are not ready for it yet,Performance is not good enough,There are privacy concerns,Suggestions not accurate enough,Suggestions are not helpful,Suggestions are offensive or inappropriate,Prefer not to give a reason,Our reason is not listed here,Doesn't work with my customizations</source>
+          <target state="translated">,Non pertinent pour notre entreprise,Les utilisateurs ne sont pas encore prêts pour cela,Les performances ne sont pas assez bonnes,Il y a des problèmes de confidentialité,Les suggestions ne sont pas assez précises,Les suggestions ne sont pas utiles,Les suggestions sont offensantes ou inappropriées,Je préfère ne pas donner de raison,Notre raison n’est pas répertoriée ici,Ne fonctionne pas avec mes personnalisations</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Deactivate Capability - Control DeactivateReason - Property OptionCaption</note>
         </trans-unit>
@@ -734,12 +758,6 @@
           <target state="translated">La langue %1 n’est pas prise en charge par AppSource. La valeur par défaut est « en ». Modifiez la langue du profil utilisateur pour utiliser une autre langue.</target>
           <note from="Developer" annotates="general" priority="2">%1=Language ID, such as en</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit AppSource Product Manager - NamedType UnsupportedLanguageNotificationLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 925521872 - NamedType 414968362" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Market %1 is not supported by AppSource. Defaulting to "us". Change the region in the user profile to use another market.</source>
-          <target state="translated">Le marché %1 n’est pas pris en charge par AppSource. Par défaut, « nous ». Modifiez la région dans le profil utilisateur pour utiliser un autre marché.</target>
-          <note from="Developer" annotates="general" priority="2">%1=Market ID, such as "us"</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AppSource Product Manager - NamedType UnsupportedMarketNotificationLbl</note>
         </trans-unit>
         <trans-unit id="Page 4186071871 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>App Overview</source>
@@ -4604,6 +4622,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AFS Directory Content - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 885574928 - Field 622720839 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NextMarker</source>
+          <target state="translated">MarqueurSuivant</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFS Directory Content - Field Next Marker - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 746022090 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>AFS Handle</source>
           <target state="translated">Descripteur AFS</target>
@@ -5059,12 +5083,6 @@
           <target state="translated">Vous devez spécifier une valeur DateTime pour l’option %1</target>
           <note from="Developer" annotates="general" priority="2">%1 = Expiry Option</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS Client Impl. - Method SetBlobExpiry - NamedType SpecifyDateTimeErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2127254391 - Method 3022268586 - NamedType 1467098217" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>"%1" %2 %3%4%5</source>
-          <target state="translated">« %1 » %2 %3%4%5</target>
-          <note from="Developer" annotates="general" priority="2">%1 = Tag, %2 = Operator, %3 = Single Quote, %4 = Value, %5 = Single Quote</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ABS Format Helper - Method TagsDictionaryToSearchExpression - NamedType ExpressionPartLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3399608595 - Method 1796094455 - NamedType 2657891440" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Error reading Response as XML.</source>
@@ -6895,6 +6913,66 @@
           <target state="translated">Spécifie le code de la table.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Table Information Cache Part - Control Table No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 1771723883 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1 Month</source>
+          <target state="translated">1 mois</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue 1 Month - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 3676307527 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1 Week</source>
+          <target state="translated">1 semaine</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue 1 Week - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 3983495234 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1 Year</source>
+          <target state="translated">1 an</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue 1 Year - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 1728972471 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>28 Days</source>
+          <target state="translated">28 jours</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue 28 Days - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 2283807924 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>3 Months</source>
+          <target state="translated">3 mois</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue 3 Months - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 3660019361 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>3 Years</source>
+          <target state="translated">3 ans</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue 3 Years - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 252247187 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>5 Years</source>
+          <target state="translated">5 ans</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue 5 Years - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 2133349631 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>6 Months</source>
+          <target state="translated">6 mois</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue 6 Months - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 3431463797 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Custom</source>
+          <target state="translated">Personnalisé</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue Custom - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2495242102 - EnumValue 1342835517 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Never Delete</source>
+          <target state="translated">Ne jamais supprimer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Retention Period Enum - EnumValue Never Delete - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3181557883 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recurrence Schedule</source>
@@ -9140,6 +9218,18 @@
           <note from="Developer" annotates="general" priority="2">%1 - the error that occurred.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Editor - NamedType SendingFailedErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3795645336 - NamedType 1694840354" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Your email view policy limits the emails visible. You can update your view policy to see all emails.</source>
+          <target state="translated">Votre stratégie d’affichage des courriels limite le nombre de courriels visibles. Vous pouvez mettre à jour votre stratégie d’affichage pour afficher tous les courriels.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Impl - NamedType AdminViewPolicyInEffectNotificationMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3795645336 - NamedType 732401070" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update policy</source>
+          <target state="translated">Mettre à jour la stratégie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Email Impl - NamedType AdminViewPolicyUpdatePolicyNotificationActionLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3795645336 - NamedType 658797555" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The email message has already been sent and cannot be edited.</source>
           <target state="translated">Le courriel a déjà été envoyé et ne peut pas être modifié.</target>
@@ -10157,6 +10247,18 @@
           <target state="translated">Ajouter des fichiers à partir de la sélection par défaut</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - Action UploadFromScenario - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 761349018 - Action 88863165 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attach files, such as documents or images, to the email.</source>
+          <target state="translated">Joindre des fichiers, tels que des documents ou des images, au courriel.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - Action UploadMultiple - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 761349018 - Action 88863165 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add files</source>
+          <target state="translated">Ajouter des fichiers</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Email Attachments - Action UploadMultiple - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 761349018 - Action 970153994 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create and attach a document using a Word Template.</source>
@@ -15556,6 +15658,12 @@
           <target state="translated">URL relative du serveur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table SharePoint List Item Atch - Field Server Relative Url - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1122215404 - Method 1842866781 - NamedType 3352172482" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve an access token.</source>
+          <target state="translated">Échec de l’acquisition d’un jeton d’accès.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SharePoint Client Credentials - Method AcquireToken - NamedType FailedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 3583618770 - NamedType 3575726745" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Incorrect response.</source>
