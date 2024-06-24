@@ -83,7 +83,7 @@
         </trans-unit>
         <trans-unit id="Table 3767244041 - NamedType 1823991130" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Apply to entry %1 (%2).</source>
-          <target state="translated">Bewerben Sie sich für den Eintrag %1 (%2).</target>
+          <target state="translated">Ausgleich mit Posten %1 (%2).</target>
           <note from="Developer" annotates="general" priority="2">%1 - bank accout ledger entry number, %2 bank account ledger entry description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Acc. Rec. AI Proposal - NamedType ApplyToLedgerEntryTxt</note>
         </trans-unit>
