@@ -263,7 +263,7 @@
         </trans-unit>
         <trans-unit id="PermissionSet 3313111871 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Change Global Dimension</source>
-          <target state="translated">Glob. dimension muuttaminen</target>
+          <target state="translated">Yleisen dimension muuttaminen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet GLOBAL DIM MGT - Property Caption</note>
         </trans-unit>
