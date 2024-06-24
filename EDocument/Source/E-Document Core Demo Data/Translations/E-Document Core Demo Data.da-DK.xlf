@@ -59,19 +59,19 @@
         </trans-unit>
         <trans-unit id="Page 922888270 - Control 2775140830 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies vendor 1 number to use for the scenarios.</source>
-          <target state="translated">Angiver det kreditor 1 nummer, der skal bruges til scenarierne.</target>
+          <target state="translated">Angiver det nummer for kreditor 1, der skal bruges til scenarierne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Module Setup - Control Vendor No. 1 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 922888270 - Control 862050979 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies vendor 2 number to use for the scenarios.</source>
-          <target state="translated">Angiver det kreditor 2 nummer, der skal bruges til scenarierne.</target>
+          <target state="translated">Angiver det nummer for kreditor 2, der skal bruges til scenarierne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Module Setup - Control Vendor No. 2 - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 922888270 - Control 1499747596 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies vendor 3 number to use for the scenarios.</source>
-          <target state="translated">Angiver det kreditor 3 nummer, der skal bruges til scenarierne.</target>
+          <target state="translated">Angiver det nummer for kreditor 3, der skal bruges til scenarierne.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Module Setup - Control Vendor No. 3 - Property ToolTip</note>
         </trans-unit>
