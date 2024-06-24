@@ -2153,7 +2153,7 @@
         </trans-unit>
         <trans-unit id="Report 2614277098 - NamedType 2532215699" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 is not a direct posting account.</source>
-          <target state="translated">%1 %2 är inte ett direkt bokföringskonto.</target>
+          <target state="translated">%1 %2 är inte ett direktbokföringskonto.</target>
           <note from="Developer" annotates="general" priority="2">%1 - account field caption, %2 - account code</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Bank Deposit Test Report - NamedType DirectPostingAccountErr</note>
         </trans-unit>
