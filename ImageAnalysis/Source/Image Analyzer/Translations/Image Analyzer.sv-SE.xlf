@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Table 2062634445 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>MS - Image Analyzer Tags</source>
-          <target state="translated">MS – Taggar för bildanalys</target>
+          <target state="translated">MS – Taggar för Bildanalyseraren</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - Property Caption</note>
         </trans-unit>
@@ -329,7 +329,7 @@
         </trans-unit>
         <trans-unit id="Page 4132159392 - Control 458449417 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the image analyzer details.</source>
-          <target state="translated">Anger uppgifter för bildanalys.</target>
+          <target state="translated">Anger uppgifter för Bildanalyseraren.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analysis Tags - Control DetailsText - Property ToolTip</note>
         </trans-unit>
