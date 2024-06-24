@@ -465,6 +465,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action CopyFromOrderPrompts - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3823360411 - Action 3025385953 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sample prompt for copying line items from another sales document. Text in brackets specifies the document no.</source>
+          <target state="translated">Beispieleingabe zum Kopieren von Zeilenartikeln aus einem anderen Verkaufsbeleg. Der Text in Klammern gibt die Belegnummer an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromInvoicePrompt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3823360411 - Action 3025385953 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy from invoice [No.]</source>
+          <target state="translated">Aus Rechnung [Nr.] kopieren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromInvoicePrompt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3823360411 - Action 3025385953 - Method 1377591017 - NamedType 884482731" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Copy from invoice </source>
+          <target state="translated">Aus Rechnung kopieren </target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromInvoicePrompt - Method OnAction - NamedType CopyFromLbl</note>
+        </trans-unit>
         <trans-unit id="Page 3823360411 - Action 55328991 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sample prompt for copying line items from the customer's latest posted sales invoice.</source>
           <target state="translated">Beispieleingabe zum Kopieren von Zeilenartikeln aus der zuletzt gebuchten Verkaufsrechnung des Debitors.</target>
@@ -490,20 +508,20 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromOrderPrompt - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 3383781020 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copy from [order no.]</source>
-          <target state="translated">Kopieren aus [Auftragsnr.]</target>
+          <source>Copy from order [No.]</source>
+          <target state="translated">Aus Auftrag [Nr.] kopieren</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromOrderPrompt - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 3383781020 - Method 1377591017 - NamedType 884482731" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Copy from </source>
-          <target state="translated">Kopieren von </target>
+          <source>Copy from order </source>
+          <target state="translated">Aus Auftrag kopieren </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action DocumentSearchCopyFromOrderPrompt - Method OnAction - NamedType CopyFromLbl</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 788258546 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discard sales line suggestions proposed by Dynamics 365 Copilot.</source>
-          <target state="translated">Die von Dynamics 365 Copilot vorgeschlagenen Vorschläge für Verkaufszeilen verwerfen.</target>
+          <source>Discard sales line suggestions proposed by Copilot.</source>
+          <target state="translated">Die von Copilot vorgeschlagenen Verkaufszeilen verwerfen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action Cancel - Property ToolTip</note>
         </trans-unit>
@@ -514,8 +532,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action Cancel - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 2626368477 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Generate sales line suggestions from Dynamics 365 Copilot.</source>
-          <target state="translated">Generieren Sie Verkaufszeilenvorschläge mit Dynamics 365 Copilot.</target>
+          <source>Generate sales line suggestions from Copilot.</source>
+          <target state="translated">Generieren Sie Verkaufszeilenvorschläge mit Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action Generate - Property ToolTip</note>
         </trans-unit>
@@ -538,8 +556,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action Generate - Method OnAction - NamedType SearchQueryNotProvidedErr</note>
         </trans-unit>
         <trans-unit id="Page 3823360411 - Action 2079045816 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Keep sales line suggestions proposed by Dynamics 365 Copilot.</source>
-          <target state="translated">Behalten Sie die von Dynamics 365 Copilot vorgeschlagenen Vorschläge für Verkaufszeilen bei.</target>
+          <source>Keep sales line suggestions proposed by Copilot.</source>
+          <target state="translated">Behalten Sie die von Copilot vorgeschlagenen Verkaufszeilen bei.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action OK - Property ToolTip</note>
         </trans-unit>
@@ -550,8 +568,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions - Action OK - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3554963199 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Lines proposed by Dynamics 365 Copilot</source>
-          <target state="translated">Von Dynamics 365 Copilot vorgeschlagene Zeilen</target>
+          <source>Lines proposed by Copilot</source>
+          <target state="translated">Von Copilot vorgeschlagene Zeilen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Line AI Suggestions Sub - Property Caption</note>
         </trans-unit>
