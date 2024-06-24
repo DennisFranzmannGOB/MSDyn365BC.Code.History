@@ -3,6 +3,468 @@
   <file datatype="xml" source-language="en-US" target-language="fr-FR" original="Sustainability">
     <body>
       <group id="body">
+        <trans-unit id="Page 1280216 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sust. Acc. Subcategory</source>
+          <target state="translated">Sous-catégorie de compte dura.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Account Subcategory</source>
+          <target state="translated">Sous-catégorie de compte de durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Account Subcategories</source>
+          <target state="translated">Sous-catégories de compte de durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Control 2735992580 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Category</source>
+          <target state="translated">Catégorie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Control category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Control 707985127 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Control code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Description</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Control displayName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Control 3413372250 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EF (CH4)</source>
+          <target state="translated">FE (CH4)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Control emmissionFactorCH4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Control 4256069657 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EF (CO2)</source>
+          <target state="translated">FE (CO2)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Control emmissionFactorCO2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Control 3169910454 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EF (N2O)</source>
+          <target state="translated">FE (N2O)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Control emmissionFactorN2O - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1280216 - Control 2465225269 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Renewable Energy</source>
+          <target state="translated">Énergies renouvelables</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Acc. Subcategory - Control renewableEnergy - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sust. Account Categories</source>
+          <target state="translated">Catégories de comptes dura.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Account Category</source>
+          <target state="translated">Catégorie de compte de durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Account Categories</source>
+          <target state="translated">Catégories de compte de durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 1813797694 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculation Foundation</source>
+          <target state="translated">Base de calcul</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control calculationFoundationType - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 707985127 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="translated">Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Description</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control displayName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 1710359260 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Custom Value</source>
+          <target state="translated">Valeur personnalisée</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control emissionCalculationCustomValue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 3919006407 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scope type</source>
+          <target state="translated">Type d’étendue</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control emmisionScope - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 488278426 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CH4</source>
+          <target state="translated">CH4</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control registerCH4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 1330975833 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CO2</source>
+          <target state="translated">CO2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control registerCO2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 378229708 - Control 3411556383 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N2O</source>
+          <target state="translated">N2O</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sust. Account Categories - Control registerN20 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Accounts</source>
+          <target state="translated">Comptes de durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Account</source>
+          <target state="translated">Compte de durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Accounts</source>
+          <target state="translated">Comptes de durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Control 1486462331 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account Type</source>
+          <target state="translated">Type de compte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Control accountType - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Control 2735992580 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Category</source>
+          <target state="translated">Catégorie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Control category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Nom</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Control displayName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Control 2757394829 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <target state="translated">N°</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Control number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 672995161 - Control 851721712 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Subcategory</source>
+          <target state="translated">Sous-catégorie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Accounts - Control subcategory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Journal Line</source>
+          <target state="translated">Ligne feuille durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Journal Line</source>
+          <target state="translated">Ligne feuille durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Journal Lines</source>
+          <target state="translated">Lignes journal durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 3033425374 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission Account No.</source>
+          <target state="translated">N° compte d’émission</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control accountNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 427237684 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region Code</source>
+          <target state="translated">Code de pays/région</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control countryRegion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 3593288905 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Custom</source>
+          <target state="translated">Personnalisé</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control customAmount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 3714165 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Distance</source>
+          <target state="translated">Distance</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control distance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 1150262424 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <target state="translated">N° document</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control documentNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 305869689 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <target state="translated">Type de document</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control documentType - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 1550625634 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission CH4</source>
+          <target state="translated">Émission CH4</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control emissionCH4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 3482656129 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission CO2</source>
+          <target state="translated">Émission CO2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control emissionCO2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 3608466318 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission N2O</source>
+          <target state="translated">Émission N2O</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control emissionN2O - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 451439364 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fuel/Electricity</source>
+          <target state="translated">Carburant/électricité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control fuelOrElectricity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 916629889 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Installation Multiplier</source>
+          <target state="translated">Multiplicateur d’installation</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control installationMultiplier - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 2675196190 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch</source>
+          <target state="translated">Feuille</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control journalBatchName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 2958552522 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template</source>
+          <target state="translated">Modèle feuille</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control journalTemplateName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 928535615 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <target state="translated">N° ligne</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control lineNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 1706227112 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manual Input</source>
+          <target state="translated">Saisie manuelle</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control manualInput - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 1260828904 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <target state="translated">Date validation</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control postingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 3081698363 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reason Code</source>
+          <target state="translated">Code motif</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control reasonCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 2798073505 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Responsibility Center</source>
+          <target state="translated">Centre de gestion</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control responsibilityCenter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 725927060 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Code</source>
+          <target state="translated">Code journal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control sourceCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 2142236932 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time Factor</source>
+          <target state="translated">Facteur temps</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control timeFactor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1580690750 - Control 1511501393 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <target state="translated">Unité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Journal Line - Control unitOfMeasure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Ledg. Entries</source>
+          <target state="translated">Écritures comptables durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Property 3446740159" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Ledger Entry</source>
+          <target state="translated">Écriture comptable durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Property EntityCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Property 631549417" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sustainability Ledger Entries</source>
+          <target state="translated">Écritures comptables durabilité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Property EntitySetCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 3033425374 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission Account</source>
+          <target state="translated">Compte d’émission</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control accountNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 427237684 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region Code</source>
+          <target state="translated">Code de pays/région</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control countryRegion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission Account Name</source>
+          <target state="translated">Nom du compte d’émission</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control displayName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 1150262424 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <target state="translated">N° document</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control documentNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 305869689 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <target state="translated">Type de document</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control documentType - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 1550625634 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission CH4</source>
+          <target state="translated">Émission CH4</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control emissionCH4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 3482656129 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission CO2</source>
+          <target state="translated">Émission CO2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control emissionCO2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 3608466318 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission N2O</source>
+          <target state="translated">Émission N2O</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control emissionN2O - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 2977834245 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Scope Type</source>
+          <target state="translated">Type d’étendue</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control emissionScope - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 2190624577 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target state="translated">N° écriture</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control entryNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 2686962215 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Id</source>
+          <target state="translated">ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 1260828904 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <target state="translated">Date validation</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control postingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 3081698363 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reason Code</source>
+          <target state="translated">Code motif</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control reasonCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 2798073505 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Responsibility Center</source>
+          <target state="translated">Centre de gestion</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control responsibilityCenter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 725927060 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Code</source>
+          <target state="translated">Code journal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control sourceCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 1511501393 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <target state="translated">Unité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control unitOfMeasure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3858421357 - Control 2962283328 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User ID</source>
+          <target state="translated">ID utilisateur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Sustainability Ledg. Entries - Control userID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4023632924 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sustainability Account Category</source>
           <target state="translated">Catégorie du compte de durabilité</target>
@@ -359,7 +821,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2668001352 - NamedType 2252658274" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Indenting the Chart of Sustainability Accounts #1##########</source>
-          <target state="translated">Mise en retrait du graphique des comptes de durabilité #1##########</target>
+          <target state="translated">Mise en retrait du plan comptable de durabilité #1##########</target>
           <note from="Developer" annotates="general" priority="2">%1 - Sustainability Account number</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sustainability Account Mgt. - NamedType IndSustainAccountsTxt</note>
         </trans-unit>
@@ -377,19 +839,19 @@
         </trans-unit>
         <trans-unit id="Codeunit 2668001352 - NamedType 1468966544" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>This function updates the indentation of all sustainability accounts in the chart of sustainability accounts. All accounts between a Begin-Total and the matching End-Total are indented one level. The Totaling for each End-total is also updated.\\Do you want to indent the chart of sustainability accounts?</source>
-          <target state="translated">Cette fonction met à jour la mise en retrait de tous les comptes de durabilité dans le graphique des comptes de durabilité. Tous les comptes entre un Total-début et le Total-fin correspondant sont mis en retrait d’un niveau. La totalisation pour chaque Total-fin est également mise à jour.\\Voulez-vous mettre en retrait le graphique des comptes de durabilité ?</target>
+          <target state="translated">Cette fonction met à jour la mise en retrait de tous les comptes de durabilité dans le plan comptable de durabilité. Tous les comptes entre un Total-début et le Total-fin correspondant sont mis en retrait d’un niveau. La totalisation pour chaque Total-fin est également mise à jour.\\Voulez-vous mettre en retrait le plan comptable de durabilité ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Sustainability Account Mgt. - NamedType SustainAccIndentQst</note>
         </trans-unit>
         <trans-unit id="Page 2006165642 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Chart of Sustainability Accounts</source>
-          <target state="translated">Graphique des comptes de durabilité</target>
+          <target state="translated">Plan comptable de durabilité</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Chart of Sustain. Accounts - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2006165642 - Property 3863440606" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sustainability Account List, Sustainability Accounts, Sustainability Overview, Sustainability Chart, CsA</source>
-          <target state="translated">Liste des comptes de durabilité, Comptes de durabilité, Vue d’ensemble de la durabilité, Graphique de durabilité, Graphique des comptes de durabilité</target>
+          <target state="translated">Liste des comptes de durabilité, Comptes de durabilité, Vue d’ensemble de la durabilité, Plan de durabilité, Plan comptable de durabilité</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Chart of Sustain. Accounts - Property AdditionalSearchTerms</note>
         </trans-unit>
@@ -581,13 +1043,13 @@
         </trans-unit>
         <trans-unit id="Page 2006165642 - Action 4192543416 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Indent accounts between a Begin-Total and the matching End-Total one level to make the chart of sustainability accounts easier to read.</source>
-          <target state="translated">Mettez en retrait des comptes entre un Total-début et le Total-fin correspondant d’un niveau pour que le graphique des comptes de durabilité soit plus simple à lire.</target>
+          <target state="translated">Mettez en retrait des comptes entre un Total-début et le Total-fin correspondant d’un niveau pour que le plan comptable de durabilité soit plus simple à lire.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Chart of Sustain. Accounts - Action IndentChartOfSustainAccounts - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2006165642 - Action 4192543416 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Indent Chart of Sustainability Accounts</source>
-          <target state="translated">Mettre en retrait graphique des comptes de durabilité</target>
+          <target state="translated">Mettre en retrait plan comptable de durabilité</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Chart of Sustain. Accounts - Action IndentChartOfSustainAccounts - Property Caption</note>
         </trans-unit>
@@ -3034,6 +3496,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Emission By Category - ReportLabel TotalEmissionsperCategory</note>
         </trans-unit>
+        <trans-unit id="Report 3943519694 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission By Category</source>
+          <target state="translated">Émissions par catégorie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission By Category - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 3943519694 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report presents information on greenhouse gas (GHG) emissions categorized by Sustainability Categories.</source>
+          <target state="translated">Ce rapport présente des informations sur les émissions de gaz à effet de serre (GHG) classées par catégories de durabilité.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission By Category - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Report 3943519694 - ReportLayout 2010543447 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Emission By Category excel report. This report presents information on greenhouse gas (GHG) emissions categorized by Sustainability Categories.</source>
+          <target state="translated">Présentation intégrée pour le rapport Excel Émissions par catégorie. Ce rapport présente des informations sur les émissions de gaz à effet de serre (GHG) classées par catégories de durabilité.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission By Category - ReportLayout EmissionByCategoryExcel - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 3943519694 - ReportLayout 2010543447 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission By Category Excel Layout</source>
+          <target state="translated">Émissions par catégorie - Présentation Excel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission By Category - ReportLayout EmissionByCategoryExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3943519694 - ReportLayout 3264119029 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Emission By Category RDLC report. This report presents information on greenhouse gas (GHG) emissions categorized by Sustainability Categories.</source>
+          <target state="translated">Présentation intégrée pour le rapport RDLC Émissions par catégorie. Ce rapport présente des informations sur les émissions de gaz à effet de serre (GHG) classées par catégories de durabilité.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission By Category - ReportLayout EmissionByCategoryRDLC - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 3943519694 - ReportLayout 3264119029 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission By Category RDLC Layout</source>
+          <target state="translated">Émissions par catégorie - Présentation RDLC</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission By Category - ReportLayout EmissionByCategoryRDLC - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1534762701 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Emission Per Facility</source>
           <target state="translated">Émissions par site</target>
@@ -3148,6 +3646,42 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Emission Per Facility - ReportLabel SumOfEmission_N2O</note>
         </trans-unit>
+        <trans-unit id="Report 1534762701 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission Per Facility</source>
+          <target state="translated">Émissions par site</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission Per Facility - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 1534762701 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report encompasses greenhouse gas (GHG) emission data documented across various facilities - Responsibility Centers.</source>
+          <target state="translated">Ce rapport comprend des données sur les émissions de gaz à effet de serre (GHG) documentées dans divers sites - Centres de gestion.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission Per Facility - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Report 1534762701 - ReportLayout 3436323648 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Emission Per Facility excel report. This report encompasses greenhouse gas (GHG) emission data documented across various facilities - Responsibility Centers.</source>
+          <target state="translated">Présentation intégrée pour le rapport Excel Émissions par site. Ce rapport comprend des données sur les émissions de gaz à effet de serre (GHG) documentées dans divers sites - Centres de gestion.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission Per Facility - ReportLayout EmissionPerFacilityExcel - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 1534762701 - ReportLayout 3436323648 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission Per Facility Excel Layout</source>
+          <target state="translated">Émissions par site - Présentation Excel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission Per Facility - ReportLayout EmissionPerFacilityExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1534762701 - ReportLayout 2137008358 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Emission Per Facility RDLC report. This report encompasses greenhouse gas (GHG) emission data documented across various facilities - Responsibility Centers.</source>
+          <target state="translated">Présentation intégrée pour le rapport RDLC Émissions par site. Ce rapport comprend des données sur les émissions de gaz à effet de serre (GHG) documentées dans divers sites - Centres de gestion.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission Per Facility - ReportLayout EmissionPerFacilityRDLC - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 1534762701 - ReportLayout 2137008358 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Emission Per Facility RDLC Layout</source>
+          <target state="translated">Émissions par site - Présentation RDLC</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Emission Per Facility - ReportLayout EmissionPerFacilityRDLC - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 4018543436 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Emissions</source>
           <target state="translated">Émissions totales</target>
@@ -3256,6 +3790,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Total Emissions - ReportLabel TotalEmissionsCaption</note>
         </trans-unit>
+        <trans-unit id="Report 4018543436 - RequestPage 2516438534 - Property 1064389655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Emissions</source>
+          <target state="translated">Émissions totales</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Total Emissions - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 4018543436 - RequestPage 2516438534 - Property 247559172" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This report provides information on the cumulative greenhouse gas (GHG) emissions across the chosen Sustainability Accounts and periods.</source>
+          <target state="translated">Ce rapport fournit des informations sur les émissions cumulatives de gaz à effet de serre (GHG) pour l’ensemble des comptes de durabilité et des périodes choisis.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Total Emissions - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
         <trans-unit id="Report 4018543436 - Control 2346885236 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
           <target state="translated">Options</target>
@@ -3273,6 +3819,30 @@
           <target state="translated">Afficher détails</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Total Emissions - Control Show_Details - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4018543436 - ReportLayout 1175577081 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Total Emissions excel report. This report provides information on the cumulative greenhouse gas (GHG) emissions across the chosen Sustainability Accounts and periods.</source>
+          <target state="translated">Présentation intégrée pour le rapport Excel Émissions totales. Ce rapport fournit des informations sur les émissions cumulatives de gaz à effet de serre (GHG) pour l’ensemble des comptes de durabilité et des périodes choisis.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Total Emissions - ReportLayout TotalEmissionsExcel - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 4018543436 - ReportLayout 1175577081 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Emissions Excel Layout</source>
+          <target state="translated">Émissions totales - Présentation Excel</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Total Emissions - ReportLayout TotalEmissionsExcel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4018543436 - ReportLayout 380512899 - Property 2166945456" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Built in layout for the Total Emissions RDLC report. This report provides information on the cumulative greenhouse gas (GHG) emissions across the chosen Sustainability Accounts and periods.</source>
+          <target state="translated">Présentation intégrée pour le rapport RDLC Émissions totales. Ce rapport fournit des informations sur les émissions cumulatives de gaz à effet de serre (GHG) pour l’ensemble des comptes de durabilité et des périodes choisis.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Total Emissions - ReportLayout TotalEmissionsRDLC - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 4018543436 - ReportLayout 380512899 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Emissions RDLC Layout</source>
+          <target state="translated">Émissions totales - Présentation RDLC</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Total Emissions - ReportLayout TotalEmissionsRDLC - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3283349310 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sustainability Setup</source>
