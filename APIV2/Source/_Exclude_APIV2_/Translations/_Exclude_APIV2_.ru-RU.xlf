@@ -3131,7 +3131,7 @@
         </trans-unit>
         <trans-unit id="Page 254023161 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>APIV2 - Dispute Status</source>
-          <target state="translated">APIV2 — статус спора</target>
+          <target state="translated">APIV2 - статус спора</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Property Caption</note>
         </trans-unit>
@@ -8411,7 +8411,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 89448550" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "disputeStatusId" does not match to a Dispute Status.</source>
-          <target state="translated">disputeStatusId не соответствует статусу спора.</target>
+          <target state="translated">Значение disputeStatusId не соответствует ни одному статусу спора.</target>
           <note from="Developer" annotates="general" priority="2">disputeStatusId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType DisputeStatusIdDoesNotMatchADisputeStatusErr</note>
         </trans-unit>

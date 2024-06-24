@@ -8411,7 +8411,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 89448550" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "disputeStatusId" does not match to a Dispute Status.</source>
-          <target state="translated">De disputeStatusId komt niet overeen met een geschilstatus.</target>
+          <target state="translated">De "disputeStatusId" komt niet overeen met een geschilstatus.</target>
           <note from="Developer" annotates="general" priority="2">disputeStatusId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType DisputeStatusIdDoesNotMatchADisputeStatusErr</note>
         </trans-unit>
@@ -8591,7 +8591,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 1832008717 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dispute Status Id</source>
-          <target state="translated">Status-id van geschil</target>
+          <target state="translated">Id van geschilstatus</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control disputeStatusId - Property Caption</note>
         </trans-unit>
