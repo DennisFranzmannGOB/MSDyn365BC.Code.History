@@ -15,11 +15,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Nemhandel Status Mgt. - NamedType EnableNemhandelNotRegisteredNotificationTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1206018100 - NamedType 12767757" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The CVR number must be 8 digits or "A/S" followed by 3-6 digits.</source>
+          <target state="translated">CVR-nummeret skal være 8 cifre eller "A/S" efterfulgt af 3-6 cifre.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Nemhandel Status Mgt. - NamedType IncorrectCVRNumberFormatErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1206018100 - NamedType 1304771032" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Your accounting software is not registered in Nemhandelsregisteret.</source>
           <target state="translated">Dit regnskabsprogram er ikke registreret i Nemhandelsregisteret.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Nemhandel Status Mgt. - NamedType NotificationMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1206018100 - NamedType 1646830457" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open registration guide</source>
+          <target state="translated">Vejledning til åben registrering</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Nemhandel Status Mgt. - NamedType OpenRegistrationGuideTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1206018100 - NamedType 283291982" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Register in Nemhandelsregisteret</source>
+          <target state="translated">Tilmeld dig Nemhandelsregisteret</target>
+          <note from="Developer" annotates="general" priority="2">Nemhandelsregisteret word is already in Danish, no need to translate.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Nemhandel Status Mgt. - NamedType RegisterInNemhandelTxt</note>
         </trans-unit>
         <trans-unit id="PageExtension 3760349664 - NamedType 1284946795" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Nemhandel Check Company Status</source>

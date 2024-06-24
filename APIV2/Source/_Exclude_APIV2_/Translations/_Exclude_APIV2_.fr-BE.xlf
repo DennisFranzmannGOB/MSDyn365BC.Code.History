@@ -3155,6 +3155,7 @@
         </trans-unit>
         <trans-unit id="Page 254023161 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
+          <target state="translated">Description</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Control displayName - Property Caption</note>
         </trans-unit>
@@ -10276,7 +10277,7 @@
         </trans-unit>
         <trans-unit id="Page 2511651920 - Control 3656808776 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Date</source>
-          <target state="translated">Date expédition</target>
+          <target state="translated">Date d’expédition</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipment Lines - Control shipmentDate - Property Caption</note>
         </trans-unit>
