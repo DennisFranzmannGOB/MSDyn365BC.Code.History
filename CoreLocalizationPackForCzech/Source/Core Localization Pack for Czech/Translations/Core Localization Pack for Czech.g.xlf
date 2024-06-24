@@ -11318,6 +11318,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3833899641 - Field 2564667196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add.-Currency Amount (base)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Field Add.-Currency Amount 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3833899641 - Field 3202363813 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add.-Currency Amount (reduced)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Field Add.-Currency Amount 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3833899641 - Field 3840060430 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add.-Currency Amount (2.reduced)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Field Add.-Currency Amount 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3833899641 - Field 4065820211 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add.-Currency Base (base)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Field Add.-Currency Base 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3833899641 - Field 1683942766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add.-Currency Base (reduced)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Field Add.-Currency Base 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3833899641 - Field 1046246149 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add.-Currency Base (2.reduced)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Field Add.-Currency Base 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3833899641 - Field 1359976677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add.-Currency Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Field Add.-Currency Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3833899641 - Field 1419380222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add.-Currency Total Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Buffer CZL - Field Add.-Currency Total Base - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3833899641 - Field 1676340591 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount (base)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11627,6 +11667,16 @@
           <source>VAT Control Report Line</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Line CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1586928715 - Field 2009139649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional-Currency Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Line CZL - Field Additional-Currency Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1586928715 - Field 1389560666 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional-Currency Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VAT Ctrl. Report Line CZL - Field Additional-Currency Base - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1586928715 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
@@ -11958,6 +12008,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = VIES Declaration No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Header CZL - Method PrintToDocumentAttachment - NamedType DocumentAttachmentFileNameLbl</note>
         </trans-unit>
+        <trans-unit id="Table 472489077 - Field 2009139649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional-Currency Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Header CZL - Field Additional-Currency Amount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 472489077 - Field 592951229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12048,6 +12103,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Header CZL - Field EU Goods/Services - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Table 472489077 - Field 3635184018 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export Amounts in Add. Reporting Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Header CZL - Field Export Amt.inAdd.-CurrencyAmt. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 472489077 - Field 2068962460 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Filled by Employee No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12128,10 +12188,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Header CZL - Field Post Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 472489077 - Field 719221102 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Additional-Currency Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Header CZL - Field Purchase Add.-Currency Amount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 472489077 - Field 1770676612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Amount (LCY)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Header CZL - Field Purchase Amount (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 472489077 - Field 398525611 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Additional-Currency Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Header CZL - Field Sales Add.-Currency Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 472489077 - Field 1447790309 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Amount (LCY)</source>
@@ -12217,6 +12287,11 @@
           <source>A</source>
           <note from="Developer" annotates="general" priority="2">A</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Line CZL - NamedType CancelYesTxt</note>
+        </trans-unit>
+        <trans-unit id="Table 453223102 - Field 2009139649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional-Currency Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table VIES Declaration Line CZL - Field Additional-Currency Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 453223102 - Field 592951229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount (LCY)</source>
@@ -12352,6 +12427,11 @@
           <source>VAT Control Report %1.xml</source>
           <note from="Developer" annotates="general" priority="2">%1 = VAT Control Report number</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Control Report DPHKH1 CZL - Method ExportToXMLFile - NamedType ClientFileNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1880880969 - NamedType 3799620934" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Additional-Currency Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Ctrl. Report Mgt. CZL - NamedType AdditionalCurrencyAmountTxt</note>
         </trans-unit>
         <trans-unit id="Codeunit 1880880969 - NamedType 1281019208" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
@@ -13193,6 +13273,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control &lt;Base 3&gt; - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1247926846 - Control 2564667196 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total additional currency amount for the base VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control Add.-Currency Amount 1 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1247926846 - Control 3202363813 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total additional currency amount for the base VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control Add.-Currency Amount 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1247926846 - Control 3840060430 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total additional currency amount for the base VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control Add.-Currency Amount 3 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1247926846 - Control 4065820211 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total additional currency base amount for the base VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control Add.-Currency Base 1 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1247926846 - Control 1683942766 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total additional currency base amount for the base VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control Add.-Currency Base 2 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1247926846 - Control 1046246149 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total additional currency base amount for the base VAT.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control Add.-Currency Base 3 - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1247926846 - Control 1359976677 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total additional currency amount of all VAT for selected VAT Ctrl. Report statement Section</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control Add.-Currency Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1247926846 - Control 1419380222 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total additional currency amount of all VAT Base for selected VAT Ctrl. Report statement Section</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report St. Subf. CZL - Control Add.-Currency Total Base - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1247926846 - Control 1676340591 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the total amount for the base VAT.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13282,6 +13402,16 @@
           <source>Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report Subform CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1461519631 - Control 2009139649 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT additional currency amount of document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report Subform CZL - Control Additional-Currency Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1461519631 - Control 1389560666 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the VAT additional currency base of document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VAT Ctrl. Report Subform CZL - Control Additional-Currency Base - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1461519631 - Control 636392376 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the VAT amount of document.</source>
@@ -13863,6 +13993,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration CZL - Control General - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4169948640 - Control 2009139649 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies total additional currency amounts of all reported trades for selected period.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration CZL - Control Additional-Currency Amount - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 4169948640 - Control 592951229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies total amounts of all reported trades for selected period.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13907,6 +14042,11 @@
           <source>Specifies goods, services, or both. The EU requires this information for VIES reporting.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration CZL - Control EU Goods/Services - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4169948640 - Control 3635184018 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want export amounts to be shown in the additional reporting currency.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration CZL - Control Export Amt.inAdd.-CurrencyAmt. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4169948640 - Control 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies company name.</source>
@@ -14093,6 +14233,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Lines CZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2411306259 - Control 2009139649 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies total additional currency amounts of partner trades for selected period.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Lines CZL - Control Additional-Currency Amount - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2411306259 - Control 592951229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies total amounts of partner trades for selected period.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14152,6 +14297,11 @@
           <source>Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Subform CZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3218881402 - Control 2009139649 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies total additional currency amounts of partner trades for selected period.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page VIES Declaration Subform CZL - Control Additional-Currency Amount - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3218881402 - Control 592951229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies total amounts of partner trades for selected period.</source>
@@ -14863,6 +15013,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Export VAT Ctrl. Dialog CZL - Control SelectionField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2163065063 - Control 1826238790 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether to show the reported amounts in the additional reporting currency.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Export VAT Ctrl. Dialog CZL - Control UseAmtsInAddCurrField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2163065063 - Control 1826238790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amounts in Add. Reporting Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Export VAT Ctrl. Dialog CZL - Control UseAmtsInAddCurrField - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2163065063 - Control 2582623435 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of VAT Control Report.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15293,6 +15453,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report VAT Ctrl. Report - Test CZL - Control SelectionCZL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 872975440 - Control 3172760590 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want report amounts to be shown in the additional reporting currency.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Ctrl. Report - Test CZL - Control ShowAmtInAddCurrency - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 872975440 - Control 3172760590 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Amounts in Add. Reporting Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Ctrl. Report - Test CZL - Control ShowAmtInAddCurrency - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3420081596 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Control Report Get Entries</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15482,6 +15652,26 @@
           <source>Print Document Totals</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report VAT Documents List CZL - Control PrintTotalCZL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 547112492 - ReportLayout 3208800515 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The VAT Documents (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Documents List CZL - ReportLayout VATDocumentsList.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 547112492 - ReportLayout 3208800515 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Documents (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Documents List CZL - ReportLayout VATDocumentsList.rdl - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 547112492 - ReportLayout 3185959652 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The VAT Documents with Non-Deductible VAT (RDL) provides a detailed layout.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Documents List CZL - ReportLayout VATDocumentsListWithNonDeductVAT.rdl - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 547112492 - ReportLayout 3185959652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Documents with Non-Deductible VAT (RDL)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VAT Documents List CZL - ReportLayout VATDocumentsListWithNonDeductVAT.rdl - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3213583422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Exceptions</source>
@@ -15857,6 +16047,21 @@
           <source>SECTION C</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report VIES Declaration - Test CZL - ReportLabel SectionCLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3634296913 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VIES Declaration - Test CZL - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3634296913 - Control 290515708 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want report amounts to be shown in the additional reporting currency.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VIES Declaration - Test CZL - Control ShowAmtInAddCurrencyField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3634296913 - Control 290515708 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Amounts in Add. Reporting Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report VIES Declaration - Test CZL - Control ShowAmtInAddCurrencyField - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 4169948640 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VIES Declaration</source>

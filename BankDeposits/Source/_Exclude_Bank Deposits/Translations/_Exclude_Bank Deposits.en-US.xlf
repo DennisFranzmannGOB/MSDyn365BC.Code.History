@@ -447,6 +447,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Posted Bank Deposit Line - Field Entry No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 512983923 - Field 1527563463 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>External Document No.</source>
+          <target state="translated">External Document No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Posted Bank Deposit Line - Field External Document No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 512983923 - Field 3320823955 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
           <target state="translated">Line No.</target>
@@ -962,6 +968,12 @@
           <target state="translated">Specifies the type of the document that the bank deposit is related to.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit Subform - Control Document Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1890430176 - Control 1527563463 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the external document number for this line, such as a check number.</source>
+          <target state="translated">Specifies the external document number for this line, such as a check number.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Bank Deposit Subform - Control External Document No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1890430176 - Control 1908046867 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a reason code that will enable you to trace the entry. The reason code to all G/L, bank account, customer and other ledger entries created when posting.</source>
@@ -1730,6 +1742,12 @@
           <target state="translated">Specifies the entry number from the general ledger account entry.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Posted Bank Deposit Subform - Control Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3865959199 - Control 1527563463 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the external document number for this line, such as a check number.</source>
+          <target state="translated">Specifies the external document number for this line, such as a check number.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Posted Bank Deposit Subform - Control External Document No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3865959199 - Control 1577567912 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value assigned to this dimension for this deposit line.</source>
