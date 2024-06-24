@@ -23,7 +23,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 405457715 - NamedType 3463507643" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Excel Files (*.xlsx)|*.xlsx</source>
-          <target state="translated">Soubory aplikace Excel (*.xlsx)|*.xlsx</target>
+          <target state="translated">Excel Files (*.xlsx)|*.xlsx</target>
           <note from="Developer" annotates="general" priority="2">{Split=r'\|'}{Locked=s'1'}</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Report Layouts Impl. - NamedType FileFilterExcelTxt</note>
         </trans-unit>
