@@ -13983,6 +13983,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Translation - Field Value - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 332470066" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FormatRegionOverride has been applied in GetFormatRegionOrDefault. The new FormatRegion is %1.</source>
+          <target state="translated">FormatRegionOverride is toegepast in GetFormatRegionOrDefault. De nieuwe FormatRegion is %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Format Region</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType FormatRegionOverrideMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 25515846" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language</source>
+          <target state="translated">Taal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType LanguageCategoryTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 3034596646" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LanguageIdOverride has been applied in GetLanguageIdOrDefault. The new Language Id is %1.</source>
+          <target state="translated">LanguageIdOverride is toegepast in GetLanguageIdOrDefault. De nieuwe taal-id is %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Language ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType LanguageIdOverrideMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3291568232 - NamedType 611240008" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The language %1 could not be found.</source>
           <target state="translated">De taal %1 is niet gevonden.</target>
