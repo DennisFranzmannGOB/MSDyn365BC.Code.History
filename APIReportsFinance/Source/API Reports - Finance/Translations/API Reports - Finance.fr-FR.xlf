@@ -365,7 +365,7 @@
         </trans-unit>
         <trans-unit id="Page 1476094511 - Control 4112524756 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension Number</source>
-          <target state="translated">Numéro axe principal</target>
+          <target state="translated">Numéro axe analytique principal</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page API Finance - Dimension Values - Control globalDimensionNumber - Property Caption</note>
         </trans-unit>
@@ -887,13 +887,13 @@
         </trans-unit>
         <trans-unit id="Query 389033821 - QueryColumn 1572653612 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Initial Entry Global Dimension 1</source>
-          <target state="translated">Axe principal 1 écr. initiale</target>
+          <target state="translated">Axe analytique principal 1 écr. initiale</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Fin - Dtld Cust Ledg Entry - QueryColumn initialEntryGLobalDim1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 389033821 - QueryColumn 2210350229 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Initial Entry Global Dimension 1</source>
-          <target state="translated">Axe principal 1 écr. initiale</target>
+          <target state="translated">Axe analytique principal 1 écr. initiale</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Fin - Dtld Cust Ledg Entry - QueryColumn initialEntryGLobalDim2 - Property Caption</note>
         </trans-unit>
@@ -977,13 +977,13 @@
         </trans-unit>
         <trans-unit id="Query 3908709429 - QueryColumn 1572653612 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Initial Entry Global Dimension 1</source>
-          <target state="translated">Axe principal 1 écr. initiale</target>
+          <target state="translated">Axe analytique principal 1 écr. initiale</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Fin - Dtld Vend Ledg Entry - QueryColumn initialEntryGLobalDim1 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 3908709429 - QueryColumn 2210350229 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Initial Entry Global Dimension 1</source>
-          <target state="translated">Axe principal 1 écr. initiale</target>
+          <target state="translated">Axe analytique principal 1 écr. initiale</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Fin - Dtld Vend Ledg Entry - QueryColumn initialEntryGLobalDim2 - Property Caption</note>
         </trans-unit>
@@ -1217,13 +1217,13 @@
         </trans-unit>
         <trans-unit id="Query 4038548433 - QueryColumn 2895345465 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Code</source>
-          <target state="translated">Code axe principal 1</target>
+          <target state="translated">Code axe analytique principal 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Finance - GL Budget Entry - QueryColumn globalDimension1Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 4038548433 - QueryColumn 2945582944 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
-          <target state="translated">Code axe principal 2</target>
+          <target state="translated">Code Axe analytique principal 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Finance - GL Budget Entry - QueryColumn globalDimension2Code - Property Caption</note>
         </trans-unit>
@@ -1319,13 +1319,13 @@
         </trans-unit>
         <trans-unit id="Query 1155807422 - QueryColumn 2895345465 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Code</source>
-          <target state="translated">Code axe principal 1</target>
+          <target state="translated">Code axe analytique principal 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Finance - GL Entry - QueryColumn globalDimension1Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 1155807422 - QueryColumn 2945582944 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
-          <target state="translated">Code axe principal 2</target>
+          <target state="translated">Code Axe analytique principal 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Finance - GL Entry - QueryColumn globalDimension2Code - Property Caption</note>
         </trans-unit>

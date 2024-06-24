@@ -1217,13 +1217,13 @@
         </trans-unit>
         <trans-unit id="Query 4038548433 - QueryColumn 2895345465 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Code</source>
-          <target state="translated">Code de dimension principale 1</target>
+          <target state="translated">Code dimension principale 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Finance - GL Budget Entry - QueryColumn globalDimension1Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 4038548433 - QueryColumn 2945582944 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
-          <target state="translated">Code de dimension principale 2</target>
+          <target state="translated">Code dimension principale 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Finance - GL Budget Entry - QueryColumn globalDimension2Code - Property Caption</note>
         </trans-unit>
@@ -1319,13 +1319,13 @@
         </trans-unit>
         <trans-unit id="Query 1155807422 - QueryColumn 2895345465 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 1 Code</source>
-          <target state="translated">Code de dimension principale 1</target>
+          <target state="translated">Code dimension principale 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Finance - GL Entry - QueryColumn globalDimension1Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Query 1155807422 - QueryColumn 2945582944 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
-          <target state="translated">Code de dimension principale 2</target>
+          <target state="translated">Code dimension principale 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query API Finance - GL Entry - QueryColumn globalDimension2Code - Property Caption</note>
         </trans-unit>
