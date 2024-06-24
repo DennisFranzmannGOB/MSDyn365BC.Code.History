@@ -47,7 +47,7 @@
         </trans-unit>
         <trans-unit id="Table 1417909771 - Field 236300178 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Filter Record To DT</source>
-          <target state="translated">Filtrer post til dato/klokkeslæt</target>
+          <target state="translated">Filtrer post til DT</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transact. Storage Table Entry - Field Filter Record To DT - Property Caption</note>
         </trans-unit>
@@ -164,24 +164,6 @@
           <target state="translated">Primærnøgle</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Transaction Storage Setup - Field Primary Key - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2456569169 - NamedType 1415679075" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A time deadline of %1 hours for the export has been exceeded. The export has been stopped.</source>
-          <target state="translated">En frist på %1 timer for udlæsningen er overskredet. Udlæsningen er stoppet.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = number of hours</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transact. Storage Export - NamedType TimeDeadlineExceededErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3427217473 - NamedType 2674365958" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Export of the table %1 %2</source>
-          <target state="translated">Udlæsning af tabellen %1 %2</target>
-          <note from="Developer" annotates="general" priority="2">%1 = table name; %2 = either 'starts' or 'ends'</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transact. Storage Export Data - NamedType ExportActionTok</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 3427217473 - NamedType 1202951203" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 records collected from the table %2</source>
-          <target state="translated">%1 records, der indsamles fra tabellen %2</target>
-          <note from="Developer" annotates="general" priority="2">%1 = number; %2 = table name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Transact. Storage Export Data - NamedType NoOfCollectedRecordsTxt</note>
         </trans-unit>
         <trans-unit id="Page 3640406638 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transaction Storage Setup</source>
