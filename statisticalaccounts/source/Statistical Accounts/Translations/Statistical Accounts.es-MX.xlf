@@ -1265,13 +1265,13 @@
         </trans-unit>
         <trans-unit id="Page 2694828564 - Control 1577567912 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup page.</source>
-          <target state="translated">Especifica el código de Dimensión de acceso directo 1, que es uno de los dos códigos de dimensión globales que se configuran en la ventana Configuración de contabilidad.</target>
+          <target state="translated">Especifica el código de Dimensión de acceso directo 1, que es uno de los dos códigos de dimensión global que se configuran en la ventana Configuración de contabilidad.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Accounts Journal - Control Shortcut Dimension 1 Code - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2694828564 - Control 1003760969 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup page.</source>
-          <target state="translated">Especifica el código de Dimensión de acceso directo 2, que es uno de los dos códigos de dimensión globales que se configuran en la ventana Configuración de contabilidad.</target>
+          <target state="translated">Especifica el código de Dimensión de acceso directo 2, que es uno de los dos códigos de dimensión global que se configuran en la ventana Configuración de contabilidad.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Statistical Accounts Journal - Control Shortcut Dimension 2 Code - Property ToolTip</note>
         </trans-unit>
