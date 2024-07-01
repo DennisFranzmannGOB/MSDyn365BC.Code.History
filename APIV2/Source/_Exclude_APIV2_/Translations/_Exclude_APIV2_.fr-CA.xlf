@@ -3155,6 +3155,7 @@
         </trans-unit>
         <trans-unit id="Page 254023161 - Control 460507951 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
+          <target state="translated">Description</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Dispute Status - Control displayName - Property Caption</note>
         </trans-unit>
@@ -7588,7 +7589,7 @@
         </trans-unit>
         <trans-unit id="Page 1420007888 - Control 3656808776 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Date</source>
-          <target state="translated">Date de livraison</target>
+          <target state="translated">Date d’expédition</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Credit Mem Lines - Control shipmentDate - Property Caption</note>
         </trans-unit>
@@ -8272,7 +8273,7 @@
         </trans-unit>
         <trans-unit id="Page 2529413663 - Control 3656808776 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Date</source>
-          <target state="translated">Date de livraison</target>
+          <target state="translated">Date d’expédition</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoice Lines - Control shipmentDate - Property Caption</note>
         </trans-unit>
@@ -8590,7 +8591,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - Control 1832008717 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dispute Status Id</source>
-          <target state="translated">Code d’état du litige</target>
+          <target state="translated">Code état du litige</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - Control disputeStatusId - Property Caption</note>
         </trans-unit>
@@ -9046,7 +9047,7 @@
         </trans-unit>
         <trans-unit id="Page 957521806 - Control 3656808776 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Date</source>
-          <target state="translated">Date de livraison</target>
+          <target state="translated">Date d’expédition</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Order Lines - Control shipmentDate - Property Caption</note>
         </trans-unit>
@@ -10276,7 +10277,7 @@
         </trans-unit>
         <trans-unit id="Page 2511651920 - Control 3656808776 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Date</source>
-          <target state="translated">Date de livraison</target>
+          <target state="translated">Date d’expédition</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Shipment Lines - Control shipmentDate - Property Caption</note>
         </trans-unit>
