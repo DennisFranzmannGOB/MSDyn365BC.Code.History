@@ -135,6 +135,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Acc. Rec. AI Proposal - Field G/L Account No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3767244041 - Field 2704330142 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <target state="translated">Имя раздела журнала</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Bank Acc. Rec. AI Proposal - Field Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3767244041 - Field 3684440170 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <target state="translated">Имя шаблона журнала</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Bank Acc. Rec. AI Proposal - Field Journal Template Name - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3767244041 - Field 2175495992 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Statement Line No.</source>
           <target state="translated">№ строки выписки</target>
@@ -158,6 +170,30 @@
           <target state="translated">Дата транзакции</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Bank Acc. Rec. AI Proposal - Field Transaction Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4177971298 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trans. to G/L Acc. Jnl. Batch</source>
+          <target state="translated">Перенести в раздел жур. сч. ГК</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. to G/L Acc. Jnl. Batch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4177971298 - Field 2704330142 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <target state="translated">Имя раздела журнала</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. to G/L Acc. Jnl. Batch - Field Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4177971298 - Field 3684440170 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <target state="translated">Имя шаблона журнала</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. to G/L Acc. Jnl. Batch - Field Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4177971298 - Field 1663593181 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <target state="translated">Первичный ключ</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. to G/L Acc. Jnl. Batch - Field Primary Key - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 678420997 - NamedType 1795332495" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Choose G/L Account...</source>
@@ -598,6 +634,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control AutoMatchedLines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2697158489 - Control 2704330142 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the journal batch in which the proposed payments will be created.</source>
+          <target state="translated">Определяет раздел журнала, в котором будут созданы предлагаемые платежи.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control Journal Batch Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2697158489 - Control 3684440170 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the template for the journal batch in which the proposed payments will be created.</source>
+          <target state="translated">Определяет шаблон для раздела журнала, в котором будут созданы предлагаемые платежи.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Trans. To GL Acc. AI Proposal - Control Journal Template Name - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2697158489 - Control 1221906458 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the number of matches proposed by Copilot</source>
           <target state="translated">Определяет количество сопоставлений, предложенных Copilot.</target>
@@ -802,8 +850,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 3675160336</note>
         </trans-unit>
         <trans-unit id="PageExtension 749226405 - Action 2202420714 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reconcile with Copilot</source>
-          <target state="translated">Выверить с помощью Copilot</target>
+          <source>Reconcile</source>
+          <target state="translated">Выверить</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3675160336</note>

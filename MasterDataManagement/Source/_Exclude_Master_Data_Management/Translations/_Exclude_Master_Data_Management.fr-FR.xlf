@@ -436,8 +436,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType RecordRefAlreadyMappedErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 1724665409 - NamedType 2618068198" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>One or more of the selected integration table mappings is custom.\\Restoring the default table mapping for a custom table mapping will restore all custom table mappings to their default.\\Do you want to continue?</source>
-          <target state="translated">Au moins un des mappages de table d’intégration sélectionnés est personnalisé.\\La restauration du mappage de table par défaut pour un mappage de table personnalisé va restaurer tous les mappages de table personnalisés sur leur valeur par défaut.\\Voulez-vous continuer ?</target>
+          <source>One or more of the selected integration table mappings is custom. \\To restore a custom table mapping, you must subscribe to the event OnBeforeResetTableMapping in codeunit "Master Data Mgt. Setup Default" and implement the defaults for each custom table mapping. \\Do you want to continue?</source>
+          <target state="translated">Un ou plusieurs mappages de table d’intégration sélectionnés sont personnalisés. \\Pour restaurer un mappage de table personnalisé, vous devez vous abonner à l’événement OnBeforeResetTableMapping dans le codeunit « Valeur par défaut de la configuration de la gestion des données de référence » et implémenter les valeurs par défaut pour chaque mappage de table personnalisé. \\Voulez-vous continuer ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Master Data Management - NamedType ResetAllCustomIntegrationTableMappingsLbl</note>
         </trans-unit>
@@ -1246,8 +1246,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 3207106980 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Table Filter</source>
-          <target state="translated">Filtre table</target>
+          <source>Source Table Filter</source>
+          <target state="translated">Filtre table source</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control IntegrationTableFilter - Property Caption</note>
         </trans-unit>
@@ -1312,8 +1312,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableCaptionValue - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2401688108 - Control 4005701527 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the filter on the table to control which records should be synchronized.</source>
-          <target state="translated">Indique le filtre de la table permettant de contrôler les enregistrements à synchroniser.</target>
+          <source>Specifies the filter on the table in the current company to control which records should be synchronized.</source>
+          <target state="translated">Indique un filtre sur la table dans la société actuelle pour contrôler les enregistrements à synchroniser.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Master Data Synch. Tables - Control TableFilterValue - Property ToolTip</note>
         </trans-unit>
@@ -1499,8 +1499,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Table 851793228</note>
         </trans-unit>
         <trans-unit id="TableExtension 3641795020 - NamedType 2897676911" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This will make the synchronization engine overwrite any local changes that are done on this table. \\To enable this setting only for chosen fields, choose the Synchronization Fields action. \\Do you want to continue and enable it for the table?</source>
-          <target state="translated">Cette opération fera en sorte que le moteur de synchronisation remplace toutes les modifications locales effectuées dans cette table. \\Pour activer ce paramètre uniquement pour les champs choisis, choisissez l’action Champs de synchronisation. \\Souhaitez-vous continuer et l’activer pour la table ?</target>
+          <source>This will make the synchronization engine overwrite any local changes that are done on this table. \\To enable this setting only for chosen fields, choose the Synchronization Fields action. \\To allow the current company to change values of a field independently from changes in the source company, you must disable the synchronization on that field. \\Do you want to continue and enable it for the table?</source>
+          <target state="translated">Ainsi, le moteur de synchronisation écrasera toutes les modifications locales effectuées sur cette table. \\Pour activer ce paramètre uniquement pour les champs choisis, choisissez l’action Champs de synchronisation. \\Pour permettre à la société actuelle de modifier les valeurs d’un champ indépendamment des modifications apportées à la société source, vous devez désactiver la synchronisation sur ce champ. \\Voulez-vous continuer et l’activer pour la table ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">TableExtension 3641795020</note>
