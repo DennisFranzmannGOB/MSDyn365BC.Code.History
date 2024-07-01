@@ -268,6 +268,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. PO Copilot Matching - NamedType AzureOpenAIFailureErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 986307084 - NamedType 3139172655" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Function call to %1 failed</source>
+          <target state="translated">Virknikall í %1 mistókst</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Function name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. PO Copilot Matching - NamedType FunctionCallErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 986307084 - NamedType 4035389019" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>No matches were found for Copilot because the conditions regarding prices or quantities have not been met.</source>
           <target state="translated">Engar samsvaranir fundust fyrir Copilot vegna þess að skilyrði fyrir verð eða magn hafa ekki verið uppfyllt.</target>
@@ -619,11 +625,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Doc. Order Match - Field Unit of Measure Code - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 1280775967" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Varied Discount found in existing matching for Import line %1. Please review and undo previous matching in order to match selection</source>
-          <target state="translated">Mismunandi afsláttur fannst í fyrirliggjandi samsvörun fyrir innflutningslínu %1. Farðu yfir og afturkallaðu fyrri samsvaranir til samræmis við valið</target>
+        <trans-unit id="Codeunit 2074063445 - NamedType 2894247008" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Varied amounts found in matching for Import line %1. Please review and undo previous matching in order to match selection</source>
+          <target state="translated">Mismunandi upphæðir fundust í samsvörun fyrir innflutningslínu %1. Farið yfir og afturkallið fyrri samsvaranir til samræmis við valið</target>
           <note from="Developer" annotates="general" priority="2">%1 - Import line number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType DiscountDiffErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType AmountDiffErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2074063445 - NamedType 479657420" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Varied Discount found among selected %1 entries. Please review and deselect entries with different Discount in order to match selection</source>
@@ -654,12 +660,6 @@
           <target state="translated">Ekki er hægt að nota í innkaupapöntun þar sem hún er þegar tengd við rafrænt skjal</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType PurchaseHeaderAlreadyLinkedErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2074063445 - NamedType 960065663" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Varied Unit Cost found in existing matching for Import line %1. Please review and undo previous matching in order to match selection</source>
-          <target state="translated">Mismunandi einingarkostnaður fannst í fyrirliggjandi samsvörun fyrir innflutningslínu %1. Farðu yfir og afturkallaðu fyrri samsvaranir til samræmis við valið</target>
-          <note from="Developer" annotates="general" priority="2">%1 - Import line number</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. Line Matching - NamedType UnitCostDiffErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 2074063445 - NamedType 3041014380" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Varied Unit Costs found among selected %1 entries. Please review and deselect entries with different Unit Costs in order to match selection</source>
@@ -2654,8 +2654,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action MatchToOrderCopilotEnabled - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4128474945 - Action 3723518147 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Match Purchase Order</source>
-          <target state="translated">Samsvara innkaupapöntun</target>
+          <source>Match Purchase Order With Copilot</source>
+          <target state="translated">Para innkaupapöntun með Copilot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document - Action MatchToOrderCopilotEnabled - Property Caption</note>
         </trans-unit>
@@ -3824,8 +3824,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
         </trans-unit>
         <trans-unit id="PageExtension 4281768669 - Action 3723518147 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map E-Document Lines</source>
-          <target state="translated">Tengja línur rafræns skjals</target>
+          <source>Map E-Document Lines With Copilot</source>
+          <target state="translated">Para rafrænar skjalalínur með Copilot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
@@ -3840,6 +3840,13 @@
         <trans-unit id="PageExtension 4281768669 - Action 2193525264 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Preview E-Document Mapping</source>
           <target state="translated">Forskoða vörpun rafræns skjals</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4281768669 - Control 1368608366 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Linked with E-Document</source>
+          <target state="translated">Tengt rafrænu skjali</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 387971303</note>
@@ -3873,8 +3880,8 @@
           <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
         </trans-unit>
         <trans-unit id="PageExtension 1215286387 - Action 3723518147 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Map E-Document Lines</source>
-          <target state="translated">Tengja línur rafræns skjals</target>
+          <source>Map E-Document Lines With Copilot</source>
+          <target state="translated">Para rafrænar skjalalínur með Copilot</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3195034673</note>
@@ -4232,7 +4239,7 @@
         <trans-unit id="Codeunit 3421154871 - NamedType 2525007919" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Matched to Purchase Order Line %1</source>
           <target state="translated">Samsvarar innkaupapöntunarlínu %1</target>
-          <note from="Developer" annotates="general" priority="2">Number of the order line that the E-Document line is matched to</note>
+          <note from="Developer" annotates="general" priority="2">%1 = Number of the order line that the E-Document line is matched to</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit E-Doc. PO AOAI Function - NamedType MatchLineTxt</note>
         </trans-unit>
         <trans-unit id="PageExtension 2535409267 - Control 445639089 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
