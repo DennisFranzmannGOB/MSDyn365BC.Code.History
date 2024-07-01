@@ -113,7 +113,7 @@
         </trans-unit>
         <trans-unit id="Table 934628271 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer Blocked Attributes</source>
-          <target state="translated">Lokaðar eigindir Image Analyzer</target>
+          <target state="translated">Lokaðar eigindir myndgreiningar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Img. Analyzer Blacklist - Property Caption</note>
         </trans-unit>
@@ -275,7 +275,7 @@
         </trans-unit>
         <trans-unit id="Page 2516211404 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer Blocked Attributes</source>
-          <target state="translated">Lokaðar eigindir Image Analyzer</target>
+          <target state="translated">Lokaðar eigindir myndgreiningar</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analysis Blacklist - Property Caption</note>
         </trans-unit>
@@ -329,7 +329,7 @@
         </trans-unit>
         <trans-unit id="Page 4132159392 - Control 458449417 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the image analyzer details.</source>
-          <target state="translated">Tilgreinir upplýsingar um Image Analyzer.</target>
+          <target state="translated">Tilgreinir upplýsingar um myndgreiningu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analysis Tags - Control DetailsText - Property ToolTip</note>
         </trans-unit>
@@ -668,19 +668,19 @@
         </trans-unit>
         <trans-unit id="PermissionSet 4132997248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Edit</source>
-          <target state="translated">Image Analyzer – breyta</target>
+          <target state="translated">Myndgreining – breyta</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Edit - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 66993882 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Objects</source>
-          <target state="translated">Image Analyzer – hlutir</target>
+          <target state="translated">Myndgreining – hlutir</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Objects - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2161558262 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Read</source>
-          <target state="translated">Image Analyzer – lesa</target>
+          <target state="translated">Myndgreining – lesa</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Read - Property Caption</note>
         </trans-unit>
