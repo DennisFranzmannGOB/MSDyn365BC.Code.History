@@ -451,18 +451,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType LoggingConstTxt</note>
         </trans-unit>
-        <trans-unit id="Codeunit 758984636 - NamedType 2591510851" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The password is missing in the Envestnet Yodlee Bank Feeds Service Setup window.</source>
-          <target state="translated">The password is missing in the Envestnet Yodlee Bank Feeds Service Setup window.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType MissingCredentialsErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 758984636 - NamedType 3164795350" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The password is missing in the Envestnet Yodlee Bank Feeds Service Setup window.\\Do you want to open the Envestnet Yodlee Bank Feeds Service Setup window?</source>
-          <target state="translated">The password is missing in the Envestnet Yodlee Bank Feeds Service Setup window.\\Do you want to open the Envestnet Yodlee Bank Feeds Service Setup window?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MS - Yodlee Service Mgt. - NamedType MissingCredentialsQst</note>
-        </trans-unit>
         <trans-unit id="Codeunit 758984636 - NamedType 3814923612" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The bank account is not linked to an online bank account.</source>
           <target state="translated">The bank account is not linked to an online bank account.</target>
