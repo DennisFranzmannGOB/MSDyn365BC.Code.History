@@ -2279,7 +2279,7 @@
         </trans-unit>
         <trans-unit id="Table 4093990710 - Field 3004954119 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
-          <target state="translated">kóði</target>
+          <target state="translated">Kóði</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Language - Field Code - Property Caption</note>
         </trans-unit>
