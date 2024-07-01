@@ -263,7 +263,7 @@
         </trans-unit>
         <trans-unit id="Page 1549657920 - Control 3698943402 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copilot and other generative AI capabilities use Azure OpenAI Service. Your environment connects to Azure OpenAI Service in your region.</source>
-          <target state="translated">Las capacidades impilot y otras AIs generativas usan el servicio de OpenAI de Azure. Su entorno se conecta al servicio OpenAI de Azure en su región.</target>
+          <target state="translated">Las capacidades de Copilot y otras IA generativas usan Azure OpenAI Service. Su entorno se conecta Azure OpenAI Service en su región.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot AI Capabilities - Control AlwaysConnected - Property InstructionalText</note>
         </trans-unit>
@@ -359,7 +359,7 @@
         </trans-unit>
         <trans-unit id="Page 4126829886 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the publisher of this Copilot.</source>
-          <target state="translated">Especifica el fabricante de este copiloto.</target>
+          <target state="translated">Especifica el editor de este Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Publisher - Property ToolTip</note>
         </trans-unit>
@@ -371,7 +371,7 @@
         </trans-unit>
         <trans-unit id="Page 4126829886 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the Copilot is active and can be used in this environment.</source>
-          <target state="translated">Especifica si el copiloto está activo y se puede usar en este entorno.</target>
+          <target state="translated">Especifica si el Copilot está activo y se puede usar en este entorno.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities GA - Control Status - Property ToolTip</note>
         </trans-unit>
@@ -455,7 +455,7 @@
         </trans-unit>
         <trans-unit id="Page 2774112874 - Control 1772640682 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the publisher of this Copilot.</source>
-          <target state="translated">Especifica el fabricante de este copiloto.</target>
+          <target state="translated">Especifica el editor de este Copilot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Publisher - Property ToolTip</note>
         </trans-unit>
@@ -467,7 +467,7 @@
         </trans-unit>
         <trans-unit id="Page 2774112874 - Control 513339096 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies if the Copilot is active and can be used in this environment.</source>
-          <target state="translated">Especifica si el copiloto está activo y se puede usar en este entorno.</target>
+          <target state="translated">Especifica si el Copilot está activo y se puede usar en este entorno.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Copilot Capabilities Preview - Control Status - Property ToolTip</note>
         </trans-unit>
@@ -13982,6 +13982,24 @@
           <target state="translated">Valor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Translation - Field Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 332470066" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FormatRegionOverride has been applied in GetFormatRegionOrDefault. The new FormatRegion is %1.</source>
+          <target state="translated">FormatRegionOverride se ha aplicado en GetFormatRegionOrDefault. El nuevo FormatRegion es %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Format Region</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType FormatRegionOverrideMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 25515846" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language</source>
+          <target state="translated">Idioma</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType LanguageCategoryTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 3034596646" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LanguageIdOverride has been applied in GetLanguageIdOrDefault. The new Language Id is %1.</source>
+          <target state="translated">LanguageIdOverride se ha aplicado en GetLanguageIdOrDefault. El nuevo identificador de idioma es %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Language ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType LanguageIdOverrideMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3291568232 - NamedType 611240008" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The language %1 could not be found.</source>
