@@ -13919,7 +13919,7 @@
         </trans-unit>
         <trans-unit id="Table 4093990710 - Field 3004954119 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
-          <target state="translated">kóði</target>
+          <target state="translated">Kóði</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Language - Field Code - Property Caption</note>
         </trans-unit>
@@ -13982,6 +13982,24 @@
           <target state="translated">Gildi</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Translation - Field Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 332470066" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FormatRegionOverride has been applied in GetFormatRegionOrDefault. The new FormatRegion is %1.</source>
+          <target state="translated">„FormatRegionOverride“ var notað í „GetFormatRegionOrDefault“. Nýja „FormatRegion“ er %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Format Region</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType FormatRegionOverrideMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 25515846" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Language</source>
+          <target state="translated">Tungumál</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType LanguageCategoryTxt</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3291568232 - NamedType 3034596646" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LanguageIdOverride has been applied in GetLanguageIdOrDefault. The new Language Id is %1.</source>
+          <target state="translated">„LanguageIdOverride“ var notað í „GetLanguageIdOrDefault“. Nýja tungumálaauðkennið er %1.</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Language ID</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Language Impl. - NamedType LanguageIdOverrideMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3291568232 - NamedType 611240008" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The language %1 could not be found.</source>
