@@ -1173,6 +1173,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Retry Count - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2931149216 - Field 1959421204 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Id</source>
+          <target state="translated">ID de demande</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Shpfy Log Entry - Field Shpfy Request Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2931149216 - Field 2379948459 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status Code</source>
           <target state="translated">Code statut</target>
@@ -7933,8 +7939,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control FinancialStatus - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 437915150 - Control 3922244898 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the order's status in terms of fulfilled line items. Valid values are: fulfilled, in progress, open, pending fulfillment, restocked, unfulfilled, partially fulfilled.</source>
-          <target state="translated">Indique le status de la commande en termes d’articles exécutés. Les valeurs valides sont les suivantes : exécuté, en cours, ouvert, exécution en attente, réapprovisionné, non exécuté, partiellement exécuté.</target>
+          <source>Specifies the order's status in terms of fulfilled line items. Valid values are: fulfilled, in progress, open, pending fulfillment, restocked, unfulfilled, partially fulfilled, on hold.</source>
+          <target state="translated">Spécifie le statut de la commande en termes d’articles exécutés. Les valeurs valides sont les suivantes : exécuté, en cours, ouvert, exécution en attente, réapprovisionné, non exécuté, partiellement exécuté, suspendu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Order - Control FulfillmentStatus - Property ToolTip</note>
         </trans-unit>
@@ -9199,8 +9205,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control FinancialStatus - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2760837339 - Control 3922244898 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the order's status in terms of fulfilled line items. Valid values are: fulfilled, in progress, open, pending fulfillment, restocked, unfulfilled, partially fulfilled.</source>
-          <target state="translated">Indique le status de la commande en termes d’articles exécutés. Les valeurs valides sont les suivantes : exécuté, en cours, ouvert, exécution en attente, réapprovisionné, non exécuté, partiellement exécuté.</target>
+          <source>Specifies the order's status in terms of fulfilled line items. Valid values are: fulfilled, in progress, open, pending fulfillment, restocked, unfulfilled, partially fulfilled, on hold.</source>
+          <target state="translated">Spécifie le statut de la commande en termes d’articles exécutés. Les valeurs valides sont les suivantes : exécuté, en cours, ouvert, exécution en attente, réapprovisionné, non exécuté, partiellement exécuté, suspendu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Orders - Control FulfillmentStatus - Property ToolTip</note>
         </trans-unit>
@@ -10739,6 +10745,12 @@
           <target state="translated">Fiche magasin Shopify</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1970429680 - NamedType 3846771592" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The access scope of shop %1 for the Shopify connector has changed. Do you want to request a new access token?</source>
+          <target state="translated">La portée d’accès du magasin %1 du connecteur Shopify a changé. Voulez-vous demander un nouveau jeton d’accès ?</target>
+          <note from="Developer" annotates="general" priority="2">%1 - Shop Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Shpfy Shop Card - NamedType ScopeChangeConfirmLbl</note>
         </trans-unit>
         <trans-unit id="Page 1970429680 - Method 1256266081 - NamedType 4118099340" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reset Sync to</source>
@@ -14709,6 +14721,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Fulfill. Status - EnumValue In Progress - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2723089908 - EnumValue 926489874 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>On Hold</source>
+          <target state="translated">Suspendu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Order Fulfill. Status - EnumValue On Hold - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 2723089908 - EnumValue 4259830144 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open</source>
           <target state="translated">Ouvert</target>
@@ -14924,6 +14942,12 @@
           <target state="translated">Réserver</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Payment Trans. Type - EnumValue Reserve - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2979044366 - EnumValue 2291704452 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shop Cash Credit</source>
+          <target state="translated">Crédit au comptant du magasin</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum Shpfy Payment Trans. Type - EnumValue Shop Cash Credit - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2979044366 - EnumValue 4294440508 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
