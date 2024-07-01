@@ -149,7 +149,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1854769596 - NamedType 913096805" maxwidth="20" size-unit="char" translate="yes" xml:space="preserve">
           <source>IMAGE ANALYZER</source>
-          <target state="translated">ANALIZ. DE IMÁGENES</target>
+          <target state="translated">ANALIZADOR IMÁGENES</target>
           <note from="Developer" annotates="general" priority="2">Should be less than or equal to 20 characters.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Contact Picture Analyze - NamedType ImageAnalyzerQuestionnaireCodeTxt</note>
         </trans-unit>

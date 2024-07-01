@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Table 2062634445 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>MS - Image Analyzer Tags</source>
-          <target state="translated">MS – Image Analyzer-Tags</target>
+          <target state="translated">MS – Bildanalyse-Tags</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Image Analyzer Tags - Property Caption</note>
         </trans-unit>
@@ -668,19 +668,19 @@
         </trans-unit>
         <trans-unit id="PermissionSet 4132997248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Edit</source>
-          <target state="translated">Image Analyzer – Bearbeiten</target>
+          <target state="translated">Bildanalyse – Bearbeiten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Edit - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 66993882 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Objects</source>
-          <target state="translated">Image Analyzer – Objekte</target>
+          <target state="translated">Bildanalyse – Objekte</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Objects - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2161558262 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Read</source>
-          <target state="translated">Image Analyzer – Lesen</target>
+          <target state="translated">Bildanalyse – Lesen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Read - Property Caption</note>
         </trans-unit>
