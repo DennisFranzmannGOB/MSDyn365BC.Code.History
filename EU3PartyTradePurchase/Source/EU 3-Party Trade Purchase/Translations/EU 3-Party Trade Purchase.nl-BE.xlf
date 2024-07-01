@@ -30,9 +30,16 @@
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 2854365759</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2776026299 - Control 4064467861 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="PageExtension 2776026299 - Control 1208560607 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether or not totals for transactions involving EU 3-party trades are displayed in the VAT Statement.</source>
           <target state="translated">Hiermee wordt opgegeven of totalen voor handelstransacties met een externe EU-partij worden weergegeven in de btw-aangifte.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3" />
+          <note from="ObjectTarget" annotates="general" priority="5">Page 4048657685</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2776026299 - Control 1208560607 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EU 3-Party Trade</source>
+          <target state="translated">Handel met externe EU-partij</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 4048657685</note>
