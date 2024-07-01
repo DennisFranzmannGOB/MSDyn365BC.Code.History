@@ -113,7 +113,7 @@
         </trans-unit>
         <trans-unit id="Table 934628271 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer Blocked Attributes</source>
-          <target state="translated">Attributs bloqués de l’analyseur d’images</target>
+          <target state="translated">Attributs bloqués d’Analyseur d’image</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table MS - Img. Analyzer Blacklist - Property Caption</note>
         </trans-unit>
@@ -137,7 +137,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1854769596 - NamedType 2188766998" maxwidth="250" size-unit="char" translate="yes" xml:space="preserve">
           <source>Detected gender</source>
-          <target state="translated">Sexe détecté</target>
+          <target state="translated">Genre détecté</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Contact Picture Analyze - NamedType GenderProfileQuestionTxt</note>
         </trans-unit>
@@ -203,7 +203,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3175899218 - NamedType 3177701202" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Set up the Image Analyzer</source>
-          <target state="translated">Configurer l’analyseur d’images</target>
+          <target state="translated">Configurer Analyseur d’image</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Image Analyzer Ext. Mgt. - NamedType ImageAnalysisWizardTitleTxt</note>
         </trans-unit>
@@ -275,7 +275,7 @@
         </trans-unit>
         <trans-unit id="Page 2516211404 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer Blocked Attributes</source>
-          <target state="translated">Attributs bloqués de l’analyseur d’images</target>
+          <target state="translated">Attributs bloqués d’Analyseur d’image</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analysis Blacklist - Property Caption</note>
         </trans-unit>
@@ -522,7 +522,7 @@
         </trans-unit>
         <trans-unit id="Page 872216054 - Control 170988037 - Property 1968111052" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer uses the Computer Vision API from Microsoft Cognitive Services to detect attributes in the images you upload for items and contact persons, so it's easy for you to assign them. For items, Image Analyzer finds attributes like type and color. For contact persons, it detects age and gender.</source>
-          <target state="translated">L'analyseur d'image utilise l'API Vision par ordinateur à partir de Microsoft Cognitive Services pour détecter les attributs dans les images que vous télécharger pour les articles et les contactes, afin que vous puissiez les affecter facilement. Pour les articles, l'analyseur d'image recherche les attributs comme le type et la couleur. Pour les contacts, il détecte l'âge et le sexe.</target>
+          <target state="translated">L’analyseur d’image utilise l’API Vision par ordinateur à partir de Microsoft Cognitive Services pour détecter les attributs dans les images que vous télécharger pour les articles et les contactes, afin que vous puissiez les affecter facilement. Pour les articles, l’analyseur d’image recherche les attributs comme le type et la couleur. Pour les contacts, il détecte l’âge et le genre.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Image Analyzer Wizard - Control TourGroup - Property InstructionalText</note>
         </trans-unit>
@@ -591,7 +591,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1450496495 - Action 2802945156 - Property 1295455071" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Analyze the picture attached to the contact to identify gender and age, and assign them to the contact.</source>
-          <target state="translated">Analysez l'image associée au contact afin d'identifier son sexe et son âge et les lui affecter.</target>
+          <target state="translated">Analysez l’image associée au contact afin d’identifier son genre et son âge et les lui affecter.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3" />
           <note from="ObjectTarget" annotates="general" priority="5">Page 3542408424</note>
@@ -668,19 +668,19 @@
         </trans-unit>
         <trans-unit id="PermissionSet 4132997248 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Edit</source>
-          <target state="translated">Analyseur d’images - Modifier</target>
+          <target state="translated">Analyseur d’image : Modifier</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Edit - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 66993882 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Objects</source>
-          <target state="translated">Analyseur d’images - Objets</target>
+          <target state="translated">Analyseur d’image : Objets</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Objects - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 2161558262 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Image Analyzer - Read</source>
-          <target state="translated">Analyseur d’images - Lecture</target>
+          <target state="translated">Analyseur d’image : Lecture</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet ImageAnalysis - Read - Property Caption</note>
         </trans-unit>
