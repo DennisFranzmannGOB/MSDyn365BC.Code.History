@@ -179,7 +179,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 678420997 - NamedType 2600741748" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must create at least one G/L Account that allows direct posting.</source>
-          <target state="translated">U moet ten minste één grootboekrekening maken waarmee rechtstreekse boeking mogelijk is.</target>
+          <target state="translated">U moet ten minste één grootboekrekening maken waarmee directe boeking mogelijk is.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Bank Acc. Rec. Trans. to Acc. - NamedType NoDirectPostingGLAccountsErr</note>
         </trans-unit>
