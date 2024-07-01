@@ -5,7 +5,7 @@
       <group id="body">
         <trans-unit id="Table 922888270 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Module Setup</source>
-          <target state="translated">Instelling van E-documentmodule</target>
+          <target state="translated">E-documentmodule instellen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table E-Document Module Setup - Property Caption</note>
         </trans-unit>
@@ -53,7 +53,7 @@
         </trans-unit>
         <trans-unit id="Page 922888270 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Document Module Setup</source>
-          <target state="translated">Instelling van E-documentmodule</target>
+          <target state="translated">E-documentmodule instellen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page E-Document Module Setup - Property Caption</note>
         </trans-unit>

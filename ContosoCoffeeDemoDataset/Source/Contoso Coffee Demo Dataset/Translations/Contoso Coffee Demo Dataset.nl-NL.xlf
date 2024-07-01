@@ -2723,7 +2723,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3201778719 - NamedType 4281767234" maxwidth="10" size-unit="char" translate="yes" xml:space="preserve">
           <source>TANGIBLE</source>
-          <target state="translated">MATERIEEL</target>
+          <target state="translated">MATERIËLE</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create FA Class - NamedType TangibleTok</note>
         </trans-unit>

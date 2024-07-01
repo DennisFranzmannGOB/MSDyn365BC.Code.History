@@ -8411,7 +8411,7 @@
         </trans-unit>
         <trans-unit id="Page 3783002405 - NamedType 89448550" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>The "disputeStatusId" does not match to a Dispute Status.</source>
-          <target state="translated">Die Anfechtungsstatus-ID „disputeStatusId“ stimmt nicht mit einem Anfechtungsstatus überein.</target>
+          <target state="translated">Die „disputeStatusId“ stimmt mit keinem Anfechtungsstatus überein.</target>
           <note from="Developer" annotates="general" priority="2">disputeStatusId is a field name and should not be translated.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page APIV2 - Sales Invoices - NamedType DisputeStatusIdDoesNotMatchADisputeStatusErr</note>
         </trans-unit>
