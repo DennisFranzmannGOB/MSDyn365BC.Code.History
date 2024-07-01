@@ -231,6 +231,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SAF-T - NamedType GeneratingHeaderTxt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1983080780 - NamedType 956150553" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NA</source>
+          <target state="translated">NP</target>
+          <note from="Developer" annotates="general" priority="2">Stands for Not Applicable</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Generate File SAF-T - NamedType NATxt</note>
+        </trans-unit>
         <trans-unit id="Codeunit 905179705 - NamedType 3192184248" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account Payables</source>
           <target state="translated">Účet závazků</target>

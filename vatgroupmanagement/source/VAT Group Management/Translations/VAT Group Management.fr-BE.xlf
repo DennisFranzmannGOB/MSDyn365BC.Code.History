@@ -208,8 +208,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table VAT Group Submission Line - Field VAT Group Submission No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 3917783520 - NamedType 3701627753" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The Bearer token could not be retrieved from cache. Please refresh the VAT Group bearer token by logging in the %1 page</source>
-          <target state="translated">Le jeton du porteur n’a pas pu être récupéré dans le cache. Actualisez le jeton du porteur du groupe TVA en vous connectant à la page %1</target>
+          <source>The OAuth2 token could not be retrieved from cache. Choose the action Renew OAuth2 Token on the page %1 and log in to get a new token.</source>
+          <target state="translated">Impossible de récupérer le jeton OAuth2 à partir du cache. Choisissez l’action Renouveler le jeton OAuth2 sur la page %1 et connectez-vous pour obtenir un nouveau jeton.</target>
           <note from="Developer" annotates="general" priority="2">%1 the caption of a page.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit VAT Group Communication - NamedType BearerTokenFromCacheErr</note>
         </trans-unit>
