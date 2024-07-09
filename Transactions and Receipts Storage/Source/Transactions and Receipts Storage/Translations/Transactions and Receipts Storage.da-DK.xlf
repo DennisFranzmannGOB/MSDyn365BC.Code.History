@@ -3,6 +3,36 @@
   <file datatype="xml" source-language="en-US" target-language="da-DK" original="Transactions and Receipts Storage">
     <body>
       <group id="body">
+        <trans-unit id="Table 2073217251 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trans. Storage Export Data</source>
+          <target state="translated">Overførsel lager Eksportdata</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. Storage Export Data - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2073217251 - Field 2166181827 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Content</source>
+          <target state="translated">Indhold</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. Storage Export Data - Field Content - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2073217251 - Field 487747129 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Part</source>
+          <target state="translated">Del</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. Storage Export Data - Field Part - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2073217251 - Field 1712771946 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Record Count</source>
+          <target state="translated">Postantal</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. Storage Export Data - Field Record Count - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2073217251 - Field 3135334477 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Table ID</source>
+          <target state="translated">Tabel-id</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Trans. Storage Export Data - Field Table ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2897050444 - Property 2879900210" maxwidth="0" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transact. Storage Export State</source>
           <target state="translated">Transaktionens lagringseksportstatus</target>
