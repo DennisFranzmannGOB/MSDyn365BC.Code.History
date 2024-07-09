@@ -3443,7 +3443,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2598811919 - NamedType 2397589086" maxwidth="80" size-unit="char" translate="yes" xml:space="preserve">
           <source>Project Journal</source>
-          <target state="translated">Projekterfassung</target>
+          <target state="translated">Projekt Buch.-Blatt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Job Journal Setup - NamedType JobJournalTemplateDescriptionLbl</note>
         </trans-unit>
